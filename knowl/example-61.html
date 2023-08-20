@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.11</span><span class="period">.</span><span class="space"> </span><span class="title">Nice coordinates for a quadratic form.</span>
+</h4>
+<div class="para logical">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/ex-conicsections.html" title="Example 4.3.8: Quadratic forms in two dimensions">Example 4.3.8</a>, we wrote the quadratic form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{equation*}
+Q(x, y) = 5x^2 - 6xy + 5y^2
+\end{equation*}
+</div>
+<div class="para">on <span class="process-math">\(\mathbb{R}^2\text{.}\)</span> The matrix for this quadratic form with respect to the standard basis is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{equation*}
+A = \left[ \begin{matrix} 5 \amp -3 \\ -3 \amp 5 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Calculating the characteristic polynomial, we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{align*}
+p_A (t) \amp = \det \left( \left[ \begin{matrix} t - 5 \amp 3 \\ 3 \amp t - 5 \end{matrix} \right] \right) , \\
+\amp = (t - 5) (t - 5) - 9, \\
+\amp = t^2 - 10t + 16, \\
+\amp = \left( t - 2 \right) \left( t - 8 \right).
+\end{align*}
+</div>
+<div class="para">Finding eigenvectors we solve <span class="process-math">\((tI - A) \mb{x} = \mb{x}\)</span> and obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{equation*}
+\mathcal{B} = \left\{ \twovec{1}{1} ,  \twovec{1}{-1} \right\} 
+\end{equation*}
+</div>
+<div class="para">which is orthogonal. Normalizing gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{equation*}
+\mathcal{B} = \left\{ \twovec{\sqrt{2}/2}{\sqrt{2}/2} ,  \twovec{\sqrt{2}/2}{-\sqrt{2}/2} \right\} 
+\end{equation*}
+</div>
+<div class="para">which can be used to obtain the change of basis matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{equation*}
+P = \left[ \begin{matrix}  {\sqrt{2}/2}  \amp {\sqrt{2}/2} \\ {\sqrt{2}/2} \amp -{\sqrt{2}/2} \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">In this case, we can observe that <span class="process-math">\(P = P^{-1} = P^T\text{.}\)</span> Now, in the orthonormal basis <span class="process-math">\(\mathcal{B}\text{,}\)</span> we have coordinates</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{equation*}
+\twovec{u}{v}_{\mathcal{B}} = u  \twovec{\sqrt{2}/2}{\sqrt{2}/2} + v  \twovec{\sqrt{2}/2}{- \sqrt{2}/2} =  \twovec{\sqrt{2}/2 \left( u + v \right) }{\sqrt{2}/2 \left( u - v \right)}. 
+\end{equation*}
+</div>
+<div class="para">Putting these into <span class="process-math">\(Q\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
+\begin{align*}
+Q\left(\twovec{u}{v}_{\mathcal{B}} \right) \amp = 5 \left(\sqrt{2}/2 ( u + v ) \right)^2 - 6\left(\sqrt{2}/2 ( u + v ) \right)\left(\sqrt{2}/2 ( u - v ) \right) + 5\left(\sqrt{2}/2 ( u - v ) \right)^2, \\
+\amp = \frac{5}{2} \left( u^2 + 2uv + v^2 \right) - 3 \left( u^2 - v^2 \right) + \frac{5}{2} \left( u^2 - 2uv + v^2 \right), \\
+\amp = 2 u^2 + 8 v^2. 
+\end{align*}
+</div>
+<div class="para">What have we done? Well, the <span class="process-math">\((u,v)\)</span> coordinate system is just the ordinary Cartesian coordinates rotated by <span class="process-math">\(45\)</span> degrees. In this system, we have a standard ellipse with major axis the rotated <span class="process-math">\(y\)</span>-axis and minor axis the rotated <span class="process-math">\(x\)</span>-axis.</div>
+</div></article><span class="incontext"><a href="sec-spectral.html#example-61" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Jordan Normal Form</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 3">
+<meta property="book:author" content="Gabriel Kerr">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 3</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-diag1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-linear-operators.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-spectral.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\textnormal{rank}}
+\newcommand{\nullity}{\textnormal{nullity}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-equation.html#subsection-1" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
+<li><div class="toc-item"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsection-12" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-paths.html#subsection-16" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE's</span></a></div></li>
+<li><div class="toc-item"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">ower Series Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-jnf"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span>
+</h2>
+<div class="para" id="p-526">As it turns out, not every linear transformation has an eigenbasis, but there is something quite close. To describe it, we need to see that our direct sum is  compatible with linear transformations in the following sense.</div>
+<article class="definition definition-like" id="def-directsumtrans"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
+</h3> <div class="para logical" id="p-527">
+<div class="para">If <span class="process-math">\(U = U_1 \oplus U_2\text{,}\)</span> <span class="process-math">\(V = V_1 \oplus V_2\text{,}\)</span> <span class="process-math">\(T_1 : U_1 \to V_1\)</span> and <span class="process-math">\(T_2 : U_2 \to V_2\)</span> we write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_1 \oplus T_2 : U \to V 
+\end{equation*}
+</div>
+<div class="para">to be the linear transformation which takes <span class="process-math">\(\mb{u} = \mb{u}_1 + \mb{u}_2\)</span> to <span class="process-math">\(T( \mb{u} ) = T_1 (\mb{u}_1 ) + T_2 (\mb{u}_2 )\text{.}\)</span> Here the vectors <span class="process-math">\(\mb{u}_1\)</span> and <span class="process-math">\(\mb{u}_2\)</span> are the unique vectors in <span class="process-math">\(U_1\)</span> and <span class="process-math">\(U_2\)</span> respectively that add to <span class="process-math">\(\mb{u}\text{.}\)</span>
+</div>
+</div></article><div class="para" id="p-528">It is fair to object to the messy look of this definition, but indeed, to understand the motivation for it, we consider what happens when we represent a direct sum of linear transformations as a matrix.</div>
+<article class="proposition theorem-like" id="proposition-23"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-529">
+<div class="para">Suppose <span class="process-math">\(\mathcal{B}_1\text{,}\)</span> <span class="process-math">\(\mathcal{B}_2\text{,}\)</span> <span class="process-math">\(\mathcal{C}_1\)</span> and <span class="process-math">\(\mathcal{C}_2\)</span> are bases for <span class="process-math">\(U_1\text{,}\)</span> <span class="process-math">\(U_2\text{,}\)</span> <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> respectively, and let <span class="process-math">\(\mathcal{B} = \mathcal{B}_1 \cup \mathcal{B}_2\)</span> and <span class="process-math">\(\mathcal{C} = \mathcal{C}_1 \cup \mathcal{C}_2\text{.}\)</span> Then <span class="process-math">\(\mathcal{B}\)</span> is a basis for <span class="process-math">\(U\text{,}\)</span> <span class="process-math">\(\mathcal{C}\)</span> is a basis for <span class="process-math">\(V\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cob{T_1 \oplus T_2}{\mathcal{B}}{\mathcal{C}} = \left[ \begin{matrix} \cob{T_1}{\mathcal{B}_1}{\mathcal{C}_1} \amp 0 \\ 0 \amp \cob{T_2}{\mathcal{B}_2}{\mathcal{C}_2} \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Here the matrix on the right is a matrix of matrices (so the zeros are matrices as well).</div>
+</div></article><div class="para" id="p-530">The proof of this proposition is elementary and is left to the student. However, the idea here is still important. We introduce direct sums because it allows us to decompose vector spaces into more elementary pieces (vector space summands) as well as decomposing linear transformations into more elementary linear transformations (blocks in the matrix).</div>
+<div class="para logical" id="p-531">
+<div class="para">Let us now return to the question of diagonalization and reconsider <a href="" class="xref" data-knowl="./knowl/exa-notdiagonalizable.html" title="Example 4.1.11: Eigenvectors of a 3 \times 3 matrix">Example 4.1.11</a>. Recall that there we examined the matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+A = \left[ \begin{matrix} 2 \amp -1 \amp -2 \\ 0 \amp 4 \amp 4 \\ 2 \amp 1 \amp 2 \end{matrix} \right] .
+\end{equation*}
+</div>
+<div class="para">We found the characteristic polynomial was</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+p_A(t) =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4) 
+\end{equation*}
+</div>
+<div class="para">so that there were eigenvalues <span class="process-math">\(2\)</span> and <span class="process-math">\(4\text{.}\)</span> However, since we don't have <span class="process-math">\(3\)</span> distinct roots of <span class="process-math">\(p_A(t)\text{,}\)</span> we are no longer in the case of <a href="" class="xref" data-knowl="./knowl/cor-distinctrootsdiag.html" title="Corollary 4.1.14">Corollary 4.1.14</a>. This raises the question as to whether we can diagonalize <span class="process-math">\(A\)</span> at all or, equivalently, whether <span class="process-math">\(A\)</span> has an eigenbasis. Recall that we found the <span class="process-math">\(2\)</span> and <span class="process-math">\(4\)</span> eigenvectors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\threevec{1}{-2}{1},  \threevec{1}{-2}{0} 
+\end{equation*}
+</div>
+<div class="para">by solving the eigenvector equations. If you look closely at those solutions though, you will see that any other eigenvector must be a multiple of one of these. But this means that the span of the eigenvectors is <span class="process-math">\(2\)</span>-dimensional, and we must conclude that there is no eigenbasis!</div>
+</div>
+<div class="para" id="p-532">Let us look at another example where this occurs.</div>
+<article class="example example-like" id="example-56"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-56"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">A <span class="process-math">\(2 \times 2\)</span> nilpotent matrix.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><div class="para logical" id="p-533">
+<div class="para">Consider the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} 0 \amp 1 \\ 0 \amp 0 \end{matrix} \right] . 
+\end{equation*}
+</div>
+<div class="para">One easily computes the characteristic polynomial to be <span class="process-math">\(p_A(t) = t^2\text{.}\)</span> However, solving the equation <span class="process-math">\(A \mb{x} = \mb{0}\)</span> gives that the only <span class="process-math">\(0\)</span>-eigenvectors are multiples of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{e}_1 = \twovec{1}{0} .
+\end{equation*}
+</div>
+<div class="para">On the other hand, any other vector does satisfy the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^2 \mb{x} = 0. 
+\end{equation*}
+</div>
+</div></article></div>
+<div class="para" id="p-534">This last equation leads to a definition.</div>
+<article class="definition definition-like" id="def-nilpotent"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
+</h3> <div class="para" id="p-535">A linear operator <span class="process-math">\(N : V \to V\)</span> is called <dfn class="terminology">nilpotent</dfn> if there is a positive integer <span class="process-math">\(n\)</span> for which <span class="process-math">\(N^n\)</span> is the zero linear operator (i.e. <span class="process-math">\(N^n (\mb{v}) = \mb{0}\)</span> for every vector <span class="process-math">\(\mb{v}\)</span>). We say <span class="process-math">\(n\)</span> is the order of <span class="process-math">\(N\)</span> if <span class="process-math">\(N^{n - 1}\)</span> is not zero but <span class="process-math">\(N^n\)</span> is zero.</div></article><div class="para" id="p-536">Nilpotent linear transformations can be quite useful, although they are also fairly rare. In one sense, though, they play nicely with  invertible matrices (although they are, of course <em class="emphasis">not</em> invertible).</div>
+<article class="lemma theorem-like" id="lem-nilpotentinv"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-537">If <span class="process-math">\(S : V \to V\)</span> is a linear isomorphism, <span class="process-math">\(N : V \to V\)</span> is nilpotent and <span class="process-math">\(S\)</span> commutes with <span class="process-math">\(N\text{,}\)</span> then <span class="process-math">\(S + N\)</span> is a linear isomorphism.</div></article><article class="hiddenproof" id="proof-33"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-33"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-33"><article class="hiddenproof"><div class="para logical" id="p-538">
+<div class="para">The key to this observation is the geometric series</div>
+<div class="displaymath process-math">
+\begin{equation*}
+( 1 - x)^{-1} = \frac{1}{1 - x} = 1 + x + x^2 + \cdots 
+\end{equation*}
+</div>
+<div class="para">that you learn in a first year calculus course. We can manipulate this slightly to see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(y + x)^{-1} = y^{-1} \frac{1}{1 - (-y^{-1} x)} = y^{-1} \left[ 1 + (-y^{-1} x) + (-y^{-1} x)^2 + \cdots \right] 
+\end{equation*}
+</div>
+<div class="para">Now, if we try to put random matrices (or linear transformations) in for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> we may run into trouble. First, we would of course need the <span class="process-math">\(y\)</span> matrix to be invertible to make sense of <span class="process-math">\(y^{-1}\text{,}\)</span> but more importantly, we would need to know this series converged in some reasonable sense. However, if the <span class="process-math">\(y\)</span> matrix commuted with the <span class="process-math">\(x\)</span> matrix (which would imply <span class="process-math">\(y^{-1}\)</span> did as well), then the terms</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(-y^{-1} x)^k = (-1)^k y^{-k} x^k . 
+\end{equation*}
+</div>
+<div class="para">Better yet, if the <span class="process-math">\(x\)</span> matrix were nilpotent, we would have no concern over convergence because these terms would all be zero once <span class="process-math">\(k\)</span> is large enough. Taking the <span class="process-math">\(y\)</span> matrix to represent <span class="process-math">\(S\)</span> and the <span class="process-math">\(x\)</span> matrix to represent <span class="process-math">\(N\)</span> thus shows that <span class="process-math">\(S + N\)</span> is invertible (and in fact the formula above can be used to compute the inverse).</div>
+</div></article></div>
+<div class="para" id="p-539">The following lemma will be used to classify a normal form for nilpotent linear transformations. The proof of this lemma is fairly technical and can be skipped on first (or second) reading.</div>
+<article class="lemma theorem-like" id="lem-nilpotentdecomp"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-540">Suppose <span class="process-math">\(N: V \to V\)</span> is nilpotent of order <span class="process-math">\(n\)</span> and <span class="process-math">\(\mb{v}\)</span> is a vector for which <span class="process-math">\(N^{n - 1} (\mb{v}) \ne \mb{0}\text{.}\)</span> Let <span class="process-math">\(\mathcal{B} = \{ N^{n - 1} (\mb{v} ),  \ldots , N (\mb{v} ) , \mb{v}\}\)</span> and <span class="process-math">\(V_1 = \textnormal{span} \mathcal{B}\text{.}\)</span> Then</div> <ol class="decimal">
+<li id="li-74"><div class="para" id="p-derived-li-74">
+<span class="process-math">\(\mathcal{B}\)</span> is linearly independent and thus a basis for <span class="process-math">\(V_1\text{,}\)</span>
+</div></li>
+<li id="li-75"><div class="para" id="p-derived-li-75">there is a complementary subspace <span class="process-math">\(V_2\)</span> of <span class="process-math">\(V\)</span> for which<div class="displaymath process-math">
+\begin{equation*}
+N = N_1 \oplus N_2 : V_1 \oplus V_2 \to V_1 \oplus V_2 
+\end{equation*}
+</div>where <span class="process-math">\(N_1\)</span> and <span class="process-math">\(N_2\)</span> are the restrictions of <span class="process-math">\(N\)</span> to <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> respectively.</div></li>
+</ol></article><article class="hiddenproof" id="proof-34"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-34"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-34"><article class="hiddenproof"><div class="para logical" id="p-541">
+<div class="para">To see the first claim, suppose</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_1 \mb{v} + a_2 N(\mb{v}) + \cdots + a_n N^{n - 1} (\mb{v}) = \mb{0}. 
+\end{equation*}
+</div>
+<div class="para">Then by taking <span class="process-math">\(N^{n - 1}\)</span> of both sides we see <span class="process-math">\(a_1 = 0\text{.}\)</span> Repeating with <span class="process-math">\(N^{n - 2}, N^{n - 3} , \ldots\)</span> one sees that <span class="process-math">\(a_2, a_3, \ldots\)</span> all must be zero as well implying <span class="process-math">\(\mathcal{B}\)</span> is linearly independent.</div>
+</div> <div class="para" id="p-542">For the second claim, let we argue by induction on <span class="process-math">\(n\text{.}\)</span> If <span class="process-math">\(n = 1\)</span> then <span class="process-math">\(V = \ker (N)\)</span> and one can take any complementary subspace to the span of <span class="process-math">\(\mb{v}\text{.}\)</span> Since <span class="process-math">\(N\)</span> is zero on all of <span class="process-math">\(V\text{,}\)</span> it can be written as <span class="process-math">\(0 \oplus 0\text{.}\)</span>
+</div> <div class="para" id="p-543">So assume the statement is true for <span class="process-math">\((n - 1)\)</span> and let <span class="process-math">\(W = \ker (N^{n - 1})\text{.}\)</span> Then by the induction hypothesis we can find a complementary subspace <span class="process-math">\(W_2\)</span> to <span class="process-math">\(W_1 = \textnormal{span} \{N (\mb{v} ) , \ldots , N^{n - 1} (\mb{v}) \}\)</span> for which <span class="process-math">\(N = N_1 \oplus N_2\text{.}\)</span>
+</div> <div class="para" id="p-544">Let <span class="process-math">\(U = \{\mb{w} : N (\mb{w} ) \in W_2 \}\)</span> be the vector subspace of <span class="process-math">\(V\)</span> consisting of all vectors sent to <span class="process-math">\(W_2\)</span> and <span class="process-math">\(V_2\)</span> any complementary subspace of <span class="process-math">\(\span \{N^{n - 1} (\mb{v}) \}\)</span> in <span class="process-math">\(U\)</span> which contains <span class="process-math">\(W_2\text{.}\)</span> We claim that <span class="process-math">\(V_2\)</span> satisfies the second statement. To check this claim we must verify that <span class="process-math">\(V_2\)</span> maps to itself under <span class="process-math">\(N\)</span> and that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> are complementary. As <span class="process-math">\(V_2\)</span> is contained in <span class="process-math">\(U\text{,}\)</span> it maps to <span class="process-math">\(W_2\)</span> under <span class="process-math">\(N\)</span> which, by construction, is contained in <span class="process-math">\(V_2\text{.}\)</span>
+</div> <div class="para" id="p-545">Verifying that that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> are complementary we first check that their intersection is zero.  Note if <span class="process-math">\(\mb{u}\)</span> is in both <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> then <span class="process-math">\(N (\mb{u} )\)</span> must be in <span class="process-math">\(W_1\)</span> and <span class="process-math">\(W_2\text{.}\)</span> But since these are complementary, we have <span class="process-math">\(N(\mb{u}) = \mb{0}\)</span> and <span class="process-math">\(\mb{u}\)</span> is in the kernel of <span class="process-math">\(N\text{.}\)</span> As <span class="process-math">\(n &gt; 1\)</span> we have <span class="process-math">\(\mb{u} \in \ker (N^{n - 1} ) = W\text{.}\)</span> This implies <span class="process-math">\(\mb{u}\)</span> is in <span class="process-math">\(W_1 = V_1 \cap \ker (N^{n - 1})\)</span> and <span class="process-math">\(W_2 = V_2 \cap \ker (N^{n - 1} )\)</span> which consists only of <span class="process-math">\(\mb{0}\text{.}\)</span>
+</div> <div class="para" id="p-546">To see that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> span <span class="process-math">\(V\text{,}\)</span> suppose <span class="process-math">\(\mb{u}\)</span> is any vector and consider <span class="process-math">\(N ( \mb{u} ) \in W\text{.}\)</span> Then by the induction hypothesis, there is a unique decomposition <span class="process-math">\(N (\mb{u}) = \mb{w}_1 + \mb{w}_2\)</span> with <span class="process-math">\(\mb{w}_1 \in W_1\)</span> and <span class="process-math">\(\mb{w}_2 \in W_2\text{.}\)</span> As <span class="process-math">\(\mb{w}_1 = a_1 N (\mb{v}) + \cdots a_{n - 1} N^{n - 1} (\mb{v}) = N (a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) )\)</span> we can take <span class="process-math">\(\tilde{\mb{v}}_1 = a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) \in V_1\)</span> so that <span class="process-math">\(N (\tilde{\mb{v}}_1) = \mb{w}_1\text{.}\)</span>  Subtracting, this shows that <span class="process-math">\(\mb{w}_2 = N ( \mb{u} - \tilde{\mb{v}}_1 )\)</span> so that <span class="process-math">\(\mb{u} - \tilde{\mb{v}}_1\)</span> is in <span class="process-math">\(U\text{.}\)</span> Thus <span class="process-math">\(\mb{u} - \tilde{\mb{v}}_1 = a N^{n - 1} (\mb{v}) + \mb{v}_2\)</span> for some number <span class="process-math">\(a\)</span> and <span class="process-math">\(\mb{v}_2 \in V_2\)</span> (since <span class="process-math">\(U = V_2 \oplus \span \{N^{n - 1} (\mb{v}) \}\)</span>). Taking <span class="process-math">\(\mb{v}_1 = \tilde{\mb{v}}_1 + a N^{n - 1} (\mb{v}) \in V_1\)</span> we get that <span class="process-math">\(\mb{u}\)</span> is in the span finishing the proof.</div></article></div>
+<div class="para" id="p-547">Inductively applying this lemma gives the following corollary.</div>
+<article class="corollary theorem-like" id="corollary-8"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-548">
+<div class="para">If <span class="process-math">\(V\)</span> is a finite dimensional vector space and <span class="process-math">\(N : V \to V\)</span> a nilpotent linear transformation. Then there are vectors <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_k\)</span> and positive integers <span class="process-math">\(r_1, \ldots, r_k\)</span> such that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{N^{r_1 - 1} (\mb{v}_1 ), \ldots,   N (\mb{v}_1) , \mb{v}_1 ,N^{r_2 -1} (\mb{v}_2 ),  \ldots, N (\mb{v}_2) ,\mb{v}_2 ,  \ldots, N^{r_k -1} ( \mb{v}_k ) , \ldots,  N (\mb{v}_k ) ,\mb{v}_k \right\} 
+\end{equation*}
+</div>
+<div class="para">is a basis and <span class="process-math">\(N^{r_i} (\mb{v}_i) = 0\)</span> for <span class="process-math">\(1 \leq i \leq k\text{.}\)</span>
+</div>
+</div></article><article class="hiddenproof" id="proof-35"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-35"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-35"><article class="hiddenproof"><div class="para" id="p-549">This follows from repeatedly applying  <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a> to the summand <span class="process-math">\(V_2\text{.}\)</span>
+</div></article></div>
+<div class="para" id="p-550">Now we return to the general problem of finding an eigenbasis for <span class="process-math">\(T: V \to V\text{.}\)</span> Since we cannot always find a <span class="process-math">\(\lambda\)</span>-eigenvectors of <span class="process-math">\(T\text{,}\)</span> we propose a broader notion in the following definition.</div>
+<article class="definition definition-like" id="def-generalizedeigenvector"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.8</span><span class="period">.</span>
+</h3> <div class="para logical" id="p-551">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is a vector space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. For a number <span class="process-math">\(\lambda \in K\text{,}\)</span> the <dfn class="terminology">generalized <span class="process-math">\(\lambda\)</span>-eigenspace</dfn> is the vector subspace</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V_\lambda = \left\{ \mb{v} : (\lambda I - T)^r (\mb{v}) = 0  \textnormal{ for sufficiently large } r \right\}. 
+\end{equation*}
+</div>
+<div class="para">A non-zero vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V_\lambda\)</span> is called a <dfn class="terminology">generalized eigenvector</dfn>.</div>
+</div></article><div class="para" id="p-552">One can check that <span class="process-math">\(V_\lambda\)</span> is indeed a vector subspace of <span class="process-math">\(V\text{.}\)</span> The following theorem can be used to see that the generalized eigenspaces are ever present.</div>
+<article class="theorem theorem-like" id="thm-cayleyhamilton"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Cayley-Hamilton.</span>
+</h3>
+<div class="para" id="p-553">If <span class="process-math">\(V\)</span> is a finite dimensional vector space and <span class="process-math">\(T: V \to V\)</span> is a linear transformation then <span class="process-math">\(p_T (T) = 0\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><div class="para logical" id="p-554">
+<div class="para">We show this by taking <span class="process-math">\(A\)</span> to represent <span class="process-math">\(T\)</span> and verifying <span class="process-math">\(p_A (A) = 0\)</span> as a matrix equation. Suppose</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
+\begin{equation*}
+p_A (t) = t^n + a_{n - 1} t^{n - 1} + \cdots + a_1 t + a_0 . 
+\end{equation*}
+</div>
+<div class="para">Letting <span class="process-math">\(B = (tI - A)\)</span> be the matrix with polynomial entries, we can take its adjugate matrix <span class="process-math">\(\text{adj} (B)\)</span> since the entries are cofactors which can be defined on matrices with polynomial entries (since there is no division). Now, by equation <a href="" class="xref" data-knowl="./knowl/eq-adjugate.html" title="Equation 2.7.5">(2.7.5)</a> we have that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html" id="eq-cy1">
+\begin{equation}
+(tA - I)  \cdot \text{adj} (B)   = \det (B) \cdot I = p_A (t) I . \tag{4.2.1}
+\end{equation}
+</div>
+<div class="para">On the other hand,  we can expand <span class="process-math">\(\text{adj} (B)\)</span> as matrices multiplied by monomials <span class="process-math">\(t^k\text{,}\)</span> i.e.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
+\begin{equation*}
+\text{adj} (B) = t^{n - 1} B_{n - 1} + \cdots t B_1 + B_0 .
+\end{equation*}
+</div>
+<div class="para">Now, multiplying the left hand side of equation <a href="" class="xref" data-knowl="./knowl/eq-cy1.html" title="Equation 4.2.1">(4.2.1)</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
+\begin{equation*}
+t^n B_{n - 1} + t^{n - 1} (B_{n - 2} - A B_{n - 1} ) + \cdots + t ( B_0 - A B_1) - A B_0 .
+\end{equation*}
+</div>
+<div class="para">Setting the coefficients of <span class="process-math">\(t^k\)</span> equal to the right hand side for each <span class="process-math">\(k\)</span> gives the matrix equations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html" id="md-57">
+\begin{align*}
+B_{n - 1} \amp = I, \\
+B_{n - 2} - A B_{n - 1} \amp = a_{n - 1} I, \\
+\vdots \amp  \\
+B_0 - A B_1 \amp = a_1, \\
+-  A B_0 \amp = a_0.
+\end{align*}
+</div>
+<div class="para">Multiplying the first equation on the left by <span class="process-math">\(A^n\text{,}\)</span> the second by <span class="process-math">\(A^{n - 1}\)</span> and so on gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html" id="md-58">
+\begin{align*}
+A^n B_{n - 1} \amp = A^n, \\
+A^{n - 1} B_{n - 2} - A^n B_{n - 1} \amp = a_{n - 1} A^{n - 1}, \\
+\vdots \amp  \\
+A B_0 - A^2 B_1 \amp = a_1 A, \\
+-  A B_0 \amp = a_0. 
+\end{align*}
+</div>
+<div class="para">Adding the left and right sides then gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
+\begin{equation*}
+0 = p_A (A) . 
+\end{equation*}
+</div>
+</div></article></div>
+<div class="para" id="p-555">Let us interpret this Theorem. Since <span class="process-math">\(p_T (t)\)</span> is a polynomial, it involves taking powers of <span class="process-math">\(t\text{,}\)</span> multiplying it by a scalar and adding the results together. However, all of these operations can be made on <span class="process-math">\(T\)</span> itself, so the equation <span class="process-math">\(p_T (T) = 0\)</span> says that we obtain the zero linear transformation when we put <span class="process-math">\(T\)</span> into its own characteristic polynomial.</div>
+<div class="para" id="p-556">To connect this definition to our discussion of nilpotent matrices, we observe the following simple Lemma.</div>
+<article class="lemma theorem-like" id="lem-nilpotentinvert"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.10</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-557">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is a finite dimensional vector space over <span class="process-math">\(K\)</span> and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. If <span class="process-math">\(\lambda\)</span> and <span class="process-math">\(\tilde{\lambda}\)</span> are two numbers in <span class="process-math">\(K\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\tilde{\lambda} I - T) (V_\lambda) \subseteq V_\lambda 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tilde{\lambda}I  - T : V_\lambda \to V_\lambda 
+\end{equation*}
+</div>
+<div class="para">is nilpotent if <span class="process-math">\(\tilde{\lambda} = \lambda\)</span> and a linear isomorphism otherwise.</div>
+</div></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><div class="para logical" id="p-558">
+<div class="para">To see the first statement, just note that <span class="process-math">\((\tilde{\lambda} I - T)\)</span> commutes with <span class="process-math">\(({\lambda} I - T)\)</span> so that if <span class="process-math">\(({\lambda} I - T)^n (\mb{v}) = 0\)</span> then</div>
+<div class="displaymath process-math" id="md-59">
+\begin{align*}
+({\lambda} I - T)^n [(\tilde{\lambda} I - T) (\mb{v})] \amp = (\tilde{\lambda} I - T) [({\lambda} I - T)^n (\mb{v} )] , \\
+\amp = (\tilde{\lambda} I - T) ( \mb{0} ), \\
+\amp  = \mb{0}. 
+\end{align*}
+</div>
+<div class="para">So if <span class="process-math">\(\mb{v}\)</span> is in <span class="process-math">\(V_\lambda\)</span> then so is <span class="process-math">\((\tilde{\lambda} I - T) (\mb{v})\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-559">For the second statement, if <span class="process-math">\(\lambda = \tilde{\lambda}\)</span> then <span class="process-math">\(V_\lambda\)</span> is defined to be the vector subspace on which <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent. There is a subtlety here which relies on the fact that <span class="process-math">\(V\)</span> is finite dimensional. In particular, there must be a finite <span class="process-math">\(n\)</span> for which <span class="process-math">\((\tilde{\lambda} I - T)^n (\mb{v}) = \mb{0}\)</span> for <em class="emphasis">all</em> <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V_\lambda\)</span> owing to the fact that there is a finite basis for <span class="process-math">\(V_\lambda\)</span> (check this). Thus <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span>
+</div> <div class="para" id="p-560">Now, if <span class="process-math">\(\tilde{\lambda} \ne \lambda\)</span> then we take <span class="process-math">\(N = (\lambda I - T)\)</span> and <span class="process-math">\(S = (\tilde{\lambda} - \lambda) I\text{.}\)</span> Then <span class="process-math">\(S\)</span> and <span class="process-math">\(N\)</span> commute, <span class="process-math">\(S\)</span> is invertible and <span class="process-math">\(N\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span> Applying <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinv.html" title="Lemma 4.2.5">Lemma 4.2.5</a> gives that <span class="process-math">\((\tilde{\lambda} I - T) = S + N\)</span> is invertible.</div></article></div>
+<div class="para" id="p-561">Using this lemma, we obtain a generalized version of <a href="" class="xref" data-knowl="./knowl/lem-distincteigenlinind.html" title="Lemma 4.1.13">Lemma 4.1.13</a>.</div>
+<article class="lemma theorem-like" id="lem-distinctgeigenlinind"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.11</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-562">Let <span class="process-math">\(V\)</span> be a finite dimensional vector space and <span class="process-math">\(T: V \to V\)</span> be a linear transformation. If <span class="process-math">\(\mb{v}_1 , \ldots , \mb{v}_k\)</span> are generalized <span class="process-math">\(\lambda_i\)</span>-eigenvectors with distinct <span class="process-math">\(\lambda_i\text{,}\)</span> then they are linearly independent.</div></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><div class="para logical" id="p-563">
+<div class="para">Assuming that this were false, we may choose a smallest set of eigenvalues for which there is a linear dependence of respective generalized eigenvectors. Relabel the vectors and eigenvalues so that this set consists of the first <span class="process-math">\(j\)</span> values <span class="process-math">\(\lambda_1, \ldots, \lambda_j\text{.}\)</span> Then there are generalized <span class="process-math">\(\lambda_i\)</span>-eigenvectors <span class="process-math">\(\mb{w}_1, \ldots, \mb{w}_j\)</span> that have a non-trivial linear relation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-nilpotentinvert.html">
+\begin{equation*}
+\mb{0}  = a_1 \mb{w}_1 + \cdots + a_{j} \mb{w}_{j}. 
+\end{equation*}
+</div>
+<div class="para">By <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinvert.html" title="Lemma 4.2.10">Lemma 4.2.10</a>, there is some <span class="process-math">\(n\)</span> for which <span class="process-math">\((\lambda_j I - T)^n\)</span> is zero on <span class="process-math">\(V_{\lambda_j}\)</span> and a linear isomorphism for each <span class="process-math">\(V_{\lambda_i}\)</span> with <span class="process-math">\(i \ne j\text{.}\)</span> Write <span class="process-math">\(S = (\lambda_j I - T)^n\)</span> and apply this to both sides of the linear relation so that</div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-nilpotentinvert.html" id="md-60">
+\begin{align*}
+\mb{0} \amp = S ( \mb{0} ), \\
+\amp = S ( a_1 \mb{w}_1 + \cdots + a_{j} \mb{w}_{j} ), \\
+\amp = a_1 S( \mb{w}_1 ) + \cdots + a_{j - 1} S( \mb{w}_{j - 1} ) + a_j S ( \mb{w}_j ), \\
+\amp = a_1 S( \mb{w}_1 ) + \cdots + a_{j - 1} S( \mb{w}_{j - 1} ).
+\end{align*}
+</div>
+<div class="para" id="p-564">We note that <span class="process-math">\(S (\mb{w}_i) \ne \mb{0}\)</span> for all <span class="process-math">\(1 \leq i \leq j - 1\)</span> since <span class="process-math">\(S\)</span> is a linear isomorphism on <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> But this is a non-trivial linear dependence with fewer than <span class="process-math">\(j\)</span> generalized eigenvectors contradicting our choice of the smallest set of linearly dependent vectors.</div></article></div>
+<div class="para" id="p-565">From these lemmas we are able to show the following important theorem.</div>
+<article class="theorem theorem-like" id="lem-generalizedeigendecomp"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.12</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-566">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is an <span class="process-math">\(n\)</span>-dimensional vector space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. Suppose <span class="process-math">\(p_T (t)\)</span> factors as <span class="process-math">\((t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}\)</span> where <span class="process-math">\(\lambda_i \ne \lambda_j\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Then <span class="process-math">\(V\)</span> decomposes as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} 
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\dim V_{\lambda_i} = k_i\)</span> and <span class="process-math">\(T\)</span> also decomposes as a direct sum of its restrictions</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T = T_1 \oplus \cdots \oplus T_m . 
+\end{equation*}
+</div>
+</div></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><div class="para logical" id="p-567">
+<div class="para">It is clear that <span class="process-math">\(T\)</span> maps each generalized eigenspace to itself. Taking</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-distinctgeigenlinind.html">
+\begin{equation*}
+W = \span ( V_{\lambda_1} \cup \cdots \cup V_{\lambda_m} ) 
+\end{equation*}
+</div>
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/lem-distinctgeigenlinind.html" title="Lemma 4.2.11">Lemma 4.2.11</a> implies that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-distinctgeigenlinind.html">
+\begin{equation*}
+W = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} . 
+\end{equation*}
+</div>
+<div class="para">Indeed, to check this one needs only show that there is no non-zero vector of <span class="process-math">\(V_{\lambda_i}\)</span> equal to a sum of vectors from the other generalized eigenspaces. But any such equation would give a non-trivial linear relation.</div>
+</div> <div class="para logical" id="p-568">
+<div class="para">To see the decomposition, all that is left to show is that <span class="process-math">\(W = V\text{.}\)</span> For this we use the Cayley-Hamilton Theorem. Indeed, if <span class="process-math">\(\mb{v}\)</span> is a vector not in <span class="process-math">\(W\)</span> then because <span class="process-math">\(p_T (T) = 0\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-nilpotentinvert.html">
+\begin{equation*}
+(\lambda_1 I - T)^{k_1} \cdots (\lambda_m I - T)^{k_m} (\mb{v}) = \mb{0} . 
+\end{equation*}
+</div>
+<div class="para">Write <span class="process-math">\(S_i = (\lambda_i I - T)^{k_i}\)</span> and recall that <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinvert.html" title="Lemma 4.2.10">Lemma 4.2.10</a> gives that <span class="process-math">\(S_i\)</span> is invertible on <span class="process-math">\(V_{\lambda_j}\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Take <span class="process-math">\(\mb{w}_m = S_1 \cdots S_{m - 1} (\mb{v})\)</span>  and observe it is in <span class="process-math">\(V_{\lambda_m}\)</span> (since <span class="process-math">\(S_m (\mb{w}_m) = \mb{0}\)</span>) we can define <span class="process-math">\(\mb{u}_m = S^{-1}_{m - 1} \cdots S_1^{-1} (\mb{w}_m)\)</span> in <span class="process-math">\(V_{\lambda_m}\text{.}\)</span> But then it is clear that <span class="process-math">\(S_1 \cdots S_{m - 1} (\mb{v} - \mb{u}_m) = \mb{0}\text{.}\)</span> Repeating this process gives vectors <span class="process-math">\(\mb{u}_1, \ldots, \mb{u}_m\)</span> in <span class="process-math">\(V_{\lambda_1}, \ldots, V_{\lambda_m}\)</span> with <span class="process-math">\(\mb{v} = \mb{u}_1 + \cdots + \mb{u}_m\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-569">
+<div class="para">Restricting <span class="process-math">\(T\)</span> to <span class="process-math">\(V_{\lambda_i}\)</span> to obtain <span class="process-math">\(T_i\)</span> one sees that <span class="process-math">\(p_{T_i} (t) = (t - \lambda_i)^r\)</span> where <span class="process-math">\(r = \dim V_{\lambda_i}\)</span> (since <span class="process-math">\(T_i\)</span> has no other eigenvalues). But it is an exercise to see that the direct sum decomposition gives a factorization</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_T (t) = p_{T_1} (t) \cdots p_{T_m} (t) 
+\end{equation*}
+</div>
+<div class="para">so we may conclude that <span class="process-math">\(\dim V_{\lambda_i} = r = k_i\text{.}\)</span>
+</div>
+</div></article></div>
+<div class="para" id="p-570">It is time to take a very deep breath and sigh loudly with relief. We have now proven the main theorem that allows us to represent any linear transformation as a completely understandable matrix! What type of matrices you ask?</div>
+<article class="definition definition-like" id="def-Jordanmatrix"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.13</span><span class="period">.</span>
+</h3> <div class="para logical" id="p-571">
+<div class="para">For a number <span class="process-math">\(\lambda \in K\text{,}\)</span> a <dfn class="terminology">Jordan matrix</dfn> is the <span class="process-math">\(n \times n\)</span> matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+J_{\lambda ,n } = \left[ \begin{matrix} \lambda \amp 1 \amp 0 \amp \cdots \amp 0 \\ 0 \amp \lambda \amp 1 \amp\cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp 0 \amp \lambda \amp 1 \\ 0 \amp \cdots \amp 0 \amp 0 \amp \lambda \end{matrix} \right]. 
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-572">And now for our classification.</div>
+<article class="theorem theorem-like" id="thm-jnf"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Jordan Normal Form.</span>
+</h3>
+<div class="para logical" id="p-573">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is an <span class="process-math">\(n\)</span>-dimensional vector space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. Suppose <span class="process-math">\(p_T (t)\)</span> factors as <span class="process-math">\((t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}\)</span> where <span class="process-math">\(\lambda_i \ne \lambda_j\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Then there is a basis <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\)</span> consisting of generalized eigenvectors for which the representing matrix is a block diagonal matrix</div>
+<div class="displaymath process-math" id="eq-coarsejnf">
+\begin{equation}
+\cob{T}{\mathcal{B}}{\mathcal{B}} = \left[ \begin{matrix} B_{\lambda_1} \amp 0 \amp \cdots \amp 0 \\ 0 \amp B_{\lambda_2} \amp \cdots \amp 0 \\ \vdots \amp \ddots  \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp 0 \amp B_{\lambda_m} \end{matrix} \right].\tag{4.2.2}
+\end{equation}
+</div>
+<div class="para">The matrix <span class="process-math">\(B_{\lambda_i}\)</span> represents the restriction of <span class="process-math">\(T\)</span> to the generalized eigenspace <span class="process-math">\(V_{\lambda_i}\)</span> and itself has the block diagonal form</div>
+<div class="displaymath process-math" id="eq-finejnf">
+\begin{equation}
+B_{\lambda_i} = \left[ \begin{matrix} J_{\lambda_i, n^i_1} \amp 0 \amp \cdots \amp 0 \\ 0 \amp J_{\lambda_i, n^i_2}  \amp \cdots \amp 0 \\ \vdots \amp \ddots  \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp 0 \amp J_{\lambda_i, n^i_{k_i}}  \end{matrix} \right].\tag{4.2.3}
+\end{equation}
+</div>
+<div class="para">Up to reordering the blocks, this form is unique.</div>
+</div></article><div class="para" id="p-574">The proof of the existence of such a basis for equation <a href="" class="xref" data-knowl="./knowl/eq-coarsejnf.html" title="Equation 4.2.2">(4.2.2)</a> follows immediately from <a href="" class="xref" data-knowl="./knowl/lem-generalizedeigendecomp.html" title="Theorem 4.2.12">Theorem 4.2.12</a>. On the other hand, one can verify equation <a href="" class="xref" data-knowl="./knowl/eq-finejnf.html" title="Equation 4.2.3">(4.2.3)</a> by repeatedly applying <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a> to the nilpotent transformation <span class="process-math">\((\lambda_i I - T)\)</span> on <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> The uniqueness claim is worth some attention, but will be left to the students and office hours!</div>
+<article class="example example-like" id="example-57"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-57"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">Jordan normal form of a <span class="process-math">\(4 \times 4\)</span> matrix.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like"><div class="para logical" id="p-575">
+<div class="para">Let us now endeavor to work through an example with a little bit of nuance. Take</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+A = \left[ \begin{matrix} -1 \amp 1 \amp 0 \amp 0 \\ -1 \amp -3 \amp 0 \amp 0 \\ 0 \amp 0 \amp -3 \amp -1 \\ 1 \amp 1 \amp 2 \amp 0 \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">One can compute the characteristic polynomial of this matrix as usual, or they can observe that it is a block lower triangular matrix with diagonal blocks</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+C_1 = \left[ \begin{matrix} -1 \amp 1 \\ -1 \amp -3 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+C_2 = \left[ \begin{matrix} -3 \amp -1 \\ 2 \amp 0 \end{matrix} \right] .
+\end{equation*}
+</div>
+<div class="para">This implies that <span class="process-math">\(p_A (t) = p_{C_1} (t) p_{C_2} (t)\)</span> which simplifies our computation. We check that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+p_{C_1} (t) = (t + 1) (t + 3) + 1 = (t + 2)^2 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+p_{C_2} (t) = (t + 3) t + 2 = (t + 2) (t + 1) 
+\end{equation*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html" id="md-61">
+\begin{align*}
+p_A (t) \amp =  p_{C_1} (t) p_{C_2} (t), \\
+\amp = (t + 2)^3 (t + 1).
+\end{align*}
+</div>
+<div class="para">Thus the eigenvalues of <span class="process-math">\(A\)</span> are <span class="process-math">\(-2\)</span> and <span class="process-math">\(-1\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/lem-generalizedeigendecomp.html" title="Theorem 4.2.12">Theorem 4.2.12</a> gives us that <span class="process-math">\(\dim V_{-2} = 3\)</span> and <span class="process-math">\(\dim V_{-1} = 1\text{.}\)</span> So we first find a <span class="process-math">\((-1)\)</span>-eigenvector by solving the equation <span class="process-math">\((-I - A) \mb{x} = \mb{0}\)</span> or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+\left[ \begin{matrix} 0 \amp -1 \amp 0 \amp 0 \\ 1 \amp 2 \amp 0 \amp 0 \\ 0 \amp 0 \amp 2 \amp 1 \\ -1 \amp -1 \amp -2 \amp -1 \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 0 \\ 0 \end{matrix} \right] .
+\end{equation*}
+</div>
+<div class="para">One can find here that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+\left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 1 \\ -2 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">gives a non-trivial solution. For the generalized <span class="process-math">\((-2)\)</span>-eigenspace we consider the matrix <span class="process-math">\((-2I - A)\)</span> which is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+-2I - A = \left[ \begin{matrix} -1 \amp -1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \\ -1 \amp -1 \amp -2 \amp -2 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">The generalized <span class="process-math">\((-2)\)</span>-eigenspace <span class="process-math">\(V_{-2}\)</span> has dimension <span class="process-math">\(3\text{,}\)</span> so <span class="process-math">\((-2I - A)^3\)</span> is zero on this space (by the Cayley-Hamilton Theorem) and we can find a basis for it by simply solving the equation <span class="process-math">\((-2 I - A)^3 \mb{x} = 0\text{.}\)</span> However, this is not the most effective way at seeing the Jordan Normal Form. Instead, we will first find our <span class="process-math">\((-2)\)</span>-eigenspace by solving</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html" id="eq-jnfeq">
+\begin{equation}
+\left[ \begin{matrix} -1 \amp -1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \\ -1 \amp -1 \amp -2 \amp -2 \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 0 \\ 0 \end{matrix} \right] .\tag{4.2.4}
+\end{equation}
+</div>
+<div class="para">We can see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+\left[ \begin{matrix} -1 \\ 1 \\ -1 \\ 1 \end{matrix} \right] \hspace{.1in} \text{and} \hspace{.1in} \left[ \begin{matrix} -1 \\ 1 \\ 0 \\ 0 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">are linearly independent <span class="process-math">\((-2)\)</span>-eigenvectors. We can also see that these span our solution space to equation <a href="" class="xref" data-knowl="./knowl/eq-jnfeq.html" title="Equation 4.2.4">(4.2.4)</a>. This means that <span class="process-math">\(A\)</span> is not diagonalizable, but that there is a non-trivial Jordan block. To find it, we just need some vector that would be sent to one of the two <span class="process-math">\((-2)\)</span>-eigenvectors above  by <span class="process-math">\(( A - (-2)I)\text{.}\)</span> Had I chosen my solutions above at random, there may not be such a vector and we would have to adjust the two eigenvectors so that one of them is in the image of <span class="process-math">\((A - (-2)I)\text{.}\)</span> However, I have been judicious in my choice and we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+\left[ \begin{matrix} -1 \\ 0 \\ 1 \\ 0 \end{matrix} \right]  
+\end{equation*}
+</div>
+<div class="para">is indeed such a vector. Thus the basis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+\mathcal{B} = \left\{ \left[ \begin{matrix} 0 \\ 0 \\ 1 \\ -2 \end{matrix} \right] , \left[ \begin{matrix} -1 \\ 1 \\ -1 \\ 1 \end{matrix} \right] , \left[ \begin{matrix} -1 \\ 0 \\ 1 \\ 0 \end{matrix} \right]  , \left[ \begin{matrix} -1 \\ 1 \\ 0 \\ 0 \end{matrix} \right]  \right\}  
+\end{equation*}
+</div>
+<div class="para">will satisfy the requirements of <a href="" class="xref" data-knowl="./knowl/thm-jnf.html" title="Theorem 4.2.14: Jordan Normal Form">Theorem 4.2.14</a>. Indeed, taking <span class="process-math">\(P^{-1}\)</span> to be the matrix with columns given by these vectors, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+\begin{equation*}
+P A P^{-1} = \left[ \begin{matrix} -1 \amp 0 \amp 0 \amp 0 \\ 0 \amp -2 \amp 1 \amp 0 \\ 0 \amp 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 0 \amp -2 \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Here we have two block matrices <span class="process-math">\(B_{-1}\)</span> and <span class="process-math">\(B_{-2}\)</span> with three Jordan matrices, <span class="process-math">\(J_{-1,1}\)</span> in <span class="process-math">\(B_1\)</span> and <span class="process-math">\(J_{-2,2}, J_{-2,1}\)</span> in <span class="process-math">\(B_2\text{.}\)</span>
+</div>
+</div></article></div>
+<section class="exercises" id="exe-jnf"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-68"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="p-576">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A  = \left[ \begin{matrix} 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Without using row reduction or the determinant / adjugate formula, find the inverse of <span class="process-math">\(I + A\text{.}\)</span>
+</div>
+</div></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-577">Let <span class="process-math">\(N_1\)</span> be <span class="process-math">\(N\)</span> restricted to the subspace <span class="process-math">\(V_1\)</span> in <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a>. Describe the matrix representing <span class="process-math">\(N_1\)</span> using the basis <span class="process-math">\(\mathcal{B}\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exe-nilpotentmatrix"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-30"><div class="para" id="p-578">Give an example of a nilpotent <span class="process-math">\(3 \times 3\)</span> matrix which has</div></div>
+<article class="task exercise-like" id="task-63"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-579">a one dimensional kernel.</div></article><article class="task exercise-like" id="task-64"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-580">a two dimensional kernel.</div></article></article><article class="exercise exercise-like" id="exercise-71"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="p-581">True or False (with explanation) : If two linear transformations have the same characteristic polynomial, then they can be represented by the same matrix.</div></article><article class="exercise exercise-like" id="exercise-72"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-31"><div class="para logical" id="p-582">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} 0 \amp -2 \amp 1 \\ -1 \amp 0 \amp 0 \\ -5 \amp 7 \amp -3 \end{matrix} \right]. 
+\end{equation*}
+</div>
+</div></div>
+<article class="task exercise-like" id="task-65"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-583">Find the characteristic polynomial <span class="process-math">\(p_A (t)\text{.}\)</span> What are the eigenvalues of <span class="process-math">\(A\text{?}\)</span>
+</div></article><article class="task exercise-like" id="task-66"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-584">Find a maximal collection of linearly independent eigenvectors.</div></article><article class="task exercise-like" id="task-67"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="p-585">Is <span class="process-math">\(A\)</span> diagonalizable? Explain your response.</div></article><article class="task exercise-like" id="task-68"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="p-586">Find a basis <span class="process-math">\(\mathcal{B}\)</span> for which <span class="process-math">\(\cob{A}{\mathcal{B}}{\mathcal{B}} = P^{-1} A P\)</span> is in Jordan Normal Form where <span class="process-math">\(P\)</span> is a change of basis matrix for <span class="process-math">\(\mathcal{B}\text{.}\)</span>
+</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-diag1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-spectral.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

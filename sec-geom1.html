@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Geometry I</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 3">
+<meta property="book:author" content="Gabriel Kerr">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 3</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-linear-geometry.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-linear-geometry.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-geom2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\textnormal{rank}}
+\newcommand{\nullity}{\textnormal{nullity}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-equation.html#subsection-1" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
+<li><div class="toc-item"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
+<ul class="structural">
+<li class="active">
+<div class="toc-item"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsection-12" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-paths.html#subsection-16" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE's</span></a></div></li>
+<li><div class="toc-item"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">ower Series Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-geom1"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Geometry I</span>
+</h2>
+<section class="introduction" id="introduction-21"><div class="para" id="p-375">So far, we have avoided the usual undergraduate approach to calling a vector something with a ‘magnitude’ and ‘direction’. The reason for this is that the notion of magnitude is in fact additional data that we <em class="emphasis">impose</em> upon a  vector space. By this I mean that, given a vector <span class="process-math">\(\mb{v}\)</span> in a vector space <span class="process-math">\(V\text{,}\)</span> there is no unique way to assign that vector a length. This is because a vector space should be thought of like a skeleton of a person. It has only enough structure to do vector arithmetic, but not enough to talk about distance and angles. However, we can put some flesh on this skeleton and start working with geometry by adding additional bells and whistles. To do so, we introduce inner product spaces which are vector spaces with an additional pairing.</div> <article class="definition definition-like" id="def-ips"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
+</h3> <div class="para logical" id="p-376">
+<div class="para">An <dfn class="terminology">inner product space</dfn> <span class="process-math">\(V\)</span> over <span class="process-math">\(K\)</span> is a vector space along with a pairing</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\langle , \right\rangle : V \times V \to K 
+\end{equation*}
+</div>
+<div class="para">which satisfies</div>
+<dl class="description-list">
+<dt id="li-61">Linear</dt>
+<dd><div class="displaymath process-math">
+\begin{equation*}
+\left\langle \lambda \mb{v}_1 + \mb{v}_2 , \mb{v} \right\rangle = \lambda \left\langle \mb{v}_1 , \mb{v} \right\rangle + \left\langle  \mb{v}_2 , \mb{v} \right\rangle. 
+\end{equation*}
+</div></dd>
+<dt id="li-62">Conjugate Symmetric</dt>
+<dd><div class="displaymath process-math">
+\begin{equation*}
+\left\langle \mb{u} , \mb{v} \right\rangle = \overline{\left\langle \mb{v} , \mb{u} \right\rangle}. 
+\end{equation*}
+</div></dd>
+<dt id="li-63">Positive Definite</dt>
+<dd>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\langle \mb{v} , \mb{v} \right\rangle \geq 0 
+\end{equation*}
+</div>with equality if and only if <span class="process-math">\(\mb{v} = \mb{0}\text{.}\)</span>
+</dd>
+</dl>
+</div></article> <div class="para logical" id="p-377">
+<div class="para">Note that the positive definite condition makes sense even when <span class="process-math">\(K = \mathbb{C}\text{.}\)</span> In that case, one might worry that <span class="process-math">\(\left\langle \mb{v} , \mb{v} \right\rangle\)</span> is a complex number like <span class="process-math">\(1 + 2i\text{.}\)</span> Then what does it mean for it to be greater than zero? However, we see from conjugate symmetry, that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\langle \mb{v} , \mb{v} \right\rangle = \overline{\left\langle \mb{v} , \mb{v} \right\rangle} 
+\end{equation*}
+</div>
+<div class="para">which tells us that the value must be a real number (only real numbers equal their conjugates). But we know what it means to say a real number is non-negative.</div>
+</div></section><section class="subsection" id="subsec-transpose"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span>
+</h3>
+<div class="para" id="p-378">There are several examples of inner product spaces, the most commonly used being the real vector space <span class="process-math">\(\mathbb{R}^n\)</span> with the dot product. To discuss this, we need the simple definition of transpose matrix.</div>
+<article class="definition definition-like" id="def-transpose"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
+</h4> <div class="para" id="p-379">Given an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A = (a_{ij})\text{,}\)</span> its <dfn class="terminology">transpose</dfn> is the <span class="process-math">\(n \times m\)</span> matrix <span class="process-math">\(A^T = (\tilde{a}_{ij})\)</span> where <span class="process-math">\(\tilde{a}_{ij} = a_{ji}\text{.}\)</span> We say that a square matrix is <dfn class="terminology">symmetric</dfn> if <span class="process-math">\(A^T = A\text{.}\)</span>
+</div></article><article class="example example-like" id="example-42"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Transpose of a matrix.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><div class="para logical" id="p-380">
+<div class="para">Finding the transpose matrix is simple, just swap row entries with column entries. For example, if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^T =  \left[ \begin{matrix} 1 \amp 4 \\ 2 \amp 5 \\ 3 \amp 6 \end{matrix} \right]. 
+\end{equation*}
+</div>
+</div></article></div>
+<div class="para" id="p-381">The transpose behaves nicely with respect to several of the operations we have introduced.</div>
+<article class="proposition theorem-like" id="proposition-15"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-382">
+<div class="para">Given matrices <span class="process-math">\(A, B\)</span> and <span class="process-math">\(C\)</span> where the operations below are well defined (i.e. they have compatible sizes to add or multiply), the following properties hold:</div>
+<ol class="decimal">
+<li id="li-64"><div class="para" id="p-derived-li-64"><span class="process-math">\((A + B)^T = A^T + B^T\text{,}\)</span></div></li>
+<li id="li-65"><div class="para" id="p-derived-li-65"><span class="process-math">\((AC)^T = C^T A^T\text{,}\)</span></div></li>
+<li id="li-66"><div class="para" id="p-derived-li-66">A square matrix <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(A^T\)</span> is invertible. In this case <span class="process-math">\((A^T)^{-1} = (A^{-1})^T\text{.}\)</span>
+</div></li>
+<li id="li-67"><div class="para" id="p-derived-li-67"><span class="process-math">\(\det (A^T) = \det (A)\text{.}\)</span></div></li>
+<li id="li-68"><div class="para" id="p-derived-li-68"><span class="process-math">\(\rk (A^T) = \rk (A)\text{.}\)</span></div></li>
+</ol>
+</div></article><article class="hiddenproof" id="proof-22"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof"><div class="para logical" id="p-383">
+<div class="para">The first two equations can be justified by writing out the formulas and checking both sides. For the third, note that <span class="process-math">\(A\)</span> is invertible if and only if there is an inverse matrix <span class="process-math">\(B\)</span> for which</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+I = I^T = (AB)^T = B^T A^T \hspace{.3in} I = I^T = (BA)^T = A^T B^T. 
+\end{equation*}
+</div>
+<div class="para">Thus <span class="process-math">\(B\)</span> is an inverse to <span class="process-math">\(A\)</span> if and only if <span class="process-math">\(B^T\)</span> is an inverse to <span class="process-math">\(A^T\text{.}\)</span> For the statement on determinants, we note that if <span class="process-math">\(A\)</span> is not invertible then by (3), so is <span class="process-math">\(A^T\)</span> so both determinants are zero. On the other hand, if <span class="process-math">\(A\)</span> is invertible, then by <a href="" class="xref" data-knowl="./knowl/prop-productofelem.html" title="Proposition 2.7.6">Proposition 2.7.6</a> <span class="process-math">\(A\)</span> is a product of elementary matrices</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+A = E_1 \cdots E_r 
+\end{equation*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+A^T = E_r^T \cdots E_1^T. 
+\end{equation*}
+</div>
+<div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+\det (A) = \det (E_1 \cdots E_r) = \det (E_1) \cdots \det (E_r) 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+\det (A^T) = \det (E_1^T ) \cdots \det (E_r^T) .
+\end{equation*}
+</div>
+<div class="para">But one observes that the Type I and II elementary matrices are symmetric, and the transpose of a Type III elementary matrix is also Type III which has determinant equal to <span class="process-math">\(1\)</span> (by <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a>). This implies each of the factors in the two above equations are equal so that <span class="process-math">\(\det (A^T) = \det (A)\text{.}\)</span> Finally, equation (5) is justified by <a href="" class="xref" data-knowl="./knowl/prop-basescolrow.html" title="Proposition 2.5.11">Proposition 2.5.11</a>.</div>
+</div></article></div></section><section class="subsection" id="subsec-dotproduct"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Dot Product</span>
+</h3>
+<div class="para" id="p-384">Long overdue is the following notion which gives the central example of a real inner product space.</div>
+<article class="definition definition-like" id="def-dotproduct"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
+</h4> <div class="para logical" id="p-385">
+<div class="para">Given column vectors <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> the <dfn class="terminology">dot product</dfn> of <span class="process-math">\(\mb{u}\)</span> with <span class="process-math">\(\mb{v}\)</span> is the real number</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = \mb{u}^T \mb{v} . 
+\end{equation*}
+</div>
+<div class="para">If we are given <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> as row vectors, we take <span class="process-math">\(\mb{u} \cdot \mb{v} = \mb{u} \mb{v}^T\text{.}\)</span> We say that <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are <dfn class="terminology">orthogonal</dfn> if <span class="process-math">\(\mb{u} \cdot \mb{v} = 0\text{.}\)</span>
+</div>
+</div></article><article class="example example-like" id="example-43"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-43"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Dot products of vectors.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like"><div class="para logical" id="p-386">
+<div class="para">Let us make sure that we understand just how easy the dot product is. If</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} = \left[ \begin{matrix} a_1 \\ \vdots \\ a_n \end{matrix} \right]  \hspace{.2in} \mb{v} = \left[ \begin{matrix} b_1 \\ \vdots \\ b_n \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n. 
+\end{equation*}
+</div>
+<div class="para">Notice we can obtain any real number as a dot product, but, as we will see, these numbers tell us about the relative direction of vectors.</div>
+</div></article></div>
+<div class="para" id="p-387">The diligent student is encouraged to verify the following lemma.</div>
+<article class="lemma theorem-like" id="lem-dotprodprop"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-388">The dot product makes <span class="process-math">\(\mathbb{R}^n\)</span> into an inner product space over <span class="process-math">\(\mathbb{R}\text{.}\)</span>
+</div></article><div class="para" id="p-389">The most important aspect of the dot product is that it allows one to bring geometric notions into the vector space <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> First, we consider a real vector <span class="process-math">\(\mb{v} \in \mathbb{R}^n\)</span> as an arrow from the origin to the endpoint <span class="process-math">\(\mb{v}\text{.}\)</span> Then we have the important ancient result:</div>
+<article class="proposition theorem-like" id="prop-pythagorean"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Pythagorean Theorem.</span>
+</h4>
+<div class="para logical" id="p-390">
+<div class="para">The length of the vector <span class="process-math">\(\mb{v}\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| \mb{v} \| = \sqrt{ \mb{v} \cdot \mb{v} }. 
+\end{equation*}
+</div>
+<div class="para">A vector <span class="process-math">\(\mb{v}\)</span> is called a <dfn class="terminology">unit vector</dfn> if <span class="process-math">\(\| \mb{v} \| = 1\text{.}\)</span>
+</div>
+</div></article><div class="para logical" id="p-391">
+<div class="para">For any inner product space (over <span class="process-math">\(\mathbb{R}\)</span> or <span class="process-math">\(\mathbb{C}\)</span>), the square root</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| \mb{v} \| = \sqrt{\left\langle \mb{v} , \mb{v} \right\rangle} 
+\end{equation*}
+</div>
+<div class="para">makes sense and we often refer to this number as the <dfn class="terminology">norm</dfn> of <span class="process-math">\(\mb{v}\text{.}\)</span> One can check that the norm in any inner product space satisfies the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| \lambda \mb{v} \| = | \lambda | \,  \| \mb{v} \| . 
+\end{equation*}
+</div>
+</div>
+<div class="para" id="p-392">The fact that the proposition above is the Pythagorean Theorem can be seen as in two dimensions that this is just the distance formula (which is really the Pythagorean Theorem) and that in three dimensions this is the Pythagorean Theorem applied twice. In higher dimensions, one could either argue inductively or simply take this as a definition. While length is of great geometric importance, so is angle. Surprisingly, the dot product gives us both!</div>
+<article class="proposition theorem-like" id="prop-angles"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-393">
+<div class="para">Suppose <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are vectors in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Let <span class="process-math">\(\theta\)</span> be the angle between the line segments from <span class="process-math">\(\mb{0}\)</span> to <span class="process-math">\(\mb{u}\)</span> and from <span class="process-math">\(\mb{0}\)</span> to <span class="process-math">\(\mb{v}\)</span> (or the arrows connecting the origin to the vectors). Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = \| \mb{u} \| \| \mb{v} \| \cos (\theta). 
+\end{equation*}
+</div>
+</div></article><article class="hiddenproof" id="proof-23"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><div class="para logical" id="p-394">
+<div class="para">First, if <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are linearly dependent, then <span class="process-math">\(\mb{v} = \lambda \mb{u}\)</span> with <span class="process-math">\(\lambda \ne 0\)</span> (since both vectors are non-zero). If <span class="process-math">\(\lambda \gt 0\)</span> then both vectors point in the same direction, so their angle should be <span class="process-math">\(\theta = 0\)</span> or <span class="process-math">\(\cos \theta = 1\text{.}\)</span> But in this case we see</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = \mb{u} \cdot (\lambda \mb{u}) = \lambda \| \mb{u} \|^2 = \| \mb{u} \| \| \lambda \mb{u} \| = \| \mb{u} \| \| \mb{v} \| 
+\end{equation*}
+</div>
+<div class="para">which verifies the equality. If <span class="process-math">\(\lambda \lt 0\)</span> then we have that they point in opposite directions and thus <span class="process-math">\(\theta = \pi\)</span> or <span class="process-math">\(\cos \theta = -1\text{.}\)</span> Again we observe</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = \mb{u} \cdot (\lambda \mb{u}) = \lambda \| \mb{u} \|^2 = - \| \mb{u} \| \| \lambda \mb{u} \| = \| \mb{u} \| \| \mb{v} \| (-1). 
+\end{equation*}
+</div>
+<div class="para">So let us assume they are linearly independent. Then the arrow vectors <span class="process-math">\(\mb{u}, \mb{v}\)</span> and <span class="process-math">\(\mb{u} - \mb{v}\)</span> make up a triangle. If the angle at <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> is <span class="process-math">\(\theta\)</span> then the Law of Cosines (a basic generalization of the Pythagorean Theorem) says that</div>
+<div class="displaymath process-math" id="md-45">
+\begin{align*}
+\| \mb{u} \|^2 + \| \mb{v} \|^2 - 2 \| \mb{u} \| \| \mb{v} \| \cos (\theta ) \amp = \| \mb{u} - \mb{v} \|^2 , \\
+\amp = (\mb{u} - \mb{v} ) \cdot (\mb{u} - \mb{v} ), \\
+\amp = \mb{u} \cdot \mb{u} - 2 \mb{u} \cdot \mb{v} + \mb{v} \cdot \mb{v}, \\
+\amp = \| \mb{u} \|^2 + \| \mb{v} \|^2 -  2 \mb{u} \cdot \mb{v}.
+\end{align*}
+</div>
+<div class="para">Subtracting <span class="process-math">\(\| \mb{u}\|^2 + \| \mb{v} \|^2\)</span> from both sides and dividing by <span class="process-math">\(-2\)</span> gives the result.</div>
+</div></article></div>
+<div class="para" id="p-395">The upshot of this amazing result is that we can now get quantitative and qualitative information about vectors very easily.</div>
+<article class="example example-like" id="example-44"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-44"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Computing the angle between vectors.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><div class="para logical" id="p-396">
+<div class="para">If we were asked to find the angle between the row vectors <span class="process-math">\(\mb{u} = [ 1, 0, -1 ]\)</span> and <span class="process-math">\(\mb{v} = [ 0, 1, -1 ]\)</span> before having the dot product, it is not surprising that we would struggle. But now we just compute lengths and the dot product to see:</div>
+<div class="displaymath process-math" id="md-46">
+\begin{align*}
+\| \mb{u} \| \amp = \sqrt{ 1^2 + 0^2 + (-1)^2} = \sqrt{2}, \\
+\| \mb{v} \| \amp = \sqrt{ 0^2 + 1^2 +  (-1)^2} = \sqrt{2}, \\
+\mb{u} \cdot \mb{v} \amp = 1 \cdot 0 + 0 \cdot 1 + (-1) \cdot (-1) = 1.
+\end{align*}
+</div>
+<div class="para">Putting these into our formula gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{2} \cdot \sqrt{2} = 1 \cdot \cos (\theta) 
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos (\theta ) = \frac{1}{2} 
+\end{equation*}
+</div>
+<div class="para">implying that <span class="process-math">\(\theta = \frac{\pi}{3}\text{.}\)</span> In this case, we get a quick pleasant answer. However, we see even when we find that <span class="process-math">\(\mb{u} \cdot \mb{v} \gt 0\)</span> that the angle made between <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> is acute. Were it <span class="process-math">\(0\text{,}\)</span> they would be perpendicular and if it were negative, they would form an obtuse angle. Point being, even without evaluating <span class="process-math">\(\arccos\text{,}\)</span> we obtain qualitative information about our vectors.</div>
+</div></article></div>
+<div class="para" id="p-397">Moreover, one can easily prove some basic, but useful, inequalities such as.</div>
+<article class="proposition theorem-like" id="proposition-18"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Triangle Inequality.</span>
+</h4>
+<div class="para logical" id="p-398">
+<div class="para">Given two vectors <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> in an inner product space</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\|\mb{u} + \mb{v} \| \leq \| \mb{u} \| + \| \mb{v} \|. 
+\end{equation*}
+</div>
+</div></article><article class="hiddenproof" id="proof-24"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><div class="para" id="p-399">This can be shown for a general inner product space using the Cauchy-Schwarz inequality below. Here we check it for the dot product on <span class="process-math">\(\mathbb{R}^n\)</span> by squaring both sides and seeing that <span class="process-math">\(\mb{u} \cdot \mb{v} \leq \| \mb{u} \| \| \mb{v} \|\)</span> (because <span class="process-math">\(\cos (\theta ) \leq 1\)</span>).</div></article></div>
+<div class="para" id="p-400">Note that this is the triangle inequality because it is saying that the sum of two side lengths of a triangle is greater than the side length of the third.</div></section><section class="subsection" id="subsec-otherexamples"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.1.3</span> <span class="title">Other Examples</span>
+</h3>
+<div class="para" id="p-401">With all of this discussion of the dot product, one might wonder why we bothered with the general definition of an inner product space. In fact, many of the most useful and advanced applications of linear algebra require working over <span class="process-math">\(\mathbb{C}\)</span> (for example, quantum mechanics), and so it is worth mentioning a few more interesting examples.</div>
+<article class="example example-like" id="exa-hermitianinnerproduct"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-hermitianinnerproduct"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Hermitian inner product.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-hermitianinnerproduct"><article class="example example-like"><div class="para logical" id="p-402">
+<div class="para">Let <span class="process-math">\(V\)</span> be the vector space of column vectors in <span class="process-math">\(\mathbb{C}^n\text{.}\)</span> We can define a straightforward generalization of the dot product here by taking</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\langle \mb{u} , \mb{v} \right\rangle = \mb{u}^T \cdot \bar{\mb{v}}. 
+\end{equation*}
+</div>
+<div class="para">Writing this out, we have if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} = \left[ \begin{matrix} w_1 \\ \vdots \\ w_n \end{matrix} \right]  \hspace{.2in} \mb{v} = \left[ \begin{matrix} z_1 \\ \vdots \\ z_n \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = w_1 \bar{z}_1 + w_2 \bar{z}_2 + \cdots + w_n \bar{z}_n. 
+\end{equation*}
+</div>
+<div class="para">One can check this gives an inner product on <span class="process-math">\(\mathbb{C}^n\text{.}\)</span> In fact, this inner product has a lot more structure than meets the eye and is the right answer to how to do geometry in complex space. For example, one still has that <span class="process-math">\(\| \mb{v} \|\)</span> gives the length of the vector <span class="process-math">\(\mb{v}\text{.}\)</span> But <span class="process-math">\(\left\langle \mb{u}, \mb{v} \right\rangle\)</span> gives two quantities, relating to both an angle and an area swept out by the two vectors.</div>
+</div></article></div>
+<div class="para" id="p-403">Another important example to consider is the following Hilbert Space.</div>
+<article class="example example-like" id="exa-HilbertSpace"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-HilbertSpace"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Hilbert space of functions.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-HilbertSpace"><article class="example example-like"><div class="para logical" id="p-404">
+<div class="para">Let <span class="process-math">\([a, b]\)</span> be an interval in <span class="process-math">\(\mathbb{R}\)</span> and consider all integrable functions <span class="process-math">\(L^2 ([a,b] )\)</span> from <span class="process-math">\([a,b]\)</span> to <span class="process-math">\(\mathbb{C}\)</span> (this means that both the real and imaginary parts are integrable). Then we can define the inner product</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\langle f , g \right\rangle = \frac{1}{b - a} \int_{a}^b f(t) \overline{g(t)} \diff{t}. 
+\end{equation*}
+</div>
+<div class="para">Here, when we integrate a complex valued function <span class="process-math">\(f(t) = x(t) + i y(t)\)</span> we mean</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_a^b f(t) \diff{t} = \int_a^b x(t) \diff{t} + i \int_a^b y(t) \diff{t}. 
+\end{equation*}
+</div>
+<div class="para">This inner product space is widely used and generalized in applications. We will see in the next section a rather interesting set of vectors in this space that form the heart of Fourier series.</div>
+</div></article></div>
+<div class="para" id="p-405">The result concerning angles between vectors and the dot product suggests a more general inequality for inner product spaces.</div>
+<article class="theorem theorem-like" id="thm-CauchySchwarz"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.14</span><span class="period">.</span><span class="space"> </span><span class="title">Cauchy-Schwarz Inequality.</span>
+</h4>
+<div class="para logical" id="p-406">
+<div class="para">If <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are vectors in an inner product space, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\|\mb{u} \| \| \mb{v}\| \geq | \left\langle \mb{u} , \mb{v} \right\rangle | 
+\end{equation*}
+</div>
+<div class="para">with equality if and only if <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are linearly dependent.</div>
+</div></article><div class="para" id="p-407">There is a rather fun proof of this fact which we will put as a guided exercise.</div></section><section class="exercises" id="exe-geom1"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">3.1.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-51"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-408">Show that, given any matrix <span class="process-math">\(A\text{,}\)</span> the matrix <span class="process-math">\(A^T A\)</span> is symmetric.</div></article><article class="exercise exercise-like" id="exe-vectorangles"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-22"><div class="para" id="p-409">Find the angle between the vectors</div></div>
+<article class="task exercise-like" id="task-43"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="p-410"><div class="displaymath process-math">
+\begin{equation*}
+\mb{u} = \twovec{1}{-1} , \mb{v} = \twovec{0}{3}
+\end{equation*}
+</div></div></article><article class="task exercise-like" id="task-44"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="p-411"><div class="displaymath process-math">
+\begin{equation*}
+\mb{u} = \threevec{-1}{1}{0} , \mb{v} = \threevec{0}{-1}{1} 
+\end{equation*}
+</div></div></article></article><article class="exercise exercise-like" id="exercise-53"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-23"><div class="para" id="p-412">Find the unit vector pointing in the direction of <span class="process-math">\(\mb{v}\)</span> when</div></div>
+<article class="task exercise-like" id="task-45"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="p-413"><div class="displaymath process-math">
+\begin{equation*}
+\mb{v} = \twovec{3}{5} 
+\end{equation*}
+</div></div></article><article class="task exercise-like" id="task-46"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="p-414"><div class="displaymath process-math">
+\begin{equation*}
+\mb{v} = \threevec{-1}{2}{-2} 
+\end{equation*}
+</div></div></article><article class="task exercise-like" id="task-47"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para logical" id="p-415"><div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{matrix} -1 \amp 3  \\ -1 \amp 2  \\ 1 \amp  -3  \end{matrix} \right] \twovec{x_1}{x_2} = \threevec{-5}{-3}{5} 
+\end{equation*}
+</div></div></article></article><article class="exercise exercise-like" id="exe-projection"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="p-416">
+<div class="para">Suppose <span class="process-math">\(\mb{u}\)</span> is a non-zero vector in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Projecting another vector <span class="process-math">\(\mb{v}\)</span> to <span class="process-math">\(\mb{u}\)</span> means finding the part of <span class="process-math">\(\mb{v}\)</span> that points parallel to <span class="process-math">\(\mb{u}\text{.}\)</span> More precisely, there are unique vectors <span class="process-math">\(\mb{v}_\perp\)</span> and <span class="process-math">\(\mb{v}_{\|}\)</span> for which</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{v} = \mb{v}_\perp + \mb{v}_{\|} 
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mb{v}_\perp\)</span> is orthogonal to <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}_{\|}\)</span> is the projection. Explain why the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{\mb{u} \cdot \mb{v}}{\|\mb{u} \|^2} \mb{u}  
+\end{equation*}
+</div>
+<div class="para">gives the vector projection <span class="process-math">\(\mb{v}_{\|}\text{.}\)</span>
+</div>
+</div></article><article class="exercise exercise-like" id="exercise-55"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Cauchy-Schwarz Proof.</span>
+</h4>
+<div class="introduction" id="introduction-24"><div class="para" id="p-417">Let <span class="process-math">\(V\)</span> be an inner product space and suppose <span class="process-math">\(\mb{v}\)</span> is a non-zero vector.</div></div>
+<article class="task exercise-like" id="task-48"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="p-418">Show that <span class="process-math">\(\mb{v}\)</span> and <span class="process-math">\(\mb{u}\)</span> are linearly dependent then the Cauchy-Inequality is actually an equality.</div></article><article class="task exercise-like" id="task-49"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="p-419">
+<div class="para">Show that if <span class="process-math">\(\mb{v}\)</span> and <span class="process-math">\(\mb{u}\)</span> are linearly independent then there is no <span class="process-math">\(t\)</span> and <span class="process-math">\(\theta\)</span> in <span class="process-math">\(\mathbb{R}\)</span> for which</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| \mb{u} - t e^{i\theta} \mb{v} \|^2 = 0 .
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="task-50"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para logical" id="p-420">
+<div class="para">Show that if <span class="process-math">\(\left\langle \mb{u} , \mb{v} \right\rangle\)</span> has polar decomposition <span class="process-math">\(r e^{i \psi }\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\| \mb{u} - t e^{i\psi} \mb{v} \|^2 = \|\mb{v} \|^2 t^2 -  2 \, | \left\langle \mb{u} , \mb{v} \right\rangle | \, t + \|\mb{u}\|^2. 
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="task-51"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para logical" id="p-421">
+<div class="para">Using parts (b) and (c), show that the Cauchy-Schwarz inequality for independent vectors follows from the fact that there are no real solutions to this equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\|\mb{v} \|^2 t^2 -  2 | \left\langle \mb{u} , \mb{v} \right\rangle |  t + \|\mb{u}\|^2 = 0 
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(t\text{.}\)</span>
+</div>
+</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-linear-geometry.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-geom2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

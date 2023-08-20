@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} 0 \amp 0 \amp -1 \amp 1 \\ -1 \amp 2 \amp 1 \amp 0 \\ 2 \amp -4 \amp - 1 \amp 0 \end{matrix} \right], \hspace{.2in} \mb{x} = \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right],\hspace{.2in} \mb{b} \amp = \left[ \begin{matrix} 0 \\ -2 \\ 4  \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">Then we make the augmented matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{array}{cccc|c} 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ -1 \amp 2 \amp 1 \amp 0 \amp -2 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] 
+\end{equation*}
+</div>
+<div class="para">and row reduce as follows:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\left[ \begin{array}{cccc|c} 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ -1 \amp 2 \amp 1 \amp 0 \amp -2 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] \amp \stackrel{\mb{r}_1 \leftrightarrow \mb{r}_2}{\longrightarrow} \left[ \begin{array}{cccc|c} -1 \amp 2 \amp 1 \amp 0 \amp -2 \\ 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] , \\
+\amp \stackrel{ - \mb{r}_1 }{\longrightarrow} \hspace{.1in} \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] , \\
+\amp \stackrel{ \mb{r}_3  - 2 \mb{r}_1 }{\longrightarrow}  \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp  1 \amp 0 \amp 0 \end{array} \right] , \\
+\amp \stackrel{ - \mb{r}_2 }{\longrightarrow}  \hspace{.1in} \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp - 1 \amp 0 \\ 0 \amp 0 \amp  1 \amp 0 \amp 0 \end{array} \right] ,  \\
+\amp \stackrel{ \mb{r}_3 - \mb{r}_2 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp - 1 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right] ,  \\
+\amp \stackrel{ \mb{r}_1 + \mb{r}_2 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp 0 \amp -1 \amp 2 \\ 0 \amp 0 \amp 1 \amp -1 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right] ,  \\
+\amp \stackrel{ \mb{r}_1 + \mb{r}_3 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp 0 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp -1 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right], \\
+\amp \stackrel{ \mb{r}_2 + \mb{r}_3 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp 0 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right] 
+\end{align*}
+</div>
+<div class="para">Now we can write the reduced row echelon system of equations as</div>
+<div class="displaymath process-math">
+\begin{align*}
+x_1 - 2x_2 \amp = 2,\\
+x_3 \amp = 0, \\ x_4 \amp = 0.
+\end{align*}
+</div>
+<div class="para">So we have one free variable <span class="process-math">\(x_2\)</span> and our general solution is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (t) = \left[ \begin{matrix} {2 + 2t} \\ t \\ 0 \\ 0 \end{matrix} \right]. 
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="sec-matrices2.html#p-227" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linear Constant Coefficient ODE II</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 3">
+<meta property="book:author" content="Gabriel Kerr">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 3</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-lincode1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-ordinary-differential-equations.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-lincode3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\textnormal{rank}}
+\newcommand{\nullity}{\textnormal{nullity}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-equation.html#subsection-1" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
+<li><div class="toc-item"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsection-12" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-paths.html#subsection-16" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE's</span></a></div></li>
+<li><div class="toc-item"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">ower Series Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lincode2"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span>
+</h2>
+<div class="para" id="p-712">Having solved homogeneous constant coefficient linear ODE's in principal, we now consider it in practice. It will definitely be helpful for a student to consult online resources and programs, which are plentiful, to visualize the examples in this section.  We will approach these equations computationally and geometrically for this section. Some examples applications will be mentioned towards the end of this section and in the exercises. For each solution, we will want to have the following steps or accomplishments in order to feel good about our final assessment.</div>
+<ol class="decimal">
+<li id="li-86"><div class="para" id="p-derived-li-86">Translate the differential equation or equations into a single matrix differential equation<div class="displaymath process-math">
+\begin{equation*}
+\dot{\mb{x}} = A \mb{x} . 
+\end{equation*}
+</div>
+</div></li>
+<li id="li-87"><div class="para" id="p-derived-li-87">Draw the vector field or graph it with a computer (or obtain it by understanding the Jordan Normal Form of <span class="process-math">\(A\)</span>).</div></li>
+<li id="li-88"><div class="para" id="p-derived-li-88">Find a basis for which <span class="process-math">\(A\)</span> is in Jordan Normal Form.</div></li>
+<li id="li-89"><div class="para" id="p-derived-li-89">Use <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> to write the general solution to the equation.</div></li>
+<li id="li-90"><div class="para" id="p-derived-li-90">Given an initial condition<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (0) = \threevec{C_1}{\vdots}{C_n} 
+\end{equation*}
+</div>find the particular solution to the equation.</div></li>
+</ol>
+<div class="para" id="p-713">Now let us go over several examples.</div>
+<article class="example example-like" id="exa-1varlinode"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-1varlinode"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">One real dimensional equation.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-1varlinode"><article class="example example-like"><div class="para logical" id="p-714">
+<div class="para">The first case we saw way back in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>. Consider the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
+\begin{equation*}
+f^\prime (t) = 3 f(t). 
+\end{equation*}
+</div>
+<div class="para">Here, our vector space is just <span class="process-math">\(\mathbb{R}\)</span> itself. The vector field is given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
+\begin{equation*}
+\mb{F} (x) = 3x. 
+\end{equation*}
+</div>
+<div class="para">Geometrically, this means at <span class="process-math">\(x\text{,}\)</span> there is a vector pointing away from the origin with three times the magnitude as <span class="process-math">\(x\text{.}\)</span> Also, our matrix <span class="process-math">\(A\)</span> is the <span class="process-math">\(1 \times 1\)</span> matrix <span class="process-math">\([3]\text{.}\)</span> Of course, we learn in calculus (or in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>) that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
+\begin{equation*}
+f(t) = C_0 e^{3 t} 
+\end{equation*}
+</div>
+<div class="para">solves this equation generally with initial condition <span class="process-math">\(f(0) = C_0\text{.}\)</span> Were we to think of this in terms of Jordon blocks, we would note that <span class="process-math">\([3]\)</span> is a Jordon block <span class="process-math">\(J_{3, 1}\)</span> itself and the equation above is just <span class="process-math">\(C_0 e^{\lambda t} \mb{x}_0 (t)\text{.}\)</span> There is one thing to note about our solution and that is that it experiences exponential growth as <span class="process-math">\(t \to \infty\text{.}\)</span> Were we to start with the equation <span class="process-math">\(f^\prime (t) = -3 f(t)\)</span> instead, we would see exponential decay. Understanding the long term behavior of a solution to a differential equation gives valuable qualitative information on the system you are studying.</div>
+</div></article></div>
+<article class="example example-like" id="ex-lineardiagonalode"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-lineardiagonalode"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Two real dimensional equation.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode"><article class="example example-like"><div class="para logical" id="p-715">
+<div class="para">Now let us consider an authentically higher dimensional example.</div>
+<div class="displaymath process-math" id="md-75">
+\begin{align*}
+x^\prime (t) \amp = -4 x(t) - 3 y(t), \\
+y^\prime (t) \amp = 6 x (t) + 5 y(t). 
+\end{align*}
+</div>
+<div class="para">Our first task in this linear ODE is to write it as a single matrix ODE. We can do this by looking at the coefficients on the right and making a matrix out of them as in</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A  = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Then if we take</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (t) = \twovec{x (t)}{y (t)} 
+\end{equation*}
+</div>
+<div class="para">we obtain the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x}^\prime (t) = A \mb{x} (t). 
+\end{equation*}
+</div>
+<div class="para">The right hand side is indeed our vector field</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (\mb{x} ) = A \mb{x} 
+\end{equation*}
+</div>
+<div class="para">and to obtain a computational advantage and a geometric picture, it will help to diagonalize <span class="process-math">\(A\)</span> (if possible). For this, we start by taking the characteristic polynomial of <span class="process-math">\(A\)</span> (which we will write now with variable <span class="process-math">\(s\)</span> instead of <span class="process-math">\(t\)</span> to avoid confusion with <span class="process-math">\(\mb{x} (t)\)</span>) and find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s +4 \amp 3 \\ -6 \amp s - 5 \end{matrix} \right] = s^2 - s - 2 = (s - 2) (s + 1). 
+\end{equation*}
+</div>
+<div class="para">Thus we see two distinct real eigenvalues and can confidently diagonalize <span class="process-math">\(A\text{.}\)</span> Indeed, working through this gives the <span class="process-math">\((-1)\)</span>-eigenvector <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(2\)</span>-eigenvector <span class="process-math">\(\mb{v}_2\)</span> which form an eigenbasis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}. 
+\end{equation*}
+</div>
+<div class="para">Why is all this so helpful? Well, now we can picture the vector field very clearly. It will take vectors on the <span class="process-math">\((-1)\)</span> eigenspace (multiples of <span class="process-math">\(\mb{v}_1\)</span>) and reverse their direction. On the <span class="process-math">\(2\)</span>-eigenspace though (multiples of <span class="process-math">\(\mb{v}_2\)</span>), the vectors will be doubled in scale and point in the same direction. The remaining vectors can be seen to be a linear combination of these two. This geometry will be sketched in class and gives a fantastically simple picture of what our solutions ought to look like.</div>
+</div> <div class="para logical" id="p-716">
+<div class="para">But what about computing solutions? Well, now that we have an eigenbasis we can write <span class="process-math">\(\mb{x}\)</span> in terms of the eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{\tilde{x} (t) - \tilde{y} (t)}{2 \tilde{y} (t) - \tilde{x} (t)}. 
+\end{equation*}
+</div>
+<div class="para">But, of course, in this basis the differential equation becomes much simpler</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html" id="md-76">
+\begin{align*}
+\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)}_\mathcal{B} \amp = \dot{\mb{x}} (t), \\
+\amp = A \mb{x}, \\ \amp = A \left( \tilde{x} (t)  \mb{v}_1 + \tilde{y} (t) \mb{v}_2 \right), \\
+\amp = \tilde{x} (t)  A \mb{v}_1 + \tilde{y} (t) A \mb{v}_2, \\
+\amp = - \tilde{x} (t)  \mb{v}_1 +  2 \tilde{y} (t) \mb{v}_2, \\
+\amp = \twovec{ - \tilde{x} (t)}{2 \tilde{y} (t)}_{\mathcal{B}} .
+\end{align*}
+</div>
+<div class="para">So in particular, our linear system breaks into two independent equations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html" id="md-77">
+\begin{align*}
+\tilde{x}^\prime (t) \amp = - \tilde{x} (t), \\
+\tilde{y}^\prime (t) \amp = 2 \tilde{y} (t). 
+\end{align*}
+</div>
+<div class="para">The solutions to these equations are similar to <a href="" class="xref" data-knowl="./knowl/exa-1varlinode.html" title="Example 5.3.1: One real dimensional equation">Example 5.3.1</a> and we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html" id="md-78">
+\begin{align*}
+\tilde{x} (t) \amp = C_1 e^{-t},\\
+\tilde{y} (t) \amp = C_2 e^{2t} 
+\end{align*}
+</div>
+<div class="para">with initial condition</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{C_1}{C_2}_\mathcal{B}. 
+\end{equation*}
+</div>
+<div class="para">Of course, while the solution is especially pleasant in the eigenbasis, the original problem came to us in terms of the standard basis, so we must be translate our solution into the usual set of coordinates in order to please our engineering colleagues. If the initial condition were given in the standard basis as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{A}{B} 
+\end{equation*}
+</div>
+<div class="para">we would need the change of basis matrix <span class="process-math">\(\cob{1}{\mathcal{C}}{\mathcal{B}}\)</span> to find <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> as above. This is just the inverse of the matrix with columns equal to <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\)</span> so it is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+Q =  \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">and we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+\twovec{C_1}{C_2} = Q \twovec{A}{B} = \twovec{2A + B}{A + B} . 
+\end{equation*}
+</div>
+<div class="para">Putting all of this together, we obtain the general solution with respect to the standard basis.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html" id="mdn-4">
+\begin{align}
+\mb{x} (t) \amp = \twovec{\tilde{x} (t) - \tilde{y} (t)}{ - \tilde{x} (t) + 2 \tilde{y} (t)}, \tag{5.3.1}\\
+\amp = \twovec{C_1 e^{-t} - C_2 e^{2t} }{ - C_1 e^{-t} + 2 C_2 e^{2t} }, \tag{5.3.2}\\
+\amp =  \twovec{( 2A + B) e^{-t} - ( A + B ) e^{2t} }{ - (2A + B) e^{-t} + 2 (A + B) e^{2t} }. \tag{5.3.3}
+\end{align}
+</div>
+</div></article></div>
+<div class="para" id="p-717">This last example shows how easy things become if the matrix is diagonalizable with real eigenvalues. In fact, it is an illustration of <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> for the case when there are two <span class="process-math">\(1 \times 1\)</span> Jordan blocks. However, since we are also acquainted with complex numbers, we note that differential equations involving real paths can sometimes be helped along by thinking of them as landing in a complex vector space instead. The next example illustrates this point.</div>
+<article class="example example-like" id="ex-lineardiagonalode2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-lineardiagonalode2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Complex eigenvalues in the equation.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode2"><article class="example example-like"><div class="para logical" id="p-718">
+<div class="para">Suppose we take the linear differential equation</div>
+<div class="displaymath process-math" id="md-79">
+\begin{align*}
+x^\prime (t) \amp = 2x (t) +  y(t), \\
+y^\prime (t) \amp = -2 x (t) + 4 y(t). 
+\end{align*}
+</div>
+<div class="para">Writing this out we find the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A  = \left[ \begin{matrix} 2 \amp 1 \\ -2 \amp 4 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">and obtain the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x}^\prime (t) = A \mb{x} (t).
+\end{equation*}
+</div>
+<div class="para">Again, the right hand side is the vector field</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (\mb{x} ) = A \mb{x} 
+\end{equation*}
+</div>
+<div class="para">and it would be nice to diagonalize <span class="process-math">\(A\)</span> to get a picture of this field. However, computing the characteristic polynomial gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s -2 \amp -1 \\ 2 \amp s - 4 \end{matrix} \right] = s^2 - 6 s + 10.
+\end{equation*}
+</div>
+<div class="para">One can use the quadratic formula here and see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = (s - (3 + i)) (s - (3 - i))
+\end{equation*}
+</div>
+<div class="para">so that the roots of <span class="process-math">\(p_A (s)\)</span> are complex numbers and <span class="process-math">\(A\)</span> cannot be diagonalized as a real matrix. Now, one of the benefits of having real eigenvalues and eigenvectors was that we obtained a nice picture of the vector field. There is something to be said in the case of a complex eigenvector as well, which is related to several of the exercises that you have worked through. In particular, if there is an eigenvalue of the form <span class="process-math">\(\lambda = re^{i\theta}\text{,}\)</span> then one will see a <span class="process-math">\(\theta\)</span> rotation in the vectors of the vector field (in some coordinate system). For now, we will leave the illustration of this field to a computer and come back to the geometry once we've found the solution.</div>
+</div> <div class="para logical" id="p-719">
+<div class="para">To compute the general solution, there are several ways to proceed, but we will take a principled approach and simply say that our path <span class="process-math">\(\mb{x}\)</span> was a function to <span class="process-math">\(\mathbb{C}^2\)</span> all along so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{equation*}
+\mb{x} : I \to \mathbb{C}^2.
+\end{equation*}
+</div>
+<div class="para">Now we can diagonalize because the eigenvalues are distinct. A bit of computation gives the eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{i}{-1 + i},  \twovec{-i}{-1 - i} \right\}.
+\end{equation*}
+</div>
+<div class="para">Again, we can write our solution in terms of this basis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html" id="eq-xsolcompl1">
+\begin{equation}
+\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}\tag{5.3.4}
+\end{equation}
+</div>
+<div class="para">and again, in this basis the differential equation becomes much simpler</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{equation*}
+\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
+\end{equation*}
+</div>
+<div class="para">This time, the two independent equations are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html" id="md-80">
+\begin{align*}
+\tilde{x}^\prime (t) \amp = (3 + i) \tilde{x} (t), \\
+\tilde{y}^\prime (t) \amp = (3 - i) \tilde{y} (t). 
+\end{align*}
+</div>
+<div class="para">It is here that <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> comes into view and we realize that, in fact, we've already solved these equations and obtained</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html" id="md-81">
+\begin{align*}
+\tilde{x}(t) \amp = C_1 e^{(3 + i)t}, \\
+\tilde{y} (t) \amp = C_2 e^{(3 - i)t}. 
+\end{align*}
+</div>
+<div class="para">So, were we inclined to write our solutions in terms of the basis <span class="process-math">\(\mathcal{B}\)</span> in <span class="process-math">\(\mathbb{C}^2\text{,}\)</span> we would have solved the differential equation with</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html" id="md-82">
+\begin{gather*}
+\mb{x} (t) = \twovec{ C_1 e^{(3 + i)t}}{C_2 e^{(3 - i)t}}_{\mathcal{B}} \text{ with initial condition } \mb{x} (0) = \twovec{C_1}{C_2}_{\mathcal{B}}.
+\end{gather*}
+</div>
+<div class="para">I can hear the overwhelming chorus of objections to this solution from engineer and mathematician alike. After all, the constants <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are possibly complex numbers and the function is too. We started in the real plane and have ended in what appears to be a terrifying <span class="process-math">\(4\)</span>-dimensional mess (since <span class="process-math">\(\mathbb{C}^2\)</span> is <span class="process-math">\(4\)</span> real dimensions). Well, I contend that appearances can be deceiving! Let's unwind this a bit with a few simple observations.</div>
+</div> <div class="para logical" id="p-720">
+<div class="para">The first thing to recognize about our solution is that the basis <span class="process-math">\(\mathcal{B}\)</span> which we chose  had a hidden symmetry. Namely, if we take the complex conjugate of <span class="process-math">\(\mb{v}_1\)</span> we obtain <span class="process-math">\(\mb{v}_2\)</span> so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+\begin{equation*}
+\bar{\mb{v}}_1 = \mb{v}_2. 
+\end{equation*}
+</div>
+<div class="para">Now, the solution we obtain for <span class="process-math">\(\mb{x}\)</span> will be real, which means it equals its conjugate. Thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html" id="md-83">
+\begin{align*}
+\tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 \amp = \overline{\tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2}, \\
+\amp = \overline{\tilde{x} (t)} \bar{\mb{v}}_1  + \overline{\tilde{y} (t)} \bar{\mb{v}}_2,\\
+\amp = \overline{\tilde{y} (t)} \mb{v}_1 +  \overline{\tilde{x} (t)} \mb{v}_2, 
+\end{align*}
+</div>
+<div class="para">But since our coefficients are unique, we have that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html" id="eq-xsolcompl2">
+\begin{equation}
+\overline{\tilde{x} (t)} = \tilde{y} (t).\tag{5.3.5}
+\end{equation}
+</div>
+<div class="para">Putting our solution in to this equation gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+\begin{equation*}
+\bar{C}_1 = C_2. 
+\end{equation*}
+</div>
+<div class="para">Even more helpful, we note that for <em class="emphasis">any</em> complex number <span class="process-math">\(z\)</span> we can get the real and imaginary parts of <span class="process-math">\(z\)</span> by simply checking that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html" id="md-84">
+\begin{align*}
+\operatorname{Re} (z) \amp = \frac{1}{2} \left( z + \bar{z} \right), \\
+\operatorname{Im} (z) \amp = - \frac{i}{2} \left( z - \bar{z} \right).
+\end{align*}
+</div>
+<div class="para">Using this, equations <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl1.html" title="Equation 5.3.4">(5.3.4)</a> and <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl2.html" title="Equation 5.3.5">(5.3.5)</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+\begin{equation*}
+\mb{x} (t) = \twovec{ -2 \operatorname{Im} (\tilde{x} (t))}{-2 \operatorname{Re} (\tilde{x} (t)) - 2\operatorname{Im} (\tilde{x} (t)) } = \twovec{ \operatorname{Im} ( -2\tilde{x} (t))}{ \operatorname{Re} (-2\tilde{x} (t)) + \operatorname{Im} (-2\tilde{x} (t)) }.
+\end{equation*}
+</div>
+<div class="para">Now, note that <span class="process-math">\(C_1\)</span> is zero only for the zero solution, so assuming it is not zero, we can find an <span class="process-math">\(a, b\)</span> so that in polar coordinates</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+\begin{equation*}
+-2C_1 = e^{a + bi}.
+\end{equation*}
+</div>
+<div class="para">This gives us a nice way to rewrite our solution as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+\begin{equation*}
+-2\tilde{x} (t) = -2 C_1 e^{(3 + i)t} = e^{(3t + a) + (t + b)i} = e^{3t + a} \cos (t + b) + i e^{3t + a} \sin (t + b).
+\end{equation*}
+</div>
+<div class="para">Pulling out the real and imaginary parts, we obtain a very real looking solution</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+\begin{equation*}
+\mb{x} (t) =  \twovec{e^{3t + a} \sin (t + b)}{ e^{3t + a} \cos (t + b) + e^{3t + a} \sin (t + b)}.
+\end{equation*}
+</div>
+<div class="para">To finish the solution, one would have to solve <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> for an initial condition</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{A}{B}
+\end{equation*}
+</div>
+<div class="para">but this will be left as a linear algebra exercise for the student (which can be done in multiple ways).</div>
+</div> <div class="para logical" id="p-721">
+<div class="para">However, it is interesting to note here that the solution <span class="process-math">\(\mb{x} (t)\)</span> can be written</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (t) = e^{3t + a} \twovec{ \sin (t + b)}{  \cos (t + b) + \sin (t + b)}.
+\end{equation*}
+</div>
+<div class="para">The scaling factor increases exponentially which means that the solution will head off to infinity. What about the vector portion? Well, it is not hard to see that this is a parameterization of the conic section</div>
+<div class="displaymath process-math">
+\begin{equation*}
+2x^2 - 2xy + y^2 = 1. 
+\end{equation*}
+</div>
+<div class="para">A meticulous student will check and see that this equation is that of a (rotated) ellipse. So the solution is simply following a parameterization of an ellipse, but scaling it simultaneously and spiraling away from the origin.</div>
+</div></article></div>
+<div class="para" id="p-722">We will generalize and summarize the previous result as a Theorem.</div>
+<article class="theorem theorem-like" id="thm-diagonalizableODE"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-723">
+<div class="para">Suppose <span class="process-math">\(A\)</span> is a diagonalizable <span class="process-math">\(n \times n\)</span> real matrix <span class="process-math">\(A\text{.}\)</span> Then the eigenvalues of <span class="process-math">\(A\)</span> can be partitioned into the real eigenvalues <span class="process-math">\(\rho_1, \ldots, \rho_r\)</span> and pairs of complex numbers <span class="process-math">\(\lambda_1, \bar{\lambda}_1, \ldots, \lambda_t, \bar{\lambda}_t\text{.}\)</span> There is also an eigenbasis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathcal{B} = \left\{ \mb{v}_1, \ldots, \mb{v}_r , \mb{w}_1, \bar{\mb{w}}_1, \ldots, \mb{w}_t, \bar{\mb{w}}_t \right\} .
+\end{equation*}
+</div>
+<div class="para">Solutions to the differential equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\mb{x}} = A \mb{x}
+\end{equation*}
+</div>
+<div class="para">are real linear combinations of the functions</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x}_i (t) = e^{\rho_i t} \mb{v}_i
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(1 \leq i \leq r\)</span> and</div>
+<div class="displaymath process-math" id="md-85">
+\begin{align*}
+\operatorname{Re} \mb{x}_j (t) \amp = \operatorname{Re} \left(  e^{\lambda_i t} \mb{w}_i \right), \\
+\operatorname{Im} \mb{x}_j (t) \amp = \operatorname{Im} \left(  e^{\lambda_i t} \mb{w}_i \right), 
+\end{align*}
+</div>
+</div></article><article class="example example-like" id="ex-lineardiagonalode3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-lineardiagonalode3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Another two dimensional equation.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode3"><article class="example example-like"><div class="para logical" id="p-724">
+<div class="para">Now let us consider Jordan normal form example.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html" id="md-86">
+\begin{align*}
+x^\prime (t) \amp = -3 x(t) +   y(t), \\
+y^\prime (t) \amp = - x (t) - y(t). 
+\end{align*}
+</div>
+<div class="para">Here our matrix is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+A  = \left[ \begin{matrix} -3 \amp 1 \\ -1 \amp -1 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">And we obtain the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x}^\prime (t) = A \mb{x} (t).
+\end{equation*}
+</div>
+<div class="para">We check that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s + 3 \amp -1 \\ 1 \amp s +1 \end{matrix} \right] = s^2 + 4s + 4 = (s + 2)^2 .
+\end{equation*}
+</div>
+<div class="para">Thus we see <span class="process-math">\(A\)</span> has only <span class="process-math">\(-2\)</span> as an eigenvalue. Since <span class="process-math">\(A\)</span> is not a diagonal matrix, we may conclude that it is not diagonalizable (this is only true because it has one eigenvalue). We consider the matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+N = A + 2I = \left[ \begin{matrix} -1 \amp 1 \\ -1 \amp 1 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">and generate a basis of the form <span class="process-math">\(\{ N \mb{v} , \mb{v} \}\)</span> by taking <span class="process-math">\(\mb{v} = \mb{e}_1\text{.}\)</span> Here we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_0 , \mb{v}_1 \right\} = \left\{ \twovec{-1}{-1},  \twovec{1}{0} \right\}.
+\end{equation*}
+</div>
+<div class="para">Now we have a basis for which we can directly apply <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a>. Here we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html" id="md-87">
+\begin{align*}
+\mb{x}_0 (t) \amp = e^{-2 t} \mb{v}_0 = \twovec{- e^{-2t}}{-e^{-2t}}, \\
+\mb{x}_1 (t) \amp = e^{-2 t} t \mb{v}_0 +  e^{-2t} \mb{v}_1 = \twovec{- e^{-2t}(t - 1) }{-e^{-2t} t }.
+\end{align*}
+</div>
+<div class="para">And the general solution with initial conditions in terms of the basis <span class="process-math">\(\mathcal{B}\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html" id="md-88">
+\begin{align*}
+\mb{x} (t) \amp = C_0 \mb{x}_0 (t) + C_1 \mb{x}_1 (t), \\
+\amp = -e^{-2t} \twovec{C_0 + C_1 (t - 1)}{C_0 + C_1 t },
+\end{align*}
+</div>
+<div class="para">with initial condition</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{C_0}{C_1}_\mathcal{B}. 
+\end{equation*}
+</div>
+<div class="para">If the initial condition were given in the standard basis as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{A}{B} 
+\end{equation*}
+</div>
+<div class="para">we would need the change of basis matrix <span class="process-math">\(\cob{1}{\mathcal{C}}{\mathcal{B}}\)</span> which is just the inverse of the matrix with columns equal to <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\)</span> so it is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+Q =  \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp -1 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">and we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\twovec{C_0}{C_1} = Q \twovec{A}{B} = \twovec{-B}{A - B} .
+\end{equation*}
+</div>
+<div class="para">Putting all of this together, we obtain the general solution with respect to the standard basis.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x} (t) \amp = -e^{-2t} \twovec{ - B + (A - B) (t - 1)}{-B + (A - B) t } =  -e^{-2t} \twovec{ (A - B) t - A }{(A - B) t  -B} = 
+\end{equation*}
+</div>
+</div></article></div>
+<div class="para logical" id="p-725">
+<div class="para">As an important application of our general solution, we consider higher order homogeneous constant coefficient ODE's. Suppose we are confronted with a scalar valued function <span class="process-math">\(x(t)\)</span> of a variable <span class="process-math">\(t\text{,}\)</span> but now with an equation</div>
+<div class="displaymath process-math" id="eq-higherorderconstantODE">
+\begin{equation}
+x^{(n)} (t) + a_{n - 1}x^{(n - 1)} (t) + \cdots + a_1 x^\prime (t) + a_0 x(t) = 0 .\tag{5.3.6}
+\end{equation}
+</div>
+<div class="para">Here we recall that <span class="process-math">\(x^{(n)} (t)\)</span> is the <span class="process-math">\(n\)</span>-th derivative of <span class="process-math">\(x\)</span> with respect to <span class="process-math">\(t\)</span> (so we will assume our functions are differentiable enough). There are two equivalent ways of approaching the solution to this equation. The first and most common way is to guess the solution <span class="process-math">\(x (t) = e^{\lambda t}\)</span> and solve the resulting polynomial equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lambda^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 \lambda + a_0 = 0.
+\end{equation*}
+</div>
+<div class="para">This polynomial is called the <dfn class="terminology">characteristic polynomial of the ODE</dfn>. Indeed, any solution will give a corresponding solution to the equation. If <span class="process-math">\(\lambda\)</span> is a multiple root of the characteristic polynomial, then one guesses again with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x (t) = \frac{t^k e^{\lambda t}}{k!}
+\end{equation*}
+</div>
+<div class="para">and finds (so long as <span class="process-math">\(k\)</span> is less than  the order of the root) that we have found another solution. Hobbling these solutions together, one can solve equations where now our initial conditions are not just <span class="process-math">\(x (0) = C_0\text{,}\)</span> but also <span class="process-math">\(x^\prime (0) = C_1, \ldots, x^{(n - 1)} (0) = C_{n - 1}\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="p-726">
+<div class="para">The solution can also be found using our tools, which has the added benefit of simplifying the higher order equation into a first order equation (a technique that is used frequently in classical mechanics). To force equation <a href="" class="xref" data-knowl="./knowl/eq-higherorderconstantODE.html" title="Equation 5.3.6">(5.3.6)</a> into a first order equation, rewrite it as a collection of equations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html" id="md-89">
+\begin{align*}
+x^\prime_0 (t) \amp = x_1 (t), \\
+x^\prime_1 (t) \amp = x_2 (t), \\
+\vdots \amp \\
+x^\prime_{n - 2} \amp = x_{n - 1} (t), \\
+x_{n - 1}^\prime (t) \amp = -a_{n - 1} x_{n - 1} (t) - a_{n - 2} x_{n - 2} (t) - \cdots - a_1 x_1 (t) - a_0 x_0 (t).
+\end{align*}
+</div>
+<div class="para">Notice that if <span class="process-math">\(x (t) = x_0 (t)\text{,}\)</span> then the first <span class="process-math">\((n - 1)\)</span> equations are just saying that <span class="process-math">\(x_i (t) = x^{(i)} (t)\)</span> for each <span class="process-math">\(1 \leq i \leq n - 1\text{.}\)</span> The last equation is then just equation <a href="" class="xref" data-knowl="./knowl/eq-higherorderconstantODE.html" title="Equation 5.3.6">(5.3.6)</a>. Letting</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x} (t) = \threevec{x_0 (t)}{\vdots}{x_{n - 1} (t)}
+\end{equation*}
+</div>
+<div class="para">and writing this as the single matrix equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\dot{\mb{x}}  = A \mb{x}
+\end{equation*}
+</div>
+<div class="para">forces us to use the matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+A = \left[ \begin{matrix}  0 \amp 1 \amp 0 \amp \cdots \amp 0 \\  0 \amp 0 \amp 1 \amp \cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots  \\ 0 \amp \cdots  \amp 0 \amp 0 \amp 1 \\ - a_0 \amp - a_1 \amp -a_2 \amp \cdots \amp - a_{n - 1}  \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/exe-higherorder.html" title="Exercise 4.1.4.4">Exercise 4.1.4.4</a>, you showed that the characteristic polynomial of <span class="process-math">\(A\)</span> is simply</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+p_A (s) = s^n + a_{n - 1} s^{n - 1} + \cdots + a_1 s + a_0.
+\end{equation*}
+</div>
+<div class="para">Thus the characteristic polynomial of the ODE is the same as the characteristic polynomial of our matrix. If <span class="process-math">\(\lambda_i\)</span> is a root of <span class="process-math">\(p_A (s)\text{,}\)</span> it is easy to check that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{v}_i = \left[ \begin{matrix}  1 \\  \lambda_i \\ \vdots \\  \lambda_i^{n - 1}   \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">is a <span class="process-math">\(\lambda_i\)</span>-eigenvector of <span class="process-math">\(A\text{.}\)</span> In the event that <span class="process-math">\(\lambda_i\)</span> has multiplicity <span class="process-math">\(k\text{,}\)</span> one can also check that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html" id="eq-jordandiffbasis">
+\begin{equation}
+\mathcal{B}_i =
+\left\{ \left[ \begin{matrix}  1 \\  \lambda_i \\ \lambda_i^2 \\ \vdots \\ \lambda_i^{n - 2} \\ \lambda_i^{n - 1}   \end{matrix} \right],  \left[ \begin{matrix}  0 \\  1 \\ 2 \lambda_i \\ \vdots  \\ (n - 2) \lambda_i^{n - 3}  \\  (n - 1) \lambda_i^{n - 2}   \end{matrix} \right], \cdots , \left[ \begin{matrix}  0 \\ \vdots \\ 0 \\  \binom{k - 1}{k - 1} \\ \binom{n -2}{k - 1} \lambda_i \\ \vdots \\  \binom{n - 1}{k - 1} \lambda_i^{n -  k}   \end{matrix} \right] \right\}\tag{5.3.7}
+\end{equation}
+</div>
+<div class="para">is a basis for the generalized <span class="process-math">\(\lambda_i\)</span>-eigenspace <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> A less complicated expression for <span class="process-math">\(\mathcal{B}_i\)</span> (and more useful) is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mathcal{B}_i = \left\{ \mb{v}_i , \frac{d}{d \lambda_i} \mb{v}_i, \frac{1}{2!} \left( \frac{d}{d \lambda_i} \right)^2 \mb{v}_i, \cdots ,  \frac{1}{(k - 1)!} \left( \frac{d}{d \lambda_i} \right)^{k - 1} \mb{v}_i \right\}
+\end{equation*}
+</div>
+<div class="para">Moreover, it is a basis of the form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html" id="eq-jordandiffblock">
+\begin{equation}
+\mathcal{B}_i = \left\{ (A - \lambda_i I )^{k - 1} \mb{v}, \ldots, ( A - \lambda_i I) \mb{v}, \mb{v} \right\}\tag{5.3.8}
+\end{equation}
+</div>
+<div class="para">so that it may be used to give the Jordan normal form of <span class="process-math">\(A\)</span> and via <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> to find the general solution.</div>
+</div>
+<div class="para" id="p-727">Let us give an example of this which we will study in more depth next section.</div>
+<article class="example example-like" id="ex-springmass"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-springmass"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-springmass"><article class="example example-like"><div class="para logical" id="p-728">
+<div class="para">Consider the case of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+m x^{\prime \prime} + b x^\prime + k x = 0
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(k &gt; 0\)</span> and <span class="process-math">\(b &gt; 0\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-729">
+<div class="para">This differential equation describes the motion of a mass on the end of a spring. The mass is <span class="process-math">\(m\text{,}\)</span> spring constant <span class="process-math">\(k\)</span> (which describes how tight the spring is) and damping constant is <span class="process-math">\(b\)</span> (which describes the amount of kinetic friction). Dividing by <span class="process-math">\(m\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+x^{\prime \prime} + \tilde{b} x^\prime + \tilde{k} x = 0
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\tilde{b} = \frac{b}{m}\)</span> and <span class="process-math">\(\tilde{k} = \frac{k}{m}\text{.}\)</span> Converting to a matrix equation <span class="process-math">\(\dot{\mb{x}} = A \mb{x}\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+A = \left[ \begin{matrix} 0 \amp 1 \\ - \tilde{k} \amp - \tilde{b} \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">with characteristic polynomial</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+p_A (s) = s^2 + \tilde{b} s + \tilde{k}. 
+\end{equation*}
+</div>
+<div class="para">Using the quadratic formula, we obtain the roots</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+\lambda = - \frac{\tilde{b}}{2} \pm \frac{\sqrt{\tilde{b}^2 - 4 \tilde{k}}}{2}
+\end{equation*}
+</div>
+<div class="para">Of which there are two main cases (and one case we will ignore). Let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html" id="md-90">
+\begin{align*}
+\alpha \amp =  \frac{\tilde{b}}{2}, \\
+\beta \amp = \frac{\sqrt{ | \tilde{b}^2 - 4 \tilde{k} |}}{2} 
+\end{align*}
+</div>
+<div class="para">and notice that <span class="process-math">\(\alpha \geq 0\)</span> (with equality when there is no damping), <span class="process-math">\(\beta \gt 0\)</span> and <span class="process-math">\(\alpha \gt \beta\text{.}\)</span> The first case we have <span class="process-math">\(\tilde{b} \lt 2 \sqrt{\tilde{k}}\)</span> in which case the roots of the characteristic polynomial are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+\lambda = - \alpha + i \beta, \hspace{.5in} \bar{\lambda} = - \alpha - i \beta.
+\end{equation*}
+</div>
+<div class="para">with eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html" id="eq-springmasseigenbasis">
+\begin{equation}
+\mathcal{B} = \left\{ \mb{w}_1, \bar{\mb{w}}_1 \right\} = \left\{ \twovec{1}{\lambda} \twovec{1}{\bar{\lambda}} \right\}.\tag{5.3.9}
+\end{equation}
+</div>
+<div class="para">Using <a href="" class="xref" data-knowl="./knowl/thm-diagonalizableODE.html" title="Theorem 5.3.4">Theorem 5.3.4</a>, we see that solutions then are linear combinations of the solutions</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html" id="md-91">
+\begin{align*}
+\mb{x}_R (t) = \operatorname{Re} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right) \amp = \twovec{e^{-\alpha t} \cos (\beta t)}{ - \alpha e^{-\alpha t} \cos (\beta t) + \beta e^{-\alpha t} \sin (\beta t)}, \\
+\mb{x}_I (t) = \operatorname{Im} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right)  \amp = \twovec{e^{-\alpha t} \sin (\beta t)}{ - \alpha e^{-\alpha t} \sin (\beta t) - \beta e^{-\alpha t} \cos (\beta t)}. 
+\end{align*}
+</div>
+<div class="para">Recalling that the first coordinate is the scalar solution to the original second order differential equation, we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+x (t) = A e^{-\alpha t} \cos (\beta t) + B e^{-\alpha t} \sin (\beta t)
+\end{equation*}
+</div>
+<div class="para">with initial conditions</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+x (0) = A,  \hspace{.5in}x^\prime (0) = - \alpha A + \beta B. 
+\end{equation*}
+</div>
+<div class="para">Of course, if the point <span class="process-math">\((A, B)\)</span> has polar coordinate <span class="process-math">\((r \cos \theta, r \sin \theta)\text{,}\)</span> then the trigonometric sum formulas will give the simpler formula</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+x (t) = r e^{-\alpha t} \cos (\beta t - \theta ).
+\end{equation*}
+</div>
+<div class="para">Thus when <span class="process-math">\(\tilde{b} \lt 2 \sqrt{\tilde{k}}\)</span> we see some oscillation in the spring-mass system. Notice that if there is no damping and <span class="process-math">\(\alpha = 0\text{,}\)</span> then the spring-mass system simply oscillates with amplitude <span class="process-math">\(r\)</span> and period <span class="process-math">\(\beta\)</span> (often called <span class="process-math">\(\omega\)</span> in applications). On the other hand, if there is damping, this oscillation's amplitude experiences exponential decay.</div>
+</div> <div class="para logical" id="p-730">
+<div class="para">The case where <span class="process-math">\(\tilde{b} \geq 2 \sqrt{\tilde{k}}\)</span> gives the real roots</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lambda_1 = - \alpha +  \beta, \hspace{.5in} \lambda_2 = - \alpha -  \beta.
+\end{equation*}
+</div>
+<div class="para">One notes that both <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> are negative numbers (since <span class="process-math">\(\alpha &gt; \beta\)</span>). Thus here our solution is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x (t) = A e^{\lambda_1 t} + B e^{\lambda_2 t}.
+\end{equation*}
+</div>
+<div class="para">This is solution experiences exponential decay and the spring-mass system is called <dfn class="terminology">overdamped</dfn>. The reason is that the kinetic friction force is overcoming the spring force and simply slowing the mass to a stop before oscillation occurs. The initial conditions here are</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x (0) = A + B, \hspace{.5in} x^\prime (0) = \lambda_1 A + \lambda_2 B.
+\end{equation*}
+</div>
+</div></article></div>
+<section class="exercises" id="exe-lincode2"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-87"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="p-731">
+<div class="para">Go through the five steps for the system of differential equations</div>
+<div class="displaymath process-math" id="md-92">
+\begin{align*}
+x^\prime (t) \amp = -3 x(t) - 6 y(t), \\
+y^\prime (t) \amp = 2 x (t) + 4 y(t). 
+\end{align*}
+</div>
+</div></article><article class="exercise exercise-like" id="exercise-88"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para logical" id="p-732">
+<div class="para">Go through the five steps for the system of differential equations</div>
+<div class="displaymath process-math" id="md-93">
+\begin{align*}
+x^\prime (t) \amp = 3 x(t) + 4 y(t), \\
+y^\prime (t) \amp = - x (t) - y(t). 
+\end{align*}
+</div>
+</div></article><article class="exercise exercise-like" id="exercise-89"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para logical" id="p-733">
+<div class="para">Go through the five steps for the system of differential equations</div>
+<div class="displaymath process-math" id="md-94">
+\begin{align*}
+x^\prime (t) \amp = 5 x(t) + 2 y(t), \\
+y^\prime (t) \amp = -4 x (t) + y(t). 
+\end{align*}
+</div>
+</div></article><article class="exercise exercise-like" id="exercise-90"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="p-734">
+<div class="para">Give three linearly independent solutions to the differential equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^{\prime \prime \prime} (t)  = x (t). 
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exercise-91"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="p-735">Verify the claim that the basis <span class="process-math">\(\mathcal{B}_i\)</span> in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffbasis.html" title="Equation 5.3.7">(5.3.7)</a> gives a Jordan block (i.e. is of the form in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffblock.html" title="Equation 5.3.8">(5.3.8)</a>).</div></article><article class="exercise exercise-like" id="exercise-92"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="p-736">Find the motion <span class="process-math">\(x(t)\)</span> of a spring-mass system with mass <span class="process-math">\(1\text{,}\)</span> spring constant <span class="process-math">\(4\)</span> and damping constant <span class="process-math">\(10\)</span> assuming <span class="process-math">\(x(0) = 4\)</span> and <span class="process-math">\(x^\prime (0) = 2\text{.}\)</span>
+</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-lincode1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-lincode3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="li"><h4 class="heading"><span class="title">Alternating</span></h4>
+<div class="para logical">
+<div class="para">To show the alternating property, we may assume inductively that <span class="process-math">\(D_{n -1}\)</span> satisfies this property. This implies the cofactors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{equation*}
+C_{1i} = (-1)^{1 + i} D_{n - 1} (\mb{r}_2 , \ldots, \mb{r}_n)
+\end{equation*}
+</div>
+<div class="para">are also alternating and in turn, switching any two of the last <span class="process-math">\(n - 1\)</span> rows for <span class="process-math">\(D_n\)</span> does result in multiplying by <span class="process-math">\(-1\text{.}\)</span> Thus, we need only show that if we switch <span class="process-math">\(\mb{r}_i\)</span> with the <em class="emphasis">first</em> row <span class="process-math">\(\mb{r}_1\)</span> then <span class="process-math">\(D_n\)</span> switches signs.  Using the alternating property for the last <span class="process-math">\(n - 1\)</span> rows, we may assume that <span class="process-math">\(i = 2\text{.}\)</span> Furthermore, using the formula in <a href="" class="xref" data-knowl="./knowl/exa-2x2det.html" title="Example 2.7.11: Determinants of 2\times 2 matrices">Example 2.7.11</a> we see that the alternating property holds for <span class="process-math">\(2 \times 2\)</span> matrices, so we may assume <span class="process-math">\(n &gt; 2\text{.}\)</span> Finally, using row linearity, it suffices to show this property when <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> and <span class="process-math">\(\mb{r}_2 = \mb{e}_k\)</span> are standard basis row vectors.</div>
+</div>
+<div class="para">In the case where <span class="process-math">\(j = k\text{,}\)</span> one sees that the minor <span class="process-math">\(M_{1j}\)</span> is the <span class="process-math">\(D_{n - 1}\)</span> of a matrix with first row zero. So by the argument given above in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a>, we have <span class="process-math">\(C_{1j} = (-1)^{1 + j} M_{1j} = 0\text{.}\)</span> But as all other entries on the first row <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> are zero, we then have <span class="process-math">\(D_n (\mb{r}_1, \ldots, \mb{r}_n) = 0\)</span> so that switching the first two rows does act as multiplying the number <span class="process-math">\(0\)</span> by <span class="process-math">\(-1\text{.}\)</span>
+</div>
+<div class="para logical">
+<div class="para">Now assume we have two distinct indices, <span class="process-math">\(1 \leq j \leq n\)</span> and <span class="process-math">\(1 \leq k \leq n\)</span> and take <span class="process-math">\(A (j,k)\)</span> to be the submatrix of <span class="process-math">\(A\)</span> obtained by eliminating the first two rows and the <span class="process-math">\(j\)</span>-th and <span class="process-math">\(k\)</span>-the columns. A quick look shows then that if <span class="process-math">\(j \lt k\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_n (\mb{e}_j, \mb{e}_k, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + j} (-1)^{1 + (k - 1)} D_{n - 2} (A (j,k)). 
+\end{equation*}
+</div>
+<div class="para">Indeed, one must subtract <span class="process-math">\(1\)</span> from <span class="process-math">\(k\)</span> because, in the submatrix <span class="process-math">\(A_{1j}\)</span> obtained by eliminating the first row and the <span class="process-math">\(j\)</span>-th column, the index of the entry <span class="process-math">\(a_{2k}\)</span> goes down by one. On the other hand, this does not occur if we switch the order (again assuming <span class="process-math">\(j \lt k\)</span> ) so  we get</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D_n (\mb{e}_k, \mb{e}_j, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + k} (-1)^{1 + j} D_{n - 2} (A (j,k)). 
+\end{equation*}
+</div>
+<div class="para">The difference in the sign justifies that switching the first two rows does indeed multiply the value of <span class="process-math">\(D_n\)</span> by <span class="process-math">\(-1\text{.}\)</span>
+</div>
+</div></article><span class="incontext"><a href="sec-matrices3.html#li-60" class="internal">in-context</a></span>
+</body>
+</html>

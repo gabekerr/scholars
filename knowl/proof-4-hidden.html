@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para">To see that this is the case, we argue by induction. More precisely, we will show that (a) we can put an <span class="process-math">\(m \times 1\)</span> matrix in reduced row echelon form and (b) if we can put an <span class="process-math">\(m \times n\)</span> matrix in reduced row echelon form with elementary row operations, then we can do so with an <span class="process-math">\(m \times (n + 1)\)</span> matrix.</div> <div class="para logical">
+<div class="para">To accomplish step (a), suppose <span class="process-math">\(A = (a_{i1})\)</span> is an <span class="process-math">\(m \times 1\)</span> matrix. If <span class="process-math">\(a_{i1} = 0\)</span> for all <span class="process-math">\(1 \leq i \leq m\)</span> then <span class="process-math">\(A\)</span> is in reduced row echelon form already. Otherwise, choose the smallest <span class="process-math">\(i\)</span> for which <span class="process-math">\(a_{i1}\)</span> is non-zero. Using a Type I row operation, switch the <span class="process-math">\(i\)</span>-th row with the first row. Call this matrix <span class="process-math">\(A^\prime = (a_{i1}^\prime)\text{.}\)</span> Now <span class="process-math">\(a_{11}^\prime \ne 0\)</span> and we may use a Type II row operation to multiply the first row by <span class="process-math">\(1 / a_{11}^\prime\)</span> to obtain a matrix of the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^{\prime \prime} = \left[ \begin{matrix} 1 \\ a_{21}^\prime \\ \vdots \\ a_{m1}^\prime \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Finally, use Type III row operations to clear out the lower entries by adding <span class="process-math">\(-a^\prime_{i1}\)</span> times the first row to the <span class="process-math">\(i\)</span>-th row for each <span class="process-math">\(2 \leq i \leq m\text{.}\)</span> This gives the matrix</div>
+<div class="displaymath process-math">
+\begin{equation}
+A^{\prime \prime} = \left[ \begin{matrix} 1 \\ 0 \\ \vdots \\ 0 \end{matrix} \right] \tag{2.4.7}
+\end{equation}
+</div>
+<div class="para">which is in reduced row echelon form.</div>
+</div> <div class="para logical">
+<div class="para">Often in induction proofs, step (a) (called the base case) is trivial and the hard part is step (b) (called the induction step). In this proof though, step (a) is really where we learn our algorithm and step (b) is just a rehash of (a). Indeed, if we know that we can put an <span class="process-math">\(m \times n\)</span> matrix in reduced row echelon form and <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times (n + 1)\)</span> matrix then we can put the submatrix of <span class="process-math">\(A\)</span> consisting of the first <span class="process-math">\(n\)</span> columns in reduced echelon form with elementary row operations while ignoring the last column. What we will be left with is a matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^\prime  = \left[ \begin{array}{cccccccc|c}  0 \amp \cdots \amp 0 \amp 1 \amp * \amp \cdots \amp 0 \amp \cdots  \amp a_{1(n+1)} \\ 0 \amp \cdots \amp 0 \amp 0 \amp \cdots \amp 0 \amp 1 \amp \cdots  \amp a_{2(n+1)} \\ \vdots \amp  \amp  \amp  \amp  \amp \vdots \amp  \amp  \amp \vdots \\ 0 \amp 0  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp a_{r(n + 1)} \\ \vdots \amp  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp \vdots  \amp \vdots \\ 0 \amp 0   \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp a_{m(n + 1)} \end{array} \right].
+\end{equation*}
+</div>
+<div class="para">Here, we assume all the rows up to the <span class="process-math">\(r\)</span>-th row of the <span class="process-math">\(m \times n\)</span> submatrix are non-zero, and from the <span class="process-math">\(r\)</span>-th down are zero. But then apply part (a) of the argument to the last  part of the last column</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\threevec{a_{r(n + 1)}}{{\vdots}}{{a_{m(n + 1)}}} . 
+\end{equation*}
+</div>
+<div class="para">Since the columns before this are all zero (for the affected rows), there is no effect on the left hand side.  If there's a non-zero entry of the above vector we obtain a matrix of the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^{\prime \prime} = \left[ \begin{array}{cccccccc|c}  0 \amp \cdots \amp 0 \amp 1 \amp * \amp \cdots \amp 0 \amp \cdots  \amp a_{1(n+1)} \\ 0 \amp \cdots \amp 0 \amp 0 \amp \cdots \amp 0 \amp 1 \amp \cdots  \amp a_{2(n+1)} \\ \vdots \amp  \amp  \amp  \amp  \amp \vdots \amp  \amp  \amp \vdots \\ 0 \amp 0  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp 1 \\ 0 \amp 0  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp \vdots  \amp \vdots \\ \vdots \amp \vdots  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp 0 \end{array} \right]. 
+\end{equation*}
+</div>
+<div class="para">Adding multiples <span class="process-math">\(-a_{i(n + 1)}\)</span> of the <span class="process-math">\(r\)</span>-th row to the <span class="process-math">\(i\)</span>-th row puts this final matrix into reduced row echelon form.</div>
+</div></article></body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vector Spaces II</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 3">
+<meta property="book:author" content="Gabriel Kerr">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 3</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-matrices2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-linear-algebra.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-lineartransformations2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\textnormal{rank}}
+\newcommand{\nullity}{\textnormal{nullity}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-equation.html#subsection-1" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
+<li><div class="toc-item"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsection-12" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-paths.html#subsection-16" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE's</span></a></div></li>
+<li><div class="toc-item"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">ower Series Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-vectorspaces2"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span>
+</h2>
+<div class="para" id="p-241">In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. For that we need the following definition.</div>
+<article class="definition definition-like" id="def-linearindependent"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span>
+</h3> <div class="para logical" id="p-242">
+<div class="para">Let <span class="process-math">\(V\)</span> be a vector space over <span class="process-math">\(K\text{.}\)</span> We say that the vectors  <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_n\)</span> are <dfn class="terminology">linearly independent</dfn> if the equality</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n = \mb{0} 
+\end{equation*}
+</div>
+<div class="para">implies that <span class="process-math">\(a_1, \ldots , a_n\)</span> are all zero.</div>
+</div></article><div class="para" id="p-243">The equation in <a href="" class="xref" data-knowl="./knowl/def-linearindependent.html" title="Definition 2.5.1">Definition 2.5.1</a> is called a <dfn class="terminology">linear relation</dfn>. So an alternative way of saying that the vectors are linearly independent is that there is no non-trivial linear relation. Yet another way of expressing linear independence is given in the following proposition which the reader can check.</div>
+<article class="proposition theorem-like" id="prop-basisindspan"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-244">A set of vectors is linearly independent if and only if they form a basis of their span.</div></article><div class="para logical" id="p-245">
+<div class="para">One practical reason to want a linearly independent set of vectors is to parameterize (or ‘give coordinates’ to) their span. Indeed, if <span class="process-math">\(\mathcal{A} = \{\mb{v}_1 , \ldots, \mb{v}_n \}\)</span> is an ordered set of vectors in <span class="process-math">\(V\text{,}\)</span> then define the function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\chart{}{\mathcal{A}} : K^n \to V 
+\end{equation*}
+</div>
+<div class="para">by</div>
+<div class="displaymath process-math" id="eq-chartinverse">
+\begin{equation}
+\left[ \begin{matrix} a_1 \\ \vdots \\ a_n \end{matrix} \right]_{\mathcal{A}} = a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n. \tag{2.5.1}
+\end{equation}
+</div>
+</div>
+<div class="para" id="p-246">Then a third way of expressing linear independence can be given as follows.</div>
+<article class="proposition theorem-like" id="proposition-7"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-247">The set of vectors <span class="process-math">\(\mathcal{A}\)</span> is linearly independent if and only if <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> is one-to-one.</div></article><div class="para" id="p-248">Note that if <span class="process-math">\(\mathcal{A}\)</span> is also a basis of <span class="process-math">\(V\)</span> (i.e. it spans all of <span class="process-math">\(V\)</span>), then <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> is the inverse function to <span class="process-math">\(\coord{}{\mathcal{A}}\text{.}\)</span>
+</div>
+<div class="para" id="p-249">There are instances when it is nice to be able to parameterize lines, planes and higher dimensional subspaces in a given vector space, and <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> can often be used for this purpose. But to do this in <span class="process-math">\(V = K^m\text{,}\)</span> one must first see that a given set of column vectors is linearly independent.</div>
+<article class="proposition theorem-like" id="prop-computelinind"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-250">
+<div class="para">Suppose <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_n\)</span> are column vectors in <span class="process-math">\(K^m\text{.}\)</span> They are linearly independent if and only if the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">has no free columns.</div>
+</div></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><div class="para logical" id="p-251">
+<div class="para">To see this, just recall from <a href="" class="xref" data-knowl="./knowl/exa-matrixasrowcolumns.html" title="Example 2.2.12: Linear combinations of rows and columns of a matrix">Example 2.2.12</a> the fact that any linear combination of the <span class="process-math">\(\mb{c}_i\)</span>'s can be written as the product</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-matrixasrowcolumns.html ./knowl/thm-rowechsolution.html">
+\begin{equation*}
+\left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right] \left[ \begin{matrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{matrix} \right] = a_1 \mb{c}_1 + a_2 \mb{c}_2 + \cdots a_n \mb{c}_n. 
+\end{equation*}
+</div>
+<div class="para">In particular, the numbers <span class="process-math">\(a_1, \ldots, a_n\)</span> give a linear relation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-matrixasrowcolumns.html ./knowl/thm-rowechsolution.html">
+\begin{equation*}
+a_1 \mb{c}_1 + a_2 \mb{c}_2 + \cdots a_n \mb{c}_n = \mb{0} 
+\end{equation*}
+</div>
+<div class="para">if and only if they solve the matrix equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-matrixasrowcolumns.html ./knowl/thm-rowechsolution.html">
+\begin{equation*}
+A \mb{x} = \mb{0}. 
+\end{equation*}
+</div>
+<div class="para">But <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a> Case (2) says that the solution is unique if and only if there are no free variables of the reduced row echelon equation <span class="process-math">\(A^\prime \mb{x} = \mb{0}\text{.}\)</span> This implies there are no free columns of <span class="process-math">\(A\text{.}\)</span>
+</div>
+</div></article></div>
+<div class="para" id="p-252">
+<a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a>, along with row reduction, gives a computational way to check linear independence.</div>
+<article class="example example-like" id="exa-lineardep"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-lineardep"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Testing linear independence by solving a matrix equation.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-lineardep"><article class="example example-like"><div class="para logical" id="p-253">
+<div class="para">Let us see whether the vectors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\threevec{1}{3}{-1} , \threevec{0}{2}{1}, \threevec{2}{4}{-3} 
+\end{equation*}
+</div>
+<div class="para">are linearly independent or not. We compute the reduced row echelon form to see if every column is basic:</div>
+<div class="displaymath process-math" id="md-30">
+\begin{align*}
+\left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 3 \amp 2 \amp 4 \\ -1 \amp 1 \amp -3 \end{matrix} \right] \amp \stackrel{\mb{r}_2 - 3 \mb{r}_1}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 2 \amp -2 \\ -1 \amp 1 \amp -3 \end{matrix} \right], \\ \amp \stackrel{\mb{r}_3 + \mb{r}_1}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 2 \amp -2 \\ 0 \amp 1 \amp -1 \end{matrix} \right],\\
+\amp \stackrel{1/2 \mb{r}_2}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 1 \amp -1 \end{matrix} \right],\\
+\amp \stackrel{\mb{r}_3 - \mb{r}_2}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \end{matrix} \right].
+\end{align*}
+</div>
+<div class="para">We can see that the third column gives a free variable so our set is <em class="emphasis">not</em> linearly independent (also called <dfn class="terminology">linearly dependent</dfn>).</div>
+</div> <div class="para logical" id="p-254">
+<div class="para">However, by simply forgetting about the third vector (or column in the computation) we see that the first two vectors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\threevec{1}{3}{-1} , \threevec{0}{2}{1} 
+\end{equation*}
+</div>
+<div class="para">
+<em class="emphasis">are</em> linearly independent. Being linearly independent depends heavily on the <em class="emphasis">collection</em> of vectors you are considering.</div>
+</div></article></div>
+<article class="corollary theorem-like" id="cor-linindmatsize"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.5.6</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-255">If <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_n\)</span> are linearly independent vectors in <span class="process-math">\(K^m\text{,}\)</span> then <span class="process-math">\(n \leq m\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><div class="para logical" id="p-256">
+<div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> there have to be no free columns of the <span class="process-math">\(m \times n\)</span> matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-computelinind.html">
+\begin{equation*}
+A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Suppose <span class="process-math">\(A^\prime\)</span> is the matrix <span class="process-math">\(A\)</span> in reduced row echelon form. Then <span class="process-math">\(A^\prime\)</span> has a leading coefficient in every column (otherwise that column corresponds to a free variable). But this gives at least <span class="process-math">\(n\)</span> leading coefficients for <span class="process-math">\(n\)</span> unique rows. So the number of rows <span class="process-math">\(m\)</span> must be at least <span class="process-math">\(n\)</span> or, in other words, <span class="process-math">\(n \leq m\text{.}\)</span>
+</div>
+</div></article></div>
+<div class="para" id="p-257">Another important application of <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> leads directly to the definition of dimension.</div>
+<article class="corollary theorem-like" id="corollary-2"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.5.7</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-258">If <span class="process-math">\(V\)</span> is a vector space over <span class="process-math">\(K\text{,}\)</span> then any two bases of <span class="process-math">\(V\)</span> have the same number of elements.</div></article><article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><div class="para logical" id="p-259">
+<div class="para">Suppose <span class="process-math">\(V\)</span> has bases <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots , \mb{v}_n \}\)</span> and <span class="process-math">\(\mathcal{C} = \{ \mb{w}_1, \ldots, \mb{w}_m \}\text{.}\)</span> Then by exercise <a href="" class="xref" data-knowl="./knowl/exe-coordiso.html" title="Exercise 2.3.4">Exercise 2.3.4</a>, we have that there are isomorphisms</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-coordiso.html" id="md-31">
+\begin{align*}
+\coord{}{\mathcal{B}} : V \amp \to K^n \amp \coord{}{\mathcal{C}} : V \amp \to K^m.
+\end{align*}
+</div>
+<div class="para">Now, since <span class="process-math">\(\mathcal{B}\)</span> is a basis, it is a linearly independent set. And since <span class="process-math">\(\coord{}{\mathcal{C}}\)</span> is one-to-one, the vectors <span class="process-math">\(\coord{\mb{v}_1}{\mathcal{C}}, \ldots , \coord{\mb{v}_n}{\mathcal{C}}\)</span> must also be linearly independent (why?). But by the previous corollary, this implies that <span class="process-math">\(n \leq m\text{.}\)</span> Using the same argument of the vectors <span class="process-math">\(\coord{\mb{w}_1}{\mathcal{B}}, \ldots , \coord{\mb{w}_m}{\mathcal{B}}\)</span> in <span class="process-math">\(K^n\)</span> shows that <span class="process-math">\(m \leq n\text{.}\)</span> Together this gives <span class="process-math">\(m = n\text{.}\)</span>
+</div>
+</div></article></div>
+<div class="para" id="p-260">This tells us that, while there are infinitely many bases of a vector space, all of them have the same number of vectors in them. This allows us to make the following definition.</div>
+<article class="definition definition-like" id="def-dimension"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.8</span><span class="period">.</span>
+</h3> <div class="para" id="p-261">Given a vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> we say that the dimension of <span class="process-math">\(V\)</span> is <span class="process-math">\(n\)</span> if there is a basis of <span class="process-math">\(V\)</span> with <span class="process-math">\(n\)</span> elements. This is denoted <span class="process-math">\(\dim_K (V) = n\text{.}\)</span> If <span class="process-math">\(V\)</span> has no finite basis, we say that <span class="process-math">\(V\)</span> is infinite dimensional.</div></article><div class="para" id="p-262">We record a nice fact that uses our knowledge of linear independence.</div>
+<article class="corollary theorem-like" id="cor-strictinequalitysubspace"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.5.9</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-263">If <span class="process-math">\(W\)</span> is a proper vector subspace of a finite dimensional space <span class="process-math">\(V\)</span> then <span class="process-math">\(W\)</span> is finite dimensional and <span class="process-math">\(\dim W \lt \dim V\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><div class="para" id="p-264">Suppose <span class="process-math">\(V\)</span> is <span class="process-math">\(n\)</span> dimensional. Then by <a href="" class="xref" data-knowl="./knowl/cor-linindmatsize.html" title="Corollary 2.5.6">Corollary 2.5.6</a> and the argument above, any linearly independent set in <span class="process-math">\(V\)</span> has at most <span class="process-math">\(n\)</span> vectors. Let <span class="process-math">\(\mathcal{A} = \{\mb{w}_1, \ldots, \mb{w}_k\}\)</span> be a set of linearly independent vectors in <span class="process-math">\(W\)</span> of maximal size. Then we contend that <span class="process-math">\(\mathcal{A}\)</span> is a basis of <span class="process-math">\(W\text{.}\)</span> If not, then there is a <span class="process-math">\(\mb{w} \in W\)</span> which is not in the span of <span class="process-math">\(\mathcal{A}\text{.}\)</span> But then we see that <span class="process-math">\(\{\mb{w} , \mb{w}_1, \ldots, \mb{w}_k\}\)</span> is also linearly independent (why?). This contradiction shows that <span class="process-math">\(W\)</span> must have a basis.</div> <div class="para" id="p-265">Now, as <span class="process-math">\(W\)</span> is a proper subspace of <span class="process-math">\(V\text{,}\)</span> there is a vector <span class="process-math">\(\mb{v}\)</span> of <span class="process-math">\(V\)</span> which is not in <span class="process-math">\(W\text{.}\)</span> But then, for the same reason as above, the set <span class="process-math">\(\{\mb{v}, \mb{w}_1, \ldots, \mb{w}_k\}\)</span> must be linearly independent. By <a href="" class="xref" data-knowl="./knowl/cor-dimensions.html" title="Corollary 2.6.4">Corollary 2.6.4</a>, this means <span class="process-math">\(k + 1 \leq n\)</span> which implies <span class="process-math">\(k \lt n\text{.}\)</span>
+</div></article></div>
+<div class="para" id="p-266">Instead of considering linear independence of rows and columns, we can focus on the span of the rows and/or columns.</div>
+<article class="definition definition-like" id="def-rowcolspace"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.10</span><span class="period">.</span>
+</h3> <div class="para logical" id="p-267">
+<div class="para">Given an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> with entries in <span class="process-math">\(K\text{,}\)</span>
+</div>
+<ol class="decimal">
+<li id="li-42"><div class="para" id="p-derived-li-42">the <dfn class="terminology">column space</dfn> of <span class="process-math">\(A\)</span> is the span of the columns of <span class="process-math">\(A\)</span> in <span class="process-math">\(K^m\text{.}\)</span>
+</div></li>
+<li id="li-43"><div class="para" id="p-derived-li-43">the <dfn class="terminology">row space</dfn> of <span class="process-math">\(A\)</span> is the span of the rows of <span class="process-math">\(A\)</span> in <span class="process-math">\(K^n\text{.}\)</span>
+</div></li>
+</ol>
+</div></article><div class="para" id="p-268">Note that Example <a href="" class="xref" data-knowl="./knowl/exa-matrixasrowcolumns.html" title="Example 2.2.12: Linear combinations of rows and columns of a matrix">Example 2.2.12</a> shows that the column space is equal to the image of the linear transformation obtained by left multiplying a column vector in <span class="process-math">\(K^n\)</span> by <span class="process-math">\(A\)</span> while the row space is the image of right multiplying a row vector in <span class="process-math">\(K^m\text{.}\)</span> The following proposition gives bases for both of these spaces.</div>
+<article class="proposition theorem-like" id="prop-basescolrow"><h3 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.11</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-269">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix and <span class="process-math">\(A^\prime\)</span> its reduced row echelon form. Suppose <span class="process-math">\(\mathcal{C} = \{ \mb{c}_{i_1}, \ldots, \mb{c}_{i_s}\}\)</span> are the basic columns of <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\mathcal{R} = \{\mb{r}^\prime_1, \ldots , \mb{r}^\prime_s \}\)</span> are the first <span class="process-math">\(s\)</span> rows of <span class="process-math">\(A^\prime\text{.}\)</span> Then <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space of <span class="process-math">\(A\)</span> and <span class="process-math">\(\mathcal{R}\)</span> is a basis for the row space of <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-9"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof"><div class="para" id="p-270">To see that <span class="process-math">\(\mathcal{C}\)</span> is a basis, note that it is linearly independent by <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a>. Indeed, the reduced row echelon form of the matrix with <em class="emphasis">only</em> these columns is the same as the submatrix of <span class="process-math">\(A^\prime\)</span> with only these columns. In particular, it has no free columns and the cited proposition implies that <span class="process-math">\(\mathcal{C}\)</span> is linearly independent. On the other hand, adding any other column of <span class="process-math">\(A\)</span> to <span class="process-math">\(\mathcal{C}\)</span> fails the test in <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> for the same reason. But that means that any other column can be written as a linear combination of the columns in <span class="process-math">\(\mathcal{C}\)</span> (why?). Thus <span class="process-math">\(\mathcal{C}\)</span> spans the column space and is linearly independent. By <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a>, <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space.</div> <div class="para logical" id="p-271">
+<div class="para">For the row space, we note that all of the row vectors of <span class="process-math">\(\mathcal{R}\)</span> are linear combinations of the rows in <span class="process-math">\(A\)</span> because row operations create rows that are linear combinations of the existing rows. Also, since row operations are reversible (in other words, <span class="process-math">\(A\)</span> can be recovered by performing row operations on <span class="process-math">\(A^\prime\)</span>), every row of <span class="process-math">\(A\)</span> is a linear combination of those in <span class="process-math">\(A^\prime\text{.}\)</span> This implies the span of <span class="process-math">\(\mathcal{R}\)</span> is the row space (why?). On the other hand, if</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-basisindspan.html">
+\begin{equation*}
+a_1 \mb{r}^\prime_1 + \cdots  + a_s \mb{r}^\prime_s 
+\end{equation*}
+</div>
+<div class="para">is a linear combination, then projecting to the <span class="process-math">\(i_1, i_2, \ldots, i_s\)</span> basic columns, we have the vector</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-basisindspan.html">
+\begin{equation*}
+\left[ \begin{matrix} a_1 \amp a_2 \amp \cdots \amp a_s \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">This is because the coordinate of <span class="process-math">\(\mb{r}_j^\prime\)</span> in the <span class="process-math">\(i_j\)</span> column is <span class="process-math">\(1\)</span> and is zero for all other <span class="process-math">\(i_k\)</span> columns (because <span class="process-math">\(A^\prime\)</span> is in reduced row echelon form). Thus the linear combination is the zero vector only if all <span class="process-math">\(a_i\)</span> are zero, meaning <span class="process-math">\(\mathcal{R}\)</span> is linearly independent. Again by <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a> we have that <span class="process-math">\(\mathcal{R}\)</span> is a basis.</div>
+</div></article></div>
+<div class="para" id="p-272">We note here that the bases for the column and row spaces have the same number of vectors!</div>
+<section class="exercises" id="exe-vectorspaces2"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exe-planesfromequations"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-15"><div class="para logical" id="p-273">
+<div class="para">Implicit equations for planes in <span class="process-math">\(\mathbb{R}^3\)</span> with coordinates <span class="process-math">\((x, y, z)\)</span> are of the form</div>
+<div class="displaymath process-math" id="eq-plane">
+\begin{equation}
+a x + b y + c z = d \tag{2.5.2}
+\end{equation}
+</div>
+<div class="para">where <span class="process-math">\(a, b, c,\)</span> and <span class="process-math">\(d\)</span> are real numbers. If <span class="process-math">\(d = 0\)</span> the plane is a vector subspace of <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> For each of the following planes, find a basis <span class="process-math">\(\mathcal{A}\)</span> and give a parameterization defined by <span class="process-math">\([]_{\mathcal{A}} : \mathbb{R}^2 \to \mathbb{R}^3\text{.}\)</span>
+</div>
+</div></div>
+<article class="task exercise-like" id="task-30"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="p-274"><div class="displaymath process-math">
+\begin{equation*}
+x - y + z = 0 
+\end{equation*}
+</div></div></article><article class="task exercise-like" id="task-31"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="p-275"><div class="displaymath process-math">
+\begin{equation*}
+y + 2z = 0 
+\end{equation*}
+</div></div></article></article><article class="exercise exercise-like" id="exercise-39"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-276">Prove <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a>.</div></article><article class="exercise exercise-like" id="exercise-40"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-277">For each matrix in Exercise <a href="" class="xref" data-knowl="./knowl/exe-planesfromequations.html" title="Exercise 2.5.1">Exercise 2.5.1</a>, give a basis for the row space and a basis for the column space.</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-matrices2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-lineartransformations2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

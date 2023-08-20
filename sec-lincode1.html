@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linear Constant Coefficient ODE I</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Scholars Calculus 3">
+<meta property="book:author" content="Gabriel Kerr">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 3</span></a></h1>
+<p class="byline">Gabriel Kerr</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-paths.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-ordinary-differential-equations.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-lincode2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\diff}{\text{d}}
+\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\coord}[2]{[#1]^{#2}}
+\newcommand{\chart}[2]{[#1]_{#2}}
+\newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+\newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+\newcommand{\im}{{\text{im}}}
+\newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+\newcommand{\rk}{\textnormal{rank}}
+\newcommand{\nullity}{\textnormal{nullity}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-equation.html#subsection-1" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
+<li><div class="toc-item"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
+<li><div class="toc-item"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsection-12" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-paths.html#subsection-16" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE's</span></a></div></li>
+<li><div class="toc-item"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">ower Series Methods</span></a></div></li>
+<li><div class="toc-item"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lincode1"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span>
+</h2>
+<div class="para logical" id="p-696">
+<div class="para">In this section, we will look at and solve our first non-trivial ordinary differential equation. First though, we recall what it is that we are trying to solve. Quite generally, let <span class="process-math">\(V\)</span> be a finite dimensional inner product space and <span class="process-math">\(\mb{F}_t : V \to V\)</span> be a collection of functions, one for every <span class="process-math">\(t\)</span> in some interval <span class="process-math">\(I\text{.}\)</span> This collection should be thought of as a time varying <dfn class="terminology">vector field</dfn>, which we will study in later sections. The general ordinary differential equation can be written</div>
+<div class="displaymath process-math" id="eq-generalODE">
+\begin{equation}
+\dot{\mb{x}}  = \mb{F}_t ( \mb{x}).\tag{5.2.1}
+\end{equation}
+</div>
+<div class="para">A <dfn class="terminology">particular solution</dfn> to this equation is simply some path <span class="process-math">\(\mb{x} (t)\)</span> that satisfies this equation. However, just as is the case with solving a linear system of equations, we can ask for a <dfn class="terminology">general solution</dfn> which will include parameters and give all solutions to our equation. Sadly, for most ODEs, finding any closed form solution is out of the question. Nonetheless, we will see a theorem assuring us that a solution exists (under some mild conditions on <span class="process-math">\(\mb{F}_t\)</span>) and that, once the initial condition <span class="process-math">\(\mb{x} (0)\)</span> is fixed, this solution is unique. Let us state this last fact as a ‘theorem’ that will be proved later.</div>
+</div>
+<article class="theorem theorem-like" id="thm-uniqueode"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Uniqueness of Solutions to ODEs.</span>
+</h3>
+<div class="para" id="p-697">Suppose <span class="process-math">\(\mb{x}\)</span> and <span class="process-math">\(\tilde{\mb{x}}\)</span> solve equation <a href="" class="xref" data-knowl="./knowl/eq-generalODE.html" title="Equation 5.2.1">(5.2.1)</a> under suitable conditions and <span class="process-math">\(\mb{x} (0) = \tilde{\mb{x}} (0)\text{,}\)</span> then <span class="process-math">\(\mb{x} = \tilde{\mb{x}}\text{.}\)</span>
+</div></article><div class="para" id="p-698">The suitable conditions mentioned in this theorem concern differentiability of <span class="process-math">\(\mb{F}\text{,}\)</span> which we will study in the coming sections. As was mentioned, finding closed solutions to a general ODE can be difficult to impossible. However, the situation changes if we restrict our attention to only certain types of functions <span class="process-math">\(\mb{F}_t\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="def-hlccode"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
+</h3> <div class="para logical" id="p-699">
+<div class="para">Given a finite dimensional inner product space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> a <dfn class="terminology">homogeneous linear constant coefficient ordinary differential equation</dfn> is an equation of the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\mb{x}} = T ( \mb{x} ) 
+\end{equation*}
+</div>
+<div class="para">for some linear transformation <span class="process-math">\(T : V \to V\text{.}\)</span>
+</div>
+</div></article><div class="para" id="p-700">Note that the linear transformation is not changing with respect to the independent variable <span class="process-math">\(t\)</span> of <span class="process-math">\(\mb{x}\text{.}\)</span> The advantage of having done sufficient linear algebra prior to this equation now becomes clear. We can solve this equation immediately by understanding its solution for the case where <span class="process-math">\(T\)</span> can be represented as a Jordan block. After that, we simply add solutions together for the general case.</div>
+<article class="lemma theorem-like" id="lem-solveodejb"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-701">
+<div class="para">Suppose <span class="process-math">\(T\)</span> is represented as a Jordan block <span class="process-math">\(J_{\lambda, m}\)</span> with respect to the basis <span class="process-math">\(\mathcal{B} = \{\mb{v}_0, \mb{v}_1, \ldots, \mb{v}_{m - 1}\}\text{.}\)</span> For any <span class="process-math">\(0 \leq k \leq m - 1\)</span> let <span class="process-math">\(\mb{y}_k\)</span> be the path defined by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{y}_k (t) = \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k. 
+\end{equation*}
+</div>
+<div class="para">Letting</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x}_k (t) = e^{\lambda t} \mb{y}_k (t)
+\end{equation*}
+</div>
+<div class="para">the general solution to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\mb{x}} = T ( \mb{x} ) 
+\end{equation*}
+</div>
+<div class="para">is</div>
+<div class="displaymath process-math" id="eq-genlinsol">
+\begin{equation}
+\mb{x} (t) = C_0 \mb{x}_0 (t) + C_1  \mb{x}_1 (t) + \cdots + C_{m - 1}  \mb{x}_{m - 1} (t)  \tag{5.2.2}
+\end{equation}
+</div>
+<div class="para">for scalars <span class="process-math">\(C_0, C_1 , \ldots, C_{m - 1}\text{.}\)</span> This is the unique solution with initial condition</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (0) = \threevec{C_0}{\vdots}{C_{m - 1}}_{\mathcal{B}}.
+\end{equation*}
+</div>
+</div></article><article class="hiddenproof" id="proof-48"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-48"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-48"><article class="hiddenproof"><div class="para logical" id="p-702">
+<div class="para">To prove this, we need only show that <span class="process-math">\(\mb{x} (t)\)</span> is a solution with the correct initial condition. Indeed, as our initial condition <span class="process-math">\(\mb{x} (0)\)</span> can be any vector in <span class="process-math">\(V\text{,}\)</span> any other solution <span class="process-math">\(\mb{y} (t)\)</span> would have to be of this form by <a href="" class="xref" data-knowl="./knowl/thm-uniqueode.html" title="Theorem 5.2.1: Uniqueness of Solutions to ODEs">Theorem 5.2.1</a>. To do this, we compute the tangent vectors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-71">
+\begin{align*}
+\mb{y}^\prime_k (t) \amp = \frac{d}{dt} \left( \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k \right), \\
+\amp =  \frac{t^{k - 1}}{(k - 1)!} \mb{v}_0 + \frac{t^{k - 2}}{(k - 2)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 2} +  \mb{v}_{k - 1}, \\ \amp = \mb{y}_{k - 1} (t). 
+\end{align*}
+</div>
+<div class="para">Here we take <span class="process-math">\(\mb{y}_{-1} (t) = \mb{0}\text{.}\)</span> This, along with <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> and the product rule for paths <a href="" class="xref" data-knowl="./knowl/prop-productrulepaths.html" title="Proposition 5.1.11: Product Rule for Paths">Proposition 5.1.11</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-72">
+\begin{align*}
+\mb{x}_k^\prime (t) \amp =   \frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right), \\
+\amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t). 
+\end{align*}
+</div>
+<div class="para">On the other hand, as <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}} = J_{\lambda, m}\text{,}\)</span> we have that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html">
+\begin{equation*}
+T ( \mb{v}_j ) = \lambda \mb{v}_j + \mb{v}_{j - 1} . 
+\end{equation*}
+</div>
+<div class="para">This with linearity gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-73">
+\begin{align*}
+T ( \mb{y}_k (t) ) \amp = T \left( \frac{t^k}{k!} \mb{v}_0 \right) +   T \left( \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 \right) + \cdots +  T \left( \frac{t^1}{1!} \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), \\
+\amp =   \frac{t^k}{k!} T \left(  \mb{v}_0 \right) +   \frac{t^{k - 1}}{(k - 1)!} T \left(  \mb{v}_1 \right) + \cdots + \frac{t^1}{1!} T \left(  \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), \\
+\amp =  \frac{t^k}{k!} \left( \lambda  \mb{v}_0 \right) +    \frac{t^{k - 1}}{(k - 1)!} \left( \lambda \mb{v}_1 + \mb{v}_{0} \right) + \cdots + \frac{t^1}{1!} \left( \lambda \mb{v}_{k - 1} + \mb{v}_{k - 2} \right) + \left( \lambda \mb{v}_k + \mb{v}_{k - 1} \right), \\
+\amp =  \lambda \left( \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k \right) + \cdots \\
+\amp \cdots +  \left(  \frac{t^{k - 1}}{(k - 1)!} \mb{v}_0 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 2} +  \mb{v}_{k - 1} \right), \\
+\amp = \lambda \mb{y}_k (t) + \mb{y}_{k - 1} (t).  
+\end{align*}
+</div>
+<div class="para">Again using linearity we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-74">
+\begin{align*}
+\frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right) \amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t), \\
+\amp = e^{\lambda t} \left( \lambda \mb{y}_k (t) + \mb{y}_{k - 1} (t) \right), \\
+\amp = e^{\lambda t} T ( \mb{y}_k (t)) , \\
+\amp = T \left( e^{\lambda t} \mb{y}_k (t) \right). 
+\end{align*}
+</div>
+<div class="para">This shows that <span class="process-math">\(\mb{x}_k (t) = e^{\lambda t} \mb{y}_k (t)\)</span> solves the ODE for each <span class="process-math">\(0 \leq k \leq m - 1\text{.}\)</span> As both sides are linear in paths, we can take any linear combination of these solutions to get another one (note that this is not the case for any ODE and results from the homogeneous condition). Thus the path in equation~<a href="" class="xref" data-knowl="./knowl/eq-genlinsol.html" title="Equation 5.2.2">(5.2.2)</a> is a solution.</div>
+</div></article></div>
+<div class="para" id="p-703">Of course, if we can decompose <span class="process-math">\(T\)</span> into block diagonals of the form above, we need only add the resulting solutions.</div>
+<article class="lemma theorem-like" id="lem-eigensol"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-704">
+<div class="para">If <span class="process-math">\(V\)</span> is an inner product space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation with characteristic polynomial <span class="process-math">\(p_T ( t) = (t - \lambda)^m\text{,}\)</span> then there are sets <span class="process-math">\(\mathcal{B}_1, \ldots, \mathcal{B}_r\)</span> of vectors whose union is a basis for <span class="process-math">\(V\)</span> and for which <span class="process-math">\(T\)</span> is represented as a Jordan block for <span class="process-math">\(V_i = \text{span} (\mathcal{B}_i)\text{.}\)</span> Any solution to</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-solveodejb.html">
+\begin{equation*}
+\dot{\mb{x}} = T ( \mb{x} ) 
+\end{equation*}
+</div>
+<div class="para">can be obtained by solving it as in <a href="" class="xref" data-knowl="./knowl/lem-solveodejb.html" title="Lemma 5.2.3">Lemma 5.2.3</a> for each <span class="process-math">\(V_i\)</span> and adding the resulting paths together. Such a solution will be called a <span class="process-math">\(\lambda\)</span>-eigenspace solution.</div>
+</div></article><div class="para" id="p-705">The following theorem is an immediate corollary of these lemmas.</div>
+<article class="theorem theorem-like" id="thm-generallinearhomogeneoussol"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.5</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-706">
+<div class="para">Let <span class="process-math">\(V\)</span> be a finite dimensional inner product space and <span class="process-math">\(T: V \to V\)</span> a linear transformation with characteristic polynomial</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_T (t) = (t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}. 
+\end{equation*}
+</div>
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} 
+\end{equation*}
+</div>
+<div class="para">be the decomposition of <span class="process-math">\(V\)</span> into generalized eigenspaces so that <span class="process-math">\(T = T_1 \oplus \cdots \oplus T_m\text{.}\)</span> Then every solution <span class="process-math">\(\mb{x}\)</span> to</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\mb{x}} = T ( \mb{x} ) 
+\end{equation*}
+</div>
+<div class="para">can be uniquely written as a linear combination</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} = \mb{y}_1 + \cdots + \mb{y}_m 
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\mb{y}_j\)</span> is a <span class="process-math">\(\lambda_i\)</span>-eigenspace solution to</div>
+<div class="displaymath process-math" id="eq-geneigspaces">
+\begin{equation}
+\dot{\mb{y}}_i = T_i (\mb{y}_i ) . \tag{5.2.3}
+\end{equation}
+</div>
+</div></article><div class="para" id="p-707">In the next section, we will give a tremendous number of detailed examples illustrating the power of this result and approach.</div>
+<section class="exercises" id="exe-lincode1"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-85"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="p-708">
+<div class="para">Suppose the <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P^{-1} A P = \text{Diag} (\lambda_1, \ldots, \lambda_n ) . 
+\end{equation*}
+</div>
+<div class="para">If</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (t) = \threevec{x_1 (t)}{\vdots}{x_n (t)} 
+\end{equation*}
+</div>
+<div class="para">denotes a path in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> what is the general solution to the differentiable equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\mb{x}} = A \mb{x} ? 
+\end{equation*}
+</div>
+<div class="para">You may write your answer using <span class="process-math">\(P\text{.}\)</span>
+</div>
+</div></article><article class="exercise exercise-like" id="exercise-86"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-37"><div class="para logical" id="p-709">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} 0 \amp -2 \amp 1 \\ -1 \amp 0 \amp 0 \\ -5 \amp 7 \amp -3 \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r} (t) = \threevec{x (t)}{y (t)}{z (t)} 
+\end{equation*}
+</div>
+<div class="para">a path in <span class="process-math">\(\mathbb{R}^3\text{.}\)</span>
+</div>
+</div></div>
+<article class="task exercise-like" id="task-77"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="p-710">
+<div class="para">Write out the differential equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r}^\prime (t) = A \mb{r} (t) 
+\end{equation*}
+</div>
+<div class="para">as three differential equations in <span class="process-math">\(x(t), y(t)\)</span> and <span class="process-math">\(z(t)\text{.}\)</span>
+</div>
+</div></article><article class="task exercise-like" id="task-78"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="p-711">
+<div class="para">Give the particular solution to the differential equation with initial conditions</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r} (0 ) = \threevec{1}{-1}{1} . 
+\end{equation*}
+</div>
+</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-paths.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-lincode2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

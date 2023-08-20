@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><div class="para logical">
+<div class="para">If either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> is not invertible, then <span class="process-math">\(AB\)</span> is not invertible. Indeed, if <span class="process-math">\(C\)</span> were an inverse of <span class="process-math">\((AB)\)</span> then <span class="process-math">\(A (BC) = (AB) C = I\)</span> and <span class="process-math">\((CA) B = C(AB) = I\)</span> would show that <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> had an inverse (here you would need to observe that, for square matrices, a left or right inverse is an inverse which follows from <a href="" class="xref" data-knowl="./knowl/lem-rightleftinverse.html" title="Lemma 2.7.17">Lemma 2.7.17</a> proven independently below). Thus in the non-invertible case both sides are zero. On the other hand, if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible, then by <a href="" class="xref" data-knowl="./knowl/prop-productofelem.html" title="Proposition 2.7.6">Proposition 2.7.6</a>, they are both products of elementary matrices</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html">
+\begin{align*}
+A \amp = E_1 \cdots E_r,\\
+B \amp = \tilde{E}_1 \cdots \tilde{E}_s.
+\end{align*}
+</div>
+<div class="para">So repeatedly using <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html">
+\begin{align*}
+\det (AB) \amp = \det (E_1 \cdots E_r\tilde{E}_1 \cdots \tilde{E}_s ) ,\\
+\amp = \det (E_1)  \cdots \det (E_r) \det (\tilde{E}_1 \cdots \tilde{E}_s ) ,\\
+\amp = \det (E_1 \cdots E_r)  \det (\tilde{E}_1 \cdots \tilde{E}_s ) ,\\
+\amp = \det (A) \det (B).
+\end{align*}
+</div>
+</div></article></body>
+</html>
