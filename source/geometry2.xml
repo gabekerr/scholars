@@ -1,0 +1,220 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-geom2">
+    <title>Geometry II</title>
+
+    <p>Now that we have a way to discuss length and angles, a whole new set of questions arises. For example, when we put a coordinate chart on an inner product space, we may want this chart to have axes that are perpendicular to each other. We may also want the coordinates to agree with some unit length so that, for example, the vector with coordinates <m>(0, 1, 0)</m> has length <m>1</m>. Perhaps you will be pleasantly surprised that such notions have names and many of the details concerning them have been worked out completely. We will cover some of them in this section.</p>
+
+    <p>We start with a nice result which tells us how far a little geometry can take us.</p>
+    <lemma xml:id="lem-orthogonalindependence">
+        <statement>
+            <p>If <m>V</m> is an inner product space and <m>\mb{v}_1, \ldots, \mb{v}_n</m> are non-zero vectors which are pairwise orthogonal, then they are linearly independent.</p>
+        </statement>
+        <proof>
+            <p>Suppose we have a linear relation <me> \mb{0} = a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n . </me> We may pair both sides with <m>\mb{v}_i</m> to obtain
+            <md>
+                <mrow> 0 \amp = \left\langle \mb{0} , \mb{v}_i \right\rangle , </mrow>
+                <mrow> \amp =  \left\langle a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n , \mb{v}_i \right\rangle, </mrow>
+                <mrow> \amp =  a_1 \left\langle \mb{v}_1, \mb{v}_i \right\rangle + \cdots + a_n \left\langle \mb{v}_n , \mb{v}_i \right\rangle, </mrow>
+                <mrow> \amp = a_i \left\langle \mb{v}_i , \mb{v}_i \right\rangle .</mrow>
+            </md> 
+            Since <m>\mb{v}_i</m> are non-zero, we have that <m>\left\langle \mb{v}_i , \mb{v}_i \right\rangle \gt 0</m> by the positive definite property. So dividing implies <m>a_i = 0</m> for every <m>i</m> and the set of vectors is linearly independent.</p>
+        </proof>
+    </lemma>
+    
+    <p>Of course, we may want a little more than orthogonality of vectors.</p>
+
+    <definition xml:id="def-orthonormal">
+        <notation>
+            <usage><m>\mb{u} \perp \mb{v}</m></usage>
+            <description>dot product</description>
+        </notation>
+        <statement>
+            <p> We say that the vectors <m>\mb{v}_1 , \ldots, \mb{v}_n</m> of an inner product space <m>V</m> are <term>orthonormal</term> if they are pairwise orthogonal unit vectors. We call <m>\mathcal{B} = \{ \mb{v}_1 , \ldots, \mb{v}_n \}</m> an <term>orthonormal basis</term> if it is a basis of orthonormal vectors.</p>
+        </statement>
+    </definition>
+    
+    <p>Although I may not convince you of this, I must assert that there's nothing in life that's better than having a good orthonormal basis! This is means that not only do you have a basis and thus a system of coordinates for your vector space, but you have coordinates which reflect the geometry of Euclidean space (in the real setting and a little bit more in the complex setting). Let's see a practical application of this.</p>
+    
+    <example>
+        <title>Formula for coordinates</title>
+        <statement>
+            <p>Recall that if <m>\mathcal{B} = \{ \mb{v}_1 , \ldots, \mb{v}_n \}</m> was a basis for <m>V</m> then we had a coordinate map <me> \coord{}{\mathcal{B}} : V \to K^n .</me> This map is in fact easy to describe - it just takes a vector <m>\mb{v}</m> and produces the column vector <me> \threevec{a_1}{\vdots}{a_n} </me> whose entries are the unique coefficients in the linear combination <m>\mb{v} = a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n</m>. While easy to describe, there is not generally a formula for <m>\coord{}{\mathcal{B}}</m>, and one may need to solve a linear system to obtain the map. However, if <m>V</m> is an inner product space and <m>\mathcal{B}</m> is an orthonormal basis, we have an immediate and easy formula <men xml:id="eq-coordorthonormal"> \coord{\mb{v}}{\mathcal{B}} = \threevec{\left\langle \mb{v} , \mb{v}_1 \right\rangle}{\vdots}{\left\langle \mb{v} , \mb{v}_n \right\rangle} </men> To see that this formula works, pair the difference <me> \mb{w} = \mb{v} - (\left\langle \mb{v} , \mb{v}_1 \right\rangle \mb{v}_1 + \cdots +  \left\langle \mb{v} , \mb{v}_n \right\rangle  \mb{v}_n )</me> with any basis vector to see
+            <md>
+                <mrow> \left\langle \mb{w} , \mb{v}_i \right\rangle \amp = \left\langle \mb{v} - (\left\langle \mb{v} , \mb{v}_1 \right\rangle \mb{v}_1 + \cdots +  \left\langle \mb{v} , \mb{v}_n \right\rangle  \mb{v}_n ) , \mb{v}_i \right\rangle,</mrow>
+                <mrow>  \amp = \left\langle \mb{v} , \mb{v}_i \right\rangle - \left\langle \mb{v} , \mb{v}_i \right\rangle \left\langle \mb{v}_i ,  \mb{v}_i \right\rangle, </mrow>
+                <mrow>  \amp = 0. </mrow>
+            </md>
+            But <m>\mb{w}</m> itself is a linear combination of the <m>\mb{v}_i</m> and so the above equality implies <m>\left\langle \mb{w} , \mb{w} \right\rangle = 0</m>. But this implies that <m>\mb{w} = \mb{0}</m> which means the coefficients of <m>\mathcal{B}</m> giving <m>\mb{v}</m> are exactly <m>\left\langle \mb{v} , \mb{v}_i \right\rangle</m>.</p>
+
+            <p>Let us apply this result for a computational example in <m>\mathbb{R}^3</m> with the dot product. Consider the orthonormal basis <me> \mathcal{B} = \left\{ \threevec{\sqrt{2} / 2}{\sqrt{2}/ {2}}{0} ,  \threevec{\sqrt{2} / 2}{ -\sqrt{2}/ {2}}{0} , \threevec{0}{0}{1} \right\}. </me> We can then write coordinates of <me> \mb{v} = \threevec{2}{-4}{3} </me> simply by taking dot products <me> \coord{v}{\mathcal{B}} = \threevec{2 (\sqrt{2} / 2) -4 (\sqrt{2} / 2) + 0}{2 (\sqrt{2} / 2) + ( -4) (-\sqrt{2} / 2) + 0}{0 + 0 + 3} = \threevec{-\sqrt{2}}{3\sqrt{2}}{3} .</me></p>
+        </statement>
+    </example>
+
+    <p>Now, one might wonder whether, given a finite dimensional inner product space <m>V</m>, we can always obtain an orthonormal basis. Happily, we have a nice method or process. In fact, it will be better for us to perform this algorithm to first obtain an orthogonal basis, and then afterwards normalize to get an orthonormal one. Let us describe this method inductively by assuming we have been given a basis <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m>.</p>
+    
+    <ol>
+        <li> <title> Induction Hypothesis </title> Assume we have found non-zero orthogonal vectors <me>\{\mb{w}_1 , \ldots , \mb{w}_{k - 1}\}</me> so that <me> \textnormal{span} (\{\mb{w}_1 , \ldots , \mb{w}_{k - 1}\} ) = \textnormal{span} (\{\mb{v}_1 , \ldots , \mb{v}_{k - 1}\}). </me> </li>
+        <li> <title> Induction Step </title> We define <m>k</m>-th vector <men xml:id="eq-GSstep"> \mb{w}_k = \mb{v}_k - \left( \frac{\left\langle \mb{v}_k, \mb{w}_1 \right\rangle}{\left\langle \mb{w}_1 , \mb{w}_1 \right\rangle} \mb{w}_1 + \cdots + \frac{\left\langle \mb{v}_k, \mb{w}_{k - 1} \right\rangle}{\left\langle \mb{w}_{k - 1} , \mb{w}_{k - 1} \right\rangle} \mb{w}_{k - 1} \right). </men> </li>
+    </ol>
+    
+    <p>This process is called the Gram-Schmidt process and we write it as a Theorem.</p>
+    <theorem xml:id="thm-GS">
+        <title> Gram-Schmidt </title>
+        <statement>
+            <p>Given a basis <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m> of an inner product space <m>V</m>, the algorithm above creates an orthogonal basis <m>\mathcal{B}^\prime = \{ \mb{w}_1, \ldots, \mb{w}_n \}</m>. Normalizing each vector gives an orthonormal basis.</p>
+        </statement>
+    </theorem>
+    
+    <p>Now that we know such nice bases exist, we proceed to exploit their usefulness. First, we note that we may use inner products to decompose our entire space into two subspaces. For this we need a couple of definitions.</p>
+    
+    <definition>
+        <notation>
+            <usage><m> V = V_1 \oplus V_2 </m></usage>
+            <description>direct sum of vector spaces</description>
+        </notation>
+        <statement>
+            <p>Given a vector space <m>V</m>, we say that two vector subspaces <m>V_1</m> and <m>V_2</m> are <term>complementary</term> if 
+            <md>
+                <mrow> V_1 \cap V_2 \amp = \{ \mb{0} \}, </mrow>
+                <mrow> V_1 + V_2 \amp = V. </mrow>
+            </md>
+            In this case, every vector <m>\mb{v}</m> can be written uniquely as the sum <me> \mb{v} = \mb{v}_1 + \mb{v}_2</me> where <m>\mb{v}_1</m> is in <m>V_1</m> and <m>\mb{v}_2</m> is in <m>V_2</m>. We write <me> V = V_1 \oplus V_2 </me> and say <m>V</m> is a <term>direct sum</term> of <m>V_1</m> and <m>V_2</m>.</p>
+        </statement>
+    </definition>
+
+    <p>It is not hard to obtain examples of direct sums. Indeed, the following lemma says that one can always find a complement to a proper subspace.</p>
+    
+    <lemma>
+        <statement>
+            <p>If <m>U</m> is a proper subspace of a finite dimensional vector space <m>W</m> over <m>K</m>, there is another subspace <m>V</m> which is complementary to <m>U</m> so that <m>U \oplus V = W</m>. In this case <me>\dim_K U + \dim_K V = \dim_K W . </me></p>
+        </statement>
+        <proof>
+            <p>Since <m>W</m> is finite dimensional, so is <m>U</m>. If <m>\{\mb{u}_1, \ldots, \mb{u}_k \}</m> is a basis of <m>U</m>, one can extend it by adding vectors <m>\mb{v}_1 , \ldots, \mb{v}_{n - k}</m> to make a basis of <m>W</m>. But it is not too hard to show that taking <m>V</m> to be the span of <m>\mb{v}_1 , \ldots, \mb{v}_{n - k}</m> gives a complementary subspace with dimension equation in the lemma.</p>
+        </proof>
+    </lemma>
+
+    <example>
+        <title>Complementary lines in <m>\mathbb{R}^2</m></title>
+        <statement>
+            <p> If we take the line <me> U = \left\{ \lambda \twovec{1}{1} : t \in \mathbb{R} \right\} \subset \mathbb{R}^2 </me> then any line through the origin that does not have slope <m>1</m> is complementary to <m>U</m>. Observe that this shows that complementary subspaces are <em>not</em> unique.</p>
+        </statement>
+    </example>
+
+    <p>When the vector space is an inner product space, the previous lemma has a natural solution.</p> 
+    <definition xml:id="def-orthogonalcomplement">
+        <notation>
+            <usage><m> U^\perp </m></usage>
+            <description>orthogonal complement to a vector subspace</description>
+        </notation>
+        <statement>
+            <p>If <m>V</m> is an inner product space and <m>U</m> is a subspace, we say that the <term>orthogonal complement</term> to <m>U</m> is the vector subspace <me>U^\perp = \left\{ \mb{v} : \left\langle \mb{v} , \mb{u} \right\rangle = 0 \text{ for all } \mb{u} \in U \right\} </me></p>
+        </statement>
+    </definition>
+
+    <p>You will show that this is a vector subspace in the exercises.</p>
+    <lemma xml:id="lem-sumcomp">
+        <statement>
+            <p>If <m>V</m> is a finite dimensional inner product space, <m>U</m> is a subspace and <m>\mb{v}</m> is a vector, then there are unique vectors <m>\mb{u} \in U</m> and <m>\mb{u}^\prime</m> in <m>U^\perp</m> for which <me> \mb{v} = \mb{u} + \mb{u}^\prime .</me> In particular <m>V = U \oplus U^\perp</m>.</p>
+        </statement>
+        <proof>
+            <p>Let <m>\mb{u}_1, \ldots, \mb{u}_k</m> be an orthonormal basis for <m>U</m> and <m>\mb{u}_1^\prime, \ldots , \mb{u}_l^\prime</m> an orthonormal basis for <m>U^\perp</m>. We claim then that <m>\mathcal{B} = \{\mb{u}_1, \ldots, \mb{u}_k, \mb{u}_1^\prime, \ldots , \mb{u}_l^\prime\}</m> is a basis for <m>V</m>. First, one sees that it must be linearly independent by noting that it is an orthogonal set of vectors and applying <xref ref="lem-orthogonalindependence"/>. </p>
+            
+            <p>To see that it spans <m>V</m>, suppose that <m>\mb{v}</m> is not in the span of <m>\mb{u}_1, \ldots, \mb{u}_k</m>. Then we may apply Gram-Schmidt to <m>\mb{u}_1, \ldots, \mb{u}_k, \mb{v}</m> and obtain a vector  <me>\mb{w} = \mb{v} - (\left\langle\mb{v}, \mb{u}_1 \right\rangle \mb{u}_1 + \cdots + \left\langle\mb{v}, \mb{u}_k \right\rangle \mb{u}_k ). </me> But pairing <m>\mb{w}</m> with any basis element <m>\mb{u}_i</m> gives zero which implies by linearity that <m>\mb{w}</m> is in <m>U^\perp</m>. This, in turn says that <m>\mb{w}</m> is a linear combination of <m>\mb{u}_1^\prime, \ldots , \mb{u}_l^\prime</m> which shows that <m>\mb{v}</m> is in the span of <m>\mathcal{B}</m>.</p>
+
+            <p>Thus, writing <m>\mb{v}</m> as a linear combination of the two bases yield the unique sum <m>\mb{u} + \mb{u}^\prime</m>.</p>
+        </proof>
+    </lemma>
+
+    <p>In fact, this proposition gives us the existence of a linear projection.</p>
+    <definition xml:id="def-projection">
+        <notation>
+            <usage><m>\textnormal{proj}_U (\mb{v})</m></usage>
+            <description>projection to a vector subspace</description>
+        </notation>
+        <statement>
+            <p>Let <m>V</m> be an inner product space and <m>U</m> a subspace. Given a vector <m>\mb{v}</m>, the <term>projection</term> of <m>\mb{v}</m> to <m>U</m>, denoted <m>\textnormal{proj}_U (\mb{v})</m> is the vector in <m>U</m> which is closest to <m>\mb{v}</m>.</p>
+        </statement>
+    </definition>
+    
+    <p>This definition may seem a bit cryptic, but we make it plain with a proposition generalizing <xref ref="exe-projection"/>.</p>
+
+    <proposition>
+        <statement>
+            <p>Let <m>V</m> be an inner product space and <m>U</m> a subspace which has an orthonormal basis <m>\mb{v}_1, \ldots, \mb{v}_k</m>. Given a vector <m>\mb{v}</m> of <m>V</m> the decomposition in <xref ref="lem-sumcomp"/> is given by <me> \mb{v} = \textnormal{proj}_U (\mb{v} ) + \textnormal{proj}_{U^\perp} (\mb{v}) </me> and <men xml:id="eq-projection"> \textnormal{proj}_U (\mb{v}) = \left\langle \mb{v}, \mb{v}_1 \right\rangle \mb{v}_1 + \cdots + \left\langle \mb{v} , \mb{v}_k \right\rangle \mb{v}_k. </men></p>
+        </statement>
+        <proof>
+            <p>To see the first equation, we note that <xref ref="lem-sumcomp"/> has already given us a unique decomposition <m>\mb{v} = \mb{u} + \mb{u}^\prime</m>. Given any vector <m>\mb{\tilde{u}} \in U</m> we observe that the square of the distance from <m>\mb{v}</m> to <m>\mb{\tilde{u}}</m> is
+            <md>
+                <mrow>\| \mb{v} - \mb{\tilde{u}} \|^2 \amp = \|\mb{u} + \mb{u}^\prime -\mb{\tilde{u}} \|^2, </mrow>
+                <mrow>  \amp = \| ( \mb{u} - \mb{\tilde{u}} ) + \mb{u}^\prime \|^2, </mrow>
+                <mrow> \amp = \| \mb{u} - \mb{\tilde{u}} \|^2 + \| \mb{u}^\prime \|^2 . </mrow>
+            </md> 
+            Here we used the fact that <m>\left\langle \mb{u} - \mb{\tilde{u}},\mb{u}^\prime \right\rangle = 0</m> because both <m>\mb{u}</m> and <m>\mb{\tilde{u}}</m> are in <m>U</m> while <m>\mb{u}^\prime</m> is in <m>U^\perp</m>. Clearly, if <m>\mb{u} \ne \mb{\tilde{u}}</m> then this distance squared is greater than <m>\|\mb{u}^\prime \|^2</m>. Thus <m>\mb{u}</m> minimizes the distance from <m>U</m> to <m>\mb{v}</m> and is the projection. Examining the proof of <xref ref="lem-sumcomp" /> we see that <m>\mb{u}</m> is given explicitly as the linear combination in equation <xref ref="eq-projection"/>.</p>
+        </proof>
+    </proposition>
+
+    <exercises xml:id="exe-geom2">
+
+    <exercise>
+        <statement>
+            <p> Let <m>[a,b] = [0, 2\pi]</m> and consider the Hilbert space <m>L^2 ([0, 2\pi])</m> given in <xref ref="exa-HilbertSpace"/>. Show that the set <me> \{ \ldots, e^{-2it}, e^{-it}, 1, e^{it}, e^{2it}, \ldots \} </me> is in fact an orthonormal set of vectors. In fact, this set makes up what is known as a Hilbert basis (which is a good infinite dimensional version of a basis).  </p>
+        </statement>
+    </exercise>
+        
+    <exercise>
+        <introduction><p> 
+            Let <me> \mathcal{B} = \left\{ \threevec{\sqrt{3} / 3}{\sqrt{3}/ {3}}{\sqrt{3}/ {3}} ,  \threevec{\sqrt{2} / 2}{ -\sqrt{2}/ {2}}{0} , \threevec{\sqrt{6}/6}{\sqrt{6}/6}{-\sqrt{6}/3} \right\} </me> in the inner product space <m>\mathbb{R}^3</m> with the dot product. 
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>Show that <m>\mathcal{B}</m> is an orthonormal basis.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>If <me> \mb{v} = \threevec{1}{2}{1} </me> what is <m>\coord{\mb{v}}{\mathcal{B}}</m>?</p>
+            </statement>
+        </task>
+    </exercise>
+
+    <exercise xml:id="exe-GS">
+        <introduction><p> 
+            Apply the Gram-Schmidt algorithm to obtain orthogonal bases for the subspaces spanned by the following collections of vectors. Give an orthonormal bases afterwards.
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>The vectors <me> \twovec{1}{2} , \twovec{2}{3}. </me>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>The two vectors spanning the plane <m>W</m> in <m>\mathbb{R}^4</m> <me> \left[ \begin{matrix} 1 \\ -1 \\ 1 \\ -1 \end{matrix} \right] , \left[ \begin{matrix} 2 \\ 1 \\ 1 \\ 1 \end{matrix} \right] .</me>
+                </p>
+            </statement>
+        </task>
+    </exercise>
+    
+    <exercise>
+        <statement>
+            <p> Given a vector subspace <m>U</m> of an inner product space <m>V</m>, show that the orthogonal complement <m>U^\perp</m> of <m>U</m> is in fact a vector subspace. </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p> Let <me> \mb{v} = \left[ \begin{matrix} 1 \\ 1 \\ 1 \\ 0 \end{matrix} \right]</me> Find <m>\textnormal{proj}_W (\mb{v} )</m> where <m>W</m> was given in part (b) of <xref ref="exe-GS"/>.  </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p> Find a basis for <m>W^\perp</m> where <m>W</m> was given in part (b) of <xref ref="exe-GS"/>.  </p>
+        </statement>
+        <hint> <p>Solve the matrix equation <m>A \mb{x} = \mb{0}</m> where <m>A</m> has rows equal to the transpose of the two vectors in part (b) </p></hint>        
+    </exercise>
+
+    </exercises>
+
+</section>

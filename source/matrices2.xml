@@ -1,0 +1,311 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-matrices2">
+    <title>Matrices II</title>
+    <introduction>
+    <p>Having seen what the world is like from the abstract viewpoint, it is now time to take a deep breath with mindless computations if only to reassure ourselves that we understand what is going on. So in this section, we will return to <xref ref="sec-equation"/> and exercise <xref ref="exe-linearequation"/> in order to solve the fundamental linear equation:
+    <men xml:id="eq-fundamentallinearequation">
+        T (\mathbf{u} )  = \mathbf{v} 
+    </men>
+    where <me> T : U \to V </me> is a linear transformation. This is the abstract version of the equation, but the computational one is the case where <me> U = K^n, \hspace{.2in} V = K^m </me> and <m>T</m> is multiplication by an <m>m \times n</m> matrix <m>A</m>. Every linear algebra course that has ever been given and will ever be given spends time solving this equation, and we are no exception! So let us start by writing it out with variables, entries and constants. Our variables (i.e. potential solutions) are the coordinates in the column vector <m>\mb{u}</m> so we write <me> \mb{u} = \mb{x} = \left[ \begin{matrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{matrix} \right] . </me></p>
+
+    <p>Our entries (or, as we see in a moment, coefficients) of this equation are those of our matrix <m>A</m> <me> A =  \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] . </me></p>
+
+    <p>Finally our constants are coordinates of <m>\mathbf{v}</m> which are often written as <me> \mb{v} = \mb{b} = \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{matrix} \right] . </me> Now equation <xref ref="eq-fundamentallinearequation"/> turns into the matrix equation <men xml:id="eq-fundamentalmatrixequation"> A \mb{x} = \mb{b} </men> which, when written out using equation <xref ref="eq-matrixtimesvector"/>, gives the linear system of equations 
+    <mdn>
+        <mrow> a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n  \amp =  b_1 , </mrow>
+        <mrow> a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n \amp = b_2, </mrow>
+        <mrow xml:id="eq-linearsystem"> \vdots  \amp \vdots </mrow>
+        <mrow> a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n \amp = b_m. </mrow>
+    </mdn>
+    </p>
+
+    <p>Before discussing the algorithm to solve these equations, we take a moment to look at three examples.</p>
+
+    <example xml:id="exa-linsys1">
+        <title>Overdetermined systems</title>
+        <statement>
+            <p>Let <me> A = \left[ \begin{matrix} 1 \amp 0 \\ 1 \amp 1 \\ 0 \amp 1 \end{matrix} \right] </me> and <me> \mb{b} = \threevec{1}{1}{1} . </me> Then our system of equations is in fact three equations of two variables 
+            <md>
+                <mrow> x_1 + 0 \amp = 1 ,</mrow>
+                <mrow>x_1 + x_2 \amp = 1 , </mrow>
+                <mrow> 0 + x_2 \amp = 1.</mrow>
+            </md>
+            The first and the third equation tell us that any solution must have <m>x_1</m> and <m>x_2</m> both equal to <m>1</m>. But the second equation then would imply <m>2 = 1 + 1 = 1</m>, which does not make sense here on earth. So for this example <em>there are no solutions</em>! This case where the number of equations exceeds the number of variables is called an <term>overdetermined system</term> of linear equations. For these, it is often the case that no solution exists (although there certainly are exceptions!).</p>
+        </statement>
+    </example>
+
+    <p>Let us see what happens if we just flip our matrix (called taking a transpose):</p>
+    <example xml:id="exa-linsys2">
+        <title>Underdetermined systems</title>
+        <statement>
+            <p>Let <me> A = \left[ \begin{matrix} 1 \amp 1 \amp 0 \\  0  \amp  1 \amp 1 \end{matrix} \right] </me> and <me> \mb{b} = \twovec{1}{1} . </me> Now our system of equations is two equations of three variables 
+            <md>
+                <mrow>x_1 + x_2 + 0 \amp = 1 ,</mrow>
+                <mrow>0 + x_2 + x_3 \amp = 1.</mrow>
+            </md>
+            Now, playing around a little with these equations, it may occur to you that, for <em>any</em> number <m>t</m>, the equations
+            <md>
+                <mrow>x_1 \amp =  t , </mrow>
+                <mrow>x_2 \amp = 1 - t, </mrow>
+                <mrow> x_3 \amp = t</mrow>
+            </md>
+            give a solution. So for this example <em>there are an infinite number of solutions</em>! In fact, we can consider the function <me>\mb{x} (t) := \threevec{t}{1 - t}{t} </me> as a parametrization of all solutions. This case where the number of equations is less than the number of variables is called an <term>underdetermined system</term> of linear equations. For these, it is often the case that an infinite number of solutions exist (although there are cases when none exist at all!).</p>
+        </statement>
+    </example>
+    <example>
+        <title>Systems with unique solutions</title>
+        <statement>
+            <p>For this final example we will cut off the last column of the previous example's matrix (called taking a submatrix). So we consider <me> A = \left[ \begin{matrix} 1 \amp 1 \\ 0 \amp 1 \end{matrix} \right] </me> and keep <me> \mb{b} = \twovec{1}{1} </me> giving two equations in two variables
+            <md>
+                <mrow>x_1 + x_2 \amp = 1,</mrow>
+                <mrow>0 + x_2 \amp = 1.</mrow>
+            </md>
+            Notice that the second equation fully specifies <m>x_2 = 1</m>, so substituting into the first and solving gives <m>x_1 = 0</m>. So <me> \twovec{x_1}{x_2} = \twovec{0}{1} </me> is the only solution. In this case, a <em>solution exists and it is unique</em>.</p>
+        </statement>
+    </example>
+    <p>Any technique to solve the general equation <xref ref="eq-fundamentalmatrixequation"/> should help us answer:</p>
+
+    <ol>
+        <li> Whether a solution exists. </li>
+        <li> If it does exist, is it unique? </li>
+        <li> If it is not unique, what is a function <m>\mb{x}: K^r \to K^n </m> parametrizing all solutions? </li>
+    </ol>
+
+    <p>Happily, such a technique is well known and called either <term>row reduction</term> or <term>Gaussian elimination</term>. </p>
+    </introduction>
+    <subsection xml:id="subsec-rowechelon">
+        <title>Row Echelon Form</title>
+        <p>To understand this algorithm, we start at the end.</p>
+
+        <definition xml:id="def-rowechelonform">
+        <notation>
+            <usage><m>A</m></usage>
+            <description>row echelon form of a matrix</description>
+        </notation>
+        <statement>
+            <p>An <m>m \times n</m> matrix <m>A</m> is in <term>row echelon form</term> if no zero row has a non-zero row below it and the first nonzero entry of any row has only zero entries to the left and below its own position (i.e. to its southwest). </p>
+        </statement>
+        </definition>
+
+        <p>More precisely, if <m>a_{ij}</m> is the first non-zero entry in the <m>i</m>-th row then <m>a_{kl} = 0</m> for all entries with <m>k \geq i</m> (on or below the <m>i</m>-th row) and <m>l \leq j</m> (to the left of the <m>j</m>-th column) excluding the case where <m>k = i</m> and <m>l = j</m>. The first non-zero entry of any row is called the <term>leading coefficient</term> for that row (it is also called a <term>pivot</term>). This definition is best understood by looking at a few examples and non-examples.</p>
+        <example xml:id="exa-rowechelon">
+            <title>Examples of row echelon form matrices</title>
+            <statement>
+                <p>Here are some matrices in row echelon form:
+                <me> \left[ \begin{matrix} 0 \amp 3 \amp 1 \amp 2 \\ 0 \amp 0 \amp 0 \amp \pi \\ 0 \amp 0 \amp 0 \amp 0 \end{matrix} \right], \hspace{.3in} \left[ \begin{matrix} 1 \amp 2   \\ 0 \amp 1 \\  0 \amp 0 \end{matrix} \right], \hspace{.3in} \left[ \begin{matrix} 5 \amp -6 \amp 2  \\ 0 \amp 3 \amp 0  \\ 0 \amp 0 \amp 4  \end{matrix} \right].
+                </me> And here are some that are not <me> \left[ \begin{matrix}0 \amp 0 \amp 0 \amp \pi \\ 0 \amp 3 \amp 1 \amp 2  \\ 0 \amp 0 \amp 0 \amp 0 \end{matrix} \right], \hspace{.3in} \left[ \begin{matrix} 1 \amp 2   \\ 2 \amp 1 \\  0 \amp 0 \end{matrix} \right], \hspace{.3in} \left[ \begin{matrix} 5 \amp -6 \amp 2  \\ 0 \amp 0 \amp 2  \\ 0 \amp 1 \amp 0  \end{matrix} \right]. </me> To see why the second set of matrices are not in row echelon form, let's look at each in turn. The first non-example we see that below and to the left of <m>\pi</m> are nonzero entries <m>3, 1,2</m>. In the second case, we see that below the <m>(1,1)</m>-entry <m>1</m> is <m>2</m>. In the last case, even though the <m>(3,2)</m>-entry is not directly below a leading coefficient, it is to the left and below the leading coefficient <m>2</m> in the <m>(2,3)</m>-position, disqualifying this matrix from being in row echelon form.</p>
+            </statement>
+        </example>
+
+        <p>There is a special type of row echelon form called <term>reduced row echelon form</term> where we add the conditions that:</p>
+
+        <ol>
+            <li> Every leading coefficient is <m>1</m>.</li>
+            <li> Every other entry on a column of a leading coefficient is zero.</li>
+        </ol>
+
+        <p>None of the matrices in <xref ref="exa-rowechelon"/> are in reduced form, but the following matrices are: <me> \left[ \begin{matrix} 0 \amp 1 \amp 5 \amp 0 \\ 0 \amp 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \amp 0 \end{matrix} \right], \hspace{.3in} \left[ \begin{matrix} 1 \amp 0   \\ 0 \amp 1 \\  0 \amp 0 \end{matrix} \right], \hspace{.3in} \left[ \begin{matrix} 1 \amp 0 \amp 0  \\ 0 \amp 1 \amp 0  \\ 0 \amp 0 \amp 1  \end{matrix} \right]. </me> Let us now set out the strategy for solving equation <xref ref="eq-linearsystem"/>. First, we will solve this system if the matrix we start with is in reduced row echelon form. We will quickly see that in these cases, we obtain answers to the existence, uniqueness and parametrization questions above. Second, we will discover the algorithm to take an arbitrary matrix <m>A</m> and transform it into a matrix in reduced echelon form by taking simple steps (called elementary row operations). </p>
+
+        <p>To accomplish step one we make a definition.</p>
+        <definition xml:id="def-basicfree">
+        <notation>
+            <usage><m>x_i</m></usage>
+            <description>basic and free variables</description>
+        </notation>
+        <statement>
+            <p>Let <m>A</m> be a matrix in row echelon form and <m>\mb{x}</m> the column of variables from equation <xref ref="eq-fundamentalmatrixequation"/>. We say that the variable <m>x_i</m> is a <term>basic variable</term> if there is a leading coefficient of some row of <m>A</m> on the <m>i</m>-th column. Otherwise we call it a <term>free variable</term>.</p>
+        </statement>
+        </definition>
+        <p>Note that every variable is either basic or free. Now we state our solution as a theorem.</p>
+        <theorem xml:id="thm-rowechsolution">
+        <statement>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix in reduced row echelon form with <m>r</m> free variables with indices <m>j_1 \lt j_2 \lt \cdots \lt j_r</m> and <m>s</m> basic variables with indices <m>i_1 \lt i_2 \lt \cdots \lt i_{s}</m>. Then for the equation <me> A \mb{x} = \mb{b}, </me>
+            <ol>
+                <li> There are no solutions if and only if <m>s \lt m</m> and <m>b_i \ne 0</m> for some <m>s \lt i \leq m</m>.</li>
+                <li> If we are not in case (1), the vector <me> \mb{x} = b_1 \mb{e}_{i_1} + b_2 \mb{e}_{i_2} + \cdots + b_s  \mb{e}_{i_s}</me> is a solution and is unique if <m>r = 0</m>.</li>
+                <li> If we are not in case (1) and <m>r \gt 0</m>, then for any <m>1 \leq i \leq n</m> define the  function <m>x_i : K^r \to K</m> by <me> x_i \left( \left[ \begin{matrix} t_1 \\ t_2 \\ \vdots \\ t_r \end{matrix} \right] \right) =  \begin{cases} t_i \amp \text{ if } x_i \text{ is a free variable,} \\ b_i -a_{i j_1} t_1 - a_{i j_2} t_2 - \cdots - a_{i j_r} t_r \amp \text{ if } x_i \text{ is a basic variable.} \end{cases} </me> For <m>\mb{t}</m> in <m>K^r</m> take <me> \mb{x} (\mb{t} ) = \left[ \begin{matrix} x_1 (\mb{t}) \\ x_2(\mb{t}) \\ \vdots \\ x_n (\mb{t}) \end{matrix} \right] . </me></li> Then <m>\mb{x} : K^r \to K^n</m> is a one-to-one correspondence between <m>K^r</m> and the set of solutions.
+            </ol>
+            </p>
+        </statement>
+        </theorem>
+
+        <p>This theorem is very easy to prove when one translates the matrix equation into the linear system. We demonstrate this through working out examples.</p>
+        <example>
+            <title>Case 1. of <xref ref="thm-rowechsolution" /></title>
+            <statement>
+                <p>For <me> A = \left[ \begin{matrix} 1 \amp 0   \\ 0 \amp 1 \\  0 \amp 0 \end{matrix} \right], </me> and 
+                <md>
+                    <mrow>\mb{x} \amp = \twovec{x}{y} \amp    \mb{b} \amp = \threevec{3}{2}{1} </mrow>
+                </md>
+                Here <m>A</m> is <m>3 \times 2</m> so <m>m = 3</m> and <m>n = 2</m>. There are exactly <m>s = 2</m> basic variables so that <m>s \lt m</m>. The fact that <m>b_3 = 1 \ne 0</m> shows us that we are in Case (1) of <xref ref="thm-rowechsolution"/> so there are no solutions. Indeed, the linear equations become
+                <md>
+                    <mrow>x + 0\cdot y \amp = 3,</mrow>
+                    <mrow>0 \cdot x + y \amp = 2, </mrow> 
+                    <mrow>0 + 0 \amp = 1.</mrow>
+                </md>
+                It is the last equation that causes problems and shows no solution exists. The easiest way to tell if you are in Case 1. of <xref ref="thm-rowechsolution" /> is to see if there are any zero rows in <m>A</m>. If there are, for there to be a solution the corresponding row of <m>\mb{b}</m> must also be zero.</p>
+
+                <p>Note that in this example if we replaced <m>\mb{b}</m> with  <me> \mb{b^\prime} = \threevec{3}{2}{0} </me> then we would be in the setting of Case (2) and there would be a unique solution <me> \twovec{x}{y} = \twovec{3}{2} </me> </p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Case 2. of <xref ref="thm-rowechsolution" /></title>
+            <statement>
+                <p>In the case of a square matrix one can hope that the reduced row echelon form is the identity matrix. Indeed, for <me> \left[ \begin{matrix} 1 \amp 0 \amp 0  \\ 0 \amp 1 \amp 0  \\ 0 \amp 0 \amp 1  \end{matrix} \right]. </me> and 
+                <md>
+                    <mrow>\mb{x} \amp = \threevec{x}{y}{z}\amp    \mb{b} \amp = \threevec{3}{2}{1} </mrow>
+                </md>
+                the solution is simply <m>\mb{x} = \mb{b}</m>.</p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Case 3. of <xref ref="thm-rowechsolution" /></title>
+        <statement>
+            <p> For Case 3. of <xref ref="thm-rowechsolution"/>, consider <me> A =    \left[ \begin{matrix} 0 \amp 1 \amp 5 \amp 0 \amp 2 \\ 0 \amp 0 \amp 0 \amp 1 \amp 3 \\ 0 \amp 0 \amp 0 \amp 0 \amp 0\end{matrix} \right], </me> with 
+            <md>
+            <mrow>\mb{x} \amp = \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{matrix} \right], \amp    \mb{b} \amp = \threevec{3}{2}{0} .</mrow>
+            </md>
+            The free variables for the equation are <m>x_1, x_3</m> and <m>x_5</m> while the basic variables are <m>x_2</m> and <m>x_4</m>. <xref ref="thm-rowechsolution"/> then says there is a three dimensional parametrization of the solution given by <me> \mb{x} \left( \threevec{t_1}{t_2}{t_3} \right) = \left[ \begin{matrix}  t_1 \\ 3 - 5 t_2 - 2 t_3 \\ t_2 \\ 2 - 3 t_3 \\ t_3 \end{matrix} \right] .</me> This solution can be verified easily, but it is motivated by considering the linear system of three equations
+            <md>
+            <mrow>x_2 + 5x_3  + 2 x_5 \amp = 3, </mrow>
+            <mrow>x_4 + 3  x_5 \amp = 2, </mrow>
+            <mrow>0 \amp = 0.</mrow>
+            </md> 
+            The parametrization <m>\mb{x}( \mb{t})</m> is defined through solving these equations by rewriting them as
+            <md>
+            <mrow>x_2  \amp = 3 - 5x_3  - 2 x_5, </mrow>
+            <mrow>x_4 \amp = 2 -   3  x_5, </mrow>
+            <mrow>0 \amp = 0.</mrow>
+            </md> 
+            putting the basic variables on the left and free variables on the right. Letting the free variables be <m>t_1, t_2, t_3</m> gives the parametrization (notice <m>x_1</m> does not show up in the equations, but is still free to vary). </p>
+        </statement>
+        </example>
+    </subsection>
+
+    <subsection xml:id="subsec-rowreduction">
+    <title>Row Reduction</title>
+    <p>Now that we can solve <em>some</em> matrix equations of a particularly nice form, our task is to put <em>any</em> matrix equation in that form. This technique is known as row reduction or alternatively, Gaussian elimination.</p>
+
+    <p>For the moment, let us represent our matrix <m>A</m> as a column of row vectors <me> \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] . </me> To manipulate <m>A</m>, we allow ourselves three types of operations:</p>
+    <dl>
+        <li> <title>Type I</title> Switch the <m>i</m>-th row <m>\mb{r}_i</m> and the <m>j</m>-th row <m>\mb{r}_j</m> <me>\left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_i \amp - \\ \amp\vdots \amp \\ - \amp \mb{r}_j \amp - \\  \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] \longrightarrow \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_j \amp - \\ \amp\vdots \amp \\ - \amp \mb{r}_i \amp -\\  \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] </me> </li>
+        <li> <title>Type II</title> Multiply the <m>i</m>-th row <m>\mb{r}_i</m> by a non-zero scalar <m>c \ne 0</m> <me> \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_i \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] \longrightarrow \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp c \, \mb{r}_i \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] . </me> </li>
+        <li> <title>Type III</title> Add any scalar multiple <m>c \, \mb{r}_j</m> of the <m>j</m>-th row to the <m>i</m>-th row <m>\mb{r}_i</m> <me> \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_i \amp - \\ \amp\vdots \amp \\ - \amp \mb{r}_j \amp - \\  \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right]  \longrightarrow \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_i +  c \, \mb{r}_j \amp - \\ \amp\vdots \amp \\ - \amp \mb{r}_j \amp -\\  \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] </me></li>
+    </dl>
+    <p>It is important to note a fact concerning these row operations:</p>
+    <dl>
+        <li> <title> Fact</title> Each step may be reversed through another elementary row operation. More precisely, for the Type I operation, simply repeat the same operation and you return to the original matrix. For Type II operations, multiply the same row by the reciprocal <m>1/c</m> (which you can do because <m>c \ne 0</m>). For Type III add <m>(-c)\,\mb{r}_j</m> to the <m>i</m>-th row. </li>
+    </dl>
+    <p>We will see this fact in another light in our next section on matrices.</p>
+
+    <theorem xml:id="thm-rowreduction">
+        <statement>
+            <p>Every <m>m \times n</m> matrix can be put in reduced row echelon form through applying a sequence of elementary row operations.</p>
+        </statement>
+        <proof> <p>To see that this is the case, we argue by induction. More precisely, we will show that (a) we can put an <m>m \times 1</m> matrix in reduced row echelon form and (b) if we can put an <m>m \times n</m> matrix in reduced row echelon form with elementary row operations, then we can do so with an <m>m \times (n + 1)</m> matrix. </p>
+
+        <p>To accomplish step (a), suppose <m>A = (a_{i1})</m> is an <m>m \times 1</m> matrix. If <m>a_{i1} = 0</m> for all <m>1 \leq i \leq m</m> then <m>A</m> is in reduced row echelon form already. Otherwise, choose the smallest <m>i</m> for which <m>a_{i1}</m> is non-zero. Using a Type I row operation, switch the <m>i</m>-th row with the first row. Call this matrix <m>A^\prime = (a_{i1}^\prime)</m>. Now <m>a_{11}^\prime \ne 0</m> and we may use a Type II row operation to multiply the first row by <m>1 / a_{11}^\prime</m> to obtain a matrix of the form <me> A^{\prime \prime} = \left[ \begin{matrix} 1 \\ a_{21}^\prime \\ \vdots \\ a_{m1}^\prime \end{matrix} \right]. </me> Finally, use Type III row operations to clear out the lower entries by adding <m>-a^\prime_{i1}</m> times the first row to the <m>i</m>-th row for each <m>2 \leq i \leq m</m>. This gives the matrix <men xml:id="eq-firstcol"> A^{\prime \prime} = \left[ \begin{matrix} 1 \\ 0 \\ \vdots \\ 0 \end{matrix} \right] </men> which is in reduced row echelon form.</p>
+
+        <p>Often in induction proofs, step (a) (called the base case) is trivial and the hard part is step (b) (called the induction step). In this proof though, step (a) is really where we learn our algorithm and step (b) is just a rehash of (a). Indeed, if we know that we can put an <m>m \times n</m> matrix in reduced row echelon form and <m>A</m> is an <m>m \times (n + 1)</m> matrix then we can put the submatrix of <m>A</m> consisting of the first <m>n</m> columns in reduced echelon form with elementary row operations while ignoring the last column. What we will be left with is a matrix <me> A^\prime  = \left[ \begin{array}{cccccccc|c}  0 \amp \cdots \amp 0 \amp 1 \amp * \amp \cdots \amp 0 \amp \cdots  \amp a_{1(n+1)} \\ 0 \amp \cdots \amp 0 \amp 0 \amp \cdots \amp 0 \amp 1 \amp \cdots  \amp a_{2(n+1)} \\ \vdots \amp  \amp  \amp  \amp  \amp \vdots \amp  \amp  \amp \vdots \\ 0 \amp 0  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp a_{r(n + 1)} \\ \vdots \amp  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp \vdots  \amp \vdots \\ 0 \amp 0   \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp a_{m(n + 1)} \end{array} \right].</me> Here, we assume all the rows up to the <m>r</m>-th row of the <m>m \times n</m> submatrix are non-zero, and from the <m>r</m>-th down are zero. But then apply part (a) of the argument to the last  part of the last column <me> \threevec{a_{r(n + 1)}}{{\vdots}}{{a_{m(n + 1)}}} . </me> Since the columns before this are all zero (for the affected rows), there is no effect on the left hand side.  If there's a non-zero entry of the above vector we obtain a matrix of the form <me> A^{\prime \prime} = \left[ \begin{array}{cccccccc|c}  0 \amp \cdots \amp 0 \amp 1 \amp * \amp \cdots \amp 0 \amp \cdots  \amp a_{1(n+1)} \\ 0 \amp \cdots \amp 0 \amp 0 \amp \cdots \amp 0 \amp 1 \amp \cdots  \amp a_{2(n+1)} \\ \vdots \amp  \amp  \amp  \amp  \amp \vdots \amp  \amp  \amp \vdots \\ 0 \amp 0  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp 1 \\ 0 \amp 0  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp \vdots  \amp \vdots \\ \vdots \amp \vdots  \amp \cdots  \amp  \amp  \amp \cdots \amp  \amp 0 \amp 0 \end{array} \right]. </me> Adding multiples <m>-a_{i(n + 1)}</m> of the <m>r</m>-th row to the <m>i</m>-th row puts this final matrix into reduced row echelon form. </p>
+        </proof>
+    </theorem>
+
+    <p>The proof of <xref ref="thm-rowreduction"/> provides the algorithm to row reduce a matrix. Start at the first column and perform row operations (on the whole matrix) to get it into the form of equation <xref ref="eq-firstcol"/>. Then proceed left to right, column by column, as in the proof of part (b).</p>
+
+    <p>To solve a linear system using this algorithm, it pays to augment the matrix <m>A</m> with the constant vector <m>\mb{b}</m>. In other words, row reduce the matrix <m>A</m> but perform the row operations on the larger matrix <me> \left[ \begin{matrix} A \amp \mb{b} \end{matrix} \right]  =  \left[ \begin{array}{cccc|c} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \amp b_1 \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \amp b_2  \\ \vdots \amp \ddots \amp \amp \vdots \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \amp b_m \end{array} \right] .</me>
+    In the end, obtain the augmented matrix <me> \left[ \begin{matrix} A^\prime \amp \mb{b}^\prime \end{matrix} \right] </me> where <m>A^\prime</m> is in reduced row echelon form. As you will show in the exercises, our original equation is then equivalent to the new equation <me> A^\prime \mb{x} = \mb{b}^\prime. </me> We see this procedure in an example.</p>
+
+    <example>
+        <title>Row reduction of a matrix</title>
+        <statement>
+            <p>Let <me> A = \left[ \begin{matrix} 0 \amp 0 \amp -1 \amp 1 \\ -1 \amp 2 \amp 1 \amp 0 \\ 2 \amp -4 \amp - 1 \amp 0 \end{matrix} \right], \hspace{.2in} \mb{x} = \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right],\hspace{.2in} \mb{b} \amp = \left[ \begin{matrix} 0 \\ -2 \\ 4  \end{matrix} \right] </me> Then we make the augmented matrix <me> A = \left[ \begin{array}{cccc|c} 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ -1 \amp 2 \amp 1 \amp 0 \amp -2 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] </me> and row reduce as follows: <md>
+                <mrow>\left[ \begin{array}{cccc|c} 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ -1 \amp 2 \amp 1 \amp 0 \amp -2 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] \amp \stackrel{\mb{r}_1 \leftrightarrow \mb{r}_2}{\longrightarrow} \left[ \begin{array}{cccc|c} -1 \amp 2 \amp 1 \amp 0 \amp -2 \\ 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{ - \mb{r}_1 }{\longrightarrow} \hspace{.1in} \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ 2 \amp -4 \amp - 1 \amp 0 \amp 4 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{ \mb{r}_3  - 2 \mb{r}_1 }{\longrightarrow}  \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp  1 \amp 0 \amp 0 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{ - \mb{r}_2 }{\longrightarrow}  \hspace{.1in} \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp - 1 \amp 0 \\ 0 \amp 0 \amp  1 \amp 0 \amp 0 \end{array} \right] ,  </mrow>
+                <mrow> \amp \stackrel{ \mb{r}_3 - \mb{r}_2 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp - 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp - 1 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right] ,  </mrow>
+                <mrow> \amp \stackrel{ \mb{r}_1 + \mb{r}_2 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp 0 \amp -1 \amp 2 \\ 0 \amp 0 \amp 1 \amp -1 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right] ,  </mrow>
+                <mrow> \amp \stackrel{ \mb{r}_1 + \mb{r}_3 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp 0 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp -1 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right], </mrow>
+                <mrow> \amp \stackrel{ \mb{r}_2 + \mb{r}_3 }{\longrightarrow}   \left[ \begin{array}{cccc|c} 1 \amp -2 \amp 0 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp  0 \amp 1 \amp 0 \end{array} \right] </mrow>
+            </md>
+            Now we can write the reduced row echelon system of equations as 
+            <md>
+                <mrow>x_1 - 2x_2 \amp = 2,</mrow>
+                <mrow>x_3 \amp = 0, \\ x_4 \amp = 0.</mrow>
+            </md>
+            So we have one free variable <m>x_2</m> and our general solution is <me> \mb{x} (t) = \left[ \begin{matrix} {2 + 2t} \\ t \\ 0 \\ 0 \end{matrix} \right]. </me></p>
+        </statement>
+    </example>
+
+    <p>We end this section with a little bit of vocabulary.</p>
+    <definition xml:id="def-basicfreecol">
+        <notation>
+            <usage><m>A</m></usage>
+            <description>free and basic columns</description>
+        </notation>
+        <statement>
+            <p>Given a matrix <m>A</m> with reduced row echelon form <m>A^\prime</m>, we say that the <m>j</m>-th column is <term>free</term> if the variable associated to a linear system <m>A^\prime \mb{x} = \mb{b}</m> is free. Otherwise we say the column is <term>basic</term>.</p>
+        </statement>
+    </definition>
+    <p>It is a bit unusual to call columns free and basic rather than variables, but these terms make discussing matrix equations more fluid.</p>
+    </subsection>
+
+    <exercises xml:id="exe-matrices2">        
+    <exercise xml:id="exe-matricestoechelon">
+        <introduction><p> 
+            Using elementary row operations, convert the matrix into reduced row echelon form. Show each step.
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} -1 \amp 4 \amp 9 \\ -1 \amp 3 \amp 7 \\ 3 \amp -8 \amp -19 \end{matrix} \right] </me></p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 2 \amp -5 \\ -1 \amp 3 \end{matrix} \right] </me></p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 3 \amp 3 \amp -4 \\ -2 \amp -2 \amp 3 \\ 1 \amp 1 \amp -2 \\ -2 \amp -2 \amp 3 \end{matrix} \right] </me></p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 1 \amp 1 \amp 0 \amp 1 \\ -1 \amp -1 \amp 1 \amp 0 \end{matrix} \right] </me></p>
+            </statement>
+        </task>
+    </exercise>
+    <exercise>
+        <introduction><p> 
+            Give the general solution, if it exists, for the matrix equations.
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 1 \amp 0 \amp 0 \\ -1 \amp 0 \amp 1 \\ 1 \amp 0 \amp -1 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{-2}{0}{1} </me>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me>\left[ \begin{matrix} 1 \amp 1 \amp 1 \\ -1 \amp 0 \amp -2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \twovec{-1}{0} </me>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me>\left[ \begin{matrix} -1 \amp 3  \\ -1 \amp 2  \\ 1 \amp  -3  \end{matrix} \right] \twovec{x_1}{x_2} = \threevec{-5}{-3}{5} </me>
+                </p>
+            </statement>
+        </task>
+    </exercise>
+    <exercise>
+        <statement>
+            <p> Let <m>A</m> be a matrix, <m>A^\prime</m> its reduced echelon form, <m>[A | \mb{b}]</m> an augmented matrix and <m>[A^\prime | \mb{b}^\prime]</m> the augmented matrix obtained by row reducing <m>A</m>. Explain why every solution to the row reduced matrix equation <me> A^\prime \mb{x} = \mb{b}^\prime </me> is also a solution to the original equation <me>A \mb{x} = \mb{b}. </me> </p>
+        </statement>
+    </exercise>
+    </exercises>
+</section>

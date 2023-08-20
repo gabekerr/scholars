@@ -1,0 +1,281 @@
+
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-setsandfunctions">
+    <title>Sets and Functions Review</title>
+    <p>The concept of a function is truly the megastar of much of mathematics. A function gives two separate structures (e.g. sets, spaces, etc.) permission to talk to each other and relate their properties. So it is of great importance that we are comfortable with some basic vocabulary concerning functions. In order to become so, we also require knowledge of some basic set theory notation. 
+    </p>
+
+    <definition xml:id="def-set">
+            <notation>
+                <usage><m>a \in A</m></usage>
+                <description>elements in a set</description>
+            </notation>
+            <statement>
+                <p>
+                    A <term>set</term> is a collection of elements. We write <m>a \in A </m> to denote that the element <m>a </m> is in the set <m>A </m>. A set <m>A_0 </m> is a <term>subset</term> of <m>A </m>, written  <m>A_0 \subseteq A </m>, if all elements in <m>A_0 </m> are also in <m>A </m>. 
+                </p>
+            </statement>
+    </definition>
+
+    <example>
+        <title>Natural numbers as a set</title>
+        <statement>
+            <p>
+            The set of natural numbers <m>\mathbb{N} </m> is one of the first sets we learn to work with. Examples of subsets include the even numbers <m>2\mathbb{N} = \{0, 2, 4, \cdots\} </m>, the numbers between <m>0 </m> and <m>n </m> <m>[n] = \{0,1, \ldots, n\} </m> and the empty set <m>\emptyset </m> which, as its name suggests, is the set with no elements. To denote that these are subsets, one would write <m>[n] \subset \mathbb{N}</m> or <m>\emptyset \subset \mathbb{N}</m>. Of course, negative integers are not natural numbers, so the integers do <em>not</em> form a subset of the naturals. We can denote this fact by <m>\mathbb{Z} \not\subset \mathbb{N}</m>.</p>
+        </statement>
+    </example>
+    <p>Useful operations on subsets are intersection and union.</p>
+    <definition xml:id="def-intuni">
+            <notation>
+                <usage><m>\cup, \cap</m></usage>
+                <description>intersections and unions of subsets</description>
+            </notation>
+            <statement>
+                <p>
+                    Given subsets <m>A_0, A_1 \subseteq A </m> their <term>intersection</term> is <me>A_0 \cap A_1 = \{ a \in A : a \in A_0  \text{ and } a \in A_1 \} </me> while their <term>union</term> is <me> A_0 \cup A_1 = \{ a \in A : a \in A_0  \text{ or } a \in A_1 \} </me>
+                </p>
+            </statement>
+    </definition>
+
+    <p>Given a pair of sets, we may produce many other sets even if they do not live in the same larger set. A standard construction that we will often encounter is the product of two sets <m>A </m> and <m>B </m>. 
+    </p>
+
+    <definition xml:id="def-productset">
+            <notation>
+                <usage><m>A \times B</m></usage>
+                <description>Cartesian product of sets</description>
+            </notation>
+            <statement>
+                <p>
+                    The <term>product set</term> of <m>A </m> and <m>B </m> is the set of ordered pairs 
+                    <me>A \times B = \{(a, b) : a \in A \text{ and } b \in B \} </me>. For a positive integer <m>n </m>, we denote by <m>A^n </m> the <m>n </m>-fold product of <m>A </m> with itself consisting of <m>n </m>-tuples <m>(a_1, a_2, \ldots, a_n) </m>.
+                </p>
+            </statement>
+    </definition>
+    <p>This definition, while coming to us from the abstract viewpoint, gives us our first glimpse of one of the central objects of calculus. As such, we obtain a computational and geometric structure.</p>
+
+    <example>
+        <title>Product sets</title>
+        <statement>
+            <p>
+            We write <m>\mathbb{R}^n </m> and <m>\mathbb{C}^n </m> for <m>n </m>-dimensional real (or Euclidean) and complex space. The points of <m>\mathbb{R}^n </m> are <m>n </m>-tuples of real numbers <m>(r_1, r_2, \ldots, r_n) </m> (although in some contexts, we will write them as columns instead of rows). The cases of the real line <m>\mathbb{R} = \mathbb{R}^1 </m> and the Cartesian plane <m>\mathbb{R}^2 </m> or most likely very familiar to you by now. Three dimensional space can also be given Cartesian coordinates by considering <me> \mathbb{R}^3 = \{ (x, y, z) : x, y, z \text{ real numbers} \} </me> 
+            Here we take <m>z </m> to be a height coordinate and place the Cartesian plane <m>(x,y) </m> flat at height zero <m>(x, y, 0) </m>. We do this so that, looking downward at the plane, the positive <m>x</m>-axis moves counter-clockwise towards the positive <m>y </m>-axis. This method of orienting three space is called the <sq>Right-hand rule</sq>. </p>
+        </statement>
+    </example>
+
+    <p>Now let us bring in our megastar, the function, by defining it abstractly.</p>
+    <definition xml:id="def-function">
+            <notation>
+                <usage><m>f:A \to B</m></usage>
+                <description>function from <m>A</m> to <m>B</m></description>
+            </notation>
+            <statement>
+                <p>
+                    A <term>function</term> <m>f </m> from the set <m>A </m> to the set <m>B </m> is a subset <m>gr_f </m> of <m>A \times B </m> which satisfies the property :
+                    <ul>
+                    <li> Given any element <m>a </m> in <m>A </m>, there exists a unique pair <m>(a, b) </m> in <m>gr_f </m>. </li>
+                    </ul>
+                    The element <m>b </m> from the pair <m>(a, b) </m> is written <m>f(a) </m> and we think of <m>f </m> as assigning <m>a </m> to <m>b </m>.
+                </p>
+            </statement>
+    </definition>
+
+    <p>The notation for this setup is 
+    <men xml:id="notation1"> f: A \longrightarrow B </men>
+    and the vocabulary around this is 
+    <ol>
+        <li> <m>gr_f </m> is called the <term>graph</term> of <m>f </m>, </li>
+        <li> <m>A </m> is called the <term>domain</term> of <m>f </m>,</li>
+        <li> <m>B </m> is called the <term>codomain</term> of <m>f </m>,</li>
+        <li> the set of elements <m>b </m> in <m>B </m> that can be written in the form <m>f(a) </m> for some <m>a </m> in <m>A </m> is called the <term>range</term> or <term>image</term> of <m>f </m>.</li>
+    </ol>
+    </p>
+
+    <p>An astute student may object and note that <m>f </m> is defined to <em>be</em> <m>gr_f </m>, so why would we call <m>gr_f </m> the graph of the function and not just the function itself? The answer may not satisfy, but in fact a function is often thought of as an assignment, rather than a graph (even though it technically is a graph), so we differentiate the language in order to express the different perspectives. Indeed, the definition given here is an abstract definition but it ties in directly to the computational side through formulas and the geometric perspective by considering the graph.</p>
+
+    <example xml:id="ex-1varfunction">
+        <title>Functions of one real variable</title>
+        <statement>
+            <p>
+            A calculus student spends nearly all of their time thinking about functions 
+            <men xml:id="eq-1varfunction">
+                f : (a,b) \to \mathbb{R}
+            </men>
+            where <m>(a,b) </m> is some interval in <m>\mathbb{R} </m>. Note that, for these functions, the property <m>\bullet</m> in <xref ref="def-function" /> is precisely the vertical line test for a function. </p>
+
+            <p>
+            In a calculus course, the notation above is rare and functions are often written computationally in terms of a formula
+            <me>
+                f(x) = x^2 + 1.
+            </me>
+            or referred to as <m>y </m> as in:
+            <me>
+                \text{`Consider the function } y = x^2 + 1 \text{'}.
+            </me>
+            This last statement is actually talking about the abstract definition of a function, namely, its graph:
+            <me>
+                gr_f = \{(x, y) : y = x^2 + 1 \} = \{(x, y) : y = f(x) \}.
+            </me>
+            Note that we did not define the domain of <m>f(x) </m> here, and it could indeed be any subset of <m>\mathbb{R} </m> and the most general set would be <m>\mathbb{R} </m> itself. We did define the codomain of <m>f </m> as <m>\mathbb{R} </m> in <xref ref="eq-1varfunction" />, but, if we take the domain to be  <m>\mathbb{R} </m>, we can compute the range to be <m>(1, \infty) </m>. We see that the codomain and range of a function may indeed be distinct.</p>
+        </statement>
+    </example>
+
+    <p>The difference between the codomain and range seen in <xref ref="ex-1varfunction" /> leads to a few special definitions which will arise repeatedly throughout this course.</p>
+    <definition xml:id="def-functionprops">
+            <notation>
+                <usage><m>f:A \hookrightarrow B</m></usage>
+                <description>onto, one-to-one functions and one-to-one correspondence</description>
+            </notation>
+            <statement>
+                <p>
+                    Let <m>f : A \to B </m> be a function.
+                    <ol>
+                        <li> We say that <m>f </m> is <term>one-to-one</term> (or 1-1) if the equality <m>f(a_0) = f(a_1) </m> implies that <m>a_0 = a_1 </m>. </li>
+                        <li> We say that <m>f </m> is <term>onto</term> if <m>B </m> is the range of <m>f </m>. </li>
+                        <li> We say that <m>f </m> is a <term>one-to-one correspondence</term> if it is both one-to-one and onto. </li>
+                    </ol>
+                    The element <m>b </m> from the pair <m>(a, b) </m> is written <m>f(a) </m> and we think of <m>f </m> as assigning <m>a </m> to <m>b </m>.
+                </p>
+            </statement>
+    </definition>
+
+    <p>One should think of one-to-one functions as including one set into another and onto functions as covering one set by another. A one-to-one correspondence should be thought of as an exact element to element matching from the domain to the codomain.</p>
+
+    <example>
+        <title>One-to-one and onto functions</title>
+        <statement>
+            <p>As it turns out, functions can satisfy none, some or all of the properties in <xref ref="def-functionprops" />. Indeed, consider the following list of functions:
+            <md>
+                <mrow> f_1 : \mathbb{R} \amp \to \mathbb{R} \amp f(x) \amp = x^2 \amp \text{neither one-to-one nor onto} </mrow>
+                <mrow> f_2 : \mathbb{N} \amp \to \mathbb{R} \amp f(x) \amp = x \amp \text{one-to-one but not onto} </mrow>
+                <mrow> f_3 : \mathbb{R} \amp \to \mathbb{R} \amp f(x) \amp = x^3 - x \amp \text{onto but not one-to-one} </mrow>
+                <mrow> f_4 : \mathbb{R} \amp \to \mathbb{R} \amp f(x) \amp = x^3 \amp \text{one-to-one and onto} = \text{one-to-one correspondence} </mrow>
+            </md>
+            </p>
+        </statement>
+    </example>
+
+    <p>In the previous section, we reviewed ways of combining numbers and it is the case the functions can be combined as well using composition. However, for two functions <m>f </m> and <m>g </m> to admit a composition <m>g \circ f </m>, we must have that the codomain of <m>f </m> is the domain of <m>g </m> (or at least contained in the domain).</p>
+
+    <definition xml:id="def-functioncomp">
+            <notation>
+                <usage><m>g \circ f</m></usage>
+                <description>composition of functions</description>
+            </notation>
+            <statement>
+                <p>
+                    Given functions <m>f : A \to B </m> and <m>g: B \to C </m> the composite function <m>g \circ f : A \to C </m> is defined by the formula
+                    <me>
+                        (g\circ f) (a) = g( f(a)).
+                    </me>
+                </p>
+            </statement>
+    </definition>
+
+    <p>It is the case that composition is associative, but commutativity is sometimes not even a sensible property, and when it is, it often fails to hold. Another property that we will often want (and rarely have) is the existence of an inverse function. To explain this concept, we need the notation of the identity function 
+    <me> 1_A : A \longrightarrow A </me> 
+    which by definition gives <m>1_A (a) = a </m> for all elements <m>a </m> of <m>A </m>. It is not hard to see that given any <m>f : A \to B </m> the identity functions act as identities with respect to composition 
+    <me> 1_B \circ f = f = f \circ 1_A </me>.
+    </p>
+
+    <p>An <term>inverse function</term> of <m>f </m> is a function <m>g : B \to A </m> (or <m>f^{-1} </m>) which satisfies the equations
+        <mdn>
+            <mrow xml:id="eq-leftinverse"> g \circ f \amp = 1_A, </mrow>
+            <mrow xml:id="eq-rightinverse">f \circ g \amp = 1_B.</mrow>
+        </mdn>
+    The following is a useful and basic result.</p>
+    <proposition xml:id="prop-invertible">
+        <statement>
+            <p>A function <m>f : A \to B </m> has an inverse function if and only if it is a one-to-one correspondence. In this case, its inverse is unique.</p>
+        </statement>
+        <proof>
+            <p>We need to show both that a one-to-one correspondence has an inverse and that a function with an inverse is a one-to-one correspondence. Let's start with the latter and assume <m>f </m> has an inverse <m>g </m>. To see that <m>f </m> is one-to-one, suppose <m>f(a_0) = f(a_1) </m>. Then
+                <me>a_0 = 1_A (a_0) = (g \circ f) (a_0) = g(f(a_0)) = g(f(a_1)) = (g \circ f) (a_1) = 1_A (a_1) = a_1,</me>
+            showing that <m>f </m> is one-to-one. To see that <m>f </m> is onto, simply observe that for any <m>b \in B </m>, we have that <m>b = 1_B (b) = (f \circ g) (b) = f (g(b)) </m> so that <m>b </m> is in the range of <m>f </m> and <m>f </m> is onto.
+            </p>
+            <p>Now for the converse. Suppose <m>f </m> is a one-to-one correspondence and let <m>b </m> be any element of <m>B </m>. Then, since <m>f </m> is onto, there is some <m>a </m> in <m>A </m> with <m>f(a) = b </m>. We define <m>g(b) = a </m>. To see that this makes sense, we need to verify (*) in <xref ref="def-function"/> and show that <m>a </m> is unique. But if <m>f(a^\prime) = b </m> for some other <m>a^\prime </m> in <m>A </m>, then <m>f </m> is not one-to-one, so <m>a </m> must be unique implying <m>g </m> is a function. It is clear that <m>(g \circ f) (a) = g(b) = a </m> so that <m>g \circ f = 1_A </m> and <m>(f \circ g) (b) = f(a) = b </m> so that <m>f \circ g = 1_B </m>. Thus <m>g </m> is an inverse function to <m>f </m>.</p>
+            <p>For the last statement about the uniqueness of the function <m>g </m>, one considers what would happen if <m>h </m> were another inverse. Then for any <m>b </m> in <m>B </m>,
+                <me>h(b) = (h \circ 1_B ) (b) = (h \circ f \circ g) (b) = (1_A \circ g) (b) = 1_A (g(b)) = g(b).</me>
+            But this means that <m>h = g </m> as a function and <m>g </m> is the unique inverse.
+            </p>
+        </proof>
+    </proposition>
+
+    <example xml:id="ex-bijection1">
+        <title>A function and its inverse</title>
+        <statement>
+            <p>
+            Consider the function <m>f(x) = \frac{x - 1}{x + 1} </m> as a function from <m>\mathbb{R} - \{-1\} </m> to <m>\mathbb{R} - \{1\} </m>. We note that <m>f(x) = 1 - \frac{2}{x + 1} </m> and that its derivative is <m>\frac{2}{(x + 1)^2} \gt 0 </m>. So it is an increasing function which implies it is one-to-one (the conclusion made is true, but the argument has a flaw... why?). Encouraged by this, we can compute an inverse to <m>f(x) </m>. Since <m>y = f(x) = 1 - \frac{2}{x + 1} </m> we have <me>\frac{1 - y}{2} = \frac{1}{x + 1}</me> So that <m>x = \frac{2}{1 - y} - 1 = \frac{y + 1}{y - 1} </m>. Thus <me>g(y) = \frac{y + 1}{y - 1}</me> gives an inverse.</p>
+        </statement>
+    </example>
+
+    <p>The types of functions one often begins to explore after the first year of calculus are so called <term>vector valued functions</term>> which are usually thought of as functions
+    <men xml:id="eq-1vvfunction">
+        f : U \to \mathbb{R}^m  
+    </men>
+    where <m>U \subseteq \mathbb{R}^n</m>. These functions can be, and often are, written in coordinates as
+    <me> 
+        f(x_1, \ldots, x_n) = \left( f_1 (x_1, \ldots, x_n), \ldots, f_m (x_1, \ldots , x_n) \right).
+    </me>
+    </p>
+    <p>Vector valued functions where either <m>n = 1 </m> or <m>m = 1 </m> occupy a large part of our attention and have special names. If both <m>m = 1 </m> and <m>n = 1 </m> we are in the setting of one variable calculus. When just <m>n = 1 </m>, but <m>m </m> is potentially larger, we call the function <m>f(x) </m> a <term>path</term> and its image (or range) a <term>curve</term>. As we will see, such functions are the focal point of ordinary differential equations. An example that one will have seen before is the parametrization of the unit circle
+    <men xml:id="eq-circlepara"> 
+        f(\theta) = (\cos \theta , \sin \theta), \text{ where } 0 \leq \theta \lt 2\pi. 
+    </men>
+    </p>
+
+    <p>On the other hand, when <m>m = 1 </m> and <m>n </m> is potentially larger, we call <m>f(x_1, \ldots, x_n) </m> a <term>scalar</term> function. Scalar functions are ubiquitous in mathematics and applications. Indeed, any system that is producing a single value which relies on several variables contains a scalar function. For example, the total energy <m>H </m> of a particle of mass <m>m </m> in a gravitational field <m>g </m> will depend on that particles height <m>q </m> and its momentum <m>p </m> so that 
+    <me>
+        H(p, q) = \frac{p^2}{2m} + mgq .
+    </me>
+    Thus <m>H </m> is a scalar valued function. In fact, much of classical mechanics is guided by these types of functions.</p>
+
+    <exercises xml:id="exe-setsandfunctions">
+        <exercise>
+            <statement>
+                <p> Explain the claim in <xref ref="ex-1varfunction" /> that the property <m>\bullet</m> is the same as the vertical line test. Likewise, explain why one of these functions is one-to-one if and only if it survives the horizontal line test. </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p> Let <m>f(x) = x + 2\pi </m> and <m>g(x) = \sin (x) </m> both be considered as functions from <m>\mathbb{R} </m> to <m>\mathbb{R} </m>. Show that commutativity fails for their composition.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p> What is the flaw in the argument in <xref ref="ex-bijection1" />.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <introduction><p> A function <m>f : A \to B </m> has a left inverse if <xref ref="eq-leftinverse" /> holds for some <m>g:B \to A </m> and a right inverse if equation <xref ref="eq-rightinverse"/> holds for some <m>g : B \to A </m>.</p></introduction>
+        <task>
+            <statement>
+                <p> Prove that <m>f </m> has a left inverse if and only if it is one-to-one.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Prove that <m>f </m> has a right inverse if and only if it is onto.</p>
+            </statement>
+        </task>
+        </exercise>
+        <exercise>
+            <statement>
+                <p> Inverse trigonometric functions are often used in a second semester calculus course. They are, however, frequently misunderstood because of their dependence on the subdomain of the original function. The standard range for <m>\arcsin </m> is <m>\left[-\frac{\pi}{2}, \frac{\pi}{2} \right] </m>. Give an alternative definition of <m>\arcsin </m> as an inverse to <m>\sin </m> by specifying another domain where <m>\sin </m> is one-to-one. What is the domain of your new <m>\arcsin </m>?</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <introduction><p> Write a formula for a function satisfying the following description:</p></introduction>
+        <task>
+            <statement>
+                <p> A path parametrizing the <m>y </m>-axis of three dimensional space <m>\mathbb{R}^3 </m>.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> A scalar valued function describing the distance from a point <m>(x,y,z) </m> to the <m>y </m>-axis.</p>
+            </statement>
+        </task>
+        </exercise>
+    </exercises>
+</section>

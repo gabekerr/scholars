@@ -1,0 +1,309 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-spectral">
+    <title>The Spectral Theorem</title>
+
+    <introduction>
+    <p>The set of eigenvalues of a linear transformation <m>T : V \to V</m> is called its spectrum. This vocabulary comes from physics, where the operator in question is a quantized Hamiltonian <m>T = H</m> and the eigenvalues are energies. Such energies for photons, the fundamental particles for light (and radiowaves), can be boiled down to their frequency and thus the term `spectrum'. However, this operator <m>H</m> in quantum mechanics has to satisfy a special property - one that ensures it is diagonalizable. To even be able to state the property, we need our vector space <m>V</m> to be an inner product space.</p>
+
+    <p>In fact, while we introduced inner product spaces as a way to work geometrically with vector spaces, the existence of an inner product gives us a huge amount of extra structure of which we have only scratched the surface. The following definition is an example of such structure.</p>
+
+    <definition xml:id="eq-adjoint">
+        <notation>
+            <usage>generalized <m>T^*: W \to V </m></usage>
+            <description>Adjoint of a linear transformation</description>
+        </notation>
+        <statement>
+            <p>Let <m>V</m> and <m>W</m> be inner product spaces over <m>K</m> with pairings <m>\left\langle, \right\rangle_V</m> and <m>\left\langle , \right\rangle_W</m> respectively. Given a linear transformation <me> T : V \to W </me> we say a linear transformation <me> T^*: W \to V </me> is its <term>adjoint</term> if, for any two vectors <m>\mb{v} \in V</m> and <m>\mb{w} \in W</m> we have <me> \left\langle T (\mb{v} ) , \mb{w} \right\rangle_W = \left\langle \mb{v} , T^* (\mb{w}) \right\rangle_V. </me></p>
+        </statement>
+    </definition>
+
+    <p>Let's consider a few standard examples.</p>
+    
+    <example>
+        <title>Conjugate transpose as adjoint</title>
+        <statement>
+            <p>Suppose <m>V = \mathbb{C}^n</m> and <m>W = \mathbb{C}^m</m> are inner product spaces with the product given in <xref ref="exa-hermitianinnerproduct"/>. Then any linear transformation from <m>V</m> to <m>W</m> can be seen as multiplying by an <m>m \times n</m> matrix <m>A</m>. In this case, we have <me> A^* =  \overline{A^T} </me> which is the conjugate of the transpose of <m>A</m>. </p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Transpose as adjoint</title>
+        <statement>
+            <p>Suppose <m>V = \mathbb{R}^n</m> and <m>W = \mathbb{R}^m</m> are inner product spaces with the dot product. Then it is not hard to show that <me> A^* = A^T. </me></p>
+        </statement>
+    </example>
+
+    <p>In fact, in the finite dimensional setting there is always an adjoint as the following proposition shows.</p>
+    
+    <proposition xml:id="prop-adjointexists">
+        <statement>
+            <p>Let <m>V</m> and <m>W</m> be finite dimensional inner product spaces over <m>K</m>. Given a linear transformation <me> T : V \to W </me> there is a unique adjoint <me>T^* : W \to V. </me></p>
+        </statement>
+        <proof>
+            <p>Choose orthonormal bases <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n \}</m> and <m>\mathcal{C} = \{\mb{w}_1, \ldots, \mb{w}_m \}</m> for <m>V</m> and <m>W</m> respectively. Suppose <m>A = \cob{T}{\mathcal{B}}{\mathcal{C}}</m> represents <m>T</m> with respect to these bases. <xref ref="exe-adjointexists"/> then shows that the conjugate transpose <m>A^*</m> represents <m>T^*</m>.</p>
+        </proof>
+    </proposition>
+    
+    <p>To state and prove the Spectral Theorem in finite dimensions, we need one more notion.</p>
+    
+    <definition xml:id="eq-selfadjoint">
+        <notation>
+            <usage><m>T^* = T </m></usage>
+            <description>Self-adjoint operator</description>
+        </notation>
+        <statement>
+            <p>Let <m>V</m> be an inner product space, <m>T : V \to V</m> a linear transformation and <m>T^* : V \to V</m> its adjoint. We say that <m>T</m> is <term>self-adjoint</term> if <m>T = T^*</m>. </p>
+        </statement>
+    </definition>
+    
+    <p>Let us make a few notes about this definition. First, this can be applied to infinite and finite dimensional vector spaces. Second, in the finite dimensional setting, we call <m>T</m> <term>Hermitian</term> if <m>V</m> is defined over <m>\mathbb{C}</m> and <term>symmetric</term> if <m>V</m> is defined over <m>\mathbb{R}</m>. This connects well to matrices where <m>A</m> is said to be symmetric if <m>A^T = A</m> (which would mean that it is self-adjoint as a transformation).</p>
+
+    <p>As it turns out, there are many situations in which the linear operator we are considering is self-adjoint. So it is perhaps a pleasant surprise that, in these cases, we have everything we could possibly desire!</p>
+    
+    <theorem xml:id="thm-spectral">
+        <title>Spectral Theorem</title>
+        <statement>
+            <p>Let <m>V</m> be a finite dimensional inner product space and <m>T: V \to V</m> a self-adjoint linear transformation. Then every eigenvalue of <m>T</m> is a real number and there is  an orthonormal eigenbasis for <m>T</m>.</p>
+        </statement>
+        <proof>
+            <p>To see the claim on eigenvalues holds, we may assume that <m>V</m> is defined over <m>\mathbb{C}</m>. If not, we represent <m>T</m> as an <m>n \times n</m>-matrix <m>A</m> using an orthonormal basis as in the proof of <xref ref="prop-adjointexists"/> and observe that <m>A</m> is symmetric with real entries and thus Hermitian. But then if <m>\mb{v}</m> is a <m>\lambda</m>-eigenvector we have that
+                <md>
+                    <mrow> \lambda \left\langle \mb{v} , \mb{v} \right\rangle \amp = \left\langle \lambda \mb{v} , \mb{v} \right\rangle , </mrow>
+                    <mrow> \amp = \left\langle T (\mb{v} ) , \mb{v} \right\rangle , </mrow>
+                    <mrow> \amp = \left\langle \mb{v} , T ( \mb{v} ) \right\rangle, </mrow>
+                    <mrow> \amp = \left\langle \mb{v} , \lambda \mb{v} \right\rangle , </mrow>
+                    <mrow> \amp = \bar{\lambda} \left\langle \mb{v}, \mb{v} \right\rangle . </mrow>
+                </md>
+            Dividing by <m>\|\mb{v} \|^2</m> we see that <m>\lambda = \bar{\lambda}</m> so that <m>\lambda</m> is real. </p>
+
+            <p>To see that <m>T</m> has an eigenbasis, we need only show that any generalized eigenvector is actually an eigenvector. So suppose <m>\lambda</m> is an eigenvalue and <m>\mb{v}</m> is a generalized <m>\lambda</m>-eigenvector for which <m>(\lambda I - T)^r (\mb{v} ) = \mb{0}</m> but <m>(\lambda I - T)^{r - 1} (\mb{v} ) \ne \mb{0}</m>. If this only happens for <m>r = 1</m> then we are done. So suppose <m>r > 1</m>  and let <m>\mb{w} = (\lambda I - T)^{r - 2} (\mb{v} )</m>. Then <m>(\lambda I - T )(\mb{w}) \ne \mb{0}</m> so that <m>\| (\lambda I - T )(\mb{w}) \|^2 > 0</m> but
+                <md>
+                    <mrow> 0 \amp \ne \left\langle  (\lambda I - T )(\mb{w}),  (\lambda I - T )(\mb{w}) \right\rangle, </mrow>
+                    <mrow> \amp =  \left\langle (\lambda I - T )^2(\mb{w}) , \mb{w} \right\rangle, </mrow>
+                    <mrow> \amp = \left\langle \mb{0} , \mb{w} \right\rangle, \\ \amp = 0.</mrow>
+                </md>
+            This is a contradiction, thus every generalized eigenvector is an eigenvector and there is an eigenbasis (or equivalently, <m>T</m> is diagonalizable).</p>
+
+            <p>Now, suppose <m>\lambda_1</m> and <m>\lambda_2</m> are distinct eigenvalues with eigenvectors <m>\mb{v}_1</m> and <m>\mb{v}_2</m>. Then
+                <md>
+                    <mrow> \lambda_1 \left\langle \mb{v}_1 , \mb{v}_2 \right\rangle \amp = \left\langle \lambda \mb{v}_1 , \mb{v}_2 \right\rangle , </mrow>
+                    <mrow> \amp = \left\langle T (\mb{v}_1 ) , \mb{v}_2 \right\rangle , </mrow>
+                    <mrow> \amp = \left\langle \mb{v}_1 , T ( \mb{v}_2 ) \right\rangle, </mrow>
+                    <mrow> \amp = \left\langle \mb{v}_1 , \lambda_2 \mb{v}_2 \right\rangle , </mrow>
+                    <mrow> \amp = \bar{\lambda}_2 \left\langle \mb{v}_1, \mb{v}_2 \right\rangle , </mrow>
+                    <mrow> \amp = {\lambda}_2 \left\langle \mb{v}_1, \mb{v}_2 \right\rangle . </mrow>
+                </md>
+            Here the last line uses the fact that <m>\lambda_2</m> is real. Since <m>\lambda_1 \ne \lambda_2</m> we must have that <m>\left\langle \mb{v}_1 , \mb{v}_2 \right\rangle = 0</m> or that the distinct eigenspaces are in fact orthogonal. This means that our generalized eigenspace decomposition <me> V \amp = V_{\lambda_1} \oplus V_{\lambda_2} \oplus \cdots \oplus V_{\lambda_m} </me> is actually an eigenspace decomposition and any two such spaces are orthogonal. Choosing an orthonormal basis for each eigenspace and taking their union then produces an orthonormal eigenbasis of <m>V</m> for <m>T</m>.</p>
+        </proof>
+    </theorem>
+    <p>Let us now consider two important applications of this theorem.</p>
+    </introduction>
+
+    <subsection xml:id="subsec-quadraticforms">
+        <title>Quadratic Forms</title>
+        <p>We start with a definition.</p>
+        <definition xml:id="def-quadform">
+            <notation>
+                <usage><m>Q : V \to K  </m></usage>
+                <description>Quadratic form</description>
+            </notation>
+            <statement>
+                <p>Let <m>V</m> be an <m>n</m>-dimensional vector space over <m>K</m>. A quadratic form on <m>V</m> is a function <me> Q : V \to K </me> for which there exists numbers <m>a_{ij} \in K</m> and a basis <m>\mathcal{B}</m> of <m>V</m> for which  <me> Q \left( \left[ \begin{matrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{matrix} \right]_{\mathcal{B}} \right) = \sum_{i = 1}^n \sum_{j = 1}^n a_{ij} x_i x_j .</me></p>
+            </statement>
+        </definition>
+        
+        <p>There are alternative definitions that do not depend on choosing a basis, but in any definition, one will be able to write out a quadratic form as above. Note that if <m>A</m> is the <m>n \times n</m> matrix with entries <m>(a_{ij})</m> and <m>\mb{x}</m> is the vector <m>\coord{\mb{v}}{\mathcal{B}}</m> to be put in <m>Q</m>, we obtain the formula <men xml:id="eq-quadraticform"> Q (\mb{x} ) = \mb{x}^T A \mb{x}. </men> Like the determinant, a quadratic form is not a linear function, but rather strongly related to multilinear functions (as you will see in the proof of Sylvester's Law of Inertia). However, it is one you have certainly seen before in another guise called a conic section.</p>
+
+        <example xml:id="ex-conicsections">
+            <title>Quadratic forms in two dimensions</title>
+            <statement>
+                <p>There are two examples of quadratic forms for <m>\mathbb{R}^2</m> that you see early in your mathematical education. We will write these as functions of two variables. The first is 
+                <me>
+                    Q_{++} (x,y) =  Q_{++} \left( \twovec{x}{y} \right)  = \frac{x^2}{a^2} + \frac{y^2}{b^2}.
+                </me>
+                The level set of this quadratic form, which is defined as the set of points in the plane satisfying <m>Q (x, y) = c</m>, is an ellipse. Another quadratic form you see is the similar looking 
+                <me>
+                 Q_{+-} (x,y) =  Q_{+-} \left( \twovec{x}{y} \right)  = \frac{x^2}{a^2} - \frac{y^2}{b^2}.
+                </me>
+                The level set here being a hyperbola. Of course, there are others like 
+                <me>
+                    Q(x, y) = 5x^2 - 6xy + 5y^2
+                </me>
+                but, as we will see using the Spectral Theorem, this can be made to be like one of our two prototypes above by changing coordinates.</p>
+    
+                <p>We note here that instead of considering the level curves of these quadratic forms, we could consider their graphs <me> \{ (x, y, z) : z = Q (x,y) \} \subset \mathbb{R}^3 . </me> In this case, we would obtain what are known as the paraboloid and hyperbolic paraboloid. We will revisit these graphs later on when we consider multivariable scalar functions.</p>
+            </statement>
+        </example>
+
+        <p>Representing a quadratic form by a matrix as in equation <xref ref="eq-quadraticform"/> depends on the basis <m>\mathcal{B}</m>, however, we can restrict our attention to certain types of matrices which change only in certain ways.</p>
+        <lemma xml:id="lem-quadraticformmatrix">
+            <statement>
+                <p>If <m>Q</m> is a quadratic form on <m>V</m>, then for any basis <m>\mathcal{B}</m> of <m>V</m> there is a unique symmetric matrix <m>A_\mathcal{B}</m> for which <me> Q (\mb{v} ) = \left( \coord{\mb{v}}{\mathcal{B}} \right)^T A_{\mathcal{B}}\coord{\mb{v}}{\mathcal{B}}. </me> Furthermore, if <m>\mathcal{C}</m> is another basis, then there is an invertible matrix <m>P</m> for which 
+                <men xml:id="eq-congruent">
+                    A_{\mathcal{C}} = P^T A_{\mathcal{B}} P.
+                </men>
+                </p>
+            </statement>
+            <proof>
+                <p>For the first statement, we need only show there is a <em>symmetric</em> matrix <m>A_{\mathcal{B}}</m> as equation <xref ref="eq-quadraticform"/> gives us the existence of some matrix. But <m>\mb{x}^T A \mb{x}</m> is in fact a symmetric matrix (because it is <m>1 \times 1</m>), so <me> \mb{x}^T A \mb{x} = \left( \mb{x}^T A \mb{x} \right)^T = \mb{x}^T A^T \mb{x} . </me> Another symmetric matrix that we can obtain from <m>A</m> is  <me> A_\mathcal{B} = \frac{1}{2} ( A + A^T ). </me> Indeed, we see that
+                <md>
+                    <mrow> Q ( \mb{x} ) \amp = \mb{x}^T A \mb{x}, </mrow>
+                    <mrow> \amp = \frac{1}{2} \left( \mb{x}^T A \mb{x} + \mb{x}^T A \mb{x} \right), </mrow>
+                    <mrow> \amp = \frac{1}{2} \left( \mb{x}^T A \mb{x} + \mb{x}^T A^T \mb{x} \right), </mrow>
+                    <mrow> \amp = \mb{x}^T \left[ \frac{1}{2} (A + A^T) \right] \mb{x}, </mrow>
+                    <mrow>  \amp = \mb{x}^T A_\mathcal{B} \mb{x}.</mrow>
+                </md> 
+                To see that <m>A_\mathcal{B}</m> is the only symmetric matrix that will produce <m>Q</m> relative to the coordinates given by <m>\mathcal{B}</m>, one observes that the diagonal entries are obtained by <m>Q ( \mb{e}_i)</m> and the off diagonal ones by <m>\frac{1}{2} [Q ( \mb{e}_i + \mb{e}_j) - Q ( \mb{e}_i) - Q (\mb{e}_j)]</m>. </p>
+
+                <p>To see the last statement about relating <m>A_\mathcal{B}</m> to <m>\mathcal{C}</m>, just note that if <m>\mb{v}</m> is a vector in <m>V</m> with coordinates <m>\coord{\mb{v}}{\mathcal{B}}</m>, <m>\coord{\mb{v}}{\mathcal{C}}</m> with respect to <m>\mathcal{B}</m> and <m>\mathcal{C}</m>, then, letting <m>P = \cob{1_V}{\mathcal{C}}{\mathcal{B}}</m> be the change of coordinate matrix, we have <me> \coord{\mb{v}}{\mathcal{B}} = P \coord{\mb{v}}{\mathcal{C}} </me> which gives
+                <md>
+                    <mrow> Q (\mb{v} ) \amp = \left(\coord{\mb{v}}{\mathcal{B}}\right)^T A_\mathcal{B} \coord{\mb{v}}   {\mathcal{B}}, </mrow>
+                    <mrow> \amp = \left( P \coord{\mb{v}}{\mathcal{C}} \right)^T A_{\mathcal{B}} \left(  P \coord{\mb{v}}{\mathcal{C}} \right), </mrow>
+                    <mrow> \amp = \left( \coord{\mb{v}}{\mathcal{C}}\right)^T \left( P^T A_\mathcal{B} P \right) \coord{\mb{v}}{\mathcal{C}}.</mrow>
+                </md>
+                Now, by exercise <xref ref="exe-congruent"/> the matrix <m>P^T A_\mathcal{B} P</m> is symmetric and since <m>A_\mathcal{C}</m> is the unique symmetric matrix for which  <me>Q (\mb{v} ) = \left(\coord{\mb{v}}{\mathcal{C}}\right)^T A_\mathcal{C} \coord{\mb{v}}{\mathcal{C}} </me> we must have <me> P^T A_\mathcal{B} P  = A_\mathcal{C} . </me> </p>
+            </proof>
+        </lemma>
+
+        <p>Two matrices like <m>A_{\mathcal{B}}</m> and <m>A_{\mathcal{C}}</m> satisfying equation <xref ref="eq-congruent"/> are called <term>congruent</term>.  This lemma has a shocking corollary, which we will state as a theorem.</p>
+    
+        <theorem xml:id="thm-sylvester">
+            <title>Sylvester's Law of Inertia</title>
+            <statement>
+                <p>Let <m>Q</m> be a quadratic form on the inner product space on <m>\mathbb{R}^n</m> with the dot product. Then there are real numbers <m>\lambda_1, \ldots, \lambda_n</m> and  an orthonormal basis <m>\mathcal{B}</m> for which, if <m>\mb{x}</m> are coordinates relative to <m>\mathcal{B}</m>, <me> Q ( x_1, \ldots, x_n ) = Q \left( \mb{x} \right) = \lambda_1 x_1^2 + \cdots + \lambda_n x_n^2 . </me> Furthermore, the number of <m>\lambda_i</m>'s that are negative, zero and positive depends only on the quadratic form <m>Q</m> (i.e. it does not depend on a choice of basis). </p>
+            </statement>
+            <proof>
+                <p>By <xref ref="lem-quadraticformmatrix"/>, there is a unique symmetric matrix <m>A</m> which represents <m>Q</m> relative to the standard basis. But the Spectral Theorem then says that 
+                <ol>
+                    <li> <m>A</m> is diagonalizable,</li>
+                    <li> the eigenvalues are all real,</li>
+                    <li> there is an eigenbasis which is an orthonormal basis <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m>.</li>
+                </ol>
+                By <xref ref="prop-diagonalize"/> the fact that <m>A</m> is diagonalizable means  <me> P^{-1} A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n )  </me> where the columns of the matrix <m>P</m> are the eigenvectors <m>\mb{v}_1, \ldots, \mb{v}_n</m>. But since these are orthonormal, we have that the matrix <m>P^{-1} = P^T</m> (check this by writing the rows of <m>P^T</m> as <m>\mb{v}_1^T, \ldots, \mb{v}_n^T</m> and observing that the <m>(i,j)</m>-entry of <m>P^T P</m> is the dot product of the <m>i</m>-th row of <m>P^T</m> with the <m>j</m>-th column of <m>P</m>). Thus  <me> P^T A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n ) </me> and <xref ref="lem-quadraticformmatrix"/> implies that <m>Q</m>, relative to the basis <m>\mathcal{B}</m>, is represented by this diagonal matrix. Thus in this coordinate system, <me> Q(x_1, \ldots, x_n) = \mb{x}^T \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n ) \mb{x} = \lambda_1 x_1^2 + \cdots + \lambda_n x_n^2 . </me> </p>
+    
+                <p>The last statement is not directly implied by what we have above, since it is a statement about changing to <em>any</em> basis, not just orthonormal bases (and is the main point of Sylvester's law of inertia). To prove this last statement, consider the pairing  <me> B( \mb{x}, \mb{y} ) = \frac{1}{2} \left[ Q ( \mb{x} + \mb{y} ) - Q ( \mb{x} ) - Q ( \mb{y} ) \right]. </me> It is not hard to show that <m>B</m> satisfies conjugate symmetry (although the conjugate part is not important here because we are working with a real vector space) and linearity. It does not, however, always satisfy the positive definite property. </p>
+    
+                <p>Suppose exactly <m>n_+</m> of the eigenvalues <m>\lambda_1, \ldots, \lambda_n</m> are positive and order them so that these occur as the first ones <m>\lambda_1, \ldots, \lambda_{n_+} > 0</m> and define the subspace <m>V = \textnormal{span} \, \{ \mb{v}_1, \ldots, \mb{v}_{n_+} \}</m>. Observe that <m>B</m> is in fact a positive definite pairing on <m>V</m> because if <m>\mb{v} = a_1 \mb{v}_1 + \cdots + a_{n_+} \mb{v}_{n_+}</m> is non-zero then  <me> B ( \mb{v} , \mb{v} ) = \lambda_1 a_1^2 + \cdots + \lambda_{n_+} a_{n_+}^2 > 0 .</me> Note also that <m>V^\perp = \span \{ \mb{v}_{n_+ + 1} , \ldots, \mb{v}_n \}</m> (because <m>\mathcal{B}</m> is an orthonormal basis). </p>
+    
+                <p>We claim that any vector subspace <m>W</m> of <m>\mathbb{R}^n</m> on which <m>B</m> is positive definite has dimension less than or equal to <m>n_+</m>. Indeed, restricting the projection <m>\text{proj}_V</m> to <m>W</m> gives a linear transformation <me> \text{proj}_V : W \to V . </me> Since <m>\dim V = n_+</m>, the Rank-Nullity Theorem says that if <m>\dim W \gt n_+</m>  then there is a non-zero element <m>\mb{w}</m> in the kernel of <m>\textnormal{proj}_V</m>. But the kernel of the projection map is <m>V^\perp</m> so that <m>\mb{w}</m> is in the span of <m>\{ \mb{v}_{n_+ + 1} , \ldots, \mb{v}_n \}</m>. Thus  <me> \mb{w} = b_{n_+ + 1} \mb{v}_{n_+ + 1} + \cdots + b_n \mb{v}_n </me> and <me> B ( \mb{w} , \mb{w} ) = b_{n_+ + 1}^2 \lambda_{n_+ + 1} + \cdots b_n^2 \lambda_n \leq 0 . </me> This would contradict that <m>B</m> is positive definite on <m>W</m>. Thus <m>n_+</m> is indeed the maximal dimension of a subspace on which <m>B</m> is positive definite. Likewise, we can show that the number <m>n_-</m> of negative <m>\lambda</m>'s is the largest dimension of a subspace on which <m>B</m> is `negative definite' (i.e. <m>B( \mb{v} , \mb{v} ) \lt 0</m> on non-zero vectors). Finally, <m>n_0</m> can be calculated as <m>\dim V - n_+ - n_-</m>. </p>
+            </proof>
+        </theorem>
+
+        <p>This surprising theorem has diverse and far reaching consequences as we will see later with second derivative tests. However, we can also use it to observe that often complicated looking formula are in fact just simple formulas made complicated by a change of coordinates.</p>
+
+        <example>
+            <title>Nice coordinates for a quadratic form</title>
+            <statement>
+                <p>In <xref ref="ex-conicsections"/>, we wrote the quadratic form 
+                <me>
+                 Q(x, y) = 5x^2 - 6xy + 5y^2
+                </me>
+                on <m>\mathbb{R}^2</m>. The matrix for this quadratic form with respect to the standard basis is 
+                <me>
+                    A = \left[ \begin{matrix} 5 \amp -3 \\ -3 \amp 5 \end{matrix} \right].
+                </me>
+                Calculating the characteristic polynomial, we obtain
+                <md>
+                    <mrow> p_A (t) \amp = \det \left( \left[ \begin{matrix} t - 5 \amp 3 \\ 3 \amp t - 5 \end{matrix} \right] \right) , </mrow>
+                    <mrow> \amp = (t - 5) (t - 5) - 9, </mrow>
+                    <mrow> \amp = t^2 - 10t + 16, </mrow>
+                    <mrow> \amp = \left( t - 2 \right) \left( t - 8 \right).</mrow>
+                </md>
+                Finding eigenvectors we solve <m>(tI - A) \mb{x} = \mb{x}</m> and obtain <me> \mathcal{B} = \left\{ \twovec{1}{1} ,  \twovec{1}{-1} \right\} </me> which is orthogonal. Normalizing gives <me> \mathcal{B} = \left\{ \twovec{\sqrt{2}/2}{\sqrt{2}/2} ,  \twovec{\sqrt{2}/2}{-\sqrt{2}/2} \right\} </me> which can be used to obtain the change of basis matrix <me> P = \left[ \begin{matrix}  {\sqrt{2}/2}  \amp {\sqrt{2}/2} \\ {\sqrt{2}/2} \amp -{\sqrt{2}/2} \end{matrix} \right]. </me> In this case, we can observe that <m>P = P^{-1} = P^T</m>. Now, in the orthonormal basis <m>\mathcal{B}</m>, we have coordinates <me> \twovec{u}{v}_{\mathcal{B}} = u  \twovec{\sqrt{2}/2}{\sqrt{2}/2} + v  \twovec{\sqrt{2}/2}{- \sqrt{2}/2} =  \twovec{\sqrt{2}/2 \left( u + v \right) }{\sqrt{2}/2 \left( u - v \right)}. </me> Putting these into <m>Q</m> gives
+                <md>
+                    <mrow> Q\left(\twovec{u}{v}_{\mathcal{B}} \right) \amp = 5 \left(\sqrt{2}/2 ( u + v ) \right)^2 - 6\left(\sqrt{2}/2 ( u + v ) \right)\left(\sqrt{2}/2 ( u - v ) \right) + 5\left(\sqrt{2}/2 ( u - v ) \right)^2, </mrow>
+                    <mrow>  \amp = \frac{5}{2} \left( u^2 + 2uv + v^2 \right) - 3 \left( u^2 - v^2 \right) + \frac{5}{2} \left( u^2 - 2uv + v^2 \right), </mrow>
+                    <mrow>  \amp = 2 u^2 + 8 v^2. </mrow>
+                </md>
+                What have we done? Well, the <m>(u,v)</m> coordinate system is just the ordinary Cartesian coordinates rotated by <m>45</m> degrees. In this system, we have a standard ellipse with major axis the rotated <m>y</m>-axis and minor axis the rotated <m>x</m>-axis.</p>
+            </statement>
+        </example>
+
+        <p>This last example shows a practical way of obtaining good coordinates when faced with a quadratic form, namely ones where the form is the sum of multiples of squares.</p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-covmat">
+        <title>Covariance Matrices</title>
+
+        <p>When modelling a data set, one often will be considering a sample space with several variables. For example, if maple trees were our  our data set, each maple tree may have a height, age, trunk diameter etc. We pick an order of such quantities once and for all so that we can numerically record any such sample as a vector in our vector space <m>\mathbb{R}^n</m>. Doing so with a large data set gives us a large number of vectors <m>S</m> in <m>\mathbb{R}^n</m> and this is where we leave trees behind and math takes over.</p>
+
+        <p>Now, there are reasons to believe (in certain situations) that our data set <m>S</m> should be distributed like an ellipse (or an ellipsoid for higher dimensions) around a central point. Such a distribution would be called a multivariate normal distribution. What is meant by `distributed' is that there is some (non-linear) function <m>\rho</m> on <m>\mathbb{R}^n</m> which tells us of the probability that a sample point will be in a specific region of <m>\mathbb{R}^n</m>. Then for any probability <m>p</m> between <m>0</m> and <m>1</m>, there will be ellipsoid ball around the mean in <m>\mathbb{R}^n</m> for which a sample occuring in that ball will have probability <m>p</m>. </p>
+
+        <p>Let us first focus on the central point <m>\mb{\mu}</m>. This point, if it is the center, should be the average of all of our samples <me> \mb{\mu} := \frac{1}{|S|} \sum_{\mb{X} \in S}  \mb{X}. </me> If you have some familiarity with basic statistics, you will know that finding the average (or mean) of a data set is only the first step in understanding your distribution of points. The second step is to find the variance, which when <m>n = 1</m>, is the average of the squares of the deviations from the mean. In other words, it can be calculated as
+        <men xml:id="eq-var1d">
+        \frac{\sum (X - \mu)^2}{|S|}.
+        </men>
+        This is actually the population variance, which will do for our purposes in one dimension. What it measures is how far away (or more precisely, the square of the distance away) a generic sample point is from the mean. However, we have by now realized our world is much richer with many dimensions and we should also note that the words `far away' indicate an inner product computation in many dimensions. So our notion of variance should also certainly be much richer in many dimensions and indeed it is. </p>
+        
+        <p>To compute it, we simply take our sample space of shifted vectors, or vectors with respect to the mean, and make it into a very large matrix
+        <me> \mathcal{S} = \left[ \begin{matrix} | \amp | \amp \cdots \amp | \\ \, \mb{X}_1 - \mb{\mu} \amp \, \,\mb{X}_2 - \mb{\mu} \amp \cdots \amp \, \,\mb{X}_N - \mb{\mu} \\ | \amp | \amp \cdots \amp | \end{matrix} \right]. </me>
+        and write
+        <men xml:id="eq-varmult">
+            \mathbf{\Sigma} = \frac{1}{|S|} \mathcal{S} \mathcal{S}^T.
+        </men>
+        Let us observe a few things about this matrix. First, it is often written as <m>K_{XX}</m> rather than <m>\mb{\Sigma}</m>. We also note that the one dimensional case reproduces formula <xref ref="eq-var1d"/>. Finally, one can check that this is an <m>n \times n</m> real symmetric matrix so that <me> \mathbf{\Sigma}^T = \mathbf{\Sigma} . </me> If this weren't good enough, it also has a positive semi-definite property. Namely, if <m>\mb{v}</m> is any vector in <m>\mathbb{R}^n</m> then <men xml:id="eq-positivesemi"> \left( \mathbf{\Sigma} \mb{v} \right) \cdot \mb{v} \geq 0 .  </men>
+        So indeed, this covariance matrix is self-adjoint and, as you will show in an exercise, has only non-negative eigenvalues. This in particular means one can take unambiguous square roots of these eigenvalues (which are viewed as multivariable standard deviations). Thus there is an orthonormal eigenbasis for <m>\mathbf{\Sigma}</m>. The eigenvectors of this basis can be ordered so that the <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m> so that <m>\mb{v}_1</m> has the largest eigenvalue and the remaining eigenvalues are of decreasing values. Then in the <m>\coord{}{\mathcal{B}}</m> coordinate system, our original data set can be seen as normally distributed about the mean with an ellipsoid with equation  <me>\left( \frac{x_1}{\lambda_1} \right)^2 + \cdots + \left( \frac{x_n}{\lambda_n} \right)^2 = 1 . </me> In this coordinate system, we can reduce dimensions to those eigenvectors with the largest eigenvalues (by projecting). Understanding and interpreting the data set in the eigenbasis coordinate system is an area in statistical applications known as <sq>principal component analysis</sq>. </p>
+
+    </subsection>
+
+    <exercises xml:id="exe-spectral">
+
+        <exercise xml:id="exe-adjointexists">
+        <statement>
+            <p>Verify the claim in the proof of <xref ref="prop-adjointexists"/>. In particular, show that if <m>A^*</m> is the conjugate transpose of the matrix <m>A = \cob{T}{\mathcal{B}}{\mathcal{C}}</m> representing <m>T</m> with respect to the orthonormal bases <m>\mathcal{B}</m> of <m>V</m> and <m>\mathcal{C}</m> of <m>W</m>, then <me> []_\mathcal{B} \circ A^* \circ \coord{}{\mathcal{C}}: W \to V </me> is adjoint to <m>T</m>.</p>
+        </statement>
+        <hint>Verify the adjoint equation for basis vectors <m>\mb{v}_i</m> and <m>\mb{w}_j</m>. Then appeal to linearity.</hint>    
+        </exercise>
+
+        <exercise xml:id="exe-congruent">
+        <statement>
+            <p>Two real <m>n \times n</m>-matrices <m>A</m> and <m>B</m> are called congruent if there is an invertible matrix <m>P</m> with <m>P^T A P = B</m>. Show that if <m>A</m> is symmetric then so is every matrix congruent to <m>A</m>.</p>
+        </statement>
+        </exercise>
+
+    <exercise>
+        <introduction><p> 
+            Suppose one has the  (extremely small) data set with vectors <me> S = \left\{ \twovec{1}{2}, \twovec{1}{-3}, \twovec{0}{1}, \twovec{-1}{4}, \twovec{4}{1}. \right\}. </me>
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>Compute the mean of this data set.
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>Compute the covariance matrix of this data set.
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>Find eigenvalues and eigenvectors for the covariance matrix.
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>Sketch an ellipse describing the bivariate distribution of this data set.
+                </p>
+            </statement>
+        </task>
+    </exercise>
+    
+    <exercise>
+        <statement>
+            <p>Show that <m>\mathbf{\Sigma}</m> is positive semi-definite as in equation <xref ref="eq-positivesemi"/>. Use this to show that it has only non-negative eigenvalues.</p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>Let <me> Q (x,y) = 3x^2 + 8xy - 3y^2. </me> Find an orthonormal basis <m>\mathcal{B}</m> for <m>\mathbb{R}^2</m> so that in these coordinates <me> Q (u, v) = \lambda_1 u^2 + \lambda_2 v^2 .</me> Describe the conic section <m>Q (x,y) = 1</m>. </p>
+        </statement>
+    </exercise>
+
+</exercises>
+
+</section>

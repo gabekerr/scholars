@@ -1,0 +1,355 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-diag1">
+    <title>Diagonalization</title>
+
+    <introduction>
+    
+    <p> We now return to linear transformations and tackle the problem of diagonalization. Let us first put ourselves in the right context. The linear transformations we want to consider here have domain equal to the codomain so that they are functions <me> T : V \to V . </me> Such a transformation is often called a <term>linear operator</term>. One reason this is important is that we can then form equations relating vectors to their values. In particular, we may want to understand solutions to <me> T (\mb{v} ) = \mb{v}, </me> or <me> T (\mb{w} ) = - \mb{w}. </me> Vectors satisfying the first equation are not changed by <m>T</m> and those satisfying the second are <sq>flipped around</sq>. As it turns out, if some conditions are satisfied, we already have the tools to solve these equations and their generalizations.</p>
+
+    <definition xml:id="def-eigen">
+        <notation>
+            <usage><m>\lambda</m>-eigenvector</usage>
+            <description>Eigenvector and eigenspace of a linear operator</description>
+        </notation>
+        <statement>
+            <p>Let <m>T : V \to V</m> be a linear operator. A non-zero vector <m>\mb{v}</m> is called an <term>eigenvector</term> of <m>T</m> if there is a scalar <m>\lambda</m> in <m>K</m> for which <men xml:id="eq-eveq"> T(\mb{v} ) = \lambda \mb{v} . </men> Any such scalar <m>\lambda</m> will be called an <term>eigenvalue</term> of <m>T</m>. For a given <m>\lambda</m>, the vector subspace of solutions to equation <xref ref="eq-eveq"/> is called the <term><m>\lambda</m>-eigenspace</term> of <m>T</m>.
+            </p>
+        </statement>
+    </definition>
+    
+    <p>We will often refer to eigenvectors and eigenvalues of matrices as well. When we do, we mean eigenvectors and eigenvalues of the linear transformation obtained by multiplying on the left by the matrix. Let us take a look at a few examples.</p>
+    
+    <example>
+        <title>Diagonal matrices</title>
+        <statement>
+            <p>Multiplying column vectors in  <m>K^n</m> by a diagonal matrix <m>\text{Diag} (\lambda_1 , \ldots, \lambda_n)</m> will give us <m>n</m> eigenvalues <m>\lambda_1, \ldots, \lambda_n</m> with eigenvectors equal to the standard basis vectors <m>\mb{e}_1 , \ldots , \mb{e}_n</m>.</p>
+        </statement>
+    </example>
+    <example>
+        <title>Eigenvalues of a <m>2 \times 2</m> matrix</title>
+        <statement>
+            <p>More generally, matrices often have eigenvalues that cannot be detected by merely looking at their entries. For example, the matrix <me> A = \left[ \begin{matrix} 1 \amp 1 \\ 1 \amp 1 \end{matrix} \right] </me> has eigenvalues <m>0</m> and <m>2</m> (which don't seem to me like numbers that pop right out). Indeed, <me> A \twovec{1}{1} = \left[ \begin{matrix} 1 \amp 1 \\ 1 \amp 1 \end{matrix} \right]  \twovec{1}{1} = \twovec{2}{2} = 2 \, \twovec{1}{1} </me> and <me> A \twovec{1}{-1} = \left[ \begin{matrix} 1 \amp 1 \\ 1 \amp 1 \end{matrix} \right] \twovec{1}{-1} = \twovec{0}{0} = 0 \, \twovec{1}{1}. </me> While the zero vector appears on the right hand side of this equation, be very careful <em>not</em> to take it on the left ... the zero vector is <em>not</em> an eigenvector by definition (otherwise, every number would be an eigenvalue!).</p>
+        </statement>
+    </example>
+    <example xml:id="exa-Jmult">
+        <title>Complex eigenvalues</title>
+        <statement>
+            <p>The plot thickens even more when we consider our number system. For example, the very innocuous looking matrix <me>A = \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp 0 \end{matrix} \right] </me> has no eigenvalues or eigenvectors when thought of as a real matrix. In other words, there are no nonzero numbers <m>a,b</m> and a real <m>\lambda</m> for which  <me>\left[ \begin{matrix} 0 \amp -1 \\ 1 \amp 0 \end{matrix} \right] \twovec{a}{b} = \lambda \twovec{a}{b}. </me> However, if we use the same matrix, but work over <m>\mathbb{C}</m> we see that <me> A \twovec{1}{i} = \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp 0 \end{matrix} \right] \twovec{1}{i} = \twovec{-i}{1} = -i \, \twovec{1}{i}, </me> and <me> A \twovec{1}{-i} = \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp 0 \end{matrix} \right] \twovec{1}{-i} = \twovec{i}{1} = i \, \twovec{1}{-i}, </me></p>
+        </statement>
+    </example>
+
+    <p>These examples may lead the student to throw up their hands and exclaim that this whole business is too complicated and not worth the effort. However, I encourage them not to give up. What we get out of solving these problems is a slew of amazing and important applications! Let us first though state the problems to be solved:</p>
+    
+    <p><em>Given a linear transformation <m>T : V \to V</m> on a finite dimensional vector space <m>V</m>:</em>
+    <dl>
+        <li> <title>Eigenvalue Problem</title> Find all eigenvalues of <m>T</m>.</li>
+        <li> <title>Eigenvector Problem</title> For an eigenvalue <m>\lambda</m>, find all <m>\lambda</m>-eigenvectors. </li>
+        <li> <title>Diagonalization Problem</title> What conditions ensure that there is a basis of <m>V</m> consisting of eigenvectors of <m>T</m>? </li>
+    </dl></p>
+    </introduction>
+
+    <subsection xml:id="subsec-eigenvalueproblem">
+        <title>Eigenvalue Problem</title>
+        <p>To solve this problem, we first leverage the fact that the domain and codomain of <m>T</m> are the same to define the determinant of <m>T</m>.</p>
+
+        <definition xml:id="def-determinant2">
+            <notation>
+                <usage><m>\det (T)</m></usage>
+                <description>Determinant of a linear operator</description>
+            </notation>
+            <statement>
+                <p>Given a finite dimensional vector space <m>V</m> and a linear transformation <m>T : V \to V</m>, the <term>determinant</term> of <m>T</m>, denoted <m>\det (T)</m>, is the determinant of any matrix representing <m>T</m> with respect to the same basis. I.e. <m>\det (T) := \det (\cob{T}{\mathcal{B}}{\mathcal{B}})</m> for any basis <m>\mathcal{B}</m> of <m>V</m>.
+                </p>
+            </statement>
+        </definition>
+        
+        <p>Of course, this definition may seem suspicious at first. As I have been emphasizing, an abstract vector space does <em>not</em> come with a basis, but rather one must choose a basis. So what happens if one person chooses a basis <m>\mathcal{B}</m> to compute <m>\det (T)</m> and another chooses a different basis <m>\mathcal{C}</m>? Students with great memories will recall equation <xref ref="eq-changeofbasis"/> and <xref ref="exe-changeofbasis"/> which showed that if <m>B = \cob{T}{\mathcal{B}}{\mathcal{B}}</m> and <m>C = \cob{T}{\mathcal{C}}{\mathcal{C}}</m> were two different matrix representations of the same linear transformation <m>T</m>, then <me> C = P^{-1} B P. </me> But then by <xref ref="prop-productdet"/> we have 
+        <md>
+            <mrow>\det (B) \amp = \frac{\det (P)}{\det (P)} \det (B), </mrow>
+            <mrow> \amp = \det (P^{-1}) \det (B) \det (P), </mrow>
+            <mrow> \amp = \det (P^{-1} B P), </mrow>
+            <mrow>\amp = \det (C). </mrow>
+        </md>
+        So indeed, defining <m>\det (T)</m> with either matrix gives the same quantity. </p>
+
+        <p>For the insightful philosophical student, simply justifying that this definition gives a well defined number may not be satisfying. They may reasonably ask why, if <m>\det (A)</m> is a computation of volume and volume is a measure that can only be given in an inner product space, does it make sense to talk about <m>\det (T)</m> for a linear transformation on an abstract vector space? What does this have to do with volume!? Well, the answer is that <m>\det (T)</m> does not specify the volume of anything at all in <m>V</m>, but it tells you exactly how much the volume of something <em>changes</em> if you apply <m>T</m>. In particular, if you have a box <m>\mb{B}</m> in a real vector space <m>V</m>, you may assign many different inner products to <m>V</m> to produce many different values of <m>\text{Vol} (\mb{B})</m>. However, no matter how you do this, you will always get the equation <men xml:id="eq-determinantvolume"> \text{Vol} (T (\mb{B})) = | \det (T) | \text{Vol} (\mb{B}). </men></p>
+
+        <p>For the impatient student, going over all of this may be quite annoying and they may ask - why are you bothering me about this now ... what does this have to do with eigenvalues!?? To which I would say:</p>
+
+
+        <proposition xml:id="prop-eigenvaluedet">
+            <statement> 
+                <p>The number <m>\lambda</m> in <m>K</m> is an eigenvalue of <m>T</m> if and only if <me> \det ( \lambda \, I - T) = 0 .</me></p>
+            </statement>
+            <proof>
+                <p>We have that <m>\lambda</m> is an eigenvalue if and only if there is a non-zero <m>\mb{v}</m> in <m>V</m> for which <m>T (\mb{v} ) = \lambda \mb{v}</m> or equivalently if <m>(\lambda I - T) ( \mb{v} ) = \mb{0}</m>. But this is equivalent to saying that <m>\mb{v}</m> is in the kernel of <m>\lambda I - T</m>. We know that this would happen if and only if <m>\lambda I - T</m> is not a one-to-one transformation. Since  <me> (\lambda I - T)  : V \to V </me> is a linear transformation between spaces of the same dimension, <xref ref="cor-equaldim" /> shows that <m>\lambda I - T</m> is not one-to-one if and only if it is not invertible. But this is the case if and only if any matrix <m>A</m> representing it is not invertible which by <xref ref="lem-detinv"/> can be true if and only if <m>\det (\lambda I - T ) = \det (A) = 0</m>.
+                </p>
+            </proof>
+        </proposition>
+
+        <p>This proposition suggests the following definition.</p>
+
+        <definition xml:id="def-characteristicpolynomial">
+            <notation>
+                <usage><m>p_T ( t)</m></usage>
+                <description>Characteristic polynomial of a linear operator</description>
+            </notation>
+            <statement>
+                <p>If <m>V</m> is a finite dimensional vector space, the <term>characteristic polynomial</term> of a linear transformation <m>T : V \to V</m> is given by <me> p_T ( t) = \det (t I - T). </me>
+                </p>
+            </statement>
+        </definition>
+
+        <p>Here the variable <m>t</m> is just that, a variable. You will show in the exercises that if <m>\dim V = n</m> then <m>p_T (t)</m> is always a degree <m>n</m> polynomial. Thus <xref ref="prop-eigenvaluedet"/> then immediately yields.</p>
+
+        <corollary xml:id="cor-eigenvalues"> 
+            <statement>
+                <p>If <m>\dim V = n</m> and <m>T : V \to V</m> is a linear transformation, there are at most <m>n</m> eigenvalues of <m>T</m> corresponding to roots of the characteristic polynomial <m>p_T (t)</m>.</p>
+            </statement>
+        </corollary>
+
+        <p>As before, when <m>T</m> is given by a representing matrix <m>A</m>, we will write <m>p_A (t)</m> and talk about the characteristic polynomial of the matrix. To be certain we are not lost in abstraction, let us see that this polynomial can easily be computed.</p>
+
+        <example>
+            <title>Characteristic polynomial of a <m>2 \times 2</m> matrix I</title>
+            <statement>
+                <p>Let us reconsider the case of multiplying by <me> A = \left[ \begin{matrix} 1 \amp 1 \\ 1 \amp 1 \end{matrix} \right] . </me> Subtracting from  <m>t</m> times the identity gives <me> tI - A = \left[ \begin{matrix} t - 1 \amp -1 \\ -1 \amp t - 1 \end{matrix} \right] </me> and taking determinant then produces <me> p_A (t) = \det (t I - T) = (t - 1)^2 - 1 = t^2 - 2t . </me> For those that did not imagine how we could find the eigenvalues of <m>0</m> and <m>2</m> before, this polynomial should light a bit of a spark! By <xref ref="prop-eigenvaluedet"/>, the eigenvalues must solve the equation <m>p_A (t) = 0</m>, or equivalently, be roots of <m>p_A (t)</m>. </p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Characteristic polynomial of a <m>2 \times 2</m> matrix II</title>
+            <statement>
+                <p>On the other hand, we may consider multiplying by <me>A = \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp 0 \end{matrix} \right] .</me> Here we get <me> p_A (t)  =  \det \left( \left[ \begin{matrix} t \amp 1 \\ -1 \amp t \end{matrix} \right] \right) = t^2 + 1. </me> Solving the equation <m>p_A (t) = 0</m> leads to the unimaginable <me> t^2 = -1 </me> which no one can really solve. Except complex people.</p>
+            </statement>
+        </example>
+        
+        <p>Now, we should mentioned that while what we have learned <em>is</em> progress, it also has limitations. The problem is that we have replaced our problem of finding eigenvalues with another problem of finding roots of a polynomial. For small matrices, this problem can be solved with complete accuracy and we will be pleased. However, for larger matrices we get higher degree polynomials. Finding exact roots of such polynomials can be an impossible task (although approximation methods exist). Nevertheless, we should not neglect the fact that we now have a much better understanding of what can happen. In particular, we cannot have infinitely many eigenvalues (in fact the number is bound by the dimension) and they all occur as roots of a polynomial coming directly from the transformation.</p>
+
+    </subsection>
+
+    <subsection>
+        <title>Eigenvector Problem</title>
+        <p>Having made great progress with our eigenvalue problem, we may ask some questions about the vectors that accompany them. A student with applications in mind may quickly ask: <sq>How do we find the <m>\lambda</m>-eigenvectors?</sq> to which I would respond : <sq>Solve a matrix equation!</sq></p>
+        
+        <example xml:id="exa-notdiagonalizable">
+            <title>Eigenvectors of a <m>3 \times 3</m> matrix</title>
+            <statement>
+                <p>Let's consider a new computational example of multiplying by <me>A = \left[ \begin{matrix} 2 \amp -1 \amp -2 \\ 0 \amp 4 \amp 4 \\ 2 \amp 1 \amp 2 \end{matrix} \right] .</me> The first step to finding eigenvectors is to find the eigenvalues. To do this, we learned to find the characteristic polynomial
+                <md>
+                    <mrow> p_A (t) \amp = \det \left( \left[ \begin{matrix} t -2 \amp 1 \amp 2 \\ 0 \amp  t-4\amp -4 \\ -2 \amp -1 \amp t - 2 \end{matrix} \right] \right), </mrow>
+                    <mrow> \amp = (t - 2) \det  \left( \left[ \begin{matrix} t - 4 \amp - 4 \\ - 1 \amp  t - 2 \end{matrix} \right] \right) -  \det \left( \left[ \begin{matrix} 0 \amp -4 \\ -2  \amp  t - 2\end{matrix} \right] \right) + 2 \left( \left[ \begin{matrix}  0 \amp t - 4 \\ -2 \amp -1  \end{matrix} \right] \right), </mrow>
+                    <mrow> \amp = (t - 2) (t^2 - 6t + 4) + 8  + 4 (t - 4),</mrow>
+                    <mrow> \amp = t^3 - 8t^2 + 20t - 16.</mrow>
+                </md>
+                One can check that <m>2</m> is a root, divide <m>p_A (t)</m> by <m>(t - 2)</m> and factor to see that <me> p_A(t)  =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4). </me> Thus we see that our eigenvalues are <m>2</m> and <m>4</m>. It is interesting to note that we have <term>multiplicity</term> here for the root <m>2</m> which means that <m>(t - 2)^2</m> factors the polynomial. When you see this, your eyebrows should be raised and you should be on alert for unexpected phenomena. </p>
+
+                <p>To find the <m>2</m>-eigenvectors, we simply solve the equation <m>(2I - A )\mb{x} = \mb{0}</m>. Writing this out we are solving <me> \left[ \begin{matrix} 0 \amp 1 \amp 2 \\ 0 \amp -2 \amp -4 \\ -2 \amp -1 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0}.</me> The reduced row echelon form of this matrix equation is just <me> \left[ \begin{matrix} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 2\\ 0 \amp 0 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0}. </me> So we write a parametric solution with parameter <m>z</m> (so as to not confuse it with the <m>t</m> in the characteristic polynomial) <me> \mb{x} (z) = \threevec{z}{-2z}{z}. </me> In particular <me> \threevec{1}{-2}{1} </me> is a <m>2</m>-eigenvector.</p>
+
+                <p>Repeating this process with the eigenvalue <m>4</m> gives the equation <me> \left[ \begin{matrix} 2 \amp 1 \amp 2 \\ 0 \amp 0 \amp -4 \\ -2 \amp -1 \amp 2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} </me> with reduced row echelon form <me> \left[ \begin{matrix} 1 \amp 1/2 \amp 0 \\ 0 \amp 0 \amp 1\\ 0 \amp 0 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3}  = \threevec{0}{0}{0}. </me> So we write a parametric solution <me> \mb{x} (z) = \threevec{z}{-2z}{0}.</me> In particular <me> \threevec{1}{-2}{0} </me> is a <m>4</m>-eigenvector.</p>
+            </statement>
+        </example>
+
+        <p>While this example was a delight to work through, it did raise a question. In general, we expect to obtain <m>3</m> different roots to a degree <m>3</m> polynomial. This would give us <m>3</m> different eigenvectors in a <m>3</m> dimensional space. It is natural to ask whether we get a basis from these vectors or not. It is also natural to ask what happened in this example... we only got two vectors!? These types of questions are all about diagonalization.</p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-diagprob">
+        <title>Diagonalization Problem</title>
+        <p>We now pick up the question of the eigenvectors of <m>T</m> and whether we can form a basis from them. First, let's give such a collection a name.</p>
+
+        <definition xml:id="def-eigenbasis">
+            <notation>
+                <usage><m>\mathcal{B}</m></usage>
+                <description>Eigenbasis of a linear operator</description>
+            </notation>
+            <statement>
+                <p>A collection <m>\mathcal{B} = \{\mb{v}_1 , \ldots, \mb{v}_n \}</m> is called an <term>eigenbasis</term> for <m>T</m> if it is a basis of eigenvectors of <m>T</m>.
+                </p>
+            </statement>
+        </definition>
+        
+        <p>While it may seem at first that you will have to work hard to find an eigenbasis, the following proposition shows that, in many cases, we already know how to obtain one.</p>
+        
+        <lemma xml:id="lem-distincteigenlinind">
+            <statement>
+                <p>If <m>\mb{v}_1 , \ldots , \mb{v}_k</m> are eigenvectors with distinct eigenvalues, then they are linearly independent.</p>
+            </statement>
+            <proof>
+                <p>Since <m>\mb{v}_1, \ldots, \mb{v}_k</m> are eigenvectors, they are all non-zero. So this means that <m>\{\mb{v}_1\}</m> is a linearly independent set. If <m>0</m> is an eigenvalue, we will assume <m>\mb{v}_1</m> is its eigenvector. Let us keep going and say that <m>j</m> is the largest number for which <m>\{\mb{v}_1, \ldots, \mb{v}_j\}</m> is linearly independent, but <m>\{\mb{v}_1, \ldots, \mb{v}_j, \mb{v}_{j + 1}\}</m> is linearly dependent. Then we know that there are numbers <m>a_1, \ldots, a_j</m> for which <men xml:id="eq-linrel"> \mb{v}_{j + 1} = a_1 \mb{v}_1 + \cdots + a_j \mb{v}_j .</men> We note that these numbers must be <em>unique</em>, for otherwise, we could subtract the other relation <me> \mb{v}_{j + 1} = a_1^\prime \mb{v}_1 + \cdots + a_j^\prime \mb{v}_j </me> and obtain <me> \mb{0} = (a_1 - a_1^\prime) \mb{v}_1 + \cdots + (a_j - a_j^\prime) \mb{v}_j .</me> Since the vectors <m>\{\mb{v}_1, \ldots, \mb{v}_j\}</m> are linearly independent, this would mean <m>a_i = a_i^\prime</m> for each <m>1 \leq i \leq j</m> (showing they are unique).</p>
+
+                <p>However, we can apply <m>T</m> to both sides of equation <xref ref="eq-linrel"/> to obtain
+                <md>
+                    <mrow>\lambda_{j + 1} \mb{v}_{j + 1} \amp = T (\mb{v}_{j+1}) , </mrow>
+                    <mrow> \amp = T (a_1 \mb{v}_1 + \cdots + a_j \mb{v}_j ),  </mrow>
+                    <mrow> \amp = a_1 T (\mb{v}_1 ) + \cdots + a_j T (\mb{v}_j ), </mrow>
+                    <mrow> \amp = a_1 \lambda_1 \mb{v}_1  + \cdots + a_j \lambda_j \mb{v}_j .</mrow>
+                </md>
+                Since <m>\lambda_{j +1} \ne 0</m>, we may divide and obtain <me>\mb{v}_j = a_1 \frac{\lambda_1}{\lambda_{j + 1}} \mb{v}_1  + \cdots + a_j \frac{\lambda_j}{\lambda_{j + 1}} \mb{v}_j . </me> Now, not all <m>a_i</m> are zero for <m>1 \lt i \leq j</m> (otherwise <m>\mb{v}_{j + 1}</m> would be a multiple of <m>\mb{v}_1</m> and a zero eigenvector), so there is at least one <m>i</m> whose coefficient in equation <xref ref="eq-linrel"/> has changed from <m>a_i</m> to <m>a_i\frac{\lambda_i}{\lambda_{j + 1}}</m>. But since these must be equal, we must have that <m>\lambda_i = \lambda_{j + 1}</m> which contradicts the assumption that all eigenvalues were distinct. This proves the lemma.</p>
+            </proof>
+        </lemma>
+
+        <p>This lemma gives us a useful corollary.</p>
+        
+        <corollary xml:id="cor-distinctrootsdiag">
+            <statement>
+                <p>If <m>p_T (t)</m> has distinct roots, then <m>V</m> has an eigenbasis for <m>T</m>.</p>
+            </statement>
+        </corollary>
+
+        <p>The converse of this corollary is definitely false. For example, any basis of <m>V</m> is an eigenbasis for the identity transformation which has <m>p_T (t) = (t - 1)^n</m>.</p>
+
+        <p>One may ask why an eigenbasis is so useful. The answer is that if you have an eigenbasis, your linear transformation becomes very easy to understand. In particular, all your transformation is doing is scaling each coordinate corresponding to your basis vectors. We can understand this fact by representing <m>T</m> with respect to an eigenbasis <m>\mathcal{B}</m> as the matrix <m>\cob{T}{\mathcal{B}}{\mathcal{B}}</m>. </p>
+
+        <proposition xml:id="prop-matrixrepeigen">
+            <statement>
+                <p>If <m>\mathcal{B} = \{ \mb{v}_1, \ldots, \mb{v}_n \}</m> is an eigenbasis for the linear transformation <m>T: V \to V</m> with eigenvalues <m>\lambda_1, \ldots, \lambda_n</m> then <me> \cob{T}{\mathcal{B}}{\mathcal{B}} = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n ).</me></p>
+            </statement>
+            <proof>
+            <p>This follows from simply following the definition of <m>\cob{T}{\mathcal{B}}{\mathcal{B}}</m>. Indeed, we have 
+            <md>
+                <mrow>\cob{T}{\mathcal{B}}{\mathcal{B}} \,\mb{e}_i \amp = \coord{T([\mb{e}_i]_\mathcal{B})} {\mathcal{B}}, </mrow>
+                <mrow> \amp = \coord{T(\mb{v}_i)}{\mathcal{B}}, \\ \amp = \coord{\lambda_i \mb{v}_i}    {\mathcal{B}}, </mrow>
+                <mrow> \amp = \lambda_i \coord{\mb{v}_i}{\mathcal{B}}, \\ \amp = \lambda_i \mb{e}_i. </mrow>
+            </md>
+            But this means that the <m>i</m>-th column of <m>\cob{T}{\mathcal{B}}{\mathcal{B}}</m> is <m>\lambda_i \mb{e}_i</m>, or, that <m>\cob{T}{\mathcal{B}}{\mathcal{B}} = \text{Diag} (\lambda_1, \ldots, \lambda_n)</m>.</p>
+            </proof>
+        </proposition>
+
+        <p>This proposition and indeed the idea of representing linear transformations as matrices via bases, leads to a connection between eigenbases and diagonalization. Let us first define a diagonalizable matrix.</p>
+    
+        <definition xml:id="def-diagonalizable">
+            <notation>
+                <usage><m>P^{-1} A P</m></usage>
+                <description>Diagonalizable matrix</description>
+            </notation>
+            <statement>
+            A square <m>n \times n</m> matrix <m>A</m> is <term>diagonalizable</term> if there is an invertible matrix <m>P</m> such that <me> P^{-1} A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n ) . </me>
+            </statement>
+        </definition>
+
+        <p>This definition most certainly will appear meaningless to the uninitiated as it leaves murky the main idea behind diagonalizable matrices. Namely, that there is a change of coordinates <m>P</m> for which the linear transformation induced by <m>A</m> is extremely simple. Let us pose this as a proposition.</p>
+    
+        <proposition xml:id="prop-diagonalize">
+        <statement>
+            <p>Let <m>A</m> be an <m>n \times n</m> matrix and <m>T_A : K^n \to K^n</m> the linear transformation associated to multiplying column vectors by <m>A</m>. The matrix <m>A</m> is diagonalizable by <m>P</m> and <me> P^{-1} A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n )  </me> if and only if <m>T_A</m> has an eigenbasis <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m> where <m>\mb{v}_i</m> is a <m>\lambda_i</m>-eigenvector. Furthermore, if this is the case, then one can take <m>\mb{v}_i = P \mb{e}_i</m> so that the columns of <m>P</m> are the eigenvectors <m>\mb{v}_i</m>.</p>
+        </statement>
+        <proof>
+            <p>If <m>A</m> is diagonalizable then there is an invertible matrix <m>P</m> as which satisfies the equation (by definition). Consider the set <m>\mathcal{B} = \{ P \mb{e}_1, \ldots, P \mb{e}_n \}</m> and notice that it is a basis of <m>K^n</m> (since it is the image of the standard basis and <m>P</m> is invertible). Also, we then have
+            <md>
+                <mrow> T_A ( \mb{v}_i) \amp = A \mb{v}_i, </mrow>
+                <mrow> \amp = \left( P \, \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1} \right) (P \mb{e}_i) , </mrow>
+                <mrow> \amp = P \,\textnormal{Diag} (\lambda_1, \ldots, \lambda_n) \mb{e}_i </mrow>
+                <mrow> \amp = P (\lambda_i \mb{e}_i) , </mrow>
+                <mrow> \amp = \lambda_i  P \mb{e}_i, </mrow>
+                <mrow> \amp = \lambda_i \mb{v}_i.</mrow>
+            </md>
+            Showing that <m>\mathcal{B}</m> is an eigenbasis for <m>T_A</m>. </p>
+
+            <p>Conversely, if <m>T_A</m> has an eigenbasis <m>\mathcal{B}</m>, then <xref ref="prop-matrixrepeigen"/> shows that the representing matrix <m>\cob{T_A}{\mathcal{B}}{\mathcal{B}} = \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)</m>. Now, <m>A</m> is also a matrix representing <m>T_A</m>, but relative to the standard basis, so that if we write <m>\mathcal{C} = \{\mb{e}_1, \ldots, \mb{e}_n\}</m> then <m>\cob{T_A}{\mathcal{C}}{\mathcal{C}} = A</m>. Taking <m>P = \cob{1_{K^n}}{\mathcal{B}}{\mathcal{C}}</m> to be the change of basis matrix from the standard basis to the eigenbasis, and using equation <xref ref="eq-changeofbasis"/> we see <me> A = \cob{T_A}{\mathcal{C}}{\mathcal{C}} = P \, \cob{T_A}{\mathcal{B}}{\mathcal{B}} \, P^{-1} =  P \, \text{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1}  </me> so that <m>A</m> is diagonalizable.</p>
+        </proof>
+        </proposition>
+
+        <p>Let us give an example that illustrates this proposition.</p>
+        <example>
+        <title></title>
+        <statement>
+            <p>Consider diagonalizing the matrix <me> A = \left[ \begin{matrix} -2 \amp 0 \amp -2 \\ -1 \amp -1 \amp -2 \\ 4 \amp 0 \amp 4 \end{matrix} \right]. </me> This is in fact a bit of an undertaking, but we now know all of the steps. First, let us find the eigenvalues by obtaining the characteristic polynomial <md> 
+                <mrow> p_A (t) \amp = \det \left( \left[ \begin{matrix}  t + 2 \amp 0 \amp 2 \\ 1 \amp t + 1  \amp 2 \\ -4 \amp 0 \amp t - 4\end{matrix} \right] \right) , </mrow>
+                <mrow> \amp = (t + 2)(t + 1) (t - 4) + 0 + (-2) [-4 (t + 1)]  , </mrow>
+                <mrow> \amp = t^3 - t^2 - 2t,</mrow>
+                <mrow> \amp =  t (t - 2) (t + 1).</mrow>  
+            </md> 
+            Thus the eigenvalues are the roots <m>-1, 0, 2</m> of <m>p_A (t)</m>. Now, generally at this point one may have to worry about the existence of an eigenbasis, but in our case we have <m>3</m> distinct eigenvalues so that <xref ref="cor-distinctrootsdiag"/> reassures us that we do indeed have an eigenbasis. Now we need only solve three linear equations to find it (as an aside: one could try to solve these simultaneously by row reducing with rational functions... but we will keep to our basic approach). First, we take <m>t = -1</m> and solve <me> \left[ \begin{matrix}  1 \amp 0 \amp 2 \\ 1 \amp 0  \amp 2 \\ -4 \amp 0 \amp -5 \end{matrix} \right] \threevec{x_1}{x_2}{x_3}  = \threevec{0}{0}{0} </me> which has reduced row echelon form <me> \left[ \begin{matrix}  1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0  \amp 0  \end{matrix} \right] \threevec{x_1}{x_2}{x_3}  = \threevec{0}{0}{0} </me> Leading to the <m>(-1)</m>-eigenvector <me> \mb{v}_1 = \threevec{0}{1}{0}. </me> Now taking <m>t = 0</m> gives <me> \left[ \begin{matrix}  2 \amp 0 \amp 2 \\ 1 \amp 1  \amp 2 \\ -4 \amp 0 \amp -4 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} </me> which has reduced row echelon form <me> \left[ \begin{matrix}  1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0  \amp 0  \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} </me> leading to the <m>0</m>-eigenvector <me> \mb{v}_2 = \threevec{1}{1}{-1}. </me> Finally taking <m>t = 2</m> gives <me> \left[ \begin{matrix}  4 \amp 0 \amp 2 \\ 1 \amp 3  \amp 2 \\ -4 \amp 0 \amp -2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} </me> which has reduced row echelon form <me> \left[ \begin{matrix}  1 \amp 0 \amp 1/2 \\ 0 \amp 1 \amp 1/2 \\ 0 \amp 0  \amp 0  \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} </me> leading to the <m>0</m>-eigenvector <me> \mb{v}_3 = \threevec{1}{1}{-2}. </me> So we have achieved the goal of finding an eigenbasis! <me> \mathcal{B} = \left\{\mb{v}_1 , \mb{v}_2, \mb{v}_3 \right\} = \left\{ \threevec{0}{1}{0} , \threevec{1}{1}{-1} ,  \threevec{1}{1}{-2} \right\} . </me> </p>
+
+            <p>But what about diagonalizing <m>A</m>? Well, here we apply <xref ref="prop-diagonalize"/>, and in particular the last sentence where <m>P^{-1}</m> is identified as the change of basis matrix from the standard basis to the eigenbasis. But this means that <m>P</m> is the matrix whose columns are the eigenvectors, so that <me> P = \left[ \begin{matrix}  0 \amp 1 \amp 1 \\ 1 \amp 1 \amp 1 \\ 0 \amp -1  \amp -2  \end{matrix} \right]. </me> Either using our determinant formula or through an augmented row reduction, we can calculate the inverse <me> P^{-1} = \left[ \begin{matrix} -1 \amp 1 \amp 0 \\ 2 \amp 0 \amp 1 \\ -1 \amp 0  \amp -1  \end{matrix} \right]. </me> Finally, we encourage the student to compute <m>P A P^{-1}</m> and confirm <me> P^{-1} A P = \left[ \begin{matrix}  -1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0  \amp 2  \end{matrix} \right]. </me> </p>
+        </statement>
+        </example>
+
+        <p>We end this section in blissful ignorance with a vague false hope that we can always diagonalize. Our dreams will be crushed next section, but a nuanced understanding will replace our Pollyanish viewpoint!</p>
+
+    </subsection>
+
+    <exercises xml:id="exe-diag1">
+        
+        <exercise xml:id="exe-easytruefalse">
+            <introduction><p> 
+                Let <m>T : V \to V</m> be a linear transformation of the vector space <m>V</m> over <m>K</m>. Explain your responses to:
+            </p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>True or False : If <m>K = \mathbb{R}</m> then <m>T</m> has an eigenvalue. </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>True or False : If <m>K = \mathbb{C}</m> then <m>T</m> has an eigenvalue. </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>True or False : This exercise is one of the main reasons to study complex numbers in this course.</p>
+                </statement>
+            </task>
+            <hint> <p> The answer is `True' and you don't have to explain.</p> </hint>
+        </exercise>
+    
+        <exercise xml:id="exe-rotationdiag">
+            <statement>
+                <p> Recall that rotation matrices in <m>\mathbb{R}^2</m> are of the form <me> A_\theta  = \left[ \begin{matrix} \cos \theta \amp - \sin \theta \\ \sin \theta \amp \cos \theta \end{matrix} \right] </me> Besides the identity matrix, are there any rotations which have real eigenvalues? Explain your response. </p>
+            </statement>
+        </exercise>
+    
+        <exercise>
+            <statement>
+                <p> Note that if <m>a</m> is any number in <m>K</m> and <m>f(t)</m> is a degree <m>(n - 1)</m> polynomial that <m>(t - a) f(t)</m> is a degree <m>n</m> polynomial and <m>b f(t)</m> has degree less than <m>n</m>. Using this, explain why <m>p_A (t)</m> is a degree <m>n</m> polynomial for an <m>n \times n</m> matrix. </p>
+            </statement>
+        </exercise>
+    
+        <exercise xml:id="exe-higherorder">
+            <statement>
+                <p> Suppose <m>a_0, a_1, \ldots, a_{n - 1}</m> are numbers in <m>K</m>. Find the characteristic polynomial <m>p_A (t)</m> of the <m>n \times n</m>-matrix <me> A = \left[ \begin{matrix}  0 \amp 1 \amp 0 \amp \cdots \amp 0 \\  0 \amp 0 \amp 1 \amp \cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots  \\ 0 \amp \cdots  \amp 0 \amp 0 \amp 1 \\ - a_0 \amp - a_1 \amp -a_2 \amp \cdots \amp - a_{n - 1}  \end{matrix} \right]. </me> </p>
+            </statement>
+        </exercise>
+    
+        <exercise>
+            <introduction><p> 
+                Let  <me> A = \left[ \begin{matrix}  0 \amp 3 \amp 2 \\ -2 \amp -7 \amp -4 \\ 2 \amp 7  \amp 4  \end{matrix} \right]. </me>
+            </p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>Find the eigenvalues of <m>A</m>.
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Is there an eigenbasis for <m>A</m>? Explain your response.
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Find an eigenvector for each eigenvalue.
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Find a matrix <m>P</m> for which <m>P A P^{-1}</m> is a diagonal matrix (in other words, diagonalize <m>A</m>).
+                    </p>
+                </statement>
+            </task>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p> Diagonalize the matrix <m>A_\theta</m> from <xref ref="exe-rotationdiag"/> when considered as a complex matrix. </p>
+            </statement>
+            <hint>Feel free to use numbers like <m>e^{i\theta}</m> and <m>e^{-i \theta}</m>... that's what they're there for!</hint>
+        </exercise>
+    
+    </exercises>
+
+</section>

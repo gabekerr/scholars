@@ -1,0 +1,185 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-equation">
+    <title>Equations Review</title>
+    <introduction>
+    <p>While we learn to work with equations relatively early on in our mathematical education, we are almost never encouraged to stop and ask what  a solution to such an equation actually means. Such a philosophical question may initially evoke reactions of disgust from many quantitative thinkers, but they too will eventually be convinced that the time required to answer it is well spent.</p>
+    
+    <p>Let me clarify these ideas with the example of equation <xref ref="eq-circlepara" />. This was the equation
+    <me> 
+        f(\theta) = (\cos \theta , \sin \theta), \text{ where } 0 \leq \theta \lt 2\pi. 
+    </me>
+    giving the parametrization of the unit circle. However, any teenager will tell you that <em>the</em> equation for the unit circle is 
+    <men xml:id="eq-circle">
+        x^2 + y^2 = 1.
+    </men>
+    Of course, both equations describe the circle, but they do it in very different ways. The first equation expresses a set of points in the plane as the image of the function <m>f(\theta)</m>. In doing so, it places a number at each point on the unit circle (which is the angle made with the positive <m>x</m>-axis). This number, or parameter, is extra information and so the first equation is not just describing the unit circle, it is parametrizing it!  Indeed, we could have considered
+    <me>
+        g(\theta ) = (-\sin 2\theta , \cos 2 \theta ) \text{ where } 0 \leq \theta \lt \pi
+    </me>
+    and we would have a new parametrization of the same circle. There are in fact infinitely many parametrizations which are all correct descriptions of the same geometric object. </p>
+
+    <p>On the other hand, equation <xref ref="eq-circle" /> is nearly unique (you can do some silly things like multiply both sides by <m>2</m>, but this doesn't really change the equation). It does not tell you, for example, that the point on the positive <m>y</m>-axis is <m>\pi / 2</m> radians away from the point on the positive <m>x</m>-axis. In fact, there is no clearly defined parameter on the points solving it, just the points themselves. This type of equation is often called <em>implicit</em> or a constraint equation because it is not identifying the solutions, but characterizing them implicitly. </p>
+
+    <p>Now, one possible answer to our initial philosophical question could be :</p>
+    
+    <p>
+    <tabular>
+        <row>
+		<cell>
+			<em>Convert an implicit equation to an explicit one. </em>
+		</cell>
+	    </row>
+    </tabular>
+    </p>
+
+    <p>Of course, our first experience with this is solving a simple equation such as 
+    <me>
+        2x - 1  = 5
+    </me>
+    with a solution 
+    <me>
+        x = 3.
+    </me>
+    So how is this solution a parametrization? Well, I contend it is a parametrization of a point by a point and could (but maybe not <em>should</em>) be written
+    <me>
+        x(\bullet ) = 3
+    </me>
+    for a function <m>x : \{\bullet\} \to \mathbb{R}</m>. Perhaps a more convincing example would be solving the implicit equation 
+    <me>
+         ax^2 + bx + c = 0.
+    </me>
+    As we all know, this was solved one million years ago with a formula
+    <me>
+         x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.
+    </me>
+    In this case, it is easier to see the parametrization. It is a function of two points, which we could call <m>-</m> and <m>+</m> and could be written
+    <me>
+        x (\square ) = \frac{-b \square \sqrt{b^2 - 4ac}}{2a}.
+    </me></p>
+
+    <p>In practice, solving more general equations can be more difficult or simply impossible. For example, the distance formula between two points <m>\mathbf{x} = (x_1, \ldots, x_n)</m> and <m>\mathbf{y} = (y_1, \ldots, y_n)</m> in <m>n</m>-dimensions is 
+    <me>
+     \text{distance} (\mathbf{x} , \mathbf{y}) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}
+    </me>
+    Thus the implicit equation for the unit sphere in <m>\mathbb{R}^3</m> with coordinates <m>(x,y,z)</m> is given by 
+    <me> 
+        x^2 + y^2 + z^2 = 1.
+    </me>
+    However, parametrizing this sphere is a little tricky. A bit of help from spherical coordinates will show that 
+    <me>
+        f (\theta , \phi ) = ( \cos \theta \sin \phi, \sin \theta \sin \phi , \cos \phi) \text{ where } 0 \leq \theta \lt 2\pi \text{ and } 0 \leq \phi \leq \pi 
+    </me>
+    is a solution.</p>
+
+    <p>To summarize the difference in the two types of equations, the implicit equation is an equation of the form 
+    <me>
+       \mathbf{F} (\text{possible solution} ) = \text{ something special}
+    </me>
+    where <m>\mathbf{F} : P \to V</m> is a function from a set of possible solutions to a set of values and <sq>something special</sq> is one of those values. The actual solutions are possible solutions that satisfy the equation.</p>
+
+    <p>On the other hand, an explicit solution is of the form
+    <me>
+        \mathbf{f} (\text{something known} ) = \text{ actual solutions}.
+    </me>
+    where <m>\mathbf{f} : K \to S</m> is often an onto function from <sq>something known</sq> (usually a point, real numbers or <m>\mathbb{R}^k</m>) to the set of actual solutions of an interesting problem or points of a space.</p>
+
+    <p>We have seen several examples above where the sets <m>P, V, K, S</m> are subspaces of real space, but this template persists in an even broader context. </p>
+
+    </introduction>
+    
+    <subsection>
+        <title>General First Order ODE</title>
+        <p>To illustrate these ideas, we consider the differential equation:
+        <men xml:id="eq-firstorderODE">
+            \mathbf{F} (y^\prime , y, x ) = 0.
+        </men>
+        Let us understand the general form of a first order ordinary differential equation (ODE) given in equation <xref ref="eq-firstorderODE" />. The set <m>P</m> of <sq>possible solutions</sq> here is the set of differentiable functions from <m>\mathbb{R}</m> to <m>\mathbb{R}</m> (or from a possible smaller domain in <m>\mathbb{R}</m>). The set of values <m>V</m> in this case is also a set of functions, albeit maybe only continuous functions. The <sq>something special</sq> is the constant function equal to zero (so in truth, the right hand side is a function, not a number). To solve this equation we would need to find a function <m>\mathbf{f}</m> on a known set of parameters <m>K</m> to <m>P</m> giving all the actual solutions (the <sq>all</sq> part is saying that <m>\mathbf{f}</m> is onto).
+        </p>
+
+        <p>Perhaps it will bother the uninitiated student to hear that equation <xref ref="eq-firstorderODE" /> in its general form is absolutely impossible to solve and, in some cases, extremely difficult to understand qualitatively. However, if we take the example of a first order <em>linear</em> ODE, we can indeed solve it completely. This is the case when there are functions <m>p(x)</m> and <m>q(x)</m> for which the equation becomes
+        <men xml:id="eq-firstorderlinearODE">
+            \mathbf{F} (y^\prime , y, x) = y^\prime + p(x) y - q (x) = 0.
+        </men>
+        </p>
+
+        <p>To solve equation <xref ref="eq-firstorderlinearODE" /> we take the practical step of first considering <m>q(x) = 0</m> which is known as the homogeneous case. The equation then reduces to 
+        <me>
+            \frac{y^\prime}{y} = - p(x).
+        </me>
+        We may take anti-derivatives of both sides with respect to <m>x</m> to see that
+        <me>
+            \ln (y) = - \int p(x) \diff x + \tilde{C}
+        </me>
+        or (after exponentiating),
+        <me>
+            y = C e^{- \int p(x) \diff x}
+        </me>
+        This solution may be used to help find the solution when <m>q(x) \ne 0</m>. To see that consider the expression
+        <me>
+            y = C v e^{-\int p(x) \diff x}
+        </me>
+        where <m>v</m> is a function of <m>x</m>. Then using the product and chain rule we have that equation <xref ref="eq-firstorderlinearODE" /> becomes
+        <me>
+            C v^\prime e^{-\int p(x) \diff x} = q(x) 
+        </me>
+        or 
+        <me> 
+            v = C^{-1} \left[\int e^{\int p(x) \diff x} q(x) \diff x + D \right]
+        </me>
+        Putting this back into the expression for <m>y</m> gives our general solution
+        <me>
+            y = e^{-\int p(x) \diff x}\left[ \int   e^{\int p(x) \diff x} q (x) \diff x  + D  \right].
+        </me>
+        Note that <em>the</em> solution expressed here is in fact a function 
+        <me>\mathbf{f} : \mathbb{R} \to \text{actual solutions}</me> 
+        where <m>y = \mathbf{f} (D)</m> for any real number <m>D</m>.</p>
+
+        <p>This exposition on the solution to a first order linear ODE has been from the computational and abstract viewpoint. Later in the course, we will see a geometric viewpoint as well.</p>
+    </subsection>
+    <exercises xml:id="exe-equation">
+        <exercise>
+            <statement>
+                <p> The equation <m>y = mx + b</m> is beaten into every young American as a sort of hazing initiation into society. It is usually thought of as the solution to some sort of problem (like <sq>find a line with slope ... etc</sq>). However, from the perspective above, it is an implicit equation. What is a `solution' to this equation? Can you give more than one? </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <introduction><p> 
+            The unit circle has a `unit hyperbola' analog given by the implicit equation 
+            <me>
+                x^2 - y^2 = 1.
+            </me>
+            Consider the positive branch of this hyperbola (meaning solutions <m>(x,y)</m> where <m>x > 0</m>. There are two very important functions that are sometimes overlooked in a calculus class called the hyperbolic sin and cosine. They are given by the formulas
+            <md>
+    	        <mrow> \sinh t \amp = \frac{1}{2} \left( e^t - e^{-t} \right), </mrow>
+                <mrow> \cosh t \amp = \frac{1}{2} \left( e^t + e^{-t} \right). </mrow>
+            </md>
+            </p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>Show that <me> f(t)  = \left( \cosh t , \sinh t \right) </me> parametrizes the unit hyperbola.</p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Using complex numbers, show that the ordinary trigonometric functions are related to their hyperbolic cousins by the formulas
+                    <md>
+    	                <mrow> \sin t \amp = - i \sinh (i t), </mrow>
+                        <mrow> \cos t \amp = \cosh (i t) . </mrow>
+                    </md>
+                    </p>
+                </statement>
+            </task>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p> Find the solution to the equation <me> z^n  = 1 </me> in <m>\mathbb{C}</m>.</p>
+            </statement>
+        </exercise> 
+        <exercise>
+            <statement>
+                <p> Solve the ODE <me> y^\prime - 2x y = x </me>.</p>
+            </statement>
+        </exercise>
+    </exercises>
+</section>

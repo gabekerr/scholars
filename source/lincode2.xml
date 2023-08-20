@@ -1,0 +1,439 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-lincode2">
+    <title>Linear Constant Coefficient ODE II</title>
+
+    <p>Having solved homogeneous constant coefficient linear ODE's in principal, we now consider it in practice. It will definitely be helpful for a student to consult online resources and programs, which are plentiful, to visualize the examples in this section.  We will approach these equations computationally and geometrically for this section. Some examples applications will be mentioned towards the end of this section and in the exercises. For each solution, we will want to have the following steps or accomplishments in order to feel good about our final assessment. </p>
+
+    <ol>
+        <li> Translate the differential equation or equations into a single matrix differential equation <me> \dot{\mb{x}} = A \mb{x} . </me> </li>
+        <li> Draw the vector field or graph it with a computer (or obtain it by understanding the Jordan Normal Form of <m>A</m>).</li>
+        <li> Find a basis for which <m>A</m> is in Jordan Normal Form. </li>
+        <li> Use <xref ref="thm-generallinearhomogeneoussol"/> to write the general solution to the equation.</li>
+        <li> Given an initial condition <me> \mb{x} (0) = \threevec{C_1}{\vdots}{C_n} </me> find the particular solution to the equation.</li>
+    </ol>
+    
+    <p> Now let us go over several examples. </p>
+
+    <example xml:id="exa-1varlinode">
+        <title>One real dimensional equation</title>
+        <statement>
+            <p> The first case we saw way back in <xref ref="sec-equation"/>. Consider the equation
+                <me>
+                    f^\prime (t) = 3 f(t). 
+                </me>
+                Here, our vector space is just <m>\mathbb{R}</m> itself. The vector field is given by 
+                <me> \mb{F} (x) = 3x. </me>
+                Geometrically, this means at <m>x</m>, there is a vector pointing away from the origin with three times the magnitude as <m>x</m>. Also, our matrix <m>A</m> is the <m>1 \times 1</m> matrix <m>[3]</m>. Of course, we learn in calculus (or in <xref ref="sec-equation"/>) that  <me> f(t) = C_0 e^{3 t} </me> solves this equation generally with initial condition <m>f(0) = C_0</m>. Were we to think of this in terms of Jordon blocks, we would note that <m>[3]</m> is a Jordon block <m>J_{3, 1}</m> itself and the equation above is just <m>C_0 e^{\lambda t} \mb{x}_0 (t)</m>. There is one thing to note about our solution and that is that it experiences exponential growth as <m>t \to \infty</m>. Were we to start with the equation <m>f^\prime (t) = -3 f(t)</m> instead, we would see exponential decay. Understanding the long term behavior of a solution to a differential equation gives valuable qualitative information on the system you are studying. </p>
+        </statement>
+    </example>
+
+    <example xml:id="ex-lineardiagonalode">
+        <title>Two real dimensional equation</title>
+        <statement>
+            <p>Now let us consider an authentically higher dimensional example.
+            <md>
+                <mrow> x^\prime (t) \amp = -4 x(t) - 3 y(t), </mrow>
+                <mrow> y^\prime (t) \amp = 6 x (t) + 5 y(t). </mrow>
+            </md>
+            Our first task in this linear ODE is to write it as a single matrix ODE. We can do this by looking at the coefficients on the right and making a matrix out of them as in <me> A  = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right]. </me> Then if we take <me> \mb{x} (t) = \twovec{x (t)}{y (t)} </me> we obtain the equation <me> \mb{x}^\prime (t) = A \mb{x} (t). </me> The right hand side is indeed our vector field <me> \mb{F} (\mb{x} ) = A \mb{x} </me> and to obtain a computational advantage and a geometric picture, it will help to diagonalize <m>A</m> (if possible). For this, we start by taking the characteristic polynomial of <m>A</m> (which we will write now with variable <m>s</m> instead of <m>t</m> to avoid confusion with <m>\mb{x} (t)</m>) and find <me> p_A (s) = \det  \left[ \begin{matrix} s +4 \amp 3 \\ -6 \amp s - 5 \end{matrix} \right] = s^2 - s - 2 = (s - 2) (s + 1). </me> Thus we see two distinct real eigenvalues and can confidently diagonalize <m>A</m>. Indeed, working through this gives the <m>(-1)</m>-eigenvector <m>\mb{v}_1</m> and <m>2</m>-eigenvector <m>\mb{v}_2</m> which form an eigenbasis <me> \mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}. </me> Why is all this so helpful? Well, now we can picture the vector field very clearly. It will take vectors on the <m>(-1)</m> eigenspace (multiples of <m>\mb{v}_1</m>) and reverse their direction. On the <m>2</m>-eigenspace though (multiples of <m>\mb{v}_2</m>), the vectors will be doubled in scale and point in the same direction. The remaining vectors can be seen to be a linear combination of these two. This geometry will be sketched in class and gives a fantastically simple picture of what our solutions ought to look like. </p>
+
+            <p> But what about computing solutions? Well, now that we have an eigenbasis we can write <m>\mb{x}</m> in terms of the eigenbasis <me> \mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{\tilde{x} (t) - \tilde{y} (t)}{2 \tilde{y} (t) - \tilde{x} (t)}. </me> But, of course, in this basis the differential equation becomes much simpler  
+            <md>
+                <mrow>\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)}_\mathcal{B} \amp = \dot{\mb{x}} (t), </mrow>
+                <mrow> \amp = A \mb{x}, \\ \amp = A \left( \tilde{x} (t)  \mb{v}_1 + \tilde{y} (t) \mb{v}_2 \right), </mrow>
+                <mrow> \amp = \tilde{x} (t)  A \mb{v}_1 + \tilde{y} (t) A \mb{v}_2, </mrow>
+                <mrow> \amp = - \tilde{x} (t)  \mb{v}_1 +  2 \tilde{y} (t) \mb{v}_2, </mrow>
+                <mrow> \amp = \twovec{ - \tilde{x} (t)}{2 \tilde{y} (t)}_{\mathcal{B}} .</mrow>
+            </md>
+            So in particular, our linear system breaks into two independent equations
+            <md>
+                <mrow> \tilde{x}^\prime (t) \amp = - \tilde{x} (t), </mrow>
+                <mrow> \tilde{y}^\prime (t) \amp = 2 \tilde{y} (t). </mrow>
+            </md>
+            The solutions to these equations are similar to <xref ref="exa-1varlinode"/> and we obtain
+            <md>
+                <mrow> \tilde{x} (t) \amp = C_1 e^{-t},</mrow>
+                <mrow> \tilde{y} (t) \amp = C_2 e^{2t} </mrow>
+            </md> 
+            with initial condition <me>\mb{x} (0) = \twovec{C_1}{C_2}_\mathcal{B}. </me> Of course, while the solution is especially pleasant in the eigenbasis, the original problem came to us in terms of the standard basis, so we must be translate our solution into the usual set of coordinates in order to please our engineering colleagues. If the initial condition were given in the standard basis as <me> \mb{x} (0) = \twovec{A}{B} </me> we would need the change of basis matrix <m>\cob{1}{\mathcal{C}}{\mathcal{B}}</m> to find <m>C_1</m> and <m>C_2</m> as above. This is just the inverse of the matrix with columns equal to <m>\mb{v}_1</m> and <m>\mb{v}_2</m> so it is <me> Q =  \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right] </me> and we have <me> \twovec{C_1}{C_2} = Q \twovec{A}{B} = \twovec{2A + B}{A + B} . </me> Putting all of this together, we obtain the general solution with respect to the standard basis.
+            <mdn>
+                <mrow> \mb{x} (t) \amp = \twovec{\tilde{x} (t) - \tilde{y} (t)}{ - \tilde{x} (t) + 2 \tilde{y} (t)}, </mrow>
+                <mrow> \amp = \twovec{C_1 e^{-t} - C_2 e^{2t} }{ - C_1 e^{-t} + 2 C_2 e^{2t} }, </mrow>
+                <mrow  xml:id="eq-lindiagsol"> \amp =  \twovec{( 2A + B) e^{-t} - ( A + B ) e^{2t} }{ - (2A + B) e^{-t} + 2 (A + B) e^{2t} }. </mrow>
+            </mdn></p>
+        </statement>
+    </example>
+
+    <p>This last example shows how easy things become if the matrix is diagonalizable with real eigenvalues. In fact, it is an illustration of <xref ref="thm-generallinearhomogeneoussol"/> for the case when there are two <m>1 \times 1</m> Jordan blocks. However, since we are also acquainted with complex numbers, we note that differential equations involving real paths can sometimes be helped along by thinking of them as landing in a complex vector space instead. The next example illustrates this point.</p>
+
+    <example xml:id="ex-lineardiagonalode2">
+        <title>Complex eigenvalues in the equation</title>
+        <statement>
+            <p> Suppose we take the linear differential equation
+            <md>
+                <mrow> x^\prime (t) \amp = 2x (t) +  y(t), </mrow>
+                <mrow> y^\prime (t) \amp = -2 x (t) + 4 y(t). </mrow>
+            </md>
+            Writing this out we find the matrix <me> A  = \left[ \begin{matrix} 2 \amp 1 \\ -2 \amp 4 \end{matrix} \right] </me> and obtain the equation
+            <me>
+                \mb{x}^\prime (t) = A \mb{x} (t).
+            </me>
+            Again, the right hand side is the vector field 
+            <me>
+                \mb{F} (\mb{x} ) = A \mb{x} 
+            </me>
+            and it would be nice to diagonalize <m>A</m> to get a picture of this field. However, computing the characteristic polynomial gives
+            <me>
+                p_A (s) = \det  \left[ \begin{matrix} s -2 \amp -1 \\ 2 \amp s - 4 \end{matrix} \right] = s^2 - 6 s + 10.
+            </me>
+            One can use the quadratic formula here and see that
+            <me>
+                p_A (s) = (s - (3 + i)) (s - (3 - i))
+            </me>
+            so that the roots of <m>p_A (s)</m> are complex numbers and <m>A</m> cannot be diagonalized as a real matrix. Now, one of the benefits of having real eigenvalues and eigenvectors was that we obtained a nice picture of the vector field. There is something to be said in the case of a complex eigenvector as well, which is related to several of the exercises that you have worked through. In particular, if there is an eigenvalue of the form <m>\lambda = re^{i\theta}</m>, then one will see a <m>\theta</m> rotation in the vectors of the vector field (in some coordinate system). For now, we will leave the illustration of this field to a computer and come back to the geometry once we've found the solution.</p>
+
+            <p>To compute the general solution, there are several ways to proceed, but we will take a principled approach and simply say that our path <m>\mb{x}</m> was a function to <m>\mathbb{C}^2</m> all along so that
+            <me>
+                \mb{x} : I \to \mathbb{C}^2.
+            </me>
+            Now we can diagonalize because the eigenvalues are distinct. A bit of computation gives the eigenbasis
+            <me>
+                \mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{i}{-1 + i},  \twovec{-i}{-1 - i} \right\}.
+            </me> 
+            Again, we can write our solution in terms of this basis
+            <men xml:id="eq-xsolcompl1">
+                \mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}
+            </men>
+            and again, in this basis the differential equation becomes much simpler
+            <me>
+                \twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
+            </me>
+            This time, the two independent equations are
+            <md>
+                <mrow>\tilde{x}^\prime (t) \amp = (3 + i) \tilde{x} (t), </mrow>
+                <mrow> \tilde{y}^\prime (t) \amp = (3 - i) \tilde{y} (t). </mrow>
+            </md> 
+            It is here that <xref ref="exe-derivativeexp"/> comes into view and we realize that, in fact, we've already solved these equations and obtained
+            <md>
+                <mrow>\tilde{x}(t) \amp = C_1 e^{(3 + i)t}, </mrow>
+                <mrow> \tilde{y} (t) \amp = C_2 e^{(3 - i)t}. </mrow>
+            </md> 
+            So, were we inclined to write our solutions in terms of the basis <m>\mathcal{B}</m> in <m>\mathbb{C}^2</m>, we would have solved the differential equation with
+            <md>
+                <mrow> \mb{x} (t) = \twovec{ C_1 e^{(3 + i)t}}{C_2 e^{(3 - i)t}}_{\mathcal{B}} \text{ with initial condition } \mb{x} (0) = \twovec{C_1}{C_2}_{\mathcal{B}}.</mrow>
+            </md>
+            I can hear the overwhelming chorus of objections to this solution from engineer and mathematician alike. After all, the constants <m>C_1</m> and <m>C_2</m> are possibly complex numbers and the function is too. We started in the real plane and have ended in what appears to be a terrifying <m>4</m>-dimensional mess (since <m>\mathbb{C}^2</m> is <m>4</m> real dimensions). Well, I contend that appearances can be deceiving! Let's unwind this a bit with a few simple observations.</p>
+
+            <p>The first thing to recognize about our solution is that the basis <m>\mathcal{B}</m> which we chose  had a hidden symmetry. Namely, if we take the complex conjugate of <m>\mb{v}_1</m> we obtain <m>\mb{v}_2</m> so that <me> \bar{\mb{v}}_1 = \mb{v}_2. </me> Now, the solution we obtain for <m>\mb{x}</m> will be real, which means it equals its conjugate. Thus 
+            <md>
+                <mrow> \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 \amp = \overline{\tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2}, </mrow>
+                <mrow> \amp = \overline{\tilde{x} (t)} \bar{\mb{v}}_1  + \overline{\tilde{y} (t)} \bar{\mb{v}}_2,</mrow>
+                <mrow> \amp = \overline{\tilde{y} (t)} \mb{v}_1 +  \overline{\tilde{x} (t)} \mb{v}_2, </mrow>
+            </md> 
+            But since our coefficients are unique, we have that 
+            <men xml:id="eq-xsolcompl2">
+                \overline{\tilde{x} (t)} = \tilde{y} (t).
+            </men>
+            Putting our solution in to this equation gives <me> \bar{C}_1 = C_2. </me> Even more helpful, we note that for <em>any</em> complex number <m>z</m> we can get the real and imaginary parts of <m>z</m> by simply checking that
+            <md>
+                <mrow> \operatorname{Re} (z) \amp = \frac{1}{2} \left( z + \bar{z} \right), </mrow>
+                <mrow> \operatorname{Im} (z) \amp = - \frac{i}{2} \left( z - \bar{z} \right).</mrow>
+            </md>
+            Using this, equations <xref ref="eq-xsolcompl1"/> and <xref ref="eq-xsolcompl2"/> gives
+            <me>
+                \mb{x} (t) = \twovec{ -2 \operatorname{Im} (\tilde{x} (t))}{-2 \operatorname{Re} (\tilde{x} (t)) - 2\operatorname{Im} (\tilde{x} (t)) } = \twovec{ \operatorname{Im} ( -2\tilde{x} (t))}{ \operatorname{Re} (-2\tilde{x} (t)) + \operatorname{Im} (-2\tilde{x} (t)) }.
+            </me>
+            Now, note that <m>C_1</m> is zero only for the zero solution, so assuming it is not zero, we can find an <m>a, b</m> so that in polar coordinates
+            <me>
+                -2C_1 = e^{a + bi}.
+            </me>
+            This gives us a nice way to rewrite our solution as
+            <me>
+                -2\tilde{x} (t) = -2 C_1 e^{(3 + i)t} = e^{(3t + a) + (t + b)i} = e^{3t + a} \cos (t + b) + i e^{3t + a} \sin (t + b).
+            </me>
+            Pulling out the real and imaginary parts, we obtain a very real looking solution
+            <me>
+                \mb{x} (t) =  \twovec{e^{3t + a} \sin (t + b)}{ e^{3t + a} \cos (t + b) + e^{3t + a} \sin (t + b)}.
+            </me>
+            To finish the solution, one would have to solve <m>a</m> and <m>b</m> for an initial condition
+            <me>
+                \mb{x} (0) = \twovec{A}{B}
+            </me>
+            but this will be left as a linear algebra exercise for the student (which can be done in multiple ways). </p>
+
+            <p>However, it is interesting to note here that the solution <m>\mb{x} (t)</m> can be written
+            <me>
+                \mb{x} (t) = e^{3t + a} \twovec{ \sin (t + b)}{  \cos (t + b) + \sin (t + b)}.
+            </me>
+            The scaling factor increases exponentially which means that the solution will head off to infinity. What about the vector portion? Well, it is not hard to see that this is a parameterization of the conic section
+            <me>
+                2x^2 - 2xy + y^2 = 1. 
+            </me>
+            A meticulous student will check and see that this equation is that of a (rotated) ellipse. So the solution is simply following a parameterization of an ellipse, but scaling it simultaneously and spiraling away from the origin.</p>
+        </statement>
+    </example>
+
+    <p> We will generalize and summarize the previous result as a Theorem.</p>
+    <theorem xml:id="thm-diagonalizableODE">
+        <statement>
+            <p>Suppose <m>A</m> is a diagonalizable <m>n \times n</m> real matrix <m>A</m>. Then the eigenvalues of <m>A</m> can be partitioned into the real eigenvalues <m>\rho_1, \ldots, \rho_r</m> and pairs of complex numbers <m>\lambda_1, \bar{\lambda}_1, \ldots, \lambda_t, \bar{\lambda}_t</m>. There is also an eigenbasis
+            <me> 
+                \mathcal{B} = \left\{ \mb{v}_1, \ldots, \mb{v}_r , \mb{w}_1, \bar{\mb{w}}_1, \ldots, \mb{w}_t, \bar{\mb{w}}_t \right\} .
+            </me>
+            Solutions to the differential equation
+            <me>
+                \dot{\mb{x}} = A \mb{x}
+            </me>
+            are real linear combinations of the functions
+            <me>
+                \mb{x}_i (t) = e^{\rho_i t} \mb{v}_i
+            </me>
+            for <m>1 \leq i \leq r</m> and
+            <md>
+                <mrow> \operatorname{Re} \mb{x}_j (t) \amp = \operatorname{Re} \left(  e^{\lambda_i t} \mb{w}_i \right), </mrow>
+                <mrow> \operatorname{Im} \mb{x}_j (t) \amp = \operatorname{Im} \left(  e^{\lambda_i t} \mb{w}_i \right), </mrow>
+            </md></p>
+        </statement>
+    </theorem>
+
+
+    <example xml:id="ex-lineardiagonalode3">
+        <title>Another two dimensional equation</title>
+        <statement>
+            <p> Now let us consider Jordan normal form example.
+            <md>
+                <mrow> x^\prime (t) \amp = -3 x(t) +   y(t), </mrow>
+                <mrow> y^\prime (t) \amp = - x (t) - y(t). </mrow>
+            </md>
+            Here our matrix is
+            <me>
+                A  = \left[ \begin{matrix} -3 \amp 1 \\ -1 \amp -1 \end{matrix} \right].
+            </me>
+            And we obtain the equation
+            <me>
+                \mb{x}^\prime (t) = A \mb{x} (t).
+            </me>
+            We check that
+            <me>
+                p_A (s) = \det  \left[ \begin{matrix} s + 3 \amp -1 \\ 1 \amp s +1 \end{matrix} \right] = s^2 + 4s + 4 = (s + 2)^2 .
+            </me>
+            Thus we see <m>A</m> has only <m>-2</m> as an eigenvalue. Since <m>A</m> is not a diagonal matrix, we may conclude that it is not diagonalizable (this is only true because it has one eigenvalue). We consider the matrix
+            <me>
+                N = A + 2I = \left[ \begin{matrix} -1 \amp 1 \\ -1 \amp 1 \end{matrix} \right]
+            </me>
+            and generate a basis of the form <m>\{ N \mb{v} , \mb{v} \}</m> by taking <m>\mb{v} = \mb{e}_1</m>. Here we obtain
+            <me>
+                \mathcal{B} = \left\{  \mb{v}_0 , \mb{v}_1 \right\} = \left\{ \twovec{-1}{-1},  \twovec{1}{0} \right\}.
+            </me> 
+            Now we have a basis for which we can directly apply <xref ref="thm-generallinearhomogeneoussol"/>. Here we get
+            <md>
+                <mrow> \mb{x}_0 (t) \amp = e^{-2 t} \mb{v}_0 = \twovec{- e^{-2t}}{-e^{-2t}}, </mrow>
+                <mrow> \mb{x}_1 (t) \amp = e^{-2 t} t \mb{v}_0 +  e^{-2t} \mb{v}_1 = \twovec{- e^{-2t}(t - 1) }{-e^{-2t} t }.</mrow>
+            </md> 
+            And the general solution with initial conditions in terms of the basis <m>\mathcal{B}</m> is
+            <md>
+                <mrow> \mb{x} (t) \amp = C_0 \mb{x}_0 (t) + C_1 \mb{x}_1 (t), </mrow>
+                <mrow> \amp = -e^{-2t} \twovec{C_0 + C_1 (t - 1)}{C_0 + C_1 t },</mrow>
+            </md>
+            with initial condition <me>\mb{x} (0) = \twovec{C_0}{C_1}_\mathcal{B}. </me> If the initial condition were given in the standard basis as <me> \mb{x} (0) = \twovec{A}{B} </me> we would need the change of basis matrix <m>\cob{1}{\mathcal{C}}{\mathcal{B}}</m> which is just the inverse of the matrix with columns equal to <m>\mb{v}_1</m> and <m>\mb{v}_2</m> so it is
+            <me>
+                Q =  \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp -1 \end{matrix} \right]
+            </me>
+            and we have 
+            <me>
+                \twovec{C_0}{C_1} = Q \twovec{A}{B} = \twovec{-B}{A - B} .
+            </me>
+            Putting all of this together, we obtain the general solution with respect to the standard basis.
+            <me>
+                \mb{x} (t) \amp = -e^{-2t} \twovec{ - B + (A - B) (t - 1)}{-B + (A - B) t } =  -e^{-2t} \twovec{ (A - B) t - A }{(A - B) t  -B} = 
+            </me></p>
+        </statement>
+    </example>
+
+    <p>As an important application of our general solution, we consider higher order homogeneous constant coefficient ODE's. Suppose we are confronted with a scalar valued function <m>x(t)</m> of a variable <m>t</m>, but now with an equation
+    <men xml:id="eq-higherorderconstantODE">
+        x^{(n)} (t) + a_{n - 1}x^{(n - 1)} (t) + \cdots + a_1 x^\prime (t) + a_0 x(t) = 0 .
+    </men>
+    Here we recall that <m>x^{(n)} (t)</m> is the <m>n</m>-th derivative of <m>x</m> with respect to <m>t</m> (so we will assume our functions are differentiable enough). There are two equivalent ways of approaching the solution to this equation. The first and most common way is to guess the solution <m>x (t) = e^{\lambda t}</m> and solve the resulting polynomial equation
+    <me>
+            \lambda^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 \lambda + a_0 = 0.
+        </me>
+        This polynomial is called the <term>characteristic polynomial of the ODE</term>. Indeed, any solution will give a corresponding solution to the equation. If <m>\lambda</m> is a multiple root of the characteristic polynomial, then one guesses again with 
+        <me>
+            x (t) = \frac{t^k e^{\lambda t}}{k!}
+        </me>
+        and finds (so long as <m>k</m> is less than  the order of the root) that we have found another solution. Hobbling these solutions together, one can solve equations where now our initial conditions are not just <m>x (0) = C_0</m>, but also <m>x^\prime (0) = C_1, \ldots, x^{(n - 1)} (0) = C_{n - 1}</m>.</p>
+    
+        <p>The solution can also be found using our tools, which has the added benefit of simplifying the higher order equation into a first order equation (a technique that is used frequently in classical mechanics). To force equation <xref ref="eq-higherorderconstantODE"/> into a first order equation, rewrite it as a collection of equations
+        <md>
+            <mrow> x^\prime_0 (t) \amp = x_1 (t), </mrow>
+            <mrow> x^\prime_1 (t) \amp = x_2 (t), </mrow>
+            <mrow> \vdots \amp </mrow>
+            <mrow> x^\prime_{n - 2} \amp = x_{n - 1} (t), </mrow>
+            <mrow> x_{n - 1}^\prime (t) \amp = -a_{n - 1} x_{n - 1} (t) - a_{n - 2} x_{n - 2} (t) - \cdots - a_1 x_1 (t) - a_0 x_0 (t).</mrow>
+        </md>
+        Notice that if <m>x (t) = x_0 (t)</m>, then the first <m>(n - 1)</m> equations are just saying that <m>x_i (t) = x^{(i)} (t)</m> for each <m>1 \leq i \leq n - 1</m>. The last equation is then just equation <xref ref="eq-higherorderconstantODE"/>. Letting
+        <me>
+            \mb{x} (t) = \threevec{x_0 (t)}{\vdots}{x_{n - 1} (t)}
+        </me>
+        and writing this as the single matrix equation 
+        <me>
+            \dot{\mb{x}}  = A \mb{x}
+        </me>
+        forces us to use the matrix
+        <me>
+            A = \left[ \begin{matrix}  0 \amp 1 \amp 0 \amp \cdots \amp 0 \\  0 \amp 0 \amp 1 \amp \cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots  \\ 0 \amp \cdots  \amp 0 \amp 0 \amp 1 \\ - a_0 \amp - a_1 \amp -a_2 \amp \cdots \amp - a_{n - 1}  \end{matrix} \right].
+        </me>
+        In <xref ref="exe-higherorder"/>, you showed that the characteristic polynomial of <m>A</m> is simply
+        <me>
+            p_A (s) = s^n + a_{n - 1} s^{n - 1} + \cdots + a_1 s + a_0.
+        </me>
+        Thus the characteristic polynomial of the ODE is the same as the characteristic polynomial of our matrix. If <m>\lambda_i</m> is a root of <m>p_A (s)</m>, it is easy to check that 
+        <me>
+            \mb{v}_i = \left[ \begin{matrix}  1 \\  \lambda_i \\ \vdots \\  \lambda_i^{n - 1}   \end{matrix} \right].
+        </me>
+        is a <m>\lambda_i</m>-eigenvector of <m>A</m>. In the event that <m>\lambda_i</m> has multiplicity <m>k</m>, one can also check that 
+        <men xml:id="eq-jordandiffbasis">
+            \mathcal{B}_i =
+                \left\{ \left[ \begin{matrix}  1 \\  \lambda_i \\ \lambda_i^2 \\ \vdots \\ \lambda_i^{n - 2} \\ \lambda_i^{n - 1}   \end{matrix} \right],  \left[ \begin{matrix}  0 \\  1 \\ 2 \lambda_i \\ \vdots  \\ (n - 2) \lambda_i^{n - 3}  \\  (n - 1) \lambda_i^{n - 2}   \end{matrix} \right], \cdots , \left[ \begin{matrix}  0 \\ \vdots \\ 0 \\  \binom{k - 1}{k - 1} \\ \binom{n -2}{k - 1} \lambda_i \\ \vdots \\  \binom{n - 1}{k - 1} \lambda_i^{n -  k}   \end{matrix} \right] \right\}
+        </men>
+        is a basis for the generalized <m>\lambda_i</m>-eigenspace <m>V_{\lambda_i}</m>. A less complicated expression for <m>\mathcal{B}_i</m> (and more useful) is
+        <me>
+            \mathcal{B}_i = \left\{ \mb{v}_i , \frac{d}{d \lambda_i} \mb{v}_i, \frac{1}{2!} \left( \frac{d}{d \lambda_i} \right)^2 \mb{v}_i, \cdots ,  \frac{1}{(k - 1)!} \left( \frac{d}{d \lambda_i} \right)^{k - 1} \mb{v}_i \right\}
+        </me>
+        Moreover, it is a basis of the form
+        <men xml:id="eq-jordandiffblock">
+            \mathcal{B}_i = \left\{ (A - \lambda_i I )^{k - 1} \mb{v}, \ldots, ( A - \lambda_i I) \mb{v}, \mb{v} \right\}
+        </men>
+        so that it may be used to give the Jordan normal form of <m>A</m> and via <xref ref="thm-generallinearhomogeneoussol"/> to find the general solution.</p>
+    
+    <p>Let us give an example of this which we will study in more depth next section.</p>
+
+    <example xml:id="ex-springmass">
+        <title></title>
+        <statement>
+            <p> Consider the case of 
+            <me>
+                m x^{\prime \prime} + b x^\prime + k x = 0
+            </me>
+            where <m>k > 0</m> and <m>b > 0</m>.</p>
+
+            <p>This differential equation describes the motion of a mass on the end of a spring. The mass is <m>m</m>, spring constant <m>k</m> (which describes how tight the spring is) and damping constant is <m>b</m> (which describes the amount of kinetic friction). Dividing by <m>m</m> gives
+            <me>
+                x^{\prime \prime} + \tilde{b} x^\prime + \tilde{k} x = 0
+            </me>
+            where <m>\tilde{b} = \frac{b}{m}</m> and <m>\tilde{k} = \frac{k}{m}</m>. Converting to a matrix equation <m>\dot{\mb{x}} = A \mb{x}</m> gives
+            <me>
+                A = \left[ \begin{matrix} 0 \amp 1 \\ - \tilde{k} \amp - \tilde{b} \end{matrix} \right]
+            </me>
+            with characteristic polynomial
+            <me>
+                p_A (s) = s^2 + \tilde{b} s + \tilde{k}. 
+            </me>
+            Using the quadratic formula, we obtain the roots
+            <me>
+                \lambda = - \frac{\tilde{b}}{2} \pm \frac{\sqrt{\tilde{b}^2 - 4 \tilde{k}}}{2}
+            </me>
+            Of which there are two main cases (and one case we will ignore). Let 
+            <md>
+                <mrow> \alpha \amp =  \frac{\tilde{b}}{2}, </mrow>
+                <mrow> \beta \amp = \frac{\sqrt{ | \tilde{b}^2 - 4 \tilde{k} |}}{2} </mrow>
+            </md>
+            and notice that <m>\alpha \geq 0</m> (with equality when there is no damping), <m>\beta \gt 0</m> and <m>\alpha \gt \beta</m>. The first case we have <m>\tilde{b} \lt 2 \sqrt{\tilde{k}}</m> in which case the roots of the characteristic polynomial are
+            <me>
+                \lambda = - \alpha + i \beta, \hspace{.5in} \bar{\lambda} = - \alpha - i \beta.
+            </me>
+            with eigenbasis
+            <men xml:id="eq-springmasseigenbasis">
+                \mathcal{B} = \left\{ \mb{w}_1, \bar{\mb{w}}_1 \right\} = \left\{ \twovec{1}{\lambda} \twovec{1}{\bar{\lambda}} \right\}.
+            </men>
+            Using <xref ref="thm-diagonalizableODE"/>, we see that solutions then are linear combinations of the solutions
+            <md>
+                <mrow> \mb{x}_R (t) = \operatorname{Re} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right) \amp = \twovec{e^{-\alpha t} \cos (\beta t)}{ - \alpha e^{-\alpha t} \cos (\beta t) + \beta e^{-\alpha t} \sin (\beta t)}, </mrow>
+                <mrow> \mb{x}_I (t) = \operatorname{Im} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right)  \amp = \twovec{e^{-\alpha t} \sin (\beta t)}{ - \alpha e^{-\alpha t} \sin (\beta t) - \beta e^{-\alpha t} \cos (\beta t)}. </mrow>
+            </md>
+            Recalling that the first coordinate is the scalar solution to the original second order differential equation, we obtain
+            <me>
+                x (t) = A e^{-\alpha t} \cos (\beta t) + B e^{-\alpha t} \sin (\beta t)
+            </me>
+            with initial conditions
+            <me>
+                x (0) = A,  \hspace{.5in}x^\prime (0) = - \alpha A + \beta B. 
+            </me>
+            Of course, if the point <m>(A, B)</m> has polar coordinate <m>(r \cos \theta, r \sin \theta)</m>, then the trigonometric sum formulas will give the simpler formula
+            <me>
+                x (t) = r e^{-\alpha t} \cos (\beta t - \theta ).
+            </me>
+            Thus when <m>\tilde{b} \lt 2 \sqrt{\tilde{k}}</m> we see some oscillation in the spring-mass system. Notice that if there is no damping and <m>\alpha = 0</m>, then the spring-mass system simply oscillates with amplitude <m>r</m> and period <m>\beta</m> (often called <m>\omega</m> in applications). On the other hand, if there is damping, this oscillation's amplitude experiences exponential decay. </p>
+
+            <p>The case where <m>\tilde{b} \geq 2 \sqrt{\tilde{k}}</m> gives the real roots
+            <me>
+                \lambda_1 = - \alpha +  \beta, \hspace{.5in} \lambda_2 = - \alpha -  \beta.
+            </me>
+            One notes that both <m>\lambda_1</m> and <m>\lambda_2</m> are negative numbers (since <m>\alpha > \beta</m>). Thus here our solution is
+            <me>
+                x (t) = A e^{\lambda_1 t} + B e^{\lambda_2 t}.
+            </me>
+            This is solution experiences exponential decay and the spring-mass system is called <term>overdamped</term>. The reason is that the kinetic friction force is overcoming the spring force and simply slowing the mass to a stop before oscillation occurs. The initial conditions here are
+            <me>
+                x (0) = A + B, \hspace{.5in} x^\prime (0) = \lambda_1 A + \lambda_2 B.
+            </me> </p>
+        </statement>
+    </example>
+
+    <exercises xml:id="exe-lincode2">
+
+        <exercise>
+        <statement>
+            <p>Go through the five steps for the system of differential equations
+            <md>
+                <mrow> x^\prime (t) \amp = -3 x(t) - 6 y(t), </mrow>
+                <mrow> y^\prime (t) \amp = 2 x (t) + 4 y(t). </mrow>
+            </md>
+            </p>
+        </statement> 
+        </exercise>
+
+        <exercise>
+        <statement>
+            <p>Go through the five steps for the system of differential equations
+            <md>
+                <mrow> x^\prime (t) \amp = 3 x(t) + 4 y(t), </mrow>
+                <mrow> y^\prime (t) \amp = - x (t) - y(t). </mrow>
+            </md>
+            </p>
+        </statement> 
+        </exercise>
+
+        <exercise>
+        <statement>
+            <p>Go through the five steps for the system of differential equations
+            <md>
+                <mrow> x^\prime (t) \amp = 5 x(t) + 2 y(t), </mrow>
+                <mrow> y^\prime (t) \amp = -4 x (t) + y(t). </mrow>
+            </md>
+            </p>
+        </statement> 
+        </exercise>
+
+        <exercise>
+        <statement>
+            <p>Give three linearly independent solutions to the differential equation <me> x^{\prime \prime \prime} (t)  = x (t). </me></p>
+        </statement>
+        </exercise>
+
+    
+    <exercise>
+        <statement>
+            <p>Verify the claim that the basis <m>\mathcal{B}_i</m> in equation <xref ref="eq-jordandiffbasis"/> gives a Jordan block (i.e. is of the form in equation <xref ref="eq-jordandiffblock"/>).</p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p> Find the motion <m>x(t)</m> of a spring-mass system with mass <m>1</m>, spring constant <m>4</m> and damping constant <m>10</m> assuming <m>x(0) = 4</m> and <m>x^\prime (0) = 2</m>.  </p>
+        </statement>
+    </exercise>
+
+</exercises>
+
+</section>

@@ -1,0 +1,365 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-matrices3">
+    <title>Matrices III</title>
+    <introduction>
+    <p> In this section on matrices, we will be primarily concerned with square matrices. </p>
+
+    <definition xml:id="def-invertible">
+        <notation>
+            <usage><m>A</m></usage>
+            <description>invertible matrix</description>
+        </notation>
+        <statement>
+            <p> A matrix is said to be <term>invertible</term> if it has it has a multiplicative inverse.</p>
+        </statement>
+    </definition>
+
+    <p> If <m>A</m> is an <m>m \times n</m> matrix, then multiplication by <m>A</m> gives a linear transformation <me> T_A : K^n \to K^m </me> Notice that <m>A</m> represents <m>T_A</m> relative to the standard bases so that <xref ref="exe-compositionreps" /> shows that <m>T_A \circ T_B = T_{AB}</m>. This implies that <m>A</m> is an invertible matrix if and only if <m>T_A</m> is a linear isomorphism. In particular, <xref ref="cor-dimensions" /> says that this can only be the case if <m>A</m> is a square matrix. We state this as a proposition for the record. </p>
+    
+    <proposition>
+        <statement>
+            <p> If a matrix is invertible, then it is a square matrix.</p>
+        </statement>
+    </proposition>
+
+    <p>Of course, we can actually use our strong results to give a very concrete criterion for checking invertibility of a square matrix.</p>
+    
+    <proposition xml:id="prop-invertiblecriterion1">
+        <statement>
+            <p>A square matrix is invertible if and only if its reduced row echelon form is the identity.</p>
+        </statement>
+        <proof> <p> To see this, let <m>A</m> be a square matrix. Then by <xref ref="prop-invertible" /> <m>A</m> is invertible implies that multiplying by <m>A</m> is a one-to-one operation. Conversely, if it is one-to-one, <xref ref="thm-ranknullity" /> implies that onto as well and thus an isomorphism. This means that <m>A \mb{x} = \mb{0}</m> has the unique solution <m>\mb{0}</m>. But by <xref ref="thm-rowechsolution" />, this only happens if there are no free columns of <m>A</m>, implying that all columns are basic. So there are <m>n</m> leading coefficients implying that there must be a leading coefficient on every row. But the only reduced row echelon square matrix of this type is the identity matrix (check this!).</p>
+        </proof>
+    </proposition>
+
+    <p>In fact, using row reduction we can do much better than simply determining if a matrix is invertible. We can in fact compute the inverse. To do this, we simply augment our matrix on the right with the identity matrix and row reduce the left hand side. If our matrix is invertible, what we end up with on the right at the end of the row reduction process in fact the inverse! </p>
+
+    <p>Let us perform this exercise before showing why it works.</p>
+
+    <example>
+    <title>Computing the inverse with row reduction</title>
+        <statement>
+            <p>Let us find the inverse of  <me> A = \left[ \begin{matrix} -1 \amp 2 \amp -4  \\ -2 \amp 3 \amp -7 \\ -1 \amp 1 \amp -2 \end{matrix} \right]. </me> We augment and reduce 
+            <md>
+                <mrow> \left[ \begin{array}{ccc|ccc} -1 \amp 2 \amp -4 \amp 1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] \amp \stackrel{(-1)\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{\mb{r}_2 + 2\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{\mb{r}_3 + \mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] ,  </mrow>
+                <mrow> \amp \stackrel{(-1)\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{\mb{r}_3 + \mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{\mb{r}_1 + 2\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 2 \amp 3 \amp -2 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , </mrow>
+                <mrow> \amp \stackrel{\mb{r}_1 - 2\mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] ,  </mrow>
+                <mrow> \amp \stackrel{\mb{r}_2 + \mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp 0 \amp 3 \amp -2 \amp 1 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , </mrow>
+            </md>
+            One can easily check that the resulting matrix on the right <me>B = \left[ \begin{matrix} 1 \amp 0 \amp -2  \\ 3 \amp -2 \amp 1 \\ 1 \amp -1 \amp 1 \end{matrix} \right] </me> satisfies <m>AB = I = BA</m> verifying that it is the inverse of <m>A</m>.</p>
+        </statement>
+    </example>
+
+    <p> To understand why this process works, we observe that the process of row reduction itself is already matrix arithmetic.</p>
+    </introduction>
+    <subsection xml:id="subsec-elementarymatrices">
+        <title>Elementary Matrices</title>
+        <p>To each of the elementary row operations, we can construct an elementary square matrix. To write formula for these matrices, we will use the following notation. The <m>n \times n</m> matrix with <m>(i,j)</m>-entry <m>1</m> and all other entries <m>0</m> will be denoted <m>\mb{e}_{ij}</m>. </p>
+        
+        <dl>
+            <li> <title> Type I</title> This elementary matrix is obtained by switching two rows of the identity matrix. It can be written as <me> E_{ij} = I_n - \mb{e}_{ii} - \mb{e}_{jj} + \mb{e}_{ij} + \mb{e}_{ji}. </me> To explain this equation, one sees that subtracting the first two <m>\mb{e}</m> matrices makes the <m>i</m> and <m>j</m>-th diagonal entries <m>0</m> while adding the last two puts two off diagonal <m>1</m>'s in the <m>(i,j)</m> and <m>(j,i)</m> spots. </li>
+            <li> <title>Type II</title> This elementary matrix is obtained by taking the identity matrix and replacing the <m>(i,i)</m>-entry of <m>1</m> with some non-zero constant <m>c</m>. <me> E_i (c) = I_n + (c - 1) \mb{e}_{ii}. </me> </li>
+            <li> <title>Type III</title> This elementary matrix is obtained by placing exactly one non-zero number <m>c</m> in the <m>(i,j)</m>-entry where <m>i \ne j</m> giving <me> E_{ij} (c) = I_n + c \mb{e}_{ij}. </me> </li>
+        </dl>
+        
+        <p>We record the following fact which can be checked by hand.</p>
+        
+        <proposition xml:id="prop-elrowelmat">
+            <statement>
+                <p>Performing a Type I, II or III elementary row operation on a matrix <m>A</m> is equivalent to multiplying <m>A</m> on the left by a Type I, II or III elementary matrix. Furthermore, each elementary matrix is invertible and 
+                <md>
+                    <mrow>E_{ij}^{-1} \amp = E_{ij},</mrow>
+                    <mrow>E_i (c)^{-1} \amp = E_i (c^{-1}),</mrow>
+                    <mrow>E_{ij} (c)^{-1} \amp = E_{ij} (-c).</mrow>
+                </md></p>
+            </statement>
+        </proposition>
+        
+        <p> What we obtain from this viewpoint on row reduction along with our previous results is the following very nice proposition.</p>
+        
+        <proposition xml:id="prop-productofelem">
+            <statement>
+                <p>A matrix is invertible if and only if it is the product of elementary matrices.</p>
+            </statement>
+            <proof> <p>Let <m>A</m> be an <m>n \times n</m> matrix. We saw in <xref ref="prop-invertiblecriterion1" /> that it is invertible if and only if its reduced row echelon form is the identity. We see from <xref ref="prop-elrowelmat" /> that this is the case if and only if there are elementary matrices <m>E_1, E_2, \ldots, E_r</m> so that <men xml:id="eq-inverseelmat"> E_r E_{r - 1} \cdots E_2 E_1 A = I. </men> But since every elementary matrix has inverse that is an elementary matrix, such an equation is possible if and only if <me> A = E_1^{-1} \cdots E_r^{-1}. </me> </p>
+            </proof>
+        </proposition>
+
+        <p>We also see from this proposition why our augmented matrix approach to computing inverse matrices works. As we row reduce <m>A</m>, the augmented reduction of the identity is keeping track of the products of the elementary matrices <m>E_j \cdots E_1</m>. Thus when we are finished, on the right hand side we simply obtain the full product <m>(E_r \cdots E_1)</m> which is, by equation <xref ref="eq-inverseelmat" /> the inverse of <m>A</m>.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-determinants">
+        <title>Determinants</title>
+        <p>The first thing to understand about determinants is that, despite being included in every linear algebra course ever given, they really don't belong to the subject of linear algebra at all. Rather, they naturally sit in a subject known as multi-linear algebra. That is because they are, in fact, multi-linear functions, not linear functions. While no one should be worried, I say this only to warn the student that the determinant is <em>not</em> linear and may reasonably appear rather strange. In fact, it is helpful in this context to view an <m>m \times n</m>-matrix <m>A</m> as a column of rows <me> A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_i \amp - \\ \amp\vdots \amp  \\ - \amp \mb{r}_m \amp - \end{matrix} \right] </me> and if <m>f : M_{m, n} (K) \to K</m> is a function on matrices, write <me> f(\mb{r}_1 , \ldots, \mb{r}_m) := f(A). </me> This notation is much cleaner than writing out the matrix each time and we will use it frequently in this section. </p>
+
+        <definition xml:id="def-rowlinalt">
+            <notation>
+                <usage><m> f : M_{m,n} (K) \to K </m></usage>
+                <description>row linear and alternating functions</description>
+            </notation>
+            <statement>
+                <p>Let <m>M_{m,n} (K)</m> be the set of all <m>m \times n</m> matrices with entries in <m>K</m>. A function <me> f : M_{m,n} (K) \to K </me> is called:
+                <dl>
+                    <li> <title> row linear</title> if, keeping all rows except the <m>i</m>-th row constant, <m>f</m> is linear on the <m>i</m>-th row (for any <m>i</m>). In other words if <me> f(\mb{r}_1 , \ldots, a \mb{r}_i + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) = a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) </me> </li>
+                    <li> <title>alternating</title> if <m>f</m> reverses sign whenever two rows are switched. In other words <me> f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m).</me> </li>
+                </dl></p>
+            </statement>
+        </definition>
+        
+        <p>Now let us define the determinant.</p>
+        
+        <definition xml:id="def-determinant">
+            <notation>
+                <usage><m>\det (A)</m></usage>
+                <description>determinant of a matrix</description>
+            </notation>
+            <statement>
+                <p> The <term>determinant</term> is the unique function <me> \det : M_{n,n} (K) \to K </me> which is row linear, alternating and satisfies <m>\det (I) = 1</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>Actually, this definition is also a theorem in the sense that it is saying both that such a function exists and that it is unique. Before showing either of these two facts, we mention an extremely important point.</p>
+        
+        <remark xml:id="comment-determinantvolume">
+        <p>While we define the determinant abstractly so that we may find many of its important properties, the determinant should be known as a way to correctly compute and work with <em>volume in <m>n</m>-dimensions</em>. We will see this shortly in <m>2</m> and <m>3</m> dimensions. This is of particular importance when we consider integrals in higher dimensions. </p>
+        </remark>
+        
+        <p>Now we give the common inductive construction of the determinant. We do this in a step-by-step manner. </p>
+        
+        <dl>
+            <li> <title>Step 1</title> Notice that the function <m>D_1 : M_{1,1} (K) \to K</m> given by <m>\det ([a]) = a</m> satisfies the properties of <xref ref="def-determinant"/>.</li>
+            
+            <li> <title>Step 2</title> Now assume there is a function <m>D_{n - 1} : M_{n - 1, n - 1} (K) \to K</m>. If <m>A = (a_{ij})</m> is an <m>n \times n</m>-matrix write <m>A_{ij}</m> for the <m>(n - 1) \times (n - 1)</m>-matrix obtained by forgetting the <m>i</m>-th row and <m>j</m>-th column. The <m>(i,j)</m>-<term>minor</term>, denoted <m>M_{ij}</m>, is the <m>D_{n - 1} (A_{ij})</m>. The <m>(i,j)</m>-<term>cofactor</term> is simply <m>C_{ij} = (-1)^{i + j} M_{ij}</m>.</li>
+
+            <li> <title>Step 3</title> With this notation in mind, define <me> D_n ( A ) = a_{11} C_{11} + a_{12} C_{12} + \cdots + a_{1n} C_{1n} .</me> </li>
+        </dl>
+
+        <p>The following theorem establishes that this function <m>D</m> is <em>the</em> determinant.</p>
+        
+        <theorem xml:id="thm-determinant">
+            <statement>
+                <p> The function <m>D</m> given is the unique function satisfying the properties of the determinant in <xref ref="def-determinant" />. It is thus written as <m>\det</m>.</p>
+            </statement>
+        </theorem>
+
+        <p>Repeating steps 1 through 3 will repeatedly will give a function from <m>M_{n,n} (K)</m> to <m>K</m>. Before proving this theorem, let us use this procedure to make some computations and get a feel for it.</p>
+        
+        <example xml:id="exa-2x2det">
+            <title>Determinants of <m>2\times 2</m> matrices</title>
+            <statement>
+                <p>For <m>2 \times 2</m> matrices, we can write down a simple formula which many of you already know. Take <me>A = \left[ \begin{matrix} a \amp b \\ c \amp d \end{matrix} \right] </me> and observe that <m>C_{11} = (-1)^{1 + 1} D([d]) = d</m> while <m>C_{12} =  (-1)^{1 + 2} D([c]) = -c</m>. So <me> \det (A) = a d - bc. </me> </p>
+            </statement>
+        </example>
+        
+        <p>It is common in multivariable calculus courses to also learn the formula (or variants thereof) for <m>3 \times 3</m> matrices. For now, let us use the previous example and compute a numerical case.</p>
+        
+        <example xml:id="exa-3x3det">
+            <title>Determinants of <m>3\times 3</m> matrices</title>
+            <statement>
+                <p>Finding the determinant of a <m>3 \times 3</m> involves finding three <m>2 \times 2</m> cofactors. Taking <me> A  = \left[ \begin{matrix} 3 \amp 1 \amp -2 \\ 5 \amp 2 \amp 1 \\ -1 \amp 1 \amp 0 \end{matrix} \right] </me> we can compute the minors <m>M_{1,1}</m>, <m>M_{1,2}</m> and <m>M_{1,3}</m> using the formula in <xref ref="exa-2x2det"/> as
+                <md>
+                    <mrow>M_{1,1} \amp = \det \left( \left[ \begin{matrix}   2 \amp 1 \\  1 \amp 0 \end{matrix} \right] \right)= -1,</mrow>
+                    <mrow>M_{1,2} \amp = \det \left( \left[ \begin{matrix}  5  \amp 1 \\ -1  \amp 0 \end{matrix} \right] \right) = 1,</mrow>
+                    <mrow>M_{1,3} \amp = \det \left( \left[ \begin{matrix}  5 \amp 2  \\ -1 \amp 1 \end{matrix} \right] \right) = 7.</mrow>
+                </md> 
+                Then our inductive formula gives
+                <md>
+                    <mrow> \det (A) \amp = 3 \cdot (-1)^{1 + 1} M_{1,1} + 1  \cdot(-1)^{1 + 2} M_{1,2} + (-2) \cdot(-1)^{1 + 3} M_{1,3}, </mrow>
+                    <mrow> \amp = -3  - 1 - 14, </mrow>
+                    <mrow> \amp  = -18. </mrow>
+                </md>
+                In fact, there is a formula for <m>3 \times 3</m> determinants that, were one so inclined, could be memorized. <me> \det \left( \left[ \begin{matrix} a_1 \amp a_2 \amp a_3 \\ b_1 \amp b_2 \amp b_3 \\ c_1 \amp c_2 \amp c_3 \end{matrix} \right] \right) = a_1 b_2 c_3 - a_1 b_3 c_2 + a_2 b_3 c_1 - a_2 b_1 c_3 + a_3 b_1 c_2 - a_3 b_2 c_1. </me> </p>
+            </statement>
+        </example>
+
+        <p>You might observe that the formula for <m>2 \times 2</m> determinants had two terms and <m>3 \times 3</m> had six. Were you to write out the formula for <m>4 \times 4</m> matrices, you'd find there are <m>24</m> terms. In fact, the number of terms in the <m>n \times n</m> determinant is <m>n!</m>, which grows quite quickly. These formulas can be of great use to computers and humans alike for smaller matrices, but for large ones (which occur frequently in applications), they are much less helpful. Nevertheless, there are other ways to compute the determinant of a matrix (for example, it can be done by row reduction) that are faster. More importantly, what we learn by understanding the <em>properties</em> of the determinant gives us great insight into many linear algebra problems.</p>
+    </subsection>
+
+    <subsection xml:id="subsec-proofofthm">
+        <title>Proof of <xref ref="thm-determinant" /></title>
+        <p>Before verifying that this function satisfies the properties in <xref ref="def-determinant" />, we give an alternative characterization of the alternating property. </p>
+        
+        <lemma xml:id="lem-altalt">
+            <statement>
+                <p>A row linear function <m>f : M_{m, n} (K) \to K</m> is alternating if and only if  <m>f (A) = 0</m> whenever <m>A</m> has two identical rows.</p>
+            </statement>
+            <proof> <p>Assume <m>f</m> is alternating and <m>A</m> has two identical rows. Then switching these rows still gives <m>A</m> which implies <m>f(A) = - f(A)</m> or <m>f(A) = 0</m>. Conversely, suppose <m>f</m> is row linear and <m>f(A)</m> is zero whenever <m>A</m> has two identical rows. Then
+            <md>
+                <mrow>0 \amp = f(\mb{r}_1 , \ldots,\mb{r}_i + \mb{r}_j, \ldots ,\mb{r}_i + \mb{r}_j,  \ldots \mb{r}_n),</mrow>
+                <mrow>\amp = f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) + \cdots,</mrow>
+                <mrow>\amp \cdots + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n),</mrow>
+                <mrow>\amp = f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n)</mrow>
+            </md>
+            Thus <me> f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) </me> and <m>f</m> is alternating.</p>
+            </proof>
+        </lemma>
+
+        <proof>
+            <title>Proof of the existence portion of <xref ref="thm-determinant" /></title>
+            <p>We will use induction on <m>n</m> to show that <m>D_n</m> satisfies the properties in <xref ref="def-determinant" />. </p>
+            <dl>
+                <li> <title>Row Linear</title> <p>To show row linearity, we notice that since <m>D_{n - 1}</m> is row linear, the cofactors <m>C_{1j}</m> are row linear. By this we mean that if we denote the rows of <m>n \times n</m> matrices as <m>\mb{r}_1 , \ldots, \mb{r}_n</m>, then <me> C_{1j} (\mb{r}_2, \ldots, \mb{r}_{n})  := (-1)^{1 + j} D_{n - 1} (\mb{r}_2, \ldots, \mb{r}_{n}) </me> is row linear. This implies that the formula <me> D_n (\mb{r}_1, \mb{r}_2, \ldots, \mb{r}_{n}) = a_{11} C_{11} (\mb{r}_2, \ldots, \mb{r}_{n}) + \cdots + a_{1n} C_{1j} (\mb{r}_2, \ldots, \mb{r}_{n}) </me> is row linear in the last <m>(n - 1)</m> rows. However, we can notice that this formula can also be written as the matrix product <me> D_n (\mb{r}_1, \mb{r}_2, \ldots, \mb{r}_{n}) = \mb{r}_1 \cdot \left[ \begin{matrix} C_{11} \\ C_{12} \\ \vdots \\ C_{1n} \end{matrix} \right] </me> which is clearly linear in the first row.</p> </li>
+                
+                <li> <title>Normalized</title> <p>We call the property that <m>D_n (I_n) = 1</m> a normalization property. To prove it, we can assume that it holds for <m>D_{n - 1}</m>. Now, notice that the minor <m>(I_n)_{11} = I_{n - 1}</m> while the minors <m>(I_n)_{1j}</m> has all zeros in the <m>(j - 1)</m>-st row. But if there is a row equal to zero, say <m>\mb{r}_i = \mb{0}</m>, and <m>f</m> is row linear, then 
+                <mdn>
+                    <mrow>f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n) \amp = f(\mb{r}_1, \ldots , \mb{0} + \mb{0} , \ldots, \mb{r}_n),</mrow>
+                    <mrow xml:id="eq-multwzero"> \amp = f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n)  + f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n). </mrow>
+                </mdn>
+                So subtracting gives <m>f(\mb{r}_1, \ldots, \mb{0}, \mb{r}_n) = 0</m>. Thus, since we have shown that <m>D_n</m> is row linear, we have that the cofactors <m>C_{1j}</m> of the identity are <m>1</m> for <m>j = 1</m> and <m>0</m> otherwise. But then <me> D_n (I_n) = 1 \cdot C_{11} + 0 \cdot  C_{12} + \cdots + 0 \cdot C_{1n} = 1. </me></p></li>
+                
+                <li> <title>Alternating</title> <p>To show the alternating property, we may assume inductively that <m>D_{n -1}</m> satisfies this property. This implies the cofactors <me>C_{1i} = (-1)^{1 + i} D_{n - 1} (\mb{r}_2 , \ldots, \mb{r}_n)</me> are also alternating and in turn, switching any two of the last <m>n - 1</m> rows for <m>D_n</m> does result in multiplying by <m>-1</m>. Thus, we need only show that if we switch <m>\mb{r}_i</m> with the <em>first</em> row <m>\mb{r}_1</m> then <m>D_n</m> switches signs.  Using the alternating property for the last <m>n - 1</m> rows, we may assume that <m>i = 2</m>. Furthermore, using the formula in <xref ref="exa-2x2det"/> we see that the alternating property holds for <m>2 \times 2</m> matrices, so we may assume <m>n > 2</m>. Finally, using row linearity, it suffices to show this property when <m>\mb{r}_1 = \mb{e}_j</m> and <m>\mb{r}_2 = \mb{e}_k</m> are standard basis row vectors.</p>
+
+                <p>In the case where <m>j = k</m>, one sees that the minor <m>M_{1j}</m> is the <m>D_{n - 1}</m> of a matrix with first row zero. So by the argument given above in equation <xref ref="eq-multwzero"/>, we have <m>C_{1j} = (-1)^{1 + j} M_{1j} = 0</m>. But as all other entries on the first row <m>\mb{r}_1 = \mb{e}_j</m> are zero, we then have <m>D_n (\mb{r}_1, \ldots, \mb{r}_n) = 0</m> so that switching the first two rows does act as multiplying the number <m>0</m> by <m>-1</m>. </p>
+
+                <p>Now assume we have two distinct indices, <m>1 \leq j \leq n</m> and <m>1 \leq k \leq n</m> and take <m>A (j,k)</m> to be the submatrix of <m>A</m> obtained by eliminating the first two rows and the <m>j</m>-th and <m>k</m>-the columns. A quick look shows then that if <m>j \lt k</m> <me> D_n (\mb{e}_j, \mb{e}_k, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + j} (-1)^{1 + (k - 1)} D_{n - 2} (A (j,k)). </me> Indeed, one must subtract <m>1</m> from <m>k</m> because, in the submatrix <m>A_{1j}</m> obtained by eliminating the first row and the <m>j</m>-th column, the index of the entry <m>a_{2k}</m> goes down by one. On the other hand, this does not occur if we switch the order (again assuming <m>j \lt k</m> ) so  we get <me> D_n (\mb{e}_k, \mb{e}_j, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + k} (-1)^{1 + j} D_{n - 2} (A (j,k)). </me> The difference in the sign justifies that switching the first two rows does indeed multiply the value of <m>D_n</m> by <m>-1</m>.</p> </li>
+            </dl>
+        </proof>
+
+        <p> Some comments on this proof are in order. First, we note that at this point, we have only shown that a function satisfying the properties exists, but not that there is only one. Second, we could have quite easily used the last row instead of the first row when defining the <m>D_n</m>. In fact, we can use any row and write the formula <men xml:id="eq-ithrowdeterminant"> D_n (A) = a_{i1} C_{i1} + \cdots + a_{in} C_{in} . </men> This is still a valid formula and can be obtained by using the alternating property. Once we prove uniqueness, we see that each of these formulas yields the same number. </p>
+
+        <p>To see the uniqueness of the determinant, we return to our elementary matrices and row reduction.</p>
+        <lemma xml:id="lem-detelem">
+            <statement>
+                <p>If <m>D</m> is a function satisfying the conditions of <xref ref="def-determinant"/>, then 
+                <md>
+                    <mrow>D (E_{ij} ) \amp = -1,</mrow>
+                    <mrow>D (E_{i} (c)) \amp = c,</mrow>
+                    <mrow>D (E_{ij} (c)) \amp = 1.</mrow>
+                </md>
+                Furthermore, if <m>A</m> is any square matrix and <m>E</m> is any elementary matrix of the same size, <me> D( EA) = D(E) D (A). </me> </p>
+            </statement>
+            <proof> <p>We leave it to the student to work out the first set of equations. For the second, notice that if <m>E</m> is Type I then <m>EA</m> is just <m>A</m> with two rows switched so by the alternating property and the first equation <m>D(EA) = - D(A) = D(E) D(A)</m>. On the other hand, if <m>E</m> is Type II so that <m>E = E_i (c)</m> then <m>E A</m> multiplies the <m>i</m>-th row by <m>c</m>. So row linearity and the second equation gives <m>D(E A ) = c D(A) = D(E) D(A)</m>. Finally, if <m>E</m> is Type III and equals <m>E_{ij} (c)</m> we have that the <m>i</m>-th row of <m>E A</m> is <m>\mb{r}_i + c\mb{r}_j</m>. So using row linearity, <xref ref="lem-altalt"/>, and the third equation we get
+            <md>
+                <mrow>D (EA) \amp = D(\mb{r}_1, \ldots, \mb{r}_i + c\mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ), </mrow>
+                <mrow> \amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ) + c D(\mb{r}_1, \ldots, \mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ),</mrow>
+                <mrow>  \amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ), </mrow>
+                <mrow>  \amp = D (A), </mrow>
+                <mrow>  \amp = D(E) D(A).</mrow>
+            </md> </p>
+            </proof>
+        </lemma>
+
+        <p>We may follow this lemma up with one of the most important results concerning the determinant.</p>
+        
+        <lemma xml:id="lem-detinv"> 
+            <statement>
+                <p>Suppose <m>D</m> satisfies the properties of <xref ref="def-determinant"/>. Then <m>A</m> is invertible if and only if <m>D(A) \ne 0</m>.</p>
+            </statement>
+            <proof>
+            <p>Let <m>A^\prime</m> be the reduced row echelon form of <m>A</m> so that there are elementary matrices <m>E_1, \ldots, E_r</m> so that <me>E_r \cdots E_1 A  = A^\prime. </me> Taking <m>D</m> of both sides and repeatedly applying <xref ref="lem-detelem" /> gives <me> D(E_r) \cdots D(E_1) D(A) = D(A^\prime). </me> Noting that <m>D (E_i) \ne 0</m> we also have <me> D(A) = \frac{D(A^\prime)}{ D(E_r) \cdots D(E_1)}. </me> By <xref ref="prop-invertiblecriterion1" />, <m>A</m> is invertible if and only if <m>A^\prime = I</m>. If this is the case, then the normalization property says the right hand side is <m>1 / D(E_r) \cdots D(E_1) \ne 0</m>. If not, then <m>A^\prime</m> must have a row of zeros (because it is a square matrix) which implies by the argument in equation <xref ref="eq-multwzero"/> that <m>D(A^\prime) = 0</m>. This proves the statement.</p>
+            </proof>
+        </lemma>
+        
+        <p>These two lemmas immediately give our uniqueness claim.</p>
+        
+        <proof>
+        <title>Proof of uniqueness of <xref ref="thm-determinant" /></title>
+        <p>If <m>A</m> is not invertible, then we must have <m>D(A) = 0</m> by <xref ref="lem-detinv" />. On the other hand, the proof of the same lemma showed that if <m>A</m> is invertible, then <me> D(A) \amp = \frac{1}{D(E_r) \cdots D(E_1)} </me> for a collection of an elementary matrices which row reduce <m>A</m>. However, <xref ref="lem-detelem" /> shows that for elementary matrices <m>E</m>, <m>D(E)</m> is determined by the properties of <xref ref="def-determinant" />. Thus there is no choice in defining <m>D</m> for an arbitrary <m>A</m>. </p>
+        </proof>
+        
+        <p>From now on, we will just use <m>\det</m> instead of <m>D</m>. We notice that the last proof also shows that if we row reduce a matrix, and keep track of our operations, we can compute the determinant. This is generally a quicker way to get determinants than using formulas for large matrices.</p>
+
+        <p>We end this section with a useful result concerning the determinant.</p>
+        <proposition xml:id="prop-productdet">
+            <statement>
+                <p>Given two <m>n \times n</m> matrices <m>A</m> and <m>B</m> then <me> \det (A B) = \det (A) \det (B). </me></p>
+            </statement>
+            <proof> <p>If either <m>A</m> or <m>B</m> is not invertible, then <m>AB</m> is not invertible. Indeed, if <m>C</m> were an inverse of <m>(AB)</m> then <m>A (BC) = (AB) C = I</m> and <m>(CA) B = C(AB) = I</m> would show that <m>A</m> or <m>B</m> had an inverse (here you would need to observe that, for square matrices, a left or right inverse is an inverse which follows from <xref ref="lem-rightleftinverse" /> proven independently below). Thus in the non-invertible case both sides are zero. On the other hand, if <m>A</m> and <m>B</m> are invertible, then by <xref ref="prop-productofelem" />, they are both products of elementary matrices
+            <md>
+                <mrow>A \amp = E_1 \cdots E_r,</mrow>
+                <mrow>B \amp = \tilde{E}_1 \cdots \tilde{E}_s.</mrow>
+            </md>
+            So repeatedly using <xref ref="lem-detelem" />, we have
+            <md>
+                <mrow>\det (AB) \amp = \det (E_1 \cdots E_r\tilde{E}_1 \cdots \tilde{E}_s ) ,</mrow>
+                <mrow>\amp = \det (E_1)  \cdots \det (E_r) \det (\tilde{E}_1 \cdots \tilde{E}_s ) ,</mrow>
+                <mrow>\amp = \det (E_1 \cdots E_r)  \det (\tilde{E}_1 \cdots \tilde{E}_s ) ,</mrow>
+                <mrow>\amp = \det (A) \det (B).</mrow>
+            </md> </p>
+            </proof>
+        </proposition>
+    </subsection>
+
+    <subsection xml:id="subsec-inverseformula">
+        <title>Formula for the Inverse</title>
+
+        <p>As a final result of this section, we note that the determinant also allows us to write out a formula for the inverse matrix when it exists. First we take the <term>adjugate</term> matrix of a square matrix <m>A</m> (which is sometimes incorrectly referred to as the adjoint) as the transpose matrix of cofactors <me> \textnormal{adj} (A) = \left[ \begin{matrix} C_{11} \amp C_{21} \amp \cdots \amp C_{n1} \\ C_{12} \amp C_{22} \amp \cdots \amp C_{n2} \\ \vdots \amp \amp \ddots \amp \vdots \\ C_{1n} \amp C_{2n} \amp \cdots \amp C_{nn} \end{matrix} \right] . </me>
+        One notes that if we multiply <m>\text{adj} (A)</m> on the left by the <m>i</m>-th row <m>\mb{r}_i</m> of <m>A</m>, we obtain the row vector <m>\det (A) \mb{e}_i</m> (check this). But this implies that <men xml:id="eq-adjugate"> A \, \cdot  \textnormal{adj} (A) = \det (A) I .</men> Of course, if <m>\det (A) = 0</m>, this may not give us much to work with when it comes to finding an inverse. But otherwise we would like to conclude that <me> A^{-1} = \frac{1}{\det (A)} \textnormal{adj} (A) \hspace{.2in} \text{if }\det (A) \ne 0. </me> However, one might worry whether this really works, since we only have that <m>\frac{1}{\det (A)} \text{adj} (A)</m> is a <em>right</em> inverse in the equation above. Happily, there is a simple argument to show that left and right inverses of square matrices must be the same.</p>
+        
+        <lemma xml:id="lem-rightleftinverse">
+            <statement>
+                <p>If <m>B</m> is a right inverse or left inverse of a square matrix <m>A</m>, then it is the inverse of <m>A</m>. </p>
+            </statement>
+            <proof> <p> Since <m>A</m> is a square matrix, it represents a linear transformation from <m>K^n</m> to <m>K^n</m>. If it has a left inverse <m>B</m> so that <m>BA = I</m> then that transformation is one-to-one. But by <xref ref="cor-equaldim"/> we have that this means it is an isomorphism. Thus it has an inverse linear transformation which can be represented by a two sided matrix inverse <m>A^{-1}</m>. But then since <m>BA = I</m> we may multiply on the right by <m>A^{-1}</m> and obtain <m>B = A^{-1}</m>. A similar argument applies for the right inverse.</p>
+            </proof>
+        </lemma>
+    </subsection>
+
+    <exercises xml:id="exe-matrices3">
+        
+    <exercise>
+        <introduction><p> 
+            Find the inverse of the following matrix using row reduction.
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 0 \amp 1 \\ 1 \amp -2 \end{matrix} \right] </me></p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 1 \amp 0 \amp 1 \\ 0 \amp -1 \amp 1 \\ 0 \amp 1 \amp -1 \end{matrix} \right] </me></p>
+            </statement>
+        </task>
+    </exercise>
+
+    <exercise>
+        <introduction><p> 
+            Compute the determinants of the following matrices.
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 1 \amp 2 \\ 3 \amp -1 \end{matrix} \right] </me>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 1 \amp 1 \amp 0 \\ -2 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \end{matrix} \right] </me>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me> \left[ \begin{matrix} 1 \amp 0 \amp 1 \amp 0\\ 1 \amp 1 \amp 1 \amp 1 \\ 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 2 \amp 3 \amp 4 \end{matrix} \right]</me>
+                </p>
+            </statement>
+        </task>
+    </exercise>
+    
+    <exercise>
+        <statement>
+            <p>Verify the first three equations in <xref ref="lem-detelem" />. </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>Use <xref ref="prop-productdet" /> to show that if <m>A</m> is an invertible matrix then <me> \det (A^{-1} ) = \frac{1}{\det (A)}.</me> </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>Let <me> A = \left[ \begin{matrix} a \amp b  \\ c \amp d \end{matrix} \right] </me> be the a <m>2 \times 2</m> matrix. Consider the column vectors <m>\mb{u} = \twovec{a}{c}</m> and <m>\mb{v} = \twovec{b}{d}</m> in <m>\mathbb{R}^2</m> and write <m>\mathcal{P}</m> for the parallelogram in <m>\mathbb{R}^2</m> spanned by <m>\mb{u}</m> and <m>\mb{v}</m> (this is the parallelogram with sides <m>\mb{u}</m>, <m>\mb{v}</m> and their translations). Show that <me>| \det (A) | = \text{Area} (\mathcal{P}).</me></p>
+        </statement>
+        <hint> <p>First rotate <m>\mb{u}</m> and <m>\mb{v}</m> by multiplying by a rotation matrix so that <m>\mb{u}</m> is of the form <m>\twovec{r}{0}</m>. Use <xref ref="prop-productdet" /> to show this won't change the determinant of <m>A</m> and observe that this does not change the area of the parallelogram. However, the new area and determinant is easy to calculate and compare.</p>
+        </hint>
+    </exercise>
+    </exercises>
+</section>

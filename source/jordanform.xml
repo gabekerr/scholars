@@ -1,0 +1,318 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-jnf">
+    <title>Jordan Normal Form</title>
+
+    <p>As it turns out, not every linear transformation has an eigenbasis, but there is something quite close. To describe it, we need to see that our direct sum is  compatible with linear transformations in the following sense.</p>
+    <definition xml:id="def-directsumtrans">
+        <notation>
+            <usage><m>T_1 \oplus T_2</m></usage>
+            <description>Direct sum of transformations</description>
+        </notation>
+        <statement>
+            <p>If <m>U = U_1 \oplus U_2</m>, <m>V = V_1 \oplus V_2</m>, <m>T_1 : U_1 \to V_1</m> and <m>T_2 : U_2 \to V_2</m> we write <me> T_1 \oplus T_2 : U \to V </me> to be the linear transformation which takes <m>\mb{u} = \mb{u}_1 + \mb{u}_2</m> to <m>T( \mb{u} ) = T_1 (\mb{u}_1 ) + T_2 (\mb{u}_2 )</m>. Here the vectors <m>\mb{u}_1</m> and <m>\mb{u}_2</m> are the unique vectors in <m>U_1</m> and <m>U_2</m> respectively that add to <m>\mb{u}</m>.</p>
+        </statement>
+    </definition>
+
+    <p>It is fair to object to the messy look of this definition, but indeed, to understand the motivation for it, we consider what happens when we represent a direct sum of linear transformations as a matrix.</p>
+
+    <proposition>
+        <statement>
+            <p>Suppose <m>\mathcal{B}_1</m>, <m>\mathcal{B}_2</m>, <m>\mathcal{C}_1</m> and <m>\mathcal{C}_2</m> are bases for <m>U_1</m>, <m>U_2</m>, <m>V_1</m> and <m>V_2</m> respectively, and let <m>\mathcal{B} = \mathcal{B}_1 \cup \mathcal{B}_2</m> and <m>\mathcal{C} = \mathcal{C}_1 \cup \mathcal{C}_2</m>. Then <m>\mathcal{B}</m> is a basis for <m>U</m>, <m>\mathcal{C}</m> is a basis for <m>V</m> and <me>\cob{T_1 \oplus T_2}{\mathcal{B}}{\mathcal{C}} = \left[ \begin{matrix} \cob{T_1}{\mathcal{B}_1}{\mathcal{C}_1} \amp 0 \\ 0 \amp \cob{T_2}{\mathcal{B}_2}{\mathcal{C}_2} \end{matrix} \right]. </me>  Here the matrix on the right is a matrix of matrices (so the zeros are matrices as well).</p>
+        </statement>
+    </proposition>
+    
+    <p>The proof of this proposition is elementary and is left to the student. However, the idea here is still important. We introduce direct sums because it allows us to decompose vector spaces into more elementary pieces (vector space summands) as well as decomposing linear transformations into more elementary linear transformations (blocks in the matrix).</p>
+
+    <p>Let us now return to the question of diagonalization and reconsider <xref ref="exa-notdiagonalizable"/>. Recall that there we examined the matrix <me>A = \left[ \begin{matrix} 2 \amp -1 \amp -2 \\ 0 \amp 4 \amp 4 \\ 2 \amp 1 \amp 2 \end{matrix} \right] .</me> We found the characteristic polynomial was <me>p_A(t) =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4) </me> so that there were eigenvalues <m>2</m> and <m>4</m>. However, since we don't have <m>3</m> distinct roots of <m>p_A(t)</m>, we are no longer in the case of <xref ref="cor-distinctrootsdiag"/>. This raises the question as to whether we can diagonalize <m>A</m> at all or, equivalently, whether <m>A</m> has an eigenbasis. Recall that we found the <m>2</m> and <m>4</m> eigenvectors <me> \threevec{1}{-2}{1},  \threevec{1}{-2}{0} </me> by solving the eigenvector equations. If you look closely at those solutions though, you will see that any other eigenvector must be a multiple of one of these. But this means that the span of the eigenvectors is <m>2</m>-dimensional, and we must conclude that there is no eigenbasis! </p>
+
+    <p>Let us look at another example where this occurs.</p>
+    
+    <example>
+        <title>A <m>2 \times 2</m> nilpotent matrix</title>
+        <statement>
+            <p>Consider the matrix <me> A = \left[ \begin{matrix} 0 \amp 1 \\ 0 \amp 0 \end{matrix} \right] . </me> One easily computes the characteristic polynomial to be <m>p_A(t) = t^2</m>. However, solving the equation <m>A \mb{x} = \mb{0}</m> gives that the only <m>0</m>-eigenvectors are multiples of <me> \mb{e}_1 = \twovec{1}{0} .</me> On the other hand, any other vector does satisfy the equation <me> A^2 \mb{x} = 0. </me></p>
+        </statement>
+    </example>
+    
+    <p>This last equation leads to a definition.</p>
+
+    <definition xml:id="def-nilpotent">
+        <notation>
+            <usage><m>N : V \to V</m></usage>
+            <description>Nilpotent operator</description>
+        </notation>
+        <statement>
+            <p>A linear operator <m>N : V \to V</m> is called <term>nilpotent</term> if there is a positive integer <m>n</m> for which <m>N^n</m> is the zero linear operator (i.e. <m>N^n (\mb{v}) = \mb{0}</m> for every vector <m>\mb{v}</m>). We say <m>n</m> is the order of <m>N</m> if <m>N^{n - 1}</m> is not zero but <m>N^n</m> is zero.</p>
+        </statement>
+    </definition>
+    
+    <p>Nilpotent linear transformations can be quite useful, although they are also fairly rare. In one sense, though, they play nicely with  invertible matrices (although they are, of course <em>not</em> invertible).</p>
+
+    <lemma xml:id="lem-nilpotentinv">
+        <statement>
+            <p>If <m>S : V \to V</m> is a linear isomorphism, <m>N : V \to V</m> is nilpotent and <m>S</m> commutes with <m>N</m>, then <m>S + N</m> is a linear isomorphism.</p>
+        </statement>
+        <proof>
+            <p>The key to this observation is the geometric series <me> ( 1 - x)^{-1} = \frac{1}{1 - x} = 1 + x + x^2 + \cdots </me> that you learn in a first year calculus course. We can manipulate this slightly to see that  <me> (y + x)^{-1} = y^{-1} \frac{1}{1 - (-y^{-1} x)} = y^{-1} \left[ 1 + (-y^{-1} x) + (-y^{-1} x)^2 + \cdots \right] </me> Now, if we try to put random matrices (or linear transformations) in for <m>x</m> and <m>y</m>, we may run into trouble. First, we would of course need the <m>y</m> matrix to be invertible to make sense of <m>y^{-1}</m>, but more importantly, we would need to know this series converged in some reasonable sense. However, if the <m>y</m> matrix commuted with the <m>x</m> matrix (which would imply <m>y^{-1}</m> did as well), then the terms <me> (-y^{-1} x)^k = (-1)^k y^{-k} x^k . </me> Better yet, if the <m>x</m> matrix were nilpotent, we would have no concern over convergence because these terms would all be zero once <m>k</m> is large enough. Taking the <m>y</m> matrix to represent <m>S</m> and the <m>x</m> matrix to represent <m>N</m> thus shows that <m>S + N</m> is invertible (and in fact the formula above can be used to compute the inverse).</p>
+        </proof>
+    </lemma>
+
+    <p>The following lemma will be used to classify a normal form for nilpotent linear transformations. The proof of this lemma is fairly technical and can be skipped on first (or second) reading.</p>
+
+    <lemma xml:id="lem-nilpotentdecomp">
+        <statement>
+            <p>Suppose <m>N: V \to V</m> is nilpotent of order <m>n</m> and <m>\mb{v}</m> is a vector for which <m>N^{n - 1} (\mb{v}) \ne \mb{0}</m>. Let <m>\mathcal{B} = \{ N^{n - 1} (\mb{v} ),  \ldots , N (\mb{v} ) , \mb{v}\}</m> and <m>V_1 = \textnormal{span} \mathcal{B}</m>. Then</p>
+            <ol>
+                <li> <m>\mathcal{B}</m> is linearly independent and thus a basis for <m>V_1</m>,</li>
+                <li> there is a complementary subspace <m>V_2</m> of <m>V</m> for which <me> N = N_1 \oplus N_2 : V_1 \oplus V_2 \to V_1 \oplus V_2 </me> where <m>N_1</m> and <m>N_2</m> are the restrictions of <m>N</m> to <m>V_1</m> and <m>V_2</m> respectively. </li>
+            </ol>
+        </statement>
+        <proof>
+            <p>To see the first claim, suppose <me> a_1 \mb{v} + a_2 N(\mb{v}) + \cdots + a_n N^{n - 1} (\mb{v}) = \mb{0}. </me> Then by taking <m>N^{n - 1}</m> of both sides we see <m>a_1 = 0</m>. Repeating with <m>N^{n - 2}, N^{n - 3} , \ldots</m> one sees that <m>a_2, a_3, \ldots</m> all must be zero as well implying <m>\mathcal{B}</m> is linearly independent.</p>
+
+            <p>For the second claim, let we argue by induction on <m>n</m>. If <m>n = 1</m> then <m>V = \ker (N)</m> and one can take any complementary subspace to the span of <m>\mb{v}</m>. Since <m>N</m> is zero on all of <m>V</m>, it can be written as <m>0 \oplus 0</m>.</p> 
+
+            <p>So assume the statement is true for <m>(n - 1)</m> and let <m>W = \ker (N^{n - 1})</m>. Then by the induction hypothesis we can find a complementary subspace <m>W_2</m> to <m>W_1 = \textnormal{span} \{N (\mb{v} ) , \ldots , N^{n - 1} (\mb{v}) \}</m> for which <m>N = N_1 \oplus N_2</m>. </p>
+
+            <p>Let <m>U = \{\mb{w} : N (\mb{w} ) \in W_2 \}</m> be the vector subspace of <m>V</m> consisting of all vectors sent to <m>W_2</m> and <m>V_2</m> any complementary subspace of <m>\span \{N^{n - 1} (\mb{v}) \}</m> in <m>U</m> which contains <m>W_2</m>. We claim that <m>V_2</m> satisfies the second statement. To check this claim we must verify that <m>V_2</m> maps to itself under <m>N</m> and that <m>V_1</m> and <m>V_2</m> are complementary. As <m>V_2</m> is contained in <m>U</m>, it maps to <m>W_2</m> under <m>N</m> which, by construction, is contained in <m>V_2</m>.</p>
+
+            <p>Verifying that that <m>V_1</m> and <m>V_2</m> are complementary we first check that their intersection is zero.  Note if <m>\mb{u}</m> is in both <m>V_1</m> and <m>V_2</m> then <m>N (\mb{u} )</m> must be in <m>W_1</m> and <m>W_2</m>. But since these are complementary, we have <m>N(\mb{u}) = \mb{0}</m> and <m>\mb{u}</m> is in the kernel of <m>N</m>. As <m>n > 1</m> we have <m>\mb{u} \in \ker (N^{n - 1} ) = W</m>. This implies <m>\mb{u}</m> is in <m>W_1 = V_1 \cap \ker (N^{n - 1})</m> and <m>W_2 = V_2 \cap \ker (N^{n - 1} )</m> which consists only of <m>\mb{0}</m>.</p>
+
+            <p>To see that <m>V_1</m> and <m>V_2</m> span <m>V</m>, suppose <m>\mb{u}</m> is any vector and consider <m>N ( \mb{u} ) \in W</m>. Then by the induction hypothesis, there is a unique decomposition <m>N (\mb{u}) = \mb{w}_1 + \mb{w}_2</m> with <m>\mb{w}_1 \in W_1</m> and <m>\mb{w}_2 \in W_2</m>. As <m>\mb{w}_1 = a_1 N (\mb{v}) + \cdots a_{n - 1} N^{n - 1} (\mb{v}) = N (a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) )</m> we can take <m>\tilde{\mb{v}}_1 = a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) \in V_1</m> so that <m>N (\tilde{\mb{v}}_1) = \mb{w}_1</m>.  Subtracting, this shows that <m>\mb{w}_2 = N ( \mb{u} - \tilde{\mb{v}}_1 )</m> so that <m>\mb{u} - \tilde{\mb{v}}_1</m> is in <m>U</m>. Thus <m>\mb{u} - \tilde{\mb{v}}_1 = a N^{n - 1} (\mb{v}) + \mb{v}_2</m> for some number <m>a</m> and <m>\mb{v}_2 \in V_2</m> (since <m>U = V_2 \oplus \span \{N^{n - 1} (\mb{v}) \}</m>). Taking <m>\mb{v}_1 = \tilde{\mb{v}}_1 + a N^{n - 1} (\mb{v}) \in V_1</m> we get that <m>\mb{u}</m> is in the span finishing the proof.</p>
+        </proof>
+    </lemma>
+
+    <p>Inductively applying this lemma gives the following corollary.</p>
+
+    <corollary>
+        <statement>
+            <p>If <m>V</m> is a finite dimensional vector space and <m>N : V \to V</m> a nilpotent linear transformation. Then there are vectors <m>\mb{v}_1, \ldots, \mb{v}_k</m> and positive integers <m>r_1, \ldots, r_k</m> such that <me> \left\{N^{r_1 - 1} (\mb{v}_1 ), \ldots,   N (\mb{v}_1) , \mb{v}_1 ,N^{r_2 -1} (\mb{v}_2 ),  \ldots, N (\mb{v}_2) ,\mb{v}_2 ,  \ldots, N^{r_k -1} ( \mb{v}_k ) , \ldots,  N (\mb{v}_k ) ,\mb{v}_k \right\} </me> is a basis and <m>N^{r_i} (\mb{v}_i) = 0</m> for <m>1 \leq i \leq k</m>.</p>
+        </statement>
+        <proof>
+            <p>This follows from repeatedly applying  <xref ref="lem-nilpotentdecomp"/> to the summand <m>V_2</m>. </p>
+        </proof>
+    </corollary>
+    
+    <p>Now we return to the general problem of finding an eigenbasis for <m>T: V \to V</m>. Since we cannot always find a <m>\lambda</m>-eigenvectors of <m>T</m>, we propose a broader notion in the following definition.</p>
+    
+    <definition xml:id="def-generalizedeigenvector">
+        <notation>
+            <usage>generalized <m>\lambda</m>-eigenspace</usage>
+            <description>Generalized eigenspace of a linear operator</description>
+        </notation>
+        <statement>
+            <p> Suppose <m>V</m> is a vector space and <m>T : V \to V</m> is a linear transformation. For a number <m>\lambda \in K</m>, the <term>generalized <m>\lambda</m>-eigenspace</term> is the vector subspace <me> V_\lambda = \left\{ \mb{v} : (\lambda I - T)^r (\mb{v}) = 0  \textnormal{ for sufficiently large } r \right\}. </me> A non-zero vector <m>\mb{v}</m> in <m>V_\lambda</m> is called a <term>generalized eigenvector</term>.</p>
+        </statement>
+    </definition>
+    
+    <p>One can check that <m>V_\lambda</m> is indeed a vector subspace of <m>V</m>. The following theorem can be used to see that the generalized eigenspaces are ever present.</p>
+
+    <theorem xml:id="thm-cayleyhamilton">
+        <title>Cayley-Hamilton</title>
+        <statement>
+            <p>If <m>V</m> is a finite dimensional vector space and <m>T: V \to V</m> is a linear transformation then <m>p_T (T) = 0</m>.</p>
+        </statement>
+        <proof>
+            <p>We show this by taking <m>A</m> to represent <m>T</m> and verifying <m>p_A (A) = 0</m> as a matrix equation. Suppose <me> p_A (t) = t^n + a_{n - 1} t^{n - 1} + \cdots + a_1 t + a_0 . </me> Letting <m>B = (tI - A)</m> be the matrix with polynomial entries, we can take its adjugate matrix <m>\text{adj} (B)</m> since the entries are cofactors which can be defined on matrices with polynomial entries (since there is no division). Now, by equation <xref ref="eq-adjugate"/> we have that 
+            <men xml:id="eq-cy1"> (tA - I)  \cdot \text{adj} (B)   = \det (B) \cdot I = p_A (t) I . </men>
+            On the other hand,  we can expand <m>\text{adj} (B)</m> as matrices multiplied by monomials <m>t^k</m>, i.e. <me> \text{adj} (B) = t^{n - 1} B_{n - 1} + \cdots t B_1 + B_0 .</me> Now, multiplying the left hand side of equation <xref ref="eq-cy1"/> gives <me> t^n B_{n - 1} + t^{n - 1} (B_{n - 2} - A B_{n - 1} ) + \cdots + t ( B_0 - A B_1) - A B_0 .</me> Setting the coefficients of <m>t^k</m> equal to the right hand side for each <m>k</m> gives the matrix equations
+            <md>
+                <mrow> B_{n - 1} \amp = I, </mrow>
+                <mrow> B_{n - 2} - A B_{n - 1} \amp = a_{n - 1} I, </mrow>
+                <mrow>\vdots \amp  </mrow>
+                <mrow>B_0 - A B_1 \amp = a_1, </mrow>
+                <mrow>-  A B_0 \amp = a_0.</mrow>
+            </md>
+            Multiplying the first equation on the left by <m>A^n</m>, the second by <m>A^{n - 1}</m> and so on gives
+            <md>
+                <mrow> A^n B_{n - 1} \amp = A^n, </mrow>
+                <mrow> A^{n - 1} B_{n - 2} - A^n B_{n - 1} \amp = a_{n - 1} A^{n - 1}, </mrow>
+                <mrow> \vdots \amp  </mrow>
+                <mrow> A B_0 - A^2 B_1 \amp = a_1 A, </mrow>
+                <mrow>-  A B_0 \amp = a_0. </mrow>
+            </md>
+            Adding the left and right sides then gives <me> 0 = p_A (A) . </me></p>
+        </proof>
+    </theorem>
+    
+    <p>Let us interpret this Theorem. Since <m>p_T (t)</m> is a polynomial, it involves taking powers of <m>t</m>, multiplying it by a scalar and adding the results together. However, all of these operations can be made on <m>T</m> itself, so the equation <m>p_T (T) = 0</m> says that we obtain the zero linear transformation when we put <m>T</m> into its own characteristic polynomial. </p>
+
+    <p>To connect this definition to our discussion of nilpotent matrices, we observe the following simple Lemma.</p>
+
+    <lemma xml:id="lem-nilpotentinvert">
+        <statement>
+            <p>Suppose <m>V</m> is a finite dimensional vector space over <m>K</m> and <m>T : V \to V</m> is a linear transformation. If <m>\lambda</m> and <m>\tilde{\lambda}</m> are two numbers in <m>K</m> then  <me>(\tilde{\lambda} I - T) (V_\lambda) \subseteq V_\lambda </me> and <me>\tilde{\lambda}I  - T : V_\lambda \to V_\lambda </me> is nilpotent if <m>\tilde{\lambda} = \lambda</m> and a linear isomorphism otherwise.</p>
+        </statement>
+        <proof>
+            <p>To see the first statement, just note that <m>(\tilde{\lambda} I - T)</m> commutes with <m>({\lambda} I - T)</m> so that if <m>({\lambda} I - T)^n (\mb{v}) = 0</m> then 
+            <md>
+                <mrow> ({\lambda} I - T)^n [(\tilde{\lambda} I - T) (\mb{v})] \amp = (\tilde{\lambda} I - T) [({\lambda} I - T)^n (\mb{v} )] , </mrow>
+                <mrow> \amp = (\tilde{\lambda} I - T) ( \mb{0} ), </mrow>
+                <mrow> \amp  = \mb{0}. </mrow>
+            </md>
+            So if <m>\mb{v}</m> is in <m>V_\lambda</m> then so is <m>(\tilde{\lambda} I - T) (\mb{v})</m>. </p>
+
+            <p>For the second statement, if <m>\lambda = \tilde{\lambda}</m> then <m>V_\lambda</m> is defined to be the vector subspace on which <m>(\tilde{\lambda} I - T)</m> is nilpotent. There is a subtlety here which relies on the fact that <m>V</m> is finite dimensional. In particular, there must be a finite <m>n</m> for which <m>(\tilde{\lambda} I - T)^n (\mb{v}) = \mb{0}</m> for <em>all</em> <m>\mb{v}</m> in <m>V_\lambda</m> owing to the fact that there is a finite basis for <m>V_\lambda</m> (check this). Thus <m>(\tilde{\lambda} I - T)</m> is nilpotent on <m>V_\lambda</m>.</p>
+
+            <p>Now, if <m>\tilde{\lambda} \ne \lambda</m> then we take <m>N = (\lambda I - T)</m> and <m>S = (\tilde{\lambda} - \lambda) I</m>. Then <m>S</m> and <m>N</m> commute, <m>S</m> is invertible and <m>N</m> is nilpotent on <m>V_\lambda</m>. Applying <xref ref="lem-nilpotentinv"/> gives that <m>(\tilde{\lambda} I - T) = S + N</m> is invertible.</p>
+        </proof>
+    </lemma>
+    
+    <p>Using this lemma, we obtain a generalized version of <xref ref="lem-distincteigenlinind" />.</p>
+    
+    <lemma xml:id="lem-distinctgeigenlinind">
+        <statement>
+            <p>Let <m>V</m> be a finite dimensional vector space and <m>T: V \to V</m> be a linear transformation. If <m>\mb{v}_1 , \ldots , \mb{v}_k</m> are generalized <m>\lambda_i</m>-eigenvectors with distinct <m>\lambda_i</m>, then they are linearly independent.</p>
+        </statement>
+        <proof>
+            <p>Assuming that this were false, we may choose a smallest set of eigenvalues for which there is a linear dependence of respective generalized eigenvectors. Relabel the vectors and eigenvalues so that this set consists of the first <m>j</m> values <m>\lambda_1, \ldots, \lambda_j</m>. Then there are generalized <m>\lambda_i</m>-eigenvectors <m>\mb{w}_1, \ldots, \mb{w}_j</m> that have a non-trivial linear relation <me> \mb{0}  = a_1 \mb{w}_1 + \cdots + a_{j} \mb{w}_{j}. </me> By <xref ref="lem-nilpotentinvert"/>, there is some <m>n</m> for which <m>(\lambda_j I - T)^n</m> is zero on <m>V_{\lambda_j}</m> and a linear isomorphism for each <m>V_{\lambda_i}</m> with <m>i \ne j</m>. Write <m>S = (\lambda_j I - T)^n</m> and apply this to both sides of the linear relation so that</p>
+            <md>
+                <mrow> \mb{0} \amp = S ( \mb{0} ), </mrow>
+                <mrow> \amp = S ( a_1 \mb{w}_1 + \cdots + a_{j} \mb{w}_{j} ), </mrow>
+                <mrow> \amp = a_1 S( \mb{w}_1 ) + \cdots + a_{j - 1} S( \mb{w}_{j - 1} ) + a_j S ( \mb{w}_j ), </mrow>
+                <mrow> \amp = a_1 S( \mb{w}_1 ) + \cdots + a_{j - 1} S( \mb{w}_{j - 1} ).</mrow>
+            </md>
+            <p>We note that <m>S (\mb{w}_i) \ne \mb{0}</m> for all <m>1 \leq i \leq j - 1</m> since <m>S</m> is a linear isomorphism on <m>V_{\lambda_i}</m>. But this is a non-trivial linear dependence with fewer than <m>j</m> generalized eigenvectors contradicting our choice of the smallest set of linearly dependent vectors.</p>
+        </proof>
+    </lemma>
+
+    <p>From these lemmas we are able to show the following important theorem.</p>
+
+    <theorem xml:id="lem-generalizedeigendecomp">
+        <statement>
+            <p>Suppose <m>V</m> is an <m>n</m>-dimensional vector space and <m>T : V \to V</m> is a linear transformation. Suppose <m>p_T (t)</m> factors as <m>(t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}</m> where <m>\lambda_i \ne \lambda_j</m> for <m>i \ne j</m>. Then <m>V</m> decomposes as <me> V = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} </me> where <m>\dim V_{\lambda_i} = k_i</m> and <m>T</m> also decomposes as a direct sum of its restrictions <me> T = T_1 \oplus \cdots \oplus T_m . </me></p>
+        </statement>
+        <proof>
+            <p>It is clear that <m>T</m> maps each generalized eigenspace to itself. Taking <me>W = \span ( V_{\lambda_1} \cup \cdots \cup V_{\lambda_m} ) </me> <xref ref="lem-distinctgeigenlinind"/> implies that <me> W = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} . </me> Indeed, to check this one needs only show that there is no non-zero vector of <m>V_{\lambda_i}</m> equal to a sum of vectors from the other generalized eigenspaces. But any such equation would give a non-trivial linear relation.</p>
+
+            <p>To see the decomposition, all that is left to show is that <m>W = V</m>. For this we use the Cayley-Hamilton Theorem. Indeed, if <m>\mb{v}</m> is a vector not in <m>W</m> then because <m>p_T (T) = 0</m> we have <me> (\lambda_1 I - T)^{k_1} \cdots (\lambda_m I - T)^{k_m} (\mb{v}) = \mb{0} . </me> Write <m>S_i = (\lambda_i I - T)^{k_i}</m> and recall that <xref ref="lem-nilpotentinvert"/> gives that <m>S_i</m> is invertible on <m>V_{\lambda_j}</m> for <m>i \ne j</m>. Take <m>\mb{w}_m = S_1 \cdots S_{m - 1} (\mb{v})</m>  and observe it is in <m>V_{\lambda_m}</m> (since <m>S_m (\mb{w}_m) = \mb{0}</m>) we can define <m>\mb{u}_m = S^{-1}_{m - 1} \cdots S_1^{-1} (\mb{w}_m)</m> in <m>V_{\lambda_m}</m>. But then it is clear that <m>S_1 \cdots S_{m - 1} (\mb{v} - \mb{u}_m) = \mb{0}</m>. Repeating this process gives vectors <m>\mb{u}_1, \ldots, \mb{u}_m</m> in <m>V_{\lambda_1}, \ldots, V_{\lambda_m}</m> with <m>\mb{v} = \mb{u}_1 + \cdots + \mb{u}_m</m>.</p>  
+
+            <p>Restricting <m>T</m> to <m>V_{\lambda_i}</m> to obtain <m>T_i</m> one sees that <m>p_{T_i} (t) = (t - \lambda_i)^r</m> where <m>r = \dim V_{\lambda_i}</m> (since <m>T_i</m> has no other eigenvalues). But it is an exercise to see that the direct sum decomposition gives a factorization <me> p_T (t) = p_{T_1} (t) \cdots p_{T_m} (t) </me> so we may conclude that <m>\dim V_{\lambda_i} = r = k_i</m>. </p>
+        </proof>
+    </theorem>
+
+    <p>It is time to take a very deep breath and sigh loudly with relief. We have now proven the main theorem that allows us to represent any linear transformation as a completely understandable matrix! What type of matrices you ask? </p>
+    
+    <definition xml:id="def-Jordanmatrix">
+        <notation>
+            <usage><m> J_{\lambda ,n }</m></usage>
+            <description>Jordan matrix</description>
+        </notation>
+        <statement>
+            <p> For a number <m>\lambda \in K</m>, a <term>Jordan matrix</term> is the <m>n \times n</m> matrix <me> J_{\lambda ,n } = \left[ \begin{matrix} \lambda \amp 1 \amp 0 \amp \cdots \amp 0 \\ 0 \amp \lambda \amp 1 \amp\cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp 0 \amp \lambda \amp 1 \\ 0 \amp \cdots \amp 0 \amp 0 \amp \lambda \end{matrix} \right]. </me></p>
+        </statement>
+    </definition>
+    
+    <p>And now for our classification.</p>
+
+    <theorem xml:id="thm-jnf">
+        <title>Jordan Normal Form</title>
+        <statement>
+            <p>Suppose <m>V</m> is an <m>n</m>-dimensional vector space and <m>T : V \to V</m> is a linear transformation. Suppose <m>p_T (t)</m> factors as <m>(t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}</m> where <m>\lambda_i \ne \lambda_j</m> for <m>i \ne j</m>. Then there is a basis <m>\mathcal{B}</m> of <m>V</m> consisting of generalized eigenvectors for which the representing matrix is a block diagonal matrix 
+            <men xml:id="eq-coarsejnf">
+                \cob{T}{\mathcal{B}}{\mathcal{B}} = \left[ \begin{matrix} B_{\lambda_1} \amp 0 \amp \cdots \amp 0 \\ 0 \amp B_{\lambda_2} \amp \cdots \amp 0 \\ \vdots \amp \ddots  \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp 0 \amp B_{\lambda_m} \end{matrix} \right].
+            </men>
+            The matrix <m>B_{\lambda_i}</m> represents the restriction of <m>T</m> to the generalized eigenspace <m>V_{\lambda_i}</m> and itself has the block diagonal form
+            <men xml:id="eq-finejnf">
+                B_{\lambda_i} = \left[ \begin{matrix} J_{\lambda_i, n^i_1} \amp 0 \amp \cdots \amp 0 \\ 0 \amp J_{\lambda_i, n^i_2}  \amp \cdots \amp 0 \\ \vdots \amp \ddots  \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp 0 \amp J_{\lambda_i, n^i_{k_i}}  \end{matrix} \right].
+            </men>
+            Up to reordering the blocks, this form is unique.</p>
+        </statement>
+    </theorem>
+    
+    <p>The proof of the existence of such a basis for equation <xref ref="eq-coarsejnf"/> follows immediately from <xref ref="lem-generalizedeigendecomp"/>. On the other hand, one can verify equation <xref ref="eq-finejnf"/> by repeatedly applying <xref ref="lem-nilpotentdecomp"/> to the nilpotent transformation <m>(\lambda_i I - T)</m> on <m>V_{\lambda_i}</m>. The uniqueness claim is worth some attention, but will be left to the students and office hours!</p>
+    
+    <example>
+        <title>Jordan normal form of a <m>4 \times 4</m> matrix</title>
+        <statement>
+            <p>Let us now endeavor to work through an example with a little bit of nuance. Take <me> A = \left[ \begin{matrix} -1 \amp 1 \amp 0 \amp 0 \\ -1 \amp -3 \amp 0 \amp 0 \\ 0 \amp 0 \amp -3 \amp -1 \\ 1 \amp 1 \amp 2 \amp 0 \end{matrix} \right]. </me>  One can compute the characteristic polynomial of this matrix as usual, or they can observe that it is a block lower triangular matrix with diagonal blocks    <me> C_1 = \left[ \begin{matrix} -1 \amp 1 \\ -1 \amp -3 \end{matrix} \right] </me> and <me> C_2 = \left[ \begin{matrix} -3 \amp -1 \\ 2 \amp 0 \end{matrix} \right] .</me> This implies that <m>p_A (t) = p_{C_1} (t) p_{C_2} (t)</m> which simplifies our computation. We check that <me> p_{C_1} (t) = (t + 1) (t + 3) + 1 = (t + 2)^2 </me> and <me> p_{C_2} (t) = (t + 3) t + 2 = (t + 2) (t + 1) </me> so that 
+            <md>
+                <mrow> p_A (t) \amp =  p_{C_1} (t) p_{C_2} (t), </mrow>
+                <mrow> \amp = (t + 2)^3 (t + 1).</mrow>
+            </md>
+            Thus the eigenvalues of <m>A</m> are <m>-2</m> and <m>-1</m>. <xref ref="lem-generalizedeigendecomp"/> gives us that <m>\dim V_{-2} = 3</m> and <m>\dim V_{-1} = 1</m>. So we first find a <m>(-1)</m>-eigenvector by solving the equation <m>(-I - A) \mb{x} = \mb{0}</m> or
+            <me>
+                \left[ \begin{matrix} 0 \amp -1 \amp 0 \amp 0 \\ 1 \amp 2 \amp 0 \amp 0 \\ 0 \amp 0 \amp 2 \amp 1 \\ -1 \amp -1 \amp -2 \amp -1 \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 0 \\ 0 \end{matrix} \right] .
+            </me>
+            One can find here that <me> \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 1 \\ -2 \end{matrix} \right] </me> gives a non-trivial solution. For the generalized <m>(-2)</m>-eigenspace we consider the matrix <m>(-2I - A)</m> which is <me> -2I - A = \left[ \begin{matrix} -1 \amp -1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \\ -1 \amp -1 \amp -2 \amp -2 \end{matrix} \right] </me> The generalized <m>(-2)</m>-eigenspace <m>V_{-2}</m> has dimension <m>3</m>, so <m>(-2I - A)^3</m> is zero on this space (by the Cayley-Hamilton Theorem) and we can find a basis for it by simply solving the equation <m>(-2 I - A)^3 \mb{x} = 0</m>. However, this is not the most effective way at seeing the Jordan Normal Form. Instead, we will first find our <m>(-2)</m>-eigenspace by solving 
+            <men xml:id="eq-jnfeq">
+                \left[ \begin{matrix} -1 \amp -1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \\ -1 \amp -1 \amp -2 \amp -2 \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 0 \\ 0 \end{matrix} \right] .
+            </men>
+            We can see that 
+            <me>
+                \left[ \begin{matrix} -1 \\ 1 \\ -1 \\ 1 \end{matrix} \right] \hspace{.1in} \text{and} \hspace{.1in} \left[ \begin{matrix} -1 \\ 1 \\ 0 \\ 0 \end{matrix} \right] 
+            </me>
+            are linearly independent <m>(-2)</m>-eigenvectors. We can also see that these span our solution space to equation <xref ref="eq-jnfeq"/>. This means that <m>A</m> is not diagonalizable, but that there is a non-trivial Jordan block. To find it, we just need some vector that would be sent to one of the two <m>(-2)</m>-eigenvectors above  by <m>( A - (-2)I)</m>. Had I chosen my solutions above at random, there may not be such a vector and we would have to adjust the two eigenvectors so that one of them is in the image of <m>(A - (-2)I)</m>. However, I have been judicious in my choice and we see that  <me> \left[ \begin{matrix} -1 \\ 0 \\ 1 \\ 0 \end{matrix} \right]  </me> is indeed such a vector. Thus the basis <me> \mathcal{B} = \left\{ \left[ \begin{matrix} 0 \\ 0 \\ 1 \\ -2 \end{matrix} \right] , \left[ \begin{matrix} -1 \\ 1 \\ -1 \\ 1 \end{matrix} \right] , \left[ \begin{matrix} -1 \\ 0 \\ 1 \\ 0 \end{matrix} \right]  , \left[ \begin{matrix} -1 \\ 1 \\ 0 \\ 0 \end{matrix} \right]  \right\}  </me> will satisfy the requirements of <xref ref="thm-jnf"/>. Indeed, taking <m>P^{-1}</m> to be the matrix with columns given by these vectors, we have <me> P A P^{-1} = \left[ \begin{matrix} -1 \amp 0 \amp 0 \amp 0 \\ 0 \amp -2 \amp 1 \amp 0 \\ 0 \amp 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 0 \amp -2 \end{matrix} \right]. </me> Here we have two block matrices <m>B_{-1}</m> and <m>B_{-2}</m> with three Jordan matrices, <m>J_{-1,1}</m> in <m>B_1</m> and <m>J_{-2,2}, J_{-2,1}</m> in <m>B_2</m>.</p>
+        </statement>
+    </example>
+
+    <exercises xml:id="exe-jnf">
+
+        <exercise>
+            <statement>
+                <p> Let <me> A  = \left[ \begin{matrix} 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \end{matrix} \right]. </me> Without using row reduction or the determinant / adjugate formula, find the inverse of <m>I + A</m>.  </p>
+            </statement>
+        </exercise>
+    
+        <exercise>
+            <statement>
+                <p> Let <m>N_1</m> be <m>N</m> restricted to the subspace <m>V_1</m> in <xref ref="lem-nilpotentdecomp"/>. Describe the matrix representing <m>N_1</m> using the basis <m>\mathcal{B}</m>. </p>
+            </statement>
+        </exercise>
+            
+        <exercise xml:id="exe-nilpotentmatrix">
+            <introduction><p> 
+                Give an example of a nilpotent <m>3 \times 3</m> matrix which has
+            </p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>a one dimensional kernel.</p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>a two dimensional kernel.</p>
+                </statement>
+            </task>
+        </exercise>
+    
+        <exercise>
+            <statement>
+                <p> True or False (with explanation) : If two linear transformations have the same characteristic polynomial, then they can be represented by the same matrix. </p>
+            </statement>
+        </exercise>
+    
+        <exercise>
+            <introduction><p> 
+                Let  <me> A = \left[ \begin{matrix} 0 \amp -2 \amp 1 \\ -1 \amp 0 \amp 0 \\ -5 \amp 7 \amp -3 \end{matrix} \right]. </me>
+            </p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>Find the characteristic polynomial <m>p_A (t)</m>. What are the eigenvalues of <m>A</m>?
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Find a maximal collection of linearly independent eigenvectors.
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Is <m>A</m> diagonalizable? Explain your response.
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Find a basis <m>\mathcal{B}</m> for which <m>\cob{A}{\mathcal{B}}{\mathcal{B}} = P^{-1} A P</m> is in Jordan Normal Form where <m>P</m> is a change of basis matrix for <m>\mathcal{B}</m>.
+                    </p>
+                </statement>
+            </task>
+        </exercise>
+    
+        </exercises>
+
+</section>

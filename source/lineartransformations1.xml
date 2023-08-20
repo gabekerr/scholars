@@ -1,0 +1,244 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-lineartransformations1">
+    <title>Linear Transformations I</title>
+    <p>As was mentioned in <xref ref="sec-setsandfunctions"/>, functions play a central role in much of mathematics. So what about functions 
+    <me> T : U \to V </me>
+    where <m>U</m> and <m>V</m> are vector spaces over <m>K</m> (remember that <m>K</m> is either <m>\mathbb{R}</m> or <m>\mathbb{C}</m>)? Well, in fact, such functions are what we truly should label <term>vector valued functions</term> because they are functions with values in a vector space. For now though, we will not consider this level of generality, but rather stick to functions that satisfy a very basic and important property.</p>
+
+    <definition xml:id="def-lineartrans">
+        <notation>
+            <usage><m>T : U \to V</m></usage>
+            <description>a linear transformation from <m>U</m> to <m>V</m></description>
+        </notation>
+        <statement>
+            <p>Suppose <m>U</m> and <m>V</m> are vector spaces over <m>K</m> and <m>T : U \to V</m> is a function. We say that <m>T</m> is a <term>linear transformation</term> if, for any vectors <m>\mb{u}_0</m> and <m>\mb{u}_1</m> in <m>U</m> and any scalars <m>\lambda_0</m> and <m>\lambda_1</m> of <m>K</m> we have <me> T( \lambda_0 \mb{u}_0 +  \lambda_1 \mb{u}_1 ) = \lambda_0 T(\mb{u}_0) +  \lambda_1 T(\mb{u}_1) .</me></p>
+        </statement>
+    </definition>
+
+    <p>Two comments are in order here. First, you have seen linear transformations many times in your life but probably not known that they had a name. Second, amongst all functions between vector spaces, being linear is a very rare and exceptionally strong condition. If you write down a random function from <m>\mathbb{R}</m> to <m>\mathbb{R}</m> it is most likely <em>not</em> linear! That said let us consider some examples.</p>
+
+    <example>
+    <title>Matrix multiplication as a linear transformation</title>
+    <statement>
+    <p>The most important example of a linear transformation is multiplication by a matrix <m>A \in M_{m, n} (K)</m> (on the left) which will take column vectors <m>K^n</m> to column vectors <m>K^m</m>. This operation can be written as 
+    <men xml:id="eq-matrixtimesvector">
+        \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{matrix} \right] = \left[ \begin{matrix} a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n \end{matrix} \right].
+    </men> It is a slightly annoying (but easy) exercise to show that this is indeed a linear transformation.</p>
+    </statement>
+    </example>
+
+    <p>As it turns out, this example is the computational heart of linear algebra and can be used to describe <em>any</em> linear transformation between two finite dimensional vector spaces (we will see this shortly). So it is worth taking a look at a few special cases of such transformations.</p>
+
+    <example xml:id="exa-matrixrotation">
+    <title>Rotation matrices</title>
+    <statement>
+        <p>We have seen that rotation in the complex plane can be obtained by multiplication by a complex number of the form <m>e^{i\phi}</m>. However, if we think of the plane as the real vector space <m>\mathbb{R}^2</m> we can look at such a rotation as multiplication by the matrix 
+        <me> A_\phi = \left[ \begin{matrix} \cos \phi \amp - \sin \phi \\ \sin \phi \amp \cos \phi \end{matrix} \right]</me></p>
+    </statement>
+    </example>
+
+    <example>
+    <title> Projection matrices </title>
+    <statement>
+        <p>Multiplying by a matrix can give a projection. For example, the matrix 
+        <me> A = \left[ \begin{matrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0  \end{matrix} \right] </me>
+        will give <me> A \threevec{x}{y}{z} = \threevec{x}{y}{0} . </me>
+        In fact, projections from <m>\mathbb{R}^n</m> to any vector subspace <m>U</m> can be written as matrix multiplications. We will see more on this when we study more on linear geometry. </p>
+    </statement>
+    </example>
+
+    <example xml:id="exa-2diag">
+    <title>Scaling along axes</title>
+    <statement>
+        <p>Multiplying by a matrix can scale in various directions. In doing so, one can relate common shapes. For example, if we multiply all the points of the unit circle satisfying <me>x^2 + y^2 = 1 </me>
+        by the matrix 
+        <me> \text{Diag}(a, b) = \left[ \begin{matrix} a \amp 0 \\ 0 \amp b \end{matrix} \right], </me>
+        we obtain the set of points of the ellipse <m>E</m> given by
+        <me> \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1. </me>
+        A useful consequence of this is when you want to parametrize the ellipse <m>E</m>, you simply parametrize the circle and compose with <m>\text{Diag}(a,b)</m> getting
+        <me> \mb{f} (\theta ) =  \text{Diag}(a,b) \twovec{\cos \theta}{ \sin \theta} = \twovec{a \cos \theta}{b \sin \theta}. </me>
+        Note that the map <m>\mb{f}</m> is not a linear transformation, but the use of a linear transformation (along with some basic knowledge of trigonometry) helped us find it!</p>
+    </statement>
+    </example>
+
+    <p>The matrix <m>\text{Diag} (a,b)</m> in <xref ref="exa-2diag"/> is an example of a <term>diagonal</term> matrix. These are square matrices with zeros everywhere except possibly on the diagonal. We will use notation of the form
+    <men xml:id="eq-diagonalmatrix">
+        \text{Diag}(\lambda_1, \lambda_2, \ldots, \lambda_n) = \left[ \begin{matrix} \lambda_1 \amp 0 \amp \cdots \amp 0 \\ 0 \amp \lambda_2 \amp \ddots \amp \vdots \\ \vdots \amp \ddots \amp\ddots \amp 0 \\ 0 \amp \cdots \amp 0 \amp \lambda_n \end{matrix} \right]. 
+    </men>
+    An important diagonal matrix is the identity matrix <m>I_n = \text{Diag}(1, 1, \ldots, 1)</m>.</p>
+
+    <p>We will be working extensively with matrices in several contexts, but for now, let us recall a couple of other important examples of linear transformations.</p>
+
+    <example>
+        <title>Coordinates as a linear transformation</title>
+        <statement>
+            <p>Suppose <m>V</m> is a vector space over <m>K</m> and <m>\mathcal{B} = \{\mb{v}_1, \cdots , \mb{v}_n \}</m> is a basis. Recall that in equation <xref ref="eq-functionbasiscoordinates"/> we defined a function <me> \coord{}{\mathcal{B}} : V \to K^n . </me>
+            This is a linear transformation as you will show in the exercises. As was shown in the previous set of exercises, <m>\coord{}{\mathcal{B}}</m> also has an inverse. Thus we may use <m>\coord{}{\mathcal{B}}</m> to <em>identify</em> the abstract vector space <m>V</m> with the concrete column vector space <m>K^n</m>. Note however that this identification depended on our choice of <m>\mathcal{B}</m>.</p>
+        </statement>
+    </example>
+
+    <example>
+        <title>The derivative as a linear transformation</title>
+        <statement>
+            <p>The vector space of continuously differentiable functions on <m>\mathbb{R}</m> is denoted <m>C^1(\mathbb{R} )</m>. Then 
+            <me> \frac{\diff}{\diff x} : C^1(\mathbb{R}) \to C (\mathbb{R}) </me>
+            is a linear transformation.</p>
+        </statement>
+    </example>
+
+    <p>One should also note that important operators of quantum mechanics (creation and annihilation operators) are linear transformations as well. These last examples show that, while matrix multiplication is a very important type of linear transformation, there are many natural examples that are not packaged well as matrices. </p>
+
+    <p>A linear transformation <m>T: U \to V</m> gives rise to interesting linear subspaces and equations which we define here.</p>
+
+    <definition xml:id="def-kernelimage">
+    <notation>
+        <usage><m>\ker (T)</m>, <m>\im (T)</m></usage>
+        <description>a linear transformation from <m>U</m> to <m>V</m></description>
+    </notation>
+    <statement>
+        <p>Given vector spaces <m>U</m> and <m>V</m> over <m>K</m> and a linear transformation <me>T  : U \to V, </me> 
+        <ol>    
+        <li> The <term>kernel</term> of <m>T</m> is the set of vectors
+            <me> \ker (T) = \left\{ \mb{u} \in U : T( \mb{u} ) = \mb{0}  \right\} \subseteq U .</me>
+        </li>
+        <li> The <term>image</term> of <m>T</m> is the range of <m>T</m> 
+            <me> \im (T) = \left\{ T (\mb{u} ) \in V : \mb{u} \text{ a vector in } U \right\} \subseteq V . </me>
+        </li>
+        </ol></p>
+    </statement>
+    </definition>
+
+    <p>The kernel is sometimes called the <term>nullspace</term> of <m>T</m> because it is the set of vectors of <m>U</m> that are sent to the zero vector. Let's check that these subsets are in fact vector subspaces.</p>
+    <proposition xml:id="prop-kernelimage">
+    <statement>
+        <p>The kernel and image of a linear transformation are vector subspaces.</p>
+    </statement>
+    <proof>
+    <p>We stick with the notation of <m>U</m>,  <m>V</m> and <m>T</m> given in <xref ref="def-kernelimage"/>. By <xref ref="prop-vsubspace"/>, we only need to show that <m>\ker (T)</m> and <m>\im(T)</m> are closed under vector addition and scalar multiplication. So let's check. If <m>\mb{u}_1</m> and <m>\mb{u}_2</m> are in the kernel, then by definition <m>T (\mb{u}_1) = \mb{0} = T (\mb{u}_2)</m>. So then using the definition of a linear transformation we see <me> T (\mb{u}_1 + \mb{u}_2 ) = T (\mb{u}_1) + T (\mb{u}_2 ) = \mb{0} + \mb{0} = \mb{0}. </me> This implies <m>\mb{u}_1 + \mb{u}_2</m> is in the kernel as well and so vector addition is closed.
+    Similarly, for any scalar <m>\lambda</m> in <m>K</m>, <me> T (\lambda \mb{u}_1 ) = \lambda T (\mb{u}_1 ) = 0 </me>
+    so that scalar multiplication of a vector in <m>\ker (T)</m> is still in <m>\ker (T)</m>. Thus <m>\ker (T)</m> is a vector subspace of <m>U</m>.</p>
+
+    <p>For the image we proceed in a similar manner. If <m>\mb{v}_1</m> and <m>\mb{v}_2</m> are in the image then there are vectors <m>\mb{u}_1</m> and <m>\mb{u}_2</m> for which <m>T( \mb{u}_1 ) = \mb{v}_1</m> and <m>T( \mb{u}_2 ) = \mb{v}_2</m>. But then <me> T (\mb{u}_1 + \mb{u}_2 ) = T (\mb{u}_1) + T (\mb{u}_2 ) = \mb{v}_1 + \mb{v}_2 </me> so that <m>\mb{v}_1 + \mb{v}_2</m> is also in the image and the image is closed under vector addition. The closedness of scalar multiplication is also justified by observing <me> T( \lambda \mb{u}_1 ) = \lambda T (\mb{u}_1 ) = \lambda \mb{v}_1 . </me></p>
+    </proof>
+    </proposition>
+
+    <p>We mention this proposition here because many important subspaces (for example, planes, lines, tangent spaces, etc) arise most naturally as a kernel or an image of some linear transformation. Of course, being linear is a very limiting property of a space, so the proposition should clarify that the geometry of these spaces is very basic. Another reason to consider these spaces is that they inform us on properties of <m>T</m>.</p>
+    <proposition>
+        <statement>
+            <p>Let <m>U</m> and <m>V</m> be vector spaces and <m>T : U \to V</m> be a linear transformation. As a function, <m>T</m> is one-to-one if and only if <m>\ker (T) = \{ \mb{0} \}</m>. It is onto if and only if <m>\im (T) = V</m>.</p>
+        </statement>
+        <proof>
+            <p>The second statement is just the definition of an onto function (that the range equals the codomain). For the first, suppose that <m>T</m> is one-to-one and <m>\mb{u}</m> is in the kernel <m>\ker (T)</m>. Then <m>T (\mb{u} ) = \mb{0} = T( \mb{0})</m> so that <m>\mb{u} = \mb{0}</m>. But since <m>\mb{u}</m> was an arbitrary element of the kernel, this means that the only element of <m>\ker (T)</m> is zero itself. </p>
+
+           <p>Conversely, suppose <m>\ker (T)</m> only contains zero and <me> T(\mb{u}_1 )  = T(\mb{u}_2). </me> Then
+            <me> T(\mb{u}_1 - \mb{u}_2 ) = T(\mb{u}_1 ) - T (\mb{u}_2) = \mb{0}. </me> This implies <m>\mb{u}_1 - \mb{u}_2</m> is in the kernel. But since the kernel only contains zero, we have that <m>\mb{u}_1 - \mb{u}_2 = \mb{0}</m> or <m>\mb{u}_1 = \mb{u}_2</m> which gives us that <m>T</m> is one-to-one. </p>
+        </proof>
+    </proposition>
+
+    <p>It turns out the set of all linear transformations from <m>U</m> to <m>V</m> forms its own vector space with the natural operations:
+    <md>
+        <mrow> (T + S) (\mb{u} ) \amp = T( \mb{u} ) + S ( \mb{u}), </mrow>
+        <mrow> (\lambda T )(\mb{u} )\amp = \lambda T (\mb{u}) </mrow>
+    </md>
+    where <m>T</m> and <m>S</m> are linear transformations from <m>U</m> to <m>V</m>. The most important example of this is when <m>V</m> is the vector space <m>K</m> itself. </p>
+    <definition xml:id="def-dualspace">
+    <notation>
+        <usage><m>V^*</m></usage>
+        <description>the dual vector space to <m>V</m></description>
+    </notation>
+    <statement>
+        <p> The <term>dual vector space</term> to <m>V</m>, denoted <m>V^*</m>, is the vector space of linear transformations <m>T : V \to K</m>.</p>
+    </statement>
+    </definition>
+    <p>Some dual vectors are well known to even the most inattentive calculus student:</p>
+    <example>
+        <title>Evaluation as a dual vector</title>
+        <statement>
+            <p>Suppose <m>P_n</m> is the vector space of polynomials with complex coefficients. Then evaluating a polynomial at <m>0</m> is a linear transformation <me> ev_0 : P_n \to \mathbb{C} </me> given by <me> ev_0 (f(z)) = f(0). </me> </p>
+        </statement>
+    </example>
+
+    <p>Many more examples exist with infinite dimensional vector spaces of functions.</p>
+    <example>
+        <title>Limit as a dual vector</title>
+        <statement>
+            <p> Let <m>\mathcal{V}</m> be the vector space of functions from <m>(0,1)</m> to <m>\mathbb{R}</m> such that <m>\lim_{x \to 0^-} f(x)</m> exists. Then, <me> \lim_{x \to 0^-} : \mathcal{V} \to \mathbb{R} </me> is a linear transformation. Part of this is a fancy way of saying something known to every first year calculus student as <sq>The limit of the sum is the sum of the limits.</sq></p>
+        </statement>
+    </example>
+
+    <example>
+        <title>Definite integral as a dual vector</title>
+        <statement>
+            <p> Recall that <m>C([a,b])</m> denotes the set of continuous functions on the closed interval <m>[a,b]</m>. Then <me> \int : C([a,b]) \to \mathbb{R} </me> given by <me> \int f := \int_a^b f(x) \, \diff x </me> is a linear transformation.</p>
+        </statement>
+    </example>
+
+    <p>For a vector space <m>V</m> with a finite basis <m>\mathcal{B} = \{\mb{v}_1 , \ldots, \mb{v}_n\}</m>, we can define a <term>dual basis</term> <me>\mathcal{B}^* = \{\mb{v}_1^* , \ldots,  \mb{v}_n^* \}</me> of the dual space <m>V^*</m> by taking <men xml:id="eq-dualbasis"> \mb{v}_i^* \left( a_1 \mb{v}_1 + \cdots  + a_n \mb{v}_n \right) := a_i. </men> One can show that this is in fact a basis. However, in the infinite dimensional setting, this no longer holds and there are several definitions and conditions that are created to recover weaker versions of it. </p>
+
+    <p>It shows a measure of mathematical maturity to appreciate that, while <m>V</m> and <m>V^*</m> look a lot alike, they are in fact two separate vector spaces with their own personalities (and more importantly, transformation properties). This will be more apparent when we develop multivariable calculus. </p>
+
+    <exercises xml:id="exe-lineartransformations1">
+        
+    <exercise>
+        <introduction><p> 
+            Calculate:
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p><m>a</m> and <m>b</m> where <me> \left[ \begin{matrix} 3 \amp 0 \amp {4} \\ {2} \amp {-1} \amp {3} \end{matrix} \right] \threevec{-2}{3}{1} = \twovec{a}{b}.</me></p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><m>c</m> and <m>d</m> if <me> \left[ \begin{matrix} {c} \amp {2} \\ {1} \amp {1} \end{matrix} \right] \twovec{1}{d} = \twovec{-1}{0}. </me></p>
+            </statement>
+        </task>
+    </exercise>
+
+    <exercise xml:id="exe-linearequation">
+        <introduction><p> 
+            Give complete responses to the following questions:
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>Let <m>T</m> be the linear transformation from <m>\mathbb{R}^2</m> to <m>\mathbb{R}</m> given by <me>T \left( \twovec{x}{y} \right) = 3x - 7 y. </me> In other words, <m>T</m> is multiplication by the matrix  <m>\left[ \begin{matrix} 3 \amp -7 \end{matrix} \right]</m>. Describe the kernel of <m>T</m> in familiar geometric terms.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>The equation <m>T (\mb{u} ) = 0</m> defining the kernel is an implicit equation which can be thought of as a <sq>problem that needs to be solved</sq>. As in <xref ref="sec-equation"/>, a solution to this equation could be a function <me>S : \mathbb{R} \to \mathbb{R}^2 </me> which parameterizes the geometric object you described above. Find such a parameterization which is also a linear transformation. </p>
+            </statement>
+            <hint>This can also be given as multiplication by a matrix.</hint>
+        </task>
+    </exercise>
+
+    <exercise>
+        <introduction><p> 
+            Whether a function is linear or not may depend on what <m>K</m> is, even for the same vector space:
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>Consider <m>\mathbb{C}</m> as a real vector space. Is complex conjugation a linear transformation?</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>Consider <m>\mathbb{C}</m> as a complex vector space. Is complex conjugation a linear transformation? </p>
+            </statement>
+        </task>
+    </exercise>
+
+    <exercise xml:id="exe-coordiso"> <statement> A <term>linear isomorphism</term> is a linear transformation that is also a one-to-one correspondence. Show that if <m>\mathcal{B}</m> is a basis of a vector space <m>V</m> over <m>K</m> the function <me> \coord{}{\mathcal{B}} : V \to K^n </me> is a linear transformation. By a prior exercise, this shows that it is a linear isomorphism. </statement> </exercise>
+
+    <exercise> <statement>If <m>T : U \to V</m> is a linear isomorphism, what is its kernel and image? Explain your response. </statement></exercise>
+
+    <exercise> <statement>Suppose <m>A</m> is an <m>m \times n</m> matrix with entries in <m>K</m> and <m>T_A : K^n \to K^m</m> is the linear transformation obtained by left multiplying by <m>A</m>. In other words, <me> T_A (\mb{v} ) = A \mb{v}. </me>
+    Prove that <m>T_A</m> is a linear isomorphism if and only if the columns of <m>A</m> are a basis of <m>K^m</m>. </statement> <hint>Use the part on columns from <xref ref="exa-matrixasrowcolumns"/> and the definition of a basis.</hint></exercise>
+
+    <exercise> <statement>Verify that the multiplication by <m>A_\phi</m> given in <xref ref="exa-matrixrotation"/> is indeed counter-clockwise rotation by <m>\phi</m>. </statement> <hint>Write a column vector in <sq>polar</sq> coordinates <m>\twovec{r \cos \theta}{r \sin \theta}</m> and see what happens when you multiply by the matrix <m>A_\phi</m>.</hint></exercise>
+    
+    <exercise> <statement>Using the standard basis, write projection from the plane to the line <m>y = x</m> as multiplication by a <m>2 \times 2</m> matrix. </statement></exercise>
+    </exercises>
+</section>

@@ -1,0 +1,161 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-vectorspaces2">
+    <title>Vector Spaces II</title>
+
+    <p>In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. For that we need the following definition.</p>
+
+    <definition xml:id="def-linearindependent">
+        <notation>
+            <usage><m></m></usage>
+            <description>linearly independent vectors</description>
+        </notation>
+        <statement>
+            <p>Let <m>V</m> be a vector space over <m>K</m>. We say that the vectors  <m>\mb{v}_1, \ldots, \mb{v}_n</m> are <term>linearly independent</term> if the equality <me> a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n = \mb{0} </me> implies that <m>a_1, \ldots , a_n</m> are all zero.</p>
+        </statement>
+    </definition>
+    
+    <p>The equation in <xref ref="def-linearindependent" /> is called a <term>linear relation</term>. So an alternative way of saying that the vectors are linearly independent is that there is no non-trivial linear relation. Yet another way of expressing linear independence is given in the following proposition which the reader can check.</p>
+
+    <proposition xml:id="prop-basisindspan">
+        <statement>
+        <p>A set of vectors is linearly independent if and only if they form a basis of their span.</p>
+        </statement>
+    </proposition>
+
+    <p>One practical reason to want a linearly independent set of vectors is to parameterize (or <sq>give coordinates</sq> to) their span. Indeed, if <m>\mathcal{A} = \{\mb{v}_1 , \ldots, \mb{v}_n \}</m> is an ordered set of vectors in <m>V</m>, then define the function <me> \chart{}{\mathcal{A}} : K^n \to V </me> by <men xml:id="eq-chartinverse"> \left[ \begin{matrix} a_1 \\ \vdots \\ a_n \end{matrix} \right]_{\mathcal{A}} = a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n. </men></p>
+
+    <p>Then a third way of expressing linear independence can be given as follows.</p>
+    <proposition>
+        <statement>
+        <p>The set of vectors <m>\mathcal{A}</m> is linearly independent if and only if <m>\chart{}{\mathcal{A}}</m> is one-to-one.</p>
+        </statement>
+    </proposition>
+
+    <p>Note that if <m>\mathcal{A}</m> is also a basis of <m>V</m> (i.e. it spans all of <m>V</m>), then <m>\chart{}{\mathcal{A}}</m> is the inverse function to <m>\coord{}{\mathcal{A}}</m>.</p>
+
+    <p>There are instances when it is nice to be able to parameterize lines, planes and higher dimensional subspaces in a given vector space, and <m>\chart{}{\mathcal{A}}</m> can often be used for this purpose. But to do this in <m>V = K^m</m>, one must first see that a given set of column vectors is linearly independent.</p>
+
+    <proposition xml:id="prop-computelinind">
+        <statement>
+            <p>Suppose <m>\mb{c}_1, \ldots, \mb{c}_n</m> are column vectors in <m>K^m</m>. They are linearly independent if and only if the matrix <me> A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right] </me> has no free columns.</p>
+        </statement>
+        <proof> <p>To see this, just recall from <xref ref="exa-matrixasrowcolumns"/> the fact that any linear combination of the <m>\mb{c}_i</m>'s can be written as the product <me> \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right] \left[ \begin{matrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{matrix} \right] = a_1 \mb{c}_1 + a_2 \mb{c}_2 + \cdots a_n \mb{c}_n. </me> In particular, the numbers <m>a_1, \ldots, a_n</m> give a linear relation <me>  a_1 \mb{c}_1 + a_2 \mb{c}_2 + \cdots a_n \mb{c}_n = \mb{0} </me> if and only if they solve the matrix equation <me> A \mb{x} = \mb{0}. </me> But <xref ref="thm-rowechsolution"/> Case (2) says that the solution is unique if and only if there are no free variables of the reduced row echelon equation <m>A^\prime \mb{x} = \mb{0}</m>. This implies there are no free columns of <m>A</m>.</p>
+        </proof>
+    </proposition>
+
+    <p><xref ref="prop-computelinind"/>, along with row reduction, gives a computational way to check linear independence.</p>
+    <example xml:id="exa-lineardep">
+        <title>Testing linear independence by solving a matrix equation</title>
+        <statement>
+        <p>Let us see whether the vectors <me> \threevec{1}{3}{-1} , \threevec{0}{2}{1}, \threevec{2}{4}{-3} </me> are linearly independent or not. We compute the reduced row echelon form to see if every column is basic: 
+        <md> 
+            <mrow> \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 3 \amp 2 \amp 4 \\ -1 \amp 1 \amp -3 \end{matrix} \right] \amp \stackrel{\mb{r}_2 - 3 \mb{r}_1}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 2 \amp -2 \\ -1 \amp 1 \amp -3 \end{matrix} \right], \\ \amp \stackrel{\mb{r}_3 + \mb{r}_1}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 2 \amp -2 \\ 0 \amp 1 \amp -1 \end{matrix} \right],</mrow>
+            <mrow> \amp \stackrel{1/2 \mb{r}_2}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 1 \amp -1 \end{matrix} \right],</mrow>
+            <mrow> \amp \stackrel{\mb{r}_3 - \mb{r}_2}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \end{matrix} \right].</mrow>
+        </md>
+        We can see that the third column gives a free variable so our set is <em>not</em> linearly independent (also called <term>linearly dependent</term>).</p> 
+
+        <p>However, by simply forgetting about the third vector (or column in the computation) we see that the first two vectors <me> \threevec{1}{3}{-1} , \threevec{0}{2}{1} </me> <em>are</em> linearly independent. Being linearly independent depends heavily on the <em>collection</em> of vectors you are considering. </p>
+        </statement>
+    </example>
+
+    <corollary xml:id="cor-linindmatsize">
+        <statement>
+            <p>If <m>\mb{c}_1, \ldots, \mb{c}_n</m> are linearly independent vectors in <m>K^m</m>, then <m>n \leq m</m>.</p>
+        </statement>
+        <proof> <p> By <xref ref="prop-computelinind"/> there have to be no free columns of the <m>m \times n</m> matrix <me> A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right]. </me> Suppose <m>A^\prime</m> is the matrix <m>A</m> in reduced row echelon form. Then <m>A^\prime</m> has a leading coefficient in every column (otherwise that column corresponds to a free variable). But this gives at least <m>n</m> leading coefficients for <m>n</m> unique rows. So the number of rows <m>m</m> must be at least <m>n</m> or, in other words, <m>n \leq m</m>. </p> </proof>
+    </corollary>
+    <p> Another important application of <xref ref="prop-computelinind"/> leads directly to the definition of dimension. </p>
+    <corollary>
+        <statement>
+            <p> If <m>V</m> is a vector space over <m>K</m>, then any two bases of <m>V</m> have the same number of elements. </p>
+        </statement>
+        <proof> <p>Suppose <m>V</m> has bases <m>\mathcal{B} = \{\mb{v}_1, \ldots , \mb{v}_n \}</m> and <m>\mathcal{C} = \{ \mb{w}_1, \ldots, \mb{w}_m \}</m>. Then by exercise <xref ref="exe-coordiso"/>, we have that there are isomorphisms 
+        <md>
+            <mrow>\coord{}{\mathcal{B}} : V \amp \to K^n \amp \coord{}{\mathcal{C}} : V \amp \to K^m.</mrow>
+        </md>
+        Now, since <m>\mathcal{B}</m> is a basis, it is a linearly independent set. And since <m>\coord{}{\mathcal{C}}</m> is one-to-one, the vectors <m>\coord{\mb{v}_1}{\mathcal{C}}, \ldots , \coord{\mb{v}_n}{\mathcal{C}}</m> must also be linearly independent (why?). But by the previous corollary, this implies that <m>n \leq m</m>. Using the same argument of the vectors <m>\coord{\mb{w}_1}{\mathcal{B}}, \ldots , \coord{\mb{w}_m}{\mathcal{B}}</m> in <m>K^n</m> shows that <m>m \leq n</m>. Together this gives <m>m = n</m>.</p> </proof>
+    </corollary>
+
+    <p>This tells us that, while there are infinitely many bases of a vector space, all of them have the same number of vectors in them. This allows us to make the following definition.</p>
+    
+    <definition xml:id="def-dimension">
+        <notation>
+            <usage><m>\dim_K (V) = n</m></usage>
+            <description>dimension of a vector space</description>
+        </notation>
+        <statement>
+            <p>Given a vector space <m>V</m> over <m>K</m>, we say that the dimension of <m>V</m> is <m>n</m> if there is a basis of <m>V</m> with <m>n</m> elements. This is denoted <m>\dim_K (V) = n</m>. If <m>V</m> has no finite basis, we say that <m>V</m> is infinite dimensional.</p>
+        </statement>
+    </definition>
+    
+    <p>We record a nice fact that uses our knowledge of linear independence.</p>
+    <corollary xml:id="cor-strictinequalitysubspace">
+        <statement>
+            <p>If <m>W</m> is a proper vector subspace of a finite dimensional space <m>V</m> then <m>W</m> is finite dimensional and <m>\dim W \lt \dim V</m>.</p>
+        </statement>
+        <proof> <p>Suppose <m>V</m> is <m>n</m> dimensional. Then by <xref ref="cor-linindmatsize"/> and the argument above, any linearly independent set in <m>V</m> has at most <m>n</m> vectors. Let <m>\mathcal{A} = \{\mb{w}_1, \ldots, \mb{w}_k\}</m> be a set of linearly independent vectors in <m>W</m> of maximal size. Then we contend that <m>\mathcal{A}</m> is a basis of <m>W</m>. If not, then there is a <m>\mb{w} \in W</m> which is not in the span of <m>\mathcal{A}</m>. But then we see that <m>\{\mb{w} , \mb{w}_1, \ldots, \mb{w}_k\}</m> is also linearly independent (why?). This contradiction shows that <m>W</m> must have a basis.</p>
+
+        <p>Now, as <m>W</m> is a proper subspace of <m>V</m>, there is a vector <m>\mb{v}</m> of <m>V</m> which is not in <m>W</m>. But then, for the same reason as above, the set <m>\{\mb{v}, \mb{w}_1, \ldots, \mb{w}_k\}</m> must be linearly independent. By <xref ref="cor-dimensions" />, this means <m>k + 1 \leq n</m> which implies <m>k \lt n</m>.</p> </proof>
+    </corollary>
+
+    <p>Instead of considering linear independence of rows and columns, we can focus on the span of the rows and/or columns.</p>
+    <definition xml:id="def-rowcolspace">
+        <notation>
+            <usage><m>\text{Col}(A)</m> and <m>\text{Row}(A)</m></usage>
+            <description>column and row space of a matrix</description>
+        </notation>
+        <statement>
+            <p>Given an <m>m \times n</m> matrix <m>A</m> with entries in <m>K</m>, 
+            <ol>
+                <li> the <term>column space</term> of <m>A</m> is the span of the columns of <m>A</m> in <m>K^m</m>.</li>
+                <li> the <term>row space</term> of <m>A</m> is the span of the rows of <m>A</m> in <m>K^n</m>. </li>
+            </ol> </p>
+        </statement>
+    </definition>
+    <p>Note that Example <xref ref="exa-matrixasrowcolumns" /> shows that the column space is equal to the image of the linear transformation obtained by left multiplying a column vector in <m>K^n</m> by <m>A</m> while the row space is the image of right multiplying a row vector in <m>K^m</m>. The following proposition gives bases for both of these spaces.</p>
+
+    <proposition xml:id="prop-basescolrow">
+        <statement>
+            <p>Let <m>A</m> be an <m>m \times n</m> matrix and <m>A^\prime</m> its reduced row echelon form. Suppose <m>\mathcal{C} = \{ \mb{c}_{i_1}, \ldots, \mb{c}_{i_s}\}</m> are the basic columns of <m>A</m>, and <m>\mathcal{R} = \{\mb{r}^\prime_1, \ldots , \mb{r}^\prime_s \}</m> are the first <m>s</m> rows of <m>A^\prime</m>. Then <m>\mathcal{C}</m> is a basis for the column space of <m>A</m> and <m>\mathcal{R}</m> is a basis for the row space of <m>A</m>.</p>
+        </statement>
+        <proof> <p>To see that <m>\mathcal{C}</m> is a basis, note that it is linearly independent by <xref ref="prop-computelinind"/>. Indeed, the reduced row echelon form of the matrix with <em>only</em> these columns is the same as the submatrix of <m>A^\prime</m> with only these columns. In particular, it has no free columns and the cited proposition implies that <m>\mathcal{C}</m> is linearly independent. On the other hand, adding any other column of <m>A</m> to <m>\mathcal{C}</m> fails the test in <xref ref="prop-computelinind"/> for the same reason. But that means that any other column can be written as a linear combination of the columns in <m>\mathcal{C}</m> (why?). Thus <m>\mathcal{C}</m> spans the column space and is linearly independent. By <xref ref="prop-basisindspan"/>, <m>\mathcal{C}</m> is a basis for the column space.</p>
+
+        <p>For the row space, we note that all of the row vectors of <m>\mathcal{R}</m> are linear combinations of the rows in <m>A</m> because row operations create rows that are linear combinations of the existing rows. Also, since row operations are reversible (in other words, <m>A</m> can be recovered by performing row operations on <m>A^\prime</m>), every row of <m>A</m> is a linear combination of those in <m>A^\prime</m>. This implies the span of <m>\mathcal{R}</m> is the row space (why?). On the other hand, if <me> a_1 \mb{r}^\prime_1 + \cdots  + a_s \mb{r}^\prime_s </me> is a linear combination, then projecting to the <m>i_1, i_2, \ldots, i_s</m> basic columns, we have the vector <me> \left[ \begin{matrix} a_1 \amp a_2 \amp \cdots \amp a_s \end{matrix} \right] </me> This is because the coordinate of <m>\mb{r}_j^\prime</m> in the <m>i_j</m> column is <m>1</m> and is zero for all other <m>i_k</m> columns (because <m>A^\prime</m> is in reduced row echelon form). Thus the linear combination is the zero vector only if all <m>a_i</m> are zero, meaning <m>\mathcal{R}</m> is linearly independent. Again by <xref ref="prop-basisindspan"/> we have that <m>\mathcal{R}</m> is a basis.</p>
+        </proof>
+    </proposition>
+
+    <p>We note here that the bases for the column and row spaces have the same number of vectors!</p>
+
+    <exercises xml:id="exe-vectorspaces2">
+        
+    <exercise xml:id="exe-planesfromequations">
+        <introduction><p> 
+            Implicit equations for planes in <m>\mathbb{R}^3</m> with coordinates <m>(x, y, z)</m> are of the form <men xml:id="eq-plane"> a x + b y + c z = d </men> where <m>a, b, c,</m> and <m>d</m> are real numbers. If <m>d = 0</m> the plane is a vector subspace of <m>\mathbb{R}^3</m>. For each of the following planes, find a basis <m>\mathcal{A}</m> and give a parameterization defined by <m>[]_{\mathcal{A}} : \mathbb{R}^2 \to \mathbb{R}^3</m>.
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p><me> x - y + z = 0 </me></p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><me> y + 2z = 0 </me></p>
+            </statement>
+        </task>
+    </exercise>
+
+    
+    <exercise>
+        <statement>
+            <p> Prove <xref ref="prop-basisindspan"/>. </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p> For each matrix in Exercise <xref ref="exe-planesfromequations" />, give a basis for the row space and a basis for the column space. </p>
+        </statement>
+    </exercise>
+</exercises>
+</section>

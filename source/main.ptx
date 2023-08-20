@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+      \newcommand{\C}{\mathbb C}
+      \newcommand{\diff}{\text{d}}
+      \newcommand{\mb}[1]{\mathbf{#1}}
+      \newcommand{\coord}[2]{[#1]^{#2}}
+      \newcommand{\chart}[2]{[#1]_{#2}}
+      \newcommand{\twovec}[2]{\left[ \begin{matrix} #1 \\ #2 \end{matrix} \right]}
+      \newcommand{\threevec}[3]{\left[ \begin{matrix} #1 \\ #2 \\ #3 \end{matrix} \right]}
+      \newcommand{\im}{{\text{im}}}
+      \newcommand{\cob}[3]{[#1]^{#3}_{#2}}
+      \newcommand{\rk}{\textnormal{rank}}
+      \newcommand{\nullity}{\textnormal{nullity}}
+    </macros>
+    <latex-image-preamble>
+      \usepackage{tikz, tikz-cd, amscd}
+      \usetikzlibrary{arrows}
+    </latex-image-preamble>
+  </docinfo>
+
+  <book xml:id="ms-calculus-3">
+    <title>Mathematical Scholars Calculus 3</title>
+    <!-- <subtitle>Linear algebra with a view towards applications</subtitle> -->
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Gabriel Kerr</personname>
+          <department>Department of Mathematics</department>
+          <institution>Kansas State University</institution>
+        </author>
+        <date>
+          <today />
+        </date>
+      </titlepage>
+
+      <colophon>
+
+        <website>
+          <name>
+            <c>math.ksu.edu/~gdkerr</c>
+          </name>
+          <address>https://math.ksu.edu/~gdkerr/</address>
+        </website>
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>Gabriel Kerr</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+          </shortlicense>
+        </copyright>
+      </colophon>
+    </frontmatter>
+
+    <chapter xml:id="ch-basics">
+        <title>Over(re)view</title>
+        <xi:include href="ch-basics.xml" />
+        <xi:include href="sets.xml" />
+        <xi:include href="equation.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-linear-algebra">
+      <title>Linear Algebra</title>
+      <xi:include href="matrices1.xml" />
+      <xi:include href="vectorspaces1.xml" />
+      <xi:include href="lineartransformations1.xml" />
+      <xi:include href="matrices2.xml" />
+      <xi:include href="vectorspaces2.xml" />
+      <xi:include href="lineartransformations2.xml" />
+      <xi:include href="matrices3.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-linear-geometry">
+      <title>Linear Geometry</title>
+      <xi:include href="geometry1.xml" />
+      <xi:include href="geometry2.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-linear-operators">
+      <title>Linear Operators</title>
+      <xi:include href="diagonalization.xml" />
+      <xi:include href="jordanform.xml" />
+      <xi:include href="spectral.xml" />
+    </chapter>
+
+    <chapter xml:id="ch-ordinary-differential-equations">
+      <title>Ordinary Differential Equations</title>
+      <xi:include href="paths.xml" />
+      <xi:include href="lincode1.xml" />
+      <xi:include href="lincode2.xml" />
+      <xi:include href="lincode3.xml" />
+      <xi:include href="linode.xml" />
+    </chapter>
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>

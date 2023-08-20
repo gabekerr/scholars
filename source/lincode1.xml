@@ -1,0 +1,126 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-lincode1">
+    <title>Linear Constant Coefficient ODE I</title>
+
+    <p>In this section, we will look at and solve our first non-trivial ordinary differential equation. First though, we recall what it is that we are trying to solve. Quite generally, let <m>V</m> be a finite dimensional inner product space and <m>\mb{F}_t : V \to V</m> be a collection of functions, one for every <m>t</m> in some interval <m>I</m>. This collection should be thought of as a time varying <term>vector field</term>, which we will study in later sections. The general ordinary differential equation can be written
+    <men xml:id="eq-generalODE">
+        \dot{\mb{x}}  = \mb{F}_t ( \mb{x}).
+    </men>
+    A <term>particular solution</term> to this equation is simply some path <m>\mb{x} (t)</m> that satisfies this equation. However, just as is the case with solving a linear system of equations, we can ask for a <term>general solution</term> which will include parameters and give all solutions to our equation. Sadly, for most ODEs, finding any closed form solution is out of the question. Nonetheless, we will see a theorem assuring us that a solution exists (under some mild conditions on <m>\mb{F}_t</m>) and that, once the initial condition <m>\mb{x} (0)</m> is fixed, this solution is unique. Let us state this last fact as a <sq>theorem</sq> that will be proved later.</p>
+    <theorem xml:id="thm-uniqueode">
+        <title>Uniqueness of Solutions to ODEs</title>
+        <statement>
+            <p>Suppose <m>\mb{x}</m> and <m>\tilde{\mb{x}}</m> solve equation <xref ref="eq-generalODE"/> under suitable conditions and <m>\mb{x} (0) = \tilde{\mb{x}} (0)</m>, then <m>\mb{x} = \tilde{\mb{x}}</m>.</p>
+        </statement>
+    </theorem>
+
+    <p>The suitable conditions mentioned in this theorem concern differentiability of <m>\mb{F}</m>, which we will study in the coming sections. As was mentioned, finding closed solutions to a general ODE can be difficult to impossible. However, the situation changes if we restrict our attention to only certain types of functions <m>\mb{F}_t</m>. </p>
+    
+    <definition xml:id="def-hlccode">         
+        <notation>             
+            <usage><m>\dot{\mb{x}} = T ( \mb{x} )</m></usage>             
+            <description>Homogeneous linear constant coefficient ordinary differential equation</description>         
+        </notation>         
+        <statement>
+            <p>Given a finite dimensional inner product space <m>V</m> over <m>K</m>, a <term>homogeneous linear constant coefficient ordinary differential equation</term> is an equation of the form <me> \dot{\mb{x}} = T ( \mb{x} ) </me> for some linear transformation <m>T : V \to V</m>.</p>
+        </statement>
+    </definition>
+
+    <p>Note that the linear transformation is not changing with respect to the independent variable <m>t</m> of <m>\mb{x}</m>. The advantage of having done sufficient linear algebra prior to this equation now becomes clear. We can solve this equation immediately by understanding its solution for the case where <m>T</m> can be represented as a Jordan block. After that, we simply add solutions together for the general case.</p>
+
+    <lemma xml:id="lem-solveodejb">
+        <statement>
+            <p>Suppose <m>T</m> is represented as a Jordan block <m>J_{\lambda, m}</m> with respect to the basis <m>\mathcal{B} = \{\mb{v}_0, \mb{v}_1, \ldots, \mb{v}_{m - 1}\}</m>. For any <m>0 \leq k \leq m - 1</m> let <m>\mb{y}_k</m> be the path defined by <me> \mb{y}_k (t) = \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k. </me> Letting
+            <me>
+                \mb{x}_k (t) = e^{\lambda t} \mb{y}_k (t)
+            </me>
+            the general solution to
+            <me> 
+                \dot{\mb{x}} = T ( \mb{x} ) 
+            </me>
+            is 
+            <men xml:id="eq-genlinsol"> 
+                \mb{x} (t) = C_0 \mb{x}_0 (t) + C_1  \mb{x}_1 (t) + \cdots + C_{m - 1}  \mb{x}_{m - 1} (t)  
+            </men>
+            for scalars <m>C_0, C_1 , \ldots, C_{m - 1}</m>. This is the unique solution with initial condition
+            <me>
+                \mb{x} (0) = \threevec{C_0}{\vdots}{C_{m - 1}}_{\mathcal{B}}.
+            </me></p>
+        </statement>
+        <proof>
+            <p>To prove this, we need only show that <m>\mb{x} (t)</m> is a solution with the correct initial condition. Indeed, as our initial condition <m>\mb{x} (0)</m> can be any vector in <m>V</m>, any other solution <m>\mb{y} (t)</m> would have to be of this form by <xref ref="thm-uniqueode"/>. To do this, we compute the tangent vectors
+            <md>
+                <mrow> \mb{y}^\prime_k (t) \amp = \frac{d}{dt} \left( \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k \right), </mrow>
+                <mrow> \amp =  \frac{t^{k - 1}}{(k - 1)!} \mb{v}_0 + \frac{t^{k - 2}}{(k - 2)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 2} +  \mb{v}_{k - 1}, \\ \amp = \mb{y}_{k - 1} (t). </mrow>
+            </md>
+            Here we take <m>\mb{y}_{-1} (t) = \mb{0}</m>. This, along with <xref ref="exe-derivativeexp"/> and the product rule for paths <xref ref="prop-productrulepaths"/> gives 
+            <md>
+                <mrow> \mb{x}_k^\prime (t) \amp =   \frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right), </mrow>
+                <mrow> \amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t). </mrow>
+            </md>
+            On the other hand, as <m>\cob{T}{\mathcal{B}}{\mathcal{B}} = J_{\lambda, m}</m>, we have that <me> T ( \mb{v}_j ) = \lambda \mb{v}_j + \mb{v}_{j - 1} . </me> This with linearity gives
+            <md>
+                <mrow> T ( \mb{y}_k (t) ) \amp = T \left( \frac{t^k}{k!} \mb{v}_0 \right) +   T \left( \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 \right) + \cdots +  T \left( \frac{t^1}{1!} \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), </mrow>
+                <mrow> \amp =   \frac{t^k}{k!} T \left(  \mb{v}_0 \right) +   \frac{t^{k - 1}}{(k - 1)!} T \left(  \mb{v}_1 \right) + \cdots + \frac{t^1}{1!} T \left(  \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), </mrow>
+                <mrow> \amp =  \frac{t^k}{k!} \left( \lambda  \mb{v}_0 \right) +    \frac{t^{k - 1}}{(k - 1)!} \left( \lambda \mb{v}_1 + \mb{v}_{0} \right) + \cdots + \frac{t^1}{1!} \left( \lambda \mb{v}_{k - 1} + \mb{v}_{k - 2} \right) + \left( \lambda \mb{v}_k + \mb{v}_{k - 1} \right), </mrow>
+                <mrow> \amp =  \lambda \left( \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k \right) + \cdots </mrow>
+                <mrow> \amp \cdots +  \left(  \frac{t^{k - 1}}{(k - 1)!} \mb{v}_0 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 2} +  \mb{v}_{k - 1} \right), </mrow>
+                <mrow> \amp = \lambda \mb{y}_k (t) + \mb{y}_{k - 1} (t).  </mrow>
+            </md>
+            Again using linearity we have 
+            <md>
+                <mrow> \frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right) \amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t), </mrow>
+                <mrow> \amp = e^{\lambda t} \left( \lambda \mb{y}_k (t) + \mb{y}_{k - 1} (t) \right), </mrow>
+                <mrow> \amp = e^{\lambda t} T ( \mb{y}_k (t)) , </mrow>
+                <mrow> \amp = T \left( e^{\lambda t} \mb{y}_k (t) \right). </mrow>
+            </md>
+            This shows that <m>\mb{x}_k (t) = e^{\lambda t} \mb{y}_k (t)</m> solves the ODE for each <m>0 \leq k \leq m - 1</m>. As both sides are linear in paths, we can take any linear combination of these solutions to get another one (note that this is not the case for any ODE and results from the homogeneous condition). Thus the path in equation~<xref ref="eq-genlinsol"/> is a solution.</p>
+        </proof>
+    </lemma>
+
+    <p>Of course, if we can decompose <m>T</m> into block diagonals of the form above, we need only add the resulting solutions.</p>
+    
+    <lemma xml:id="lem-eigensol">
+        <statement>
+            <p> If <m>V</m> is an inner product space and <m>T : V \to V</m> is a linear transformation with characteristic polynomial <m>p_T ( t) = (t - \lambda)^m</m>, then there are sets <m>\mathcal{B}_1, \ldots, \mathcal{B}_r</m> of vectors whose union is a basis for <m>V</m> and for which <m>T</m> is represented as a Jordan block for <m>V_i = \text{span} (\mathcal{B}_i)</m>. Any solution to <me> \dot{\mb{x}} = T ( \mb{x} ) </me> can be obtained by solving it as in <xref ref="lem-solveodejb"/> for each <m>V_i</m> and adding the resulting paths together. Such a solution will be called a <m>\lambda</m>-eigenspace solution.</p>
+        </statement>
+    </lemma>
+
+    <p>The following theorem is an immediate corollary of these lemmas.</p>
+
+    <theorem xml:id="thm-generallinearhomogeneoussol">
+        <statement>
+            <p> Let <m>V</m> be a finite dimensional inner product space and <m>T: V \to V</m> a linear transformation with characteristic polynomial <me>p_T (t) = (t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}. </me> Let <me> V = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} </me> be the decomposition of <m>V</m> into generalized eigenspaces so that <m>T = T_1 \oplus \cdots \oplus T_m</m>. Then every solution <m>\mb{x}</m> to <me> \dot{\mb{x}} = T ( \mb{x} ) </me> can be uniquely written as a linear combination <me> \mb{x} = \mb{y}_1 + \cdots + \mb{y}_m </me> where <m>\mb{y}_j</m> is a <m>\lambda_i</m>-eigenspace solution to <men xml:id="eq-geneigspaces"> \dot{\mb{y}}_i = T_i (\mb{y}_i ) . </men></p>
+        </statement>
+    </theorem>
+
+    <p>In the next section, we will give a tremendous number of detailed examples illustrating the power of this result and approach.</p>
+
+    <exercises xml:id="exe-lincode1">
+
+        <exercise>
+            <statement>
+                <p>Suppose the <m>n \times n</m> matrix <m>A</m> is diagonalizable and <me> P^{-1} A P = \text{Diag} (\lambda_1, \ldots, \lambda_n ) . </me> If <me> \mb{x} (t) = \threevec{x_1 (t)}{\vdots}{x_n (t)} </me> denotes a path in <m>\mathbb{R}^n</m>, what is the general solution to the differentiable equation <me> \dot{\mb{x}} = A \mb{x} ? </me> You may write your answer using <m>P</m>.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p> 
+                Let <me> A = \left[ \begin{matrix} 0 \amp -2 \amp 1 \\ -1 \amp 0 \amp 0 \\ -5 \amp 7 \amp -3 \end{matrix} \right]. </me> and <me>\mb{r} (t) = \threevec{x (t)}{y (t)}{z (t)} </me> a path in <m>\mathbb{R}^3</m>.</p>
+            </introduction>
+            <task>
+                <statement>
+                    <p>Write out the differential equation <me> \mb{r}^\prime (t) = A \mb{r} (t) </me> as three differential equations in <m>x(t), y(t)</m> and <m>z(t)</m>.
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p>Give the particular solution to the differential equation with initial conditions <me> \mb{r} (0 ) = \threevec{1}{-1}{1} . </me>
+                    </p>
+                </statement>
+            </task>
+        </exercise>
+    
+    </exercises>
+
+</section>

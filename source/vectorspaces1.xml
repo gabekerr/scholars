@@ -1,0 +1,278 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-vectorspaces1">
+    <title>Vector Spaces I</title>
+    <p> 
+    Having concluded our reviews and introduced some new arithmetic, we now proceed to explore a famous structure in linear algebra - vector spaces. While many of you will go on to study these spaces over an arbitrary field, we will restrict our attention in this course to real and complex vector spaces. We will call this set of numbers <m>K</m> (so that <m>K</m> is either <m>\mathbb{R}</m> or <m>\mathbb{C}</m>). Let's begin with the abstract definition.
+    </p>
+    <definition xml:id="def-vectorspace">
+        <notation>
+            <usage><m>V</m></usage>
+            <description>a vector space over <m>\mathbb{R}</m> or <m>\mathbb{C}</m></description>
+        </notation>
+        <statement>
+            <p>
+            A <term>vector space</term> <m>V</m> over <m>K</m> is a set endowed with two operations, addition and scalar multiplication. Addition takes as its input two vectors <m>\mb{v}_1</m> and <m>\mb{v}_2</m> of <m>V</m> and outputs <m>\mb{v}_1 + \mb{v}_2</m>. Scalar multiplication takes a scalar <m>\lambda</m>, which is an element of <m>K</m>, and a vector <m>\mb{v}</m> and produces a vector <m>\lambda \mb{v}</m>. These operations have to satisfy the following properties
+            <ol>
+                <li>There is an additive identity vector <m>\mb{0}</m>, </li>
+                <li>Addition is commutative and associative,
+                </li>
+                <li>The number <m>1</m> acts as a scalar multiplication identity so that <m>1 \mb{v} = \mb{v}</m>,
+                </li>
+                <li> Scalar multiplication satisfies an associative-like property:
+                <me> (\lambda_1 \lambda_2) \mb{v} = \lambda_1 (\lambda_2 \mb{v}) </me>
+                where <m>\lambda_1, \lambda_2 \in K</m> and <m>\mb{v} \in V</m>,
+                </li>
+                <li>
+                Scalar multiplication distributes
+                <md>
+                    <mrow>\lambda (\mb{v}_1 + \mb{v}_2) \amp = \lambda \mb{v}_1 + \lambda \mb{v}_2, </mrow>
+                    <mrow>(\lambda_1 + \lambda_2 ) \mb{v} \amp = \lambda_1 \mb{v} + \lambda_2 \mb{v}.
+                    </mrow>
+                </md>
+                </li>
+            </ol>
+            </p>
+        </statement>
+</definition>
+<p>An extremely common alternative notation to using bold letters <m>\mathbf{u}, \mathbf{v}, \mathbf{w}</m> for vectors is to place an arrow above them as in <m>\vec{u}, \vec{v}, \vec{w}</m>. Having now seen the abstract definition, let us gather several examples.
+</p>
+<example xml:id="exa-columnvectors">
+        <title>The vector space of column vectors</title>
+        <statement>
+            <p>
+            By an overwhelming majority, the winner for the most popular vector space over <m>K</m> is the space of column vectors:
+            <men xml:id="eq-columnvectors">
+                K^n = \left\{ \left[ \begin{matrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{matrix} \right]  : a_1, \ldots, a_n \text{ numbers in }K \right\} 
+            </men>
+            Indeed, in some books and courses, this (or its row vector counterpart) is the <em>only</em> example considered. Here addition and scalar multiplication are defined by viewing columns as <m>n \times 1</m> matrices 
+            <me>
+                \left[ \begin{matrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{matrix} \right] + \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{matrix} \right] = \left[ \begin{matrix} a_1 + b_1 \\ a_2 + b_2 \\ \vdots \\ a_n + b_n \end{matrix} \right]
+            </me>
+            <me>
+                \lambda \left[ \begin{matrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{matrix} \right] = \left[ \begin{matrix} \lambda a_1 \\ \lambda a_2 \\ \vdots \\ \lambda a_n \end{matrix} \right].
+            </me>
+            There are some special vectors called <term>standard basis</term> vectors in <m>K^n</m> which we will denote by <m>\mb{e}_1, \mb{e}_2, \cdots, \mb{e}_n</m>. They are defined by 
+            <md>
+                <mrow> 
+                    \mb{e}_1 \amp = \left[\begin{matrix} 1\\ 0 \\ 0 \\ \vdots \\ 0 \end{matrix} \right] , \amp   \mb{e}_2 \amp = \left[\begin{matrix} 0\\ 1 \\ 0 \\ \vdots \\ 0 \end{matrix} \right] , \amp \cdots \amp \amp \mb{e}_n \amp = \left[\begin{matrix} 0\\ 0 \\ 0 \\ \vdots \\ 1 \end{matrix} \right].
+                </mrow> 
+            </md>
+            </p>
+        </statement>
+    </example>
+    
+    <p>One may ask why column vectors are so popular and there are a couple of very reasonable responses to this question. One is that we can compute very effectively with column vectors (as we will see for the remainder of our lives). Another is that every finite dimensional vector space over <m>K</m> is in a very precise sense equivalent to a space of column vectors. This second response is important, but it comes with a caveat which we will discuss when the time comes! </p>
+
+    <example>
+        <title>The vector space of row vectors</title>
+        <statement>
+        <p>
+            Rather than taking columns, we could consider row vectors 
+        <me>
+            \left\{ \left[ \begin{matrix} a_1 \amp a_2 \amp \cdots \amp a_n \end{matrix} \right]  : a_1, \ldots, a_n \text{ numbers in }K \right\}.
+        </me>
+        Often texts will write these vectors with commas and angle brackets. I.e. as
+        <me>\left\langle a_1, a_2, \ldots , a_n \right\rangle .</me>
+        Addition and scalar multiplication is given coordinate-wise as in the column case.
+        In the <m>n = 2</m> and <m>3</m> dimensional cases (especially when <m>K = \mathbb{R}</m>), the standard basis vectors <m>\mb{e}_1, \mb{e}_2, \mb{e}_3</m> are usually denoted <m>\mathbf{i}, \mathbf{j}, \mathbf{k}</m>. This is somewhat historically motivated, but still very common.
+        </p>
+        </statement>
+    </example>
+
+    <example>
+        <title>The vector space of matrices</title>
+        <statement>
+        <p>
+        An example that generalizes both column and row vectors is the vector space of <m>m \times n</m> matrices
+        <men xml:id="eq-matrixsets"> 
+
+            M_{m, n} (K) = \left\{ \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right]  : a_{ij} \text{ numbers in }K  \right\} 
+        </men>
+        Addition and scalar multiplication were defined in <xref ref="sec-matrices1"/>.
+        </p>
+        </statement>
+    </example>
+
+    <example>
+        <title>The vector space of polynomials</title>
+        <statement>
+        <p>
+        A less common example, but useful one, is the vector space of polynomials of degree less than <m>n</m>. This can be written 
+        <men xml:id="eq-polynomials">
+            P_n (K) = \left\{ a_n x^n  + \cdots + a_1 x + a_0 : a_0, a_1, \ldots, a_n \text{ numbers in } K \right\}.
+        </men>
+        When <m>K</m> is known, we may just write <m>P_n</m>. Addition and scalar multiplication are obtained by adding two polynomials or multiplying a polynomial by a number. 
+        </p>
+        </statement>
+    </example>
+
+    <example>
+    <title>The vector space of arrows</title>
+    <statement>
+    <p> A very useful geometric picture to have in mind for real vectors in <m>2</m> and <m>3</m> dimensions is the vector space of arrows. We equate two arrows if they have the same magnitude (or length) and the same direction. Adding arrows is accomplished by placing the initial point of one at the endpoint of the other and then drawing an arrow from the remaining initial point to the remaining endpoint. Scalar multiplication is obtained by scaling the magnitude (when the scale is positive) or reversing the direction and scaling (when the scale is negative). </p>
+    
+    <p>This does indeed form a vector space over <m>\mathbb{R}</m>. It is nearly useless when it comes to computing, but it gives a much better picture of how vectors look and behave. As such, it will reappear frequently as we start applying vectors to ordinary differential equations and multivariable calculus.</p>
+    </statement>
+    </example>
+
+    <p>All of the examples above share the property of being finite dimensional (which we will define soon). However, there are a great many vector spaces that do not have this property and are extensively studied.</p>
+
+    <example xml:id="exa-functions">
+    <title>The vector space of continuous functions</title>
+    <statement>
+    <p>The space of continuous functions <m>C(U)</m> from a space <m>U</m> to <m>K</m> forms a vector space. Here addition is function addition and scalar multiplication is obtained by just multiplying a function by a number. More concretely, if <m>f : U \to K</m>, <m>g : U \to K</m> and <m>\lambda \in K</m> we take
+    <md>
+        <mrow> (f + g) (x) \amp := f(x) + g(x), </mrow>
+        <mrow> (\lambda f) (x) \amp := \lambda f(x). </mrow>
+    </md>
+    </p>
+    </statement>
+    </example>
+
+    <p>There are a huge number of variants of <xref ref="exa-functions"/> such as functions that are differentiable, bounded functions, functions that are integrable, and so on. The study of such vector spaces is one of the primary topics of functional analysis and we will only lightly dabble in this so as not to spoil the wonders that await!</p>
+
+    <p>One can also consider infinite column vectors or matrices, but we will stop this example madness here before it gets any further out of control. Instead, we give ourselves a bit more vocabulary concerning vectors and vector spaces.</p>
+
+    <definition xml:id="def-vectorsubspace">
+    <notation>
+            <usage><m>W \le V</m></usage>
+            <description>a vector subspace</description>
+    </notation>
+    <statement>
+        <p>Given a vector space <m>V</m> over <m>K</m>, a <term>vector subspace</term> <m>W</m> of <m>V</m> is a subset which is also a vector space over <m>K</m> with the vector space operations inherited from <m>V</m>. This is denoted <m>W \le V</m>. A vector subspace is called <term>proper</term> if it is not equal to <m>V</m>.</p>   
+    </statement>
+    </definition>
+    <p>Often we will refer to a vector subspace <m>W</m> as a <term>linear subspace</term>. This should come though with a big warning: with this vocabulary, not all lines are linear!</p>
+
+    <p>In order to verify that a given subset <m>W</m> of <m>V</m> is in fact a vector space, one needs to check that it is <term>closed</term> under addition and scalar multiplication. In other words, we need to see that if <m>\mb{w}_0, \mb{w}_1</m> are in <m>W</m> and <m>\lambda</m> is in <m>K</m>, then <m>\mb{w}_0 + \mb{w}_1</m> and <m>\lambda \mb{w}_0</m> are also in <m>W</m> (not just in <m>V</m>). We record this as a proposition.</p>
+
+    <proposition xml:id="prop-vsubspace">
+    <statement>
+        <p>A subset <m>W</m> of <m>V</m> is a vector subspace if and only if it is closed under vector addition and scalar multiplication.</p>
+    </statement>
+    </proposition>
+
+    <example>
+        <title> Subspace defined by an equation</title>
+        <statement>
+            <p>Consider the subset <me> W = \left\{ \left[ \begin{matrix} a \\ b \end{matrix} \right] : 2a + 3b = 0 \right\}.</me> That this is a vector subspace of <m>\mathbb{R}^2</m> can be verified using <xref ref="prop-vsubspace"/>. Suppose 
+            <me> \left[ \begin{matrix} a_0 \\ b_0 \end{matrix} \right]  \text{ and } \left[ \begin{matrix} a_1 \\ b_1 \end{matrix} \right] </me> are in <m>W</m>. Then 
+            <md>
+                <mrow> 2a_0 + 3b_0 \amp = 0, </mrow>
+                <mrow> 2a_1 + 3b_1 \amp = 0 </mrow>
+            </md>
+            so that adding them together gives <me> 2(a_0 + a_1) + 3(b_0 + b_1) = 0. </me>
+            But this implies that <me> \left[ \begin{matrix} a_0 + a_1 \\ b_0 + b_1 \end{matrix} \right] </me>
+            is in <m>W</m> so that <m>W</m> is closed under vector addition. A similar argument shows that it is closed under scalar multiplication.</p>
+
+            <p>Note that if we view the vector space <m>\mathbb{R}^2</m> geometrically as the plane, the subspace <m>W</m> is just the line of slope <m>-2/3</m> passing through the origin. In fact, as you will show in the exercises, any non-zero proper vector subspace of <m>\mathbb{R}^2</m> is a line through the origin.</p>
+        </statement>
+    </example>
+
+    <definition xml:id="def-lincomb">
+    <notation>
+        <usage><m>\text{Span}(S)</m></usage>
+        <description>linear combinations and span</description>
+    </notation>
+    <statement>
+        <p>Given vectors <m>\mb{v}_1, \mb{v}_2, \ldots, \mb{v}_n</m> in a vector space <m>V</m> over <m>K</m> and numbers <m>a_1, a_2, \ldots, a_n</m> in <m>K</m>, we call the vector <me> a_1 \mb{v}_1 + a_2 \mb{v}_2 + \cdots + a_n \mb{v}_n </me> a <term>linear combination</term> of <m>\mb{v}_1, \ldots , \mb{v}_n</m>. If <m>S</m> is a subset of <m>V</m>, the set of all linear combinations of vectors in <m>S</m> is called the <term>span</term> of <m>S</m> and is denoted <m>\text{Span}(S)</m>.</p>
+    </statement>
+    </definition>
+
+    <p>Linear combinations and span are essential vocabulary when communicating how vectors sweep out spaces. For example, a linear combination of a single non-zero vector <m>\mb{v}</m> in <m>\mathbb{R}^3</m> is just a scaling of <m>\mb{v}</m> and its span is the set of all such scale multiples; namely, a line through the origin in the direction of <m>\mb{v}</m>. On the other hand, taking the span of two  vectors <m>\mb{v}_1, \mb{v}_2</m> which are not on the same line will give a plane through the origin. Moreover, if we remember these vectors we get coordinates on this plane by taking the point <m>(x,y)</m> to the linear combination <m>x \mb{v}_1 + y \mb{v}_2</m>. </p>
+
+    <example xml:id="exa-matrixasrowcolumns">
+        <title>Linear combinations of rows and columns of a matrix</title>
+        <statement>
+            <p>A common way of viewing the matrix 
+            <me> A = \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] </me>
+            is as a column of <m>m</m> row vectors 
+            <me> \mb{r}_i = \left[ \begin{matrix} a_{i1} \amp a_{i2} \amp \cdots \amp a_{in} \end{matrix} \right] </me> by just taking 
+            <me> A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] .</me> In fact, this is how most computer programs will take the input of a matrix (as an array of arrays). This leads to a very fruitful way of thinking about matrix multiplication of <m>A</m> by a row vector on the left: <me> \left[ \begin{matrix} a_{1} \amp a_{2} \amp \cdots \amp a_{m} \end{matrix} \right] \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] = a_1 \mb{r}_1 + \cdots + a_m \mb{r}_m. </me> Note that here, rather than multiplying each entry of the matrix by the scalar <m>a_i</m>, we are taking the whole row and scalar multiplying. We end up seeing that the result is a linear combination of the rows.  A similar equation holds when we view <m>A</m> as a  row of column vectors and multiply on the right by a column vector 
+            <me> \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right] \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{matrix} \right] = b_1 \mb{c}_1 + b_2 \mb{c}_2 + \cdots b_n \mb{c}_n. </me></p>
+            </statement>
+    </example>
+
+    <p>As you will show in the exercises, the span of any non-empty subset of a vector space is a vector subspace. However, some sets of vectors are better than others when it comes to spans. For example, the span of the set of all vectors in <m>\mathbb{R}^2</m> is <m>\mathbb{R}^2</m>, but that is not saying much. On the other hand, the span of the two standard basis vectors <m>\mb{e}_1, \mb{e}_2</m> is also <m>\mathbb{R}^2</m>, yet for these vectors we get a property that we didn't have before. </p>
+
+    <definition xml:id="def-basis">
+    <notation>
+        <usage><m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m></usage>
+        <description>a vector space basis</description>
+    </notation>
+    <statement>
+        <p>An ordered set of vectors <m>\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}</m> is called a <term>basis</term> for a vector space <m>V</m> if every vector <m>\mb{v}</m> in <m>V</m> can be written uniquely as a linear combination of vectors in <m>\mathcal{B}</m>.</p>
+    </statement>
+    </definition>
+
+    <p>Note that the word <sq>uniquely</sq> appears in this definition, and it is a very important word indeed. It means that, for any vector <m>\mb{v}</m>, the coefficients <m>a_1, \ldots, a_n</m> in the expression 
+    <men xml:id="eq-linearcomb">
+        \mb{v} = a_1 \mb{v}_1 + a_2 \mb{v}_2 + \cdots + a_n \mb{v}_n
+    </men>
+    are the only possible ones that give equality.</p>
+
+    <p> A couple of comments on this definition are in order. First, we take a basis to be an <em>ordered</em> set of vectors, but often we don't mention the ordering when it plays no role. It is not universally defined this way and occasionally is defined as just a set of vectors satisfying the uniqueness property and equation <xref ref="eq-linearcomb"/>. Second, we defined a finite basis above, but one can also consider infinite ordered sets that are bases (<sq>bases</sq> is the plural of basis). However, in the infinite case there are more important variants to the above definition of basis involving infinite sums, so for now we will stick with the finite case.</p>
+
+    <p>On first exposure to the concept of a basis, a student may get the wildly incorrect idea that they are in short supply. In fact, there are infinitely many bases of any non-zero real or complex vector space. Nonetheless, the key advantage to having a basis around is that you can label your vectors unambiguously with arrays of numbers and thus, you can compute! </p>
+
+    <p>More precisely, given a basis <m>\mathcal{B}</m> of <m>V</m> and a vector <m>\mb{v}</m>, we may assign <m>\mb{v}</m> to the array of numbers 
+    <men xml:id="eq-basiscoordinates"> 
+        \coord{\mb{v}}{\mathcal{B}} := \left[ \begin{matrix} a_1 \\ a_2 \\  \vdots \\ a_n \end{matrix} \right] 
+    </men>
+    where <m>a_1, \ldots, a_n</m> are precisely the unique coefficients in equation <xref ref="eq-linearcomb"/>. This gives us a function 
+    <men xml:id="eq-functionbasiscoordinates">
+        \coord{}{\mathcal{B}} : V \to K^n .
+    </men>
+    </p>
+
+    <example>
+    <title>Using a basis to give vectors coordinates</title>
+    <statement> <p>In the real case, one should think of a basis as giving a rigid set of coordinates, or a grid, that allows you to assign arrays of numbers to vectors. For example, the basis <me>\mathcal{B} = \left\{ \twovec{1}{-1} , \twovec{1}{1} \right\} </me> in <m>\mathbb{R}^2</m> gives Cartesian coordinates rotated clockwise by <m>45</m> degrees and scaled by <m>\sqrt{2}</m>. The vector <me> \mb{v} = \twovec{1}{2} </me> in this coordinate system is written <me> \coord{\mb{v}}{\mathcal{B}} = \twovec{\frac{3}{2}}{-\frac{1}{2}} </me> because <me> \mb{v} = \twovec{1}{2} = \frac{3}{2} \twovec{1}{-1} + \left(-\frac{1}{2}} \right) \twovec{1}{1}. </me> </p> </statement>
+    </example>
+
+    <p>To be clear, the abstract notion of a basis is that given in the definition. The computational perspective is that one can uniquely assign arrays of numbers to vectors and, as we will see, add and scalar multiply in an easy fashion. Finally, the geometric perspective is rooted in Descartes original insight that points in space could be given coordinates. This last perspective is extremely subtle in that the word <sq><em>could</em></sq> has great importance. I will make the point here that a vector space is a space of vectors or points that does <em>not</em> come with a preferred set of coordinates (unless the space you start with is <m>K^n</m>). Once a basis is given, or chosen, we can then assign coordinates. Indeed, while we do not walk around with a three dimensional grid attached to our head, the space we live in still exists! I may tell you that `the coffee cup is on the table over there', but you will not hear me say <sq>the coffee cup is at <m>(-3, 2, 1)</m></sq>. </p>
+
+    <exercises xml:id="exe-vectorspaces1">
+        <exercise>
+            <statement>
+                <p> Show that every non-zero proper vector subspace of <m>\mathbb{R}^2</m> is a line through the origin.  </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Show that the span of any non-empty subset is a vector subspace. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Give a basis for <m>\mathbb{C}</m> as a vector space over <m>\mathbb{R}</m>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Which, if any, of the following collections are bases? Explain your response.
+                <md>
+                    <mrow> \left\{ \twovec{4}{1}, \twovec{1}{1}, \twovec{0}{1} \right\} \subset \mathbb{R}^2  </mrow>
+                    <mrow>  \left\{ \twovec{-1}{1}, \twovec{0}{1} \right\} \subset \mathbb{R}^2  </mrow>
+                    <mrow> \left\{ \threevec{1}{1}{1} , \threevec{0}{0}{-1} \right\} \subset \mathbb{R}^3  </mrow>
+                </md>
+                </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Let  <me> \mb{v} =  \twovec{3}{-2} </me> and <me> \mathcal{B} = \left\{ \twovec{1}{1} , \twovec{0}{-1} \right\}. </me> What is <m>\coord{\mb{v}}{\mathcal{B}}</m>? </p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p> Prove that the function <m>\coord{}{\mathcal{B}}: V \to K^n</m> is a one-to-one correspondence by giving a formula for the inverse function <m>(\coord{}{\mathcal{B}})^{-1} : K^n \to V</m> and showing it is an inverse. </p>
+            </statement>
+        </exercise>
+        
+    </exercises>
+</section>

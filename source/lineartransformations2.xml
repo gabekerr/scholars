@@ -1,0 +1,176 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-lineartransformations2">
+    <title>Linear Transformations II</title>
+
+    <p>In <xref ref="sec-matrices2"/> we saw that an arbitrary matrix equations could be solved completely through putting the matrix into reduced echelon form. As we will now see, for vector spaces with chosen bases, we can write any abstract linear transformation between them as a matrix, and leverage our knowledge of matrix equations to better understand the transformations. This also has a tremendous computational advantage in that we can then parametrize all types of linear structures with linear (or more generally affine) transformations. </p>
+
+    <p>Suppose <m>U</m> and <m>V</m> are vector spaces over <m>K</m> and 
+    <md>
+        <mrow> \mathcal{B} \amp = \{\mb{u}_1 , \ldots, \mb{u}_n \}, </mrow>
+        <mrow> \mathcal{C} \amp = \{ \mb{v}_1, \ldots, \mb{v}_m\} </mrow>
+    </md>
+    are bases of <m>U</m> and <m>V</m> respectively. Finally, suppose that <me> T: U \to V </me> is a linear transformation. Then for any <m>1 \leq j \leq n</m>, we have that <m>T(\mb{u}_j)</m> is a vector in <m>V</m> and can thus be written uniquely as a linear combination of basis vectors in <m>\mathcal{C}</m>. We write such a combination out here <men xml:id="eq-matrixrepformula"> T (\mb{u}_j)  = a_{1j}\mb{v}_1 + a_{2j} \mb{v}_2 + \cdots + a_{mj} \mb{v}_m. </men> Notice that this gives us scalars <m>a_{ij}</m> for all <m>1 \leq i \leq m</m> and <m>1 \leq j \leq n</m> which we can place in an <m>m \times n</m> matrix <me> \cob{T}{\mathcal{B}}{\mathcal{C}} = \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] </me> </p>
+
+    <p> This matrix is called <term>the matrix representation of T</term>. While this may certainly seem like awkward notation, it aligns well with what is known as `tensor notation', commonly used in various branches of physics. What is important though is that it encodes all of the needed data (the transformation <m>T</m> and the bases <m>\mathcal{B}</m> and <m>\mathcal{C}</m>). But how is this matrix used to compute with <m>T</m>? Well, we have not used that <m>\mathcal{B}</m> is a basis yet, so let's do that. We know that \text{any} vector <m>\mb{u}</m> in <m>U</m> has a unique expression as <me> \mb{u} = x_1 \mb{u}_1 + x_2 \mb{u}_2 + \cdots + x_n \mb{u}_n. </me> We can feed this into the transformation and use linearity to see
+    <md>
+        <mrow> T (\mb{u}) \amp = T (x_1 \mb{u}_1 +  \cdots + x_n \mb{u}_n ) ,</mrow>
+        <mrow> \amp = x_1 T (\mb{u}_1) + \cdots + x_n T (\mb{u}_n), </mrow>
+        <mrow> \amp =  x_1 \left(a_{11}\mb{v}_1 + a_{21} \mb{v}_2 + \cdots + a_{m1} \mb{v}_m \right) + \cdots +  x_n \left(a_{1n}\mb{v}_1 + a_{2n} \mb{v}_2 + \cdots + a_{mn} \mb{v}_m \right), </mrow>
+        <mrow> \amp = \left( a_{11} x_1 + \cdots + a_{1n} x_n \right) \mb{v}_1 + \cdots + \left( a_{m1} x_1 + \cdots + a_{mn} x_n \right) \mb{v}_m. </mrow>
+    </md> The coefficients of the vectors <m>\mb{v}_i</m> may look familiar, because they were the coordinates from the formula for matrix multiplication in equation <xref ref="eq-matrixtimesvector" />. In fact, we can write this observation as an important equation <men xml:id="eq-matrixrepresentation"> \coord{T(\mb{u})}{\mathcal{C}} = \cob{T}{\mathcal{B}}{\mathcal{C}} \coord{\mb{u}}{\mathcal{B}} .</men> Alternatively, we can give the elegant definition <men xml:id="eq-definematrixrep"> \cob{T}{\mathcal{B}}{\mathcal{C}} = \coord{}{\mathcal{C}} \circ T \circ []_\mathcal{B}. </men> While important, it is easy to relate to a student who sees this equation as confusing gibberish. So we shall tilt our heads for the moment and understand it from the perspective of the diagram</p>
+
+    <men xml:id="diag-matrixrepresentation">
+        \begin{CD}
+            U @>T>> V\\
+            @VV\coord{}{\mathcal{B}}V @VV\coord{}{\mathcal{C}}V\\
+            K^n @>\cob{T}{\mathcal{B}}{\mathcal{C}}>> K^m
+        \end{CD}
+    </men>
+
+    <p>You should look at this diagram in the following way. What we are interested in is the linear transformation <m>T</m> from <m>U</m> to <m>V</m>, so the top row of the diagram is what we care about. But it is abstract and difficult to compute with, so we consider the linear isomorphisms <m>\coord{}{\mathcal{B}}</m> and <m>\coord{}{\mathcal{C}}</m> that place coordinates on <m>U</m> and <m>V</m> respectively and bring us down to earth on the bottom row of the diagram. Down here, <m>U</m> and <m>V</m> have been replaced with column vectors of numbers which we can manipulate with basic arithmetic. But equation <xref ref="eq-matrixrepresentation"/> tells us that we can also work with <m>T</m> here as well! In particular, we can write <m>T</m> as the concrete matrix of numbers <m>\cob{T}{\mathcal{B}}{\mathcal{C}}</m> and compute <m>\coord{T(\mb{u})}{\mathcal{C}}</m> as matrix multiplication  <m>\cob{T}{\mathcal{B}}{\mathcal{C}} \coord{\mb{u}}{\mathcal{B}}</m>. Let's see this worked out in an example. </p>
+    
+    <example>
+        <title>The matrix of a derivative</title>
+        <statement>
+        <p>Consider <m>P_n</m> as the polynomials of degree less than or equal to <m>n</m> with coefficients in <m>\mathbb{R}</m>. Take <me> D: P_2 \to P_1 </me> to be the linear transformation obtained by taking the derivative. In other words, <me> D(f) = f^\prime . </me> In order to write out <m>D</m> as a matrix, we need to choose bases for <m>P_2</m> and <m>P_1</m>. The natural candidate for <m>P_n</m> is <m>\{1, x, x^2, \ldots, x^n\}</m>, so we take 
+        <md>
+            <mrow> \mathcal{B} \amp = \{1, x, x^2\}, </mrow>
+            <mrow> \mathcal{C} \amp = \{1, x\}. </mrow>
+        </md>
+        To find <m>\cob{D}{\mathcal{B}}{\mathcal{C}}</m> we will simply need to find the coefficients from equation <xref ref="eq-matrixrepformula"/>. In other words, we need to take the derivative of our polynomials from <m>\mathcal{B}</m> and write them out as linear combinations of the polynomials in <m>\mathcal{C}</m>.
+        <md>
+            <mrow> D(1) \amp = 0 = 0\cdot 1 + 0 \cdot x, </mrow>
+            <mrow> D(x) \amp = 1 = 1\cdot 1 + 0 \cdot x, </mrow>
+            <mrow> D(x^2) \amp = 2x = 0\cdot 1 + 2 \cdot x. </mrow>
+        </md>
+        Placing these coefficients into the matrix (appropriately!) gives <me> \cob{D}{\mathcal{B}}{\mathcal{C}} = \mth{0}{1}{0}{0}{0}{2}. </me> Of course, in this example, since we all know how to take derivatives, the matrix representation of <m>D</m> is of limited usefulness. Nonetheless, let us show how equation <xref ref="eq-matrixrepresentation"/> works in this case. Take the arbitrary quadratic polynomial <me> f = ax^2 + bx + c </me> in <m>P_2</m> and observe that <me> \coord{f}{\mathcal{B}} = \threevec{c}{b}{a} . </me> Then multiplying this column vector on the left by <m>\cob{D}{\mathcal{C}}{\mathcal{B}}</m> gives <me> \cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp= \mth{0}{1}{0}{0}{0}{2}\threevec{c}{b}{a} , \\ \amp = \twovec{b}{2a} .</me> But this vector represents the element <me> b\cdot 1 + 2a \cdot x = 2ax + b </me> which we all know as the derivative of <m>f</m>. </p>
+        </statement>
+    </example>
+
+    <p>The technique of representing a linear transformation as a matrix already gives us some important results. First though, we define the following notions. </p>
+    <definition xml:id="def-rank">
+        <notation>
+            <usage><m>\rk (T)</m></usage>
+            <description>the rank and nullity of a linear transformation</description>
+        </notation>
+        <statement>If <m>U</m> and <m>V</m> are finite dimensional vector spaces over <m>K</m>, the <term>rank</term> of a linear transformation <m>T : U \to V</m>, denoted <m>\rk (T)</m>, is the dimension of <m>\im (T)</m>. The <term>nullity</term> of <m>T</m> is the dimension of <m>\ker (T)</m>.
+        </statement>
+    </definition>
+
+    <p>The following theorem gives us a good amount of qualitative information about a linear transformation.</p>
+    <theorem xml:id="thm-ranknullity">
+        <title>Rank-Nullity Theorem</title>
+        <statement>
+            If <m>U</m> and <m>V</m> are finite dimensional vector spaces over <m>K</m> and <m>T : U \to V</m> linear transformation then <me> \nullity (T) + \rk (T) = \dim (U). </me>
+        </statement>
+        <proof>
+            <p>To see this, suppose <m>\dim (U) = n</m>, <m>\dim (V) = m</m> and let <m>A</m> be the <m>m \times n</m> matrix representing <m>T</m> relative to some bases on <m>U</m> and <m>V</m>. Then the kernel of <m>T</m> is isomorphic to the null space of <m>A</m> (which is the kernel of multiplying by <m>A</m>) and the image of <m>T</m> is isomorphic to the column space of <m>A</m> (which is the image of multiplying by <m>A</m>). Now, the null space of <m>A</m> is the linear subspace of solutions to the matrix equation <me> A \mb{x} = \mb{0}. </me> We saw in <xref ref="thm-rowechsolution"/> that the solutions to these equations were parameterized by <m>K^r</m> where <m>r</m> was the number of free columns of <m>A</m>. So the nullity of <m>A</m> is precisely <m>r</m>. On the other hand, <xref ref="prop-basescolrow"/> showed that the dimension of the column space equaled the number of basic columns of <m>A</m>. Now every column of <m>A</m> is either free or basic (but not both), so the sum of these two numbers is precisely <m>n = \dim (U)</m>.</p>
+        </proof>
+    </theorem>
+
+    <p>From this we obtain the corollary</p>
+    <corollary xml:id="cor-dimensions">
+        <statement>
+            <p>Suppose <m>U</m> and <m>V</m> are finite dimensional vector spaces over <m>K</m> and <m>T : U \to V</m> is a linear transformation. Then
+            <ol>
+                <li> if <m>T</m> is one-to-one then <m>\dim (U) \leq  \dim (V)</m>. </li>
+                <li> if <m>T</m> is onto then <m>\dim (U) \geq \dim (V)</m>. </li>
+                <li> if <m>T</m> is a linear isomorphism then <m>\dim (U) = \dim (V)</m>. </li>
+            </ol>
+            </p>
+        </statement>
+        <proof> <p>For the first claim, represent <m>T</m> by a matrix and apply <xref ref="cor-linindmatsize"/>. For the second, if  <m>T</m> is onto then then <m>\im (T) = V</m> so that <m>\rk (T) = \dim (V)</m>. By <xref ref="thm-ranknullity"/>, <m>\nullity (T) + \dim (V) = \dim (U)</m> implying <m>\dim (U) \geq \dim (V)</m>. The last claim follows from the fact that a linear isomorphism is a one-to-one correspondence by definition.</p>
+        </proof>
+    </corollary>
+
+    <p>We also can use our theorem to make it easier to detect linear isomorphisms.</p>
+    <corollary xml:id="cor-equaldim">
+        <statement>
+            <p> If <m>U</m> and <m>V</m> are finite dimensional vector spaces of the same dimension and <m>T : U \to V</m> is a linear transformation, then the following are equivalent:
+            <ol>
+                <li>  <m>T</m> is one-to-one. </li>
+                <li> <m>T</m> is onto. </li>
+                <li> <m>T</m> is a linear isomorphism. </li>
+            </ol>
+            </p>
+        </statement>
+        <proof> <p>Note that <m>T</m> is one-to-one if and only if <m>\nullity (T) = 0</m> which by <xref ref="thm-ranknullity"/> holds if and only if <m>\rk (T) = \dim U = \dim (V)</m>. But then <m>\im (T) = V</m> since otherwise <m>\im (T)</m> would be a proper subspace of <m>V</m> and <xref ref="cor-strictinequalitysubspace" /> would give that <m>\rk (T) = \dim (\im (T)) \lt \dim (V)</m>. Thus <m>T</m> is onto and a linear isomorphism. </p>
+        <p> Now, if <m>T</m> is onto then <m>\rk (T) = \dim (V) = \dim (U)</m> which again implies by <xref ref="thm-ranknullity" /> that <m>\nullity (T) = 0</m>. This would give that <m>\ker (T) = \{\mb{0} \}</m> so that <m>T</m> is one-to-one and a linear isomorphism.</p>
+        <p>Clearly, if <m>T</m> is a linear isomorphism then it is both one-to-one and onto by definition.</p>
+        </proof>
+    </corollary>
+
+    <p>The ability to represent a linear transformation as a matrix is especially important when we consider linear transformations from a vector space to itself <me> T : V \to V. </me> In this case, we need only choose one basis <m>\mathcal{B}</m> of <m>V</m> to get a matrix representation <me> B = \cob{T}{\mathcal{B}}{\mathcal{B}} </me> because the domain and the codomain are equal. However, if we chose a different basis <m>\mathcal{C}</m>, it would be good to know how to change this matrix to obtain the matrix representation  <me> C = \cob{T}{\mathcal{C}}{\mathcal{C}}. </me> In fact, it is a nice exercise to show that one can do this with the following invertible matrix <me> P = \cob{1_V}{\mathcal{B}}{\mathcal{C}} </me> by using the simple matrix equation <men xml:id="eq-changeofbasis"> C = P^{-1} B P  .</men> The matrix <m>P</m> called a <term>change of basis matrix</term> from <m>\mathcal{C}</m> to <m>\mathcal{B}</m> and it allows us to transfer information relative to the basis <m>\mathcal{C}</m> to that of <m>\mathcal{B}</m> (and upon taking its inverse, vice versa). </p>
+
+    <exercises xml:id="exe-lineartransformations2">
+
+    <exercise>
+        <statement>
+            <p> Using the standard basis <m>\mathcal{B} = \{\mb{e}_1, \mb{e}_2\}</m>, represent the linear transformation of the plane which rotates the plane by counter-clockwise rotation of <m>\pi / 2</m> and then reflects over the <m>x</m>-axis. </p>
+        </statement>
+        <hint> To do this, just ask yourself where the two basis vectors are sent and write the results as the columns of your matrix.</hint>
+    </exercise>
+    
+    <exercise xml:id="exe-matrep">
+        <introduction><p> 
+            Suppose <m>T : U \to V</m> is represented by the matrix <m>A</m>. Show that 
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>if <m>T</m> is one-to-one then multiplication by <m>A</m> is one-to-one.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>if <m>T</m> is onto then multiplication by <m>A</m> is onto.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>the dimension of <m>\ker (T)</m> equals the dimension of the null space of <m>A</m> (which is the solution space to <m>A \mb{x} = \mb{0}</m>).</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>there is a linear isomorphism from the image of <m>T</m> to the column space of <m>A</m>.</p>
+            </statement>
+            <hint>Consider using <m>\coord{}{\mathcal{C}}</m> where <m>\mathcal{C}</m> is the basis for <m>V</m> used in the representation <m>A</m>.</hint>
+        </task>
+    </exercise>
+
+    <exercise>
+        <introduction><p> 
+            Let <m>P_2</m> be the real vector space of polynomials of degree <m>2</m> or less. Let <m>\mathcal{B} = \{1 , x , x^2 \}</m> and <m>\mathcal{C} = \{1, (x - 2), (x - 2)^2 \}</m>. As in the example, let <m>D: P_2 \to P_2</m> be the derivative. Calculate
+        </p>
+        </introduction>
+        <task>
+            <statement>
+                <p><m>\cob{D}{\mathcal{C}}{\mathcal{C}}</m>,
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p><m>\cob{D}{\mathcal{B}}{\mathcal{C}}</m>.
+                </p>
+            </statement>
+        </task>
+        <conclusion> <p> Expanding out functions in the basis of <m>\mathcal{C}</m> versus <m>\mathcal{B}</m> can be thought of as taking second order approximations to functions near <m>2</m> instead of <m>0</m> (i.e. examining the first three terms of the Taylor series near different points).</p>
+        </conclusion>
+    </exercise>
+    
+    <exercise xml:id="exe-compositionreps">
+        <statement>
+            <p> Use equation <xref ref="eq-definematrixrep"/> to show that if <m>T : U \to V</m> and <m>S : V \to W</m> are linear transformations and <m>\mathcal{B}, \mathcal{C}</m> and <m>\mathcal{D}</m> are bases for <m>U, V</m> and <m>W</m> respectively, then <me> \cob{S}{\mathcal{C}}{\mathcal{D}} \, \cob{T}{\mathcal{B}}{\mathcal{C}} = \cob{S \circ T}{\mathcal{B}}{\mathcal{D}}. </me> </p>
+        </statement>
+    </exercise>
+
+    <exercise xml:id="exe-changeofbasis">
+        <statement>
+            <p> Use <xref ref="exe-compositionreps" /> to verify equation <xref ref="eq-changeofbasis" />. </p>
+        </statement>
+    </exercise>
+
+    </exercises>
+
+</section>

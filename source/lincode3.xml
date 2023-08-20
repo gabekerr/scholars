@@ -1,0 +1,364 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-lincode3">
+    <title>Linear Constant Coefficient ODE III</title>
+    <introduction>
+    <p>In this section we will complete the study of this type of ODE by removing the homogeneous condition. The form of such an equation in <m>K^n</m> is 
+    <men xml:id="eq-linearccnhODE">
+        \dot{\mb{x}} = A \mb{x} + \mb{f}
+    </men>
+    where 
+    <me>
+        \mb{f} = \threevec{f_1 (t)}{\vdots}{f_n (t)}.
+    </me>
+    As always, if <m>A</m> is diagonalizable, we can change to our eigenbasis and get an immediate solution. This will be the case we focus on.</p>
+
+    <theorem xml:id="thm-particularsolutionnhode">
+        <title>Uniqueness of Solutions to ODEs</title>
+        <statement>
+            <p>Suppose <m>A</m> is diagonalizable and <m>P</m> is a change of basis matrix so that <me> P^{-1} A P = \text{Diag} ( \lambda_1, \ldots, \lambda_n ) </me> and let <me> \threevec{g_1 (t)}{\vdots}{g_n (t)} = \mb{g} = P^{-1} \mb{f}. </me> If <me> y_j (t) = e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} </me> and  <me> \mb{y} (t) = \threevec{y_1 (t)}{\vdots}{y_n (t)} </me> then <me> \mb{x} (t) = P \,\mb{y} (t) </me> is a solution to equation <xref ref="eq-linearccnhODE"/>.</p>
+        </statement>
+        <proof>
+            <p>Since we are asserting only that we have found a solution, we need only check that equation <xref ref="eq-linearccnhODE"/> holds. First we observe that
+            <md>
+                <mrow> y_j^\prime (t) \amp = \frac{d}{dt} \left( e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} \right), </mrow>
+                <mrow> \amp = \left( \frac{d}{dt} e^{\lambda_j t}  \right) \int e^{-\lambda_j t} g_j (t) \diff{t} + e^{\lambda_j t} \left(\frac{d}{dt}  \int e^{-\lambda_j t} g_j (t) \diff{t} \right), </mrow>
+                <mrow> \amp = \lambda_j e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t}  + e^{\lambda_j t} e^{-\lambda_j t} g_j (t) , </mrow>
+                <mrow> \amp = \lambda_j y_j (t) + g_j (t). </mrow>
+            </md>
+            Using this, we then compute
+            <md>
+                <mrow> \mb{x}^\prime (t) \amp = \frac{d}{dt} \left( P \,\mb{y}  (t) \right), </mrow>
+                <mrow> \amp = P \, \mb{y}^\prime (t), </mrow>
+                <mrow> \amp = P \, \threevec{y_1^\prime (t)}{\vdots}{y_n^\prime (t)}, </mrow>
+                <mrow> \amp = P \left( \threevec{\lambda_1 y_1 (t) + g_1 (t)}{\vdots}{\lambda_n y_n (t) + g_n (t)} \right), </mrow>
+                <mrow> \amp =  P\, \left( \threevec{\lambda_1 y_1 (t)}{\vdots}{\lambda_n y_n (t)} + \threevec{ g_1 (t)}{\vdots}{g_n (t)} \right), </mrow>
+                <mrow> \amp = P\, \left( \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, \mb{y} (t) + \mb{g} (t) \right), </mrow>
+                <mrow> \amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\,\mb{y} (t) + P\, \mb{g} (t), </mrow>
+                <mrow> \amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, P^{-1}\, \mb{x} (t) + P\, \mb{g} (t), </mrow>
+                <mrow> \amp = A\, \mb{x} (t) + \mb{f} (t). </mrow>
+            </md></p>
+        </proof>
+    </theorem>
+
+    <p>As it turns out, once we obtain a particular solution to the non-homogeneous equation, we can use our previous homogeneous solutions to get the general solution. </p>
+    
+    <corollary xml:id="cor-generalnonhomosolution">
+        <statement> 
+            <p>If <m>\mb{x}_1, \ldots, \mb{x}_n</m> are linearly independent solutions to the homogeneous equation <me> \dot{\mb{x}} = A \mb{x} </me> and <m>\mb{x}_p</m> is a particular solution to <me> \dot{\mb{x}} = A \mb{x} + \mb{f} </me> then the general solution is given by 
+            <men xml:id="eq-generalnonhomosolution">
+                \mb{x}  = \mb{x}_p + C_1 \mb{x}_1 + \cdots + C_n \mb{x}_n .
+            </men></p>
+        </statement>
+        <proof>
+            <p>It is an exercise to see that <m>\mb{x}</m> is a solution to the non-homogeneous equation. If <m>\mb{y}</m> is any solution, then from the uniqueness theorem, any solution <m>\mb{x}</m> with <m>\mb{x} (0) = \mb{y} (0)</m> must equal <m>\mb{y}</m>. But since <m>\mb{x}_1, \ldots, \mb{x}_n</m> are linearly independent, so are <m>\mb{x}_1 (0), \ldots, \mb{x}_n (0)</m> which implies they form a basis of <m>\mathbb{R}^n</m>. Thus there are constants <m>C_1, \ldots, C_n</m> so that 
+            <me>
+                \mb{y}(0) - \mb{x}_p (0) = C_1 \mb{x}_1 (0) + \cdots + C_n \mb{x}_n (0). 
+            </me>
+            This then means that <m>\mb{y} (0) = \mb{x} (0)</m> for the solution in equation <xref ref="eq-generalnonhomosolution"/> and we are done.</p>
+        </proof>
+    </corollary>
+
+    <p>Combining <xref ref="thm-particularsolutionnhode"/>, <xref ref="thm-generallinearhomogeneoussol"/> and <xref ref="cor-generalnonhomosolution"/> gives us the methods to obtain general solutions to any constant coefficient linear ODE. That said, these methods can contain obstacles that are difficult to overcome such as finding roots of polynomials or integrating difficult functions. Moreover, many linear ordinary differential equations of interest do not have constant coefficients and of course, there are non-linear ordinary differential equations that are also of great interest. In coming sections, we will build some new tools to address some of these cases. For now though, let us look at a couple of examples of the nonhomogeneous case.</p>
+
+    <example xml:id="ex-lineardiagonalode4">
+        <title>A non-homogeneous two dimensional equation</title>
+        <statement>
+            <p> In <xref ref="ex-lineardiagonalode"/> we considered the linear system 
+            <md>
+                <mrow> x^\prime (t) \amp = -4 x(t) - 3 y(t), </mrow>
+                <mrow> y^\prime (t) \amp = 6 x (t) + 5 y(t). </mrow>
+            </md>
+            Let us consider a non-homogeneous version of this system such as
+            <md>
+                <mrow> x^\prime (t) \amp = -4 x(t) - 3 y(t) + t, </mrow>
+                <mrow> y^\prime (t) \amp = 6 x (t) + 5 y(t) - 3t. </mrow>
+            </md>
+            We can write this as the matrix equation
+            <me>
+                \dot{\mb{x}} = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right] \mb{x} + \twovec{t}{-3t}.
+            </me>
+            In this case we have
+            <me>
+                \mb{f} (t) = \twovec{t}{-3t}.
+            </me>
+            Looking back to the example, we see that we found the <m>(-1)</m>-eigenvector <m>\mb{v}_1</m> and <m>2</m>-eigenvector <m>\mb{v}_2</m> which form an eigenbasis
+            <me>
+                \mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}.
+            </me>
+            From these we had the change of basis matrices
+            <me>
+                P = \left[ \begin{matrix} 1 \amp -1 \\ -1 \amp 2 \end{matrix} \right] , \hspace{.3in} P^{-1} = \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right].
+            </me>
+            Using this, we apply <xref ref="thm-particularsolutionnhode"/> to find 
+            <me>
+                \mb{g} (t) = \twovec{g_1 (t)}{g_2 (t)} = P^{-1} \mb{f} (t) = \twovec{2 t - 3t}{t - 3t} = \twovec{-t}{-2t}.
+            </me>
+            We then can calculate the integrals using integration by parts 
+            <md>
+                <mrow> y_1 (t) \amp = e^{-t} \int e^t (-t) \diff{t}, </mrow>
+                <mrow> \amp = - e^{-t} (t e^t - e^t), </mrow>
+                <mrow> \amp = 1 - t. </mrow>
+                <mrow> y_2 (t) \amp = e^{2t} \int e^{-2t} (-2t) \diff{t}, </mrow>
+                <mrow> \amp = e^{2t} \left( t e^{-2t} + \frac{1}{2}e^{-2t}\right), </mrow>
+                <mrow> \amp = t + \frac{1}{2}. </mrow>
+            </md>
+            Finally, we then obtain a particular solution
+            <me>
+                \mb{x}_p (t) = P \mb{y} (t) = \left[ \begin{matrix} 1 \amp -1 \\ -1 \amp 2 \end{matrix} \right] \twovec{1 - t}{t + 1/2} = \twovec{1/2 - 2t}{3t}.
+            </me>
+            Using the homogeneous solutions <xref ref="eq-lindiagsol"/> gives
+            <md>
+                <mrow>\mb{x} (t) \amp = C_1 e^{-t} \mb{v}_1 + C_2 e^{2t} \mb{v}_2 + \mb{x}_p (t), </mrow>
+                <mrow> \amp = \twovec{C_1 e^{-t} - C_2 e^{2t}  - 2t + 1/2 }{ - C_1 e^{-t} + 2 C_2 e^{2t} + 3t }. </mrow>
+            </md></p>
+        </statement>
+    </example>
+    
+    <p>We now consider a second order scalar ODE.</p>
+
+    <example xml:id="ex-resonance">
+        <title>Resonance</title>
+        <statement>
+            <p>One of the most fascinating applications of linear ODE's is the spring-mass explored in <xref ref="ex-springmass"/>. Recall the homogeneous equation was 
+            <me>
+                x^{\prime \prime} + \tilde{b} x^\prime + \tilde{k} x = 0.
+            </me>
+            Adding an inhomgeneous term to this equation gives
+            <me>
+                x^{\prime \prime} + \tilde{b} x^\prime + \tilde{k} x = f(t).
+            </me>
+            To adopt this into the first order framework, we may rewrite the equation as
+            <me>
+                \dot{\mb{x}} = \left[ \begin{matrix} 0 \amp 1 \\ -\tilde{k} \amp - \tilde{b} \end{matrix} \right] \mb{x} + \twovec{0}{f(t)} \hspace{.3in} \text{where} \hspace{.2in} \mb{x} = \twovec{x_0 (t)}{x_1 (t)}.
+            </me>
+            We now focus our attention on the case of <m>\tilde{b} \lt 2 \sqrt{\tilde{k}}</m> where there is some oscillation. By equation <xref ref="eq-springmasseigenbasis"/> we have the eigenvalues 
+            <me>
+                \lambda = - \alpha + i \beta, \hspace{.5in} \bar{\lambda} = - \alpha - i \beta.
+            </me>
+            which are roots of the characteristic polynomial. Here <m>\alpha \geq 0</m> and we have the eigenbasis
+            <men xml:id="eq-springmasseigenbasis2">
+                \mathcal{B} = \left\{ \mb{w}_1, \bar{\mb{w}}_1 \right\} = \left\{ \twovec{1}{\lambda}, \twovec{1}{\bar{\lambda}} \right\}.
+            </men>
+            This gives the matrix
+            <me>
+                P = \left[ \begin{matrix} 1 \amp 1 \\ \lambda \amp \bar{\lambda} \end{matrix} \right]
+            </me>
+            which has inverse
+            <me>
+                P^{-1} = \frac{i}{2\beta} \left[ \begin{matrix} \bar{\lambda} \amp -1 \\ -\lambda \amp 1 \end{matrix} \right]
+            </me>
+            Now
+            <me>
+                \mb{g} (t) = \twovec{g_1 (t)}{g_2 (t)} = P^{-1} \twovec{0}{f (t)} = \frac{i}{2\beta} \twovec{- f (t)}{f(t)}
+            </me>
+            can be used with <xref ref="thm-particularsolutionnhode"/> to obtain a particular solution which is 
+            <men xml:id="eq-particularspringmass">
+                x_p (t) = \frac{i}{2 \beta} \left( - e^{\lambda t} \int e^{- \lambda t} f(t) \diff{t} + e^{\bar{\lambda} t} \int e^{- \bar{\lambda} t} f(t) \diff{t} \right).
+            </men>
+            Thus to obtain the solution, we must start by calculating
+            <me>
+               e^{\zeta t} \int e^{- \zeta t} f(t) \diff{t}.
+            </me>
+            Now, given any <m>f(t)</m> this problem could become quite a difficult (even impossible) integral problem. However, one practical case to consider is when <m>f(t)</m> is an exponential <m>e^{\omega t}</m> itself for some complex number <m>\omega</m>. The reason this is practical is that such <m>f(t)</m> can be thought of as an external force acting on the spring-mass system and may involve some periodicity. So we will consider the case of 
+            <me>
+                f(t) = e^{\omega t}
+            </me>
+            and note we can obtain <m>\sin</m> and <m>\cos</m> functions by taking real and complex parts of this one. Writing this out, we obtain
+            <me> e^{\zeta t} \int e^{- \zeta t} e^{\omega t} \diff{t} = e^{\zeta t} \int e^{(\omega - \zeta ) t}  \diff{t},</me>
+            It is here that we notice a very special situation can occur, namely the case when  <m>\omega = \zeta</m>. First let us assume this is not the case and compute
+            <me>
+                e^{\zeta t} \int e^{- \zeta t} e^{\omega t} \diff{t} = \frac{e^{\omega t}}{\omega - \zeta} . 
+            </me>
+            Then the particular solution in equation <xref ref="eq-particularspringmass"/>  is 
+            <mdn xml:id="eq-solutionspringmass"> 
+                <mrow> x_p (t) \amp = \frac{i}{2 \beta} \left( - \frac{e^{\omega t}}{\omega - \lambda} + \frac{e^{\omega t}}{\omega - \bar{\lambda}} \right), </mrow>
+                <mrow> \amp = \frac{i e^{\omega t}}{2 \beta} \left( \frac{\bar{\lambda} - \lambda}{(\omega - \lambda) (\omega - \bar{\lambda})} \right),</mrow>
+                <mrow> \amp = \frac{e^{\omega t}}{(\omega - \lambda) (\omega - \bar{\lambda})}. </mrow>
+            </mdn>
+            Adding a homogeneous term gives the general solution.</p>
+
+            <p>This case when <m>\omega = \lambda</m> or <m>\omega = \bar{\lambda}</m> (usually when no damping is present and <m>\omega</m> is purely imaginary) is called <term>pure resonance</term>. Let's assume <m>\omega = \lambda</m> so that equation <xref ref="eq-particularspringmass"/> gives us the solution
+            <md>
+                <mrow> x_p (t) \amp = \frac{i}{2\beta}  \left( - e^{\lambda t} t + \frac{e^{\lambda t}}{\lambda - \bar{\lambda}} \right), </mrow>
+                <mrow> \amp = \frac{e^{\lambda t}\left( 1 - 2\beta i t \right)}{4\beta^2}</mrow>
+            </md>
+            To understand this solution, let's consider when there is no damping so that <m>\lambda = i \beta</m> and take the real part of the homogeneous term <m>\operatorname{Re} (f(t)) = \cos (\beta t)</m> and thus the real part of our solution to find a shocking solution
+            <me>
+                \operatorname{Re} (x_p (t)) \amp = \frac{1}{4\beta^2}  \cos (\beta t) + \frac{t \sin (\beta t )}{2 \beta }.
+            </me>
+            Why is this so shocking? Well, observe that there is a <m>t</m> in the amplitude of the <m>\sin </m> function which means that this solution oscillates but is <em>unbounded</em>. This resonance occurs when the intrinsic frequency of the spring matches the forcing frequency and explains many tragic disasters (like suspension bridges being destroyed by the wind blowing in certain frequencies). Examining the prior solutions show that all other solutions (with bounded forcing term) are in fact bounded solutions and most experience exponential decay (which is certainly good for bridges and other things!). </p>
+        </statement>
+    </example>
+    </introduction>
+
+    <subsection xml:id="subsec-hode">
+        <title>Higher order linear ODE's</title>
+        <p> While we solved the spring-mass system as a first order system of differential equations, it is in fact easier to find these solutions if we consider the whole equation as a single differential operator equation. This generalizes to all higher order linear differential equations with constant coefficients and we take a moment to explain this more elementary approach. </p>
+
+        <p>First, we make a definition. </p>
+
+        <definition xml:id="def-smoothpath">
+            <notation>
+                <usage><m> \mb{x} : I \to V</m></usage>
+                <description>Smooth path</description>
+            </notation>
+            <statement>
+                <p>For an inner product space <m>V</m>, a path <m>\mb{x} : I \to V</m> is called <term>smooth</term> if tangent vectors exist to any order.  The vector space of smooth paths is denoted <m>C^\infty (I, V)</m>.</p>
+            </statement>
+        </definition>
+
+        <p>As infinite dimensional vector spaces go, <m>C^\infty (I, V)</m> is not optimal and is often replaced with a Hilbert space. Nevertheless, for our purpose, it will do just fine. We will consider the case where <m>V = \mathbb{C}</m>. In this case, we have the linear transformation
+        <me>
+            \frac{d}{dt} : C^\infty (I , \mathbb{C} ) \to C^\infty (I, \mathbb{C} ) .
+        </me>
+        This is the most basic of differential operators, but perhaps it is a new experience to consider this as a linear transformation. If we do, then we note that the eigenvalues are in fact all complex numbers! Indeed, taking <m>\lambda \in \mathbb{C}</m> we have the eigenfunction 
+        <me>
+            e^{\lambda t}
+        </me>
+        which spans the <m>\lambda</m>-eigenspace of the derivative. How can this be used? Well, let's look at our homogeneous higher order differential equation again 
+        <me>
+            x^{(n)} (t) + a_{n - 1}x^{(n - 1)} (t) + \cdots + a_1 x^\prime (t) + a_0 x(t) = 0 .
+        </me>
+        and see that if the characteristic equation 
+        <me>
+            s^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 s + a_0 = 0
+        </me>
+        has solutions <m>\lambda_1, \ldots, \lambda_n</m> then our equation becomes
+        <me>
+            \left( \frac{d}{dt} - \lambda_1 I \right) \cdots \left( \frac{d}{dt} - \lambda_n I \right) \mb{x} (t) = 0.
+        </me>
+        The expression 
+        <me>
+            \left( \frac{d}{dt} - \lambda_1 I \right) \cdots \left( \frac{d}{dt} - \lambda_n \right) 
+        </me>
+        is a linear transformation from <m>C^{\infty} (\mathbb{C})</m> to itself and thus solutions to the homogeneous equation are just elements of the kernel of this transformation. If each of the <m>\lambda_i</m> are distinct, then it is not hard to see that these are just the eigenfunctions of the derivative
+        <me>
+            e^{\lambda_1 t}, \ldots e^{\lambda_n t}.
+        </me>
+        In the case when there is multiplicity, we have a factor of the differential operator of the form
+        <me>
+            \left( \frac{d}{dt} - \lambda I \right)^k .
+        </me>
+        Finding vectors in the kernel of this operator is precisely the same as finding generalized <m>\lambda</m>-eigenvectors of <m>\frac{d}{dt}</m>. In fact, the space of generalized <m>\lambda</m>-eigenvectors is 
+        <me>
+            e^{\lambda t}, t e^{\lambda t}, \frac{t^2}{2!} e^{\lambda t}, \ldots
+        </me>
+        so this derivative operator not only has every number as an eigenvalue, every eigenvalue has an infinite dimensional generalized eigenspace! Of course, only the first <m>k</m> generalized eigenvectors solve the equation
+        <me>
+            \left( \frac{d}{dt} - \lambda I \right)^k x (t) = 0.
+        </me>
+        Thus if the characteristic polynomial is
+        <me>
+            (s - \lambda_1)^{k_1} \cdots (s - \lambda_r)^{k_r} 
+        </me>
+        then the general solution to the homogeneous differential equation (as a complex valued function) is 
+        <md>
+            <mrow> x (t) \amp = e^{\lambda_1 t} \left( C_{1,0} + C_{1,1} t + \cdots + C_{1, k_1 - 1} \frac{t^{k_1 - 1}}{(k_1 - 1)!} \right) + \cdots</mrow>
+            <mrow> \amp  \cdots +  e^{\lambda_r t} \left( C_{r,0} + C_{r,1} t + \cdots + C_{r, k_r - 1} \frac{t^{k_r - 1}}{(k_r - 1)!} \right)</mrow>
+        </md>
+        Now, the non-homogeneous case with eigenfunction <m>f(t) = e^{\omega t}</m> looks like 
+        <men xml:id="eq-diffoperator">
+            \left( \frac{d}{dt} - \lambda_1 I \right)^{k_1} \cdots \left( \frac{d}{dt} - \lambda_r I \right)^{k_r} \mb{x} (t) = e^{\omega t} .
+        </men>
+        If <m>\omega</m> is not one of the <m>\lambda_i</m>, one sees that
+        <men xml:id="eq-solutioncomplex">
+            x_p (t) = \frac{e^{\omega t}}{(\omega - \lambda_1)^{k_1} \cdots (\omega - \lambda_r)^{k_r} }
+        </men>
+        gives a solution. Using <xref ref="cor-generalnonhomosolution"/> gives the general solution in this case. </p>
+
+        <p>When <m>\omega</m> does occur as one of the <m>\lambda_i</m> (which is the case of resonance), we must use the appropriate generalized <m>\omega</m>-eigenfunction. Suppose, for example, that <m>\omega = \lambda_1</m> then
+        <men xml:id="eq-solutioncomplex2">
+            x_p (t) \amp = \frac{t^{k_1} e^{\omega t}}{k_1! \, (\omega - \lambda_2)^{k_2} \cdots (\omega - \lambda_r)^{k_r}}
+        </men>
+        These general solutions then lead to what is called the <term>method of undetermined coefficients</term>. In truth, this is simply writing the general solution and solving the linear algebra problem presented by the initial conditions. Let us work through an example.</p>
+        
+        <example xml:id="ex-methodundcoef">
+            <title>Method of undetermined coefficients</title>
+            <statement>
+                <p>Consider the differential equation
+                <me>
+                    x^{\prime \prime \prime} (t) - x^{\prime \prime} (t) + x^\prime (t) - x (t)  =  \sin (t).
+                </me>
+                with initial conditions <m>x (0) = 0</m>, <m>x^\prime (0) = 1/4</m> and <m>x^{\prime \prime} (t) = - 1 /2</m>. We calculate and factor the characteristic polynomial to see
+                <me>
+                    s^3 - s^2 + s - 1 = (s - 1) (s^2 + 1) = (s - 1) (s - i ) (s + i ).
+                </me>
+                So the homogeneous solutions can be written in the form
+                <me>
+                    x_h (t) = C_1 e^{i t} + C_2 e^{ - i t} + C_3 e^{t}.
+                </me>
+                Now, we take a look at the inhomogeneous term <m>t \sin (t)</m> and use our impressive knowledge to suggestively rewrite it 
+                <me>
+                    \sin (t) = \frac{i }{2} \left( e^{-it} - e^{it} \right) =  \frac{i }{2} e^{-it} - \frac{i }{2}  e^{it} .
+                </me>
+                We observe that the functions <m>e^{it}</m> and <m>e^{-it}</m> are <m>i</m> and <m>(-i)</m>-eigenfunctions for the derivative. Applying equation <xref ref="eq-solutioncomplex"/> and linearity gives the particular solution,
+                <md>
+                    <mrow> x_p (t) \amp = \frac{i}{2}  \frac{t e^{-it}}{(-i - 1)(-i - i)}  - \frac{i}{2}  \frac{t e^{it}}{(i - 1)(i + i)}, </mrow>
+                    <mrow> \amp = \frac{t}{4} \left( \frac{e^{-it}}{1 + i} + \frac{e^{it}}{1 - i} \right),</mrow>
+                    <mrow> \amp = \frac{t}{2} \operatorname{Re} \left( \frac{e^{-it}}{1 + i} \right), </mrow>
+                    <mrow> \amp = \frac{t}{4} \operatorname{Re} \left( (1 - i ) e^{-it} \right), </mrow>
+                    <mrow> \amp = \frac{t}{4} \operatorname{Re} \left( \cos (t) - i \sin (t) - i \cos (t) + \sin (t)   \right), </mrow>
+                    <mrow> \amp =  \frac{t \cos (t) - t \sin (t)}{4}.</mrow>
+                </md>
+                Thus the general solution is 
+                <me>
+                    x (t) = x_h (t) + x_p (t) = C_1 e^{i t} + C_2 e^{ - i t} + C_3 e^{t} + \frac{t \cos (t) - t \sin (t)}{4}. 
+                </me>
+                To find our actual solution we simply apply initial conditions and see
+                <md>
+                    <mrow> C_1 + C_2 + C_3 \amp = x(0) = 0,</mrow>
+                    <mrow> iC_1 - iC_2 + C_3 + 1/4 \amp = x^\prime (0) = 1/4,</mrow>
+                    <mrow> -C_1 - C_2 + C_3 - 1/2 \amp = x^{\prime \prime} (0) =  1/2. </mrow>
+                </md>
+                This is a linear system which can be written as
+                <me>
+                    \left[ \begin{matrix} 1 \amp 1 \amp 1 \\ i \amp -i \amp 1 \\ -1 \amp -1 \amp 1 \end{matrix} \right] \threevec{C_1}{C_2}{C_3}  = \threevec{0}{0}{1}.
+                </me>
+                Solving this system gives
+                <me>
+                    \threevec{C_1}{C_2}{C_3} = \threevec{\frac{-1 + i}{4}}{\frac{-1 - i}{4}}{\frac{1}{2}} . 
+                </me>
+                Putting this into our general solution and simplifying gives the real function
+                <me>
+                    x (t) =  \frac{(t - 2)\cos (t) + (t - 2) \sin (t) + 2e^t}{4} .
+                </me> </p>
+            </statement>
+        </example>
+    </subsection>
+    
+    <exercises xml:id="exe-lincode3">
+
+        <exercise>
+        <statement>
+            <p>Find the solution to the non-homogeneous linear system
+            <md>
+                <mrow> x^\prime (t) \amp = -3 x(t) - 6 y(t) + 2t, </mrow>
+                <mrow> y^\prime (t) \amp = 2 x (t) + 4 y(t) - t. </mrow>
+            </md>
+            with initial conditions <m>x(0) = 1 = y(0)</m>.
+            </p>
+        </statement> 
+        </exercise>
+
+        <exercise>
+        <statement>
+            <p>Show that when <m>\omega</m> is distinct from <m>\lambda_1, \ldots, \lambda_r</m>, <m>x_p (t)</m> in equation <xref ref="eq-solutioncomplex"/> solves the non-homogeneous equation <xref ref="eq-diffoperator"/>. 
+            </p>
+        </statement> 
+        </exercise>
+
+        <exercise>
+        <statement>
+            <p>Show that when <m>\omega = \lambda_1</m>, <m>x_p (t)</m> in equation <xref ref="eq-solutioncomplex2"/> solves the non-homogeneous equation <xref ref="eq-diffoperator"/>. 
+            </p>
+        </statement> 
+        </exercise>
+
+        <exercise>
+        <statement>
+            <p>Solve the differential equation <me> x^{\prime \prime} (t) + x^\prime (t) + x(t) =   \cos \left(t \right). </me> if <m>x (0) = x^\prime (0)  = 0</m>.</p>
+        </statement>
+        </exercise>
+
+    </exercises>
+
+</section>

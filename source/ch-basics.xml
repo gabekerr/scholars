@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-arithmetic">
+    <title>Arithmetic Review</title>
+        <p>We start with a review of arithmetic. As the student progresses beyond the first year of calculus, they will find that complex numbers begin to appear with striking regularity, often to dramatically simplify various problems. So, we want to have some familiarity with them. Furthermore, a review of arithmetic gives us a chance to remember some mathematical vocabulary we learned in elementary school, but have surely forgotten.</p>
+
+        <p> First, we should remember the notation for different sets of numbers:
+        <ul>
+        <li> <m> \mathbb{N} =  \text{the natural numbers} = \{0, 1, 2, 3, ... \} </m></li>
+        <li> <m> \mathbb{Z} = \text{the integers} = \{... -2, -1, 0, 1, 2, ... \} </m></li>
+        <li> <m> \mathbb{Q} = \text{the rational numbers (or fractions)} = \left\{\frac{a}{b} : a, b \in \mathbb{Z} , b \ne 0 \right\} </m></li>
+        <li> <m> \mathbb{R} = \text{the real numbers} = \{\text{ ?good question? }\} </m></li>
+        </ul>
+        </p>
+
+        <p> At this point it is worth clarifying that this is <em>not</em> an analysis course, so we are not going to honestly answer the question of what a real number <sq>is</sq> - i.e. we are not going to give the abstract definition of real numbers. However, we are happy to understand the computational side of these numbers as numbers with potentially infinite decimal expansions. Of course, we also know these numbers as points on the real line (the geometric viewpoint). </p>
+
+        <p> By the way, did you notice the notation in the definition of the rationals? Let's take another look at it
+        <me>\mathbb{Q} =  \left\{\frac{a}{b} : a, b \in \mathbb{Z} , b \ne 0 \right\}</me> This notation denotes a set of elements (written before the colon) which satisfy some conditions (listed after the colon). So written out it says that <m>\mathbb{Q}</m> is <sq>the set of expressions <m>\frac{a}{b}</m> where <m>a</m> and <m>b</m> are integers and <m>b</m> is not zero</sq>. Sometimes the colon : will be replaced with a vertical line <m>\vert</m>, but the meaning is the same. As this is a standard way of writing sets, let's record the format again as
+        <me>\left\{ \text{elements} : \text{condition 1}, \text{condition 2}, ... \right\} </me>
+        </p>
+
+        <p>
+        Back to numbers now! In all of the familiar examples above, we have ways of combining our numbers through addition and multiplication. Early on, we become accustomed to using some fundamental properties which we list here: 
+        <dl>
+                <li> <title>Identities</title> The elements <m>0</m> and <m>1</m> are identities for addition and multiplication respectively
+            <me> a + 0 = a = 0 + a </me>
+            <me> a\cdot 1 = a = 1 \cdot a, </me>
+                </li>
+                <li>  <title> Commutativity</title> If we combine two numbers <m>a</m> and <m>b</m>, we can combine <m>a</m> with <m>b</m> or <m>b</m> with <m>a</m> and we will get the same result
+                    <me> a + b = b + a, </me>
+                    <me> a  b = b  a, </me>
+                </li>
+                <li> <title> Associativity</title> If we are to combine numbers <m>a, b, c</m>, it does not matter which two we combine first
+                    <me> (a + b) + c = a + (b + c), </me>
+                    <me> (a  b)  c = a  (b  c), </me>
+                </li>
+                <li> <title> Distributive Property</title> Multiplying the sum <m>b + c</m> by <m>a</m> is the same as summing the products <m>ab</m> and <m>ac</m> 
+                <me>a (b + c) = ab + ac . </me>
+                </li>
+        </dl>
+        </p>
+
+        <p>
+        We will not be overly concerned with these properties (as you will be when you take a modern algebra course!). However, some do end up breaking down with a few of the new operations that we will define, so it's worth being aware of their names and meaning. </p>
+
+        <definition xml:id="def-complexnum">
+            <notation>
+                <usage><m>a + bi</m></usage>
+                <description>comlex number</description>
+            </notation>
+            <statement>
+                <p>
+                    A <term>complex number</term> is a number of the form <m>z = a + b i</m> where <m>a</m> and <m>b</m> are real numbers and <m>i</m> satisfies the equation <me>i^2 = -1 </me>. 
+                    The number <m>a</m> is called the real part of <m>z</m> and <m>b</m> the imaginary part. Addition of two complex numbers is accomplished by adding their real and imaginary parts respectively
+                    <me>
+                        (a_1 + b_1 i ) + (a_2 + b_2 i) = (a_1 + a_2) + (b_1 + b_2 ) i.
+                    </me>
+                    Multiplication of two complex numbers is accomplished using the distributive and commutative properties (sometimes called foiling).
+                    <md>
+                        <mrow> (a_1 + b_1 i ) (a_2 + b_2 i) \amp = (a_1 + b_1 i ) a_2 + (a_1 + b_1 i ) b_2 i, </mrow> 
+                        <mrow> \amp = a_1 a_2 + b_1 a_2 i + a_1 b_2 i + b_1 b_2 i^2, </mrow>
+                        <mrow> \amp = (a_1 a_2 - b_1 b_2 ) + (b_1 a_2  + a_1 b_2 ) i.</mrow>
+                    </md>
+                </p>
+            </statement>
+        </definition>
+
+        <p>The set of complex numbers is denoted <m>\mathbb{C}</m> and now that we have an abstract and computational definition of them, we should take a look at their geometry. We note that a complex number <m>z = a + bi</m> can be made into a point <m>(a,b)</m> in the Cartesian plane <m>\mathbb{R}^2</m>. By taking this identification seriously, we sometimes call <m>\mathbb{C}</m> the complex plane and use this to motivate the conjugate and norm:
+        <dl>
+            <li> <title> Conjugate </title> The conjugate <m>\bar{z}</m> of <m>z = a + bi</m> is the reflection of <m>z</m> over the <m>x</m>-axis,
+                <me> \bar{z} = a - bi, </me>
+            </li>
+            <li> <title> Norm </title> The norm <m>|z|</m> of <m>z = a + bi</m> is its distance to the origin 
+                <me>|z| = \sqrt{a^2 + b^2} . </me>
+            </li>
+        </dl>
+        </p>
+
+        <p>As it turns out, viewing complex numbers as points on the plane makes more and more sense as you consider their arithmetic. For example, we can think of addition of a given number <m>z</m> as an operation on the entire plane at once (in particular as a function) as follows
+        <me>
+            T_z (w ) := w + z.
+        </me>
+        If you've never seen <m>:=</m> before, it means we are defining the left hand side by the right hand side. So we think of addition by <m>z</m> as a function on all of <m>\mathbb{C}</m>. What does it do? Well a little sketching shows that it translates the plane exactly by a vector connecting <m>0</m> to <m>z</m>. More on this later!</p>
+
+        <p>If addition can be thought of as translation, then what about multiplication? We know from elementary school that multiplication by a positive real number will <sq>scale</sq> another number and that still holds when you multiply all complex numbers by a positive real number.</p>
+
+        <p>But to understand multiplication by a <em>complex</em> number, it is very helpful to remember a little calculus. Recall Taylor's Theorem tells us that 
+            <me> e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots .</me>
+        </p>
+
+        <p> If you were very excited about this theorem (and you should have been!), then you may have also computed a few other series, like
+        <md>
+            <mrow> \sin (x) \amp = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots , </mrow>
+            <mrow> \cos (x) \amp = 1 - \frac{x^2}{2!}+ \frac{x^4}{4!} - \cdots. </mrow>
+        </md>
+        Of course, these equations involve functions of a real number <m>x</m>. Nevertheless, for these functions this restriction turns out not to be necessary and in fact all of these equations hold for a <em>complex</em> number <m>x</m> (by which we mean they are convergent power series with radius of convergence <m>= \infty</m>. This will be worked out and proven in a complex analysis course). In particular, if we take the purely imaginary number <m>x = i \theta</m> where <m>\theta</m> is any real number, we obtain Euler's formula
+        <md>
+            <mrow> e^{i \theta} \amp = 1 + i \theta + \frac{(i \theta)^2}{2!} + \frac{(i \theta)^3}{3!}+ \frac{(i \theta)^4}{4!} + \frac{(i \theta)^5}{5!} +\cdots , </mrow>   
+            <mrow>\amp = 1 + i \theta - \frac{ \theta^2}{2!} - i \frac{ \theta^3}{3!}+ \frac{ \theta^4}{4!} + i\frac{ \theta^5}{5!} -\cdots ,  </mrow>
+            <mrow>\amp = \left( 1- \frac{\theta^2}{2!}+ \frac{\theta^4}{4!} - \cdots \right) + i \left(\theta -   \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots  \right),  </mrow>
+            <mrow>\amp = \cos \theta + i \sin \theta . </mrow>
+        </md>
+        </p>
+
+        <p> Upon seeing this, you may say <sq>So what's the big deal?</sq> After all, this is some equation that relates a tremendously confusing expression <m>e^{i \theta}</m> to a newly introduced set of complex numbers. Let's take a closer look though to see the power contained in this equation. For a fixed <m>\theta</m>, the right hand side is just a complex number, which we've identified with the point <m>(\cos \theta , \sin \theta )</m> on the plane. That type of point should look familiar to you because it lies on the unit circle making an angle of <m>\theta</m> with the positive <m>x</m>-axis. Moreover, all points on the unit circle are of this form. So our first observation is that the unit circle is the set of points hit by exponentiating a purely imaginary number... which is pretty cool. </p>
+
+        <p> However, you'll recall that we started this memory tour of calculus by trying to understand multiplication of complex numbers. We noted above that multiplying by a positive real number <m>r</m> just scales a complex number. But any point on the plane is a scaled version of a unique point on the unit circle (except zero, where you lose uniqueness). So every complex number <m>z</m> can be written in the form
+        <men xml:id="eq-complexpolar">
+            z = r e^{i \theta }
+        </men>
+        for some real number <m>\theta</m> and non-negative real number <m>r</m>. Again, when <m>z \ne 0</m>, <m>r > 0</m> and <m>0 \leq \theta \lt 2\pi</m>, this expression is unique.
+        </p>
+
+        <p> Well, what happens if we multiply two of them <m>re^{i\theta}</m> and <m>se^{i\phi}</m>?  You can answer this question easily if you are assured of the fact that the usual rules do indeed apply (and I assure you that they do). You will compute
+        <men xml:id="eq-exponential"> 
+            re^{i\theta} se^{i \phi} = (rs) e^{i\theta + i \phi} = (rs) e^{i(\theta + \phi)}
+        </men>
+        seeing that the scales multiply and the angles add. If <m>r = 1</m> so <m>e^{i \theta}</m> is on the unit circle, you see that multiplication just rotates <m>s e^{i \phi}</m> by <m>\theta</m> counter-clockwise around the origin. So complex multiplication encodes scaling <em>and</em> rotation!</p>
+
+        <p>While there are many more points to make about the geometry of complex numbers, we will put these on hold and return to the abstract and computational picture. It may be surprising that the complex numbers satisfy all of the familiar arithmetic properties we mentioned earlier, but in fact they satisfy an even more amazing property which is at the root (pun intended) of their importance.</p>
+
+        <theorem xml:id="thm-fta">
+	        <title> Fundamental Theorem of Algebra </title>
+	        <creator>Gauss</creator>
+            <statement>
+                <p>If <m>f(x)</m> is a non-constant polynomial 
+		            <me> 
+			            f(x) = a_n x^n + a_{n - 1} x^{n - 1} + \cdots + a_1 x + a_0 ,
+		            </me>
+	            with complex coefficients <m>a_i</m> then there is a complex solution to the equation 
+	                <me>
+            	        f(x) = 0.
+	                </me>
+                </p>
+            </statement>
+        </theorem>
+
+        <p>Notice that this is not the case for the real numbers. For example, the equation <m>x^2 + 1 = 0</m> does not have a real solution.</p> 
+
+        <p> The proof of this theorem is beyond the scope of this course, and we should note that it is not in any way a constructive theorem. By this I mean that, while the theorem asserts the existence of a solution, in general finding an exact solution is impossible (although when <m>n = 1,2,3,4</m> it is possible). Even so, the result can be used to understand the behavior of many different systems as we will see when we get to diagonalization techniques.</p>
+
+    <exercises xml:id="exe-arithmetic-review">
+        <exercise>
+            <introduction><p> Specify a number system and operation satsifying the properties:</p></introduction>
+        <task>
+            <statement>
+                <p> The operation is commutative but not associative.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> The operation is not commutative.</p>
+            </statement>
+        </task>
+        </exercise>
+        <exercise>
+            <introduction><p> Let <m>z = -1 - i</m> and <m>w = 1 - i</m>.</p></introduction>
+        <task>
+            <statement>
+                <p> Compute <m>z + w</m>.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Compute <m>z \cdot w</m>.</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Express <m>z</m> and <m>w</m> in the form <m>re^{i\theta}</m> (i.e. in each case identify <m>r</m> and <m>\theta</m>).</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> Compute <m>z^8</m>. For both the grader and your sake, please do it cleverly.</p>
+            </statement>
+        </task>
+        </exercise>
+        <exercise>
+            <statement>
+                <p> Find the complex number <m>z = a + bi</m> that, when multiplying by this number, rotates the plane counter-clockwise by <m>120</m> degrees.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p> Prove that <m>|z|^2 = z \cdot \bar{z}</m>.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p> Prove that <m>\overline{zw} = \bar{z} \bar{w}</m>.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <introduction><p> Use Euler's Formula to prove the trigonometric addition formulas:</p></introduction>
+        <task>
+            <statement>
+                <p> <m>\cos (\theta + \phi ) = \cos \theta \cos \phi - \sin \theta \sin \phi</m>,</p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p> <m>\sin (\theta + \phi ) = \cos \theta \sin \phi + \sin \theta \cos \phi</m>.</p>
+            </statement>
+        </task>
+        </exercise>
+    </exercises>
+</section>

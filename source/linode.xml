@@ -1,0 +1,272 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-linode">
+    <title>Linear Ordinary Differential Equations</title>
+    <introduction>
+    <p>Having studied constant coefficient linear ODE's to a satisfactory degree, we now consider the more general case of linear ODE's. Again we will begin with the homogeneous case which appears to us as the equation
+    <men xml:id="eq-linearhomogeneous">
+        \dot{\mb{x}} (t) = A(t) \mb{x} (t). 
+    </men>
+    Indeed, we could have written this <m>\dot{\mb{x}} = A \mb{x}</m> as before, so long as we recognize a key difference - <em>the matrix <m>A</m> is time dependent</em>. It may seem to a student that this is a minor change, but in fact the general equation may now prove nearly impossible to solve. Notwithstanding this potential danger, there are many subclasses of linear ODE's which do admit solutions and whose solutions are of great importance. In this section we give a survey of some standard techniques available to solve some special cases.</p>
+</introduction>
+    <subsection xml:id="subsec-matrixexp">
+        <title>The Matrix Exponential</title>
+        <p>As it turns out, given any <m>n \times n</m> matrix <m>A</m> with real (or even complex) entries, there is a convergent power series
+        <me>
+            e^{A} = I + A + \frac{1}{2!} A^2 + \frac{1}{3!} A^3 + \cdots .
+        </me>
+        What we mean by this formula is that each entry in the sum forms a convergent series. This can be seen by taking the maximum of the absolute values of the entries and applying a ratio test to the entries. Now one might imagine that if we replaced <m>A</m> with a path of matrices <m>A (t)</m> that we could apply the chain rule and get
+        <me>
+            \text{ ??? } \frac{d}{dt} e^{A (t)} = A^\prime (t) e^{A (t)} \text{ ??? } 
+        </me>
+        Sadly, one would be disappointed with reality here. Indeed, the main problem that occurs comes from the non-commutative nature of multiplication. To see this, you will show in an exercise that
+        <mdn>
+            <mrow xml:id="eq-derivativematrix"> \frac{d}{dt} [ A (t) B (t) ] \amp = \left[ \frac{d}{dt}  A (t) \right] B (t)  + A(t) \left[ \frac{d}{dt}  B (t) \right], </mrow>
+            <mrow> \amp = A^\prime (t) B (t) + A(t) B^\prime (t). </mrow>
+        </mdn>
+        On the other hand, <em>if <m>A(t)</m> commutes with its derivative <m>A^\prime (t)</m></em> then 
+        <me>
+            \frac{d}{dt} (A (t))^n = n A^\prime (t) (A (t))^{n - 1}.
+        </me>
+        So under this condition, we would have
+        <men xml:id="eq-matexpderiv">
+            \frac{d}{dt} e^{A (t)} = A^\prime (t) e^{A (t)} \text{ if } A^\prime (t) A(t) = A(t) A^\prime (t).
+        </men>
+        Commuting matrices also work well with exponential rules as can be seen in the following lemma.</p>
+
+        <lemma xml:id="lem-expmatcomm">
+            <statement>
+                <p>If <m>A</m> and <m>B</m> are commuting square matrices then 
+                <ol>
+                    <li> <m>e^{A + B} = e^A e^B</m>, </li>
+                    <li> <m>e^{-A} = \left(e^{A} \right)^{-1}</m>. </li>
+                </ol></p>
+            </statement>
+        </lemma>
+        <p>This brings us to a nice, albeit slightly opaque, theorem.</p>
+
+        <theorem xml:id="thm-expsolution">
+            <statement>
+                <p>Suppose <m>A(t)</m> and <m>B(t)</m> are commuting square matrices and <m>B^\prime (t) = A (t)</m> then
+                <me>
+                    \mb{x} (t) = e^{B(t)} \mb{v}
+                </me>
+                is a solution to equation <xref ref="eq-linearhomogeneous"/>" for any vector <m>\mb{v}</m>. Furthermore, the unique solution with initial condition <m>\mb{x} (0)</m> has <m>\mb{v} = e^{-B(0)} \mb{x} (0)</m>.</p>
+            </statement>
+        </theorem>
+        
+        <p>The proof of this theorem is simply equation <xref ref="eq-matexpderiv"/>. In practice, this theorem yields mixed results, but does come up as a solution in certain circumstances.</p>
+
+        <example>
+            <title>Using exponential matrices</title>
+            <statement>
+                <p> Any homogeneous constant coefficient matrix can be seen to fit into this case. In particular, if <m>A</m> is diagonalizable with <m>P^{-1} A P = \text{Diag} (\lambda_1, \ldots, \lambda_n)</m> then
+                <md>
+                    <mrow> e^{t A}  \amp = P P^{-1} e^{t A} P P^{-1}, </mrow>
+                    <mrow> \amp = P e^{t P^{-1} A P} P^{-1}, </mrow>
+                    <mrow> \amp =  P e^{\text{Diag} (t \lambda_1, \ldots, t \lambda_n)} P^{-1}, </mrow>
+                    <mrow> \amp = P \,\text{Diag} (e^{\lambda_1 t}, \ldots, e^{\lambda_n t} ) P^{-1}. </mrow>
+                </md>
+                If the columns of <m>P</m> are the eigenbasis <m>\{\mb{v}_1, \ldots , \mb{v}_n\}</m>, the initial condition is 
+                <me>
+                    \mb{x} (0) = \threevec{C_1}{\vdots}{C_n}
+                </me>
+                and 
+                <me>
+                    P \threevec{C_1}{\vdots}{C_n} = \threevec{D_1}{\vdots}{D_n}
+                </me>
+                then this reproduces our solution 
+                <me>
+                    \mb{x} (t) = D_1 e^{\lambda_1 t} \mb{v}_1 + \ldots + D_n e^{\lambda_n t} \mb{v}_n.
+                </me></p>
+            </statement>
+        </example>
+
+        <example>
+            <title>Using exponential matrices</title>
+            <statement>
+                <p> Consider the linear system
+                <md>
+                    <mrow> x^\prime (t) \amp = 2 t  x(t) + y(t), </mrow>
+                    <mrow> y^\prime (t) \amp =  x (t) + 2 t y(t). </mrow>
+                </md> 
+                This can be written as the matrix equation
+                <me>
+                    \dot{\mb{x}} (t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right]  \mb{x} (t). 
+                </me>
+                Letting 
+                <md>
+                    <mrow> A(t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right], </mrow>
+                    <mrow> B(t) = \left[ \begin{matrix} t^2 \amp t \\ t \amp t^2 \end{matrix} \right], </mrow>
+                </md> 
+                One can check that <m>B(t)</m> and <m>A(t)</m> commute and that <m>B^\prime (t) = A(t)</m>, so by our theorem, 
+                <me>
+                    \mb{x} (t) = e^{B(t)} \mb{v}
+                </me>
+                is a solution.</p>
+
+                <p>While this is very nice, the expression of this solution is a bit opaque since the exponential <m>e^{B(t)}</m> may be well defined, but is not readily computable. However, one can observe that <m>B(t)</m> is diagonalizable as a matrix of functions in the sense that
+                <me>
+                    B(t) = \frac{t}{2} \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} t - 1 \amp 0 \\ 0 \amp t + 1 \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right] .
+                </me>
+                This can be used to see that
+                <md>
+                    <mrow> e^{B (t)} \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp 0 \\ 0 \amp e^{t(t + 1)/2} \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right], </mrow>
+                    <mrow> \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp e^{t(t - 1)/2} \\ -e^{t(t + 1)/2} \amp e^{t(t + 1)/2} \end{matrix} \right], </mrow>
+                    <mrow> \amp = \left[ \begin{matrix} e^{t(t - 1)/2} + e^{t(t + 1)/2} \amp e^{t(t - 1)/2} - e^{t(t + 1)/2} \\ e^{t(t - 1)/2} - e^{t(t + 1)/2} \amp e^{t(t - 1)/2} + e^{t(t + 1)/2} \end{matrix} \right], </mrow>
+                </md> 
+                which in turn will give explicit solutions to our original linear system. </p>
+            </statement>
+        </example>
+    </subsection>
+
+    <subsection xml:id="subsec-higherode2">
+        <title>Higher order linear ODE's II</title>
+
+        <p>Given a higher order linear ODE
+        <men xml:id="eq-linearhighODE">
+            x^{(n)} (t) + A_{n -1 } (t) x^{(n - 1)} (t) + \cdots + A_{1} (t) x^\prime (t) + A_0 (t) x(t) \amp = f(t)
+        </men>
+        we may have limited resources to find a solution. For example, it is known that even when the coefficient functions <m>A_i (t)</m> are polynomials ( a so called holonomic differential equation), the solutions may have no expression in terms of exponentials, trigonometric, or polynomial functions. However, we do have qualitative results that can be asserted. </p>
+
+        <theorem>
+            <statement>
+                <p> If <m>f(t)=0</m> and <m>A_i(t)</m> are differentiable functions in equation <xref ref="eq-linearhighODE"/>, then there is an <m>n</m>-dimensional space of solutions. More generally, there is a solution <m>x_p (t)</m> to equation <xref ref="eq-linearhighODE"/> and any other solution is of the form
+                <me>
+                    x(t) = x_p (t) + x_h(t)
+                </me>
+                where <m>x_h(t)</m> is a solution to the <m>f(t) = 0</m> case.</p>
+            </statement>
+        </theorem>
+
+        <p>Again, when <m>f(t) = 0</m> we call equation <xref ref="eq-linearhighODE"/> a homogeneous linear ODE and the solutions form a vector space. The function <m>x_p (t)</m> is called a <term>particular</term> solution and <m>x_h (t)</m> a <term>complementary</term> solution. A basis 
+        <me>
+            \mathcal{B} = \left\{ x_1 (t), x_2 (t), \ldots, x_n (t) \right\}
+        </me>
+        of solutions to the homogeneous equation are called <term>fundamental solutions</term>.</p>
+
+        <p>The proof of this theorem follows immediately from recasting it as a first order matrix equation with an <m>n \times n</m> matrix and applying the existence and uniqueness theorems (which still are to be proven). However, given any technique to find <m>n</m> solutions, one may wish to see whether the solutions form a basis. For this, we have the following tool.</p>
+
+        <definition xml:id="def-Wronskian">
+            <notation>
+                <usage><m> W_{x_1 x_2 \cdots x_n} </m></usage>
+                <description>Wronskian of scalar functions</description>
+            </notation>
+            <statement>
+                <p>Given scalar functions <m>x_1 (t), x_2(t), \ldots, x_n(t)</m>, their <term>Wronskian</term> is 
+                <me>
+                    W_{x_1 x_2 \cdots x_n} = \det \left(    \left[ \begin{matrix} x_1 (t) \amp x_2(t)\amp \cdots \amp x_n(t) \\ x^\prime_1 (t) \amp x^\prime_2(t)\amp \cdots \amp x^\prime_n(t) \\ \vdots \amp \vdots \amp \amp \vdots\\ x^{(n - 1)}_1 (t) \amp x^{(n - 1)}_2(t)\amp \cdots \amp x^{(n - 1)}_n (t) \end{matrix} \right] \right)
+                </me></p>
+            </statement>
+        </definition>
+
+        <p>The Wronskian is useful to show that one has obtained fundamental solutions.</p>
+
+        <lemma>
+            <statement>
+                <p> Suppose <m>x_1(t), \ldots, x_n(t)</m> solve equation <xref ref="eq-linearhighODE"/> with domain on a connected interval and with <m>f(t) = 0</m>. If <m>W_{x_1 \cdots x_n} (t) \ne 0</m> for any <m>t</m>, then <m>x_1(t), \ldots, x_n(t)</m> form fundamental solutions. </p>
+            </statement>
+            <proof>
+                <p>If <m>W_{x_1 \cdots x_n} (t_0) \ne 0</m> then the matrix in <xref ref="def-Wronskian"/> is invertible. This means the columns are linearly independent. But then any initial condition
+                <me>
+                    \threevec{x (t_0)}{\vdots}{x^{(n - 1)} (t_0)}
+                </me>
+                is a linear combination of those given by <m>x_1, \ldots, x_n</m> implying <m>x</m> is a linear combination of these functions (by the uniqueness of solutions with a given initial condition).</p>
+            </proof>
+        </lemma>
+
+        <example xml:id="ex-wronskian">
+            <title>Using the Wronskian</title>
+            <statement>
+                <p> Consider the differential equation 
+                <me>
+                    2t^2 x^{\prime \prime} (t) + 3t x^\prime (t) - x(t) = 0.
+                </me>
+                One checks that <m>x_1(t) = \sqrt{t}</m> and <m>x_2 (t) = 1/t</m> are solutions to this equation for <m>t > 0</m>. Calculating the Wronskian gives
+                <me>
+                    W_{x_1 x_2} = \det \left[ \begin{matrix} \sqrt{t} \amp \frac{1}{t} \\ \frac{1}{2\sqrt{t}} \amp - \frac{1}{t^2} \end{matrix} \right] = - \frac{1}{t^{3/2}} - \frac{1}{2t^{1/2}}.
+                </me>
+                Since this is non-zero, we conclude that <m>1/t</m> and <m>\sqrt{t}</m> are fundamental solutions.</p>
+            </statement>
+        </example>
+    </subsection>
+
+    <subsection xml:id="subsec-powerseries">
+        <title>ower Series Methods</title>
+
+        <p>Let us return to a second order linear ODE, which is the subject of a great amount of mathematics. We will work through a sufficiently general example to illustrate the method of using power series in differential equations, but we will refrain from a full exposition on this subject as it can involve a large amount of new and unrelated techniques (but take a numerical analysis course if you are interested in this!). We consider the Bessel equation which seems to be very close to <xref ref="ex-wronskian"/>, but in fact is much more challenging. The zero-th Bessel equation is
+        <me>
+            t^2 x^{\prime \prime} (t) + t x^\prime (t) + t^2 x (t) = 0.
+        </me>
+        The key difference between this and the equation given in the example is that the function in front of <m>x(t)</m> is no longer constant. The power series method (aka Frobenius method) is to assume that 
+        <me>
+            x(t) = \sum_{n = 0}^\infty a_n t^n
+        </me>
+        is a convergent power series expression for <m>x(t)</m> with non-zero radius of convergence. We solve for <m>a_n</m> using the differential equation. Indeed, putting <m>x(t)</m> into the equation gives
+        <md>
+            <mrow> 0 \amp = t^2 \left( \sum_{n = 2}^\infty n (n - 1)a_n t^{n - 2} \right) + t \left(  \sum_{n = 1}^\infty n a_n t^{n - 1} \right) + t^2  \sum_{n = 0}^\infty a_n t^n, </mrow>
+            <mrow> \amp =  \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 1}^\infty n a_n t^{n}  +   \sum_{n = 0}^\infty a_n t^{n + 2}. </mrow>
+        </md>
+        Now we reindex each summand on the right to get a single series.
+        <md>
+            <mrow> 0  \amp =  \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 1}^\infty  n a_n t^{n}  +   \sum_{n = 0}^\infty a_n t^{n + 2}, </mrow>
+            <mrow> \amp = a_1 t + \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 2}^\infty n a_n t^{n}  + \sum_{n = 2}^\infty a_{n - 2} t^{n}, </mrow>
+            <mrow> \amp = a_1 t + \sum_{n = 2}^\infty \left( n (n - 1)a_n   +   n a_n  +  a_{n - 2} \right) t^{n}, \\ \amp = a_1 t + \sum_{n = 2}^\infty \left(n^2 a_n   +  a_{n - 2} \right) t^{n}, </mrow>
+        </md> 
+        Now, on the right hand side we have a power series with non-zero radius of convergence around <m>0</m> which is identically zero. This implies each coefficient must be zero (why?). In particular we obtain that <m>a_1 = 0</m> and the recursion relations <me> n^2 a_n   +  a_{n - 2} = 0. </me> Combining the fact that <m>a_1 = 0</m> with this relation gives 
+        <me>
+            a_1 = 0, \hspace{.2in} a_3 = 0,\hspace{.2in} a_5 = 0, \ldots 
+        </me>
+        so there are only even coefficients. Furthermore, we have 
+        <me>
+            a_2 = \frac{-1}{2^2} a_0, \hspace{.2in}a_4 = \frac{(-1)^2}{4^2 2^2}a_0,\hspace{.2in} a_6 = \frac{(-1)^3}{6^24^2 2^2} , \ldots
+        </me>
+        giving the equation
+        <md>
+            <mrow> a_{2n} \amp = \frac{(-1)^n}{(2n)^2(2(n - 1))^2 \cdots 2^2} a_0, </mrow>
+            <mrow> \amp = \frac{(-1)^n}{(2n \cdot 2(n - 1) \cdots 2)^2} a_0, </mrow>
+            <mrow> \amp =  \frac{(-1)^n}{2^{2n}(n \cdot (n - 1) \cdots 1)^2} a_0, </mrow>
+            <mrow> \amp =  \frac{(-1)^n}{2^{2n} \, (n!)^2} a_0 </mrow>
+        </md>
+        Taking <m>a_0 = 1</m> we obtain the zeroth Bessel function
+        <me>
+            J_0 (t) = \sum_{n = 0}^\infty \frac{(-1)^n \, t^{2n}}{2^{2n} \, (n!)^2}.
+        </me>
+        This function is one of several functions that has several applications in wave propagation and heat transfer. It cannot be expressed with a finite composition using our elementary functions <m>t^n</m>, <m>\sin t</m>, <m>\cos t</m>, <m>\ln t</m> and <m>e^t</m>... it's brand new!</p>
+    </subsection>
+
+    <exercises xml:id="exe-linode">
+
+        <exercise>
+            <statement>
+                <p>Verify equation <xref ref="eq-derivativematrix"/>.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Verify <xref ref="lem-expmatcomm"/>.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Find fundamental solutions to the ordinary differential equation <me> 4 t^2 x^{\prime \prime} (t) + 4 t x^\prime (t) - x (t) = 0. </me></p>
+            </statement>
+            <hint>Try a function like <m>x(t) = t^\alpha</m>.
+            </hint>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>The solution for Bessel's Equation has exactly one constant <m>a_0</m> in its expression. However, solutions to second order differential equations normally have two parameters corresponding to the two initial conditions. Explain why there is only one in this case.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p>Use power series methods to solve the differential equation <me> x^{\prime \prime} (t) - t x^\prime (t) - x (t) = 0 </me> with initial conditions <m>x(0) = 1</m>, <m>x^\prime (0) = 0</m>.</p>
+            </statement>
+        </exercise>
+    
+    </exercises>
+
+</section>

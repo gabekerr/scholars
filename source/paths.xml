@@ -1,0 +1,336 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-paths">
+  <title>Paths</title>
+  <introduction>
+  <p>We have now acquired a solid body of linear algebra knowledge. It's time to apply it to the non-linear world!</p>
+    </introduction>
+  <subsection>
+    <title>Curves vs. Paths</title>
+
+    <p>Recall that a path is defined to be a function</p>
+    <men xml:id="eq-rnpaths">
+        \mb{r} : I \to \mathbb{R}^n
+    </men>
+    
+    <p>Here the domain <m>I</m> is a (potentially infinite) interval in <m>\mathbb{R}</m>. A <term>curve</term> is the image of one or more paths. In this course, we distinguish between a path and a curve, although some texts refer to paths as `parameterized curves', which is a more explicit description of what they are - a path gives a (connected) curve a (non-linear) coordinate or parameter. Let us formalize this notion.</p>
+    <definition xml:id="def-parameterizecurve">         
+        <notation>             
+            <usage><m>\mb{r} : I \to V</m></usage>             
+            <description>Parameterized curve</description>         
+        </notation>         
+        <statement>             
+            <p>Given a curve <m>\mathcal{C}</m> in a vector space <m>V</m>, we say that <m>\mb{r} : I \to V</m> <term>parameterizes</term> <m>\mathcal{C}</m> if it is one-to-one and its range is <m>\mathcal{C}</m> (except possibly at the endpoints). If <m>I</m> is a connected interval <m>(a,b)</m>, <m>(a,b]</m> or <m>[a,b]</m>, we will say that <m>\mathcal{C}</m> is a <term>connected</term> curve.</p>
+        </statement>
+    </definition>
+
+    <p>There are three common notations we will encounter. If <m>n = 2</m> or <m>n = 3</m>, we may write <me> \mb{r} (t) = \twovec{x(t)}{y(t)} \hspace{.2in} \text{ or } \hspace{.2in} \mb{r} (t) = \threevec{x(t)}{y(t)}{z(t)} </me> respectively. It is also very common to see these written out as row vectors with the notation <me> \mb{r} (t) = \left\langle x(t) , y(t) \right\rangle \hspace{.2in} \text{ or } \hspace{.2in} \mb{r} (t) = \left\langle x(t), y(t), z(t) \right\rangle. </me> In the general case, we will write <me> \mb{r} (t) = \threevec{x_1 (t) }{ \vdots}{x_n (t)}  \hspace{.2in}  \text{ or } \hspace{.2in} \mb{r} (t) = \left\langle x_1 (t) , \ldots, x_n (t) \right\rangle. </me> In this setting, it is common to write the path as <m>\mb{x} (t)</m> and we often use this instead of <m>\mb{r} (t)</m> in this case. Let us take a look at some common curves and their parameterizations.</p>
+
+    <example>
+        <title></title>
+        <statement>
+            <p>For a fixed positive real number <m>R</m>, the path <me> \mb{r} (t) = \twovec{R \cos t}{R \sin t} </me> will be used frequently as it parameterizes the circle <m>\mathcal{C}_R</m> of radius <m>R</m> centered at the origin. In this case, the circle is the curve and <m>\mb{r} (t)</m> is a path. Of course, here we would take the domain of <m>\mb{r}(t)</m> to be an interval like <m>[0, 2\pi]</m> or <m>[0, 2\pi)</m>. A variant of this is the path <me> \mb{r} (t) = \twovec{a \cos t}{b \sin t}.  </me> This parameterizes the ellipse given by  <me> \left( \frac{x}{a} \right)^2 +  \left( \frac{y}{b} \right)^2 = 1 .</me> </p>
+        </statement>
+    </example>
+
+    <p>Before giving the next example, let's define a line!</p>
+    
+    <definition xml:id="def-line">
+        <notation> 
+            <usage><m>\ell</m></usage>             
+            <description>Line in a vector space</description>
+        </notation>         
+        <statement>             
+            <p>Given a non-zero real vector space <m>V</m>, a <term>line</term> in <m>V</m> is any subset which equals the translation of a one-dimensional vector subspace in <m>V</m>.</p>
+        </statement>
+    </definition>
+
+    <p>The reason for including the translation is that vector subspaces always pass through the origin and we often want to consider lines which do not. Of course, we will consider translating by <m>\mb{0}</m> as an option, so lines passing through the origin do count as lines!</p>
+
+        <example>
+            <title>Parameterizing lines</title>
+            <statement>
+                <p>A quick look at <xref ref="def-line"/> will confirm that a line <m>\ell</m> in <m>V</m> is indeed a curve, not a path. It does not come with any given parameterization. However, it does assert that there must be a vector <m>\mb{v}_0</m> and a one dimensional subspace <m>W</m> such that <me> \ell = W + \mb{v}_0 = \left\{ \mb{w} + \mb{v}_0 : \mb{w} \text{ a vector in } W \}. </me> Given this information, we actually can parameterize <m>\ell</m> by choosing a basis (or in this case, a single non-zero vector) <m>\{\mb{v} \}</m> of <m>W</m>. Indeed, once we do this, we consider the function <me> \mb{r} (t) = \mb{v}_0 + t \mb{v}. </me> Since every vector in <m>W</m> is uniquely written as a multiple <m>t \mb{v}</m> for some <m>t \in \mathbb{R}</m>, this will be a one-to-one correspondence from <m>\mathbb{R}</m> to our line <m>\ell</m>. This is called in some texts the <term>vector parameterization of <m>\ell</m></term>, <m>\mb{v}_0</m> is called the <term>initial vector</term>, and <m>\mb{v}</m> is called the <term>direction vector</term>. Of course, we could have chosen a non-zero multiple of <m>\tilde{\mb{v}} = - 4 \mb{v}</m> as our direction vector and <me> \tilde{\mb{r}} (t) = \mb{v}_0 - 4 t \mb{v} </me> would be another path parameterizing <m>\ell</m>. Again, paths parameterizing the same curve may be different!</p>
+            </statement>
+        </example>
+
+        <p>We recall the discussion from <xref ref="sec-equation"/> about the fact that in the path setting, we assign a number to each point of the curve. So the path has much more information in it than the curve. In some ways, this information is useful because we can compute. But often, we are not as interested in the extra information as we are the curve itself. For example, we may want to know the length of the curve which does not depend on our parameterization. </p>
+
+        <p>In many ways, this difference is analogous to the difference between a real <m>n</m>-dimensional vector space <m>V</m> and <m>\mathbb{R}^n</m>. The former is something we may be interested in, but the latter is something we can compute with. A basis of <m>V</m> gives us a way of parameterizing <m>V</m> with coordinates in <m>\mathbb{R}^n</m> and studying important features. But enough reminiscing, back to paths!</p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-tangentvectors">
+        <title>Tangent Vectors of Paths</title>
+
+        <p>All of the notation conventions for paths are with respect to paths with codomain <m>\mathbb{R}^n</m> (or <m>\mathbb{C}^n</m>), but we will promote this a bit by taking our codomain to be an arbitrary inner product space <m>V</m> over <m>K</m> and considering paths to be vector valued functions of one variable (which usually will be <m>t</m>) <me> \mb{r}  : \mathbb{R} \to V . </me> Thus <m>\mb{r} (t)</m> will be a vector in <m>V</m> dependent on a `time' parameter <m>t</m>. Of course, for finite dimensional real inner product spaces with a choice of basis, a path in this sense can be written with coordinates using the basis, and we may freely go back and forth once such a basis is chosen. In particular, we will often use the form of  equation <xref ref="eq-rnpaths"/> in examples and exercises as it is where we can compute most effectively.</p>
+
+        <p>However, in some contexts it is helpful to keep the flexibility of working over complex numbers or without a predetermined choice of basis. In particular, some results and definitions are best expressed without these constraints. Here is an example.</p>
+        
+        <definition xml:id="def-patharith">         
+            <notation>             
+                <usage><m>\mb{r}_1 + \lambda \mb{r}_2 </m></usage>             
+                <description>Arithmetic of paths</description>         
+            </notation>        
+            <statement>             
+                <p>If <m>\mb{r}_1 (t)</m>, <m>\mb{r}_2 (t)</m> are paths in the inner product space <m>V</m> over <m>K</m>, <m>W</m> a vector space over <m>K</m>, <m>T : V \to W</m> a linear transformation, and <m>\lambda</m> is a scalar, then 
+            <ol>
+                <li> <m>(\mb{r}_1 + \lambda \mb{r}_2 ) (t) = \mb{r}_1 (t) + \lambda \mb{r}_2 (t)</m> defines the sum of two paths, </li>
+                <li> <m>\left\langle \mb{r}_1 , \mb{r_2} \right\rangle (t) = \left\langle \mb{r}_1 (t) , \mb{r}_2  (t) \right\rangle</m> defines the pairing of two paths and gives a scalar function of <m>t</m>, </li>
+                <li> <m>T ( \mb{r}_1 ) (t) = T ( \mb{r}_1 (t) )</m> is the path of the composition of <m>T</m> with <m>\mb{r}_1</m>. </li>
+            </ol></p>
+            </statement>
+        </definition>
+
+        <p>Thus we can do vector arithmetic on paths and compute angles and distances between paths (at varying times). However, the main ingredient that an inner product provides that allows for us to start doing calculus is distance. This is because without it (or a more general form of it called a topology), we cannot make sense of the following notion.</p>
+        
+        <definition xml:id="def-tangentvector">         
+            <notation>             
+                <usage><m>\mb{r}^\prime (a) </m></usage>             
+                <description>Velocity and tangent vector of a path</description>         
+            </notation>         
+            <statement>             
+                <p> Let <m>I</m> be an interval in <m>\mathbb{R}</m> with <m>a</m> in its interior and <m>\mb{r} : I \to V</m> a path in <m>V</m>. The <term>tangent vector</term> or <term>velocity vector</term> of <m>\mb{r}</m> at <m>a</m> is
+                <men xml:id="eq-velvec">
+                    \mb{r}^\prime (a) = \lim_{h \to 0} \frac{1}{h} \left( \mb{r} (a + h) - \mb{r} (a) \right).
+                </men>
+                If this is well defined at all <m>a</m> in <m>I</m>, we will say that <m>\mb{r}</m> is <term>differentiable</term> and write <m>\mb{r}^\prime</m> for the path of tangent vectors <m>\mb{r}^\prime : I \to V</m>. </p>
+            </statement>
+        </definition>
+        
+        <p>The tangent vector at <m>a</m> is also sometimes written as <m>\mb{v} (a)</m> (although we will refrain from using this notation to avoid confusion with vectors in <m>V</m>). It is also very common to see it written as <me> \dot{\mb{r}} (a) = \mb{r}^\prime (a)  </me> or,  <me> \left. \frac{d}{dt} \right|_a\mb{r} (t) = \mb{r}^\prime (a). </me></p>
+
+        <p>Now, I ask that the student look carefully at equation <xref ref="eq-velvec"/> and consider what is within the limit, namely <me> \frac{1}{h} \left( \mb{r} (a + h) - \mb{r} (a) \right) .</me> For a given <m>h</m> (note that <m>a</m> is fixed), the object inside the parentheses is the difference of two vectors in <m>V</m>, so it is a vector in <m>V</m>. We are scalar multiplying this by the non-zero real scalar <m>\frac{1}{h}</m>. So altogether this expression is a vector for any <m>h</m>. In fact, it is a rescaled the displacement vector from <m>\mb{r}</m> at time <m>a</m> to <m>\mb{r}</m> at time <m>a + h</m>.</p>
+
+        <p>In fact, if <m>V = \mathbb{R}</m> and <m>\mb{r} (t) = f(t)</m> were our one variable function, this definition would simply be <me> f^\prime (a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} </me> which every red blooded high school student knows as the derivative!</p>
+
+        <p>But as was mentioned above, the key ingredient that we need to make sense of the definition for higher dimensions <m>V</m> is the inner product (which gives us a definition of distance, and in turn, for the limit). Right now, this is just a comment and I ask students to make a mental note of it and consider reading through an introductory analysis book to gather a more in depth understanding of limits in many dimensions. Suffice it to say, many results that we had in one variable carry over to many variables. In particular, we have the following two very useful propositions.</p>
+
+        <proposition xml:id="prop-pathderivativelinear">
+            <statement>
+                <p>Taking tangent vectors is a linear operation. Concretely, if <m>\mb{r}_1</m> and <m>\mb{r}_2</m> are differentiable at <m>a</m> and <m>\lambda</m> is a scalar (complex or real) then <m>\mb{r}_1 + \lambda \mb{r}_2</m> is differentiable at <m>a</m> and <me> \left( \mb{r}_1 (t) + \lambda \mb{r}_2 (t) \right)^\prime = \mb{r}_1^\prime (t) + \lambda \mb{r}_2^\prime (t). </me> Moreover, if <m>f (t)</m> is a differentiable function to <m>K</m>, <m>\mb{v}</m> is a vector in <m>V</m> (not dependent on <m>t</m>) and <m>\mb{r} (t) = f(t) \mb{v}</m>, then <me>  \mb{r}^\prime (t) = f^\prime (t) \mb{v} . </me> </p>
+            </statement>
+            <proof>
+                <p>The proof of this fact follows from some basic analysis, so we will omit these details. </p>
+            </proof>
+        </proposition>
+
+        <p>We also have the proposition.</p>
+    
+        <proposition xml:id="prop-differentiablepath">
+            <statement>
+                <p> Suppose <m>V</m> is a finite dimensional vector space and <m>\mb{r} (t)</m> is a path in <m>V</m> defined on an interval around <m>a</m>. Then:
+                <ol>
+                    <li>If <m>\mb{r} (t)</m> is differentiable at <m>a</m> then <m>\alpha ( \mb{r} (t) )</m> is differentiable at <m>a</m> for every linear dual <m>\alpha : V \to K</m>.</li>
+                    <li>If <m>\mathcal{B} = \{\mb{v}^*_1, \ldots, \mb{v}^*_n\}</m> is a basis of the dual space <m>V^*</m> and <m>\mb{v}^*_i ( \mb{r} (t))</m> is differentiable at <m>a</m> for each <m>i</m> then so is <m>\mb{r}</m>. Moreover, if <m>\{\mb{v}_1, \ldots, \mb{v}_n\}</m> form the dual basis then <me> \mb{r}^\prime (a) = \left(\left. \frac{d}{dt}\right|_a \mb{v}^*_1 (\mb{r} (t)) \right) \mb{v}_1  + \cdots + \left(  \left. \frac{d}{dt}\right|_a  \mb{v}^*_n (\mb{r} (t) )  \right) \mb{v}_n. </me> </li>
+                </ol>
+                </p>
+            </statement>
+        </proposition>
+
+        <p>We should read this last proposition in the following way. Part (1) says that if a path is differentiable, then its coordinate functions are differentiable for any coordinate system you choose. Part (2) is a converse to this - it says if the coordinates of <m>\mb{r} (t)</m> in any given basis are differentiable functions of <m>t</m>, then so is <m>\mb{r} (t)</m> and furthermore the tangent vector has coordinates that are derivatives of the coordinates. Let us write this as a corollary which is really just a rephrasing of part (2).</p>
+
+        <corollary xml:id="cor-computetangent">
+            <statement>
+                <p>If <me> \mb{r}(t) = \threevec{x_1 (t)}{\vdots}{x_n (t)}_{\mathcal{B}} </me> is differentiable at <m>a</m> then <me> \mb{r}^\prime (a) = \threevec{x^\prime_1 (a)}{\vdots}{x_n^\prime (a)}_{\mathcal{B}}. </me></p>
+            </statement>
+            <proof>
+                <p>With a little help of some basic analysis, we can prove <xref ref="prop-differentiablepath"/>. By the fact that a dual vector is a continuous function, a linear scalar function is a continuous map which implies that composing commutes with limits. But finding the tangent vector <m>\mb{r}^\prime (a)</m> is such a limit and we see that <me> \mb{v}^* ( \mb{r}^\prime (a) ) = \left. \frac{d}{dt}\right|_a \mb{v}^* ( \mb{r} (t)) . </me> Thus, if <m>\mb{r}</m> is differentiable, then the left hand side exists which implies the right exists as well.</p>
+
+                <p>On the other hand, assume the right hand side exists for a basis of dual vectors <m>\mb{v}^*_i</m>. The <m>\mb{v}^*_i</m> have a dual basis <m>\mb{v}_1, \ldots, \mb{v}_n</m> as in equation <xref ref="eq-dualbasis"/> and any vector <m>\mb{v}</m> has the unique expression <me> \mb{v}^*_1 (\mb{v} ) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{v} ) \mb{v}_n = \mb{v} </me> This is also true for <m>\mb{r} (t)</m> so we have <me> \mb{v}^*_1 (\mb{r} (t)) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n = \mb{r} (t) </me> Now, the existence of the derivatives of the coordinate functions and <xref ref="prop-pathderivativelinear"/> gives 
+                <md>
+                    <mrow> \left(\left. \frac{d}{dt} \right|_a \mb{v}^*_1 (\mb{r} (t)) \right) \mb{v}_1  + \cdots + \left(  \left. \frac{d}{dt} \right|_a \mb{v}^*_n (\mb{r} (t) )  \right) \mb{v}_n \amp =  \left. \frac{d}{dt} \right|_a  \left(\mb{v}^*_1 (\mb{r} (t)) \mb{v}_1  \right) + \cdots + \left. \frac{d}{dt} \right|_a \left( \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n  \right), </mrow>
+                    <mrow> \amp =     \left. \frac{d}{dt} \right|_a \left(\mb{v}^*_1 (\mb{r} (t)) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n \right), </mrow>
+                    <mrow> \amp = \mb{r}^\prime (a)  .</mrow>
+                </md>
+                </p>
+            </proof>
+        </corollary>
+
+        <p> With <xref ref="cor-computetangent"/> in hand, we can calculate tangent vectors confidently.</p>
+        <example>
+            <title>Computing tangent vectors</title>
+            <statement>
+                <p>Suppose <me> \mb{r} (t) = \threevec{e^{2t}}{\sin ( \pi t^2 )}{\ln (4 t)} . </me> Its tangent vector can be computed by taking derivatives of the components so that <me> \mb{r}^\prime (t) = \threevec{2 e^{2t}}{2 \pi t \cos (\pi t^2)}{\frac{1}{t}}. </me> This example illustrates the more general application of <xref ref="cor-computetangent"/>, if <m>\mb{x}</m> is a path in <m>\mathbb{R}^n</m> and you want to find its tangent vector, you need only take <m>n</m> derivatives of the coordinate functions and you are done.</p>
+            </statement>
+        </example>
+
+        <p>Certainly, being able to compute tangent vectors is useful, but so is knowing that our prior rules and results still hold.</p>
+
+        <proposition xml:id="prop-productrulepaths">
+            <title>Product Rule for Paths</title>
+            <statement>
+                <p>If <m>f(t)</m> is a differentiable scalar valued function and <m>\mb{r} (t), \tilde{\mb{r}} (t)</m> are differentiable paths, then
+                <ol>
+                    <li> <me>\frac{d}{dt} \left( f(t) \mb{r} (t) \right) = f^\prime (t) \mb{r} (t) + f(t) \mb{r}^\prime (t) , </me> </li>
+                    <li> <me> \frac{d}{dt} \left\langle \mb{r} (t) , \tilde{\mb{r}} (t) \right\rangle = \left\langle \mb{r}^\prime (t) , \tilde{\mb{r}} (t) \right\rangle + \left\langle \mb{r} (t) , \tilde{\mb{r}}^\prime (t) \right\rangle. </me> </li>
+                </ol>
+                </p>
+            </statement>
+            <proof>
+                <p>For the first statement, we simply write <m>\mb{r} (t)</m> in coordinates for some basis <m>\mathcal{B}</m> and differentiate using <xref ref="cor-computetangent"/>.
+                <md>
+                    <mrow> \frac{d}{dt}  \left( f(t) \mb{r} (t) \right) \amp = \frac{d}{dt}  \left( f(t) \mb{r} (t) \right), </mrow>
+                    <mrow> \amp =  \frac{d}{dt}  \left( f(t) \threevec{x_1 (t)}{\vdots}{x_n (t)}_{\mathcal{B}} \right), </mrow>
+                    <mrow> \amp = \frac{d}{dt}  \left(  \threevec{ f(t) x_1 (t)}{\vdots}{f(t) x_n (t)}_{\mathcal{B}} \right), </mrow>
+                    <mrow> \amp =  \threevec{ f^\prime(t) x_1 (t) + f(t) x_1^\prime (t) }{\vdots}{f^\prime(t) x_n (t) + f(t) x^\prime_n (t)}_{\mathcal{B}}, </mrow>
+                    <mrow> \amp =  \threevec{ f^\prime(t) x_1 (t) }{\vdots}{f^\prime(t) x_n (t) }_{\mathcal{B}} + \threevec{ f(t) x_1^\prime (t) }{\vdots}{f(t) x^\prime_n (t)}_{\mathcal{B}}, </mrow>
+                    <mrow> \amp =  f^\prime(t) \threevec{  x_1 (t) }{\vdots}{ x_n (t) }_{\mathcal{B}} + f(t) \threevec{  x_1^\prime (t) }{\vdots}{ x^\prime_n (t)}_{\mathcal{B}},  </mrow>
+                    <mrow> \amp =  f^\prime(t) \mb{r} (t) + f(t) \mb{r}^\prime (t). </mrow>
+                </md> 
+                The second statement is proved similarly and is left to the student.</p>
+            </proof>
+        </proposition>
+
+
+        <proposition xml:id="prop-chainrulepaths">
+            <title>Chain Rule for Paths</title>
+            <statement>
+                <p>If <m>V</m> is a finite dimensional inner product space, <m>I_0</m> and <m>I_1</m> intervals in <m>\mathbb{R}</m>, <m>g : I_0 \to I_1</m> a differentiable function, and <m>\mb{r} : I_1 \to V</m> a differentiable path, then <me> \left. \frac{d}{dt} \right|_a \mb{r} ( g ( t)) = g^\prime (a) \, \mb{r}^\prime (g (a)). </me></p>
+            </statement>
+            <proof>
+                <p>The proof is left as an exercise.</p>
+            </proof>
+        </proposition>
+    </subsection>
+
+    <subsection xml:id="subsec-curvegeometry">
+        <title>The Geometry of Curves</title>
+
+        <p>There is much to say about the geometry of curves, and here we will define only a few important notions, saving for later a more detailed discussion. </p>
+
+        <definition xml:id="def-speed">         
+            <notation>             
+                <usage><m> \| \mb{r}^\prime (a) \|</m></usage>             
+                <description>Speed of a path</description>         
+            </notation>         
+            <statement>             
+                <p> A differentiable path <m>\mb{r} : I \to V</m> has <term>speed</term> <me> \| \mb{r}^\prime (a) \| </me> at <m>a</m>. </p>
+            </statement>
+        </definition>
+        
+        <p>Note that speed and velocity are two different (but related) concepts. In particular, velocity is a vector, while speed is a non-negative scalar.</p>
+        
+        <example xml:id="exa-helix">
+            <title>Speed of a parameterized helix</title>
+            <statement>
+                <p>To find the speed of the helix <me> \mb{r} (t) = \threevec{ 2 \cos (2t)}{- 2 \sin (2t)}{3t} </me> we first find the velocity <me> \mb{r}^\prime (t) = \threevec{ -4 \sin (2t)}{- 4 \cos (2t)}{3} </me> and take the magnitude <me> \| \mb{r}^\prime (t) \| = \sqrt{ 16 \sin^2 (2t) + 16 \cos^2  (2t) + 9} = \sqrt{25} = 5.</me> </p>
+            </statement>
+        </example>
+
+        <p>Just as in one variable calculus, we will wish to talk about vectors being `tangent' to a curve (and latter a surface or subspace).</p>
+        
+        <definition xml:id="def-tangenttocurve">         
+            <notation>             
+                <usage>generalized <m>T_a \mathcal{C} </m></usage>             
+                <description>Tangent line to curve</description>         
+            </notation>         
+            <statement>             
+                <p>Let <m>\mathcal{C}</m> be a curve. We say a vector <m>\mb{v}</m> is tangent to <m>\mathcal{C}</m> at <m>\mb{v}_0</m> if there is a differentiable parameterization <m>\mb{r} : I \to \mathcal{C}</m> so that <m>\mb{r} (a) = \mb{v}_0</m> and <m>\mb{v}</m> is a scalar multiple of <m>\mb{r}^\prime (a)</m>. The <term>tangent line</term> to <m>\mathcal{C}</m> is the line <m>\mb{v}_0 + W</m> where <m>W</m> is the subspace of tangent vectors to <m>\mathcal{C}</m> at <m>\mb{v}_0</m>.</p>
+            </statement>
+        </definition>
+
+        <example>
+            <title>Tangent line to a hyperbola</title>
+            <statement>
+                <p>Consider the positive branch <m>\mathcal{C}</m> of the hyperbola <me> x^2 - y^2 = 1 . </me> It was seen in <xref ref="sec-equation"/> that this branch is parameterized by the hyperbolic trigonometric functions via <me> \mb{r} (t) = \twovec{ \cosh t}{\sinh t} . </me> To write down a parametric equation for the tangent line to the curve at, say, <m>t_0</m>, we need only find the tangent vector <me> \mb{r}^\prime (t_0) = \twovec{\sinh t_0}{\cosh t_0} </me> and use this as the direction vector to obtain <me> \ell (t) = \mb{r} (t_0 ) + t \mb{r}^\prime (t_0 ) = \twovec{ \cosh t_0 + t \sinh t_0} {\sinh t_0 + t \cosh t_0}. </me> </p>
+            </statement>
+        </example>
+
+        <p>A can be useful to have a tangent vector to a curve which is a unit vector. This can be accomplished by normalizing the tangent vector. In fact, such a vector has a name. </p>
+        
+        <definition xml:id="def-unittangentvect">         
+            <notation>             
+                <usage><m>\mb{T} (p) </m></usage>             
+                <description>Unit tangent vector</description>         
+            </notation>         
+            <statement>             
+                <p> The <term>unit tangent vector</term> <m>\mb{T} (p)</m> to a curve <m>\mathcal{C}</m> at a point <m>p</m> is a unit vector which is tangent to <m>\mathcal{C}</m> at <m>p</m>. We call the function <m>\mb{T}</m> which assigns a point of <m>\mathcal{C}</m> to its unit tangent vector the <term>unit vector frame</term> of <m>\mathcal{C}</m>.</p>
+            </statement>
+        </definition>
+
+        <p>If the curve <m>\mathcal{C}</m> is parameterized by <m>\mb{r} (t)</m>, we may write <m>\mb{T} (t)</m> instead of <m>\mb{T} (\mb{r} (t))</m>. </p>
+        
+        <example>
+            <title>Finding the unit vector frame</title>
+            <statement>
+                <p>To find unit vectors of the helix <me> \mb{r} (t) = \threevec{ 2 \cos (2t)}{- 2 \sin (2t)}{3t} </me> from <xref ref="exa-helix"/>, we simply normalize the velocity vector by dividing by the speed. <me> \mb{T} (t) =  \threevec{ \frac{2}{5} \cos (2t)}{-\frac{2}{5} \sin (2t)}{\frac{3}{5}t} </me> </p>
+            </statement>
+        </example>
+
+        <p> One of the reasons to consider unit tangent vectors is that they give us ways of projecting other vectors <sq>along the curve</sq> at a point. We will see this approach when we integrate along curves later on. </p>
+
+    </subsection>
+
+    <exercises xml:id="exe-paths">
+
+        <exercise>
+            <statement>
+                <p>Give a path parameterizing the line in <m>\mathbb{R}^5</m> which passes through the vectors <m>\left\langle 1, 4, -2, 0 , 1 \right\rangle</m> and <m>\left\langle 0, 2, -3, 1, 2 \right\rangle</m>.</p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p> 
+                Find the tangent vectors of the following paths</p>
+            </introduction>
+            <task>
+                <statement>
+                    <p><me> \mb{r} (t) = \twovec{\cos t}{\sin t} </me> where <m>\mb{r} : \mathbb{R} \to \mathbb{R}^2</m>.
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p><me> \mb{r} (t) = e^{i t} </me> where <m>\mb{r} : \mathbb{R} \to \mathbb{C}</m>.
+                    </p>
+                </statement>
+            </task>
+            <conclusion>
+                <p>Compare your answers by relating <m>\mathbb{R}^2</m> to <m>\mathbb{C}</m> via the real linear isomorphism  <me> T \left( \twovec{x}{y} \right) = x + i y . </me> Explain your findings.</p>
+            </conclusion>
+        </exercise>
+    
+        <exercise xml:id="exe-derivativeexp">
+            <statement>
+                <p>Consider a slightly more general case than the previous exercise. Suppose <m>\lambda</m> is a complex number. Show that <me> \frac{d}{dt} e^{\lambda t} = \lambda e^{\lambda t}. </me></p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <introduction><p> 
+                Find the speed and unit tangent vectors for the following paths</p>
+            </introduction>
+            <task>
+                <statement>
+                    <p><me> \mb{r} (t) = \twovec{\cos 3 t}{\sin  3 t} </me> where <m>\mb{r} : \mathbb{R} \to \mathbb{R}^2</m>..
+                    </p>
+                </statement>
+            </task>
+            <task>
+                <statement>
+                    <p><me> \mb{r} (t) = \left\langle 3\cos (t ) ,  \cos (2t), 3 \sin (t), \sin (2t) \right\rangle </me> where <m>\mb{r} : \mathbb{R} \to \mathbb{R}^4</m>.
+                    </p>
+                </statement>
+            </task>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Prove <xref ref="prop-chainrulepaths"/>. </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> Suppose <m>\mb{r} (t)</m> is a differentiable path that parameterizes <m>\mathcal{C}</m> and <m>\mb{r} (0) = \mb{v}_0</m>. We can reparameterize <m>\mathcal{C}</m> by composing <m>\mb{r}</m> with another differentiable function <m>g (t)</m> with <m>g^\prime (t) \ne 0</m>. Suppose <m>g(0) = 0</m> and write <me>\tilde{\mb{r}} (t) = \mb{r} (g(t)) </me> for the new parametrization. Show that the tangent vectors <m>\mb{r}^\prime (0)</m> and <m>\tilde{\mb{r}}^\prime (0</m> are linearly dependent. This shows that a curve only has a tangent line (not a plane). </p>
+            </statement>
+        </exercise>
+
+        <exercise>
+            <statement>
+                <p> The <term> acceleration</term> vector of a twice differentiable path <m>\mb{r} (t)</m> is <m>\mb{r}^{\prime \prime} (t)</m>. We say that a curve is <term>arc length parameterized</term> by <m>\mb{r} (t)</m> if the speed of <m>\mb{r}(t)</m> is <m>1</m> for all <m>t</m>. Show that if <m>\mb{r} (t)</m> is an arc length parameterization then its velocity and acceleration are orthogonal. In other words, show that <me> \left\langle \mb{r}^\prime (t) , \mb{r}^{\prime \prime} (t) \right\rangle = 0 </me> for every <m>t</m>. </p>
+            </statement>
+        </exercise>
+
+    </exercises>
+
+</section>
