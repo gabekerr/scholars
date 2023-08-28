@@ -14,7 +14,7 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Scholars Calculus 3">
 <meta property="book:author" content="Gabriel Kerr">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
@@ -26,6 +26,19 @@ window.MathJax = {
   options: {
     ignoreHtmlClass: "tex2jax_ignore|ignore-math",
     processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
   },
   chtml: {
     scale: 0.98,
@@ -350,7 +363,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-linode"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span>
 </h2>
-<section class="introduction" id="introduction-39"><div class="para logical" id="p-758">
+<section class="introduction" id="introduction-39"><div class="para logical" id="p-759">
 <div class="para">Having studied constant coefficient linear ODE's to a satisfactory degree, we now consider the more general case of linear ODE's. Again we will begin with the homogeneous case which appears to us as the equation</div>
 <div class="displaymath process-math" id="eq-linearhomogeneous">
 \begin{equation}
@@ -361,7 +374,7 @@ window.MathJax = {
 </div></section><section class="subsection" id="subsec-matrixexp"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span>
 </h3>
-<div class="para logical" id="p-759">
+<div class="para logical" id="p-760">
 <div class="para">As it turns out, given any <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> with real (or even complex) entries, there is a convergent power series</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -398,17 +411,17 @@ e^{A} = I + A + \frac{1}{2!} A^2 + \frac{1}{3!} A^3 + \cdots .
 <article class="lemma theorem-like" id="lem-expmatcomm"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-760">
+<div class="para logical" id="p-761">
 <div class="para">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are commuting square matrices then</div>
 <ol class="decimal">
 <li id="li-91"><div class="para" id="p-derived-li-91"><span class="process-math">\(e^{A + B} = e^A e^B\text{,}\)</span></div></li>
 <li id="li-92"><div class="para" id="p-derived-li-92"><span class="process-math">\(e^{-A} = \left(e^{A} \right)^{-1}\text{.}\)</span></div></li>
 </ol>
-</div></article><div class="para" id="p-761">This brings us to a nice, albeit slightly opaque, theorem.</div>
+</div></article><div class="para" id="p-762">This brings us to a nice, albeit slightly opaque, theorem.</div>
 <article class="theorem theorem-like" id="thm-expsolution"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-762">
+<div class="para logical" id="p-763">
 <div class="para">Suppose <span class="process-math">\(A(t)\)</span> and <span class="process-math">\(B(t)\)</span> are commuting square matrices and <span class="process-math">\(B^\prime (t) = A (t)\)</span> then</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearhomogeneous.html">
 \begin{equation*}
@@ -417,10 +430,10 @@ e^{A} = I + A + \frac{1}{2!} A^2 + \frac{1}{3!} A^3 + \cdots .
 </div>
 <div class="para">is a solution to equation <a href="" class="xref" data-knowl="./knowl/eq-linearhomogeneous.html" title="Equation 5.5.1">(5.5.1)</a>" for any vector <span class="process-math">\(\mb{v}\text{.}\)</span> Furthermore, the unique solution with initial condition <span class="process-math">\(\mb{x} (0)\)</span> has <span class="process-math">\(\mb{v} = e^{-B(0)} \mb{x} (0)\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-763">The proof of this theorem is simply equation <a href="" class="xref" data-knowl="./knowl/eq-matexpderiv.html" title="Equation 5.5.4">(5.5.4)</a>. In practice, this theorem yields mixed results, but does come up as a solution in certain circumstances.</div>
+</div></article><div class="para" id="p-764">The proof of this theorem is simply equation <a href="" class="xref" data-knowl="./knowl/eq-matexpderiv.html" title="Equation 5.5.4">(5.5.4)</a>. In practice, this theorem yields mixed results, but does come up as a solution in certain circumstances.</div>
 <article class="example example-like" id="example-76"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-76"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Using exponential matrices.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-76"><article class="example example-like"><div class="para logical" id="p-764">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-76"><article class="example example-like"><div class="para logical" id="p-765">
 <div class="para">Any homogeneous constant coefficient matrix can be seen to fit into this case. In particular, if <span class="process-math">\(A\)</span> is diagonalizable with <span class="process-math">\(P^{-1} A P = \text{Diag} (\lambda_1, \ldots, \lambda_n)\)</span> then</div>
 <div class="displaymath process-math" id="md-106">
 \begin{align*}
@@ -451,7 +464,7 @@ P \threevec{C_1}{\vdots}{C_n} = \threevec{D_1}{\vdots}{D_n}
 </div></article></div>
 <article class="example example-like" id="example-77"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-77"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Using exponential matrices.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-77"><article class="example example-like"><div class="para logical" id="p-765">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-77"><article class="example example-like"><div class="para logical" id="p-766">
 <div class="para">Consider the linear system</div>
 <div class="displaymath process-math" id="md-107">
 \begin{align*}
@@ -479,7 +492,7 @@ B(t) = \left[ \begin{matrix} t^2 \amp t \\ t \amp t^2 \end{matrix} \right],
 \end{equation*}
 </div>
 <div class="para">is a solution.</div>
-</div> <div class="para logical" id="p-766">
+</div> <div class="para logical" id="p-767">
 <div class="para">While this is very nice, the expression of this solution is a bit opaque since the exponential <span class="process-math">\(e^{B(t)}\)</span> may be well defined, but is not readily computable. However, one can observe that <span class="process-math">\(B(t)\)</span> is diagonalizable as a matrix of functions in the sense that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -498,7 +511,7 @@ e^{B (t)} \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \righ
 </div></article></div></section><section class="subsection" id="subsec-higherode2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span>
 </h3>
-<div class="para logical" id="p-767">
+<div class="para logical" id="p-768">
 <div class="para">Given a higher order linear ODE</div>
 <div class="displaymath process-math" id="eq-linearhighODE">
 \begin{equation}
@@ -510,7 +523,7 @@ x^{(n)} (t) + A_{n -1 } (t) x^{(n - 1)} (t) + \cdots + A_{1} (t) x^\prime (t) + 
 <article class="theorem theorem-like" id="theorem-18"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.5.5</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-768">
+<div class="para logical" id="p-769">
 <div class="para">If <span class="process-math">\(f(t)=0\)</span> and <span class="process-math">\(A_i(t)\)</span> are differentiable functions in equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a>, then there is an <span class="process-math">\(n\)</span>-dimensional space of solutions. More generally, there is a solution <span class="process-math">\(x_p (t)\)</span> to equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a> and any other solution is of the form</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearhighODE.html ./knowl/eq-linearhighODE.html">
 \begin{equation*}
@@ -518,7 +531,7 @@ x(t) = x_p (t) + x_h(t)
 \end{equation*}
 </div>
 <div class="para">where <span class="process-math">\(x_h(t)\)</span> is a solution to the <span class="process-math">\(f(t) = 0\)</span> case.</div>
-</div></article><div class="para logical" id="p-769">
+</div></article><div class="para logical" id="p-770">
 <div class="para">Again, when <span class="process-math">\(f(t) = 0\)</span> we call equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a> a homogeneous linear ODE and the solutions form a vector space. The function <span class="process-math">\(x_p (t)\)</span> is called a <dfn class="terminology">particular</dfn> solution and <span class="process-math">\(x_h (t)\)</span> a <dfn class="terminology">complementary</dfn> solution. A basis</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearhighODE.html">
 \begin{equation*}
@@ -527,21 +540,21 @@ x(t) = x_p (t) + x_h(t)
 </div>
 <div class="para">of solutions to the homogeneous equation are called <dfn class="terminology">fundamental solutions</dfn>.</div>
 </div>
-<div class="para" id="p-770">The proof of this theorem follows immediately from recasting it as a first order matrix equation with an <span class="process-math">\(n \times n\)</span> matrix and applying the existence and uniqueness theorems (which still are to be proven). However, given any technique to find <span class="process-math">\(n\)</span> solutions, one may wish to see whether the solutions form a basis. For this, we have the following tool.</div>
+<div class="para" id="p-771">The proof of this theorem follows immediately from recasting it as a first order matrix equation with an <span class="process-math">\(n \times n\)</span> matrix and applying the existence and uniqueness theorems (which still are to be proven). However, given any technique to find <span class="process-math">\(n\)</span> solutions, one may wish to see whether the solutions form a basis. For this, we have the following tool.</div>
 <article class="definition definition-like" id="def-Wronskian"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.5.6</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-771">
+</h4> <div class="para logical" id="p-772">
 <div class="para">Given scalar functions <span class="process-math">\(x_1 (t), x_2(t), \ldots, x_n(t)\text{,}\)</span> their <dfn class="terminology">Wronskian</dfn> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
 W_{x_1 x_2 \cdots x_n} = \det \left(    \left[ \begin{matrix} x_1 (t) \amp x_2(t)\amp \cdots \amp x_n(t) \\ x^\prime_1 (t) \amp x^\prime_2(t)\amp \cdots \amp x^\prime_n(t) \\ \vdots \amp \vdots \amp \amp \vdots\\ x^{(n - 1)}_1 (t) \amp x^{(n - 1)}_2(t)\amp \cdots \amp x^{(n - 1)}_n (t) \end{matrix} \right] \right)
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-772">The Wronskian is useful to show that one has obtained fundamental solutions.</div>
+</div></article><div class="para" id="p-773">The Wronskian is useful to show that one has obtained fundamental solutions.</div>
 <article class="lemma theorem-like" id="lemma-18"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.5.7</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-773">Suppose <span class="process-math">\(x_1(t), \ldots, x_n(t)\)</span> solve equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a> with domain on a connected interval and with <span class="process-math">\(f(t) = 0\text{.}\)</span> If <span class="process-math">\(W_{x_1 \cdots x_n} (t) \ne 0\)</span> for any <span class="process-math">\(t\text{,}\)</span> then <span class="process-math">\(x_1(t), \ldots, x_n(t)\)</span> form fundamental solutions.</div></article><article class="hiddenproof" id="proof-51"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-51"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-51"><article class="hiddenproof"><div class="para logical" id="p-774">
+<div class="para" id="p-774">Suppose <span class="process-math">\(x_1(t), \ldots, x_n(t)\)</span> solve equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a> with domain on a connected interval and with <span class="process-math">\(f(t) = 0\text{.}\)</span> If <span class="process-math">\(W_{x_1 \cdots x_n} (t) \ne 0\)</span> for any <span class="process-math">\(t\text{,}\)</span> then <span class="process-math">\(x_1(t), \ldots, x_n(t)\)</span> form fundamental solutions.</div></article><article class="hiddenproof" id="proof-51"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-51"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-51"><article class="hiddenproof"><div class="para logical" id="p-775">
 <div class="para">If <span class="process-math">\(W_{x_1 \cdots x_n} (t_0) \ne 0\)</span> then the matrix in <a href="" class="xref" data-knowl="./knowl/def-Wronskian.html" title="Definition 5.5.6">Definition 5.5.6</a> is invertible. This means the columns are linearly independent. But then any initial condition</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def-Wronskian.html">
 \begin{equation*}
@@ -552,7 +565,7 @@ W_{x_1 x_2 \cdots x_n} = \det \left(    \left[ \begin{matrix} x_1 (t) \amp x_2(t
 </div></article></div>
 <article class="example example-like" id="ex-wronskian"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-wronskian"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.8</span><span class="period">.</span><span class="space"> </span><span class="title">Using the Wronskian.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-wronskian"><article class="example example-like"><div class="para logical" id="p-775">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-wronskian"><article class="example example-like"><div class="para logical" id="p-776">
 <div class="para">Consider the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -569,7 +582,7 @@ W_{x_1 x_2} = \det \left[ \begin{matrix} \sqrt{t} \amp \frac{1}{t} \\ \frac{1}{2
 </div></article></div></section><section class="subsection" id="subsec-powerseries"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.5.3</span> <span class="title">ower Series Methods</span>
 </h3>
-<div class="para logical" id="p-776">
+<div class="para logical" id="p-777">
 <div class="para">Let us return to a second order linear ODE, which is the subject of a great amount of mathematics. We will work through a sufficiently general example to illustrate the method of using power series in differential equations, but we will refrain from a full exposition on this subject as it can involve a large amount of new and unrelated techniques (but take a numerical analysis course if you are interested in this!). We consider the Bessel equation which seems to be very close to <a href="" class="xref" data-knowl="./knowl/ex-wronskian.html" title="Example 5.5.8: Using the Wronskian">Example 5.5.8</a>, but in fact is much more challenging. The zero-th Bessel equation is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
 \begin{equation*}
@@ -635,9 +648,9 @@ J_0 (t) = \sum_{n = 0}^\infty \frac{(-1)^n \, t^{2n}}{2^{2n} \, (n!)^2}.
 <span class="type">Exercises</span> <span class="codenumber">5.5.4</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-97"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-777">Verify equation <a href="" class="xref" data-knowl="./knowl/eq-derivativematrix.html" title="Equation 5.5.2">(5.5.2)</a>.</div></article><article class="exercise exercise-like" id="exercise-98"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-778">Verify <a href="" class="xref" data-knowl="./knowl/lem-expmatcomm.html" title="Lemma 5.5.1">Lemma 5.5.1</a>.</div></article><article class="exercise exercise-like" id="exercise-99"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-779">
+<div class="para" id="p-778">Verify equation <a href="" class="xref" data-knowl="./knowl/eq-derivativematrix.html" title="Equation 5.5.2">(5.5.2)</a>.</div></article><article class="exercise exercise-like" id="exercise-98"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-779">Verify <a href="" class="xref" data-knowl="./knowl/lem-expmatcomm.html" title="Lemma 5.5.1">Lemma 5.5.1</a>.</div></article><article class="exercise exercise-like" id="exercise-99"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para logical" id="p-780">
 <div class="para">Find fundamental solutions to the ordinary differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -649,8 +662,8 @@ J_0 (t) = \sum_{n = 0}^\infty \frac{(-1)^n \, t^{2n}}{2^{2n} \, (n!)^2}.
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-13" id="hint-13"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-13"><div class="hint solution-like">Try a function like <span class="process-math">\(x(t) = t^\alpha\text{.}\)</span>
 </div></div>
 </div></article><article class="exercise exercise-like" id="exercise-100"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="p-780">The solution for Bessel's Equation has exactly one constant <span class="process-math">\(a_0\)</span> in its expression. However, solutions to second order differential equations normally have two parameters corresponding to the two initial conditions. Explain why there is only one in this case.</div></article><article class="exercise exercise-like" id="exercise-101"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-781">
+<div class="para" id="p-781">The solution for Bessel's Equation has exactly one constant <span class="process-math">\(a_0\)</span> in its expression. However, solutions to second order differential equations normally have two parameters corresponding to the two initial conditions. Explain why there is only one in this case.</div></article><article class="exercise exercise-like" id="exercise-101"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para logical" id="p-782">
 <div class="para">Use power series methods to solve the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}

@@ -14,7 +14,7 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Scholars Calculus 3">
 <meta property="book:author" content="Gabriel Kerr">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
@@ -26,6 +26,19 @@ window.MathJax = {
   options: {
     ignoreHtmlClass: "tex2jax_ignore|ignore-math",
     processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
   },
   chtml: {
     scale: 0.98,
@@ -350,10 +363,10 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-vectorspaces1"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span>
 </h2>
-<div class="para" id="p-114">Having concluded our reviews and introduced some new arithmetic, we now proceed to explore a famous structure in linear algebra - vector spaces. While many of you will go on to study these spaces over an arbitrary field, we will restrict our attention in this course to real and complex vector spaces. We will call this set of numbers <span class="process-math">\(K\)</span> (so that <span class="process-math">\(K\)</span> is either <span class="process-math">\(\mathbb{R}\)</span> or <span class="process-math">\(\mathbb{C}\)</span>). Let's begin with the abstract definition.</div>
+<div class="para" id="p-115">Having concluded our reviews and introduced some new arithmetic, we now proceed to explore a famous structure in linear algebra - vector spaces. While many of you will go on to study these spaces over an arbitrary field, we will restrict our attention in this course to real and complex vector spaces. We will call this set of numbers <span class="process-math">\(K\)</span> (so that <span class="process-math">\(K\)</span> is either <span class="process-math">\(\mathbb{R}\)</span> or <span class="process-math">\(\mathbb{C}\)</span>). Let's begin with the abstract definition.</div>
 <article class="definition definition-like" id="def-vectorspace"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-115">
+</h3> <div class="para logical" id="p-116">
 <div class="para">A <dfn class="terminology">vector space</dfn> <span class="process-math">\(V\)</span> over <span class="process-math">\(K\)</span> is a set endowed with two operations, addition and scalar multiplication. Addition takes as its input two vectors <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\)</span> of <span class="process-math">\(V\)</span> and outputs <span class="process-math">\(\mb{v}_1 + \mb{v}_2\text{.}\)</span> Scalar multiplication takes a scalar <span class="process-math">\(\lambda\text{,}\)</span> which is an element of <span class="process-math">\(K\text{,}\)</span> and a vector <span class="process-math">\(\mb{v}\)</span> and produces a vector <span class="process-math">\(\lambda \mb{v}\text{.}\)</span> These operations have to satisfy the following properties</div>
 <ol class="decimal">
 <li id="li-23"><div class="para" id="p-derived-li-23">There is an additive identity vector <span class="process-math">\(\mb{0}\text{,}\)</span>
@@ -375,10 +388,10 @@ window.MathJax = {
 </div>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-116">An extremely common alternative notation to using bold letters <span class="process-math">\(\mathbf{u}, \mathbf{v}, \mathbf{w}\)</span> for vectors is to place an arrow above them as in <span class="process-math">\(\vec{u}, \vec{v}, \vec{w}\text{.}\)</span> Having now seen the abstract definition, let us gather several examples.</div>
+</div></article><div class="para" id="p-117">An extremely common alternative notation to using bold letters <span class="process-math">\(\mathbf{u}, \mathbf{v}, \mathbf{w}\)</span> for vectors is to place an arrow above them as in <span class="process-math">\(\vec{u}, \vec{v}, \vec{w}\text{.}\)</span> Having now seen the abstract definition, let us gather several examples.</div>
 <article class="example example-like" id="exa-columnvectors"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-columnvectors"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space of column vectors.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-columnvectors"><article class="example example-like"><div class="para logical" id="p-117">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-columnvectors"><article class="example example-like"><div class="para logical" id="p-118">
 <div class="para">By an overwhelming majority, the winner for the most popular vector space over <span class="process-math">\(K\)</span> is the space of column vectors:</div>
 <div class="displaymath process-math" id="eq-columnvectors">
 \begin{equation}
@@ -403,10 +416,10 @@ K^n = \left\{ \left[ \begin{matrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{matrix} \ri
 \end{align*}
 </div>
 </div></article></div>
-<div class="para" id="p-118">One may ask why column vectors are so popular and there are a couple of very reasonable responses to this question. One is that we can compute very effectively with column vectors (as we will see for the remainder of our lives). Another is that every finite dimensional vector space over <span class="process-math">\(K\)</span> is in a very precise sense equivalent to a space of column vectors. This second response is important, but it comes with a caveat which we will discuss when the time comes!</div>
+<div class="para" id="p-119">One may ask why column vectors are so popular and there are a couple of very reasonable responses to this question. One is that we can compute very effectively with column vectors (as we will see for the remainder of our lives). Another is that every finite dimensional vector space over <span class="process-math">\(K\)</span> is in a very precise sense equivalent to a space of column vectors. This second response is important, but it comes with a caveat which we will discuss when the time comes!</div>
 <article class="example example-like" id="example-12"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-12"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space of row vectors.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><div class="para logical" id="p-119">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-12"><article class="example example-like"><div class="para logical" id="p-120">
 <div class="para">Rather than taking columns, we could consider row vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -423,7 +436,7 @@ K^n = \left\{ \left[ \begin{matrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{matrix} \ri
 </div></article></div>
 <article class="example example-like" id="example-13"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-13"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space of matrices.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like"><div class="para logical" id="p-120">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-13"><article class="example example-like"><div class="para logical" id="p-121">
 <div class="para">An example that generalizes both column and row vectors is the vector space of <span class="process-math">\(m \times n\)</span> matrices</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-matrices1.html" id="eq-matrixsets">
 \begin{equation}
@@ -434,7 +447,7 @@ M_{m, n} (K) = \left\{ \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp
 </div></article></div>
 <article class="example example-like" id="example-14"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-14"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space of polynomials.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like"><div class="para logical" id="p-121">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-14"><article class="example example-like"><div class="para logical" id="p-122">
 <div class="para">A less common example, but useful one, is the vector space of polynomials of degree less than <span class="process-math">\(n\text{.}\)</span> This can be written</div>
 <div class="displaymath process-math" id="eq-polynomials">
 \begin{equation}
@@ -445,11 +458,11 @@ P_n (K) = \left\{ a_n x^n  + \cdots + a_1 x + a_0 : a_0, a_1, \ldots, a_n \text{
 </div></article></div>
 <article class="example example-like" id="example-15"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-15"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space of arrows.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like"><div class="para" id="p-122">A very useful geometric picture to have in mind for real vectors in <span class="process-math">\(2\)</span> and <span class="process-math">\(3\)</span> dimensions is the vector space of arrows. We equate two arrows if they have the same magnitude (or length) and the same direction. Adding arrows is accomplished by placing the initial point of one at the endpoint of the other and then drawing an arrow from the remaining initial point to the remaining endpoint. Scalar multiplication is obtained by scaling the magnitude (when the scale is positive) or reversing the direction and scaling (when the scale is negative).</div> <div class="para" id="p-123">This does indeed form a vector space over <span class="process-math">\(\mathbb{R}\text{.}\)</span> It is nearly useless when it comes to computing, but it gives a much better picture of how vectors look and behave. As such, it will reappear frequently as we start applying vectors to ordinary differential equations and multivariable calculus.</div></article></div>
-<div class="para" id="p-124">All of the examples above share the property of being finite dimensional (which we will define soon). However, there are a great many vector spaces that do not have this property and are extensively studied.</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-15"><article class="example example-like"><div class="para" id="p-123">A very useful geometric picture to have in mind for real vectors in <span class="process-math">\(2\)</span> and <span class="process-math">\(3\)</span> dimensions is the vector space of arrows. We equate two arrows if they have the same magnitude (or length) and the same direction. Adding arrows is accomplished by placing the initial point of one at the endpoint of the other and then drawing an arrow from the remaining initial point to the remaining endpoint. Scalar multiplication is obtained by scaling the magnitude (when the scale is positive) or reversing the direction and scaling (when the scale is negative).</div> <div class="para" id="p-124">This does indeed form a vector space over <span class="process-math">\(\mathbb{R}\text{.}\)</span> It is nearly useless when it comes to computing, but it gives a much better picture of how vectors look and behave. As such, it will reappear frequently as we start applying vectors to ordinary differential equations and multivariable calculus.</div></article></div>
+<div class="para" id="p-125">All of the examples above share the property of being finite dimensional (which we will define soon). However, there are a great many vector spaces that do not have this property and are extensively studied.</div>
 <article class="example example-like" id="exa-functions"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-functions"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">The vector space of continuous functions.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-functions"><article class="example example-like"><div class="para logical" id="p-125">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-functions"><article class="example example-like"><div class="para logical" id="p-126">
 <div class="para">The space of continuous functions <span class="process-math">\(C(U)\)</span> from a space <span class="process-math">\(U\)</span> to <span class="process-math">\(K\)</span> forms a vector space. Here addition is function addition and scalar multiplication is obtained by just multiplying a function by a number. More concretely, if <span class="process-math">\(f : U \to K\text{,}\)</span> <span class="process-math">\(g : U \to K\)</span> and <span class="process-math">\(\lambda \in K\)</span> we take</div>
 <div class="displaymath process-math" id="md-14">
 \begin{align*}
@@ -458,19 +471,19 @@ P_n (K) = \left\{ a_n x^n  + \cdots + a_1 x + a_0 : a_0, a_1, \ldots, a_n \text{
 \end{align*}
 </div>
 </div></article></div>
-<div class="para" id="p-126">There are a huge number of variants of <a href="" class="xref" data-knowl="./knowl/exa-functions.html" title="Example 2.2.7: The vector space of continuous functions">Example 2.2.7</a> such as functions that are differentiable, bounded functions, functions that are integrable, and so on. The study of such vector spaces is one of the primary topics of functional analysis and we will only lightly dabble in this so as not to spoil the wonders that await!</div>
-<div class="para" id="p-127">One can also consider infinite column vectors or matrices, but we will stop this example madness here before it gets any further out of control. Instead, we give ourselves a bit more vocabulary concerning vectors and vector spaces.</div>
+<div class="para" id="p-127">There are a huge number of variants of <a href="" class="xref" data-knowl="./knowl/exa-functions.html" title="Example 2.2.7: The vector space of continuous functions">Example 2.2.7</a> such as functions that are differentiable, bounded functions, functions that are integrable, and so on. The study of such vector spaces is one of the primary topics of functional analysis and we will only lightly dabble in this so as not to spoil the wonders that await!</div>
+<div class="para" id="p-128">One can also consider infinite column vectors or matrices, but we will stop this example madness here before it gets any further out of control. Instead, we give ourselves a bit more vocabulary concerning vectors and vector spaces.</div>
 <article class="definition definition-like" id="def-vectorsubspace"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span>
-</h3> <div class="para" id="p-128">Given a vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> a <dfn class="terminology">vector subspace</dfn> <span class="process-math">\(W\)</span> of <span class="process-math">\(V\)</span> is a subset which is also a vector space over <span class="process-math">\(K\)</span> with the vector space operations inherited from <span class="process-math">\(V\text{.}\)</span> This is denoted <span class="process-math">\(W \le V\text{.}\)</span> A vector subspace is called <dfn class="terminology">proper</dfn> if it is not equal to <span class="process-math">\(V\text{.}\)</span>
-</div></article><div class="para" id="p-129">Often we will refer to a vector subspace <span class="process-math">\(W\)</span> as a <dfn class="terminology">linear subspace</dfn>. This should come though with a big warning: with this vocabulary, not all lines are linear!</div>
-<div class="para" id="p-130">In order to verify that a given subset <span class="process-math">\(W\)</span> of <span class="process-math">\(V\)</span> is in fact a vector space, one needs to check that it is <dfn class="terminology">closed</dfn> under addition and scalar multiplication. In other words, we need to see that if <span class="process-math">\(\mb{w}_0, \mb{w}_1\)</span> are in <span class="process-math">\(W\)</span> and <span class="process-math">\(\lambda\)</span> is in <span class="process-math">\(K\text{,}\)</span> then <span class="process-math">\(\mb{w}_0 + \mb{w}_1\)</span> and <span class="process-math">\(\lambda \mb{w}_0\)</span> are also in <span class="process-math">\(W\)</span> (not just in <span class="process-math">\(V\)</span>). We record this as a proposition.</div>
+</h3> <div class="para" id="p-129">Given a vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> a <dfn class="terminology">vector subspace</dfn> <span class="process-math">\(W\)</span> of <span class="process-math">\(V\)</span> is a subset which is also a vector space over <span class="process-math">\(K\)</span> with the vector space operations inherited from <span class="process-math">\(V\text{.}\)</span> This is denoted <span class="process-math">\(W \le V\text{.}\)</span> A vector subspace is called <dfn class="terminology">proper</dfn> if it is not equal to <span class="process-math">\(V\text{.}\)</span>
+</div></article><div class="para" id="p-130">Often we will refer to a vector subspace <span class="process-math">\(W\)</span> as a <dfn class="terminology">linear subspace</dfn>. This should come though with a big warning: with this vocabulary, not all lines are linear!</div>
+<div class="para" id="p-131">In order to verify that a given subset <span class="process-math">\(W\)</span> of <span class="process-math">\(V\)</span> is in fact a vector space, one needs to check that it is <dfn class="terminology">closed</dfn> under addition and scalar multiplication. In other words, we need to see that if <span class="process-math">\(\mb{w}_0, \mb{w}_1\)</span> are in <span class="process-math">\(W\)</span> and <span class="process-math">\(\lambda\)</span> is in <span class="process-math">\(K\text{,}\)</span> then <span class="process-math">\(\mb{w}_0 + \mb{w}_1\)</span> and <span class="process-math">\(\lambda \mb{w}_0\)</span> are also in <span class="process-math">\(W\)</span> (not just in <span class="process-math">\(V\)</span>). We record this as a proposition.</div>
 <article class="proposition theorem-like" id="prop-vsubspace"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-131">A subset <span class="process-math">\(W\)</span> of <span class="process-math">\(V\)</span> is a vector subspace if and only if it is closed under vector addition and scalar multiplication.</div></article><article class="example example-like" id="example-17"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h3 class="heading">
+<div class="para" id="p-132">A subset <span class="process-math">\(W\)</span> of <span class="process-math">\(V\)</span> is a vector subspace if and only if it is closed under vector addition and scalar multiplication.</div></article><article class="example example-like" id="example-17"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Subspace defined by an equation.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><div class="para logical" id="p-132">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><div class="para logical" id="p-133">
 <div class="para">Consider the subset</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-vsubspace.html">
 \begin{equation*}
@@ -503,10 +516,10 @@ W = \left\{ \left[ \begin{matrix} a \\ b \end{matrix} \right] : 2a + 3b = 0 \rig
 \end{equation*}
 </div>
 <div class="para">is in <span class="process-math">\(W\)</span> so that <span class="process-math">\(W\)</span> is closed under vector addition. A similar argument shows that it is closed under scalar multiplication.</div>
-</div> <div class="para" id="p-133">Note that if we view the vector space <span class="process-math">\(\mathbb{R}^2\)</span> geometrically as the plane, the subspace <span class="process-math">\(W\)</span> is just the line of slope <span class="process-math">\(-2/3\)</span> passing through the origin. In fact, as you will show in the exercises, any non-zero proper vector subspace of <span class="process-math">\(\mathbb{R}^2\)</span> is a line through the origin.</div></article></div>
+</div> <div class="para" id="p-134">Note that if we view the vector space <span class="process-math">\(\mathbb{R}^2\)</span> geometrically as the plane, the subspace <span class="process-math">\(W\)</span> is just the line of slope <span class="process-math">\(-2/3\)</span> passing through the origin. In fact, as you will show in the exercises, any non-zero proper vector subspace of <span class="process-math">\(\mathbb{R}^2\)</span> is a line through the origin.</div></article></div>
 <article class="definition definition-like" id="def-lincomb"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.11</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-134">
+</h3> <div class="para logical" id="p-135">
 <div class="para">Given vectors <span class="process-math">\(\mb{v}_1, \mb{v}_2, \ldots, \mb{v}_n\)</span> in a vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\)</span> and numbers <span class="process-math">\(a_1, a_2, \ldots, a_n\)</span> in <span class="process-math">\(K\text{,}\)</span> we call the vector</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -515,11 +528,11 @@ a_1 \mb{v}_1 + a_2 \mb{v}_2 + \cdots + a_n \mb{v}_n
 </div>
 <div class="para">a <dfn class="terminology">linear combination</dfn> of <span class="process-math">\(\mb{v}_1, \ldots , \mb{v}_n\text{.}\)</span> If <span class="process-math">\(S\)</span> is a subset of <span class="process-math">\(V\text{,}\)</span> the set of all linear combinations of vectors in <span class="process-math">\(S\)</span> is called the <dfn class="terminology">span</dfn> of <span class="process-math">\(S\)</span> and is denoted <span class="process-math">\(\text{Span}(S)\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-135">Linear combinations and span are essential vocabulary when communicating how vectors sweep out spaces. For example, a linear combination of a single non-zero vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> is just a scaling of <span class="process-math">\(\mb{v}\)</span> and its span is the set of all such scale multiples; namely, a line through the origin in the direction of <span class="process-math">\(\mb{v}\text{.}\)</span> On the other hand, taking the span of two  vectors <span class="process-math">\(\mb{v}_1, \mb{v}_2\)</span> which are not on the same line will give a plane through the origin. Moreover, if we remember these vectors we get coordinates on this plane by taking the point <span class="process-math">\((x,y)\)</span> to the linear combination <span class="process-math">\(x \mb{v}_1 + y \mb{v}_2\text{.}\)</span>
+</div></article><div class="para" id="p-136">Linear combinations and span are essential vocabulary when communicating how vectors sweep out spaces. For example, a linear combination of a single non-zero vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> is just a scaling of <span class="process-math">\(\mb{v}\)</span> and its span is the set of all such scale multiples; namely, a line through the origin in the direction of <span class="process-math">\(\mb{v}\text{.}\)</span> On the other hand, taking the span of two  vectors <span class="process-math">\(\mb{v}_1, \mb{v}_2\)</span> which are not on the same line will give a plane through the origin. Moreover, if we remember these vectors we get coordinates on this plane by taking the point <span class="process-math">\((x,y)\)</span> to the linear combination <span class="process-math">\(x \mb{v}_1 + y \mb{v}_2\text{.}\)</span>
 </div>
 <article class="example example-like" id="exa-matrixasrowcolumns"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-matrixasrowcolumns"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Linear combinations of rows and columns of a matrix.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-matrixasrowcolumns"><article class="example example-like"><div class="para logical" id="p-136">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-matrixasrowcolumns"><article class="example example-like"><div class="para logical" id="p-137">
 <div class="para">A common way of viewing the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -551,11 +564,11 @@ A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \a
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-137">As you will show in the exercises, the span of any non-empty subset of a vector space is a vector subspace. However, some sets of vectors are better than others when it comes to spans. For example, the span of the set of all vectors in <span class="process-math">\(\mathbb{R}^2\)</span> is <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> but that is not saying much. On the other hand, the span of the two standard basis vectors <span class="process-math">\(\mb{e}_1, \mb{e}_2\)</span> is also <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> yet for these vectors we get a property that we didn't have before.</div>
+<div class="para" id="p-138">As you will show in the exercises, the span of any non-empty subset of a vector space is a vector subspace. However, some sets of vectors are better than others when it comes to spans. For example, the span of the set of all vectors in <span class="process-math">\(\mathbb{R}^2\)</span> is <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> but that is not saying much. On the other hand, the span of the two standard basis vectors <span class="process-math">\(\mb{e}_1, \mb{e}_2\)</span> is also <span class="process-math">\(\mathbb{R}^2\text{,}\)</span> yet for these vectors we get a property that we didn't have before.</div>
 <article class="definition definition-like" id="def-basis"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.13</span><span class="period">.</span>
-</h3> <div class="para" id="p-138">An ordered set of vectors <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> is called a <dfn class="terminology">basis</dfn> for a vector space <span class="process-math">\(V\)</span> if every vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\)</span> can be written uniquely as a linear combination of vectors in <span class="process-math">\(\mathcal{B}\text{.}\)</span>
-</div></article><div class="para logical" id="p-139">
+</h3> <div class="para" id="p-139">An ordered set of vectors <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> is called a <dfn class="terminology">basis</dfn> for a vector space <span class="process-math">\(V\)</span> if every vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\)</span> can be written uniquely as a linear combination of vectors in <span class="process-math">\(\mathcal{B}\text{.}\)</span>
+</div></article><div class="para logical" id="p-140">
 <div class="para">Note that the word ‘uniquely’ appears in this definition, and it is a very important word indeed. It means that, for any vector <span class="process-math">\(\mb{v}\text{,}\)</span> the coefficients <span class="process-math">\(a_1, \ldots, a_n\)</span> in the expression</div>
 <div class="displaymath process-math" id="eq-linearcomb">
 \begin{equation}
@@ -564,9 +577,9 @@ A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \a
 </div>
 <div class="para">are the only possible ones that give equality.</div>
 </div>
-<div class="para" id="p-140">A couple of comments on this definition are in order. First, we take a basis to be an <em class="emphasis">ordered</em> set of vectors, but often we don't mention the ordering when it plays no role. It is not universally defined this way and occasionally is defined as just a set of vectors satisfying the uniqueness property and equation <a href="" class="xref" data-knowl="./knowl/eq-linearcomb.html" title="Equation 2.2.4">(2.2.4)</a>. Second, we defined a finite basis above, but one can also consider infinite ordered sets that are bases (‘bases’ is the plural of basis). However, in the infinite case there are more important variants to the above definition of basis involving infinite sums, so for now we will stick with the finite case.</div>
-<div class="para" id="p-141">On first exposure to the concept of a basis, a student may get the wildly incorrect idea that they are in short supply. In fact, there are infinitely many bases of any non-zero real or complex vector space. Nonetheless, the key advantage to having a basis around is that you can label your vectors unambiguously with arrays of numbers and thus, you can compute!</div>
-<div class="para logical" id="p-142">
+<div class="para" id="p-141">A couple of comments on this definition are in order. First, we take a basis to be an <em class="emphasis">ordered</em> set of vectors, but often we don't mention the ordering when it plays no role. It is not universally defined this way and occasionally is defined as just a set of vectors satisfying the uniqueness property and equation <a href="" class="xref" data-knowl="./knowl/eq-linearcomb.html" title="Equation 2.2.4">(2.2.4)</a>. Second, we defined a finite basis above, but one can also consider infinite ordered sets that are bases (‘bases’ is the plural of basis). However, in the infinite case there are more important variants to the above definition of basis involving infinite sums, so for now we will stick with the finite case.</div>
+<div class="para" id="p-142">On first exposure to the concept of a basis, a student may get the wildly incorrect idea that they are in short supply. In fact, there are infinitely many bases of any non-zero real or complex vector space. Nonetheless, the key advantage to having a basis around is that you can label your vectors unambiguously with arrays of numbers and thus, you can compute!</div>
+<div class="para logical" id="p-143">
 <div class="para">More precisely, given a basis <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\)</span> and a vector <span class="process-math">\(\mb{v}\text{,}\)</span> we may assign <span class="process-math">\(\mb{v}\)</span> to the array of numbers</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearcomb.html" id="eq-basiscoordinates">
 \begin{equation}
@@ -582,7 +595,7 @@ A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \a
 </div>
 <article class="example example-like" id="example-19"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-19"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Using a basis to give vectors coordinates.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><div class="para logical" id="p-143">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-19"><article class="example example-like"><div class="para logical" id="p-144">
 <div class="para">In the real case, one should think of a basis as giving a rigid set of coordinates, or a grid, that allows you to assign arrays of numbers to vectors. For example, the basis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -608,16 +621,16 @@ A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \a
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-144">To be clear, the abstract notion of a basis is that given in the definition. The computational perspective is that one can uniquely assign arrays of numbers to vectors and, as we will see, add and scalar multiply in an easy fashion. Finally, the geometric perspective is rooted in Descartes original insight that points in space could be given coordinates. This last perspective is extremely subtle in that the word ‘<em class="emphasis">could</em>’ has great importance. I will make the point here that a vector space is a space of vectors or points that does <em class="emphasis">not</em> come with a preferred set of coordinates (unless the space you start with is <span class="process-math">\(K^n\)</span>). Once a basis is given, or chosen, we can then assign coordinates. Indeed, while we do not walk around with a three dimensional grid attached to our head, the space we live in still exists! I may tell you that `the coffee cup is on the table over there', but you will not hear me say ‘the coffee cup is at <span class="process-math">\((-3, 2, 1)\)</span>’.</div>
+<div class="para" id="p-145">To be clear, the abstract notion of a basis is that given in the definition. The computational perspective is that one can uniquely assign arrays of numbers to vectors and, as we will see, add and scalar multiply in an easy fashion. Finally, the geometric perspective is rooted in Descartes original insight that points in space could be given coordinates. This last perspective is extremely subtle in that the word ‘<em class="emphasis">could</em>’ has great importance. I will make the point here that a vector space is a space of vectors or points that does <em class="emphasis">not</em> come with a preferred set of coordinates (unless the space you start with is <span class="process-math">\(K^n\)</span>). Once a basis is given, or chosen, we can then assign coordinates. Indeed, while we do not walk around with a three dimensional grid attached to our head, the space we live in still exists! I may tell you that `the coffee cup is on the table over there', but you will not hear me say ‘the coffee cup is at <span class="process-math">\((-3, 2, 1)\)</span>’.</div>
 <section class="exercises" id="exe-vectorspaces1"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-21"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-145">Show that every non-zero proper vector subspace of <span class="process-math">\(\mathbb{R}^2\)</span> is a line through the origin.</div></article><article class="exercise exercise-like" id="exercise-22"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-146">Show that the span of any non-empty subset is a vector subspace.</div></article><article class="exercise exercise-like" id="exercise-23"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="p-147">Give a basis for <span class="process-math">\(\mathbb{C}\)</span> as a vector space over <span class="process-math">\(\mathbb{R}\text{.}\)</span>
+<div class="para" id="p-146">Show that every non-zero proper vector subspace of <span class="process-math">\(\mathbb{R}^2\)</span> is a line through the origin.</div></article><article class="exercise exercise-like" id="exercise-22"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-147">Show that the span of any non-empty subset is a vector subspace.</div></article><article class="exercise exercise-like" id="exercise-23"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-148">Give a basis for <span class="process-math">\(\mathbb{C}\)</span> as a vector space over <span class="process-math">\(\mathbb{R}\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="exercise-24"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-148">
+<div class="para logical" id="p-149">
 <div class="para">Which, if any, of the following collections are bases? Explain your response.</div>
 <div class="displaymath process-math" id="md-16">
 \begin{gather*}
@@ -627,7 +640,7 @@ A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \a
 \end{gather*}
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-25"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-149">
+<div class="para logical" id="p-150">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -643,7 +656,7 @@ A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \a
 <div class="para">What is <span class="process-math">\(\coord{\mb{v}}{\mathcal{B}}\text{?}\)</span>
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-26"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para" id="p-150">Prove that the function <span class="process-math">\(\coord{}{\mathcal{B}}: V \to K^n\)</span> is a one-to-one correspondence by giving a formula for the inverse function <span class="process-math">\((\coord{}{\mathcal{B}})^{-1} : K^n \to V\)</span> and showing it is an inverse.</div></article></section></section></div>
+<div class="para" id="p-151">Prove that the function <span class="process-math">\(\coord{}{\mathcal{B}}: V \to K^n\)</span> is a one-to-one correspondence by giving a formula for the inverse function <span class="process-math">\((\coord{}{\mathcal{B}})^{-1} : K^n \to V\)</span> and showing it is an inverse.</div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-matrices1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-lineartransformations1.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

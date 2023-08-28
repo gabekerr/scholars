@@ -13,31 +13,19 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Multiplying by a matrix can scale in various directions. In doing so, one can relate common shapes. For example, if we multiply all the points of the unit circle satisfying</div>
+<div class="para">Multiplying by a matrix can give a projection. For example, the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
-x^2 + y^2 = 1 
+A = \left[ \begin{matrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0  \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">by the matrix</div>
+<div class="para">will give</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\text{Diag}(a, b) = \left[ \begin{matrix} a \amp 0 \\ 0 \amp b \end{matrix} \right], 
+A \threevec{x}{y}{z} = \threevec{x}{y}{0} . 
 \end{equation*}
 </div>
-<div class="para">we obtain the set of points of the ellipse <span class="process-math">\(E\)</span> given by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1. 
-\end{equation*}
-</div>
-<div class="para">A useful consequence of this is when you want to parametrize the ellipse <span class="process-math">\(E\text{,}\)</span> you simply parametrize the circle and compose with <span class="process-math">\(\text{Diag}(a,b)\)</span> getting</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{f} (\theta ) =  \text{Diag}(a,b) \twovec{\cos \theta}{ \sin \theta} = \twovec{a \cos \theta}{b \sin \theta}. 
-\end{equation*}
-</div>
-<div class="para">Note that the map <span class="process-math">\(\mb{f}\)</span> is not a linear transformation, but the use of a linear transformation (along with some basic knowledge of trigonometry) helped us find it!</div>
+<div class="para">In fact, projections from <span class="process-math">\(\mathbb{R}^n\)</span> to any vector subspace <span class="process-math">\(U\)</span> can be written as matrix multiplications. We will see more on this when we study more on linear geometry.</div>
 </div>
 <span class="incontext"><a href="sec-lineartransformations1.html#p-158" class="internal">in-context</a></span>
 </body>

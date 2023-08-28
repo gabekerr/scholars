@@ -12,7 +12,27 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">Let us look at another example where this occurs.</div>
+<div class="para logical">
+<div class="para">Let us now return to the question of diagonalization and reconsider <a href="" class="xref" data-knowl="./knowl/exa-notdiagonalizable.html" title="Example 4.1.11: Eigenvectors of a 3 \times 3 matrix">Example 4.1.11</a>. Recall that there we examined the matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+A = \left[ \begin{matrix} 2 \amp -1 \amp -2 \\ 0 \amp 4 \amp 4 \\ 2 \amp 1 \amp 2 \end{matrix} \right] .
+\end{equation*}
+</div>
+<div class="para">We found the characteristic polynomial was</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+p_A(t) =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4) 
+\end{equation*}
+</div>
+<div class="para">so that there were eigenvalues <span class="process-math">\(2\)</span> and <span class="process-math">\(4\text{.}\)</span> However, since we don't have <span class="process-math">\(3\)</span> distinct roots of <span class="process-math">\(p_A(t)\text{,}\)</span> we are no longer in the case of <a href="" class="xref" data-knowl="./knowl/cor-distinctrootsdiag.html" title="Corollary 4.1.14">Corollary 4.1.14</a>. This raises the question as to whether we can diagonalize <span class="process-math">\(A\)</span> at all or, equivalently, whether <span class="process-math">\(A\)</span> has an eigenbasis. Recall that we found the <span class="process-math">\(2\)</span> and <span class="process-math">\(4\)</span> eigenvectors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\threevec{1}{-2}{1},  \threevec{1}{-2}{0} 
+\end{equation*}
+</div>
+<div class="para">by solving the eigenvector equations. If you look closely at those solutions though, you will see that any other eigenvector must be a multiple of one of these. But this means that the span of the eigenvectors is <span class="process-math">\(2\)</span>-dimensional, and we must conclude that there is no eigenbasis!</div>
+</div>
 <span class="incontext"><a href="sec-jnf.html#p-532" class="internal">in-context</a></span>
 </body>
 </html>

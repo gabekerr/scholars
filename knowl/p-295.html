@@ -11,8 +11,40 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Using the standard basis <span class="process-math">\(\mathcal{B} = \{\mb{e}_1, \mb{e}_2\}\text{,}\)</span> represent the linear transformation of the plane which rotates the plane by counter-clockwise rotation of <span class="process-math">\(\pi / 2\)</span> and then reflects over the <span class="process-math">\(x\)</span>-axis.</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical">
+<div class="para">The ability to represent a linear transformation as a matrix is especially important when we consider linear transformations from a vector space to itself</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T : V \to V. 
+\end{equation*}
+</div>
+<div class="para">In this case, we need only choose one basis <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\)</span> to get a matrix representation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B = \cob{T}{\mathcal{B}}{\mathcal{B}} 
+\end{equation*}
+</div>
+<div class="para">because the domain and the codomain are equal. However, if we chose a different basis <span class="process-math">\(\mathcal{C}\text{,}\)</span> it would be good to know how to change this matrix to obtain the matrix representation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C = \cob{T}{\mathcal{C}}{\mathcal{C}}. 
+\end{equation*}
+</div>
+<div class="para">In fact, it is a nice exercise to show that one can do this with the following invertible matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = \cob{1_V}{\mathcal{B}}{\mathcal{C}} 
+\end{equation*}
+</div>
+<div class="para">by using the simple matrix equation</div>
+<div class="displaymath process-math">
+\begin{equation}
+C = P^{-1} B P  .\tag{2.6.5}
+\end{equation}
+</div>
+<div class="para">The matrix <span class="process-math">\(P\)</span> called a <dfn class="terminology">change of basis matrix</dfn> from <span class="process-math">\(\mathcal{C}\)</span> to <span class="process-math">\(\mathcal{B}\)</span> and it allows us to transfer information relative to the basis <span class="process-math">\(\mathcal{C}\)</span> to that of <span class="process-math">\(\mathcal{B}\)</span> (and upon taking its inverse, vice versa).</div>
+</div>
 <span class="incontext"><a href="sec-lineartransformations2.html#p-295" class="internal">in-context</a></span>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Scholars Calculus 3">
 <meta property="book:author" content="Gabriel Kerr">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
@@ -26,6 +26,19 @@ window.MathJax = {
   options: {
     ignoreHtmlClass: "tex2jax_ignore|ignore-math",
     processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
   },
   chtml: {
     scale: 0.98,
@@ -44,7 +57,13 @@ window.MathJax = {
     )}
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
 <script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -411,9 +430,9 @@ c_{ik} = a_{i1}b_{1k} + a_{i2}b_{2k} + \cdots + a_{in} b_{nk}.
 </div>
 <div class="para">When writing <span class="process-math">\(1 \times 1\)</span> matrices, we usually drop the left and right brackets.</div>
 </div></article></div>
-<article class="example example-like" id="example-7"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-7"><h3 class="heading">
+<article class="example example-like" id="exa-matrixarithmetic"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-matrixarithmetic"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Arithmetic of square matrices.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-7"><article class="example example-like"><div class="para logical" id="p-101">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-matrixarithmetic"><article class="example example-like"><div class="para logical" id="p-101">
 <div class="para">Square matrices are matrices of size <span class="process-math">\(n \times n\text{.}\)</span> For a fixed <span class="process-math">\(n\text{,}\)</span> it is convenient to compute with such matrices because they can be added and multiplied without worrying about their size. For example,</div>
 <div class="displaymath process-math" id="md-7">
 \begin{align*}
@@ -438,7 +457,15 @@ A I_n \amp = A \amp I_n B \amp = B.
 \end{align*}
 </div>
 </div></article></div>
-<div class="para" id="p-103">Several of the arithmetic properties we reviewed in <a href="sec-arithmetic.html" class="internal" title="Section 1.1: Arithmetic Review">Section 1.1</a> still hold with addition and multiplication replaced with their matrix counterparts.</div>
+<div class="para" id="p-103">At this point, let me encourage the student to use Sage to make matrix computations. The syntax for this can be picked up as you go, but we mention a few points. First, a matrix for Sage is a list of lists. Each member list is thought of as a row in the matrix, starting at the top and working down. Try changing a few of the numbers around, the size of the matrix to make sure you are comfortable defining matrices in Sage. <pre class="ptx-sagecell sagecell-sage" id="sage-1"><script type="text/x-sage">A = matrix([[1, 2],[-1, 3]])
+A
+</script></pre> Now, it is very good to know how to compute by hand, but once you feel comfortable with this, you ought to relax a bit and use your tools. Let's try <a href="" class="xref" data-knowl="./knowl/exa-matrixarithmetic.html" title="Example 2.1.4: Arithmetic of square matrices">Example 2.1.4</a> with Sage. To do this, we will define each matrix separately and the write the expression we are trying to compute. <pre class="ptx-sagecell sagecell-sage" id="sage-2"><script type="text/x-sage">A = matrix([[1, 4],[-1, 1]])
+B = matrix([[0, 1],[1,0]])
+C = matrix([[-1,1],[3, -2]])
+A*(B + C)
+</script></pre>
+</div>
+<div class="para" id="p-104">Several of the arithmetic properties we reviewed in <a href="sec-arithmetic.html" class="internal" title="Section 1.1: Arithmetic Review">Section 1.1</a> still hold with addition and multiplication replaced with their matrix counterparts.</div>
 <article class="proposition theorem-like" id="proposition-2"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
 </h3>Matrix arithmetic satisfies the properties <ol class="decimal">
@@ -461,10 +488,10 @@ A + B = B + A,
 \end{align*}
 </div>
 </div></li>
-</ol></article><div class="para" id="p-104">These properties can be shown to hold by a straightforward check, with perhaps the only intricate one being the associativity of the matrix product. However, this check is too messy for these notes and completely unenlightening, so we will leave it to the masochistic student's discretion. What is <em class="emphasis">most</em> interesting and important are the properties that are <em class="emphasis">not</em> listed above, namely the ones that fail.</div>
+</ol></article><div class="para" id="p-105">These properties can be shown to hold by a straightforward check, with perhaps the only intricate one being the associativity of the matrix product. However, this check is too messy for these notes and completely unenlightening, so we will leave it to the masochistic student's discretion. What is <em class="emphasis">most</em> interesting and important are the properties that are <em class="emphasis">not</em> listed above, namely the ones that fail.</div>
 <article class="example example-like" id="example-9"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Non-commuting matrices.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><div class="para logical" id="p-105">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><div class="para logical" id="p-106">
 <div class="para">Note that <em class="emphasis">matrix multiplication is not commutative</em>. While occasionally two matrices will commute, even very simple looking matrices don't. For example</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -480,7 +507,7 @@ A + B = B + A,
 </div></article></div>
 <article class="example example-like" id="exa-noninvertible"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-noninvertible"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Non-invertible matrices.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-noninvertible"><article class="example example-like"><div class="para logical" id="p-106">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-noninvertible"><article class="example example-like"><div class="para logical" id="p-107">
 <div class="para">A general non-zero matrix does not have a multiplicative inverse. There are occasions where we can rule out an inverse on the basis of the size of a matrix. For example, we will show that only square matrices have the hope of being invertible (i.e. having a multiplicative inverse).  But even for a square matrix, this hope may be in vain. We can show this without any propositions or theorems by observing</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -499,29 +526,29 @@ A + B = B + A,
 </div>
 <div class="para">But of course, this is ridiculous, so indeed the first matrix has no inverse.</div>
 </div></article></div>
-<div class="para" id="p-107">As we will see, matrices with multiplicative inverses play a central role in linear algebra. The computational criterion for the existence of an inverse and the algorithm or formula of the inverse are key results and techniques that every student should master.</div>
+<div class="para" id="p-108">As we will see, matrices with multiplicative inverses play a central role in linear algebra. The computational criterion for the existence of an inverse and the algorithm or formula of the inverse are key results and techniques that every student should master.</div>
 <section class="exercises" id="exe-matrices1"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-17"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-108">Give an example of a matrix <span class="process-math">\(B\)</span> that has a left inverse, but not a right inverse. In otherwords, there exists a matrix <span class="process-math">\(A\)</span> for which <span class="process-math">\(AB = I\)</span> but <em class="emphasis">there is no</em> matrix <span class="process-math">\(C\)</span> for which <span class="process-math">\(BC = I\text{.}\)</span>
+<div class="para" id="p-109">Give an example of a matrix <span class="process-math">\(B\)</span> that has a left inverse, but not a right inverse. In otherwords, there exists a matrix <span class="process-math">\(A\)</span> for which <span class="process-math">\(AB = I\)</span> but <em class="emphasis">there is no</em> matrix <span class="process-math">\(C\)</span> for which <span class="process-math">\(BC = I\text{.}\)</span>
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like">The size of the identity matrices I in the first and second equation may be different.</div></div>
 </div></article><article class="exercise exercise-like" id="exercise-18"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-8"><div class="para" id="p-109">Calculate the following matrices:</div></div>
+<div class="introduction" id="introduction-8"><div class="para" id="p-110">Calculate the following matrices:</div></div>
 <article class="task exercise-like" id="task-15"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-110"><div class="displaymath process-math">
+<div class="para logical" id="p-111"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 2 \amp 1 \\ - 2 \amp 0 \\ 1 \amp -1 \end{matrix} \right] \left[ \begin{matrix} 2 \amp 1 \amp 0 \\ 0 \amp 1 \amp 3 \end{matrix} \right]
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-16"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-111"><div class="displaymath process-math">
+<div class="para logical" id="p-112"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 - i \amp 1 \\ 0 \amp i - 1  \end{matrix} \right] \left( \left[ \begin{matrix} i  \amp 0 \\ 0 \amp 1  \end{matrix} \right] + \left[ \begin{matrix} 1  \amp 0 \\ 0 \amp i  \end{matrix} \right] \right)
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-19"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-112">
+<div class="para logical" id="p-113">
 <div class="para">Matrices do not need to have entries which are numbers. They can be functions as well. Calculate the following product as a <span class="process-math">\(2 \times 1\)</span> matrix of polynomials.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -529,7 +556,7 @@ A + B = B + A,
 \end{equation*}
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-20"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="p-113">Explain why a <span class="process-math">\(1 \times 3\)</span> matrix cannot be invertible.</div>
+<div class="para" id="p-114">Explain why a <span class="process-math">\(1 \times 3\)</span> matrix cannot be invertible.</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-2" id="hint-2"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like">Show that for any such matrix <span class="process-math">\(A\text{,}\)</span> there is <span class="process-math">\(3 \times 1\)</span> matrix <span class="process-math">\(B\)</span> which satisfies <span class="process-math">\(AB = 0\text{.}\)</span> Then adapt the argument given in <a href="" class="xref" data-knowl="./knowl/exa-noninvertible.html" title="Example 2.1.8: Non-invertible matrices">Example 2.1.8</a>.</div></div>
 </div></article></section></section></div>

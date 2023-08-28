@@ -14,7 +14,7 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Scholars Calculus 3">
 <meta property="book:author" content="Gabriel Kerr">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
@@ -26,6 +26,19 @@ window.MathJax = {
   options: {
     ignoreHtmlClass: "tex2jax_ignore|ignore-math",
     processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
   },
   chtml: {
     scale: 0.98,
@@ -350,10 +363,10 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-vectorspaces2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span>
 </h2>
-<div class="para" id="p-241">In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. For that we need the following definition.</div>
+<div class="para" id="p-242">In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. For that we need the following definition.</div>
 <article class="definition definition-like" id="def-linearindependent"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-242">
+</h3> <div class="para logical" id="p-243">
 <div class="para">Let <span class="process-math">\(V\)</span> be a vector space over <span class="process-math">\(K\text{.}\)</span> We say that the vectors  <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_n\)</span> are <dfn class="terminology">linearly independent</dfn> if the equality</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -361,11 +374,11 @@ a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n = \mb{0}
 \end{equation*}
 </div>
 <div class="para">implies that <span class="process-math">\(a_1, \ldots , a_n\)</span> are all zero.</div>
-</div></article><div class="para" id="p-243">The equation in <a href="" class="xref" data-knowl="./knowl/def-linearindependent.html" title="Definition 2.5.1">Definition 2.5.1</a> is called a <dfn class="terminology">linear relation</dfn>. So an alternative way of saying that the vectors are linearly independent is that there is no non-trivial linear relation. Yet another way of expressing linear independence is given in the following proposition which the reader can check.</div>
+</div></article><div class="para" id="p-244">The equation in <a href="" class="xref" data-knowl="./knowl/def-linearindependent.html" title="Definition 2.5.1">Definition 2.5.1</a> is called a <dfn class="terminology">linear relation</dfn>. So an alternative way of saying that the vectors are linearly independent is that there is no non-trivial linear relation. Yet another way of expressing linear independence is given in the following proposition which the reader can check.</div>
 <article class="proposition theorem-like" id="prop-basisindspan"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-244">A set of vectors is linearly independent if and only if they form a basis of their span.</div></article><div class="para logical" id="p-245">
+<div class="para" id="p-245">A set of vectors is linearly independent if and only if they form a basis of their span.</div></article><div class="para logical" id="p-246">
 <div class="para">One practical reason to want a linearly independent set of vectors is to parameterize (or ‘give coordinates’ to) their span. Indeed, if <span class="process-math">\(\mathcal{A} = \{\mb{v}_1 , \ldots, \mb{v}_n \}\)</span> is an ordered set of vectors in <span class="process-math">\(V\text{,}\)</span> then define the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -379,17 +392,17 @@ a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n = \mb{0}
 \end{equation}
 </div>
 </div>
-<div class="para" id="p-246">Then a third way of expressing linear independence can be given as follows.</div>
+<div class="para" id="p-247">Then a third way of expressing linear independence can be given as follows.</div>
 <article class="proposition theorem-like" id="proposition-7"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-247">The set of vectors <span class="process-math">\(\mathcal{A}\)</span> is linearly independent if and only if <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> is one-to-one.</div></article><div class="para" id="p-248">Note that if <span class="process-math">\(\mathcal{A}\)</span> is also a basis of <span class="process-math">\(V\)</span> (i.e. it spans all of <span class="process-math">\(V\)</span>), then <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> is the inverse function to <span class="process-math">\(\coord{}{\mathcal{A}}\text{.}\)</span>
+<div class="para" id="p-248">The set of vectors <span class="process-math">\(\mathcal{A}\)</span> is linearly independent if and only if <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> is one-to-one.</div></article><div class="para" id="p-249">Note that if <span class="process-math">\(\mathcal{A}\)</span> is also a basis of <span class="process-math">\(V\)</span> (i.e. it spans all of <span class="process-math">\(V\)</span>), then <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> is the inverse function to <span class="process-math">\(\coord{}{\mathcal{A}}\text{.}\)</span>
 </div>
-<div class="para" id="p-249">There are instances when it is nice to be able to parameterize lines, planes and higher dimensional subspaces in a given vector space, and <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> can often be used for this purpose. But to do this in <span class="process-math">\(V = K^m\text{,}\)</span> one must first see that a given set of column vectors is linearly independent.</div>
+<div class="para" id="p-250">There are instances when it is nice to be able to parameterize lines, planes and higher dimensional subspaces in a given vector space, and <span class="process-math">\(\chart{}{\mathcal{A}}\)</span> can often be used for this purpose. But to do this in <span class="process-math">\(V = K^m\text{,}\)</span> one must first see that a given set of column vectors is linearly independent.</div>
 <article class="proposition theorem-like" id="prop-computelinind"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-250">
+<div class="para logical" id="p-251">
 <div class="para">Suppose <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_n\)</span> are column vectors in <span class="process-math">\(K^m\text{.}\)</span> They are linearly independent if and only if the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -397,7 +410,7 @@ A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \
 \end{equation*}
 </div>
 <div class="para">has no free columns.</div>
-</div></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><div class="para logical" id="p-251">
+</div></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><div class="para logical" id="p-252">
 <div class="para">To see this, just recall from <a href="" class="xref" data-knowl="./knowl/exa-matrixasrowcolumns.html" title="Example 2.2.12: Linear combinations of rows and columns of a matrix">Example 2.2.12</a> the fact that any linear combination of the <span class="process-math">\(\mb{c}_i\)</span>'s can be written as the product</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-matrixasrowcolumns.html ./knowl/thm-rowechsolution.html">
 \begin{equation*}
@@ -419,11 +432,11 @@ A \mb{x} = \mb{0}.
 <div class="para">But <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a> Case (2) says that the solution is unique if and only if there are no free variables of the reduced row echelon equation <span class="process-math">\(A^\prime \mb{x} = \mb{0}\text{.}\)</span> This implies there are no free columns of <span class="process-math">\(A\text{.}\)</span>
 </div>
 </div></article></div>
-<div class="para" id="p-252">
+<div class="para" id="p-253">
 <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a>, along with row reduction, gives a computational way to check linear independence.</div>
 <article class="example example-like" id="exa-lineardep"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-lineardep"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span><span class="space"> </span><span class="title">Testing linear independence by solving a matrix equation.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-lineardep"><article class="example example-like"><div class="para logical" id="p-253">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-lineardep"><article class="example example-like"><div class="para logical" id="p-254">
 <div class="para">Let us see whether the vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -439,7 +452,7 @@ A \mb{x} = \mb{0}.
 \end{align*}
 </div>
 <div class="para">We can see that the third column gives a free variable so our set is <em class="emphasis">not</em> linearly independent (also called <dfn class="terminology">linearly dependent</dfn>).</div>
-</div> <div class="para logical" id="p-254">
+</div> <div class="para logical" id="p-255">
 <div class="para">However, by simply forgetting about the third vector (or column in the computation) we see that the first two vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -452,8 +465,8 @@ A \mb{x} = \mb{0}.
 <article class="corollary theorem-like" id="cor-linindmatsize"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.5.6</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-255">If <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_n\)</span> are linearly independent vectors in <span class="process-math">\(K^m\text{,}\)</span> then <span class="process-math">\(n \leq m\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><div class="para logical" id="p-256">
+<div class="para" id="p-256">If <span class="process-math">\(\mb{c}_1, \ldots, \mb{c}_n\)</span> are linearly independent vectors in <span class="process-math">\(K^m\text{,}\)</span> then <span class="process-math">\(n \leq m\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><div class="para logical" id="p-257">
 <div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> there have to be no free columns of the <span class="process-math">\(m \times n\)</span> matrix</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-computelinind.html">
 \begin{equation*}
@@ -463,11 +476,11 @@ A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \
 <div class="para">Suppose <span class="process-math">\(A^\prime\)</span> is the matrix <span class="process-math">\(A\)</span> in reduced row echelon form. Then <span class="process-math">\(A^\prime\)</span> has a leading coefficient in every column (otherwise that column corresponds to a free variable). But this gives at least <span class="process-math">\(n\)</span> leading coefficients for <span class="process-math">\(n\)</span> unique rows. So the number of rows <span class="process-math">\(m\)</span> must be at least <span class="process-math">\(n\)</span> or, in other words, <span class="process-math">\(n \leq m\text{.}\)</span>
 </div>
 </div></article></div>
-<div class="para" id="p-257">Another important application of <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> leads directly to the definition of dimension.</div>
+<div class="para" id="p-258">Another important application of <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> leads directly to the definition of dimension.</div>
 <article class="corollary theorem-like" id="corollary-2"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.5.7</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-258">If <span class="process-math">\(V\)</span> is a vector space over <span class="process-math">\(K\text{,}\)</span> then any two bases of <span class="process-math">\(V\)</span> have the same number of elements.</div></article><article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><div class="para logical" id="p-259">
+<div class="para" id="p-259">If <span class="process-math">\(V\)</span> is a vector space over <span class="process-math">\(K\text{,}\)</span> then any two bases of <span class="process-math">\(V\)</span> have the same number of elements.</div></article><article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><div class="para logical" id="p-260">
 <div class="para">Suppose <span class="process-math">\(V\)</span> has bases <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots , \mb{v}_n \}\)</span> and <span class="process-math">\(\mathcal{C} = \{ \mb{w}_1, \ldots, \mb{w}_m \}\text{.}\)</span> Then by exercise <a href="" class="xref" data-knowl="./knowl/exe-coordiso.html" title="Exercise 2.3.4">Exercise 2.3.4</a>, we have that there are isomorphisms</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-coordiso.html" id="md-31">
 \begin{align*}
@@ -477,20 +490,20 @@ A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \
 <div class="para">Now, since <span class="process-math">\(\mathcal{B}\)</span> is a basis, it is a linearly independent set. And since <span class="process-math">\(\coord{}{\mathcal{C}}\)</span> is one-to-one, the vectors <span class="process-math">\(\coord{\mb{v}_1}{\mathcal{C}}, \ldots , \coord{\mb{v}_n}{\mathcal{C}}\)</span> must also be linearly independent (why?). But by the previous corollary, this implies that <span class="process-math">\(n \leq m\text{.}\)</span> Using the same argument of the vectors <span class="process-math">\(\coord{\mb{w}_1}{\mathcal{B}}, \ldots , \coord{\mb{w}_m}{\mathcal{B}}\)</span> in <span class="process-math">\(K^n\)</span> shows that <span class="process-math">\(m \leq n\text{.}\)</span> Together this gives <span class="process-math">\(m = n\text{.}\)</span>
 </div>
 </div></article></div>
-<div class="para" id="p-260">This tells us that, while there are infinitely many bases of a vector space, all of them have the same number of vectors in them. This allows us to make the following definition.</div>
+<div class="para" id="p-261">This tells us that, while there are infinitely many bases of a vector space, all of them have the same number of vectors in them. This allows us to make the following definition.</div>
 <article class="definition definition-like" id="def-dimension"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.8</span><span class="period">.</span>
-</h3> <div class="para" id="p-261">Given a vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> we say that the dimension of <span class="process-math">\(V\)</span> is <span class="process-math">\(n\)</span> if there is a basis of <span class="process-math">\(V\)</span> with <span class="process-math">\(n\)</span> elements. This is denoted <span class="process-math">\(\dim_K (V) = n\text{.}\)</span> If <span class="process-math">\(V\)</span> has no finite basis, we say that <span class="process-math">\(V\)</span> is infinite dimensional.</div></article><div class="para" id="p-262">We record a nice fact that uses our knowledge of linear independence.</div>
+</h3> <div class="para" id="p-262">Given a vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> we say that the dimension of <span class="process-math">\(V\)</span> is <span class="process-math">\(n\)</span> if there is a basis of <span class="process-math">\(V\)</span> with <span class="process-math">\(n\)</span> elements. This is denoted <span class="process-math">\(\dim_K (V) = n\text{.}\)</span> If <span class="process-math">\(V\)</span> has no finite basis, we say that <span class="process-math">\(V\)</span> is infinite dimensional.</div></article><div class="para" id="p-263">We record a nice fact that uses our knowledge of linear independence.</div>
 <article class="corollary theorem-like" id="cor-strictinequalitysubspace"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.5.9</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-263">If <span class="process-math">\(W\)</span> is a proper vector subspace of a finite dimensional space <span class="process-math">\(V\)</span> then <span class="process-math">\(W\)</span> is finite dimensional and <span class="process-math">\(\dim W \lt \dim V\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><div class="para" id="p-264">Suppose <span class="process-math">\(V\)</span> is <span class="process-math">\(n\)</span> dimensional. Then by <a href="" class="xref" data-knowl="./knowl/cor-linindmatsize.html" title="Corollary 2.5.6">Corollary 2.5.6</a> and the argument above, any linearly independent set in <span class="process-math">\(V\)</span> has at most <span class="process-math">\(n\)</span> vectors. Let <span class="process-math">\(\mathcal{A} = \{\mb{w}_1, \ldots, \mb{w}_k\}\)</span> be a set of linearly independent vectors in <span class="process-math">\(W\)</span> of maximal size. Then we contend that <span class="process-math">\(\mathcal{A}\)</span> is a basis of <span class="process-math">\(W\text{.}\)</span> If not, then there is a <span class="process-math">\(\mb{w} \in W\)</span> which is not in the span of <span class="process-math">\(\mathcal{A}\text{.}\)</span> But then we see that <span class="process-math">\(\{\mb{w} , \mb{w}_1, \ldots, \mb{w}_k\}\)</span> is also linearly independent (why?). This contradiction shows that <span class="process-math">\(W\)</span> must have a basis.</div> <div class="para" id="p-265">Now, as <span class="process-math">\(W\)</span> is a proper subspace of <span class="process-math">\(V\text{,}\)</span> there is a vector <span class="process-math">\(\mb{v}\)</span> of <span class="process-math">\(V\)</span> which is not in <span class="process-math">\(W\text{.}\)</span> But then, for the same reason as above, the set <span class="process-math">\(\{\mb{v}, \mb{w}_1, \ldots, \mb{w}_k\}\)</span> must be linearly independent. By <a href="" class="xref" data-knowl="./knowl/cor-dimensions.html" title="Corollary 2.6.4">Corollary 2.6.4</a>, this means <span class="process-math">\(k + 1 \leq n\)</span> which implies <span class="process-math">\(k \lt n\text{.}\)</span>
+<div class="para" id="p-264">If <span class="process-math">\(W\)</span> is a proper vector subspace of a finite dimensional space <span class="process-math">\(V\)</span> then <span class="process-math">\(W\)</span> is finite dimensional and <span class="process-math">\(\dim W \lt \dim V\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-8"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-8"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-8"><article class="hiddenproof"><div class="para" id="p-265">Suppose <span class="process-math">\(V\)</span> is <span class="process-math">\(n\)</span> dimensional. Then by <a href="" class="xref" data-knowl="./knowl/cor-linindmatsize.html" title="Corollary 2.5.6">Corollary 2.5.6</a> and the argument above, any linearly independent set in <span class="process-math">\(V\)</span> has at most <span class="process-math">\(n\)</span> vectors. Let <span class="process-math">\(\mathcal{A} = \{\mb{w}_1, \ldots, \mb{w}_k\}\)</span> be a set of linearly independent vectors in <span class="process-math">\(W\)</span> of maximal size. Then we contend that <span class="process-math">\(\mathcal{A}\)</span> is a basis of <span class="process-math">\(W\text{.}\)</span> If not, then there is a <span class="process-math">\(\mb{w} \in W\)</span> which is not in the span of <span class="process-math">\(\mathcal{A}\text{.}\)</span> But then we see that <span class="process-math">\(\{\mb{w} , \mb{w}_1, \ldots, \mb{w}_k\}\)</span> is also linearly independent (why?). This contradiction shows that <span class="process-math">\(W\)</span> must have a basis.</div> <div class="para" id="p-266">Now, as <span class="process-math">\(W\)</span> is a proper subspace of <span class="process-math">\(V\text{,}\)</span> there is a vector <span class="process-math">\(\mb{v}\)</span> of <span class="process-math">\(V\)</span> which is not in <span class="process-math">\(W\text{.}\)</span> But then, for the same reason as above, the set <span class="process-math">\(\{\mb{v}, \mb{w}_1, \ldots, \mb{w}_k\}\)</span> must be linearly independent. By <a href="" class="xref" data-knowl="./knowl/cor-dimensions.html" title="Corollary 2.6.4">Corollary 2.6.4</a>, this means <span class="process-math">\(k + 1 \leq n\)</span> which implies <span class="process-math">\(k \lt n\text{.}\)</span>
 </div></article></div>
-<div class="para" id="p-266">Instead of considering linear independence of rows and columns, we can focus on the span of the rows and/or columns.</div>
+<div class="para" id="p-267">Instead of considering linear independence of rows and columns, we can focus on the span of the rows and/or columns.</div>
 <article class="definition definition-like" id="def-rowcolspace"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.10</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-267">
+</h3> <div class="para logical" id="p-268">
 <div class="para">Given an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> with entries in <span class="process-math">\(K\text{,}\)</span>
 </div>
 <ol class="decimal">
@@ -499,12 +512,12 @@ A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \
 <li id="li-43"><div class="para" id="p-derived-li-43">the <dfn class="terminology">row space</dfn> of <span class="process-math">\(A\)</span> is the span of the rows of <span class="process-math">\(A\)</span> in <span class="process-math">\(K^n\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-268">Note that Example <a href="" class="xref" data-knowl="./knowl/exa-matrixasrowcolumns.html" title="Example 2.2.12: Linear combinations of rows and columns of a matrix">Example 2.2.12</a> shows that the column space is equal to the image of the linear transformation obtained by left multiplying a column vector in <span class="process-math">\(K^n\)</span> by <span class="process-math">\(A\)</span> while the row space is the image of right multiplying a row vector in <span class="process-math">\(K^m\text{.}\)</span> The following proposition gives bases for both of these spaces.</div>
+</div></article><div class="para" id="p-269">Note that Example <a href="" class="xref" data-knowl="./knowl/exa-matrixasrowcolumns.html" title="Example 2.2.12: Linear combinations of rows and columns of a matrix">Example 2.2.12</a> shows that the column space is equal to the image of the linear transformation obtained by left multiplying a column vector in <span class="process-math">\(K^n\)</span> by <span class="process-math">\(A\)</span> while the row space is the image of right multiplying a row vector in <span class="process-math">\(K^m\text{.}\)</span> The following proposition gives bases for both of these spaces.</div>
 <article class="proposition theorem-like" id="prop-basescolrow"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.11</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-269">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix and <span class="process-math">\(A^\prime\)</span> its reduced row echelon form. Suppose <span class="process-math">\(\mathcal{C} = \{ \mb{c}_{i_1}, \ldots, \mb{c}_{i_s}\}\)</span> are the basic columns of <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\mathcal{R} = \{\mb{r}^\prime_1, \ldots , \mb{r}^\prime_s \}\)</span> are the first <span class="process-math">\(s\)</span> rows of <span class="process-math">\(A^\prime\text{.}\)</span> Then <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space of <span class="process-math">\(A\)</span> and <span class="process-math">\(\mathcal{R}\)</span> is a basis for the row space of <span class="process-math">\(A\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-9"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof"><div class="para" id="p-270">To see that <span class="process-math">\(\mathcal{C}\)</span> is a basis, note that it is linearly independent by <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a>. Indeed, the reduced row echelon form of the matrix with <em class="emphasis">only</em> these columns is the same as the submatrix of <span class="process-math">\(A^\prime\)</span> with only these columns. In particular, it has no free columns and the cited proposition implies that <span class="process-math">\(\mathcal{C}\)</span> is linearly independent. On the other hand, adding any other column of <span class="process-math">\(A\)</span> to <span class="process-math">\(\mathcal{C}\)</span> fails the test in <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> for the same reason. But that means that any other column can be written as a linear combination of the columns in <span class="process-math">\(\mathcal{C}\)</span> (why?). Thus <span class="process-math">\(\mathcal{C}\)</span> spans the column space and is linearly independent. By <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a>, <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space.</div> <div class="para logical" id="p-271">
+<div class="para" id="p-270">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix and <span class="process-math">\(A^\prime\)</span> its reduced row echelon form. Suppose <span class="process-math">\(\mathcal{C} = \{ \mb{c}_{i_1}, \ldots, \mb{c}_{i_s}\}\)</span> are the basic columns of <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\mathcal{R} = \{\mb{r}^\prime_1, \ldots , \mb{r}^\prime_s \}\)</span> are the first <span class="process-math">\(s\)</span> rows of <span class="process-math">\(A^\prime\text{.}\)</span> Then <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space of <span class="process-math">\(A\)</span> and <span class="process-math">\(\mathcal{R}\)</span> is a basis for the row space of <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-9"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-9"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-9"><article class="hiddenproof"><div class="para" id="p-271">To see that <span class="process-math">\(\mathcal{C}\)</span> is a basis, note that it is linearly independent by <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a>. Indeed, the reduced row echelon form of the matrix with <em class="emphasis">only</em> these columns is the same as the submatrix of <span class="process-math">\(A^\prime\)</span> with only these columns. In particular, it has no free columns and the cited proposition implies that <span class="process-math">\(\mathcal{C}\)</span> is linearly independent. On the other hand, adding any other column of <span class="process-math">\(A\)</span> to <span class="process-math">\(\mathcal{C}\)</span> fails the test in <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> for the same reason. But that means that any other column can be written as a linear combination of the columns in <span class="process-math">\(\mathcal{C}\)</span> (why?). Thus <span class="process-math">\(\mathcal{C}\)</span> spans the column space and is linearly independent. By <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a>, <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space.</div> <div class="para logical" id="p-272">
 <div class="para">For the row space, we note that all of the row vectors of <span class="process-math">\(\mathcal{R}\)</span> are linear combinations of the rows in <span class="process-math">\(A\)</span> because row operations create rows that are linear combinations of the existing rows. Also, since row operations are reversible (in other words, <span class="process-math">\(A\)</span> can be recovered by performing row operations on <span class="process-math">\(A^\prime\)</span>), every row of <span class="process-math">\(A\)</span> is a linear combination of those in <span class="process-math">\(A^\prime\text{.}\)</span> This implies the span of <span class="process-math">\(\mathcal{R}\)</span> is the row space (why?). On the other hand, if</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-basisindspan.html">
 \begin{equation*}
@@ -519,12 +532,12 @@ a_1 \mb{r}^\prime_1 + \cdots  + a_s \mb{r}^\prime_s
 </div>
 <div class="para">This is because the coordinate of <span class="process-math">\(\mb{r}_j^\prime\)</span> in the <span class="process-math">\(i_j\)</span> column is <span class="process-math">\(1\)</span> and is zero for all other <span class="process-math">\(i_k\)</span> columns (because <span class="process-math">\(A^\prime\)</span> is in reduced row echelon form). Thus the linear combination is the zero vector only if all <span class="process-math">\(a_i\)</span> are zero, meaning <span class="process-math">\(\mathcal{R}\)</span> is linearly independent. Again by <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a> we have that <span class="process-math">\(\mathcal{R}\)</span> is a basis.</div>
 </div></article></div>
-<div class="para" id="p-272">We note here that the bases for the column and row spaces have the same number of vectors!</div>
+<div class="para" id="p-273">We note here that the bases for the column and row spaces have the same number of vectors!</div>
 <section class="exercises" id="exe-vectorspaces2"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exe-planesfromequations"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-15"><div class="para logical" id="p-273">
+<div class="introduction" id="introduction-15"><div class="para logical" id="p-274">
 <div class="para">Implicit equations for planes in <span class="process-math">\(\mathbb{R}^3\)</span> with coordinates <span class="process-math">\((x, y, z)\)</span> are of the form</div>
 <div class="displaymath process-math" id="eq-plane">
 \begin{equation}
@@ -535,18 +548,18 @@ a x + b y + c z = d \tag{2.5.2}
 </div>
 </div></div>
 <article class="task exercise-like" id="task-30"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-274"><div class="displaymath process-math">
+<div class="para logical" id="p-275"><div class="displaymath process-math">
 \begin{equation*}
 x - y + z = 0 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-31"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-275"><div class="displaymath process-math">
+<div class="para logical" id="p-276"><div class="displaymath process-math">
 \begin{equation*}
 y + 2z = 0 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-39"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-276">Prove <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a>.</div></article><article class="exercise exercise-like" id="exercise-40"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="p-277">For each matrix in Exercise <a href="" class="xref" data-knowl="./knowl/exe-planesfromequations.html" title="Exercise 2.5.1">Exercise 2.5.1</a>, give a basis for the row space and a basis for the column space.</div></article></section></section></div>
+<div class="para" id="p-277">Prove <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a>.</div></article><article class="exercise exercise-like" id="exercise-40"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-278">For each matrix in Exercise <a href="" class="xref" data-knowl="./knowl/exe-planesfromequations.html" title="Exercise 2.5.1">Exercise 2.5.1</a>, give a basis for the row space and a basis for the column space.</div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-matrices2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-lineartransformations2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

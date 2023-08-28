@@ -12,22 +12,7 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Now assume we have two distinct indices, <span class="process-math">\(1 \leq j \leq n\)</span> and <span class="process-math">\(1 \leq k \leq n\)</span> and take <span class="process-math">\(A (j,k)\)</span> to be the submatrix of <span class="process-math">\(A\)</span> obtained by eliminating the first two rows and the <span class="process-math">\(j\)</span>-th and <span class="process-math">\(k\)</span>-the columns. A quick look shows then that if <span class="process-math">\(j \lt k\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (\mb{e}_j, \mb{e}_k, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + j} (-1)^{1 + (k - 1)} D_{n - 2} (A (j,k)). 
-\end{equation*}
-</div>
-<div class="para">Indeed, one must subtract <span class="process-math">\(1\)</span> from <span class="process-math">\(k\)</span> because, in the submatrix <span class="process-math">\(A_{1j}\)</span> obtained by eliminating the first row and the <span class="process-math">\(j\)</span>-th column, the index of the entry <span class="process-math">\(a_{2k}\)</span> goes down by one. On the other hand, this does not occur if we switch the order (again assuming <span class="process-math">\(j \lt k\)</span> ) so  we get</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (\mb{e}_k, \mb{e}_j, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + k} (-1)^{1 + j} D_{n - 2} (A (j,k)). 
-\end{equation*}
-</div>
-<div class="para">The difference in the sign justifies that switching the first two rows does indeed multiply the value of <span class="process-math">\(D_n\)</span> by <span class="process-math">\(-1\text{.}\)</span>
-</div>
+<div class="para">In the case where <span class="process-math">\(j = k\text{,}\)</span> one sees that the minor <span class="process-math">\(M_{1j}\)</span> is the <span class="process-math">\(D_{n - 1}\)</span> of a matrix with first row zero. So by the argument given above in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a>, we have <span class="process-math">\(C_{1j} = (-1)^{1 + j} M_{1j} = 0\text{.}\)</span> But as all other entries on the first row <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> are zero, we then have <span class="process-math">\(D_n (\mb{r}_1, \ldots, \mb{r}_n) = 0\)</span> so that switching the first two rows does act as multiplying the number <span class="process-math">\(0\)</span> by <span class="process-math">\(-1\text{.}\)</span>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-347" class="internal">in-context</a></span>
 </body>

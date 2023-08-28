@@ -14,7 +14,7 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Scholars Calculus 3">
 <meta property="book:author" content="Gabriel Kerr">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
@@ -26,6 +26,19 @@ window.MathJax = {
   options: {
     ignoreHtmlClass: "tex2jax_ignore|ignore-math",
     processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
   },
   chtml: {
     scale: 0.98,
@@ -350,9 +363,9 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-geom1"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Geometry I</span>
 </h2>
-<section class="introduction" id="introduction-21"><div class="para" id="p-375">So far, we have avoided the usual undergraduate approach to calling a vector something with a ‘magnitude’ and ‘direction’. The reason for this is that the notion of magnitude is in fact additional data that we <em class="emphasis">impose</em> upon a  vector space. By this I mean that, given a vector <span class="process-math">\(\mb{v}\)</span> in a vector space <span class="process-math">\(V\text{,}\)</span> there is no unique way to assign that vector a length. This is because a vector space should be thought of like a skeleton of a person. It has only enough structure to do vector arithmetic, but not enough to talk about distance and angles. However, we can put some flesh on this skeleton and start working with geometry by adding additional bells and whistles. To do so, we introduce inner product spaces which are vector spaces with an additional pairing.</div> <article class="definition definition-like" id="def-ips"><h3 class="heading">
+<section class="introduction" id="introduction-21"><div class="para" id="p-376">So far, we have avoided the usual undergraduate approach to calling a vector something with a ‘magnitude’ and ‘direction’. The reason for this is that the notion of magnitude is in fact additional data that we <em class="emphasis">impose</em> upon a  vector space. By this I mean that, given a vector <span class="process-math">\(\mb{v}\)</span> in a vector space <span class="process-math">\(V\text{,}\)</span> there is no unique way to assign that vector a length. This is because a vector space should be thought of like a skeleton of a person. It has only enough structure to do vector arithmetic, but not enough to talk about distance and angles. However, we can put some flesh on this skeleton and start working with geometry by adding additional bells and whistles. To do so, we introduce inner product spaces which are vector spaces with an additional pairing.</div> <article class="definition definition-like" id="def-ips"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-376">
+</h3> <div class="para logical" id="p-377">
 <div class="para">An <dfn class="terminology">inner product space</dfn> <span class="process-math">\(V\)</span> over <span class="process-math">\(K\)</span> is a vector space along with a pairing</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -382,7 +395,7 @@ window.MathJax = {
 </div>with equality if and only if <span class="process-math">\(\mb{v} = \mb{0}\text{.}\)</span>
 </dd>
 </dl>
-</div></article> <div class="para logical" id="p-377">
+</div></article> <div class="para logical" id="p-378">
 <div class="para">Note that the positive definite condition makes sense even when <span class="process-math">\(K = \mathbb{C}\text{.}\)</span> In that case, one might worry that <span class="process-math">\(\left\langle \mb{v} , \mb{v} \right\rangle\)</span> is a complex number like <span class="process-math">\(1 + 2i\text{.}\)</span> Then what does it mean for it to be greater than zero? However, we see from conjugate symmetry, that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -393,13 +406,13 @@ window.MathJax = {
 </div></section><section class="subsection" id="subsec-transpose"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span>
 </h3>
-<div class="para" id="p-378">There are several examples of inner product spaces, the most commonly used being the real vector space <span class="process-math">\(\mathbb{R}^n\)</span> with the dot product. To discuss this, we need the simple definition of transpose matrix.</div>
+<div class="para" id="p-379">There are several examples of inner product spaces, the most commonly used being the real vector space <span class="process-math">\(\mathbb{R}^n\)</span> with the dot product. To discuss this, we need the simple definition of transpose matrix.</div>
 <article class="definition definition-like" id="def-transpose"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
-</h4> <div class="para" id="p-379">Given an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A = (a_{ij})\text{,}\)</span> its <dfn class="terminology">transpose</dfn> is the <span class="process-math">\(n \times m\)</span> matrix <span class="process-math">\(A^T = (\tilde{a}_{ij})\)</span> where <span class="process-math">\(\tilde{a}_{ij} = a_{ji}\text{.}\)</span> We say that a square matrix is <dfn class="terminology">symmetric</dfn> if <span class="process-math">\(A^T = A\text{.}\)</span>
+</h4> <div class="para" id="p-380">Given an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A = (a_{ij})\text{,}\)</span> its <dfn class="terminology">transpose</dfn> is the <span class="process-math">\(n \times m\)</span> matrix <span class="process-math">\(A^T = (\tilde{a}_{ij})\)</span> where <span class="process-math">\(\tilde{a}_{ij} = a_{ji}\text{.}\)</span> We say that a square matrix is <dfn class="terminology">symmetric</dfn> if <span class="process-math">\(A^T = A\text{.}\)</span>
 </div></article><article class="example example-like" id="example-42"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-42"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Transpose of a matrix.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><div class="para logical" id="p-380">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-42"><article class="example example-like"><div class="para logical" id="p-381">
 <div class="para">Finding the transpose matrix is simple, just swap row entries with column entries. For example, if</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -413,11 +426,11 @@ A^T =  \left[ \begin{matrix} 1 \amp 4 \\ 2 \amp 5 \\ 3 \amp 6 \end{matrix} \righ
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-381">The transpose behaves nicely with respect to several of the operations we have introduced.</div>
+<div class="para" id="p-382">The transpose behaves nicely with respect to several of the operations we have introduced.</div>
 <article class="proposition theorem-like" id="proposition-15"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-382">
+<div class="para logical" id="p-383">
 <div class="para">Given matrices <span class="process-math">\(A, B\)</span> and <span class="process-math">\(C\)</span> where the operations below are well defined (i.e. they have compatible sizes to add or multiply), the following properties hold:</div>
 <ol class="decimal">
 <li id="li-64"><div class="para" id="p-derived-li-64"><span class="process-math">\((A + B)^T = A^T + B^T\text{,}\)</span></div></li>
@@ -427,7 +440,7 @@ A^T =  \left[ \begin{matrix} 1 \amp 4 \\ 2 \amp 5 \\ 3 \amp 6 \end{matrix} \righ
 <li id="li-67"><div class="para" id="p-derived-li-67"><span class="process-math">\(\det (A^T) = \det (A)\text{.}\)</span></div></li>
 <li id="li-68"><div class="para" id="p-derived-li-68"><span class="process-math">\(\rk (A^T) = \rk (A)\text{.}\)</span></div></li>
 </ol>
-</div></article><article class="hiddenproof" id="proof-22"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof"><div class="para logical" id="p-383">
+</div></article><article class="hiddenproof" id="proof-22"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof"><div class="para logical" id="p-384">
 <div class="para">The first two equations can be justified by writing out the formulas and checking both sides. For the third, note that <span class="process-math">\(A\)</span> is invertible if and only if there is an inverse matrix <span class="process-math">\(B\)</span> for which</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
 \begin{equation*}
@@ -462,10 +475,10 @@ A^T = E_r^T \cdots E_1^T.
 </div></article></div></section><section class="subsection" id="subsec-dotproduct"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Dot Product</span>
 </h3>
-<div class="para" id="p-384">Long overdue is the following notion which gives the central example of a real inner product space.</div>
+<div class="para" id="p-385">Long overdue is the following notion which gives the central example of a real inner product space.</div>
 <article class="definition definition-like" id="def-dotproduct"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-385">
+</h4> <div class="para logical" id="p-386">
 <div class="para">Given column vectors <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> the <dfn class="terminology">dot product</dfn> of <span class="process-math">\(\mb{u}\)</span> with <span class="process-math">\(\mb{v}\)</span> is the real number</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -476,7 +489,7 @@ A^T = E_r^T \cdots E_1^T.
 </div>
 </div></article><article class="example example-like" id="example-43"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-43"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Dot products of vectors.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like"><div class="para logical" id="p-386">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-43"><article class="example example-like"><div class="para logical" id="p-387">
 <div class="para">Let us make sure that we understand just how easy the dot product is. If</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -491,16 +504,16 @@ A^T = E_r^T \cdots E_1^T.
 </div>
 <div class="para">Notice we can obtain any real number as a dot product, but, as we will see, these numbers tell us about the relative direction of vectors.</div>
 </div></article></div>
-<div class="para" id="p-387">The diligent student is encouraged to verify the following lemma.</div>
+<div class="para" id="p-388">The diligent student is encouraged to verify the following lemma.</div>
 <article class="lemma theorem-like" id="lem-dotprodprop"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-388">The dot product makes <span class="process-math">\(\mathbb{R}^n\)</span> into an inner product space over <span class="process-math">\(\mathbb{R}\text{.}\)</span>
-</div></article><div class="para" id="p-389">The most important aspect of the dot product is that it allows one to bring geometric notions into the vector space <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> First, we consider a real vector <span class="process-math">\(\mb{v} \in \mathbb{R}^n\)</span> as an arrow from the origin to the endpoint <span class="process-math">\(\mb{v}\text{.}\)</span> Then we have the important ancient result:</div>
+<div class="para" id="p-389">The dot product makes <span class="process-math">\(\mathbb{R}^n\)</span> into an inner product space over <span class="process-math">\(\mathbb{R}\text{.}\)</span>
+</div></article><div class="para" id="p-390">The most important aspect of the dot product is that it allows one to bring geometric notions into the vector space <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> First, we consider a real vector <span class="process-math">\(\mb{v} \in \mathbb{R}^n\)</span> as an arrow from the origin to the endpoint <span class="process-math">\(\mb{v}\text{.}\)</span> Then we have the important ancient result:</div>
 <article class="proposition theorem-like" id="prop-pythagorean"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Pythagorean Theorem.</span>
 </h4>
-<div class="para logical" id="p-390">
+<div class="para logical" id="p-391">
 <div class="para">The length of the vector <span class="process-math">\(\mb{v}\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -509,7 +522,7 @@ A^T = E_r^T \cdots E_1^T.
 </div>
 <div class="para">A vector <span class="process-math">\(\mb{v}\)</span> is called a <dfn class="terminology">unit vector</dfn> if <span class="process-math">\(\| \mb{v} \| = 1\text{.}\)</span>
 </div>
-</div></article><div class="para logical" id="p-391">
+</div></article><div class="para logical" id="p-392">
 <div class="para">For any inner product space (over <span class="process-math">\(\mathbb{R}\)</span> or <span class="process-math">\(\mathbb{C}\)</span>), the square root</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -523,18 +536,18 @@ A^T = E_r^T \cdots E_1^T.
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-392">The fact that the proposition above is the Pythagorean Theorem can be seen as in two dimensions that this is just the distance formula (which is really the Pythagorean Theorem) and that in three dimensions this is the Pythagorean Theorem applied twice. In higher dimensions, one could either argue inductively or simply take this as a definition. While length is of great geometric importance, so is angle. Surprisingly, the dot product gives us both!</div>
+<div class="para" id="p-393">The fact that the proposition above is the Pythagorean Theorem can be seen as in two dimensions that this is just the distance formula (which is really the Pythagorean Theorem) and that in three dimensions this is the Pythagorean Theorem applied twice. In higher dimensions, one could either argue inductively or simply take this as a definition. While length is of great geometric importance, so is angle. Surprisingly, the dot product gives us both!</div>
 <article class="proposition theorem-like" id="prop-angles"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-393">
+<div class="para logical" id="p-394">
 <div class="para">Suppose <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are vectors in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Let <span class="process-math">\(\theta\)</span> be the angle between the line segments from <span class="process-math">\(\mb{0}\)</span> to <span class="process-math">\(\mb{u}\)</span> and from <span class="process-math">\(\mb{0}\)</span> to <span class="process-math">\(\mb{v}\)</span> (or the arrows connecting the origin to the vectors). Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \mb{u} \cdot \mb{v} = \| \mb{u} \| \| \mb{v} \| \cos (\theta). 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-23"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><div class="para logical" id="p-394">
+</div></article><article class="hiddenproof" id="proof-23"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><div class="para logical" id="p-395">
 <div class="para">First, if <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are linearly dependent, then <span class="process-math">\(\mb{v} = \lambda \mb{u}\)</span> with <span class="process-math">\(\lambda \ne 0\)</span> (since both vectors are non-zero). If <span class="process-math">\(\lambda \gt 0\)</span> then both vectors point in the same direction, so their angle should be <span class="process-math">\(\theta = 0\)</span> or <span class="process-math">\(\cos \theta = 1\text{.}\)</span> But in this case we see</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -558,10 +571,10 @@ A^T = E_r^T \cdots E_1^T.
 </div>
 <div class="para">Subtracting <span class="process-math">\(\| \mb{u}\|^2 + \| \mb{v} \|^2\)</span> from both sides and dividing by <span class="process-math">\(-2\)</span> gives the result.</div>
 </div></article></div>
-<div class="para" id="p-395">The upshot of this amazing result is that we can now get quantitative and qualitative information about vectors very easily.</div>
+<div class="para" id="p-396">The upshot of this amazing result is that we can now get quantitative and qualitative information about vectors very easily.</div>
 <article class="example example-like" id="example-44"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-44"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Computing the angle between vectors.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><div class="para logical" id="p-396">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-44"><article class="example example-like"><div class="para logical" id="p-397">
 <div class="para">If we were asked to find the angle between the row vectors <span class="process-math">\(\mb{u} = [ 1, 0, -1 ]\)</span> and <span class="process-math">\(\mb{v} = [ 0, 1, -1 ]\)</span> before having the dot product, it is not surprising that we would struggle. But now we just compute lengths and the dot product to see:</div>
 <div class="displaymath process-math" id="md-46">
 \begin{align*}
@@ -584,25 +597,25 @@ A^T = E_r^T \cdots E_1^T.
 </div>
 <div class="para">implying that <span class="process-math">\(\theta = \frac{\pi}{3}\text{.}\)</span> In this case, we get a quick pleasant answer. However, we see even when we find that <span class="process-math">\(\mb{u} \cdot \mb{v} \gt 0\)</span> that the angle made between <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> is acute. Were it <span class="process-math">\(0\text{,}\)</span> they would be perpendicular and if it were negative, they would form an obtuse angle. Point being, even without evaluating <span class="process-math">\(\arccos\text{,}\)</span> we obtain qualitative information about our vectors.</div>
 </div></article></div>
-<div class="para" id="p-397">Moreover, one can easily prove some basic, but useful, inequalities such as.</div>
+<div class="para" id="p-398">Moreover, one can easily prove some basic, but useful, inequalities such as.</div>
 <article class="proposition theorem-like" id="proposition-18"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Triangle Inequality.</span>
 </h4>
-<div class="para logical" id="p-398">
+<div class="para logical" id="p-399">
 <div class="para">Given two vectors <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> in an inner product space</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \|\mb{u} + \mb{v} \| \leq \| \mb{u} \| + \| \mb{v} \|. 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-24"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><div class="para" id="p-399">This can be shown for a general inner product space using the Cauchy-Schwarz inequality below. Here we check it for the dot product on <span class="process-math">\(\mathbb{R}^n\)</span> by squaring both sides and seeing that <span class="process-math">\(\mb{u} \cdot \mb{v} \leq \| \mb{u} \| \| \mb{v} \|\)</span> (because <span class="process-math">\(\cos (\theta ) \leq 1\)</span>).</div></article></div>
-<div class="para" id="p-400">Note that this is the triangle inequality because it is saying that the sum of two side lengths of a triangle is greater than the side length of the third.</div></section><section class="subsection" id="subsec-otherexamples"><h3 class="heading hide-type">
+</div></article><article class="hiddenproof" id="proof-24"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><div class="para" id="p-400">This can be shown for a general inner product space using the Cauchy-Schwarz inequality below. Here we check it for the dot product on <span class="process-math">\(\mathbb{R}^n\)</span> by squaring both sides and seeing that <span class="process-math">\(\mb{u} \cdot \mb{v} \leq \| \mb{u} \| \| \mb{v} \|\)</span> (because <span class="process-math">\(\cos (\theta ) \leq 1\)</span>).</div></article></div>
+<div class="para" id="p-401">Note that this is the triangle inequality because it is saying that the sum of two side lengths of a triangle is greater than the side length of the third.</div></section><section class="subsection" id="subsec-otherexamples"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.3</span> <span class="title">Other Examples</span>
 </h3>
-<div class="para" id="p-401">With all of this discussion of the dot product, one might wonder why we bothered with the general definition of an inner product space. In fact, many of the most useful and advanced applications of linear algebra require working over <span class="process-math">\(\mathbb{C}\)</span> (for example, quantum mechanics), and so it is worth mentioning a few more interesting examples.</div>
+<div class="para" id="p-402">With all of this discussion of the dot product, one might wonder why we bothered with the general definition of an inner product space. In fact, many of the most useful and advanced applications of linear algebra require working over <span class="process-math">\(\mathbb{C}\)</span> (for example, quantum mechanics), and so it is worth mentioning a few more interesting examples.</div>
 <article class="example example-like" id="exa-hermitianinnerproduct"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-hermitianinnerproduct"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Hermitian inner product.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-hermitianinnerproduct"><article class="example example-like"><div class="para logical" id="p-402">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-hermitianinnerproduct"><article class="example example-like"><div class="para logical" id="p-403">
 <div class="para">Let <span class="process-math">\(V\)</span> be the vector space of column vectors in <span class="process-math">\(\mathbb{C}^n\text{.}\)</span> We can define a straightforward generalization of the dot product here by taking</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -623,10 +636,10 @@ A^T = E_r^T \cdots E_1^T.
 </div>
 <div class="para">One can check this gives an inner product on <span class="process-math">\(\mathbb{C}^n\text{.}\)</span> In fact, this inner product has a lot more structure than meets the eye and is the right answer to how to do geometry in complex space. For example, one still has that <span class="process-math">\(\| \mb{v} \|\)</span> gives the length of the vector <span class="process-math">\(\mb{v}\text{.}\)</span> But <span class="process-math">\(\left\langle \mb{u}, \mb{v} \right\rangle\)</span> gives two quantities, relating to both an angle and an area swept out by the two vectors.</div>
 </div></article></div>
-<div class="para" id="p-403">Another important example to consider is the following Hilbert Space.</div>
+<div class="para" id="p-404">Another important example to consider is the following Hilbert Space.</div>
 <article class="example example-like" id="exa-HilbertSpace"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-HilbertSpace"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Hilbert space of functions.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-HilbertSpace"><article class="example example-like"><div class="para logical" id="p-404">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-HilbertSpace"><article class="example example-like"><div class="para logical" id="p-405">
 <div class="para">Let <span class="process-math">\([a, b]\)</span> be an interval in <span class="process-math">\(\mathbb{R}\)</span> and consider all integrable functions <span class="process-math">\(L^2 ([a,b] )\)</span> from <span class="process-math">\([a,b]\)</span> to <span class="process-math">\(\mathbb{C}\)</span> (this means that both the real and imaginary parts are integrable). Then we can define the inner product</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -641,11 +654,11 @@ A^T = E_r^T \cdots E_1^T.
 </div>
 <div class="para">This inner product space is widely used and generalized in applications. We will see in the next section a rather interesting set of vectors in this space that form the heart of Fourier series.</div>
 </div></article></div>
-<div class="para" id="p-405">The result concerning angles between vectors and the dot product suggests a more general inequality for inner product spaces.</div>
+<div class="para" id="p-406">The result concerning angles between vectors and the dot product suggests a more general inequality for inner product spaces.</div>
 <article class="theorem theorem-like" id="thm-CauchySchwarz"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.14</span><span class="period">.</span><span class="space"> </span><span class="title">Cauchy-Schwarz Inequality.</span>
 </h4>
-<div class="para logical" id="p-406">
+<div class="para logical" id="p-407">
 <div class="para">If <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are vectors in an inner product space, then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -653,41 +666,41 @@ A^T = E_r^T \cdots E_1^T.
 \end{equation*}
 </div>
 <div class="para">with equality if and only if <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are linearly dependent.</div>
-</div></article><div class="para" id="p-407">There is a rather fun proof of this fact which we will put as a guided exercise.</div></section><section class="exercises" id="exe-geom1"><h3 class="heading hide-type">
+</div></article><div class="para" id="p-408">There is a rather fun proof of this fact which we will put as a guided exercise.</div></section><section class="exercises" id="exe-geom1"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">3.1.4</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-51"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-408">Show that, given any matrix <span class="process-math">\(A\text{,}\)</span> the matrix <span class="process-math">\(A^T A\)</span> is symmetric.</div></article><article class="exercise exercise-like" id="exe-vectorangles"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-22"><div class="para" id="p-409">Find the angle between the vectors</div></div>
+<div class="para" id="p-409">Show that, given any matrix <span class="process-math">\(A\text{,}\)</span> the matrix <span class="process-math">\(A^T A\)</span> is symmetric.</div></article><article class="exercise exercise-like" id="exe-vectorangles"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-22"><div class="para" id="p-410">Find the angle between the vectors</div></div>
 <article class="task exercise-like" id="task-43"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-410"><div class="displaymath process-math">
+<div class="para logical" id="p-411"><div class="displaymath process-math">
 \begin{equation*}
 \mb{u} = \twovec{1}{-1} , \mb{v} = \twovec{0}{3}
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-44"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-411"><div class="displaymath process-math">
+<div class="para logical" id="p-412"><div class="displaymath process-math">
 \begin{equation*}
 \mb{u} = \threevec{-1}{1}{0} , \mb{v} = \threevec{0}{-1}{1} 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-53"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-23"><div class="para" id="p-412">Find the unit vector pointing in the direction of <span class="process-math">\(\mb{v}\)</span> when</div></div>
+<div class="introduction" id="introduction-23"><div class="para" id="p-413">Find the unit vector pointing in the direction of <span class="process-math">\(\mb{v}\)</span> when</div></div>
 <article class="task exercise-like" id="task-45"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-413"><div class="displaymath process-math">
+<div class="para logical" id="p-414"><div class="displaymath process-math">
 \begin{equation*}
 \mb{v} = \twovec{3}{5} 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-46"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-414"><div class="displaymath process-math">
+<div class="para logical" id="p-415"><div class="displaymath process-math">
 \begin{equation*}
 \mb{v} = \threevec{-1}{2}{-2} 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-47"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para logical" id="p-415"><div class="displaymath process-math">
+<div class="para logical" id="p-416"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} -1 \amp 3  \\ -1 \amp 2  \\ 1 \amp  -3  \end{matrix} \right] \twovec{x_1}{x_2} = \threevec{-5}{-3}{5} 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exe-projection"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-416">
+<div class="para logical" id="p-417">
 <div class="para">Suppose <span class="process-math">\(\mb{u}\)</span> is a non-zero vector in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Projecting another vector <span class="process-math">\(\mb{v}\)</span> to <span class="process-math">\(\mb{u}\)</span> means finding the part of <span class="process-math">\(\mb{v}\)</span> that points parallel to <span class="process-math">\(\mb{u}\text{.}\)</span> More precisely, there are unique vectors <span class="process-math">\(\mb{v}_\perp\)</span> and <span class="process-math">\(\mb{v}_{\|}\)</span> for which</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -705,10 +718,10 @@ A^T = E_r^T \cdots E_1^T.
 </div></article><article class="exercise exercise-like" id="exercise-55"><h4 class="heading">
 <span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Cauchy-Schwarz Proof.</span>
 </h4>
-<div class="introduction" id="introduction-24"><div class="para" id="p-417">Let <span class="process-math">\(V\)</span> be an inner product space and suppose <span class="process-math">\(\mb{v}\)</span> is a non-zero vector.</div></div>
+<div class="introduction" id="introduction-24"><div class="para" id="p-418">Let <span class="process-math">\(V\)</span> be an inner product space and suppose <span class="process-math">\(\mb{v}\)</span> is a non-zero vector.</div></div>
 <article class="task exercise-like" id="task-48"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="p-418">Show that <span class="process-math">\(\mb{v}\)</span> and <span class="process-math">\(\mb{u}\)</span> are linearly dependent then the Cauchy-Inequality is actually an equality.</div></article><article class="task exercise-like" id="task-49"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-419">
+<div class="para" id="p-419">Show that <span class="process-math">\(\mb{v}\)</span> and <span class="process-math">\(\mb{u}\)</span> are linearly dependent then the Cauchy-Inequality is actually an equality.</div></article><article class="task exercise-like" id="task-49"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="p-420">
 <div class="para">Show that if <span class="process-math">\(\mb{v}\)</span> and <span class="process-math">\(\mb{u}\)</span> are linearly independent then there is no <span class="process-math">\(t\)</span> and <span class="process-math">\(\theta\)</span> in <span class="process-math">\(\mathbb{R}\)</span> for which</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -716,7 +729,7 @@ A^T = E_r^T \cdots E_1^T.
 \end{equation*}
 </div>
 </div></article><article class="task exercise-like" id="task-50"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para logical" id="p-420">
+<div class="para logical" id="p-421">
 <div class="para">Show that if <span class="process-math">\(\left\langle \mb{u} , \mb{v} \right\rangle\)</span> has polar decomposition <span class="process-math">\(r e^{i \psi }\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -724,7 +737,7 @@ A^T = E_r^T \cdots E_1^T.
 \end{equation*}
 </div>
 </div></article><article class="task exercise-like" id="task-51"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para logical" id="p-421">
+<div class="para logical" id="p-422">
 <div class="para">Using parts (b) and (c), show that the Cauchy-Schwarz inequality for independent vectors follows from the fact that there are no real solutions to this equation</div>
 <div class="displaymath process-math">
 \begin{equation*}

@@ -11,38 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">A common way of viewing the matrix</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A = \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">is as a column of <span class="process-math">\(m\)</span> row vectors</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{r}_i = \left[ \begin{matrix} a_{i1} \amp a_{i2} \amp \cdots \amp a_{in} \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">by just taking</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] .
-\end{equation*}
-</div>
-<div class="para">In fact, this is how most computer programs will take the input of a matrix (as an array of arrays). This leads to a very fruitful way of thinking about matrix multiplication of <span class="process-math">\(A\)</span> by a row vector on the left:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\left[ \begin{matrix} a_{1} \amp a_{2} \amp \cdots \amp a_{m} \end{matrix} \right] \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ - \amp \mb{r}_2 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_m \amp - \end{matrix} \right] = a_1 \mb{r}_1 + \cdots + a_m \mb{r}_m. 
-\end{equation*}
-</div>
-<div class="para">Note that here, rather than multiplying each entry of the matrix by the scalar <span class="process-math">\(a_i\text{,}\)</span> we are taking the whole row and scalar multiplying. We end up seeing that the result is a linear combination of the rows.  A similar equation holds when we view <span class="process-math">\(A\)</span> as a  row of column vectors and multiply on the right by a column vector</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right] \left[ \begin{matrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{matrix} \right] = b_1 \mb{c}_1 + b_2 \mb{c}_2 + \cdots b_n \mb{c}_n. 
-\end{equation*}
-</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para">Linear combinations and span are essential vocabulary when communicating how vectors sweep out spaces. For example, a linear combination of a single non-zero vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(\mathbb{R}^3\)</span> is just a scaling of <span class="process-math">\(\mb{v}\)</span> and its span is the set of all such scale multiples; namely, a line through the origin in the direction of <span class="process-math">\(\mb{v}\text{.}\)</span> On the other hand, taking the span of two  vectors <span class="process-math">\(\mb{v}_1, \mb{v}_2\)</span> which are not on the same line will give a plane through the origin. Moreover, if we remember these vectors we get coordinates on this plane by taking the point <span class="process-math">\((x,y)\)</span> to the linear combination <span class="process-math">\(x \mb{v}_1 + y \mb{v}_2\text{.}\)</span>
 </div>
 <span class="incontext"><a href="sec-vectorspaces1.html#p-136" class="internal">in-context</a></span>
 </body>

@@ -11,8 +11,30 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">Let us see what happens if we just flip our matrix (called taking a transpose):</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Let</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} 1 \amp 0 \\ 1 \amp 1 \\ 0 \amp 1 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{b} = \threevec{1}{1}{1} . 
+\end{equation*}
+</div>
+<div class="para">Then our system of equations is in fact three equations of two variables</div>
+<div class="displaymath process-math">
+\begin{align*}
+x_1 + 0 \amp = 1 ,\\
+x_1 + x_2 \amp = 1 , \\
+0 + x_2 \amp = 1.
+\end{align*}
+</div>
+<div class="para">The first and the third equation tell us that any solution must have <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> both equal to <span class="process-math">\(1\text{.}\)</span> But the second equation then would imply <span class="process-math">\(2 = 1 + 1 = 1\text{,}\)</span> which does not make sense here on earth. So for this example <em class="emphasis">there are no solutions</em>! This case where the number of equations exceeds the number of variables is called an <dfn class="terminology">overdetermined system</dfn> of linear equations. For these, it is often the case that no solution exists (although there certainly are exceptions!).</div>
+</div>
 <span class="incontext"><a href="sec-matrices2.html#p-197" class="internal">in-context</a></span>
 </body>
 </html>

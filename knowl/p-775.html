@@ -13,19 +13,13 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Consider the differential equation</div>
-<div class="displaymath process-math">
+<div class="para">If <span class="process-math">\(W_{x_1 \cdots x_n} (t_0) \ne 0\)</span> then the matrix in <a href="" class="xref" data-knowl="./knowl/def-Wronskian.html" title="Definition 5.5.6">Definition 5.5.6</a> is invertible. This means the columns are linearly independent. But then any initial condition</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-Wronskian.html">
 \begin{equation*}
-2t^2 x^{\prime \prime} (t) + 3t x^\prime (t) - x(t) = 0.
+\threevec{x (t_0)}{\vdots}{x^{(n - 1)} (t_0)}
 \end{equation*}
 </div>
-<div class="para">One checks that <span class="process-math">\(x_1(t) = \sqrt{t}\)</span> and <span class="process-math">\(x_2 (t) = 1/t\)</span> are solutions to this equation for <span class="process-math">\(t &gt; 0\text{.}\)</span> Calculating the Wronskian gives</div>
-<div class="displaymath process-math">
-\begin{equation*}
-W_{x_1 x_2} = \det \left[ \begin{matrix} \sqrt{t} \amp \frac{1}{t} \\ \frac{1}{2\sqrt{t}} \amp - \frac{1}{t^2} \end{matrix} \right] = - \frac{1}{t^{3/2}} - \frac{1}{2t^{1/2}}.
-\end{equation*}
-</div>
-<div class="para">Since this is non-zero, we conclude that <span class="process-math">\(1/t\)</span> and <span class="process-math">\(\sqrt{t}\)</span> are fundamental solutions.</div>
+<div class="para">is a linear combination of those given by <span class="process-math">\(x_1, \ldots, x_n\)</span> implying <span class="process-math">\(x\)</span> is a linear combination of these functions (by the uniqueness of solutions with a given initial condition).</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-775" class="internal">in-context</a></span>
 </body>

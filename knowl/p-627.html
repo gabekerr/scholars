@@ -11,16 +11,39 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Verify the claim in the proof of <a href="" class="xref" data-knowl="./knowl/prop-adjointexists.html" title="Proposition 4.3.4">Proposition 4.3.4</a>. In particular, show that if <span class="process-math">\(A^*\)</span> is the conjugate transpose of the matrix <span class="process-math">\(A = \cob{T}{\mathcal{B}}{\mathcal{C}}\)</span> representing <span class="process-math">\(T\)</span> with respect to the orthonormal bases <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\)</span> and <span class="process-math">\(\mathcal{C}\)</span> of <span class="process-math">\(W\text{,}\)</span> then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-adjointexists.html">
+<div class="para">To compute it, we simply take our sample space of shifted vectors, or vectors with respect to the mean, and make it into a very large matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-var1d.html">
 \begin{equation*}
-[]_\mathcal{B} \circ A^* \circ \coord{}{\mathcal{C}}: W \to V 
+\mathcal{S} = \left[ \begin{matrix} | \amp | \amp \cdots \amp | \\ \, \mb{X}_1 - \mb{\mu} \amp \, \,\mb{X}_2 - \mb{\mu} \amp \cdots \amp \, \,\mb{X}_N - \mb{\mu} \\ | \amp | \amp \cdots \amp | \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">is adjoint to <span class="process-math">\(T\text{.}\)</span>
+<div class="para">and write</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-var1d.html">
+\begin{equation}
+\mathbf{\Sigma} = \frac{1}{|S|} \mathcal{S} \mathcal{S}^T.\tag{4.3.4}
+\end{equation}
 </div>
+<div class="para">Let us observe a few things about this matrix. First, it is often written as <span class="process-math">\(K_{XX}\)</span> rather than <span class="process-math">\(\mb{\Sigma}\text{.}\)</span> We also note that the one dimensional case reproduces formula <a href="" class="xref" data-knowl="./knowl/eq-var1d.html" title="Equation 4.3.3">(4.3.3)</a>. Finally, one can check that this is an <span class="process-math">\(n \times n\)</span> real symmetric matrix so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-var1d.html">
+\begin{equation*}
+\mathbf{\Sigma}^T = \mathbf{\Sigma} . 
+\end{equation*}
+</div>
+<div class="para">If this weren't good enough, it also has a positive semi-definite property. Namely, if <span class="process-math">\(\mb{v}\)</span> is any vector in <span class="process-math">\(\mathbb{R}^n\)</span> then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-var1d.html">
+\begin{equation}
+\left( \mathbf{\Sigma} \mb{v} \right) \cdot \mb{v} \geq 0 .  \tag{4.3.5}
+\end{equation}
+</div>
+<div class="para">So indeed, this covariance matrix is self-adjoint and, as you will show in an exercise, has only non-negative eigenvalues. This in particular means one can take unambiguous square roots of these eigenvalues (which are viewed as multivariable standard deviations). Thus there is an orthonormal eigenbasis for <span class="process-math">\(\mathbf{\Sigma}\text{.}\)</span> The eigenvectors of this basis can be ordered so that the <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> so that <span class="process-math">\(\mb{v}_1\)</span> has the largest eigenvalue and the remaining eigenvalues are of decreasing values. Then in the <span class="process-math">\(\coord{}{\mathcal{B}}\)</span> coordinate system, our original data set can be seen as normally distributed about the mean with an ellipsoid with equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-var1d.html">
+\begin{equation*}
+\left( \frac{x_1}{\lambda_1} \right)^2 + \cdots + \left( \frac{x_n}{\lambda_n} \right)^2 = 1 . 
+\end{equation*}
+</div>
+<div class="para">In this coordinate system, we can reduce dimensions to those eigenvectors with the largest eigenvalues (by projecting). Understanding and interpreting the data set in the eigenbasis coordinate system is an area in statistical applications known as ‘principal component analysis’.</div>
 </div>
 <span class="incontext"><a href="sec-spectral.html#p-627" class="internal">in-context</a></span>
 </body>

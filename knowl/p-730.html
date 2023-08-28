@@ -13,24 +13,75 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">The case where <span class="process-math">\(\tilde{b} \geq 2 \sqrt{\tilde{k}}\)</span> gives the real roots</div>
-<div class="displaymath process-math">
+<div class="para">This differential equation describes the motion of a mass on the end of a spring. The mass is <span class="process-math">\(m\text{,}\)</span> spring constant <span class="process-math">\(k\)</span> (which describes how tight the spring is) and damping constant is <span class="process-math">\(b\)</span> (which describes the amount of kinetic friction). Dividing by <span class="process-math">\(m\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
 \begin{equation*}
-\lambda_1 = - \alpha +  \beta, \hspace{.5in} \lambda_2 = - \alpha -  \beta.
+x^{\prime \prime} + \tilde{b} x^\prime + \tilde{k} x = 0
 \end{equation*}
 </div>
-<div class="para">One notes that both <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> are negative numbers (since <span class="process-math">\(\alpha &gt; \beta\)</span>). Thus here our solution is</div>
-<div class="displaymath process-math">
+<div class="para">where <span class="process-math">\(\tilde{b} = \frac{b}{m}\)</span> and <span class="process-math">\(\tilde{k} = \frac{k}{m}\text{.}\)</span> Converting to a matrix equation <span class="process-math">\(\dot{\mb{x}} = A \mb{x}\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
 \begin{equation*}
-x (t) = A e^{\lambda_1 t} + B e^{\lambda_2 t}.
+A = \left[ \begin{matrix} 0 \amp 1 \\ - \tilde{k} \amp - \tilde{b} \end{matrix} \right]
 \end{equation*}
 </div>
-<div class="para">This is solution experiences exponential decay and the spring-mass system is called <dfn class="terminology">overdamped</dfn>. The reason is that the kinetic friction force is overcoming the spring force and simply slowing the mass to a stop before oscillation occurs. The initial conditions here are</div>
-<div class="displaymath process-math">
+<div class="para">with characteristic polynomial</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
 \begin{equation*}
-x (0) = A + B, \hspace{.5in} x^\prime (0) = \lambda_1 A + \lambda_2 B.
+p_A (s) = s^2 + \tilde{b} s + \tilde{k}. 
 \end{equation*}
 </div>
+<div class="para">Using the quadratic formula, we obtain the roots</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+\lambda = - \frac{\tilde{b}}{2} \pm \frac{\sqrt{\tilde{b}^2 - 4 \tilde{k}}}{2}
+\end{equation*}
+</div>
+<div class="para">Of which there are two main cases (and one case we will ignore). Let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{align*}
+\alpha \amp =  \frac{\tilde{b}}{2}, \\
+\beta \amp = \frac{\sqrt{ | \tilde{b}^2 - 4 \tilde{k} |}}{2} 
+\end{align*}
+</div>
+<div class="para">and notice that <span class="process-math">\(\alpha \geq 0\)</span> (with equality when there is no damping), <span class="process-math">\(\beta \gt 0\)</span> and <span class="process-math">\(\alpha \gt \beta\text{.}\)</span> The first case we have <span class="process-math">\(\tilde{b} \lt 2 \sqrt{\tilde{k}}\)</span> in which case the roots of the characteristic polynomial are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+\lambda = - \alpha + i \beta, \hspace{.5in} \bar{\lambda} = - \alpha - i \beta.
+\end{equation*}
+</div>
+<div class="para">with eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation}
+\mathcal{B} = \left\{ \mb{w}_1, \bar{\mb{w}}_1 \right\} = \left\{ \twovec{1}{\lambda} \twovec{1}{\bar{\lambda}} \right\}.\tag{5.3.9}
+\end{equation}
+</div>
+<div class="para">Using <a href="" class="xref" data-knowl="./knowl/thm-diagonalizableODE.html" title="Theorem 5.3.4">Theorem 5.3.4</a>, we see that solutions then are linear combinations of the solutions</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{align*}
+\mb{x}_R (t) = \operatorname{Re} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right) \amp = \twovec{e^{-\alpha t} \cos (\beta t)}{ - \alpha e^{-\alpha t} \cos (\beta t) + \beta e^{-\alpha t} \sin (\beta t)}, \\
+\mb{x}_I (t) = \operatorname{Im} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right)  \amp = \twovec{e^{-\alpha t} \sin (\beta t)}{ - \alpha e^{-\alpha t} \sin (\beta t) - \beta e^{-\alpha t} \cos (\beta t)}. 
+\end{align*}
+</div>
+<div class="para">Recalling that the first coordinate is the scalar solution to the original second order differential equation, we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+x (t) = A e^{-\alpha t} \cos (\beta t) + B e^{-\alpha t} \sin (\beta t)
+\end{equation*}
+</div>
+<div class="para">with initial conditions</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+x (0) = A,  \hspace{.5in}x^\prime (0) = - \alpha A + \beta B. 
+\end{equation*}
+</div>
+<div class="para">Of course, if the point <span class="process-math">\((A, B)\)</span> has polar coordinate <span class="process-math">\((r \cos \theta, r \sin \theta)\text{,}\)</span> then the trigonometric sum formulas will give the simpler formula</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+\begin{equation*}
+x (t) = r e^{-\alpha t} \cos (\beta t - \theta ).
+\end{equation*}
+</div>
+<div class="para">Thus when <span class="process-math">\(\tilde{b} \lt 2 \sqrt{\tilde{k}}\)</span> we see some oscillation in the spring-mass system. Notice that if there is no damping and <span class="process-math">\(\alpha = 0\text{,}\)</span> then the spring-mass system simply oscillates with amplitude <span class="process-math">\(r\)</span> and period <span class="process-math">\(\beta\)</span> (often called <span class="process-math">\(\omega\)</span> in applications). On the other hand, if there is damping, this oscillation's amplitude experiences exponential decay.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-730" class="internal">in-context</a></span>
 </body>

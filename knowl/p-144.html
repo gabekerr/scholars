@@ -11,8 +11,33 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">To be clear, the abstract notion of a basis is that given in the definition. The computational perspective is that one can uniquely assign arrays of numbers to vectors and, as we will see, add and scalar multiply in an easy fashion. Finally, the geometric perspective is rooted in Descartes original insight that points in space could be given coordinates. This last perspective is extremely subtle in that the word ‘<em class="emphasis">could</em>’ has great importance. I will make the point here that a vector space is a space of vectors or points that does <em class="emphasis">not</em> come with a preferred set of coordinates (unless the space you start with is <span class="process-math">\(K^n\)</span>). Once a basis is given, or chosen, we can then assign coordinates. Indeed, while we do not walk around with a three dimensional grid attached to our head, the space we live in still exists! I may tell you that `the coffee cup is on the table over there', but you will not hear me say ‘the coffee cup is at <span class="process-math">\((-3, 2, 1)\)</span>’.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">In the real case, one should think of a basis as giving a rigid set of coordinates, or a grid, that allows you to assign arrays of numbers to vectors. For example, the basis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathcal{B} = \left\{ \twovec{1}{-1} , \twovec{1}{1} \right\} 
+\end{equation*}
+</div>
+<div class="para">in <span class="process-math">\(\mathbb{R}^2\)</span> gives Cartesian coordinates rotated clockwise by <span class="process-math">\(45\)</span> degrees and scaled by <span class="process-math">\(\sqrt{2}\text{.}\)</span> The vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{v} = \twovec{1}{2} 
+\end{equation*}
+</div>
+<div class="para">in this coordinate system is written</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\coord{\mb{v}}{\mathcal{B}} = \twovec{\frac{3}{2}}{-\frac{1}{2}} 
+\end{equation*}
+</div>
+<div class="para">because</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{v} = \twovec{1}{2} = \frac{3}{2} \twovec{1}{-1} + \left(-\frac{1}{2}} \right) \twovec{1}{1}. 
+\end{equation*}
+</div>
+</div>
 <span class="incontext"><a href="sec-vectorspaces1.html#p-144" class="internal">in-context</a></span>
 </body>
 </html>

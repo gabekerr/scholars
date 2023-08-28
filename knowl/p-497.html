@@ -11,8 +11,25 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">This lemma gives us a useful corollary.</div>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">However, we can apply <span class="process-math">\(T\)</span> to both sides of equation <a href="" class="xref" data-knowl="./knowl/eq-linrel.html" title="Equation 4.1.3">(4.1.3)</a> to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html">
+\begin{align*}
+\lambda_{j + 1} \mb{v}_{j + 1} \amp = T (\mb{v}_{j+1}) , \\
+\amp = T (a_1 \mb{v}_1 + \cdots + a_j \mb{v}_j ),  \\
+\amp = a_1 T (\mb{v}_1 ) + \cdots + a_j T (\mb{v}_j ), \\
+\amp = a_1 \lambda_1 \mb{v}_1  + \cdots + a_j \lambda_j \mb{v}_j .
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(\lambda_{j +1} \ne 0\text{,}\)</span> we may divide and obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html">
+\begin{equation*}
+\mb{v}_j = a_1 \frac{\lambda_1}{\lambda_{j + 1}} \mb{v}_1  + \cdots + a_j \frac{\lambda_j}{\lambda_{j + 1}} \mb{v}_j . 
+\end{equation*}
+</div>
+<div class="para">Now, not all <span class="process-math">\(a_i\)</span> are zero for <span class="process-math">\(1 \lt i \leq j\)</span> (otherwise <span class="process-math">\(\mb{v}_{j + 1}\)</span> would be a multiple of <span class="process-math">\(\mb{v}_1\)</span> and a zero eigenvector), so there is at least one <span class="process-math">\(i\)</span> whose coefficient in equation <a href="" class="xref" data-knowl="./knowl/eq-linrel.html" title="Equation 4.1.3">(4.1.3)</a> has changed from <span class="process-math">\(a_i\)</span> to <span class="process-math">\(a_i\frac{\lambda_i}{\lambda_{j + 1}}\text{.}\)</span> But since these must be equal, we must have that <span class="process-math">\(\lambda_i = \lambda_{j + 1}\)</span> which contradicts the assumption that all eigenvalues were distinct. This proves the lemma.</div>
+</div>
 <span class="incontext"><a href="sec-diag1.html#p-497" class="internal">in-context</a></span>
 </body>
 </html>

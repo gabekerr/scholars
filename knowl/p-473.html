@@ -11,24 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">Of course, this definition may seem suspicious at first. As I have been emphasizing, an abstract vector space does <em class="emphasis">not</em> come with a basis, but rather one must choose a basis. So what happens if one person chooses a basis <span class="process-math">\(\mathcal{B}\)</span> to compute <span class="process-math">\(\det (T)\)</span> and another chooses a different basis <span class="process-math">\(\mathcal{C}\text{?}\)</span> Students with great memories will recall equation <a href="" class="xref" data-knowl="./knowl/eq-changeofbasis.html" title="Equation 2.6.5">(2.6.5)</a> and <a href="" class="xref" data-knowl="./knowl/exe-changeofbasis.html" title="Exercise 2.6.5">Exercise 2.6.5</a> which showed that if <span class="process-math">\(B = \cob{T}{\mathcal{B}}{\mathcal{B}}\)</span> and <span class="process-math">\(C = \cob{T}{\mathcal{C}}{\mathcal{C}}\)</span> were two different matrix representations of the same linear transformation <span class="process-math">\(T\text{,}\)</span> then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-changeofbasis.html ./knowl/exe-changeofbasis.html ./knowl/prop-productdet.html">
-\begin{equation*}
-C = P^{-1} B P. 
-\end{equation*}
-</div>
-<div class="para">But then by <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-changeofbasis.html ./knowl/exe-changeofbasis.html ./knowl/prop-productdet.html">
-\begin{align*}
-\det (B) \amp = \frac{\det (P)}{\det (P)} \det (B), \\
-\amp = \det (P^{-1}) \det (B) \det (P), \\
-\amp = \det (P^{-1} B P), \\
-\amp = \det (C). 
-\end{align*}
-</div>
-<div class="para">So indeed, defining <span class="process-math">\(\det (T)\)</span> with either matrix gives the same quantity.</div>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para">Given a finite dimensional vector space <span class="process-math">\(V\)</span> and a linear transformation <span class="process-math">\(T : V \to V\text{,}\)</span> the <dfn class="terminology">determinant</dfn> of <span class="process-math">\(T\text{,}\)</span> denoted <span class="process-math">\(\det (T)\text{,}\)</span> is the determinant of any matrix representing <span class="process-math">\(T\)</span> with respect to the same basis. I.e. <span class="process-math">\(\det (T) := \det (\cob{T}{\mathcal{B}}{\mathcal{B}})\)</span> for any basis <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\text{.}\)</span>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-473" class="internal">in-context</a></span>
 </body>

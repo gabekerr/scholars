@@ -11,8 +11,16 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">As it turns out, this example is the computational heart of linear algebra and can be used to describe <em class="emphasis">any</em> linear transformation between two finite dimensional vector spaces (we will see this shortly). So it is worth taking a look at a few special cases of such transformations.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The most important example of a linear transformation is multiplication by a matrix <span class="process-math">\(A \in M_{m, n} (K)\)</span> (on the left) which will take column vectors <span class="process-math">\(K^n\)</span> to column vectors <span class="process-math">\(K^m\text{.}\)</span> This operation can be written as</div>
+<div class="displaymath process-math">
+\begin{equation}
+\left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{matrix} \right] = \left[ \begin{matrix} a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n \end{matrix} \right].\tag{2.3.1}
+\end{equation}
+</div>
+<div class="para">It is a slightly annoying (but easy) exercise to show that this is indeed a linear transformation.</div>
+</div>
 <span class="incontext"><a href="sec-lineartransformations1.html#p-155" class="internal">in-context</a></span>
 </body>
 </html>
