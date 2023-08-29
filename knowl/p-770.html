@@ -11,15 +11,23 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Again, when <span class="process-math">\(f(t) = 0\)</span> we call equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a> a homogeneous linear ODE and the solutions form a vector space. The function <span class="process-math">\(x_p (t)\)</span> is called a <dfn class="terminology">particular</dfn> solution and <span class="process-math">\(x_h (t)\)</span> a <dfn class="terminology">complementary</dfn> solution. A basis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearhighODE.html">
+<div class="para">While this is very nice, the expression of this solution is a bit opaque since the exponential <span class="process-math">\(e^{B(t)}\)</span> may be well defined, but is not readily computable. However, one can observe that <span class="process-math">\(B(t)\)</span> is diagonalizable as a matrix of functions in the sense that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\mathcal{B} = \left\{ x_1 (t), x_2 (t), \ldots, x_n (t) \right\}
+B(t) = \frac{t}{2} \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} t - 1 \amp 0 \\ 0 \amp t + 1 \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right] .
 \end{equation*}
 </div>
-<div class="para">of solutions to the homogeneous equation are called <dfn class="terminology">fundamental solutions</dfn>.</div>
+<div class="para">This can be used to see that</div>
+<div class="displaymath process-math">
+\begin{align*}
+e^{B (t)} \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp 0 \\ 0 \amp e^{t(t + 1)/2} \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right], \\
+\amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp e^{t(t - 1)/2} \\ -e^{t(t + 1)/2} \amp e^{t(t + 1)/2} \end{matrix} \right], \\
+\amp = \left[ \begin{matrix} e^{t(t - 1)/2} + e^{t(t + 1)/2} \amp e^{t(t - 1)/2} - e^{t(t + 1)/2} \\ e^{t(t - 1)/2} - e^{t(t + 1)/2} \amp e^{t(t - 1)/2} + e^{t(t + 1)/2} \end{matrix} \right], 
+\end{align*}
+</div>
+<div class="para">which in turn will give explicit solutions to our original linear system.</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-770" class="internal">in-context</a></span>
 </body>

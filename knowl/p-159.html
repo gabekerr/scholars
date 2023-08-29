@@ -11,34 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">Multiplying by a matrix can scale in various directions. In doing so, one can relate common shapes. For example, if we multiply all the points of the unit circle satisfying</div>
-<div class="displaymath process-math">
-\begin{equation*}
-x^2 + y^2 = 1 
-\end{equation*}
-</div>
-<div class="para">by the matrix</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\text{Diag}(a, b) = \left[ \begin{matrix} a \amp 0 \\ 0 \amp b \end{matrix} \right], 
-\end{equation*}
-</div>
-<div class="para">we obtain the set of points of the ellipse <span class="process-math">\(E\)</span> given by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1. 
-\end{equation*}
-</div>
-<div class="para">A useful consequence of this is when you want to parametrize the ellipse <span class="process-math">\(E\text{,}\)</span> you simply parametrize the circle and compose with <span class="process-math">\(\text{Diag}(a,b)\)</span> getting</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{f} (\theta ) =  \text{Diag}(a,b) \twovec{\cos \theta}{ \sin \theta} = \twovec{a \cos \theta}{b \sin \theta}. 
-\end{equation*}
-</div>
-<div class="para">Note that the map <span class="process-math">\(\mb{f}\)</span> is not a linear transformation, but the use of a linear transformation (along with some basic knowledge of trigonometry) helped us find it!</div>
-</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para">As it turns out, this example is the computational heart of linear algebra and can be used to describe <em class="emphasis">any</em> linear transformation between two finite dimensional vector spaces (we will see this shortly). So it is worth taking a look at a few special cases of such transformations.</div>
 <span class="incontext"><a href="sec-lineartransformations1.html#p-159" class="internal">in-context</a></span>
 </body>
 </html>

@@ -11,14 +11,25 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Go through the five steps for the system of differential equations</div>
+<div class="para">The case where <span class="process-math">\(\tilde{b} \geq 2 \sqrt{\tilde{k}}\)</span> gives the real roots</div>
 <div class="displaymath process-math">
-\begin{align*}
-x^\prime (t) \amp = 5 x(t) + 2 y(t), \\
-y^\prime (t) \amp = -4 x (t) + y(t). 
-\end{align*}
+\begin{equation*}
+\lambda_1 = - \alpha +  \beta, \hspace{.5in} \lambda_2 = - \alpha -  \beta.
+\end{equation*}
+</div>
+<div class="para">One notes that both <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> are negative numbers (since <span class="process-math">\(\alpha &gt; \beta\)</span>). Thus here our solution is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x (t) = A e^{\lambda_1 t} + B e^{\lambda_2 t}.
+\end{equation*}
+</div>
+<div class="para">This is solution experiences exponential decay and the spring-mass system is called <dfn class="terminology">overdamped</dfn>. The reason is that the kinetic friction force is overcoming the spring force and simply slowing the mass to a stop before oscillation occurs. The initial conditions here are</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x (0) = A + B, \hspace{.5in} x^\prime (0) = \lambda_1 A + \lambda_2 B.
+\end{equation*}
 </div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-734" class="internal">in-context</a></span>

@@ -11,38 +11,21 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">An <dfn class="terminology">inner product space</dfn> <span class="process-math">\(V\)</span> over <span class="process-math">\(K\)</span> is a vector space along with a pairing</div>
+<div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left\langle , \right\rangle : V \times V \to K 
+A = \left[ \begin{matrix} a \amp b  \\ c \amp d \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">which satisfies</div>
-<dl class="description-list">
-<dt>Linear</dt>
-<dd><div class="displaymath process-math">
-\begin{equation*}
-\left\langle \lambda \mb{v}_1 + \mb{v}_2 , \mb{v} \right\rangle = \lambda \left\langle \mb{v}_1 , \mb{v} \right\rangle + \left\langle  \mb{v}_2 , \mb{v} \right\rangle. 
-\end{equation*}
-</div></dd>
-<dt>Conjugate Symmetric</dt>
-<dd><div class="displaymath process-math">
-\begin{equation*}
-\left\langle \mb{u} , \mb{v} \right\rangle = \overline{\left\langle \mb{v} , \mb{u} \right\rangle}. 
-\end{equation*}
-</div></dd>
-<dt>Positive Definite</dt>
-<dd>
+<div class="para">be the a <span class="process-math">\(2 \times 2\)</span> matrix. Consider the column vectors <span class="process-math">\(\mb{u} = \twovec{a}{c}\)</span> and <span class="process-math">\(\mb{v} = \twovec{b}{d}\)</span> in <span class="process-math">\(\mathbb{R}^2\)</span> and write <span class="process-math">\(\mathcal{P}\)</span> for the parallelogram in <span class="process-math">\(\mathbb{R}^2\)</span> spanned by <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> (this is the parallelogram with sides <span class="process-math">\(\mb{u}\text{,}\)</span> <span class="process-math">\(\mb{v}\)</span> and their translations). Show that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left\langle \mb{v} , \mb{v} \right\rangle \geq 0 
+| \det (A) | = \text{Area} (\mathcal{P}).
 \end{equation*}
-</div>with equality if and only if <span class="process-math">\(\mb{v} = \mb{0}\text{.}\)</span>
-</dd>
-</dl>
 </div>
-<span class="incontext"><a href="sec-geom1.html#p-377" class="internal">in-context</a></span>
+</div>
+<span class="incontext"><a href="sec-matrices3.html#p-377" class="internal">in-context</a></span>
 </body>
 </html>

@@ -11,8 +11,90 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">Let us give an example of this which we will study in more depth next section.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Now let us consider Jordan normal form example.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{align*}
+x^\prime (t) \amp = -3 x(t) +   y(t), \\
+y^\prime (t) \amp = - x (t) - y(t). 
+\end{align*}
+</div>
+<div class="para">Here our matrix is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+A  = \left[ \begin{matrix} -3 \amp 1 \\ -1 \amp -1 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">And we obtain the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x}^\prime (t) = A \mb{x} (t).
+\end{equation*}
+</div>
+<div class="para">We check that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s + 3 \amp -1 \\ 1 \amp s +1 \end{matrix} \right] = s^2 + 4s + 4 = (s + 2)^2 .
+\end{equation*}
+</div>
+<div class="para">Thus we see <span class="process-math">\(A\)</span> has only <span class="process-math">\(-2\)</span> as an eigenvalue. Since <span class="process-math">\(A\)</span> is not a diagonal matrix, we may conclude that it is not diagonalizable (this is only true because it has one eigenvalue). We consider the matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+N = A + 2I = \left[ \begin{matrix} -1 \amp 1 \\ -1 \amp 1 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">and generate a basis of the form <span class="process-math">\(\{ N \mb{v} , \mb{v} \}\)</span> by taking <span class="process-math">\(\mb{v} = \mb{e}_1\text{.}\)</span> Here we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_0 , \mb{v}_1 \right\} = \left\{ \twovec{-1}{-1},  \twovec{1}{0} \right\}.
+\end{equation*}
+</div>
+<div class="para">Now we have a basis for which we can directly apply <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a>. Here we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{align*}
+\mb{x}_0 (t) \amp = e^{-2 t} \mb{v}_0 = \twovec{- e^{-2t}}{-e^{-2t}}, \\
+\mb{x}_1 (t) \amp = e^{-2 t} t \mb{v}_0 +  e^{-2t} \mb{v}_1 = \twovec{- e^{-2t}(t - 1) }{-e^{-2t} t }.
+\end{align*}
+</div>
+<div class="para">And the general solution with initial conditions in terms of the basis <span class="process-math">\(\mathcal{B}\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{align*}
+\mb{x} (t) \amp = C_0 \mb{x}_0 (t) + C_1 \mb{x}_1 (t), \\
+\amp = -e^{-2t} \twovec{C_0 + C_1 (t - 1)}{C_0 + C_1 t },
+\end{align*}
+</div>
+<div class="para">with initial condition</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{C_0}{C_1}_\mathcal{B}. 
+\end{equation*}
+</div>
+<div class="para">If the initial condition were given in the standard basis as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{A}{B} 
+\end{equation*}
+</div>
+<div class="para">we would need the change of basis matrix <span class="process-math">\(\cob{1}{\mathcal{C}}{\mathcal{B}}\)</span> which is just the inverse of the matrix with columns equal to <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\)</span> so it is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+Q =  \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp -1 \end{matrix} \right]
+\end{equation*}
+</div>
+<div class="para">and we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\twovec{C_0}{C_1} = Q \twovec{A}{B} = \twovec{-B}{A - B} .
+\end{equation*}
+</div>
+<div class="para">Putting all of this together, we obtain the general solution with respect to the standard basis.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html">
+\begin{equation*}
+\mb{x} (t) \amp = -e^{-2t} \twovec{ - B + (A - B) (t - 1)}{-B + (A - B) t } =  -e^{-2t} \twovec{ (A - B) t - A }{(A - B) t  -B} = 
+\end{equation*}
+</div>
+</div>
 <span class="incontext"><a href="sec-lincode2.html#p-728" class="internal">in-context</a></span>
 </body>
 </html>

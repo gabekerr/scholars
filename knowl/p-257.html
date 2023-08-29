@@ -13,14 +13,21 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> there have to be no free columns of the <span class="process-math">\(m \times n\)</span> matrix</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-computelinind.html">
+<div class="para">Let us see whether the vectors</div>
+<div class="displaymath process-math">
 \begin{equation*}
-A = \left[ \begin{matrix} | \amp | \amp  \amp | \\ \mb{c}_1 \amp \mb{c}_2 \amp \cdots \amp \mb{c}_n \\ | \amp | \amp   \amp | \end{matrix} \right]. 
+\threevec{1}{3}{-1} , \threevec{0}{2}{1}, \threevec{2}{4}{-3} 
 \end{equation*}
 </div>
-<div class="para">Suppose <span class="process-math">\(A^\prime\)</span> is the matrix <span class="process-math">\(A\)</span> in reduced row echelon form. Then <span class="process-math">\(A^\prime\)</span> has a leading coefficient in every column (otherwise that column corresponds to a free variable). But this gives at least <span class="process-math">\(n\)</span> leading coefficients for <span class="process-math">\(n\)</span> unique rows. So the number of rows <span class="process-math">\(m\)</span> must be at least <span class="process-math">\(n\)</span> or, in other words, <span class="process-math">\(n \leq m\text{.}\)</span>
+<div class="para">are linearly independent or not. We compute the reduced row echelon form to see if every column is basic:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 3 \amp 2 \amp 4 \\ -1 \amp 1 \amp -3 \end{matrix} \right] \amp \stackrel{\mb{r}_2 - 3 \mb{r}_1}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 2 \amp -2 \\ -1 \amp 1 \amp -3 \end{matrix} \right], \\ \amp \stackrel{\mb{r}_3 + \mb{r}_1}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 2 \amp -2 \\ 0 \amp 1 \amp -1 \end{matrix} \right],\\
+\amp \stackrel{1/2 \mb{r}_2}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 1 \amp -1 \end{matrix} \right],\\
+\amp \stackrel{\mb{r}_3 - \mb{r}_2}{\longrightarrow}  \left[ \begin{matrix} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 0 \end{matrix} \right].
+\end{align*}
 </div>
+<div class="para">We can see that the third column gives a free variable so our set is <em class="emphasis">not</em> linearly independent (also called <dfn class="terminology">linearly dependent</dfn>).</div>
 </div>
 <span class="incontext"><a href="sec-vectorspaces2.html#p-257" class="internal">in-context</a></span>
 </body>

@@ -13,51 +13,68 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">To compute the general solution, there are several ways to proceed, but we will take a principled approach and simply say that our path <span class="process-math">\(\mb{x}\)</span> was a function to <span class="process-math">\(\mathbb{C}^2\)</span> all along so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+<div class="para">But what about computing solutions? Well, now that we have an eigenbasis we can write <span class="process-math">\(\mb{x}\)</span> in terms of the eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
 \begin{equation*}
-\mb{x} : I \to \mathbb{C}^2.
+\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{\tilde{x} (t) - \tilde{y} (t)}{2 \tilde{y} (t) - \tilde{x} (t)}. 
 \end{equation*}
 </div>
-<div class="para">Now we can diagonalize because the eigenvalues are distinct. A bit of computation gives the eigenbasis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation*}
-\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{i}{-1 + i},  \twovec{-i}{-1 - i} \right\}.
-\end{equation*}
-</div>
-<div class="para">Again, we can write our solution in terms of this basis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation}
-\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}\tag{5.3.4}
-\end{equation}
-</div>
-<div class="para">and again, in this basis the differential equation becomes much simpler</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation*}
-\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
-\end{equation*}
-</div>
-<div class="para">This time, the two independent equations are</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+<div class="para">But, of course, in this basis the differential equation becomes much simpler</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
 \begin{align*}
-\tilde{x}^\prime (t) \amp = (3 + i) \tilde{x} (t), \\
-\tilde{y}^\prime (t) \amp = (3 - i) \tilde{y} (t). 
+\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)}_\mathcal{B} \amp = \dot{\mb{x}} (t), \\
+\amp = A \mb{x}, \\ \amp = A \left( \tilde{x} (t)  \mb{v}_1 + \tilde{y} (t) \mb{v}_2 \right), \\
+\amp = \tilde{x} (t)  A \mb{v}_1 + \tilde{y} (t) A \mb{v}_2, \\
+\amp = - \tilde{x} (t)  \mb{v}_1 +  2 \tilde{y} (t) \mb{v}_2, \\
+\amp = \twovec{ - \tilde{x} (t)}{2 \tilde{y} (t)}_{\mathcal{B}} .
 \end{align*}
 </div>
-<div class="para">It is here that <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> comes into view and we realize that, in fact, we've already solved these equations and obtained</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+<div class="para">So in particular, our linear system breaks into two independent equations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
 \begin{align*}
-\tilde{x}(t) \amp = C_1 e^{(3 + i)t}, \\
-\tilde{y} (t) \amp = C_2 e^{(3 - i)t}. 
+\tilde{x}^\prime (t) \amp = - \tilde{x} (t), \\
+\tilde{y}^\prime (t) \amp = 2 \tilde{y} (t). 
 \end{align*}
 </div>
-<div class="para">So, were we inclined to write our solutions in terms of the basis <span class="process-math">\(\mathcal{B}\)</span> in <span class="process-math">\(\mathbb{C}^2\text{,}\)</span> we would have solved the differential equation with</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{gather*}
-\mb{x} (t) = \twovec{ C_1 e^{(3 + i)t}}{C_2 e^{(3 - i)t}}_{\mathcal{B}} \text{ with initial condition } \mb{x} (0) = \twovec{C_1}{C_2}_{\mathcal{B}}.
-\end{gather*}
+<div class="para">The solutions to these equations are similar to <a href="" class="xref" data-knowl="./knowl/exa-1varlinode.html" title="Example 5.3.1: One real dimensional equation">Example 5.3.1</a> and we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{align*}
+\tilde{x} (t) \amp = C_1 e^{-t},\\
+\tilde{y} (t) \amp = C_2 e^{2t} 
+\end{align*}
 </div>
-<div class="para">I can hear the overwhelming chorus of objections to this solution from engineer and mathematician alike. After all, the constants <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are possibly complex numbers and the function is too. We started in the real plane and have ended in what appears to be a terrifying <span class="process-math">\(4\)</span>-dimensional mess (since <span class="process-math">\(\mathbb{C}^2\)</span> is <span class="process-math">\(4\)</span> real dimensions). Well, I contend that appearances can be deceiving! Let's unwind this a bit with a few simple observations.</div>
+<div class="para">with initial condition</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{C_1}{C_2}_\mathcal{B}. 
+\end{equation*}
+</div>
+<div class="para">Of course, while the solution is especially pleasant in the eigenbasis, the original problem came to us in terms of the standard basis, so we must be translate our solution into the usual set of coordinates in order to please our engineering colleagues. If the initial condition were given in the standard basis as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+\mb{x} (0) = \twovec{A}{B} 
+\end{equation*}
+</div>
+<div class="para">we would need the change of basis matrix <span class="process-math">\(\cob{1}{\mathcal{C}}{\mathcal{B}}\)</span> to find <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> as above. This is just the inverse of the matrix with columns equal to <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\)</span> so it is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+Q =  \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">and we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{equation*}
+\twovec{C_1}{C_2} = Q \twovec{A}{B} = \twovec{2A + B}{A + B} . 
+\end{equation*}
+</div>
+<div class="para">Putting all of this together, we obtain the general solution with respect to the standard basis.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+\begin{align}
+\mb{x} (t) \amp = \twovec{\tilde{x} (t) - \tilde{y} (t)}{ - \tilde{x} (t) + 2 \tilde{y} (t)}, \tag{5.3.1}\\
+\amp = \twovec{C_1 e^{-t} - C_2 e^{2t} }{ - C_1 e^{-t} + 2 C_2 e^{2t} }, \tag{5.3.2}\\
+\amp =  \twovec{( 2A + B) e^{-t} - ( A + B ) e^{2t} }{ - (2A + B) e^{-t} + 2 (A + B) e^{2t} }. \tag{5.3.3}
+\end{align}
+</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-720" class="internal">in-context</a></span>
 </body>

@@ -13,14 +13,31 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Suppose <span class="process-math">\(V\)</span> is a vector space over <span class="process-math">\(K\)</span> and <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \cdots , \mb{v}_n \}\)</span> is a basis. Recall that in equation <a href="" class="xref" data-knowl="./knowl/eq-functionbasiscoordinates.html" title="Equation 2.2.6">(2.2.6)</a> we defined a function</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-functionbasiscoordinates.html">
+<div class="para">Multiplying by a matrix can scale in various directions. In doing so, one can relate common shapes. For example, if we multiply all the points of the unit circle satisfying</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\coord{}{\mathcal{B}} : V \to K^n . 
+x^2 + y^2 = 1 
 \end{equation*}
 </div>
-<div class="para">This is a linear transformation as you will show in the exercises. As was shown in the previous set of exercises, <span class="process-math">\(\coord{}{\mathcal{B}}\)</span> also has an inverse. Thus we may use <span class="process-math">\(\coord{}{\mathcal{B}}\)</span> to <em class="emphasis">identify</em> the abstract vector space <span class="process-math">\(V\)</span> with the concrete column vector space <span class="process-math">\(K^n\text{.}\)</span> Note however that this identification depended on our choice of <span class="process-math">\(\mathcal{B}\text{.}\)</span>
+<div class="para">by the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Diag}(a, b) = \left[ \begin{matrix} a \amp 0 \\ 0 \amp b \end{matrix} \right], 
+\end{equation*}
 </div>
+<div class="para">we obtain the set of points of the ellipse <span class="process-math">\(E\)</span> given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1. 
+\end{equation*}
+</div>
+<div class="para">A useful consequence of this is when you want to parametrize the ellipse <span class="process-math">\(E\text{,}\)</span> you simply parametrize the circle and compose with <span class="process-math">\(\text{Diag}(a,b)\)</span> getting</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{f} (\theta ) =  \text{Diag}(a,b) \twovec{\cos \theta}{ \sin \theta} = \twovec{a \cos \theta}{b \sin \theta}. 
+\end{equation*}
+</div>
+<div class="para">Note that the map <span class="process-math">\(\mb{f}\)</span> is not a linear transformation, but the use of a linear transformation (along with some basic knowledge of trigonometry) helped us find it!</div>
 </div>
 <span class="incontext"><a href="sec-lineartransformations1.html#p-162" class="internal">in-context</a></span>
 </body>

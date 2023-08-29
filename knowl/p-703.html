@@ -13,47 +13,14 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">To prove this, we need only show that <span class="process-math">\(\mb{x} (t)\)</span> is a solution with the correct initial condition. Indeed, as our initial condition <span class="process-math">\(\mb{x} (0)\)</span> can be any vector in <span class="process-math">\(V\text{,}\)</span> any other solution <span class="process-math">\(\mb{y} (t)\)</span> would have to be of this form by <a href="" class="xref" data-knowl="./knowl/thm-uniqueode.html" title="Theorem 5.2.1: Uniqueness of Solutions to ODEs">Theorem 5.2.1</a>. To do this, we compute the tangent vectors</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html">
-\begin{align*}
-\mb{y}^\prime_k (t) \amp = \frac{d}{dt} \left( \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k \right), \\
-\amp =  \frac{t^{k - 1}}{(k - 1)!} \mb{v}_0 + \frac{t^{k - 2}}{(k - 2)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 2} +  \mb{v}_{k - 1}, \\ \amp = \mb{y}_{k - 1} (t). 
-\end{align*}
-</div>
-<div class="para">Here we take <span class="process-math">\(\mb{y}_{-1} (t) = \mb{0}\text{.}\)</span> This, along with <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> and the product rule for paths <a href="" class="xref" data-knowl="./knowl/prop-productrulepaths.html" title="Proposition 5.1.11: Product Rule for Paths">Proposition 5.1.11</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html">
-\begin{align*}
-\mb{x}_k^\prime (t) \amp =   \frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right), \\
-\amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t). 
-\end{align*}
-</div>
-<div class="para">On the other hand, as <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}} = J_{\lambda, m}\text{,}\)</span> we have that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html">
+<div class="para">Given a finite dimensional inner product space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> a <dfn class="terminology">homogeneous linear constant coefficient ordinary differential equation</dfn> is an equation of the form</div>
+<div class="displaymath process-math">
 \begin{equation*}
-T ( \mb{v}_j ) = \lambda \mb{v}_j + \mb{v}_{j - 1} . 
+\dot{\mb{x}} = T ( \mb{x} ) 
 \end{equation*}
 </div>
-<div class="para">This with linearity gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html">
-\begin{align*}
-T ( \mb{y}_k (t) ) \amp = T \left( \frac{t^k}{k!} \mb{v}_0 \right) +   T \left( \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 \right) + \cdots +  T \left( \frac{t^1}{1!} \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), \\
-\amp =   \frac{t^k}{k!} T \left(  \mb{v}_0 \right) +   \frac{t^{k - 1}}{(k - 1)!} T \left(  \mb{v}_1 \right) + \cdots + \frac{t^1}{1!} T \left(  \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), \\
-\amp =  \frac{t^k}{k!} \left( \lambda  \mb{v}_0 \right) +    \frac{t^{k - 1}}{(k - 1)!} \left( \lambda \mb{v}_1 + \mb{v}_{0} \right) + \cdots + \frac{t^1}{1!} \left( \lambda \mb{v}_{k - 1} + \mb{v}_{k - 2} \right) + \left( \lambda \mb{v}_k + \mb{v}_{k - 1} \right), \\
-\amp =  \lambda \left( \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k \right) + \cdots \\
-\amp \cdots +  \left(  \frac{t^{k - 1}}{(k - 1)!} \mb{v}_0 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 2} +  \mb{v}_{k - 1} \right), \\
-\amp = \lambda \mb{y}_k (t) + \mb{y}_{k - 1} (t).  
-\end{align*}
+<div class="para">for some linear transformation <span class="process-math">\(T : V \to V\text{.}\)</span>
 </div>
-<div class="para">Again using linearity we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html">
-\begin{align*}
-\frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right) \amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t), \\
-\amp = e^{\lambda t} \left( \lambda \mb{y}_k (t) + \mb{y}_{k - 1} (t) \right), \\
-\amp = e^{\lambda t} T ( \mb{y}_k (t)) , \\
-\amp = T \left( e^{\lambda t} \mb{y}_k (t) \right). 
-\end{align*}
-</div>
-<div class="para">This shows that <span class="process-math">\(\mb{x}_k (t) = e^{\lambda t} \mb{y}_k (t)\)</span> solves the ODE for each <span class="process-math">\(0 \leq k \leq m - 1\text{.}\)</span> As both sides are linear in paths, we can take any linear combination of these solutions to get another one (note that this is not the case for any ODE and results from the homogeneous condition). Thus the path in equation~<a href="" class="xref" data-knowl="./knowl/eq-genlinsol.html" title="Equation 5.2.2">(5.2.2)</a> is a solution.</div>
 </div>
 <span class="incontext"><a href="sec-lincode1.html#p-703" class="internal">in-context</a></span>
 </body>

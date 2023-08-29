@@ -12,7 +12,36 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">A row linear function <span class="process-math">\(f : M_{m, n} (K) \to K\)</span> is alternating if and only if  <span class="process-math">\(f (A) = 0\)</span> whenever <span class="process-math">\(A\)</span> has two identical rows.</div>
+<div class="para logical">
+<div class="para">Finding the determinant of a <span class="process-math">\(3 \times 3\)</span> involves finding three <span class="process-math">\(2 \times 2\)</span> cofactors. Taking</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{equation*}
+A  = \left[ \begin{matrix} 3 \amp 1 \amp -2 \\ 5 \amp 2 \amp 1 \\ -1 \amp 1 \amp 0 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">we can compute the minors <span class="process-math">\(M_{1,1}\text{,}\)</span> <span class="process-math">\(M_{1,2}\)</span> and <span class="process-math">\(M_{1,3}\)</span> using the formula in <a href="" class="xref" data-knowl="./knowl/exa-2x2det.html" title="Example 2.7.11: Determinants of 2\times 2 matrices">Example 2.7.11</a> as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{align*}
+M_{1,1} \amp = \det \left( \left[ \begin{matrix}   2 \amp 1 \\  1 \amp 0 \end{matrix} \right] \right)= -1,\\
+M_{1,2} \amp = \det \left( \left[ \begin{matrix}  5  \amp 1 \\ -1  \amp 0 \end{matrix} \right] \right) = 1,\\
+M_{1,3} \amp = \det \left( \left[ \begin{matrix}  5 \amp 2  \\ -1 \amp 1 \end{matrix} \right] \right) = 7.
+\end{align*}
+</div>
+<div class="para">Then our inductive formula gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{align*}
+\det (A) \amp = 3 \cdot (-1)^{1 + 1} M_{1,1} + 1  \cdot(-1)^{1 + 2} M_{1,2} + (-2) \cdot(-1)^{1 + 3} M_{1,3}, \\
+\amp = -3  - 1 - 14, \\
+\amp  = -18. 
+\end{align*}
+</div>
+<div class="para">In fact, there is a formula for <span class="process-math">\(3 \times 3\)</span> determinants that, were one so inclined, could be memorized.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{equation*}
+\det \left( \left[ \begin{matrix} a_1 \amp a_2 \amp a_3 \\ b_1 \amp b_2 \amp b_3 \\ c_1 \amp c_2 \amp c_3 \end{matrix} \right] \right) = a_1 b_2 c_3 - a_1 b_3 c_2 + a_2 b_3 c_1 - a_2 b_1 c_3 + a_3 b_1 c_2 - a_3 b_2 c_1. 
+\end{equation*}
+</div>
+</div>
 <span class="incontext"><a href="sec-matrices3.html#p-341" class="internal">in-context</a></span>
 </body>
 </html>

@@ -11,27 +11,21 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">To solve a linear system using this algorithm, it pays to augment the matrix <span class="process-math">\(A\)</span> with the constant vector <span class="process-math">\(\mb{b}\text{.}\)</span> In other words, row reduce the matrix <span class="process-math">\(A\)</span> but perform the row operations on the larger matrix</div>
+<div class="para">To accomplish step (a), suppose <span class="process-math">\(A = (a_{i1})\)</span> is an <span class="process-math">\(m \times 1\)</span> matrix. If <span class="process-math">\(a_{i1} = 0\)</span> for all <span class="process-math">\(1 \leq i \leq m\)</span> then <span class="process-math">\(A\)</span> is in reduced row echelon form already. Otherwise, choose the smallest <span class="process-math">\(i\)</span> for which <span class="process-math">\(a_{i1}\)</span> is non-zero. Using a Type I row operation, switch the <span class="process-math">\(i\)</span>-th row with the first row. Call this matrix <span class="process-math">\(A^\prime = (a_{i1}^\prime)\text{.}\)</span> Now <span class="process-math">\(a_{11}^\prime \ne 0\)</span> and we may use a Type II row operation to multiply the first row by <span class="process-math">\(1 / a_{11}^\prime\)</span> to obtain a matrix of the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left[ \begin{matrix} A \amp \mb{b} \end{matrix} \right]  =  \left[ \begin{array}{cccc|c} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \amp b_1 \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \amp b_2  \\ \vdots \amp \ddots \amp \amp \vdots \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \amp b_m \end{array} \right] .
+A^{\prime \prime} = \left[ \begin{matrix} 1 \\ a_{21}^\prime \\ \vdots \\ a_{m1}^\prime \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">In the end, obtain the augmented matrix</div>
+<div class="para">Finally, use Type III row operations to clear out the lower entries by adding <span class="process-math">\(-a^\prime_{i1}\)</span> times the first row to the <span class="process-math">\(i\)</span>-th row for each <span class="process-math">\(2 \leq i \leq m\text{.}\)</span> This gives the matrix</div>
 <div class="displaymath process-math">
-\begin{equation*}
-\left[ \begin{matrix} A^\prime \amp \mb{b}^\prime \end{matrix} \right] 
-\end{equation*}
+\begin{equation}
+A^{\prime \prime} = \left[ \begin{matrix} 1 \\ 0 \\ \vdots \\ 0 \end{matrix} \right] \tag{2.4.7}
+\end{equation}
 </div>
-<div class="para">where <span class="process-math">\(A^\prime\)</span> is in reduced row echelon form. As you will show in the exercises, our original equation is then equivalent to the new equation</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A^\prime \mb{x} = \mb{b}^\prime. 
-\end{equation*}
-</div>
-<div class="para">We see this procedure in an example.</div>
+<div class="para">which is in reduced row echelon form.</div>
 </div>
 <span class="incontext"><a href="sec-matrices2.html#p-227" class="internal">in-context</a></span>
 </body>

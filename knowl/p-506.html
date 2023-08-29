@@ -13,13 +13,15 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(T_A : K^n \to K^n\)</span> the linear transformation associated to multiplying column vectors by <span class="process-math">\(A\text{.}\)</span> The matrix <span class="process-math">\(A\)</span> is diagonalizable by <span class="process-math">\(P\)</span> and</div>
+<div class="para">This follows from simply following the definition of <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}}\text{.}\)</span> Indeed, we have</div>
 <div class="displaymath process-math">
-\begin{equation*}
-P^{-1} A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n )  
-\end{equation*}
+\begin{align*}
+\cob{T}{\mathcal{B}}{\mathcal{B}} \,\mb{e}_i \amp = \coord{T([\mb{e}_i]_\mathcal{B})} {\mathcal{B}}, \\
+\amp = \coord{T(\mb{v}_i)}{\mathcal{B}}, \\ \amp = \coord{\lambda_i \mb{v}_i}    {\mathcal{B}}, \\
+\amp = \lambda_i \coord{\mb{v}_i}{\mathcal{B}}, \\ \amp = \lambda_i \mb{e}_i. 
+\end{align*}
 </div>
-<div class="para">if and only if <span class="process-math">\(T_A\)</span> has an eigenbasis <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> where <span class="process-math">\(\mb{v}_i\)</span> is a <span class="process-math">\(\lambda_i\)</span>-eigenvector. Furthermore, if this is the case, then one can take <span class="process-math">\(\mb{v}_i = P \mb{e}_i\)</span> so that the columns of <span class="process-math">\(P\)</span> are the eigenvectors <span class="process-math">\(\mb{v}_i\text{.}\)</span>
+<div class="para">But this means that the <span class="process-math">\(i\)</span>-th column of <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}}\)</span> is <span class="process-math">\(\lambda_i \mb{e}_i\text{,}\)</span> or, that <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}} = \text{Diag} (\lambda_1, \ldots, \lambda_n)\text{.}\)</span>
 </div>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-506" class="internal">in-context</a></span>

@@ -363,7 +363,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lincode2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span>
 </h2>
-<div class="para" id="p-713">Having solved homogeneous constant coefficient linear ODE's in principal, we now consider it in practice. It will definitely be helpful for a student to consult online resources and programs, which are plentiful, to visualize the examples in this section.  We will approach these equations computationally and geometrically for this section. Some examples applications will be mentioned towards the end of this section and in the exercises. For each solution, we will want to have the following steps or accomplishments in order to feel good about our final assessment.</div>
+<div class="para" id="p-716">Having solved homogeneous constant coefficient linear ODE's in principal, we now consider it in practice. It will definitely be helpful for a student to consult online resources and programs, which are plentiful, to visualize the examples in this section.  We will approach these equations computationally and geometrically for this section. Some examples applications will be mentioned towards the end of this section and in the exercises. For each solution, we will want to have the following steps or accomplishments in order to feel good about our final assessment.</div>
 <ol class="decimal">
 <li id="li-86"><div class="para" id="p-derived-li-86">Translate the differential equation or equations into a single matrix differential equation<div class="displaymath process-math">
 \begin{equation*}
@@ -380,10 +380,10 @@ window.MathJax = {
 \end{equation*}
 </div>find the particular solution to the equation.</div></li>
 </ol>
-<div class="para" id="p-714">Now let us go over several examples.</div>
+<div class="para" id="p-717">Now let us go over several examples.</div>
 <article class="example example-like" id="exa-1varlinode"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-1varlinode"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">One real dimensional equation.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-1varlinode"><article class="example example-like"><div class="para logical" id="p-715">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-1varlinode"><article class="example example-like"><div class="para logical" id="p-718">
 <div class="para">The first case we saw way back in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>. Consider the equation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
 \begin{equation*}
@@ -406,7 +406,7 @@ f(t) = C_0 e^{3 t}
 </div></article></div>
 <article class="example example-like" id="ex-lineardiagonalode"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-lineardiagonalode"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Two real dimensional equation.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode"><article class="example example-like"><div class="para logical" id="p-716">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode"><article class="example example-like"><div class="para logical" id="p-719">
 <div class="para">Now let us consider an authentically higher dimensional example.</div>
 <div class="displaymath process-math" id="md-75">
 \begin{align*}
@@ -451,7 +451,7 @@ p_A (s) = \det  \left[ \begin{matrix} s +4 \amp 3 \\ -6 \amp s - 5 \end{matrix} 
 \end{equation*}
 </div>
 <div class="para">Why is all this so helpful? Well, now we can picture the vector field very clearly. It will take vectors on the <span class="process-math">\((-1)\)</span> eigenspace (multiples of <span class="process-math">\(\mb{v}_1\)</span>) and reverse their direction. On the <span class="process-math">\(2\)</span>-eigenspace though (multiples of <span class="process-math">\(\mb{v}_2\)</span>), the vectors will be doubled in scale and point in the same direction. The remaining vectors can be seen to be a linear combination of these two. This geometry will be sketched in class and gives a fantastically simple picture of what our solutions ought to look like.</div>
-</div> <div class="para logical" id="p-717">
+</div> <div class="para logical" id="p-720">
 <div class="para">But what about computing solutions? Well, now that we have an eigenbasis we can write <span class="process-math">\(\mb{x}\)</span> in terms of the eigenbasis</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
 \begin{equation*}
@@ -515,10 +515,10 @@ Q =  \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right]
 \end{align}
 </div>
 </div></article></div>
-<div class="para" id="p-718">This last example shows how easy things become if the matrix is diagonalizable with real eigenvalues. In fact, it is an illustration of <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> for the case when there are two <span class="process-math">\(1 \times 1\)</span> Jordan blocks. However, since we are also acquainted with complex numbers, we note that differential equations involving real paths can sometimes be helped along by thinking of them as landing in a complex vector space instead. The next example illustrates this point.</div>
+<div class="para" id="p-721">This last example shows how easy things become if the matrix is diagonalizable with real eigenvalues. In fact, it is an illustration of <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> for the case when there are two <span class="process-math">\(1 \times 1\)</span> Jordan blocks. However, since we are also acquainted with complex numbers, we note that differential equations involving real paths can sometimes be helped along by thinking of them as landing in a complex vector space instead. The next example illustrates this point.</div>
 <article class="example example-like" id="ex-lineardiagonalode2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-lineardiagonalode2"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Complex eigenvalues in the equation.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode2"><article class="example example-like"><div class="para logical" id="p-719">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode2"><article class="example example-like"><div class="para logical" id="p-722">
 <div class="para">Suppose we take the linear differential equation</div>
 <div class="displaymath process-math" id="md-79">
 \begin{align*}
@@ -557,7 +557,7 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 \end{equation*}
 </div>
 <div class="para">so that the roots of <span class="process-math">\(p_A (s)\)</span> are complex numbers and <span class="process-math">\(A\)</span> cannot be diagonalized as a real matrix. Now, one of the benefits of having real eigenvalues and eigenvectors was that we obtained a nice picture of the vector field. There is something to be said in the case of a complex eigenvector as well, which is related to several of the exercises that you have worked through. In particular, if there is an eigenvalue of the form <span class="process-math">\(\lambda = re^{i\theta}\text{,}\)</span> then one will see a <span class="process-math">\(\theta\)</span> rotation in the vectors of the vector field (in some coordinate system). For now, we will leave the illustration of this field to a computer and come back to the geometry once we've found the solution.</div>
-</div> <div class="para logical" id="p-720">
+</div> <div class="para logical" id="p-723">
 <div class="para">To compute the general solution, there are several ways to proceed, but we will take a principled approach and simply say that our path <span class="process-math">\(\mb{x}\)</span> was a function to <span class="process-math">\(\mathbb{C}^2\)</span> all along so that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{equation*}
@@ -603,7 +603,7 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 \end{gather*}
 </div>
 <div class="para">I can hear the overwhelming chorus of objections to this solution from engineer and mathematician alike. After all, the constants <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are possibly complex numbers and the function is too. We started in the real plane and have ended in what appears to be a terrifying <span class="process-math">\(4\)</span>-dimensional mess (since <span class="process-math">\(\mathbb{C}^2\)</span> is <span class="process-math">\(4\)</span> real dimensions). Well, I contend that appearances can be deceiving! Let's unwind this a bit with a few simple observations.</div>
-</div> <div class="para logical" id="p-721">
+</div> <div class="para logical" id="p-724">
 <div class="para">The first thing to recognize about our solution is that the basis <span class="process-math">\(\mathcal{B}\)</span> which we chose  had a hidden symmetry. Namely, if we take the complex conjugate of <span class="process-math">\(\mb{v}_1\)</span> we obtain <span class="process-math">\(\mb{v}_2\)</span> so that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
 \begin{equation*}
@@ -668,7 +668,7 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 \end{equation*}
 </div>
 <div class="para">but this will be left as a linear algebra exercise for the student (which can be done in multiple ways).</div>
-</div> <div class="para logical" id="p-722">
+</div> <div class="para logical" id="p-725">
 <div class="para">However, it is interesting to note here that the solution <span class="process-math">\(\mb{x} (t)\)</span> can be written</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -683,11 +683,11 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 </div>
 <div class="para">A meticulous student will check and see that this equation is that of a (rotated) ellipse. So the solution is simply following a parameterization of an ellipse, but scaling it simultaneously and spiraling away from the origin.</div>
 </div></article></div>
-<div class="para" id="p-723">We will generalize and summarize the previous result as a Theorem.</div>
+<div class="para" id="p-726">We will generalize and summarize the previous result as a Theorem.</div>
 <article class="theorem theorem-like" id="thm-diagonalizableODE"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-724">
+<div class="para logical" id="p-727">
 <div class="para">Suppose <span class="process-math">\(A\)</span> is a diagonalizable <span class="process-math">\(n \times n\)</span> real matrix <span class="process-math">\(A\text{.}\)</span> Then the eigenvalues of <span class="process-math">\(A\)</span> can be partitioned into the real eigenvalues <span class="process-math">\(\rho_1, \ldots, \rho_r\)</span> and pairs of complex numbers <span class="process-math">\(\lambda_1, \bar{\lambda}_1, \ldots, \lambda_t, \bar{\lambda}_t\text{.}\)</span> There is also an eigenbasis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -715,7 +715,7 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 </div>
 </div></article><article class="example example-like" id="ex-lineardiagonalode3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-lineardiagonalode3"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Another two dimensional equation.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode3"><article class="example example-like"><div class="para logical" id="p-725">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode3"><article class="example example-like"><div class="para logical" id="p-728">
 <div class="para">Now let us consider Jordan normal form example.</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-generallinearhomogeneoussol.html" id="md-86">
 \begin{align*}
@@ -798,7 +798,7 @@ Q =  \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp -1 \end{matrix} \right]
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para logical" id="p-726">
+<div class="para logical" id="p-729">
 <div class="para">As an important application of our general solution, we consider higher order homogeneous constant coefficient ODE's. Suppose we are confronted with a scalar valued function <span class="process-math">\(x(t)\)</span> of a variable <span class="process-math">\(t\text{,}\)</span> but now with an equation</div>
 <div class="displaymath process-math" id="eq-higherorderconstantODE">
 \begin{equation}
@@ -820,7 +820,7 @@ x (t) = \frac{t^k e^{\lambda t}}{k!}
 <div class="para">and finds (so long as <span class="process-math">\(k\)</span> is less than  the order of the root) that we have found another solution. Hobbling these solutions together, one can solve equations where now our initial conditions are not just <span class="process-math">\(x (0) = C_0\text{,}\)</span> but also <span class="process-math">\(x^\prime (0) = C_1, \ldots, x^{(n - 1)} (0) = C_{n - 1}\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-727">
+<div class="para logical" id="p-730">
 <div class="para">The solution can also be found using our tools, which has the added benefit of simplifying the higher order equation into a first order equation (a technique that is used frequently in classical mechanics). To force equation <a href="" class="xref" data-knowl="./knowl/eq-higherorderconstantODE.html" title="Equation 5.3.6">(5.3.6)</a> into a first order equation, rewrite it as a collection of equations</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html" id="md-89">
 \begin{align*}
@@ -882,10 +882,10 @@ p_A (s) = s^n + a_{n - 1} s^{n - 1} + \cdots + a_1 s + a_0.
 </div>
 <div class="para">so that it may be used to give the Jordan normal form of <span class="process-math">\(A\)</span> and via <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> to find the general solution.</div>
 </div>
-<div class="para" id="p-728">Let us give an example of this which we will study in more depth next section.</div>
+<div class="para" id="p-731">Let us give an example of this which we will study in more depth next section.</div>
 <article class="example example-like" id="ex-springmass"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-springmass"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-springmass"><article class="example example-like"><div class="para logical" id="p-729">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-springmass"><article class="example example-like"><div class="para logical" id="p-732">
 <div class="para">Consider the case of</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -894,7 +894,7 @@ m x^{\prime \prime} + b x^\prime + k x = 0
 </div>
 <div class="para">where <span class="process-math">\(k &gt; 0\)</span> and <span class="process-math">\(b &gt; 0\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-730">
+</div> <div class="para logical" id="p-733">
 <div class="para">This differential equation describes the motion of a mass on the end of a spring. The mass is <span class="process-math">\(m\text{,}\)</span> spring constant <span class="process-math">\(k\)</span> (which describes how tight the spring is) and damping constant is <span class="process-math">\(b\)</span> (which describes the amount of kinetic friction). Dividing by <span class="process-math">\(m\)</span> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
 \begin{equation*}
@@ -964,7 +964,7 @@ x (t) = r e^{-\alpha t} \cos (\beta t - \theta ).
 \end{equation*}
 </div>
 <div class="para">Thus when <span class="process-math">\(\tilde{b} \lt 2 \sqrt{\tilde{k}}\)</span> we see some oscillation in the spring-mass system. Notice that if there is no damping and <span class="process-math">\(\alpha = 0\text{,}\)</span> then the spring-mass system simply oscillates with amplitude <span class="process-math">\(r\)</span> and period <span class="process-math">\(\beta\)</span> (often called <span class="process-math">\(\omega\)</span> in applications). On the other hand, if there is damping, this oscillation's amplitude experiences exponential decay.</div>
-</div> <div class="para logical" id="p-731">
+</div> <div class="para logical" id="p-734">
 <div class="para">The case where <span class="process-math">\(\tilde{b} \geq 2 \sqrt{\tilde{k}}\)</span> gives the real roots</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -988,7 +988,7 @@ x (0) = A + B, \hspace{.5in} x^\prime (0) = \lambda_1 A + \lambda_2 B.
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-87"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-732">
+<div class="para logical" id="p-735">
 <div class="para">Go through the five steps for the system of differential equations</div>
 <div class="displaymath process-math" id="md-92">
 \begin{align*}
@@ -997,7 +997,7 @@ y^\prime (t) \amp = 2 x (t) + 4 y(t).
 \end{align*}
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-88"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para logical" id="p-733">
+<div class="para logical" id="p-736">
 <div class="para">Go through the five steps for the system of differential equations</div>
 <div class="displaymath process-math" id="md-93">
 \begin{align*}
@@ -1006,7 +1006,7 @@ y^\prime (t) \amp = - x (t) - y(t).
 \end{align*}
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-89"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-734">
+<div class="para logical" id="p-737">
 <div class="para">Go through the five steps for the system of differential equations</div>
 <div class="displaymath process-math" id="md-94">
 \begin{align*}
@@ -1015,7 +1015,7 @@ y^\prime (t) \amp = -4 x (t) + y(t).
 \end{align*}
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-90"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-735">
+<div class="para logical" id="p-738">
 <div class="para">Give three linearly independent solutions to the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1023,8 +1023,8 @@ x^{\prime \prime \prime} (t)  = x (t).
 \end{equation*}
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-91"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para" id="p-736">Verify the claim that the basis <span class="process-math">\(\mathcal{B}_i\)</span> in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffbasis.html" title="Equation 5.3.7">(5.3.7)</a> gives a Jordan block (i.e. is of the form in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffblock.html" title="Equation 5.3.8">(5.3.8)</a>).</div></article><article class="exercise exercise-like" id="exercise-92"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para" id="p-737">Find the motion <span class="process-math">\(x(t)\)</span> of a spring-mass system with mass <span class="process-math">\(1\text{,}\)</span> spring constant <span class="process-math">\(4\)</span> and damping constant <span class="process-math">\(10\)</span> assuming <span class="process-math">\(x(0) = 4\)</span> and <span class="process-math">\(x^\prime (0) = 2\text{.}\)</span>
+<div class="para" id="p-739">Verify the claim that the basis <span class="process-math">\(\mathcal{B}_i\)</span> in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffbasis.html" title="Equation 5.3.7">(5.3.7)</a> gives a Jordan block (i.e. is of the form in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffblock.html" title="Equation 5.3.8">(5.3.8)</a>).</div></article><article class="exercise exercise-like" id="exercise-92"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="p-740">Find the motion <span class="process-math">\(x(t)\)</span> of a spring-mass system with mass <span class="process-math">\(1\text{,}\)</span> spring constant <span class="process-math">\(4\)</span> and damping constant <span class="process-math">\(10\)</span> assuming <span class="process-math">\(x(0) = 4\)</span> and <span class="process-math">\(x^\prime (0) = 2\text{.}\)</span>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-lincode1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-lincode3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

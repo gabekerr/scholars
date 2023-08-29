@@ -13,13 +13,12 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">If <span class="process-math">\(W_{x_1 \cdots x_n} (t_0) \ne 0\)</span> then the matrix in <a href="" class="xref" data-knowl="./knowl/def-Wronskian.html" title="Definition 5.5.6">Definition 5.5.6</a> is invertible. This means the columns are linearly independent. But then any initial condition</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-Wronskian.html">
+<div class="para">Given scalar functions <span class="process-math">\(x_1 (t), x_2(t), \ldots, x_n(t)\text{,}\)</span> their <dfn class="terminology">Wronskian</dfn> is</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\threevec{x (t_0)}{\vdots}{x^{(n - 1)} (t_0)}
+W_{x_1 x_2 \cdots x_n} = \det \left(    \left[ \begin{matrix} x_1 (t) \amp x_2(t)\amp \cdots \amp x_n(t) \\ x^\prime_1 (t) \amp x^\prime_2(t)\amp \cdots \amp x^\prime_n(t) \\ \vdots \amp \vdots \amp \amp \vdots\\ x^{(n - 1)}_1 (t) \amp x^{(n - 1)}_2(t)\amp \cdots \amp x^{(n - 1)}_n (t) \end{matrix} \right] \right)
 \end{equation*}
 </div>
-<div class="para">is a linear combination of those given by <span class="process-math">\(x_1, \ldots, x_n\)</span> implying <span class="process-math">\(x\)</span> is a linear combination of these functions (by the uniqueness of solutions with a given initial condition).</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-775" class="internal">in-context</a></span>
 </body>

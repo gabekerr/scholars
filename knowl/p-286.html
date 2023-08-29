@@ -13,13 +13,65 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">To see this, suppose <span class="process-math">\(\dim (U) = n\text{,}\)</span> <span class="process-math">\(\dim (V) = m\)</span> and let <span class="process-math">\(A\)</span> be the <span class="process-math">\(m \times n\)</span> matrix representing <span class="process-math">\(T\)</span> relative to some bases on <span class="process-math">\(U\)</span> and <span class="process-math">\(V\text{.}\)</span> Then the kernel of <span class="process-math">\(T\)</span> is isomorphic to the null space of <span class="process-math">\(A\)</span> (which is the kernel of multiplying by <span class="process-math">\(A\)</span>) and the image of <span class="process-math">\(T\)</span> is isomorphic to the column space of <span class="process-math">\(A\)</span> (which is the image of multiplying by <span class="process-math">\(A\)</span>). Now, the null space of <span class="process-math">\(A\)</span> is the linear subspace of solutions to the matrix equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-rowechsolution.html ./knowl/prop-basescolrow.html">
+<div class="para">Consider <span class="process-math">\(P_n\)</span> as the polynomials of degree less than or equal to <span class="process-math">\(n\)</span> with coefficients in <span class="process-math">\(\mathbb{R}\text{.}\)</span> Take</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
 \begin{equation*}
-A \mb{x} = \mb{0}. 
+D: P_2 \to P_1 
 \end{equation*}
 </div>
-<div class="para">We saw in <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a> that the solutions to these equations were parameterized by <span class="process-math">\(K^r\)</span> where <span class="process-math">\(r\)</span> was the number of free columns of <span class="process-math">\(A\text{.}\)</span> So the nullity of <span class="process-math">\(A\)</span> is precisely <span class="process-math">\(r\text{.}\)</span> On the other hand, <a href="" class="xref" data-knowl="./knowl/prop-basescolrow.html" title="Proposition 2.5.11">Proposition 2.5.11</a> showed that the dimension of the column space equaled the number of basic columns of <span class="process-math">\(A\text{.}\)</span> Now every column of <span class="process-math">\(A\)</span> is either free or basic (but not both), so the sum of these two numbers is precisely <span class="process-math">\(n = \dim (U)\text{.}\)</span>
+<div class="para">to be the linear transformation obtained by taking the derivative. In other words,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{equation*}
+D(f) = f^\prime . 
+\end{equation*}
+</div>
+<div class="para">In order to write out <span class="process-math">\(D\)</span> as a matrix, we need to choose bases for <span class="process-math">\(P_2\)</span> and <span class="process-math">\(P_1\text{.}\)</span> The natural candidate for <span class="process-math">\(P_n\)</span> is <span class="process-math">\(\{1, x, x^2, \ldots, x^n\}\text{,}\)</span> so we take</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{align*}
+\mathcal{B} \amp = \{1, x, x^2\}, \\
+\mathcal{C} \amp = \{1, x\}. 
+\end{align*}
+</div>
+<div class="para">To find <span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\)</span> we will simply need to find the coefficients from equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepformula.html" title="Equation 2.6.1">(2.6.1)</a>. In other words, we need to take the derivative of our polynomials from <span class="process-math">\(\mathcal{B}\)</span> and write them out as linear combinations of the polynomials in <span class="process-math">\(\mathcal{C}\text{.}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{align*}
+D(1) \amp = 0 = 0\cdot 1 + 0 \cdot x, \\
+D(x) \amp = 1 = 1\cdot 1 + 0 \cdot x, \\
+D(x^2) \amp = 2x = 0\cdot 1 + 2 \cdot x. 
+\end{align*}
+</div>
+<div class="para">Placing these coefficients into the matrix (appropriately!) gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{equation*}
+\cob{D}{\mathcal{B}}{\mathcal{C}} = \mth{0}{1}{0}{0}{0}{2}. 
+\end{equation*}
+</div>
+<div class="para">Of course, in this example, since we all know how to take derivatives, the matrix representation of <span class="process-math">\(D\)</span> is of limited usefulness. Nonetheless, let us show how equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepresentation.html" title="Equation 2.6.2">(2.6.2)</a> works in this case. Take the arbitrary quadratic polynomial</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{equation*}
+f = ax^2 + bx + c 
+\end{equation*}
+</div>
+<div class="para">in <span class="process-math">\(P_2\)</span> and observe that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{equation*}
+\coord{f}{\mathcal{B}} = \threevec{c}{b}{a} . 
+\end{equation*}
+</div>
+<div class="para">Then multiplying this column vector on the left by <span class="process-math">\(\cob{D}{\mathcal{C}}{\mathcal{B}}\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{equation*}
+\cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp= \mth{0}{1}{0}{0}{0}{2}\threevec{c}{b}{a} , \\ \amp = \twovec{b}{2a} .
+\end{equation*}
+</div>
+<div class="para">But this vector represents the element</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+\begin{equation*}
+b\cdot 1 + 2a \cdot x = 2ax + b 
+\end{equation*}
+</div>
+<div class="para">which we all know as the derivative of <span class="process-math">\(f\text{.}\)</span>
 </div>
 </div>
 <span class="incontext"><a href="sec-lineartransformations2.html#p-286" class="internal">in-context</a></span>

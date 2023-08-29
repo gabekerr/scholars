@@ -363,7 +363,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-matrices2"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">Matrices II</span>
 </h2>
-<section class="introduction" id="introduction-12"><div class="para logical" id="p-193">
+<section class="introduction" id="introduction-12"><div class="para logical" id="p-196">
 <div class="para">Having seen what the world is like from the abstract viewpoint, it is now time to take a deep breath with mindless computations if only to reassure ourselves that we understand what is going on. So in this section, we will return to <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a> and exercise <a href="" class="xref" data-knowl="./knowl/exe-linearequation.html" title="Exercise 2.3.2">Exercise 2.3.2</a> in order to solve the fundamental linear equation:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/exe-linearequation.html" id="eq-fundamentallinearequation">
 \begin{equation}
@@ -388,7 +388,7 @@ U = K^n, \hspace{.2in} V = K^m
 \mb{u} = \mb{x} = \left[ \begin{matrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{matrix} \right] . 
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-194">
+</div> <div class="para logical" id="p-197">
 <div class="para">Our entries (or, as we see in a moment, coefficients) of this equation are those of our matrix <span class="process-math">\(A\)</span>
 </div>
 <div class="displaymath process-math">
@@ -396,7 +396,7 @@ U = K^n, \hspace{.2in} V = K^m
 A =  \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] . 
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-195">
+</div> <div class="para logical" id="p-198">
 <div class="para">Finally our constants are coordinates of <span class="process-math">\(\mathbf{v}\)</span> which are often written as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-fundamentallinearequation.html ./knowl/eq-matrixtimesvector.html">
 \begin{equation*}
@@ -418,9 +418,9 @@ a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n \amp = b_2, \tag{2.4.4}\\
 a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n \amp = b_m. \tag{2.4.6}
 \end{align}
 </div>
-</div> <div class="para" id="p-196">Before discussing the algorithm to solve these equations, we take a moment to look at three examples.</div> <article class="example example-like" id="exa-linsys1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-linsys1"><h3 class="heading">
+</div> <div class="para" id="p-199">Before discussing the algorithm to solve these equations, we take a moment to look at three examples.</div> <article class="example example-like" id="exa-linsys1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-linsys1"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Overdetermined systems.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-linsys1"><article class="example example-like"><div class="para logical" id="p-197">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-linsys1"><article class="example example-like"><div class="para logical" id="p-200">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -442,9 +442,9 @@ x_1 + x_2 \amp = 1 , \\
 \end{align*}
 </div>
 <div class="para">The first and the third equation tell us that any solution must have <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\)</span> both equal to <span class="process-math">\(1\text{.}\)</span> But the second equation then would imply <span class="process-math">\(2 = 1 + 1 = 1\text{,}\)</span> which does not make sense here on earth. So for this example <em class="emphasis">there are no solutions</em>! This case where the number of equations exceeds the number of variables is called an <dfn class="terminology">overdetermined system</dfn> of linear equations. For these, it is often the case that no solution exists (although there certainly are exceptions!).</div>
-</div></article></div> <div class="para" id="p-198">Let us see what happens if we just flip our matrix (called taking a transpose):</div> <article class="example example-like" id="exa-linsys2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-linsys2"><h3 class="heading">
+</div></article></div> <div class="para" id="p-201">Let us see what happens if we just flip our matrix (called taking a transpose):</div> <article class="example example-like" id="exa-linsys2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-linsys2"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Underdetermined systems.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-linsys2"><article class="example example-like"><div class="para logical" id="p-199">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-linsys2"><article class="example example-like"><div class="para logical" id="p-202">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -481,7 +481,7 @@ x_3 \amp = t
 <div class="para">as a parametrization of all solutions. This case where the number of equations is less than the number of variables is called an <dfn class="terminology">underdetermined system</dfn> of linear equations. For these, it is often the case that an infinite number of solutions exist (although there are cases when none exist at all!).</div>
 </div></article></div> <article class="example example-like" id="example-31"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-31"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Systems with unique solutions.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><div class="para logical" id="p-200">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-31"><article class="example example-like"><div class="para logical" id="p-203">
 <div class="para">For this final example we will cut off the last column of the previous example's matrix (called taking a submatrix). So we consider</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -508,20 +508,20 @@ x_1 + x_2 \amp = 1,\\
 \end{equation*}
 </div>
 <div class="para">is the only solution. In this case, a <em class="emphasis">solution exists and it is unique</em>.</div>
-</div></article></div> <div class="para" id="p-201">Any technique to solve the general equation <a href="" class="xref" data-knowl="./knowl/eq-fundamentalmatrixequation.html" title="Equation 2.4.2">(2.4.2)</a> should help us answer:</div> <ol class="decimal">
+</div></article></div> <div class="para" id="p-204">Any technique to solve the general equation <a href="" class="xref" data-knowl="./knowl/eq-fundamentalmatrixequation.html" title="Equation 2.4.2">(2.4.2)</a> should help us answer:</div> <ol class="decimal">
 <li id="li-30"><div class="para" id="p-derived-li-30">Whether a solution exists.</div></li>
 <li id="li-31"><div class="para" id="p-derived-li-31">If it does exist, is it unique?</div></li>
 <li id="li-32"><div class="para" id="p-derived-li-32">If it is not unique, what is a function <span class="process-math">\(\mb{x}: K^r \to K^n \)</span> parametrizing all solutions?</div></li>
-</ol> <div class="para" id="p-202">Happily, such a technique is well known and called either <dfn class="terminology">row reduction</dfn> or <dfn class="terminology">Gaussian elimination</dfn>.</div></section><section class="subsection" id="subsec-rowechelon"><h3 class="heading hide-type">
+</ol> <div class="para" id="p-205">Happily, such a technique is well known and called either <dfn class="terminology">row reduction</dfn> or <dfn class="terminology">Gaussian elimination</dfn>.</div></section><section class="subsection" id="subsec-rowechelon"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span>
 </h3>
-<div class="para" id="p-203">To understand this algorithm, we start at the end.</div>
+<div class="para" id="p-206">To understand this algorithm, we start at the end.</div>
 <article class="definition definition-like" id="def-rowechelonform"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
-</h4> <div class="para" id="p-204">An <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is in <dfn class="terminology">row echelon form</dfn> if no zero row has a non-zero row below it and the first nonzero entry of any row has only zero entries to the left and below its own position (i.e. to its southwest).</div></article><div class="para" id="p-205">More precisely, if <span class="process-math">\(a_{ij}\)</span> is the first non-zero entry in the <span class="process-math">\(i\)</span>-th row then <span class="process-math">\(a_{kl} = 0\)</span> for all entries with <span class="process-math">\(k \geq i\)</span> (on or below the <span class="process-math">\(i\)</span>-th row) and <span class="process-math">\(l \leq j\)</span> (to the left of the <span class="process-math">\(j\)</span>-th column) excluding the case where <span class="process-math">\(k = i\)</span> and <span class="process-math">\(l = j\text{.}\)</span> The first non-zero entry of any row is called the <dfn class="terminology">leading coefficient</dfn> for that row (it is also called a <dfn class="terminology">pivot</dfn>). This definition is best understood by looking at a few examples and non-examples.</div>
+</h4> <div class="para" id="p-207">An <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is in <dfn class="terminology">row echelon form</dfn> if no zero row has a non-zero row below it and the first nonzero entry of any row has only zero entries to the left and below its own position (i.e. to its southwest).</div></article><div class="para" id="p-208">More precisely, if <span class="process-math">\(a_{ij}\)</span> is the first non-zero entry in the <span class="process-math">\(i\)</span>-th row then <span class="process-math">\(a_{kl} = 0\)</span> for all entries with <span class="process-math">\(k \geq i\)</span> (on or below the <span class="process-math">\(i\)</span>-th row) and <span class="process-math">\(l \leq j\)</span> (to the left of the <span class="process-math">\(j\)</span>-th column) excluding the case where <span class="process-math">\(k = i\)</span> and <span class="process-math">\(l = j\text{.}\)</span> The first non-zero entry of any row is called the <dfn class="terminology">leading coefficient</dfn> for that row (it is also called a <dfn class="terminology">pivot</dfn>). This definition is best understood by looking at a few examples and non-examples.</div>
 <article class="example example-like" id="exa-rowechelon"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-rowechelon"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">Examples of row echelon form matrices.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-rowechelon"><article class="example example-like"><div class="para logical" id="p-206">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-rowechelon"><article class="example example-like"><div class="para logical" id="p-209">
 <div class="para">Here are some matrices in row echelon form:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -536,13 +536,13 @@ x_1 + x_2 \amp = 1,\\
 </div>
 <div class="para">To see why the second set of matrices are not in row echelon form, let's look at each in turn. The first non-example we see that below and to the left of <span class="process-math">\(\pi\)</span> are nonzero entries <span class="process-math">\(3, 1,2\text{.}\)</span> In the second case, we see that below the <span class="process-math">\((1,1)\)</span>-entry <span class="process-math">\(1\)</span> is <span class="process-math">\(2\text{.}\)</span> In the last case, even though the <span class="process-math">\((3,2)\)</span>-entry is not directly below a leading coefficient, it is to the left and below the leading coefficient <span class="process-math">\(2\)</span> in the <span class="process-math">\((2,3)\)</span>-position, disqualifying this matrix from being in row echelon form.</div>
 </div></article></div>
-<div class="para" id="p-207">There is a special type of row echelon form called <dfn class="terminology">reduced row echelon form</dfn> where we add the conditions that:</div>
+<div class="para" id="p-210">There is a special type of row echelon form called <dfn class="terminology">reduced row echelon form</dfn> where we add the conditions that:</div>
 <ol class="decimal">
 <li id="li-33"><div class="para" id="p-derived-li-33">Every leading coefficient is <span class="process-math">\(1\text{.}\)</span>
 </div></li>
 <li id="li-34"><div class="para" id="p-derived-li-34">Every other entry on a column of a leading coefficient is zero.</div></li>
 </ol>
-<div class="para logical" id="p-208">
+<div class="para logical" id="p-211">
 <div class="para">None of the matrices in <a href="" class="xref" data-knowl="./knowl/exa-rowechelon.html" title="Example 2.4.5: Examples of row echelon form matrices">Example 2.4.5</a> are in reduced form, but the following matrices are:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-rowechelon.html ./knowl/eq-linearsystem.html">
 \begin{equation*}
@@ -551,14 +551,14 @@ x_1 + x_2 \amp = 1,\\
 </div>
 <div class="para">Let us now set out the strategy for solving equation <a href="" class="xref" data-knowl="./knowl/eq-linearsystem.html" title="Equation 2.4.5">(2.4.5)</a>. First, we will solve this system if the matrix we start with is in reduced row echelon form. We will quickly see that in these cases, we obtain answers to the existence, uniqueness and parametrization questions above. Second, we will discover the algorithm to take an arbitrary matrix <span class="process-math">\(A\)</span> and transform it into a matrix in reduced echelon form by taking simple steps (called elementary row operations).</div>
 </div>
-<div class="para" id="p-209">To accomplish step one we make a definition.</div>
+<div class="para" id="p-212">To accomplish step one we make a definition.</div>
 <article class="definition definition-like" id="def-basicfree"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.6</span><span class="period">.</span>
-</h4> <div class="para" id="p-210">Let <span class="process-math">\(A\)</span> be a matrix in row echelon form and <span class="process-math">\(\mb{x}\)</span> the column of variables from equation <a href="" class="xref" data-knowl="./knowl/eq-fundamentalmatrixequation.html" title="Equation 2.4.2">(2.4.2)</a>. We say that the variable <span class="process-math">\(x_i\)</span> is a <dfn class="terminology">basic variable</dfn> if there is a leading coefficient of some row of <span class="process-math">\(A\)</span> on the <span class="process-math">\(i\)</span>-th column. Otherwise we call it a <dfn class="terminology">free variable</dfn>.</div></article><div class="para" id="p-211">Note that every variable is either basic or free. Now we state our solution as a theorem.</div>
+</h4> <div class="para" id="p-213">Let <span class="process-math">\(A\)</span> be a matrix in row echelon form and <span class="process-math">\(\mb{x}\)</span> the column of variables from equation <a href="" class="xref" data-knowl="./knowl/eq-fundamentalmatrixequation.html" title="Equation 2.4.2">(2.4.2)</a>. We say that the variable <span class="process-math">\(x_i\)</span> is a <dfn class="terminology">basic variable</dfn> if there is a leading coefficient of some row of <span class="process-math">\(A\)</span> on the <span class="process-math">\(i\)</span>-th column. Otherwise we call it a <dfn class="terminology">free variable</dfn>.</div></article><div class="para" id="p-214">Note that every variable is either basic or free. Now we state our solution as a theorem.</div>
 <article class="theorem theorem-like" id="thm-rowechsolution"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.7</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-212">
+<div class="para logical" id="p-215">
 <div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix in reduced row echelon form with <span class="process-math">\(r\)</span> free variables with indices <span class="process-math">\(j_1 \lt j_2 \lt \cdots \lt j_r\)</span> and <span class="process-math">\(s\)</span> basic variables with indices <span class="process-math">\(i_1 \lt i_2 \lt \cdots \lt i_{s}\text{.}\)</span> Then for the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -585,10 +585,10 @@ x_i \left( \left[ \begin{matrix} t_1 \\ t_2 \\ \vdots \\ t_r \end{matrix} \right
 </div>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-213">This theorem is very easy to prove when one translates the matrix equation into the linear system. We demonstrate this through working out examples.</div>
+</div></article><div class="para" id="p-216">This theorem is very easy to prove when one translates the matrix equation into the linear system. We demonstrate this through working out examples.</div>
 <article class="example example-like" id="example-33"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-33"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.8</span><span class="period">.</span><span class="space"> </span><span class="title">Case 1. of Theorem 2.4.7.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><div class="para logical" id="p-214">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-33"><article class="example example-like"><div class="para logical" id="p-217">
 <div class="para">For</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-rowechsolution.html ./knowl/thm-rowechsolution.html">
 \begin{equation*}
@@ -610,7 +610,7 @@ x + 0\cdot y \amp = 3,\\
 \end{align*}
 </div>
 <div class="para">It is the last equation that causes problems and shows no solution exists. The easiest way to tell if you are in Case 1. of <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a> is to see if there are any zero rows in <span class="process-math">\(A\text{.}\)</span> If there are, for there to be a solution the corresponding row of <span class="process-math">\(\mb{b}\)</span> must also be zero.</div>
-</div> <div class="para logical" id="p-215">
+</div> <div class="para logical" id="p-218">
 <div class="para">Note that in this example if we replaced <span class="process-math">\(\mb{b}\)</span> with</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -626,7 +626,7 @@ x + 0\cdot y \amp = 3,\\
 </div></article></div>
 <article class="example example-like" id="example-34"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-34"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.9</span><span class="period">.</span><span class="space"> </span><span class="title">Case 2. of Theorem 2.4.7.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like"><div class="para logical" id="p-216">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-34"><article class="example example-like"><div class="para logical" id="p-219">
 <div class="para">In the case of a square matrix one can hope that the reduced row echelon form is the identity matrix. Indeed, for</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -644,7 +644,7 @@ x + 0\cdot y \amp = 3,\\
 </div></article></div>
 <article class="example example-like" id="example-35"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-35"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.10</span><span class="period">.</span><span class="space"> </span><span class="title">Case 3. of Theorem 2.4.7.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><div class="para logical" id="p-217">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-35"><article class="example example-like"><div class="para logical" id="p-220">
 <div class="para">For Case 3. of <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a>, consider</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-rowechsolution.html ./knowl/thm-rowechsolution.html">
 \begin{equation*}
@@ -683,8 +683,8 @@ x_4 \amp = 2 -   3  x_5, \\
 </div></article></div></section><section class="subsection" id="subsec-rowreduction"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span>
 </h3>
-<div class="para" id="p-218">Now that we can solve <em class="emphasis">some</em> matrix equations of a particularly nice form, our task is to put <em class="emphasis">any</em> matrix equation in that form. This technique is known as row reduction or alternatively, Gaussian elimination.</div>
-<div class="para logical" id="p-219">
+<div class="para" id="p-221">Now that we can solve <em class="emphasis">some</em> matrix equations of a particularly nice form, our task is to put <em class="emphasis">any</em> matrix equation in that form. This technique is known as row reduction or alternatively, Gaussian elimination.</div>
+<div class="para logical" id="p-222">
 <div class="para">For the moment, let us represent our matrix <span class="process-math">\(A\)</span> as a column of row vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -716,16 +716,16 @@ x_4 \amp = 2 -   3  x_5, \\
 </div>
 </dd>
 </dl>
-<div class="para" id="p-220">It is important to note a fact concerning these row operations:</div>
+<div class="para" id="p-223">It is important to note a fact concerning these row operations:</div>
 <dl class="description-list">
 <dt id="li-41">Fact</dt>
 <dd> Each step may be reversed through another elementary row operation. More precisely, for the Type I operation, simply repeat the same operation and you return to the original matrix. For Type II operations, multiply the same row by the reciprocal <span class="process-math">\(1/c\)</span> (which you can do because <span class="process-math">\(c \ne 0\)</span>). For Type III add <span class="process-math">\((-c)\,\mb{r}_j\)</span> to the <span class="process-math">\(i\)</span>-th row.</dd>
 </dl>
-<div class="para" id="p-221">We will see this fact in another light in our next section on matrices.</div>
+<div class="para" id="p-224">We will see this fact in another light in our next section on matrices.</div>
 <article class="theorem theorem-like" id="thm-rowreduction"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.4.11</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-222">Every <span class="process-math">\(m \times n\)</span> matrix can be put in reduced row echelon form through applying a sequence of elementary row operations.</div></article><article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><div class="para" id="p-223">To see that this is the case, we argue by induction. More precisely, we will show that (a) we can put an <span class="process-math">\(m \times 1\)</span> matrix in reduced row echelon form and (b) if we can put an <span class="process-math">\(m \times n\)</span> matrix in reduced row echelon form with elementary row operations, then we can do so with an <span class="process-math">\(m \times (n + 1)\)</span> matrix.</div> <div class="para logical" id="p-224">
+<div class="para" id="p-225">Every <span class="process-math">\(m \times n\)</span> matrix can be put in reduced row echelon form through applying a sequence of elementary row operations.</div></article><article class="hiddenproof" id="proof-4"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-4"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-4"><article class="hiddenproof"><div class="para" id="p-226">To see that this is the case, we argue by induction. More precisely, we will show that (a) we can put an <span class="process-math">\(m \times 1\)</span> matrix in reduced row echelon form and (b) if we can put an <span class="process-math">\(m \times n\)</span> matrix in reduced row echelon form with elementary row operations, then we can do so with an <span class="process-math">\(m \times (n + 1)\)</span> matrix.</div> <div class="para logical" id="p-227">
 <div class="para">To accomplish step (a), suppose <span class="process-math">\(A = (a_{i1})\)</span> is an <span class="process-math">\(m \times 1\)</span> matrix. If <span class="process-math">\(a_{i1} = 0\)</span> for all <span class="process-math">\(1 \leq i \leq m\)</span> then <span class="process-math">\(A\)</span> is in reduced row echelon form already. Otherwise, choose the smallest <span class="process-math">\(i\)</span> for which <span class="process-math">\(a_{i1}\)</span> is non-zero. Using a Type I row operation, switch the <span class="process-math">\(i\)</span>-th row with the first row. Call this matrix <span class="process-math">\(A^\prime = (a_{i1}^\prime)\text{.}\)</span> Now <span class="process-math">\(a_{11}^\prime \ne 0\)</span> and we may use a Type II row operation to multiply the first row by <span class="process-math">\(1 / a_{11}^\prime\)</span> to obtain a matrix of the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -739,7 +739,7 @@ A^{\prime \prime} = \left[ \begin{matrix} 1 \\ 0 \\ \vdots \\ 0 \end{matrix} \ri
 \end{equation}
 </div>
 <div class="para">which is in reduced row echelon form.</div>
-</div> <div class="para logical" id="p-225">
+</div> <div class="para logical" id="p-228">
 <div class="para">Often in induction proofs, step (a) (called the base case) is trivial and the hard part is step (b) (called the induction step). In this proof though, step (a) is really where we learn our algorithm and step (b) is just a rehash of (a). Indeed, if we know that we can put an <span class="process-math">\(m \times n\)</span> matrix in reduced row echelon form and <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times (n + 1)\)</span> matrix then we can put the submatrix of <span class="process-math">\(A\)</span> consisting of the first <span class="process-math">\(n\)</span> columns in reduced echelon form with elementary row operations while ignoring the last column. What we will be left with is a matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -760,8 +760,8 @@ A^{\prime \prime} = \left[ \begin{array}{cccccccc|c}  0 \amp \cdots \amp 0 \amp 
 </div>
 <div class="para">Adding multiples <span class="process-math">\(-a_{i(n + 1)}\)</span> of the <span class="process-math">\(r\)</span>-th row to the <span class="process-math">\(i\)</span>-th row puts this final matrix into reduced row echelon form.</div>
 </div></article></div>
-<div class="para" id="p-226">The proof of <a href="" class="xref" data-knowl="./knowl/thm-rowreduction.html" title="Theorem 2.4.11">Theorem 2.4.11</a> provides the algorithm to row reduce a matrix. Start at the first column and perform row operations (on the whole matrix) to get it into the form of equation <a href="" class="xref" data-knowl="./knowl/eq-firstcol.html" title="Equation 2.4.7">(2.4.7)</a>. Then proceed left to right, column by column, as in the proof of part (b).</div>
-<div class="para logical" id="p-227">
+<div class="para" id="p-229">The proof of <a href="" class="xref" data-knowl="./knowl/thm-rowreduction.html" title="Theorem 2.4.11">Theorem 2.4.11</a> provides the algorithm to row reduce a matrix. Start at the first column and perform row operations (on the whole matrix) to get it into the form of equation <a href="" class="xref" data-knowl="./knowl/eq-firstcol.html" title="Equation 2.4.7">(2.4.7)</a>. Then proceed left to right, column by column, as in the proof of part (b).</div>
+<div class="para logical" id="p-230">
 <div class="para">To solve a linear system using this algorithm, it pays to augment the matrix <span class="process-math">\(A\)</span> with the constant vector <span class="process-math">\(\mb{b}\text{.}\)</span> In other words, row reduce the matrix <span class="process-math">\(A\)</span> but perform the row operations on the larger matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -784,7 +784,7 @@ A^\prime \mb{x} = \mb{b}^\prime.
 </div>
 <article class="example example-like" id="example-36"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-36"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.4.12</span><span class="period">.</span><span class="space"> </span><span class="title">Row reduction of a matrix.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like"><div class="para logical" id="p-228">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-36"><article class="example example-like"><div class="para logical" id="p-231">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -824,53 +824,53 @@ x_3 \amp = 0, \\ x_4 \amp = 0.
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-229">We end this section with a little bit of vocabulary.</div>
+<div class="para" id="p-232">We end this section with a little bit of vocabulary.</div>
 <article class="definition definition-like" id="def-basicfreecol"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.13</span><span class="period">.</span>
-</h4> <div class="para" id="p-230">Given a matrix <span class="process-math">\(A\)</span> with reduced row echelon form <span class="process-math">\(A^\prime\text{,}\)</span> we say that the <span class="process-math">\(j\)</span>-th column is <dfn class="terminology">free</dfn> if the variable associated to a linear system <span class="process-math">\(A^\prime \mb{x} = \mb{b}\)</span> is free. Otherwise we say the column is <dfn class="terminology">basic</dfn>.</div></article><div class="para" id="p-231">It is a bit unusual to call columns free and basic rather than variables, but these terms make discussing matrix equations more fluid.</div></section><section class="exercises" id="exe-matrices2"><h3 class="heading hide-type">
+</h4> <div class="para" id="p-233">Given a matrix <span class="process-math">\(A\)</span> with reduced row echelon form <span class="process-math">\(A^\prime\text{,}\)</span> we say that the <span class="process-math">\(j\)</span>-th column is <dfn class="terminology">free</dfn> if the variable associated to a linear system <span class="process-math">\(A^\prime \mb{x} = \mb{b}\)</span> is free. Otherwise we say the column is <dfn class="terminology">basic</dfn>.</div></article><div class="para" id="p-234">It is a bit unusual to call columns free and basic rather than variables, but these terms make discussing matrix equations more fluid.</div></section><section class="exercises" id="exe-matrices2"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">2.4.3</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exe-matricestoechelon"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-13"><div class="para" id="p-232">Using elementary row operations, convert the matrix into reduced row echelon form. Show each step.</div></div>
+<div class="introduction" id="introduction-13"><div class="para" id="p-235">Using elementary row operations, convert the matrix into reduced row echelon form. Show each step.</div></div>
 <article class="task exercise-like" id="task-23"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-233"><div class="displaymath process-math">
+<div class="para logical" id="p-236"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} -1 \amp 4 \amp 9 \\ -1 \amp 3 \amp 7 \\ 3 \amp -8 \amp -19 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-24"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-234"><div class="displaymath process-math">
+<div class="para logical" id="p-237"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 2 \amp -5 \\ -1 \amp 3 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-25"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para logical" id="p-235"><div class="displaymath process-math">
+<div class="para logical" id="p-238"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 3 \amp 3 \amp -4 \\ -2 \amp -2 \amp 3 \\ 1 \amp 1 \amp -2 \\ -2 \amp -2 \amp 3 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-26"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para logical" id="p-236"><div class="displaymath process-math">
+<div class="para logical" id="p-239"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 1 \amp 0 \amp 1 \\ -1 \amp -1 \amp 1 \amp 0 \end{matrix} \right] 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-36"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-14"><div class="para" id="p-237">Give the general solution, if it exists, for the matrix equations.</div></div>
+<div class="introduction" id="introduction-14"><div class="para" id="p-240">Give the general solution, if it exists, for the matrix equations.</div></div>
 <article class="task exercise-like" id="task-27"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-238"><div class="displaymath process-math">
+<div class="para logical" id="p-241"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 0 \amp 0 \\ -1 \amp 0 \amp 1 \\ 1 \amp 0 \amp -1 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{-2}{0}{1} 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-28"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-239"><div class="displaymath process-math">
+<div class="para logical" id="p-242"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 1 \amp 1 \\ -1 \amp 0 \amp -2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \twovec{-1}{0} 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-29"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para logical" id="p-240"><div class="displaymath process-math">
+<div class="para logical" id="p-243"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} -1 \amp 3  \\ -1 \amp 2  \\ 1 \amp  -3  \end{matrix} \right] \twovec{x_1}{x_2} = \threevec{-5}{-3}{5} 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-37"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-241">
+<div class="para logical" id="p-244">
 <div class="para">Let <span class="process-math">\(A\)</span> be a matrix, <span class="process-math">\(A^\prime\)</span> its reduced echelon form, <span class="process-math">\([A | \mb{b}]\)</span> an augmented matrix and <span class="process-math">\([A^\prime | \mb{b}^\prime]\)</span> the augmented matrix obtained by row reducing <span class="process-math">\(A\text{.}\)</span> Explain why every solution to the row reduced matrix equation</div>
 <div class="displaymath process-math">
 \begin{equation*}

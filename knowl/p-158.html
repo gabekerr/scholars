@@ -13,19 +13,13 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Multiplying by a matrix can give a projection. For example, the matrix</div>
+<div class="para">The most important example of a linear transformation is multiplication by a matrix <span class="process-math">\(A \in M_{m, n} (K)\)</span> (on the left) which will take column vectors <span class="process-math">\(K^n\)</span> to column vectors <span class="process-math">\(K^m\text{.}\)</span> This operation can be written as</div>
 <div class="displaymath process-math">
-\begin{equation*}
-A = \left[ \begin{matrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0  \end{matrix} \right] 
-\end{equation*}
+\begin{equation}
+\left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{matrix} \right] = \left[ \begin{matrix} a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n \\ a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n \end{matrix} \right].\tag{2.3.1}
+\end{equation}
 </div>
-<div class="para">will give</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A \threevec{x}{y}{z} = \threevec{x}{y}{0} . 
-\end{equation*}
-</div>
-<div class="para">In fact, projections from <span class="process-math">\(\mathbb{R}^n\)</span> to any vector subspace <span class="process-math">\(U\)</span> can be written as matrix multiplications. We will see more on this when we study more on linear geometry.</div>
+<div class="para">It is a slightly annoying (but easy) exercise to show that this is indeed a linear transformation.</div>
 </div>
 <span class="incontext"><a href="sec-lineartransformations1.html#p-158" class="internal">in-context</a></span>
 </body>

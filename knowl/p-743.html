@@ -13,13 +13,29 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">It is an exercise to see that <span class="process-math">\(\mb{x}\)</span> is a solution to the non-homogeneous equation. If <span class="process-math">\(\mb{y}\)</span> is any solution, then from the uniqueness theorem, any solution <span class="process-math">\(\mb{x}\)</span> with <span class="process-math">\(\mb{x} (0) = \mb{y} (0)\)</span> must equal <span class="process-math">\(\mb{y}\text{.}\)</span> But since <span class="process-math">\(\mb{x}_1, \ldots, \mb{x}_n\)</span> are linearly independent, so are <span class="process-math">\(\mb{x}_1 (0), \ldots, \mb{x}_n (0)\)</span> which implies they form a basis of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Thus there are constants <span class="process-math">\(C_1, \ldots, C_n\)</span> so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-generalnonhomosolution.html">
-\begin{equation*}
-\mb{y}(0) - \mb{x}_p (0) = C_1 \mb{x}_1 (0) + \cdots + C_n \mb{x}_n (0). 
-\end{equation*}
+<div class="para">Since we are asserting only that we have found a solution, we need only check that equation <a href="" class="xref" data-knowl="./knowl/eq-linearccnhODE.html" title="Equation 5.4.1">(5.4.1)</a> holds. First we observe that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{align*}
+y_j^\prime (t) \amp = \frac{d}{dt} \left( e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
+\amp = \left( \frac{d}{dt} e^{\lambda_j t}  \right) \int e^{-\lambda_j t} g_j (t) \diff{t} + e^{\lambda_j t} \left(\frac{d}{dt}  \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
+\amp = \lambda_j e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t}  + e^{\lambda_j t} e^{-\lambda_j t} g_j (t) , \\
+\amp = \lambda_j y_j (t) + g_j (t). 
+\end{align*}
 </div>
-<div class="para">This then means that <span class="process-math">\(\mb{y} (0) = \mb{x} (0)\)</span> for the solution in equation <a href="" class="xref" data-knowl="./knowl/eq-generalnonhomosolution.html" title="Equation 5.4.2">(5.4.2)</a> and we are done.</div>
+<div class="para">Using this, we then compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{align*}
+\mb{x}^\prime (t) \amp = \frac{d}{dt} \left( P \,\mb{y}  (t) \right), \\
+\amp = P \, \mb{y}^\prime (t), \\
+\amp = P \, \threevec{y_1^\prime (t)}{\vdots}{y_n^\prime (t)}, \\
+\amp = P \left( \threevec{\lambda_1 y_1 (t) + g_1 (t)}{\vdots}{\lambda_n y_n (t) + g_n (t)} \right), \\
+\amp =  P\, \left( \threevec{\lambda_1 y_1 (t)}{\vdots}{\lambda_n y_n (t)} + \threevec{ g_1 (t)}{\vdots}{g_n (t)} \right), \\
+\amp = P\, \left( \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, \mb{y} (t) + \mb{g} (t) \right), \\
+\amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\,\mb{y} (t) + P\, \mb{g} (t), \\
+\amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, P^{-1}\, \mb{x} (t) + P\, \mb{g} (t), \\
+\amp = A\, \mb{x} (t) + \mb{f} (t). 
+\end{align*}
+</div>
 </div>
 <span class="incontext"><a href="sec-lincode3.html#p-743" class="internal">in-context</a></span>
 </body>

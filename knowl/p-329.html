@@ -11,16 +11,21 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">The <dfn class="terminology">determinant</dfn> is the unique function</div>
+<div class="para">The first thing to understand about determinants is that, despite being included in every linear algebra course ever given, they really don't belong to the subject of linear algebra at all. Rather, they naturally sit in a subject known as multi-linear algebra. That is because they are, in fact, multi-linear functions, not linear functions. While no one should be worried, I say this only to warn the student that the determinant is <em class="emphasis">not</em> linear and may reasonably appear rather strange. In fact, it is helpful in this context to view an <span class="process-math">\(m \times n\)</span>-matrix <span class="process-math">\(A\)</span> as a column of rows</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\det : M_{n,n} (K) \to K 
+A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_i \amp - \\ \amp\vdots \amp  \\ - \amp \mb{r}_m \amp - \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">which is row linear, alternating and satisfies <span class="process-math">\(\det (I) = 1\text{.}\)</span>
+<div class="para">and if <span class="process-math">\(f : M_{m, n} (K) \to K\)</span> is a function on matrices, write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(\mb{r}_1 , \ldots, \mb{r}_m) := f(A). 
+\end{equation*}
 </div>
+<div class="para">This notation is much cleaner than writing out the matrix each time and we will use it frequently in this section.</div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-329" class="internal">in-context</a></span>
 </body>

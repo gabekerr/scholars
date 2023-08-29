@@ -11,8 +11,22 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">There is much to say about the geometry of curves, and here we will define only a few important notions, saving for later a more detailed discussion.</div>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">For the first statement, we simply write <span class="process-math">\(\mb{r} (t)\)</span> in coordinates for some basis <span class="process-math">\(\mathcal{B}\)</span> and differentiate using <a href="" class="xref" data-knowl="./knowl/cor-computetangent.html" title="Corollary 5.1.9">Corollary 5.1.9</a>.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-computetangent.html">
+\begin{align*}
+\frac{d}{dt}  \left( f(t) \mb{r} (t) \right) \amp = \frac{d}{dt}  \left( f(t) \mb{r} (t) \right), \\
+\amp =  \frac{d}{dt}  \left( f(t) \threevec{x_1 (t)}{\vdots}{x_n (t)}_{\mathcal{B}} \right), \\
+\amp = \frac{d}{dt}  \left(  \threevec{ f(t) x_1 (t)}{\vdots}{f(t) x_n (t)}_{\mathcal{B}} \right), \\
+\amp =  \threevec{ f^\prime(t) x_1 (t) + f(t) x_1^\prime (t) }{\vdots}{f^\prime(t) x_n (t) + f(t) x^\prime_n (t)}_{\mathcal{B}}, \\
+\amp =  \threevec{ f^\prime(t) x_1 (t) }{\vdots}{f^\prime(t) x_n (t) }_{\mathcal{B}} + \threevec{ f(t) x_1^\prime (t) }{\vdots}{f(t) x^\prime_n (t)}_{\mathcal{B}}, \\
+\amp =  f^\prime(t) \threevec{  x_1 (t) }{\vdots}{ x_n (t) }_{\mathcal{B}} + f(t) \threevec{  x_1^\prime (t) }{\vdots}{ x^\prime_n (t)}_{\mathcal{B}},  \\
+\amp =  f^\prime(t) \mb{r} (t) + f(t) \mb{r}^\prime (t). 
+\end{align*}
+</div>
+<div class="para">The second statement is proved similarly and is left to the student.</div>
+</div>
 <span class="incontext"><a href="sec-paths.html#p-673" class="internal">in-context</a></span>
 </body>
 </html>

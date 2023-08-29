@@ -11,8 +11,28 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">This last example shows how easy things become if the matrix is diagonalizable with real eigenvalues. In fact, it is an illustration of <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> for the case when there are two <span class="process-math">\(1 \times 1\)</span> Jordan blocks. However, since we are also acquainted with complex numbers, we note that differential equations involving real paths can sometimes be helped along by thinking of them as landing in a complex vector space instead. The next example illustrates this point.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The first case we saw way back in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>. Consider the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
+\begin{equation*}
+f^\prime (t) = 3 f(t). 
+\end{equation*}
+</div>
+<div class="para">Here, our vector space is just <span class="process-math">\(\mathbb{R}\)</span> itself. The vector field is given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
+\begin{equation*}
+\mb{F} (x) = 3x. 
+\end{equation*}
+</div>
+<div class="para">Geometrically, this means at <span class="process-math">\(x\text{,}\)</span> there is a vector pointing away from the origin with three times the magnitude as <span class="process-math">\(x\text{.}\)</span> Also, our matrix <span class="process-math">\(A\)</span> is the <span class="process-math">\(1 \times 1\)</span> matrix <span class="process-math">\([3]\text{.}\)</span> Of course, we learn in calculus (or in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>) that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
+\begin{equation*}
+f(t) = C_0 e^{3 t} 
+\end{equation*}
+</div>
+<div class="para">solves this equation generally with initial condition <span class="process-math">\(f(0) = C_0\text{.}\)</span> Were we to think of this in terms of Jordon blocks, we would note that <span class="process-math">\([3]\)</span> is a Jordon block <span class="process-math">\(J_{3, 1}\)</span> itself and the equation above is just <span class="process-math">\(C_0 e^{\lambda t} \mb{x}_0 (t)\text{.}\)</span> There is one thing to note about our solution and that is that it experiences exponential growth as <span class="process-math">\(t \to \infty\text{.}\)</span> Were we to start with the equation <span class="process-math">\(f^\prime (t) = -3 f(t)\)</span> instead, we would see exponential decay. Understanding the long term behavior of a solution to a differential equation gives valuable qualitative information on the system you are studying.</div>
+</div>
 <span class="incontext"><a href="sec-lincode2.html#p-718" class="internal">in-context</a></span>
 </body>
 </html>

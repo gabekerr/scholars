@@ -363,10 +363,10 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-jnf"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span>
 </h2>
-<div class="para" id="p-527">As it turns out, not every linear transformation has an eigenbasis, but there is something quite close. To describe it, we need to see that our direct sum is  compatible with linear transformations in the following sense.</div>
+<div class="para" id="p-530">As it turns out, not every linear transformation has an eigenbasis, but there is something quite close. To describe it, we need to see that our direct sum is  compatible with linear transformations in the following sense.</div>
 <article class="definition definition-like" id="def-directsumtrans"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-528">
+</h3> <div class="para logical" id="p-531">
 <div class="para">If <span class="process-math">\(U = U_1 \oplus U_2\text{,}\)</span> <span class="process-math">\(V = V_1 \oplus V_2\text{,}\)</span> <span class="process-math">\(T_1 : U_1 \to V_1\)</span> and <span class="process-math">\(T_2 : U_2 \to V_2\)</span> we write</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -375,11 +375,11 @@ T_1 \oplus T_2 : U \to V
 </div>
 <div class="para">to be the linear transformation which takes <span class="process-math">\(\mb{u} = \mb{u}_1 + \mb{u}_2\)</span> to <span class="process-math">\(T( \mb{u} ) = T_1 (\mb{u}_1 ) + T_2 (\mb{u}_2 )\text{.}\)</span> Here the vectors <span class="process-math">\(\mb{u}_1\)</span> and <span class="process-math">\(\mb{u}_2\)</span> are the unique vectors in <span class="process-math">\(U_1\)</span> and <span class="process-math">\(U_2\)</span> respectively that add to <span class="process-math">\(\mb{u}\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-529">It is fair to object to the messy look of this definition, but indeed, to understand the motivation for it, we consider what happens when we represent a direct sum of linear transformations as a matrix.</div>
+</div></article><div class="para" id="p-532">It is fair to object to the messy look of this definition, but indeed, to understand the motivation for it, we consider what happens when we represent a direct sum of linear transformations as a matrix.</div>
 <article class="proposition theorem-like" id="proposition-23"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-530">
+<div class="para logical" id="p-533">
 <div class="para">Suppose <span class="process-math">\(\mathcal{B}_1\text{,}\)</span> <span class="process-math">\(\mathcal{B}_2\text{,}\)</span> <span class="process-math">\(\mathcal{C}_1\)</span> and <span class="process-math">\(\mathcal{C}_2\)</span> are bases for <span class="process-math">\(U_1\text{,}\)</span> <span class="process-math">\(U_2\text{,}\)</span> <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> respectively, and let <span class="process-math">\(\mathcal{B} = \mathcal{B}_1 \cup \mathcal{B}_2\)</span> and <span class="process-math">\(\mathcal{C} = \mathcal{C}_1 \cup \mathcal{C}_2\text{.}\)</span> Then <span class="process-math">\(\mathcal{B}\)</span> is a basis for <span class="process-math">\(U\text{,}\)</span> <span class="process-math">\(\mathcal{C}\)</span> is a basis for <span class="process-math">\(V\)</span> and</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -387,8 +387,8 @@ T_1 \oplus T_2 : U \to V
 \end{equation*}
 </div>
 <div class="para">Here the matrix on the right is a matrix of matrices (so the zeros are matrices as well).</div>
-</div></article><div class="para" id="p-531">The proof of this proposition is elementary and is left to the student. However, the idea here is still important. We introduce direct sums because it allows us to decompose vector spaces into more elementary pieces (vector space summands) as well as decomposing linear transformations into more elementary linear transformations (blocks in the matrix).</div>
-<div class="para logical" id="p-532">
+</div></article><div class="para" id="p-534">The proof of this proposition is elementary and is left to the student. However, the idea here is still important. We introduce direct sums because it allows us to decompose vector spaces into more elementary pieces (vector space summands) as well as decomposing linear transformations into more elementary linear transformations (blocks in the matrix).</div>
+<div class="para logical" id="p-535">
 <div class="para">Let us now return to the question of diagonalization and reconsider <a href="" class="xref" data-knowl="./knowl/exa-notdiagonalizable.html" title="Example 4.1.11: Eigenvectors of a 3 \times 3 matrix">Example 4.1.11</a>. Recall that there we examined the matrix</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
 \begin{equation*}
@@ -409,10 +409,10 @@ p_A(t) =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4)
 </div>
 <div class="para">by solving the eigenvector equations. If you look closely at those solutions though, you will see that any other eigenvector must be a multiple of one of these. But this means that the span of the eigenvectors is <span class="process-math">\(2\)</span>-dimensional, and we must conclude that there is no eigenbasis!</div>
 </div>
-<div class="para" id="p-533">Let us look at another example where this occurs.</div>
+<div class="para" id="p-536">Let us look at another example where this occurs.</div>
 <article class="example example-like" id="example-56"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-56"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">A <span class="process-math">\(2 \times 2\)</span> nilpotent matrix.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><div class="para logical" id="p-534">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-56"><article class="example example-like"><div class="para logical" id="p-537">
 <div class="para">Consider the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -432,14 +432,14 @@ A^2 \mb{x} = 0.
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-535">This last equation leads to a definition.</div>
+<div class="para" id="p-538">This last equation leads to a definition.</div>
 <article class="definition definition-like" id="def-nilpotent"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
-</h3> <div class="para" id="p-536">A linear operator <span class="process-math">\(N : V \to V\)</span> is called <dfn class="terminology">nilpotent</dfn> if there is a positive integer <span class="process-math">\(n\)</span> for which <span class="process-math">\(N^n\)</span> is the zero linear operator (i.e. <span class="process-math">\(N^n (\mb{v}) = \mb{0}\)</span> for every vector <span class="process-math">\(\mb{v}\)</span>). We say <span class="process-math">\(n\)</span> is the order of <span class="process-math">\(N\)</span> if <span class="process-math">\(N^{n - 1}\)</span> is not zero but <span class="process-math">\(N^n\)</span> is zero.</div></article><div class="para" id="p-537">Nilpotent linear transformations can be quite useful, although they are also fairly rare. In one sense, though, they play nicely with  invertible matrices (although they are, of course <em class="emphasis">not</em> invertible).</div>
+</h3> <div class="para" id="p-539">A linear operator <span class="process-math">\(N : V \to V\)</span> is called <dfn class="terminology">nilpotent</dfn> if there is a positive integer <span class="process-math">\(n\)</span> for which <span class="process-math">\(N^n\)</span> is the zero linear operator (i.e. <span class="process-math">\(N^n (\mb{v}) = \mb{0}\)</span> for every vector <span class="process-math">\(\mb{v}\)</span>). We say <span class="process-math">\(n\)</span> is the order of <span class="process-math">\(N\)</span> if <span class="process-math">\(N^{n - 1}\)</span> is not zero but <span class="process-math">\(N^n\)</span> is zero.</div></article><div class="para" id="p-540">Nilpotent linear transformations can be quite useful, although they are also fairly rare. In one sense, though, they play nicely with  invertible matrices (although they are, of course <em class="emphasis">not</em> invertible).</div>
 <article class="lemma theorem-like" id="lem-nilpotentinv"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-538">If <span class="process-math">\(S : V \to V\)</span> is a linear isomorphism, <span class="process-math">\(N : V \to V\)</span> is nilpotent and <span class="process-math">\(S\)</span> commutes with <span class="process-math">\(N\text{,}\)</span> then <span class="process-math">\(S + N\)</span> is a linear isomorphism.</div></article><article class="hiddenproof" id="proof-33"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-33"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-33"><article class="hiddenproof"><div class="para logical" id="p-539">
+<div class="para" id="p-541">If <span class="process-math">\(S : V \to V\)</span> is a linear isomorphism, <span class="process-math">\(N : V \to V\)</span> is nilpotent and <span class="process-math">\(S\)</span> commutes with <span class="process-math">\(N\text{,}\)</span> then <span class="process-math">\(S + N\)</span> is a linear isomorphism.</div></article><article class="hiddenproof" id="proof-33"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-33"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-33"><article class="hiddenproof"><div class="para logical" id="p-542">
 <div class="para">The key to this observation is the geometric series</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -460,11 +460,11 @@ A^2 \mb{x} = 0.
 </div>
 <div class="para">Better yet, if the <span class="process-math">\(x\)</span> matrix were nilpotent, we would have no concern over convergence because these terms would all be zero once <span class="process-math">\(k\)</span> is large enough. Taking the <span class="process-math">\(y\)</span> matrix to represent <span class="process-math">\(S\)</span> and the <span class="process-math">\(x\)</span> matrix to represent <span class="process-math">\(N\)</span> thus shows that <span class="process-math">\(S + N\)</span> is invertible (and in fact the formula above can be used to compute the inverse).</div>
 </div></article></div>
-<div class="para" id="p-540">The following lemma will be used to classify a normal form for nilpotent linear transformations. The proof of this lemma is fairly technical and can be skipped on first (or second) reading.</div>
+<div class="para" id="p-543">The following lemma will be used to classify a normal form for nilpotent linear transformations. The proof of this lemma is fairly technical and can be skipped on first (or second) reading.</div>
 <article class="lemma theorem-like" id="lem-nilpotentdecomp"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.6</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-541">Suppose <span class="process-math">\(N: V \to V\)</span> is nilpotent of order <span class="process-math">\(n\)</span> and <span class="process-math">\(\mb{v}\)</span> is a vector for which <span class="process-math">\(N^{n - 1} (\mb{v}) \ne \mb{0}\text{.}\)</span> Let <span class="process-math">\(\mathcal{B} = \{ N^{n - 1} (\mb{v} ),  \ldots , N (\mb{v} ) , \mb{v}\}\)</span> and <span class="process-math">\(V_1 = \textnormal{span} \mathcal{B}\text{.}\)</span> Then</div> <ol class="decimal">
+<div class="para" id="p-544">Suppose <span class="process-math">\(N: V \to V\)</span> is nilpotent of order <span class="process-math">\(n\)</span> and <span class="process-math">\(\mb{v}\)</span> is a vector for which <span class="process-math">\(N^{n - 1} (\mb{v}) \ne \mb{0}\text{.}\)</span> Let <span class="process-math">\(\mathcal{B} = \{ N^{n - 1} (\mb{v} ),  \ldots , N (\mb{v} ) , \mb{v}\}\)</span> and <span class="process-math">\(V_1 = \textnormal{span} \mathcal{B}\text{.}\)</span> Then</div> <ol class="decimal">
 <li id="li-74"><div class="para" id="p-derived-li-74">
 <span class="process-math">\(\mathcal{B}\)</span> is linearly independent and thus a basis for <span class="process-math">\(V_1\text{,}\)</span>
 </div></li>
@@ -473,7 +473,7 @@ A^2 \mb{x} = 0.
 N = N_1 \oplus N_2 : V_1 \oplus V_2 \to V_1 \oplus V_2 
 \end{equation*}
 </div>where <span class="process-math">\(N_1\)</span> and <span class="process-math">\(N_2\)</span> are the restrictions of <span class="process-math">\(N\)</span> to <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> respectively.</div></li>
-</ol></article><article class="hiddenproof" id="proof-34"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-34"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-34"><article class="hiddenproof"><div class="para logical" id="p-542">
+</ol></article><article class="hiddenproof" id="proof-34"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-34"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-34"><article class="hiddenproof"><div class="para logical" id="p-545">
 <div class="para">To see the first claim, suppose</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -481,16 +481,16 @@ a_1 \mb{v} + a_2 N(\mb{v}) + \cdots + a_n N^{n - 1} (\mb{v}) = \mb{0}.
 \end{equation*}
 </div>
 <div class="para">Then by taking <span class="process-math">\(N^{n - 1}\)</span> of both sides we see <span class="process-math">\(a_1 = 0\text{.}\)</span> Repeating with <span class="process-math">\(N^{n - 2}, N^{n - 3} , \ldots\)</span> one sees that <span class="process-math">\(a_2, a_3, \ldots\)</span> all must be zero as well implying <span class="process-math">\(\mathcal{B}\)</span> is linearly independent.</div>
-</div> <div class="para" id="p-543">For the second claim, let we argue by induction on <span class="process-math">\(n\text{.}\)</span> If <span class="process-math">\(n = 1\)</span> then <span class="process-math">\(V = \ker (N)\)</span> and one can take any complementary subspace to the span of <span class="process-math">\(\mb{v}\text{.}\)</span> Since <span class="process-math">\(N\)</span> is zero on all of <span class="process-math">\(V\text{,}\)</span> it can be written as <span class="process-math">\(0 \oplus 0\text{.}\)</span>
-</div> <div class="para" id="p-544">So assume the statement is true for <span class="process-math">\((n - 1)\)</span> and let <span class="process-math">\(W = \ker (N^{n - 1})\text{.}\)</span> Then by the induction hypothesis we can find a complementary subspace <span class="process-math">\(W_2\)</span> to <span class="process-math">\(W_1 = \textnormal{span} \{N (\mb{v} ) , \ldots , N^{n - 1} (\mb{v}) \}\)</span> for which <span class="process-math">\(N = N_1 \oplus N_2\text{.}\)</span>
-</div> <div class="para" id="p-545">Let <span class="process-math">\(U = \{\mb{w} : N (\mb{w} ) \in W_2 \}\)</span> be the vector subspace of <span class="process-math">\(V\)</span> consisting of all vectors sent to <span class="process-math">\(W_2\)</span> and <span class="process-math">\(V_2\)</span> any complementary subspace of <span class="process-math">\(\span \{N^{n - 1} (\mb{v}) \}\)</span> in <span class="process-math">\(U\)</span> which contains <span class="process-math">\(W_2\text{.}\)</span> We claim that <span class="process-math">\(V_2\)</span> satisfies the second statement. To check this claim we must verify that <span class="process-math">\(V_2\)</span> maps to itself under <span class="process-math">\(N\)</span> and that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> are complementary. As <span class="process-math">\(V_2\)</span> is contained in <span class="process-math">\(U\text{,}\)</span> it maps to <span class="process-math">\(W_2\)</span> under <span class="process-math">\(N\)</span> which, by construction, is contained in <span class="process-math">\(V_2\text{.}\)</span>
-</div> <div class="para" id="p-546">Verifying that that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> are complementary we first check that their intersection is zero.  Note if <span class="process-math">\(\mb{u}\)</span> is in both <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> then <span class="process-math">\(N (\mb{u} )\)</span> must be in <span class="process-math">\(W_1\)</span> and <span class="process-math">\(W_2\text{.}\)</span> But since these are complementary, we have <span class="process-math">\(N(\mb{u}) = \mb{0}\)</span> and <span class="process-math">\(\mb{u}\)</span> is in the kernel of <span class="process-math">\(N\text{.}\)</span> As <span class="process-math">\(n &gt; 1\)</span> we have <span class="process-math">\(\mb{u} \in \ker (N^{n - 1} ) = W\text{.}\)</span> This implies <span class="process-math">\(\mb{u}\)</span> is in <span class="process-math">\(W_1 = V_1 \cap \ker (N^{n - 1})\)</span> and <span class="process-math">\(W_2 = V_2 \cap \ker (N^{n - 1} )\)</span> which consists only of <span class="process-math">\(\mb{0}\text{.}\)</span>
-</div> <div class="para" id="p-547">To see that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> span <span class="process-math">\(V\text{,}\)</span> suppose <span class="process-math">\(\mb{u}\)</span> is any vector and consider <span class="process-math">\(N ( \mb{u} ) \in W\text{.}\)</span> Then by the induction hypothesis, there is a unique decomposition <span class="process-math">\(N (\mb{u}) = \mb{w}_1 + \mb{w}_2\)</span> with <span class="process-math">\(\mb{w}_1 \in W_1\)</span> and <span class="process-math">\(\mb{w}_2 \in W_2\text{.}\)</span> As <span class="process-math">\(\mb{w}_1 = a_1 N (\mb{v}) + \cdots a_{n - 1} N^{n - 1} (\mb{v}) = N (a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) )\)</span> we can take <span class="process-math">\(\tilde{\mb{v}}_1 = a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) \in V_1\)</span> so that <span class="process-math">\(N (\tilde{\mb{v}}_1) = \mb{w}_1\text{.}\)</span>  Subtracting, this shows that <span class="process-math">\(\mb{w}_2 = N ( \mb{u} - \tilde{\mb{v}}_1 )\)</span> so that <span class="process-math">\(\mb{u} - \tilde{\mb{v}}_1\)</span> is in <span class="process-math">\(U\text{.}\)</span> Thus <span class="process-math">\(\mb{u} - \tilde{\mb{v}}_1 = a N^{n - 1} (\mb{v}) + \mb{v}_2\)</span> for some number <span class="process-math">\(a\)</span> and <span class="process-math">\(\mb{v}_2 \in V_2\)</span> (since <span class="process-math">\(U = V_2 \oplus \span \{N^{n - 1} (\mb{v}) \}\)</span>). Taking <span class="process-math">\(\mb{v}_1 = \tilde{\mb{v}}_1 + a N^{n - 1} (\mb{v}) \in V_1\)</span> we get that <span class="process-math">\(\mb{u}\)</span> is in the span finishing the proof.</div></article></div>
-<div class="para" id="p-548">Inductively applying this lemma gives the following corollary.</div>
+</div> <div class="para" id="p-546">For the second claim, let we argue by induction on <span class="process-math">\(n\text{.}\)</span> If <span class="process-math">\(n = 1\)</span> then <span class="process-math">\(V = \ker (N)\)</span> and one can take any complementary subspace to the span of <span class="process-math">\(\mb{v}\text{.}\)</span> Since <span class="process-math">\(N\)</span> is zero on all of <span class="process-math">\(V\text{,}\)</span> it can be written as <span class="process-math">\(0 \oplus 0\text{.}\)</span>
+</div> <div class="para" id="p-547">So assume the statement is true for <span class="process-math">\((n - 1)\)</span> and let <span class="process-math">\(W = \ker (N^{n - 1})\text{.}\)</span> Then by the induction hypothesis we can find a complementary subspace <span class="process-math">\(W_2\)</span> to <span class="process-math">\(W_1 = \textnormal{span} \{N (\mb{v} ) , \ldots , N^{n - 1} (\mb{v}) \}\)</span> for which <span class="process-math">\(N = N_1 \oplus N_2\text{.}\)</span>
+</div> <div class="para" id="p-548">Let <span class="process-math">\(U = \{\mb{w} : N (\mb{w} ) \in W_2 \}\)</span> be the vector subspace of <span class="process-math">\(V\)</span> consisting of all vectors sent to <span class="process-math">\(W_2\)</span> and <span class="process-math">\(V_2\)</span> any complementary subspace of <span class="process-math">\(\span \{N^{n - 1} (\mb{v}) \}\)</span> in <span class="process-math">\(U\)</span> which contains <span class="process-math">\(W_2\text{.}\)</span> We claim that <span class="process-math">\(V_2\)</span> satisfies the second statement. To check this claim we must verify that <span class="process-math">\(V_2\)</span> maps to itself under <span class="process-math">\(N\)</span> and that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> are complementary. As <span class="process-math">\(V_2\)</span> is contained in <span class="process-math">\(U\text{,}\)</span> it maps to <span class="process-math">\(W_2\)</span> under <span class="process-math">\(N\)</span> which, by construction, is contained in <span class="process-math">\(V_2\text{.}\)</span>
+</div> <div class="para" id="p-549">Verifying that that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> are complementary we first check that their intersection is zero.  Note if <span class="process-math">\(\mb{u}\)</span> is in both <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> then <span class="process-math">\(N (\mb{u} )\)</span> must be in <span class="process-math">\(W_1\)</span> and <span class="process-math">\(W_2\text{.}\)</span> But since these are complementary, we have <span class="process-math">\(N(\mb{u}) = \mb{0}\)</span> and <span class="process-math">\(\mb{u}\)</span> is in the kernel of <span class="process-math">\(N\text{.}\)</span> As <span class="process-math">\(n &gt; 1\)</span> we have <span class="process-math">\(\mb{u} \in \ker (N^{n - 1} ) = W\text{.}\)</span> This implies <span class="process-math">\(\mb{u}\)</span> is in <span class="process-math">\(W_1 = V_1 \cap \ker (N^{n - 1})\)</span> and <span class="process-math">\(W_2 = V_2 \cap \ker (N^{n - 1} )\)</span> which consists only of <span class="process-math">\(\mb{0}\text{.}\)</span>
+</div> <div class="para" id="p-550">To see that <span class="process-math">\(V_1\)</span> and <span class="process-math">\(V_2\)</span> span <span class="process-math">\(V\text{,}\)</span> suppose <span class="process-math">\(\mb{u}\)</span> is any vector and consider <span class="process-math">\(N ( \mb{u} ) \in W\text{.}\)</span> Then by the induction hypothesis, there is a unique decomposition <span class="process-math">\(N (\mb{u}) = \mb{w}_1 + \mb{w}_2\)</span> with <span class="process-math">\(\mb{w}_1 \in W_1\)</span> and <span class="process-math">\(\mb{w}_2 \in W_2\text{.}\)</span> As <span class="process-math">\(\mb{w}_1 = a_1 N (\mb{v}) + \cdots a_{n - 1} N^{n - 1} (\mb{v}) = N (a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) )\)</span> we can take <span class="process-math">\(\tilde{\mb{v}}_1 = a_1 \mb{v} + \cdots + a_{n - 1} N^{n - 2} (\mb{v}) \in V_1\)</span> so that <span class="process-math">\(N (\tilde{\mb{v}}_1) = \mb{w}_1\text{.}\)</span>  Subtracting, this shows that <span class="process-math">\(\mb{w}_2 = N ( \mb{u} - \tilde{\mb{v}}_1 )\)</span> so that <span class="process-math">\(\mb{u} - \tilde{\mb{v}}_1\)</span> is in <span class="process-math">\(U\text{.}\)</span> Thus <span class="process-math">\(\mb{u} - \tilde{\mb{v}}_1 = a N^{n - 1} (\mb{v}) + \mb{v}_2\)</span> for some number <span class="process-math">\(a\)</span> and <span class="process-math">\(\mb{v}_2 \in V_2\)</span> (since <span class="process-math">\(U = V_2 \oplus \span \{N^{n - 1} (\mb{v}) \}\)</span>). Taking <span class="process-math">\(\mb{v}_1 = \tilde{\mb{v}}_1 + a N^{n - 1} (\mb{v}) \in V_1\)</span> we get that <span class="process-math">\(\mb{u}\)</span> is in the span finishing the proof.</div></article></div>
+<div class="para" id="p-551">Inductively applying this lemma gives the following corollary.</div>
 <article class="corollary theorem-like" id="corollary-8"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.2.7</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-549">
+<div class="para logical" id="p-552">
 <div class="para">If <span class="process-math">\(V\)</span> is a finite dimensional vector space and <span class="process-math">\(N : V \to V\)</span> a nilpotent linear transformation. Then there are vectors <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_k\)</span> and positive integers <span class="process-math">\(r_1, \ldots, r_k\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -499,12 +499,12 @@ a_1 \mb{v} + a_2 N(\mb{v}) + \cdots + a_n N^{n - 1} (\mb{v}) = \mb{0}.
 </div>
 <div class="para">is a basis and <span class="process-math">\(N^{r_i} (\mb{v}_i) = 0\)</span> for <span class="process-math">\(1 \leq i \leq k\text{.}\)</span>
 </div>
-</div></article><article class="hiddenproof" id="proof-35"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-35"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-35"><article class="hiddenproof"><div class="para" id="p-550">This follows from repeatedly applying  <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a> to the summand <span class="process-math">\(V_2\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-35"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-35"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-35"><article class="hiddenproof"><div class="para" id="p-553">This follows from repeatedly applying  <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a> to the summand <span class="process-math">\(V_2\text{.}\)</span>
 </div></article></div>
-<div class="para" id="p-551">Now we return to the general problem of finding an eigenbasis for <span class="process-math">\(T: V \to V\text{.}\)</span> Since we cannot always find a <span class="process-math">\(\lambda\)</span>-eigenvectors of <span class="process-math">\(T\text{,}\)</span> we propose a broader notion in the following definition.</div>
+<div class="para" id="p-554">Now we return to the general problem of finding an eigenbasis for <span class="process-math">\(T: V \to V\text{.}\)</span> Since we cannot always find a <span class="process-math">\(\lambda\)</span>-eigenvectors of <span class="process-math">\(T\text{,}\)</span> we propose a broader notion in the following definition.</div>
 <article class="definition definition-like" id="def-generalizedeigenvector"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.8</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-552">
+</h3> <div class="para logical" id="p-555">
 <div class="para">Suppose <span class="process-math">\(V\)</span> is a vector space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. For a number <span class="process-math">\(\lambda \in K\text{,}\)</span> the <dfn class="terminology">generalized <span class="process-math">\(\lambda\)</span>-eigenspace</dfn> is the vector subspace</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -512,12 +512,12 @@ V_\lambda = \left\{ \mb{v} : (\lambda I - T)^r (\mb{v}) = 0  \textnormal{ for su
 \end{equation*}
 </div>
 <div class="para">A non-zero vector <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V_\lambda\)</span> is called a <dfn class="terminology">generalized eigenvector</dfn>.</div>
-</div></article><div class="para" id="p-553">One can check that <span class="process-math">\(V_\lambda\)</span> is indeed a vector subspace of <span class="process-math">\(V\text{.}\)</span> The following theorem can be used to see that the generalized eigenspaces are ever present.</div>
+</div></article><div class="para" id="p-556">One can check that <span class="process-math">\(V_\lambda\)</span> is indeed a vector subspace of <span class="process-math">\(V\text{.}\)</span> The following theorem can be used to see that the generalized eigenspaces are ever present.</div>
 <article class="theorem theorem-like" id="thm-cayleyhamilton"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Cayley-Hamilton.</span>
 </h3>
-<div class="para" id="p-554">If <span class="process-math">\(V\)</span> is a finite dimensional vector space and <span class="process-math">\(T: V \to V\)</span> is a linear transformation then <span class="process-math">\(p_T (T) = 0\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><div class="para logical" id="p-555">
+<div class="para" id="p-557">If <span class="process-math">\(V\)</span> is a finite dimensional vector space and <span class="process-math">\(T: V \to V\)</span> is a linear transformation then <span class="process-math">\(p_T (T) = 0\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><div class="para logical" id="p-558">
 <div class="para">We show this by taking <span class="process-math">\(A\)</span> to represent <span class="process-math">\(T\)</span> and verifying <span class="process-math">\(p_A (A) = 0\)</span> as a matrix equation. Suppose</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
 \begin{equation*}
@@ -569,12 +569,12 @@ A B_0 - A^2 B_1 \amp = a_1 A, \\
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-556">Let us interpret this Theorem. Since <span class="process-math">\(p_T (t)\)</span> is a polynomial, it involves taking powers of <span class="process-math">\(t\text{,}\)</span> multiplying it by a scalar and adding the results together. However, all of these operations can be made on <span class="process-math">\(T\)</span> itself, so the equation <span class="process-math">\(p_T (T) = 0\)</span> says that we obtain the zero linear transformation when we put <span class="process-math">\(T\)</span> into its own characteristic polynomial.</div>
-<div class="para" id="p-557">To connect this definition to our discussion of nilpotent matrices, we observe the following simple Lemma.</div>
+<div class="para" id="p-559">Let us interpret this Theorem. Since <span class="process-math">\(p_T (t)\)</span> is a polynomial, it involves taking powers of <span class="process-math">\(t\text{,}\)</span> multiplying it by a scalar and adding the results together. However, all of these operations can be made on <span class="process-math">\(T\)</span> itself, so the equation <span class="process-math">\(p_T (T) = 0\)</span> says that we obtain the zero linear transformation when we put <span class="process-math">\(T\)</span> into its own characteristic polynomial.</div>
+<div class="para" id="p-560">To connect this definition to our discussion of nilpotent matrices, we observe the following simple Lemma.</div>
 <article class="lemma theorem-like" id="lem-nilpotentinvert"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.10</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-558">
+<div class="para logical" id="p-561">
 <div class="para">Suppose <span class="process-math">\(V\)</span> is a finite dimensional vector space over <span class="process-math">\(K\)</span> and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. If <span class="process-math">\(\lambda\)</span> and <span class="process-math">\(\tilde{\lambda}\)</span> are two numbers in <span class="process-math">\(K\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -588,7 +588,7 @@ A B_0 - A^2 B_1 \amp = a_1 A, \\
 \end{equation*}
 </div>
 <div class="para">is nilpotent if <span class="process-math">\(\tilde{\lambda} = \lambda\)</span> and a linear isomorphism otherwise.</div>
-</div></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><div class="para logical" id="p-559">
+</div></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><div class="para logical" id="p-562">
 <div class="para">To see the first statement, just note that <span class="process-math">\((\tilde{\lambda} I - T)\)</span> commutes with <span class="process-math">\(({\lambda} I - T)\)</span> so that if <span class="process-math">\(({\lambda} I - T)^n (\mb{v}) = 0\)</span> then</div>
 <div class="displaymath process-math" id="md-59">
 \begin{align*}
@@ -599,13 +599,13 @@ A B_0 - A^2 B_1 \amp = a_1 A, \\
 </div>
 <div class="para">So if <span class="process-math">\(\mb{v}\)</span> is in <span class="process-math">\(V_\lambda\)</span> then so is <span class="process-math">\((\tilde{\lambda} I - T) (\mb{v})\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-560">For the second statement, if <span class="process-math">\(\lambda = \tilde{\lambda}\)</span> then <span class="process-math">\(V_\lambda\)</span> is defined to be the vector subspace on which <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent. There is a subtlety here which relies on the fact that <span class="process-math">\(V\)</span> is finite dimensional. In particular, there must be a finite <span class="process-math">\(n\)</span> for which <span class="process-math">\((\tilde{\lambda} I - T)^n (\mb{v}) = \mb{0}\)</span> for <em class="emphasis">all</em> <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V_\lambda\)</span> owing to the fact that there is a finite basis for <span class="process-math">\(V_\lambda\)</span> (check this). Thus <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span>
-</div> <div class="para" id="p-561">Now, if <span class="process-math">\(\tilde{\lambda} \ne \lambda\)</span> then we take <span class="process-math">\(N = (\lambda I - T)\)</span> and <span class="process-math">\(S = (\tilde{\lambda} - \lambda) I\text{.}\)</span> Then <span class="process-math">\(S\)</span> and <span class="process-math">\(N\)</span> commute, <span class="process-math">\(S\)</span> is invertible and <span class="process-math">\(N\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span> Applying <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinv.html" title="Lemma 4.2.5">Lemma 4.2.5</a> gives that <span class="process-math">\((\tilde{\lambda} I - T) = S + N\)</span> is invertible.</div></article></div>
-<div class="para" id="p-562">Using this lemma, we obtain a generalized version of <a href="" class="xref" data-knowl="./knowl/lem-distincteigenlinind.html" title="Lemma 4.1.13">Lemma 4.1.13</a>.</div>
+</div> <div class="para" id="p-563">For the second statement, if <span class="process-math">\(\lambda = \tilde{\lambda}\)</span> then <span class="process-math">\(V_\lambda\)</span> is defined to be the vector subspace on which <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent. There is a subtlety here which relies on the fact that <span class="process-math">\(V\)</span> is finite dimensional. In particular, there must be a finite <span class="process-math">\(n\)</span> for which <span class="process-math">\((\tilde{\lambda} I - T)^n (\mb{v}) = \mb{0}\)</span> for <em class="emphasis">all</em> <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V_\lambda\)</span> owing to the fact that there is a finite basis for <span class="process-math">\(V_\lambda\)</span> (check this). Thus <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span>
+</div> <div class="para" id="p-564">Now, if <span class="process-math">\(\tilde{\lambda} \ne \lambda\)</span> then we take <span class="process-math">\(N = (\lambda I - T)\)</span> and <span class="process-math">\(S = (\tilde{\lambda} - \lambda) I\text{.}\)</span> Then <span class="process-math">\(S\)</span> and <span class="process-math">\(N\)</span> commute, <span class="process-math">\(S\)</span> is invertible and <span class="process-math">\(N\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span> Applying <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinv.html" title="Lemma 4.2.5">Lemma 4.2.5</a> gives that <span class="process-math">\((\tilde{\lambda} I - T) = S + N\)</span> is invertible.</div></article></div>
+<div class="para" id="p-565">Using this lemma, we obtain a generalized version of <a href="" class="xref" data-knowl="./knowl/lem-distincteigenlinind.html" title="Lemma 4.1.13">Lemma 4.1.13</a>.</div>
 <article class="lemma theorem-like" id="lem-distinctgeigenlinind"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.11</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-563">Let <span class="process-math">\(V\)</span> be a finite dimensional vector space and <span class="process-math">\(T: V \to V\)</span> be a linear transformation. If <span class="process-math">\(\mb{v}_1 , \ldots , \mb{v}_k\)</span> are generalized <span class="process-math">\(\lambda_i\)</span>-eigenvectors with distinct <span class="process-math">\(\lambda_i\text{,}\)</span> then they are linearly independent.</div></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><div class="para logical" id="p-564">
+<div class="para" id="p-566">Let <span class="process-math">\(V\)</span> be a finite dimensional vector space and <span class="process-math">\(T: V \to V\)</span> be a linear transformation. If <span class="process-math">\(\mb{v}_1 , \ldots , \mb{v}_k\)</span> are generalized <span class="process-math">\(\lambda_i\)</span>-eigenvectors with distinct <span class="process-math">\(\lambda_i\text{,}\)</span> then they are linearly independent.</div></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><div class="para logical" id="p-567">
 <div class="para">Assuming that this were false, we may choose a smallest set of eigenvalues for which there is a linear dependence of respective generalized eigenvectors. Relabel the vectors and eigenvalues so that this set consists of the first <span class="process-math">\(j\)</span> values <span class="process-math">\(\lambda_1, \ldots, \lambda_j\text{.}\)</span> Then there are generalized <span class="process-math">\(\lambda_i\)</span>-eigenvectors <span class="process-math">\(\mb{w}_1, \ldots, \mb{w}_j\)</span> that have a non-trivial linear relation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-nilpotentinvert.html">
 \begin{equation*}
@@ -622,12 +622,12 @@ A B_0 - A^2 B_1 \amp = a_1 A, \\
 \amp = a_1 S( \mb{w}_1 ) + \cdots + a_{j - 1} S( \mb{w}_{j - 1} ).
 \end{align*}
 </div>
-<div class="para" id="p-565">We note that <span class="process-math">\(S (\mb{w}_i) \ne \mb{0}\)</span> for all <span class="process-math">\(1 \leq i \leq j - 1\)</span> since <span class="process-math">\(S\)</span> is a linear isomorphism on <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> But this is a non-trivial linear dependence with fewer than <span class="process-math">\(j\)</span> generalized eigenvectors contradicting our choice of the smallest set of linearly dependent vectors.</div></article></div>
-<div class="para" id="p-566">From these lemmas we are able to show the following important theorem.</div>
+<div class="para" id="p-568">We note that <span class="process-math">\(S (\mb{w}_i) \ne \mb{0}\)</span> for all <span class="process-math">\(1 \leq i \leq j - 1\)</span> since <span class="process-math">\(S\)</span> is a linear isomorphism on <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> But this is a non-trivial linear dependence with fewer than <span class="process-math">\(j\)</span> generalized eigenvectors contradicting our choice of the smallest set of linearly dependent vectors.</div></article></div>
+<div class="para" id="p-569">From these lemmas we are able to show the following important theorem.</div>
 <article class="theorem theorem-like" id="lem-generalizedeigendecomp"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.12</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-567">
+<div class="para logical" id="p-570">
 <div class="para">Suppose <span class="process-math">\(V\)</span> is an <span class="process-math">\(n\)</span>-dimensional vector space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. Suppose <span class="process-math">\(p_T (t)\)</span> factors as <span class="process-math">\((t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}\)</span> where <span class="process-math">\(\lambda_i \ne \lambda_j\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Then <span class="process-math">\(V\)</span> decomposes as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -640,7 +640,7 @@ V = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m}
 T = T_1 \oplus \cdots \oplus T_m . 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><div class="para logical" id="p-568">
+</div></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><div class="para logical" id="p-571">
 <div class="para">It is clear that <span class="process-math">\(T\)</span> maps each generalized eigenspace to itself. Taking</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-distinctgeigenlinind.html">
 \begin{equation*}
@@ -655,7 +655,7 @@ W = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} .
 \end{equation*}
 </div>
 <div class="para">Indeed, to check this one needs only show that there is no non-zero vector of <span class="process-math">\(V_{\lambda_i}\)</span> equal to a sum of vectors from the other generalized eigenspaces. But any such equation would give a non-trivial linear relation.</div>
-</div> <div class="para logical" id="p-569">
+</div> <div class="para logical" id="p-572">
 <div class="para">To see the decomposition, all that is left to show is that <span class="process-math">\(W = V\text{.}\)</span> For this we use the Cayley-Hamilton Theorem. Indeed, if <span class="process-math">\(\mb{v}\)</span> is a vector not in <span class="process-math">\(W\)</span> then because <span class="process-math">\(p_T (T) = 0\)</span> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-nilpotentinvert.html">
 \begin{equation*}
@@ -664,7 +664,7 @@ W = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} .
 </div>
 <div class="para">Write <span class="process-math">\(S_i = (\lambda_i I - T)^{k_i}\)</span> and recall that <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinvert.html" title="Lemma 4.2.10">Lemma 4.2.10</a> gives that <span class="process-math">\(S_i\)</span> is invertible on <span class="process-math">\(V_{\lambda_j}\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Take <span class="process-math">\(\mb{w}_m = S_1 \cdots S_{m - 1} (\mb{v})\)</span>  and observe it is in <span class="process-math">\(V_{\lambda_m}\)</span> (since <span class="process-math">\(S_m (\mb{w}_m) = \mb{0}\)</span>) we can define <span class="process-math">\(\mb{u}_m = S^{-1}_{m - 1} \cdots S_1^{-1} (\mb{w}_m)\)</span> in <span class="process-math">\(V_{\lambda_m}\text{.}\)</span> But then it is clear that <span class="process-math">\(S_1 \cdots S_{m - 1} (\mb{v} - \mb{u}_m) = \mb{0}\text{.}\)</span> Repeating this process gives vectors <span class="process-math">\(\mb{u}_1, \ldots, \mb{u}_m\)</span> in <span class="process-math">\(V_{\lambda_1}, \ldots, V_{\lambda_m}\)</span> with <span class="process-math">\(\mb{v} = \mb{u}_1 + \cdots + \mb{u}_m\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-570">
+</div> <div class="para logical" id="p-573">
 <div class="para">Restricting <span class="process-math">\(T\)</span> to <span class="process-math">\(V_{\lambda_i}\)</span> to obtain <span class="process-math">\(T_i\)</span> one sees that <span class="process-math">\(p_{T_i} (t) = (t - \lambda_i)^r\)</span> where <span class="process-math">\(r = \dim V_{\lambda_i}\)</span> (since <span class="process-math">\(T_i\)</span> has no other eigenvalues). But it is an exercise to see that the direct sum decomposition gives a factorization</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -674,21 +674,21 @@ p_T (t) = p_{T_1} (t) \cdots p_{T_m} (t)
 <div class="para">so we may conclude that <span class="process-math">\(\dim V_{\lambda_i} = r = k_i\text{.}\)</span>
 </div>
 </div></article></div>
-<div class="para" id="p-571">It is time to take a very deep breath and sigh loudly with relief. We have now proven the main theorem that allows us to represent any linear transformation as a completely understandable matrix! What type of matrices you ask?</div>
+<div class="para" id="p-574">It is time to take a very deep breath and sigh loudly with relief. We have now proven the main theorem that allows us to represent any linear transformation as a completely understandable matrix! What type of matrices you ask?</div>
 <article class="definition definition-like" id="def-Jordanmatrix"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.2.13</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-572">
+</h3> <div class="para logical" id="p-575">
 <div class="para">For a number <span class="process-math">\(\lambda \in K\text{,}\)</span> a <dfn class="terminology">Jordan matrix</dfn> is the <span class="process-math">\(n \times n\)</span> matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
 J_{\lambda ,n } = \left[ \begin{matrix} \lambda \amp 1 \amp 0 \amp \cdots \amp 0 \\ 0 \amp \lambda \amp 1 \amp\cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp 0 \amp \lambda \amp 1 \\ 0 \amp \cdots \amp 0 \amp 0 \amp \lambda \end{matrix} \right]. 
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-573">And now for our classification.</div>
+</div></article><div class="para" id="p-576">And now for our classification.</div>
 <article class="theorem theorem-like" id="thm-jnf"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">Jordan Normal Form.</span>
 </h3>
-<div class="para logical" id="p-574">
+<div class="para logical" id="p-577">
 <div class="para">Suppose <span class="process-math">\(V\)</span> is an <span class="process-math">\(n\)</span>-dimensional vector space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. Suppose <span class="process-math">\(p_T (t)\)</span> factors as <span class="process-math">\((t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}\)</span> where <span class="process-math">\(\lambda_i \ne \lambda_j\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Then there is a basis <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\)</span> consisting of generalized eigenvectors for which the representing matrix is a block diagonal matrix</div>
 <div class="displaymath process-math" id="eq-coarsejnf">
 \begin{equation}
@@ -702,10 +702,10 @@ B_{\lambda_i} = \left[ \begin{matrix} J_{\lambda_i, n^i_1} \amp 0 \amp \cdots \a
 \end{equation}
 </div>
 <div class="para">Up to reordering the blocks, this form is unique.</div>
-</div></article><div class="para" id="p-575">The proof of the existence of such a basis for equation <a href="" class="xref" data-knowl="./knowl/eq-coarsejnf.html" title="Equation 4.2.2">(4.2.2)</a> follows immediately from <a href="" class="xref" data-knowl="./knowl/lem-generalizedeigendecomp.html" title="Theorem 4.2.12">Theorem 4.2.12</a>. On the other hand, one can verify equation <a href="" class="xref" data-knowl="./knowl/eq-finejnf.html" title="Equation 4.2.3">(4.2.3)</a> by repeatedly applying <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a> to the nilpotent transformation <span class="process-math">\((\lambda_i I - T)\)</span> on <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> The uniqueness claim is worth some attention, but will be left to the students and office hours!</div>
+</div></article><div class="para" id="p-578">The proof of the existence of such a basis for equation <a href="" class="xref" data-knowl="./knowl/eq-coarsejnf.html" title="Equation 4.2.2">(4.2.2)</a> follows immediately from <a href="" class="xref" data-knowl="./knowl/lem-generalizedeigendecomp.html" title="Theorem 4.2.12">Theorem 4.2.12</a>. On the other hand, one can verify equation <a href="" class="xref" data-knowl="./knowl/eq-finejnf.html" title="Equation 4.2.3">(4.2.3)</a> by repeatedly applying <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a> to the nilpotent transformation <span class="process-math">\((\lambda_i I - T)\)</span> on <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> The uniqueness claim is worth some attention, but will be left to the students and office hours!</div>
 <article class="example example-like" id="example-57"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-57"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">Jordan normal form of a <span class="process-math">\(4 \times 4\)</span> matrix.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like"><div class="para logical" id="p-576">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-57"><article class="example example-like"><div class="para logical" id="p-579">
 <div class="para">Let us now endeavor to work through an example with a little bit of nuance. Take</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
 \begin{equation*}
@@ -798,7 +798,7 @@ P A P^{-1} = \left[ \begin{matrix} -1 \amp 0 \amp 0 \amp 0 \\ 0 \amp -2 \amp 1 \
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-68"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-577">
+<div class="para logical" id="p-580">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -808,14 +808,14 @@ A  = \left[ \begin{matrix} 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0
 <div class="para">Without using row reduction or the determinant / adjugate formula, find the inverse of <span class="process-math">\(I + A\text{.}\)</span>
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-578">Let <span class="process-math">\(N_1\)</span> be <span class="process-math">\(N\)</span> restricted to the subspace <span class="process-math">\(V_1\)</span> in <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a>. Describe the matrix representing <span class="process-math">\(N_1\)</span> using the basis <span class="process-math">\(\mathcal{B}\text{.}\)</span>
+<div class="para" id="p-581">Let <span class="process-math">\(N_1\)</span> be <span class="process-math">\(N\)</span> restricted to the subspace <span class="process-math">\(V_1\)</span> in <a href="" class="xref" data-knowl="./knowl/lem-nilpotentdecomp.html" title="Lemma 4.2.6">Lemma 4.2.6</a>. Describe the matrix representing <span class="process-math">\(N_1\)</span> using the basis <span class="process-math">\(\mathcal{B}\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="exe-nilpotentmatrix"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-30"><div class="para" id="p-579">Give an example of a nilpotent <span class="process-math">\(3 \times 3\)</span> matrix which has</div></div>
+<div class="introduction" id="introduction-30"><div class="para" id="p-582">Give an example of a nilpotent <span class="process-math">\(3 \times 3\)</span> matrix which has</div></div>
 <article class="task exercise-like" id="task-63"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="p-580">a one dimensional kernel.</div></article><article class="task exercise-like" id="task-64"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="p-581">a two dimensional kernel.</div></article></article><article class="exercise exercise-like" id="exercise-71"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="p-582">True or False (with explanation) : If two linear transformations have the same characteristic polynomial, then they can be represented by the same matrix.</div></article><article class="exercise exercise-like" id="exercise-72"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-31"><div class="para logical" id="p-583">
+<div class="para" id="p-583">a one dimensional kernel.</div></article><article class="task exercise-like" id="task-64"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-584">a two dimensional kernel.</div></article></article><article class="exercise exercise-like" id="exercise-71"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="p-585">True or False (with explanation) : If two linear transformations have the same characteristic polynomial, then they can be represented by the same matrix.</div></article><article class="exercise exercise-like" id="exercise-72"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-31"><div class="para logical" id="p-586">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -824,11 +824,11 @@ A = \left[ \begin{matrix} 0 \amp -2 \amp 1 \\ -1 \amp 0 \amp 0 \\ -5 \amp 7 \amp
 </div>
 </div></div>
 <article class="task exercise-like" id="task-65"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="p-584">Find the characteristic polynomial <span class="process-math">\(p_A (t)\text{.}\)</span> What are the eigenvalues of <span class="process-math">\(A\text{?}\)</span>
+<div class="para" id="p-587">Find the characteristic polynomial <span class="process-math">\(p_A (t)\text{.}\)</span> What are the eigenvalues of <span class="process-math">\(A\text{?}\)</span>
 </div></article><article class="task exercise-like" id="task-66"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="p-585">Find a maximal collection of linearly independent eigenvectors.</div></article><article class="task exercise-like" id="task-67"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="p-586">Is <span class="process-math">\(A\)</span> diagonalizable? Explain your response.</div></article><article class="task exercise-like" id="task-68"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para" id="p-587">Find a basis <span class="process-math">\(\mathcal{B}\)</span> for which <span class="process-math">\(\cob{A}{\mathcal{B}}{\mathcal{B}} = P^{-1} A P\)</span> is in Jordan Normal Form where <span class="process-math">\(P\)</span> is a change of basis matrix for <span class="process-math">\(\mathcal{B}\text{.}\)</span>
+<div class="para" id="p-588">Find a maximal collection of linearly independent eigenvectors.</div></article><article class="task exercise-like" id="task-67"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="p-589">Is <span class="process-math">\(A\)</span> diagonalizable? Explain your response.</div></article><article class="task exercise-like" id="task-68"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="p-590">Find a basis <span class="process-math">\(\mathcal{B}\)</span> for which <span class="process-math">\(\cob{A}{\mathcal{B}}{\mathcal{B}} = P^{-1} A P\)</span> is in Jordan Normal Form where <span class="process-math">\(P\)</span> is a change of basis matrix for <span class="process-math">\(\mathcal{B}\text{.}\)</span>
 </div></article></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-diag1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-spectral.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

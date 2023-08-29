@@ -11,17 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Implicit equations for planes in <span class="process-math">\(\mathbb{R}^3\)</span> with coordinates <span class="process-math">\((x, y, z)\)</span> are of the form</div>
-<div class="displaymath process-math">
-\begin{equation}
-a x + b y + c z = d \tag{2.5.2}
-\end{equation}
-</div>
-<div class="para">where <span class="process-math">\(a, b, c,\)</span> and <span class="process-math">\(d\)</span> are real numbers. If <span class="process-math">\(d = 0\)</span> the plane is a vector subspace of <span class="process-math">\(\mathbb{R}^3\text{.}\)</span> For each of the following planes, find a basis <span class="process-math">\(\mathcal{A}\)</span> and give a parameterization defined by <span class="process-math">\([]_{\mathcal{A}} : \mathbb{R}^2 \to \mathbb{R}^3\text{.}\)</span>
-</div>
-</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para">To see that <span class="process-math">\(\mathcal{C}\)</span> is a basis, note that it is linearly independent by <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a>. Indeed, the reduced row echelon form of the matrix with <em class="emphasis">only</em> these columns is the same as the submatrix of <span class="process-math">\(A^\prime\)</span> with only these columns. In particular, it has no free columns and the cited proposition implies that <span class="process-math">\(\mathcal{C}\)</span> is linearly independent. On the other hand, adding any other column of <span class="process-math">\(A\)</span> to <span class="process-math">\(\mathcal{C}\)</span> fails the test in <a href="" class="xref" data-knowl="./knowl/prop-computelinind.html" title="Proposition 2.5.4">Proposition 2.5.4</a> for the same reason. But that means that any other column can be written as a linear combination of the columns in <span class="process-math">\(\mathcal{C}\)</span> (why?). Thus <span class="process-math">\(\mathcal{C}\)</span> spans the column space and is linearly independent. By <a href="" class="xref" data-knowl="./knowl/prop-basisindspan.html" title="Proposition 2.5.2">Proposition 2.5.2</a>, <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space.</div>
 <span class="incontext"><a href="sec-vectorspaces2.html#p-274" class="internal">in-context</a></span>
 </body>
 </html>

@@ -12,27 +12,7 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">As a final result of this section, we note that the determinant also allows us to write out a formula for the inverse matrix when it exists. First we take the <dfn class="terminology">adjugate</dfn> matrix of a square matrix <span class="process-math">\(A\)</span> (which is sometimes incorrectly referred to as the adjoint) as the transpose matrix of cofactors</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\textnormal{adj} (A) = \left[ \begin{matrix} C_{11} \amp C_{21} \amp \cdots \amp C_{n1} \\ C_{12} \amp C_{22} \amp \cdots \amp C_{n2} \\ \vdots \amp \amp \ddots \amp \vdots \\ C_{1n} \amp C_{2n} \amp \cdots \amp C_{nn} \end{matrix} \right] . 
-\end{equation*}
-</div>
-<div class="para">One notes that if we multiply <span class="process-math">\(\text{adj} (A)\)</span> on the left by the <span class="process-math">\(i\)</span>-th row <span class="process-math">\(\mb{r}_i\)</span> of <span class="process-math">\(A\text{,}\)</span> we obtain the row vector <span class="process-math">\(\det (A) \mb{e}_i\)</span> (check this). But this implies that</div>
-<div class="displaymath process-math">
-\begin{equation}
-A \, \cdot  \textnormal{adj} (A) = \det (A) I .\tag{2.7.5}
-\end{equation}
-</div>
-<div class="para">Of course, if <span class="process-math">\(\det (A) = 0\text{,}\)</span> this may not give us much to work with when it comes to finding an inverse. But otherwise we would like to conclude that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A^{-1} = \frac{1}{\det (A)} \textnormal{adj} (A) \hspace{.2in} \text{if }\det (A) \ne 0. 
-\end{equation*}
-</div>
-<div class="para">However, one might worry whether this really works, since we only have that <span class="process-math">\(\frac{1}{\det (A)} \text{adj} (A)\)</span> is a <em class="emphasis">right</em> inverse in the equation above. Happily, there is a simple argument to show that left and right inverses of square matrices must be the same.</div>
-</div>
+<div class="para">We end this section with a useful result concerning the determinant.</div>
 <span class="incontext"><a href="sec-matrices3.html#p-362" class="internal">in-context</a></span>
 </body>
 </html>

@@ -11,8 +11,25 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">Although I may not convince you of this, I must assert that there's nothing in life that's better than having a good orthonormal basis! This is means that not only do you have a basis and thus a system of coordinates for your vector space, but you have coordinates which reflect the geometry of Euclidean space (in the real setting and a little bit more in the complex setting). Let's see a practical application of this.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Suppose we have a linear relation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{0} = a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n . 
+\end{equation*}
+</div>
+<div class="para">We may pair both sides with <span class="process-math">\(\mb{v}_i\)</span> to obtain</div>
+<div class="displaymath process-math">
+\begin{align*}
+0 \amp = \left\langle \mb{0} , \mb{v}_i \right\rangle , \\
+\amp =  \left\langle a_1 \mb{v}_1 + \cdots + a_n \mb{v}_n , \mb{v}_i \right\rangle, \\
+\amp =  a_1 \left\langle \mb{v}_1, \mb{v}_i \right\rangle + \cdots + a_n \left\langle \mb{v}_n , \mb{v}_i \right\rangle, \\
+\amp = a_i \left\langle \mb{v}_i , \mb{v}_i \right\rangle .
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(\mb{v}_i\)</span> are non-zero, we have that <span class="process-math">\(\left\langle \mb{v}_i , \mb{v}_i \right\rangle \gt 0\)</span> by the positive definite property. So dividing implies <span class="process-math">\(a_i = 0\)</span> for every <span class="process-math">\(i\)</span> and the set of vectors is linearly independent.</div>
+</div>
 <span class="incontext"><a href="sec-geom2.html#p-429" class="internal">in-context</a></span>
 </body>
 </html>

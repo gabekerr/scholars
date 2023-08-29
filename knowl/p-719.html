@@ -13,44 +13,50 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Suppose we take the linear differential equation</div>
+<div class="para">Now let us consider an authentically higher dimensional example.</div>
 <div class="displaymath process-math">
 \begin{align*}
-x^\prime (t) \amp = 2x (t) +  y(t), \\
-y^\prime (t) \amp = -2 x (t) + 4 y(t). 
+x^\prime (t) \amp = -4 x(t) - 3 y(t), \\
+y^\prime (t) \amp = 6 x (t) + 5 y(t). 
 \end{align*}
 </div>
-<div class="para">Writing this out we find the matrix</div>
+<div class="para">Our first task in this linear ODE is to write it as a single matrix ODE. We can do this by looking at the coefficients on the right and making a matrix out of them as in</div>
 <div class="displaymath process-math">
 \begin{equation*}
-A  = \left[ \begin{matrix} 2 \amp 1 \\ -2 \amp 4 \end{matrix} \right] 
+A  = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">and obtain the equation</div>
+<div class="para">Then if we take</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\mb{x}^\prime (t) = A \mb{x} (t).
+\mb{x} (t) = \twovec{x (t)}{y (t)} 
 \end{equation*}
 </div>
-<div class="para">Again, the right hand side is the vector field</div>
+<div class="para">we obtain the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x}^\prime (t) = A \mb{x} (t). 
+\end{equation*}
+</div>
+<div class="para">The right hand side is indeed our vector field</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \mb{F} (\mb{x} ) = A \mb{x} 
 \end{equation*}
 </div>
-<div class="para">and it would be nice to diagonalize <span class="process-math">\(A\)</span> to get a picture of this field. However, computing the characteristic polynomial gives</div>
+<div class="para">and to obtain a computational advantage and a geometric picture, it will help to diagonalize <span class="process-math">\(A\)</span> (if possible). For this, we start by taking the characteristic polynomial of <span class="process-math">\(A\)</span> (which we will write now with variable <span class="process-math">\(s\)</span> instead of <span class="process-math">\(t\)</span> to avoid confusion with <span class="process-math">\(\mb{x} (t)\)</span>) and find</div>
 <div class="displaymath process-math">
 \begin{equation*}
-p_A (s) = \det  \left[ \begin{matrix} s -2 \amp -1 \\ 2 \amp s - 4 \end{matrix} \right] = s^2 - 6 s + 10.
+p_A (s) = \det  \left[ \begin{matrix} s +4 \amp 3 \\ -6 \amp s - 5 \end{matrix} \right] = s^2 - s - 2 = (s - 2) (s + 1). 
 \end{equation*}
 </div>
-<div class="para">One can use the quadratic formula here and see that</div>
+<div class="para">Thus we see two distinct real eigenvalues and can confidently diagonalize <span class="process-math">\(A\text{.}\)</span> Indeed, working through this gives the <span class="process-math">\((-1)\)</span>-eigenvector <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(2\)</span>-eigenvector <span class="process-math">\(\mb{v}_2\)</span> which form an eigenbasis</div>
 <div class="displaymath process-math">
 \begin{equation*}
-p_A (s) = (s - (3 + i)) (s - (3 - i))
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}. 
 \end{equation*}
 </div>
-<div class="para">so that the roots of <span class="process-math">\(p_A (s)\)</span> are complex numbers and <span class="process-math">\(A\)</span> cannot be diagonalized as a real matrix. Now, one of the benefits of having real eigenvalues and eigenvectors was that we obtained a nice picture of the vector field. There is something to be said in the case of a complex eigenvector as well, which is related to several of the exercises that you have worked through. In particular, if there is an eigenvalue of the form <span class="process-math">\(\lambda = re^{i\theta}\text{,}\)</span> then one will see a <span class="process-math">\(\theta\)</span> rotation in the vectors of the vector field (in some coordinate system). For now, we will leave the illustration of this field to a computer and come back to the geometry once we've found the solution.</div>
+<div class="para">Why is all this so helpful? Well, now we can picture the vector field very clearly. It will take vectors on the <span class="process-math">\((-1)\)</span> eigenspace (multiples of <span class="process-math">\(\mb{v}_1\)</span>) and reverse their direction. On the <span class="process-math">\(2\)</span>-eigenspace though (multiples of <span class="process-math">\(\mb{v}_2\)</span>), the vectors will be doubled in scale and point in the same direction. The remaining vectors can be seen to be a linear combination of these two. This geometry will be sketched in class and gives a fantastically simple picture of what our solutions ought to look like.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-719" class="internal">in-context</a></span>
 </body>

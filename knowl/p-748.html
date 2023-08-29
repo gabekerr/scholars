@@ -13,20 +13,74 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">This case when <span class="process-math">\(\omega = \lambda\)</span> or <span class="process-math">\(\omega = \bar{\lambda}\)</span> (usually when no damping is present and <span class="process-math">\(\omega\)</span> is purely imaginary) is called <dfn class="terminology">pure resonance</dfn>. Let's assume <span class="process-math">\(\omega = \lambda\)</span> so that equation <a href="" class="xref" data-knowl="./knowl/eq-particularspringmass.html" title="Equation 5.4.4">(5.4.4)</a> gives us the solution</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-particularspringmass.html">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/ex-lineardiagonalode.html" title="Example 5.3.2: Two real dimensional equation">Example 5.3.2</a> we considered the linear system</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
 \begin{align*}
-x_p (t) \amp = \frac{i}{2\beta}  \left( - e^{\lambda t} t + \frac{e^{\lambda t}}{\lambda - \bar{\lambda}} \right), \\
-\amp = \frac{e^{\lambda t}\left( 1 - 2\beta i t \right)}{4\beta^2}
+x^\prime (t) \amp = -4 x(t) - 3 y(t), \\
+y^\prime (t) \amp = 6 x (t) + 5 y(t). 
 \end{align*}
 </div>
-<div class="para">To understand this solution, let's consider when there is no damping so that <span class="process-math">\(\lambda = i \beta\)</span> and take the real part of the homogeneous term <span class="process-math">\(\operatorname{Re} (f(t)) = \cos (\beta t)\)</span> and thus the real part of our solution to find a shocking solution</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-particularspringmass.html">
+<div class="para">Let us consider a non-homogeneous version of this system such as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{align*}
+x^\prime (t) \amp = -4 x(t) - 3 y(t) + t, \\
+y^\prime (t) \amp = 6 x (t) + 5 y(t) - 3t. 
+\end{align*}
+</div>
+<div class="para">We can write this as the matrix equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
 \begin{equation*}
-\operatorname{Re} (x_p (t)) \amp = \frac{1}{4\beta^2}  \cos (\beta t) + \frac{t \sin (\beta t )}{2 \beta }.
+\dot{\mb{x}} = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right] \mb{x} + \twovec{t}{-3t}.
 \end{equation*}
 </div>
-<div class="para">Why is this so shocking? Well, observe that there is a <span class="process-math">\(t\)</span> in the amplitude of the <span class="process-math">\(\sin \)</span> function which means that this solution oscillates but is <em class="emphasis">unbounded</em>. This resonance occurs when the intrinsic frequency of the spring matches the forcing frequency and explains many tragic disasters (like suspension bridges being destroyed by the wind blowing in certain frequencies). Examining the prior solutions show that all other solutions (with bounded forcing term) are in fact bounded solutions and most experience exponential decay (which is certainly good for bridges and other things!).</div>
+<div class="para">In this case we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{equation*}
+\mb{f} (t) = \twovec{t}{-3t}.
+\end{equation*}
+</div>
+<div class="para">Looking back to the example, we see that we found the <span class="process-math">\((-1)\)</span>-eigenvector <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(2\)</span>-eigenvector <span class="process-math">\(\mb{v}_2\)</span> which form an eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}.
+\end{equation*}
+</div>
+<div class="para">From these we had the change of basis matrices</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{equation*}
+P = \left[ \begin{matrix} 1 \amp -1 \\ -1 \amp 2 \end{matrix} \right] , \hspace{.3in} P^{-1} = \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right].
+\end{equation*}
+</div>
+<div class="para">Using this, we apply <a href="" class="xref" data-knowl="./knowl/thm-particularsolutionnhode.html" title="Theorem 5.4.1: Uniqueness of Solutions to ODEs">Theorem 5.4.1</a> to find</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{equation*}
+\mb{g} (t) = \twovec{g_1 (t)}{g_2 (t)} = P^{-1} \mb{f} (t) = \twovec{2 t - 3t}{t - 3t} = \twovec{-t}{-2t}.
+\end{equation*}
+</div>
+<div class="para">We then can calculate the integrals using integration by parts</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{align*}
+y_1 (t) \amp = e^{-t} \int e^t (-t) \diff{t}, \\
+\amp = - e^{-t} (t e^t - e^t), \\
+\amp = 1 - t. \\
+y_2 (t) \amp = e^{2t} \int e^{-2t} (-2t) \diff{t}, \\
+\amp = e^{2t} \left( t e^{-2t} + \frac{1}{2}e^{-2t}\right), \\
+\amp = t + \frac{1}{2}. 
+\end{align*}
+</div>
+<div class="para">Finally, we then obtain a particular solution</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{equation*}
+\mb{x}_p (t) = P \mb{y} (t) = \left[ \begin{matrix} 1 \amp -1 \\ -1 \amp 2 \end{matrix} \right] \twovec{1 - t}{t + 1/2} = \twovec{1/2 - 2t}{3t}.
+\end{equation*}
+</div>
+<div class="para">Using the homogeneous solutions <a href="" class="xref" data-knowl="./knowl/eq-lindiagsol.html" title="Equation 5.3.3">(5.3.3)</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{align*}
+\mb{x} (t) \amp = C_1 e^{-t} \mb{v}_1 + C_2 e^{2t} \mb{v}_2 + \mb{x}_p (t), \\
+\amp = \twovec{C_1 e^{-t} - C_2 e^{2t}  - 2t + 1/2 }{ - C_1 e^{-t} + 2 C_2 e^{2t} + 3t }. 
+\end{align*}
+</div>
 </div>
 <span class="incontext"><a href="sec-lincode3.html#p-748" class="internal">in-context</a></span>
 </body>

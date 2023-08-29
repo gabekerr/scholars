@@ -11,20 +11,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">Finding the transpose matrix is simple, just swap row entries with column entries. For example, if</div>
+<div class="para">Note that the positive definite condition makes sense even when <span class="process-math">\(K = \mathbb{C}\text{.}\)</span> In that case, one might worry that <span class="process-math">\(\left\langle \mb{v} , \mb{v} \right\rangle\)</span> is a complex number like <span class="process-math">\(1 + 2i\text{.}\)</span> Then what does it mean for it to be greater than zero? However, we see from conjugate symmetry, that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-A = \left[ \begin{matrix} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \end{matrix} \right] 
+\left\langle \mb{v} , \mb{v} \right\rangle = \overline{\left\langle \mb{v} , \mb{v} \right\rangle} 
 \end{equation*}
 </div>
-<div class="para">then</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A^T =  \left[ \begin{matrix} 1 \amp 4 \\ 2 \amp 5 \\ 3 \amp 6 \end{matrix} \right]. 
-\end{equation*}
-</div>
+<div class="para">which tells us that the value must be a real number (only real numbers equal their conjugates). But we know what it means to say a real number is non-negative.</div>
 </div>
 <span class="incontext"><a href="sec-geom1.html#p-381" class="internal">in-context</a></span>
 </body>

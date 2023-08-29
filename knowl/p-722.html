@@ -13,19 +13,44 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">However, it is interesting to note here that the solution <span class="process-math">\(\mb{x} (t)\)</span> can be written</div>
+<div class="para">Suppose we take the linear differential equation</div>
+<div class="displaymath process-math">
+\begin{align*}
+x^\prime (t) \amp = 2x (t) +  y(t), \\
+y^\prime (t) \amp = -2 x (t) + 4 y(t). 
+\end{align*}
+</div>
+<div class="para">Writing this out we find the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\mb{x} (t) = e^{3t + a} \twovec{ \sin (t + b)}{  \cos (t + b) + \sin (t + b)}.
+A  = \left[ \begin{matrix} 2 \amp 1 \\ -2 \amp 4 \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">The scaling factor increases exponentially which means that the solution will head off to infinity. What about the vector portion? Well, it is not hard to see that this is a parameterization of the conic section</div>
+<div class="para">and obtain the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-2x^2 - 2xy + y^2 = 1. 
+\mb{x}^\prime (t) = A \mb{x} (t).
 \end{equation*}
 </div>
-<div class="para">A meticulous student will check and see that this equation is that of a (rotated) ellipse. So the solution is simply following a parameterization of an ellipse, but scaling it simultaneously and spiraling away from the origin.</div>
+<div class="para">Again, the right hand side is the vector field</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (\mb{x} ) = A \mb{x} 
+\end{equation*}
+</div>
+<div class="para">and it would be nice to diagonalize <span class="process-math">\(A\)</span> to get a picture of this field. However, computing the characteristic polynomial gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s -2 \amp -1 \\ 2 \amp s - 4 \end{matrix} \right] = s^2 - 6 s + 10.
+\end{equation*}
+</div>
+<div class="para">One can use the quadratic formula here and see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = (s - (3 + i)) (s - (3 - i))
+\end{equation*}
+</div>
+<div class="para">so that the roots of <span class="process-math">\(p_A (s)\)</span> are complex numbers and <span class="process-math">\(A\)</span> cannot be diagonalized as a real matrix. Now, one of the benefits of having real eigenvalues and eigenvectors was that we obtained a nice picture of the vector field. There is something to be said in the case of a complex eigenvector as well, which is related to several of the exercises that you have worked through. In particular, if there is an eigenvalue of the form <span class="process-math">\(\lambda = re^{i\theta}\text{,}\)</span> then one will see a <span class="process-math">\(\theta\)</span> rotation in the vectors of the vector field (in some coordinate system). For now, we will leave the illustration of this field to a computer and come back to the geometry once we've found the solution.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-722" class="internal">in-context</a></span>
 </body>

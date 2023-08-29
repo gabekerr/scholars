@@ -11,67 +11,32 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">Consider <span class="process-math">\(P_n\)</span> as the polynomials of degree less than or equal to <span class="process-math">\(n\)</span> with coefficients in <span class="process-math">\(\mathbb{R}\text{.}\)</span> Take</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
-\begin{equation*}
-D: P_2 \to P_1 
-\end{equation*}
-</div>
-<div class="para">to be the linear transformation obtained by taking the derivative. In other words,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
-\begin{equation*}
-D(f) = f^\prime . 
-\end{equation*}
-</div>
-<div class="para">In order to write out <span class="process-math">\(D\)</span> as a matrix, we need to choose bases for <span class="process-math">\(P_2\)</span> and <span class="process-math">\(P_1\text{.}\)</span> The natural candidate for <span class="process-math">\(P_n\)</span> is <span class="process-math">\(\{1, x, x^2, \ldots, x^n\}\text{,}\)</span> so we take</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="para">Suppose <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are vector spaces over <span class="process-math">\(K\)</span> and</div>
+<div class="displaymath process-math">
 \begin{align*}
-\mathcal{B} \amp = \{1, x, x^2\}, \\
-\mathcal{C} \amp = \{1, x\}. 
+\mathcal{B} \amp = \{\mb{u}_1 , \ldots, \mb{u}_n \}, \\
+\mathcal{C} \amp = \{ \mb{v}_1, \ldots, \mb{v}_m\} 
 \end{align*}
 </div>
-<div class="para">To find <span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\)</span> we will simply need to find the coefficients from equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepformula.html" title="Equation 2.6.1">(2.6.1)</a>. In other words, we need to take the derivative of our polynomials from <span class="process-math">\(\mathcal{B}\)</span> and write them out as linear combinations of the polynomials in <span class="process-math">\(\mathcal{C}\text{.}\)</span>
-</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
-\begin{align*}
-D(1) \amp = 0 = 0\cdot 1 + 0 \cdot x, \\
-D(x) \amp = 1 = 1\cdot 1 + 0 \cdot x, \\
-D(x^2) \amp = 2x = 0\cdot 1 + 2 \cdot x. 
-\end{align*}
-</div>
-<div class="para">Placing these coefficients into the matrix (appropriately!) gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="para">are bases of <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> respectively. Finally, suppose that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\cob{D}{\mathcal{B}}{\mathcal{C}} = \mth{0}{1}{0}{0}{0}{2}. 
+T: U \to V 
 \end{equation*}
 </div>
-<div class="para">Of course, in this example, since we all know how to take derivatives, the matrix representation of <span class="process-math">\(D\)</span> is of limited usefulness. Nonetheless, let us show how equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepresentation.html" title="Equation 2.6.2">(2.6.2)</a> works in this case. Take the arbitrary quadratic polynomial</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
-\begin{equation*}
-f = ax^2 + bx + c 
-\end{equation*}
+<div class="para">is a linear transformation. Then for any <span class="process-math">\(1 \leq j \leq n\text{,}\)</span> we have that <span class="process-math">\(T(\mb{u}_j)\)</span> is a vector in <span class="process-math">\(V\)</span> and can thus be written uniquely as a linear combination of basis vectors in <span class="process-math">\(\mathcal{C}\text{.}\)</span> We write such a combination out here</div>
+<div class="displaymath process-math">
+\begin{equation}
+T (\mb{u}_j)  = a_{1j}\mb{v}_1 + a_{2j} \mb{v}_2 + \cdots + a_{mj} \mb{v}_m. \tag{2.6.1}
+\end{equation}
 </div>
-<div class="para">in <span class="process-math">\(P_2\)</span> and observe that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="para">Notice that this gives us scalars <span class="process-math">\(a_{ij}\)</span> for all <span class="process-math">\(1 \leq i \leq m\)</span> and <span class="process-math">\(1 \leq j \leq n\)</span> which we can place in an <span class="process-math">\(m \times n\)</span> matrix</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\coord{f}{\mathcal{B}} = \threevec{c}{b}{a} . 
+\cob{T}{\mathcal{B}}{\mathcal{C}} = \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] 
 \end{equation*}
-</div>
-<div class="para">Then multiplying this column vector on the left by <span class="process-math">\(\cob{D}{\mathcal{C}}{\mathcal{B}}\)</span> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
-\begin{equation*}
-\cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp= \mth{0}{1}{0}{0}{0}{2}\threevec{c}{b}{a} , \\ \amp = \twovec{b}{2a} .
-\end{equation*}
-</div>
-<div class="para">But this vector represents the element</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
-\begin{equation*}
-b\cdot 1 + 2a \cdot x = 2ax + b 
-\end{equation*}
-</div>
-<div class="para">which we all know as the derivative of <span class="process-math">\(f\text{.}\)</span>
 </div>
 </div>
 <span class="incontext"><a href="sec-lineartransformations2.html#p-283" class="internal">in-context</a></span>

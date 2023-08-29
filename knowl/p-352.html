@@ -11,18 +11,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">We leave it to the student to work out the first set of equations. For the second, notice that if <span class="process-math">\(E\)</span> is Type I then <span class="process-math">\(EA\)</span> is just <span class="process-math">\(A\)</span> with two rows switched so by the alternating property and the first equation <span class="process-math">\(D(EA) = - D(A) = D(E) D(A)\text{.}\)</span> On the other hand, if <span class="process-math">\(E\)</span> is Type II so that <span class="process-math">\(E = E_i (c)\)</span> then <span class="process-math">\(E A\)</span> multiplies the <span class="process-math">\(i\)</span>-th row by <span class="process-math">\(c\text{.}\)</span> So row linearity and the second equation gives <span class="process-math">\(D(E A ) = c D(A) = D(E) D(A)\text{.}\)</span> Finally, if <span class="process-math">\(E\)</span> is Type III and equals <span class="process-math">\(E_{ij} (c)\)</span> we have that the <span class="process-math">\(i\)</span>-th row of <span class="process-math">\(E A\)</span> is <span class="process-math">\(\mb{r}_i + c\mb{r}_j\text{.}\)</span> So using row linearity, <a href="" class="xref" data-knowl="./knowl/lem-altalt.html" title="Lemma 2.7.13">Lemma 2.7.13</a>, and the third equation we get</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-altalt.html">
-\begin{align*}
-D (EA) \amp = D(\mb{r}_1, \ldots, \mb{r}_i + c\mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ), \\
-\amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ) + c D(\mb{r}_1, \ldots, \mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ),\\
-\amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ), \\
-\amp = D (A), \\
-\amp = D(E) D(A).
-\end{align*}
+<div class="para">Some comments on this proof are in order. First, we note that at this point, we have only shown that a function satisfying the properties exists, but not that there is only one. Second, we could have quite easily used the last row instead of the first row when defining the <span class="process-math">\(D_n\text{.}\)</span> In fact, we can use any row and write the formula</div>
+<div class="displaymath process-math">
+\begin{equation}
+D_n (A) = a_{i1} C_{i1} + \cdots + a_{in} C_{in} . \tag{2.7.4}
+\end{equation}
 </div>
+<div class="para">This is still a valid formula and can be obtained by using the alternating property. Once we prove uniqueness, we see that each of these formulas yields the same number.</div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-352" class="internal">in-context</a></span>
 </body>
