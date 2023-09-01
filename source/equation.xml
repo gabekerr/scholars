@@ -71,15 +71,15 @@
     is a solution.</p>
 
     <p>To summarize the difference in the two types of equations, the implicit equation is an equation of the form 
-    <me>
+    <men xml:id="eq-implicitequation">
        \mathbf{F} (\text{possible solution} ) = \text{ something special}
-    </me>
+    </men>
     where <m>\mathbf{F} : P \to V</m> is a function from a set of possible solutions to a set of values and <sq>something special</sq> is one of those values. The actual solutions are possible solutions that satisfy the equation.</p>
 
     <p>On the other hand, an explicit solution is of the form
-    <me>
+    <men xml:id="eq-explicitequation">
         \mathbf{f} (\text{something known} ) = \text{ actual solutions}.
-    </me>
+    </men>
     where <m>\mathbf{f} : K \to S</m> is often an onto function from <sq>something known</sq> (usually a point, real numbers or <m>\mathbb{R}^k</m>) to the set of actual solutions of an interesting problem or points of a space.</p>
 
     <p>We have seen several examples above where the sets <m>P, V, K, S</m> are subspaces of real space, but this template persists in an even broader context. </p>
@@ -138,7 +138,7 @@
     <exercises xml:id="exe-equation">
         <exercise>
             <statement>
-                <p> The equation <m>y = mx + b</m> is beaten into every young American as a sort of hazing initiation into society. It is usually thought of as the solution to some sort of problem (like <sq>find a line with slope ... etc</sq>). However, from the perspective above, it is an implicit equation. What is a `solution' to this equation? Can you give more than one? </p>
+                <p> The equation <m>y = mx + b</m> is beaten into every young American as a sort of hazing initiation into society. It is usually thought of as the solution to some sort of problem (like <sq>find a line with slope ... etc</sq>). However, from the perspective of equation <xref ref="eq-implicitequation"/>, it is an implicit equation. Give a function <m>\mathbf{F}</m> which re-expresses the equation for a line as <xref ref="eq-implicitequation"/> and find the general solution <m>\mathbf{f}</m> as in equation <xref ref="eq-explicitequation"/>? Can you give more than one example of <m>\mathbf{f}</m>? </p>
             </statement>
         </exercise>
         <exercise>
@@ -156,8 +156,9 @@
             </introduction>
             <task>
                 <statement>
-                    <p>Show that <me> f(t)  = \left( \cosh t , \sinh t \right) </me> parametrizes the unit hyperbola.</p>
+                    <p>Show that <me> f(t)  = \left( \cosh t , \sinh t \right) </me> parametrizes the positive branch of the unit hyperbola.</p>
                 </statement>
+                <hint> Let <m>H</m> be the set of points on the positive branch of the unit hyperbola. This question asks you to demonstrate two separate facts all at once. First, you must show that <m>f(t)</m> is a point in <m>H</m> for every real number <m>t</m>. Second, you should show that <m>f: \mathbb{R} \to H</m> is a 1-1 correspondence. For the second part, try showing that <m>\sinh t</m> is an increasing function which goes from negative to positive infinity.</hint>
             </task>
             <task>
                 <statement>
