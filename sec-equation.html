@@ -442,18 +442,18 @@ f (\theta , \phi ) = ( \cos \theta \sin \phi, \sin \theta \sin \phi , \cos \phi)
 <div class="para">is a solution.</div>
 </div> <div class="para logical" id="p-82">
 <div class="para">To summarize the difference in the two types of equations, the implicit equation is an equation of the form</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mathbf{F} (\text{possible solution} ) = \text{ something special}
-\end{equation*}
+<div class="displaymath process-math" id="eq-implicitequation">
+\begin{equation}
+\mathbf{F} (\text{possible solution} ) = \text{ something special}\tag{1.3.2}
+\end{equation}
 </div>
 <div class="para">where <span class="process-math">\(\mathbf{F} : P \to V\)</span> is a function from a set of possible solutions to a set of values and ‘something special’ is one of those values. The actual solutions are possible solutions that satisfy the equation.</div>
 </div> <div class="para logical" id="p-83">
 <div class="para">On the other hand, an explicit solution is of the form</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mathbf{f} (\text{something known} ) = \text{ actual solutions}.
-\end{equation*}
+<div class="displaymath process-math" id="eq-explicitequation">
+\begin{equation}
+\mathbf{f} (\text{something known} ) = \text{ actual solutions}.\tag{1.3.3}
+\end{equation}
 </div>
 <div class="para">where <span class="process-math">\(\mathbf{f} : K \to S\)</span> is often an onto function from ‘something known’ (usually a point, real numbers or <span class="process-math">\(\mathbb{R}^k\)</span>) to the set of actual solutions of an interesting problem or points of a space.</div>
 </div> <div class="para" id="p-84">We have seen several examples above where the sets <span class="process-math">\(P, V, K, S\)</span> are subspaces of real space, but this template persists in an even broader context.</div></section><section class="subsection" id="subsection-1"><h3 class="heading hide-type">
@@ -463,21 +463,21 @@ f (\theta , \phi ) = ( \cos \theta \sin \phi, \sin \theta \sin \phi , \cos \phi)
 <div class="para">To illustrate these ideas, we consider the differential equation:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-firstorderODE.html" id="eq-firstorderODE">
 \begin{equation}
-\mathbf{F} (y^\prime , y, x ) = 0.\tag{1.3.2}
+\mathbf{F} (y^\prime , y, x ) = 0.\tag{1.3.4}
 \end{equation}
 </div>
-<div class="para">Let us understand the general form of a first order ordinary differential equation (ODE) given in equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderODE.html" title="Equation 1.3.2">(1.3.2)</a>. The set <span class="process-math">\(P\)</span> of ‘possible solutions’ here is the set of differentiable functions from <span class="process-math">\(\mathbb{R}\)</span> to <span class="process-math">\(\mathbb{R}\)</span> (or from a possible smaller domain in <span class="process-math">\(\mathbb{R}\)</span>). The set of values <span class="process-math">\(V\)</span> in this case is also a set of functions, albeit maybe only continuous functions. The ‘something special’ is the constant function equal to zero (so in truth, the right hand side is a function, not a number). To solve this equation we would need to find a function <span class="process-math">\(\mathbf{f}\)</span> on a known set of parameters <span class="process-math">\(K\)</span> to <span class="process-math">\(P\)</span> giving all the actual solutions (the ‘all’ part is saying that <span class="process-math">\(\mathbf{f}\)</span> is onto).</div>
+<div class="para">Let us understand the general form of a first order ordinary differential equation (ODE) given in equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderODE.html" title="Equation 1.3.4">(1.3.4)</a>. The set <span class="process-math">\(P\)</span> of ‘possible solutions’ here is the set of differentiable functions from <span class="process-math">\(\mathbb{R}\)</span> to <span class="process-math">\(\mathbb{R}\)</span> (or from a possible smaller domain in <span class="process-math">\(\mathbb{R}\)</span>). The set of values <span class="process-math">\(V\)</span> in this case is also a set of functions, albeit maybe only continuous functions. The ‘something special’ is the constant function equal to zero (so in truth, the right hand side is a function, not a number). To solve this equation we would need to find a function <span class="process-math">\(\mathbf{f}\)</span> on a known set of parameters <span class="process-math">\(K\)</span> to <span class="process-math">\(P\)</span> giving all the actual solutions (the ‘all’ part is saying that <span class="process-math">\(\mathbf{f}\)</span> is onto).</div>
 </div>
 <div class="para logical" id="p-86">
-<div class="para">Perhaps it will bother the uninitiated student to hear that equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderODE.html" title="Equation 1.3.2">(1.3.2)</a> in its general form is absolutely impossible to solve and, in some cases, extremely difficult to understand qualitatively. However, if we take the example of a first order <em class="emphasis">linear</em> ODE, we can indeed solve it completely. This is the case when there are functions <span class="process-math">\(p(x)\)</span> and <span class="process-math">\(q(x)\)</span> for which the equation becomes</div>
+<div class="para">Perhaps it will bother the uninitiated student to hear that equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderODE.html" title="Equation 1.3.4">(1.3.4)</a> in its general form is absolutely impossible to solve and, in some cases, extremely difficult to understand qualitatively. However, if we take the example of a first order <em class="emphasis">linear</em> ODE, we can indeed solve it completely. This is the case when there are functions <span class="process-math">\(p(x)\)</span> and <span class="process-math">\(q(x)\)</span> for which the equation becomes</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-firstorderODE.html" id="eq-firstorderlinearODE">
 \begin{equation}
-\mathbf{F} (y^\prime , y, x) = y^\prime + p(x) y - q (x) = 0.\tag{1.3.3}
+\mathbf{F} (y^\prime , y, x) = y^\prime + p(x) y - q (x) = 0.\tag{1.3.5}
 \end{equation}
 </div>
 </div>
 <div class="para logical" id="p-87">
-<div class="para">To solve equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderlinearODE.html" title="Equation 1.3.3">(1.3.3)</a> we take the practical step of first considering <span class="process-math">\(q(x) = 0\)</span> which is known as the homogeneous case. The equation then reduces to</div>
+<div class="para">To solve equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderlinearODE.html" title="Equation 1.3.5">(1.3.5)</a> we take the practical step of first considering <span class="process-math">\(q(x) = 0\)</span> which is known as the homogeneous case. The equation then reduces to</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-firstorderlinearODE.html ./knowl/eq-firstorderlinearODE.html">
 \begin{equation*}
 \frac{y^\prime}{y} = - p(x).
@@ -501,7 +501,7 @@ y = C e^{- \int p(x) \diff x}
 y = C v e^{-\int p(x) \diff x}
 \end{equation*}
 </div>
-<div class="para">where <span class="process-math">\(v\)</span> is a function of <span class="process-math">\(x\text{.}\)</span> Then using the product and chain rule we have that equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderlinearODE.html" title="Equation 1.3.3">(1.3.3)</a> becomes</div>
+<div class="para">where <span class="process-math">\(v\)</span> is a function of <span class="process-math">\(x\text{.}\)</span> Then using the product and chain rule we have that equation <a href="" class="xref" data-knowl="./knowl/eq-firstorderlinearODE.html" title="Equation 1.3.5">(1.3.5)</a> becomes</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-firstorderlinearODE.html ./knowl/eq-firstorderlinearODE.html">
 \begin{equation*}
 C v^\prime e^{-\int p(x) \diff x} = q(x) 
@@ -532,7 +532,8 @@ y = e^{-\int p(x) \diff x}\left[ \int   e^{\int p(x) \diff x} q (x) \diff x  + D
 <span class="type">Exercises</span> <span class="codenumber">1.3.2</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-13"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-89">The equation <span class="process-math">\(y = mx + b\)</span> is beaten into every young American as a sort of hazing initiation into society. It is usually thought of as the solution to some sort of problem (like ‘find a line with slope ... etc’). However, from the perspective above, it is an implicit equation. What is a `solution' to this equation? Can you give more than one?</div></article><article class="exercise exercise-like" id="exercise-14"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-89">The equation <span class="process-math">\(y = mx + b\)</span> is beaten into every young American as a sort of hazing initiation into society. It is usually thought of as the solution to some sort of problem (like ‘find a line with slope ... etc’). However, from the perspective of equation <a href="" class="xref" data-knowl="./knowl/eq-implicitequation.html" title="Equation 1.3.2">(1.3.2)</a>, it is an implicit equation. Give a function <span class="process-math">\(\mathbf{F}\)</span> which re-expresses the equation for a line as <a href="" class="xref" data-knowl="./knowl/eq-implicitequation.html" title="Equation 1.3.2">(1.3.2)</a> and find the general solution <span class="process-math">\(\mathbf{f}\)</span> as in equation <a href="" class="xref" data-knowl="./knowl/eq-explicitequation.html" title="Equation 1.3.3">(1.3.3)</a>? Can you give more than one example of <span class="process-math">\(\mathbf{f}\text{?}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-14"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
 <div class="introduction" id="introduction-7"><div class="para logical" id="p-90">
 <div class="para">The unit circle has a `unit hyperbola' analog given by the implicit equation</div>
 <div class="displaymath process-math">
@@ -556,7 +557,10 @@ x^2 - y^2 = 1.
 f(t)  = \left( \cosh t , \sinh t \right) 
 \end{equation*}
 </div>
-<div class="para">parametrizes the unit hyperbola.</div>
+<div class="para">parametrizes the positive branch of the unit hyperbola.</div>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like">Let <span class="process-math">\(H\)</span> be the set of points on the positive branch of the unit hyperbola. This question asks you to demonstrate two separate facts all at once. First, you must show that <span class="process-math">\(f(t)\)</span> is a point in <span class="process-math">\(H\)</span> for every real number <span class="process-math">\(t\text{.}\)</span> Second, you should show that <span class="process-math">\(f: \mathbb{R} \to H\)</span> is a 1-1 correspondence. For the second part, try showing that <span class="process-math">\(\sinh t\)</span> is an increasing function which goes from negative to positive infinity.</div></div>
 </div></article><article class="task exercise-like" id="task-14"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para logical" id="p-92">
 <div class="para">Using complex numbers, show that the ordinary trigonometric functions are related to their hyperbolic cousins by the formulas</div>
