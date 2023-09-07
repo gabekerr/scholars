@@ -205,7 +205,7 @@
         <title>A function and its inverse</title>
         <statement>
             <p>
-            Consider the function <m>f(x) = \frac{x - 1}{x + 1} </m> as a function from <m>\mathbb{R} - \{-1\} </m> to <m>\mathbb{R} - \{1\} </m>. We note that <m>f(x) = 1 - \frac{2}{x + 1} </m> and that its derivative is <m>\frac{2}{(x + 1)^2} \gt 0 </m>. So it is an increasing function which implies it is one-to-one (the conclusion made is true, but the argument has a flaw... why?). Encouraged by this, we can compute an inverse to <m>f(x) </m>. Since <m>y = f(x) = 1 - \frac{2}{x + 1} </m> we have <me>\frac{1 - y}{2} = \frac{1}{x + 1}</me> So that <m>x = \frac{2}{1 - y} - 1 = \frac{y + 1}{y - 1} </m>. Thus <me>g(y) = \frac{y + 1}{y - 1}</me> gives an inverse.</p>
+            Consider the function <m>f(x) = \frac{x - 1}{x + 1} </m> as a function from <m>\mathbb{R} - \{-1\} </m> to <m>\mathbb{R} - \{1\} </m>. We note that <m>f(x) = 1 - \frac{2}{x + 1} </m> and that its derivative is <m>\frac{2}{(x + 1)^2} \gt 0 </m>. So it is an increasing function which implies it is one-to-one (the conclusion made is true, but the argument has a flaw... why?). Encouraged by this, we can compute an inverse to <m>f(x) </m>. Since <m>y = f(x) = 1 - \frac{2}{x + 1} </m> we have <me>\frac{1 - y}{2} = \frac{1}{x + 1}</me> So that <m>x = \frac{2}{1 - y} - 1 = \frac{1 + y}{1 - y} </m>. Thus <me>g(y) = \frac{1+y}{1 - y}</me> gives an inverse.</p>
         </statement>
     </example>
 
