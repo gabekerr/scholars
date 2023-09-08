@@ -238,7 +238,22 @@
         </statement>
     </example>
 
-    <p>We end this section with a little bit of vocabulary.</p>
+    <p>Of course, as row reduction is a very explicit computational algorithm, every linear algebra library for a given programming language has a method that will perform this automatically. In Sage (and Matlab), this is the <c> .rref() </c> command which procedes the matrix. We can also take a matrix <m>A</m> and augment it by <m>b</m> using the method <c>.augment(b)</c>. Let's see how this works with the last example. </p>
+    <sage>
+        <input>
+            A = matrix([[0, 0, -1, 1],[-1, 2, 1, 0],[2, -4, -1, 0]])
+            b = vector([0,-2,4])
+            augA = A.augment(b)
+            augA.rref()
+        </input>
+        <output>
+            [1  -2  0  0  2]
+            [0   0  1  0  0]
+            [0   0  0  1  0]
+        </output>
+    </sage>
+
+    <p>It is certainly a helpful check to follow up a hand calculation with the computer version to find the inevitable errors that occur. We end this section with a little bit of vocabulary.</p>
     <definition xml:id="def-basicfreecol">
         <notation>
             <usage><m>A</m></usage>
