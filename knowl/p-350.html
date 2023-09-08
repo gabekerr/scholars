@@ -12,7 +12,14 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">In the case where <span class="process-math">\(j = k\text{,}\)</span> one sees that the minor <span class="process-math">\(M_{1j}\)</span> is the <span class="process-math">\(D_{n - 1}\)</span> of a matrix with first row zero. So by the argument given above in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a>, we have <span class="process-math">\(C_{1j} = (-1)^{1 + j} M_{1j} = 0\text{.}\)</span> But as all other entries on the first row <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> are zero, we then have <span class="process-math">\(D_n (\mb{r}_1, \ldots, \mb{r}_n) = 0\)</span> so that switching the first two rows does act as multiplying the number <span class="process-math">\(0\)</span> by <span class="process-math">\(-1\text{.}\)</span>
+<div class="para logical">
+<div class="para">To show the alternating property, we may assume inductively that <span class="process-math">\(D_{n -1}\)</span> satisfies this property. This implies the cofactors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{equation*}
+C_{1i} = (-1)^{1 + i} D_{n - 1} (\mb{r}_2 , \ldots, \mb{r}_n)
+\end{equation*}
+</div>
+<div class="para">are also alternating and in turn, switching any two of the last <span class="process-math">\(n - 1\)</span> rows for <span class="process-math">\(D_n\)</span> does result in multiplying by <span class="process-math">\(-1\text{.}\)</span> Thus, we need only show that if we switch <span class="process-math">\(\mb{r}_i\)</span> with the <em class="emphasis">first</em> row <span class="process-math">\(\mb{r}_1\)</span> then <span class="process-math">\(D_n\)</span> switches signs.  Using the alternating property for the last <span class="process-math">\(n - 1\)</span> rows, we may assume that <span class="process-math">\(i = 2\text{.}\)</span> Furthermore, using the formula in <a href="" class="xref" data-knowl="./knowl/exa-2x2det.html" title="Example 2.7.11: Determinants of 2\times 2 matrices">Example 2.7.11</a> we see that the alternating property holds for <span class="process-math">\(2 \times 2\)</span> matrices, so we may assume <span class="process-math">\(n &gt; 2\text{.}\)</span> Finally, using row linearity, it suffices to show this property when <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> and <span class="process-math">\(\mb{r}_2 = \mb{e}_k\)</span> are standard basis row vectors.</div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-350" class="internal">in-context</a></span>
 </body>

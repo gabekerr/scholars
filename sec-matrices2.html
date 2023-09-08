@@ -57,7 +57,13 @@ window.MathJax = {
     )}
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
 <script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -824,53 +830,59 @@ x_3 \amp = 0, \\ x_4 \amp = 0.
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-232">We end this section with a little bit of vocabulary.</div>
+<div class="para" id="p-232">Of course, as row reduction is a very explicit computational algorithm, every linear algebra library for a given programming language has a method that will perform this automatically. In Sage (and Matlab), this is the <code class="code-inline tex2jax_ignore"> .rref() </code> command which procedes the matrix. We can also take a matrix <span class="process-math">\(A\)</span> and augment it by <span class="process-math">\(b\)</span> using the method <code class="code-inline tex2jax_ignore">.augment(b)</code>. Let's see how this works with the last example.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-5"><script type="text/x-sage">A = matrix([[0, 0, -1, 1],[-1, 2, 1, 0],[2, -4, -1, 0]])
+b = vector([0,-2,4])
+augA = A.augment(b)
+augA.rref()
+</script></pre>
+<div class="para" id="p-233">It is certainly a helpful check to follow up a hand calculation with the computer version to find the inevitable errors that occur. We end this section with a little bit of vocabulary.</div>
 <article class="definition definition-like" id="def-basicfreecol"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.4.13</span><span class="period">.</span>
-</h4> <div class="para" id="p-233">Given a matrix <span class="process-math">\(A\)</span> with reduced row echelon form <span class="process-math">\(A^\prime\text{,}\)</span> we say that the <span class="process-math">\(j\)</span>-th column is <dfn class="terminology">free</dfn> if the variable associated to a linear system <span class="process-math">\(A^\prime \mb{x} = \mb{b}\)</span> is free. Otherwise we say the column is <dfn class="terminology">basic</dfn>.</div></article><div class="para" id="p-234">It is a bit unusual to call columns free and basic rather than variables, but these terms make discussing matrix equations more fluid.</div></section><section class="exercises" id="exe-matrices2"><h3 class="heading hide-type">
+</h4> <div class="para" id="p-234">Given a matrix <span class="process-math">\(A\)</span> with reduced row echelon form <span class="process-math">\(A^\prime\text{,}\)</span> we say that the <span class="process-math">\(j\)</span>-th column is <dfn class="terminology">free</dfn> if the variable associated to a linear system <span class="process-math">\(A^\prime \mb{x} = \mb{b}\)</span> is free. Otherwise we say the column is <dfn class="terminology">basic</dfn>.</div></article><div class="para" id="p-235">It is a bit unusual to call columns free and basic rather than variables, but these terms make discussing matrix equations more fluid.</div></section><section class="exercises" id="exe-matrices2"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">2.4.3</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exe-matricestoechelon"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-13"><div class="para" id="p-235">Using elementary row operations, convert the matrix into reduced row echelon form. Show each step.</div></div>
+<div class="introduction" id="introduction-13"><div class="para" id="p-236">Using elementary row operations, convert the matrix into reduced row echelon form. Show each step.</div></div>
 <article class="task exercise-like" id="task-23"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-236"><div class="displaymath process-math">
+<div class="para logical" id="p-237"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} -1 \amp 4 \amp 9 \\ -1 \amp 3 \amp 7 \\ 3 \amp -8 \amp -19 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-24"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-237"><div class="displaymath process-math">
+<div class="para logical" id="p-238"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 2 \amp -5 \\ -1 \amp 3 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-25"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para logical" id="p-238"><div class="displaymath process-math">
+<div class="para logical" id="p-239"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 3 \amp 3 \amp -4 \\ -2 \amp -2 \amp 3 \\ 1 \amp 1 \amp -2 \\ -2 \amp -2 \amp 3 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-26"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para logical" id="p-239"><div class="displaymath process-math">
+<div class="para logical" id="p-240"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 1 \amp 0 \amp 1 \\ -1 \amp -1 \amp 1 \amp 0 \end{matrix} \right] 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-36"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-14"><div class="para" id="p-240">Give the general solution, if it exists, for the matrix equations.</div></div>
+<div class="introduction" id="introduction-14"><div class="para" id="p-241">Give the general solution, if it exists, for the matrix equations.</div></div>
 <article class="task exercise-like" id="task-27"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-241"><div class="displaymath process-math">
+<div class="para logical" id="p-242"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 0 \amp 0 \\ -1 \amp 0 \amp 1 \\ 1 \amp 0 \amp -1 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{-2}{0}{1} 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-28"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-242"><div class="displaymath process-math">
+<div class="para logical" id="p-243"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 1 \amp 1 \\ -1 \amp 0 \amp -2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \twovec{-1}{0} 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-29"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para logical" id="p-243"><div class="displaymath process-math">
+<div class="para logical" id="p-244"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} -1 \amp 3  \\ -1 \amp 2  \\ 1 \amp  -3  \end{matrix} \right] \twovec{x_1}{x_2} = \threevec{-5}{-3}{5} 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-37"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-244">
+<div class="para logical" id="p-245">
 <div class="para">Let <span class="process-math">\(A\)</span> be a matrix, <span class="process-math">\(A^\prime\)</span> its reduced echelon form, <span class="process-math">\([A | \mb{b}]\)</span> an augmented matrix and <span class="process-math">\([A^\prime | \mb{b}^\prime]\)</span> the augmented matrix obtained by row reducing <span class="process-math">\(A\text{.}\)</span> Explain why every solution to the row reduced matrix equation</div>
 <div class="displaymath process-math">
 \begin{equation*}

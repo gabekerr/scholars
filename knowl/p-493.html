@@ -13,31 +13,31 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Repeating this process with the eigenvalue <span class="process-math">\(4\)</span> gives the equation</div>
+<div class="para">To find the <span class="process-math">\(2\)</span>-eigenvectors, we simply solve the equation <span class="process-math">\((2I - A )\mb{x} = \mb{0}\text{.}\)</span> Writing this out we are solving</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left[ \begin{matrix} 2 \amp 1 \amp 2 \\ 0 \amp 0 \amp -4 \\ -2 \amp -1 \amp 2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} 
+\left[ \begin{matrix} 0 \amp 1 \amp 2 \\ 0 \amp -2 \amp -4 \\ -2 \amp -1 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0}.
 \end{equation*}
 </div>
-<div class="para">with reduced row echelon form</div>
+<div class="para">The reduced row echelon form of this matrix equation is just</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left[ \begin{matrix} 1 \amp 1/2 \amp 0 \\ 0 \amp 0 \amp 1\\ 0 \amp 0 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3}  = \threevec{0}{0}{0}. 
+\left[ \begin{matrix} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 2\\ 0 \amp 0 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0}. 
 \end{equation*}
 </div>
-<div class="para">So we write a parametric solution</div>
+<div class="para">So we write a parametric solution with parameter <span class="process-math">\(z\)</span> (so as to not confuse it with the <span class="process-math">\(t\)</span> in the characteristic polynomial)</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\mb{x} (z) = \threevec{z}{-2z}{0}.
+\mb{x} (z) = \threevec{z}{-2z}{z}. 
 \end{equation*}
 </div>
 <div class="para">In particular</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\threevec{1}{-2}{0} 
+\threevec{1}{-2}{1} 
 \end{equation*}
 </div>
-<div class="para">is a <span class="process-math">\(4\)</span>-eigenvector.</div>
+<div class="para">is a <span class="process-math">\(2\)</span>-eigenvector.</div>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-493" class="internal">in-context</a></span>
 </body>

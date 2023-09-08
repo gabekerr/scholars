@@ -12,33 +12,7 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para logical">
-<div class="para">Suppose <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are vector spaces over <span class="process-math">\(K\)</span> and</div>
-<div class="displaymath process-math">
-\begin{align*}
-\mathcal{B} \amp = \{\mb{u}_1 , \ldots, \mb{u}_n \}, \\
-\mathcal{C} \amp = \{ \mb{v}_1, \ldots, \mb{v}_m\} 
-\end{align*}
-</div>
-<div class="para">are bases of <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> respectively. Finally, suppose that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-T: U \to V 
-\end{equation*}
-</div>
-<div class="para">is a linear transformation. Then for any <span class="process-math">\(1 \leq j \leq n\text{,}\)</span> we have that <span class="process-math">\(T(\mb{u}_j)\)</span> is a vector in <span class="process-math">\(V\)</span> and can thus be written uniquely as a linear combination of basis vectors in <span class="process-math">\(\mathcal{C}\text{.}\)</span> We write such a combination out here</div>
-<div class="displaymath process-math">
-\begin{equation}
-T (\mb{u}_j)  = a_{1j}\mb{v}_1 + a_{2j} \mb{v}_2 + \cdots + a_{mj} \mb{v}_m. \tag{2.6.1}
-\end{equation}
-</div>
-<div class="para">Notice that this gives us scalars <span class="process-math">\(a_{ij}\)</span> for all <span class="process-math">\(1 \leq i \leq m\)</span> and <span class="process-math">\(1 \leq j \leq n\)</span> which we can place in an <span class="process-math">\(m \times n\)</span> matrix</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\cob{T}{\mathcal{B}}{\mathcal{C}} = \left[ \begin{matrix} a_{11} \amp a_{12} \amp \cdots \amp a_{1n} \\ a_{21} \amp a_{22} \amp \cdots \amp a_{2n} \\ \vdots \amp \ddots \amp \amp \vdots \\ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn} \end{matrix} \right] 
-\end{equation*}
-</div>
-</div>
+<div class="para">In <a href="sec-matrices2.html" class="internal" title="Section 2.4: Matrices II">Section 2.4</a> we saw that an arbitrary matrix equations could be solved completely through putting the matrix into reduced echelon form. As we will now see, for vector spaces with chosen bases, we can write any abstract linear transformation between them as a matrix, and leverage our knowledge of matrix equations to better understand the transformations. This also has a tremendous computational advantage in that we can then parametrize all types of linear structures with linear (or more generally affine) transformations.</div>
 <span class="incontext"><a href="sec-lineartransformations2.html#p-283" class="internal">in-context</a></span>
 </body>
 </html>

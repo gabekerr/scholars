@@ -13,51 +13,44 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">To compute the general solution, there are several ways to proceed, but we will take a principled approach and simply say that our path <span class="process-math">\(\mb{x}\)</span> was a function to <span class="process-math">\(\mathbb{C}^2\)</span> all along so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation*}
-\mb{x} : I \to \mathbb{C}^2.
-\end{equation*}
-</div>
-<div class="para">Now we can diagonalize because the eigenvalues are distinct. A bit of computation gives the eigenbasis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation*}
-\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{i}{-1 + i},  \twovec{-i}{-1 - i} \right\}.
-\end{equation*}
-</div>
-<div class="para">Again, we can write our solution in terms of this basis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation}
-\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}\tag{5.3.4}
-\end{equation}
-</div>
-<div class="para">and again, in this basis the differential equation becomes much simpler</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation*}
-\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
-\end{equation*}
-</div>
-<div class="para">This time, the two independent equations are</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+<div class="para">Suppose we take the linear differential equation</div>
+<div class="displaymath process-math">
 \begin{align*}
-\tilde{x}^\prime (t) \amp = (3 + i) \tilde{x} (t), \\
-\tilde{y}^\prime (t) \amp = (3 - i) \tilde{y} (t). 
+x^\prime (t) \amp = 2x (t) +  y(t), \\
+y^\prime (t) \amp = -2 x (t) + 4 y(t). 
 \end{align*}
 </div>
-<div class="para">It is here that <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> comes into view and we realize that, in fact, we've already solved these equations and obtained</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{align*}
-\tilde{x}(t) \amp = C_1 e^{(3 + i)t}, \\
-\tilde{y} (t) \amp = C_2 e^{(3 - i)t}. 
-\end{align*}
+<div class="para">Writing this out we find the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A  = \left[ \begin{matrix} 2 \amp 1 \\ -2 \amp 4 \end{matrix} \right] 
+\end{equation*}
 </div>
-<div class="para">So, were we inclined to write our solutions in terms of the basis <span class="process-math">\(\mathcal{B}\)</span> in <span class="process-math">\(\mathbb{C}^2\text{,}\)</span> we would have solved the differential equation with</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{gather*}
-\mb{x} (t) = \twovec{ C_1 e^{(3 + i)t}}{C_2 e^{(3 - i)t}}_{\mathcal{B}} \text{ with initial condition } \mb{x} (0) = \twovec{C_1}{C_2}_{\mathcal{B}}.
-\end{gather*}
+<div class="para">and obtain the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x}^\prime (t) = A \mb{x} (t).
+\end{equation*}
 </div>
-<div class="para">I can hear the overwhelming chorus of objections to this solution from engineer and mathematician alike. After all, the constants <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are possibly complex numbers and the function is too. We started in the real plane and have ended in what appears to be a terrifying <span class="process-math">\(4\)</span>-dimensional mess (since <span class="process-math">\(\mathbb{C}^2\)</span> is <span class="process-math">\(4\)</span> real dimensions). Well, I contend that appearances can be deceiving! Let's unwind this a bit with a few simple observations.</div>
+<div class="para">Again, the right hand side is the vector field</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (\mb{x} ) = A \mb{x} 
+\end{equation*}
+</div>
+<div class="para">and it would be nice to diagonalize <span class="process-math">\(A\)</span> to get a picture of this field. However, computing the characteristic polynomial gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s -2 \amp -1 \\ 2 \amp s - 4 \end{matrix} \right] = s^2 - 6 s + 10.
+\end{equation*}
+</div>
+<div class="para">One can use the quadratic formula here and see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = (s - (3 + i)) (s - (3 - i))
+\end{equation*}
+</div>
+<div class="para">so that the roots of <span class="process-math">\(p_A (s)\)</span> are complex numbers and <span class="process-math">\(A\)</span> cannot be diagonalized as a real matrix. Now, one of the benefits of having real eigenvalues and eigenvectors was that we obtained a nice picture of the vector field. There is something to be said in the case of a complex eigenvector as well, which is related to several of the exercises that you have worked through. In particular, if there is an eigenvalue of the form <span class="process-math">\(\lambda = re^{i\theta}\text{,}\)</span> then one will see a <span class="process-math">\(\theta\)</span> rotation in the vectors of the vector field (in some coordinate system). For now, we will leave the illustration of this field to a computer and come back to the geometry once we've found the solution.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-723" class="internal">in-context</a></span>
 </body>

@@ -13,25 +13,26 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">On the other hand, we may consider multiplying by</div>
-<div class="displaymath process-math">
+<div class="para">Let us reconsider the case of multiplying by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
 \begin{equation*}
-A = \left[ \begin{matrix} 0 \amp -1 \\ 1 \amp 0 \end{matrix} \right] .
+A = \left[ \begin{matrix} 1 \amp 1 \\ 1 \amp 1 \end{matrix} \right] . 
 \end{equation*}
 </div>
-<div class="para">Here we get</div>
-<div class="displaymath process-math">
+<div class="para">Subtracting from  <span class="process-math">\(t\)</span> times the identity gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
 \begin{equation*}
-p_A (t)  =  \det \left( \left[ \begin{matrix} t \amp 1 \\ -1 \amp t \end{matrix} \right] \right) = t^2 + 1. 
+tI - A = \left[ \begin{matrix} t - 1 \amp -1 \\ -1 \amp t - 1 \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">Solving the equation <span class="process-math">\(p_A (t) = 0\)</span> leads to the unimaginable</div>
-<div class="displaymath process-math">
+<div class="para">and taking determinant then produces</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
 \begin{equation*}
-t^2 = -1 
+p_A (t) = \det (t I - T) = (t - 1)^2 - 1 = t^2 - 2t . 
 \end{equation*}
 </div>
-<div class="para">which no one can really solve. Except complex people.</div>
+<div class="para">For those that did not imagine how we could find the eigenvalues of <span class="process-math">\(0\)</span> and <span class="process-math">\(2\)</span> before, this polynomial should light a bit of a spark! By <a href="" class="xref" data-knowl="./knowl/prop-eigenvaluedet.html" title="Proposition 4.1.6">Proposition 4.1.6</a>, the eigenvalues must solve the equation <span class="process-math">\(p_A (t) = 0\text{,}\)</span> or equivalently, be roots of <span class="process-math">\(p_A (t)\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-488" class="internal">in-context</a></span>
 </body>

@@ -363,9 +363,9 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-matrices3"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.7</span> <span class="title">Matrices III</span>
 </h2>
-<section class="introduction" id="introduction-18"><div class="para" id="p-311">In this section on matrices, we will be primarily concerned with square matrices.</div> <article class="definition definition-like" id="def-invertible"><h3 class="heading">
+<section class="introduction" id="introduction-18"><div class="para" id="p-312">In this section on matrices, we will be primarily concerned with square matrices.</div> <article class="definition definition-like" id="def-invertible"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.7.1</span><span class="period">.</span>
-</h3> <div class="para" id="p-312">A matrix is said to be <dfn class="terminology">invertible</dfn> if it has it has a multiplicative inverse.</div></article> <div class="para logical" id="p-313">
+</h3> <div class="para" id="p-313">A matrix is said to be <dfn class="terminology">invertible</dfn> if it has it has a multiplicative inverse.</div></article> <div class="para logical" id="p-314">
 <div class="para">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix, then multiplication by <span class="process-math">\(A\)</span> gives a linear transformation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-compositionreps.html ./knowl/cor-dimensions.html">
 \begin{equation*}
@@ -376,12 +376,12 @@ T_A : K^n \to K^m
 </div> <article class="proposition theorem-like" id="proposition-10"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.7.2</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-314">If a matrix is invertible, then it is a square matrix.</div></article> <div class="para" id="p-315">Of course, we can actually use our strong results to give a very concrete criterion for checking invertibility of a square matrix.</div> <article class="proposition theorem-like" id="prop-invertiblecriterion1"><h3 class="heading">
+<div class="para" id="p-315">If a matrix is invertible, then it is a square matrix.</div></article> <div class="para" id="p-316">Of course, we can actually use our strong results to give a very concrete criterion for checking invertibility of a square matrix.</div> <article class="proposition theorem-like" id="prop-invertiblecriterion1"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.7.3</span><span class="period">.</span>
 </h3>
-<div class="para" id="p-316">A square matrix is invertible if and only if its reduced row echelon form is the identity.</div></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><div class="para" id="p-317">To see this, let <span class="process-math">\(A\)</span> be a square matrix. Then by <a href="" class="xref" data-knowl="./knowl/prop-invertible.html" title="Proposition 1.2.11">Proposition 1.2.11</a> <span class="process-math">\(A\)</span> is invertible implies that multiplying by <span class="process-math">\(A\)</span> is a one-to-one operation. Conversely, if it is one-to-one, <a href="" class="xref" data-knowl="./knowl/thm-ranknullity.html" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a> implies that onto as well and thus an isomorphism. This means that <span class="process-math">\(A \mb{x} = \mb{0}\)</span> has the unique solution <span class="process-math">\(\mb{0}\text{.}\)</span> But by <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a>, this only happens if there are no free columns of <span class="process-math">\(A\text{,}\)</span> implying that all columns are basic. So there are <span class="process-math">\(n\)</span> leading coefficients implying that there must be a leading coefficient on every row. But the only reduced row echelon square matrix of this type is the identity matrix (check this!).</div></article></div> <div class="para" id="p-318">In fact, using row reduction we can do much better than simply determining if a matrix is invertible. We can in fact compute the inverse. To do this, we simply augment our matrix on the right with the identity matrix and row reduce the left hand side. If our matrix is invertible, what we end up with on the right at the end of the row reduction process in fact the inverse!</div> <div class="para" id="p-319">Let us perform this exercise before showing why it works.</div> <article class="example example-like" id="example-39"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-39"><h3 class="heading">
+<div class="para" id="p-317">A square matrix is invertible if and only if its reduced row echelon form is the identity.</div></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><div class="para" id="p-318">To see this, let <span class="process-math">\(A\)</span> be a square matrix. Then by <a href="" class="xref" data-knowl="./knowl/prop-invertible.html" title="Proposition 1.2.11">Proposition 1.2.11</a> <span class="process-math">\(A\)</span> is invertible implies that multiplying by <span class="process-math">\(A\)</span> is a one-to-one operation. Conversely, if it is one-to-one, <a href="" class="xref" data-knowl="./knowl/thm-ranknullity.html" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a> implies that onto as well and thus an isomorphism. This means that <span class="process-math">\(A \mb{x} = \mb{0}\)</span> has the unique solution <span class="process-math">\(\mb{0}\text{.}\)</span> But by <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a>, this only happens if there are no free columns of <span class="process-math">\(A\text{,}\)</span> implying that all columns are basic. So there are <span class="process-math">\(n\)</span> leading coefficients implying that there must be a leading coefficient on every row. But the only reduced row echelon square matrix of this type is the identity matrix (check this!).</div></article></div> <div class="para" id="p-319">In fact, using row reduction we can do much better than simply determining if a matrix is invertible. We can in fact compute the inverse. To do this, we simply augment our matrix on the right with the identity matrix and row reduce the left hand side. If our matrix is invertible, what we end up with on the right at the end of the row reduction process in fact the inverse!</div> <div class="para" id="p-320">Let us perform this exercise before showing why it works.</div> <article class="example example-like" id="example-39"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-39"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7.4</span><span class="period">.</span><span class="space"> </span><span class="title">Computing the inverse with row reduction.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-39"><article class="example example-like"><div class="para logical" id="p-320">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-39"><article class="example example-like"><div class="para logical" id="p-321">
 <div class="para">Let us find the inverse of</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -409,10 +409,10 @@ B = \left[ \begin{matrix} 1 \amp 0 \amp -2  \\ 3 \amp -2 \amp 1 \\ 1 \amp -1 \am
 </div>
 <div class="para">satisfies <span class="process-math">\(AB = I = BA\)</span> verifying that it is the inverse of <span class="process-math">\(A\text{.}\)</span>
 </div>
-</div></article></div> <div class="para" id="p-321">To understand why this process works, we observe that the process of row reduction itself is already matrix arithmetic.</div></section><section class="subsection" id="subsec-elementarymatrices"><h3 class="heading hide-type">
+</div></article></div> <div class="para" id="p-322">To understand why this process works, we observe that the process of row reduction itself is already matrix arithmetic.</div></section><section class="subsection" id="subsec-elementarymatrices"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span>
 </h3>
-<div class="para" id="p-322">To each of the elementary row operations, we can construct an elementary square matrix. To write formula for these matrices, we will use the following notation. The <span class="process-math">\(n \times n\)</span> matrix with <span class="process-math">\((i,j)\)</span>-entry <span class="process-math">\(1\)</span> and all other entries <span class="process-math">\(0\)</span> will be denoted <span class="process-math">\(\mb{e}_{ij}\text{.}\)</span>
+<div class="para" id="p-323">To each of the elementary row operations, we can construct an elementary square matrix. To write formula for these matrices, we will use the following notation. The <span class="process-math">\(n \times n\)</span> matrix with <span class="process-math">\((i,j)\)</span>-entry <span class="process-math">\(1\)</span> and all other entries <span class="process-math">\(0\)</span> will be denoted <span class="process-math">\(\mb{e}_{ij}\text{.}\)</span>
 </div>
 <dl class="description-list">
 <dt id="li-50">Type I</dt>
@@ -436,11 +436,11 @@ E_{ij} (c) = I_n + c \mb{e}_{ij}.
 </div>
 </dd>
 </dl>
-<div class="para" id="p-323">We record the following fact which can be checked by hand.</div>
+<div class="para" id="p-324">We record the following fact which can be checked by hand.</div>
 <article class="proposition theorem-like" id="prop-elrowelmat"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.7.5</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-324">
+<div class="para logical" id="p-325">
 <div class="para">Performing a Type I, II or III elementary row operation on a matrix <span class="process-math">\(A\)</span> is equivalent to multiplying <span class="process-math">\(A\)</span> on the left by a Type I, II or III elementary matrix. Furthermore, each elementary matrix is invertible and</div>
 <div class="displaymath process-math" id="md-37">
 \begin{align*}
@@ -449,11 +449,11 @@ E_i (c)^{-1} \amp = E_i (c^{-1}),\\
 E_{ij} (c)^{-1} \amp = E_{ij} (-c).
 \end{align*}
 </div>
-</div></article><div class="para" id="p-325">What we obtain from this viewpoint on row reduction along with our previous results is the following very nice proposition.</div>
+</div></article><div class="para" id="p-326">What we obtain from this viewpoint on row reduction along with our previous results is the following very nice proposition.</div>
 <article class="proposition theorem-like" id="prop-productofelem"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.7.6</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-326">A matrix is invertible if and only if it is the product of elementary matrices.</div></article><article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><div class="para logical" id="p-327">
+<div class="para" id="p-327">A matrix is invertible if and only if it is the product of elementary matrices.</div></article><article class="hiddenproof" id="proof-14"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-14"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-14"><article class="hiddenproof"><div class="para logical" id="p-328">
 <div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. We saw in <a href="" class="xref" data-knowl="./knowl/prop-invertiblecriterion1.html" title="Proposition 2.7.3">Proposition 2.7.3</a> that it is invertible if and only if its reduced row echelon form is the identity. We see from <a href="" class="xref" data-knowl="./knowl/prop-elrowelmat.html" title="Proposition 2.7.5">Proposition 2.7.5</a> that this is the case if and only if there are elementary matrices <span class="process-math">\(E_1, E_2, \ldots, E_r\)</span> so that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-invertiblecriterion1.html ./knowl/prop-elrowelmat.html" id="eq-inverseelmat">
 \begin{equation}
@@ -467,11 +467,11 @@ A = E_1^{-1} \cdots E_r^{-1}.
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-328">We also see from this proposition why our augmented matrix approach to computing inverse matrices works. As we row reduce <span class="process-math">\(A\text{,}\)</span> the augmented reduction of the identity is keeping track of the products of the elementary matrices <span class="process-math">\(E_j \cdots E_1\text{.}\)</span> Thus when we are finished, on the right hand side we simply obtain the full product <span class="process-math">\((E_r \cdots E_1)\)</span> which is, by equation <a href="" class="xref" data-knowl="./knowl/eq-inverseelmat.html" title="Equation 2.7.1">(2.7.1)</a> the inverse of <span class="process-math">\(A\text{.}\)</span>
+<div class="para" id="p-329">We also see from this proposition why our augmented matrix approach to computing inverse matrices works. As we row reduce <span class="process-math">\(A\text{,}\)</span> the augmented reduction of the identity is keeping track of the products of the elementary matrices <span class="process-math">\(E_j \cdots E_1\text{.}\)</span> Thus when we are finished, on the right hand side we simply obtain the full product <span class="process-math">\((E_r \cdots E_1)\)</span> which is, by equation <a href="" class="xref" data-knowl="./knowl/eq-inverseelmat.html" title="Equation 2.7.1">(2.7.1)</a> the inverse of <span class="process-math">\(A\text{.}\)</span>
 </div></section><section class="subsection" id="subsec-determinants"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.7.2</span> <span class="title">Determinants</span>
 </h3>
-<div class="para logical" id="p-329">
+<div class="para logical" id="p-330">
 <div class="para">The first thing to understand about determinants is that, despite being included in every linear algebra course ever given, they really don't belong to the subject of linear algebra at all. Rather, they naturally sit in a subject known as multi-linear algebra. That is because they are, in fact, multi-linear functions, not linear functions. While no one should be worried, I say this only to warn the student that the determinant is <em class="emphasis">not</em> linear and may reasonably appear rather strange. In fact, it is helpful in this context to view an <span class="process-math">\(m \times n\)</span>-matrix <span class="process-math">\(A\)</span> as a column of rows</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -488,7 +488,7 @@ f(\mb{r}_1 , \ldots, \mb{r}_m) := f(A).
 </div>
 <article class="definition definition-like" id="def-rowlinalt"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.7.7</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-330">
+</h4> <div class="para logical" id="p-331">
 <div class="para">Let <span class="process-math">\(M_{m,n} (K)\)</span> be the set of all <span class="process-math">\(m \times n\)</span> matrices with entries in <span class="process-math">\(K\text{.}\)</span> A function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -512,10 +512,10 @@ f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb
 </div>
 </dd>
 </dl>
-</div></article><div class="para" id="p-331">Now let us define the determinant.</div>
+</div></article><div class="para" id="p-332">Now let us define the determinant.</div>
 <article class="definition definition-like" id="def-determinant"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.7.8</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-332">
+</h4> <div class="para logical" id="p-333">
 <div class="para">The <dfn class="terminology">determinant</dfn> is the unique function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -524,11 +524,11 @@ f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb
 </div>
 <div class="para">which is row linear, alternating and satisfies <span class="process-math">\(\det (I) = 1\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-333">Actually, this definition is also a theorem in the sense that it is saying both that such a function exists and that it is unique. Before showing either of these two facts, we mention an extremely important point.</div>
+</div></article><div class="para" id="p-334">Actually, this definition is also a theorem in the sense that it is saying both that such a function exists and that it is unique. Before showing either of these two facts, we mention an extremely important point.</div>
 <article class="remark remark-like" id="comment-determinantvolume"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.7.9</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-334">While we define the determinant abstractly so that we may find many of its important properties, the determinant should be known as a way to correctly compute and work with <em class="emphasis">volume in <span class="process-math">\(n\)</span>-dimensions</em>. We will see this shortly in <span class="process-math">\(2\)</span> and <span class="process-math">\(3\)</span> dimensions. This is of particular importance when we consider integrals in higher dimensions.</div></article><div class="para" id="p-335">Now we give the common inductive construction of the determinant. We do this in a step-by-step manner.</div>
+<div class="para" id="p-335">While we define the determinant abstractly so that we may find many of its important properties, the determinant should be known as a way to correctly compute and work with <em class="emphasis">volume in <span class="process-math">\(n\)</span>-dimensions</em>. We will see this shortly in <span class="process-math">\(2\)</span> and <span class="process-math">\(3\)</span> dimensions. This is of particular importance when we consider integrals in higher dimensions.</div></article><div class="para" id="p-336">Now we give the common inductive construction of the determinant. We do this in a step-by-step manner.</div>
 <dl class="description-list">
 <dt id="li-55">Step 1</dt>
 <dd> Notice that the function <span class="process-math">\(D_1 : M_{1,1} (K) \to K\)</span> given by <span class="process-math">\(\det ([a]) = a\)</span> satisfies the properties of <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>.</dd>
@@ -543,15 +543,15 @@ D_n ( A ) = a_{11} C_{11} + a_{12} C_{12} + \cdots + a_{1n} C_{1n} .
 </div>
 </dd>
 </dl>
-<div class="para" id="p-336">The following theorem establishes that this function <span class="process-math">\(D\)</span> is <em class="emphasis">the</em> determinant.</div>
+<div class="para" id="p-337">The following theorem establishes that this function <span class="process-math">\(D\)</span> is <em class="emphasis">the</em> determinant.</div>
 <article class="theorem theorem-like" id="thm-determinant"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.7.10</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-337">The function <span class="process-math">\(D\)</span> given is the unique function satisfying the properties of the determinant in <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>. It is thus written as <span class="process-math">\(\det\text{.}\)</span>
-</div></article><div class="para" id="p-338">Repeating steps 1 through 3 will repeatedly will give a function from <span class="process-math">\(M_{n,n} (K)\)</span> to <span class="process-math">\(K\text{.}\)</span> Before proving this theorem, let us use this procedure to make some computations and get a feel for it.</div>
+<div class="para" id="p-338">The function <span class="process-math">\(D\)</span> given is the unique function satisfying the properties of the determinant in <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>. It is thus written as <span class="process-math">\(\det\text{.}\)</span>
+</div></article><div class="para" id="p-339">Repeating steps 1 through 3 will repeatedly will give a function from <span class="process-math">\(M_{n,n} (K)\)</span> to <span class="process-math">\(K\text{.}\)</span> Before proving this theorem, let us use this procedure to make some computations and get a feel for it.</div>
 <article class="example example-like" id="exa-2x2det"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-2x2det"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7.11</span><span class="period">.</span><span class="space"> </span><span class="title">Determinants of <span class="process-math">\(2\times 2\)</span> matrices.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-2x2det"><article class="example example-like"><div class="para logical" id="p-339">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-2x2det"><article class="example example-like"><div class="para logical" id="p-340">
 <div class="para">For <span class="process-math">\(2 \times 2\)</span> matrices, we can write down a simple formula which many of you already know. Take</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -565,10 +565,10 @@ A = \left[ \begin{matrix} a \amp b \\ c \amp d \end{matrix} \right]
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-340">It is common in multivariable calculus courses to also learn the formula (or variants thereof) for <span class="process-math">\(3 \times 3\)</span> matrices. For now, let us use the previous example and compute a numerical case.</div>
+<div class="para" id="p-341">It is common in multivariable calculus courses to also learn the formula (or variants thereof) for <span class="process-math">\(3 \times 3\)</span> matrices. For now, let us use the previous example and compute a numerical case.</div>
 <article class="example example-like" id="exa-3x3det"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-3x3det"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7.12</span><span class="period">.</span><span class="space"> </span><span class="title">Determinants of <span class="process-math">\(3\times 3\)</span> matrices.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-3x3det"><article class="example example-like"><div class="para logical" id="p-341">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-3x3det"><article class="example example-like"><div class="para logical" id="p-342">
 <div class="para">Finding the determinant of a <span class="process-math">\(3 \times 3\)</span> involves finding three <span class="process-math">\(2 \times 2\)</span> cofactors. Taking</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
 \begin{equation*}
@@ -598,14 +598,14 @@ M_{1,3} \amp = \det \left( \left[ \begin{matrix}  5 \amp 2  \\ -1 \amp 1 \end{ma
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-342">You might observe that the formula for <span class="process-math">\(2 \times 2\)</span> determinants had two terms and <span class="process-math">\(3 \times 3\)</span> had six. Were you to write out the formula for <span class="process-math">\(4 \times 4\)</span> matrices, you'd find there are <span class="process-math">\(24\)</span> terms. In fact, the number of terms in the <span class="process-math">\(n \times n\)</span> determinant is <span class="process-math">\(n!\text{,}\)</span> which grows quite quickly. These formulas can be of great use to computers and humans alike for smaller matrices, but for large ones (which occur frequently in applications), they are much less helpful. Nevertheless, there are other ways to compute the determinant of a matrix (for example, it can be done by row reduction) that are faster. More importantly, what we learn by understanding the <em class="emphasis">properties</em> of the determinant gives us great insight into many linear algebra problems.</div></section><section class="subsection" id="subsec-proofofthm"><h3 class="heading hide-type">
+<div class="para" id="p-343">You might observe that the formula for <span class="process-math">\(2 \times 2\)</span> determinants had two terms and <span class="process-math">\(3 \times 3\)</span> had six. Were you to write out the formula for <span class="process-math">\(4 \times 4\)</span> matrices, you'd find there are <span class="process-math">\(24\)</span> terms. In fact, the number of terms in the <span class="process-math">\(n \times n\)</span> determinant is <span class="process-math">\(n!\text{,}\)</span> which grows quite quickly. These formulas can be of great use to computers and humans alike for smaller matrices, but for large ones (which occur frequently in applications), they are much less helpful. Nevertheless, there are other ways to compute the determinant of a matrix (for example, it can be done by row reduction) that are faster. More importantly, what we learn by understanding the <em class="emphasis">properties</em> of the determinant gives us great insight into many linear algebra problems.</div></section><section class="subsection" id="subsec-proofofthm"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span>
 </h3>
-<div class="para" id="p-343">Before verifying that this function satisfies the properties in <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>, we give an alternative characterization of the alternating property.</div>
+<div class="para" id="p-344">Before verifying that this function satisfies the properties in <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>, we give an alternative characterization of the alternating property.</div>
 <article class="lemma theorem-like" id="lem-altalt"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.7.13</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-344">A row linear function <span class="process-math">\(f : M_{m, n} (K) \to K\)</span> is alternating if and only if  <span class="process-math">\(f (A) = 0\)</span> whenever <span class="process-math">\(A\)</span> has two identical rows.</div></article><article class="hiddenproof" id="proof-15"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><div class="para logical" id="p-345">
+<div class="para" id="p-345">A row linear function <span class="process-math">\(f : M_{m, n} (K) \to K\)</span> is alternating if and only if  <span class="process-math">\(f (A) = 0\)</span> whenever <span class="process-math">\(A\)</span> has two identical rows.</div></article><article class="hiddenproof" id="proof-15"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-15"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-15"><article class="hiddenproof"><div class="para logical" id="p-346">
 <div class="para">Assume <span class="process-math">\(f\)</span> is alternating and <span class="process-math">\(A\)</span> has two identical rows. Then switching these rows still gives <span class="process-math">\(A\)</span> which implies <span class="process-math">\(f(A) = - f(A)\)</span> or <span class="process-math">\(f(A) = 0\text{.}\)</span> Conversely, suppose <span class="process-math">\(f\)</span> is row linear and <span class="process-math">\(f(A)\)</span> is zero whenever <span class="process-math">\(A\)</span> has two identical rows. Then</div>
 <div class="displaymath process-math" id="md-40">
 \begin{align*}
@@ -623,9 +623,9 @@ f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) = - f(\mb{r}
 </div>
 <div class="para">and <span class="process-math">\(f\)</span> is alternating.</div>
 </div></article></div>
-<article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h4 class="heading"><span class="title">Proof of the existence portion of Theorem 2.7.10.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"> <div class="para" id="p-346">We will use induction on <span class="process-math">\(n\)</span> to show that <span class="process-math">\(D_n\)</span> satisfies the properties in <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>.</div> <dl class="description-list">
+<article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h4 class="heading"><span class="title">Proof of the existence portion of Theorem 2.7.10.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"> <div class="para" id="p-347">We will use induction on <span class="process-math">\(n\)</span> to show that <span class="process-math">\(D_n\)</span> satisfies the properties in <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>.</div> <dl class="description-list">
 <dt id="li-58">Row Linear</dt>
-<dd><div class="para logical" id="p-347">
+<dd><div class="para logical" id="p-348">
 <div class="para">To show row linearity, we notice that since <span class="process-math">\(D_{n - 1}\)</span> is row linear, the cofactors <span class="process-math">\(C_{1j}\)</span> are row linear. By this we mean that if we denote the rows of <span class="process-math">\(n \times n\)</span> matrices as <span class="process-math">\(\mb{r}_1 , \ldots, \mb{r}_n\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -647,7 +647,7 @@ D_n (\mb{r}_1, \mb{r}_2, \ldots, \mb{r}_{n}) = \mb{r}_1 \cdot \left[ \begin{matr
 <div class="para">which is clearly linear in the first row.</div>
 </div></dd>
 <dt id="li-59">Normalized</dt>
-<dd><div class="para logical" id="p-348">
+<dd><div class="para logical" id="p-349">
 <div class="para">We call the property that <span class="process-math">\(D_n (I_n) = 1\)</span> a normalization property. To prove it, we can assume that it holds for <span class="process-math">\(D_{n - 1}\text{.}\)</span> Now, notice that the minor <span class="process-math">\((I_n)_{11} = I_{n - 1}\)</span> while the minors <span class="process-math">\((I_n)_{1j}\)</span> has all zeros in the <span class="process-math">\((j - 1)\)</span>-st row. But if there is a row equal to zero, say <span class="process-math">\(\mb{r}_i = \mb{0}\text{,}\)</span> and <span class="process-math">\(f\)</span> is row linear, then</div>
 <div class="displaymath process-math" id="mdn-3">
 \begin{align}
@@ -664,7 +664,7 @@ D_n (I_n) = 1 \cdot C_{11} + 0 \cdot  C_{12} + \cdots + 0 \cdot C_{1n} = 1.
 </div></dd>
 <dt id="li-60">Alternating</dt>
 <dd>
-<div class="para logical" id="p-349">
+<div class="para logical" id="p-350">
 <div class="para">To show the alternating property, we may assume inductively that <span class="process-math">\(D_{n -1}\)</span> satisfies this property. This implies the cofactors</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
 \begin{equation*}
@@ -673,9 +673,9 @@ C_{1i} = (-1)^{1 + i} D_{n - 1} (\mb{r}_2 , \ldots, \mb{r}_n)
 </div>
 <div class="para">are also alternating and in turn, switching any two of the last <span class="process-math">\(n - 1\)</span> rows for <span class="process-math">\(D_n\)</span> does result in multiplying by <span class="process-math">\(-1\text{.}\)</span> Thus, we need only show that if we switch <span class="process-math">\(\mb{r}_i\)</span> with the <em class="emphasis">first</em> row <span class="process-math">\(\mb{r}_1\)</span> then <span class="process-math">\(D_n\)</span> switches signs.  Using the alternating property for the last <span class="process-math">\(n - 1\)</span> rows, we may assume that <span class="process-math">\(i = 2\text{.}\)</span> Furthermore, using the formula in <a href="" class="xref" data-knowl="./knowl/exa-2x2det.html" title="Example 2.7.11: Determinants of 2\times 2 matrices">Example 2.7.11</a> we see that the alternating property holds for <span class="process-math">\(2 \times 2\)</span> matrices, so we may assume <span class="process-math">\(n &gt; 2\text{.}\)</span> Finally, using row linearity, it suffices to show this property when <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> and <span class="process-math">\(\mb{r}_2 = \mb{e}_k\)</span> are standard basis row vectors.</div>
 </div>
-<div class="para" id="p-350">In the case where <span class="process-math">\(j = k\text{,}\)</span> one sees that the minor <span class="process-math">\(M_{1j}\)</span> is the <span class="process-math">\(D_{n - 1}\)</span> of a matrix with first row zero. So by the argument given above in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a>, we have <span class="process-math">\(C_{1j} = (-1)^{1 + j} M_{1j} = 0\text{.}\)</span> But as all other entries on the first row <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> are zero, we then have <span class="process-math">\(D_n (\mb{r}_1, \ldots, \mb{r}_n) = 0\)</span> so that switching the first two rows does act as multiplying the number <span class="process-math">\(0\)</span> by <span class="process-math">\(-1\text{.}\)</span>
+<div class="para" id="p-351">In the case where <span class="process-math">\(j = k\text{,}\)</span> one sees that the minor <span class="process-math">\(M_{1j}\)</span> is the <span class="process-math">\(D_{n - 1}\)</span> of a matrix with first row zero. So by the argument given above in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a>, we have <span class="process-math">\(C_{1j} = (-1)^{1 + j} M_{1j} = 0\text{.}\)</span> But as all other entries on the first row <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> are zero, we then have <span class="process-math">\(D_n (\mb{r}_1, \ldots, \mb{r}_n) = 0\)</span> so that switching the first two rows does act as multiplying the number <span class="process-math">\(0\)</span> by <span class="process-math">\(-1\text{.}\)</span>
 </div>
-<div class="para logical" id="p-351">
+<div class="para logical" id="p-352">
 <div class="para">Now assume we have two distinct indices, <span class="process-math">\(1 \leq j \leq n\)</span> and <span class="process-math">\(1 \leq k \leq n\)</span> and take <span class="process-math">\(A (j,k)\)</span> to be the submatrix of <span class="process-math">\(A\)</span> obtained by eliminating the first two rows and the <span class="process-math">\(j\)</span>-th and <span class="process-math">\(k\)</span>-the columns. A quick look shows then that if <span class="process-math">\(j \lt k\)</span>
 </div>
 <div class="displaymath process-math">
@@ -694,7 +694,7 @@ D_n (\mb{e}_k, \mb{e}_j, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + k} (-1)^{1 + 
 </div>
 </dd>
 </dl></article></div>
-<div class="para logical" id="p-352">
+<div class="para logical" id="p-353">
 <div class="para">Some comments on this proof are in order. First, we note that at this point, we have only shown that a function satisfying the properties exists, but not that there is only one. Second, we could have quite easily used the last row instead of the first row when defining the <span class="process-math">\(D_n\text{.}\)</span> In fact, we can use any row and write the formula</div>
 <div class="displaymath process-math" id="eq-ithrowdeterminant">
 \begin{equation}
@@ -703,11 +703,11 @@ D_n (A) = a_{i1} C_{i1} + \cdots + a_{in} C_{in} . \tag{2.7.4}
 </div>
 <div class="para">This is still a valid formula and can be obtained by using the alternating property. Once we prove uniqueness, we see that each of these formulas yields the same number.</div>
 </div>
-<div class="para" id="p-353">To see the uniqueness of the determinant, we return to our elementary matrices and row reduction.</div>
+<div class="para" id="p-354">To see the uniqueness of the determinant, we return to our elementary matrices and row reduction.</div>
 <article class="lemma theorem-like" id="lem-detelem"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.7.14</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-354">
+<div class="para logical" id="p-355">
 <div class="para">If <span class="process-math">\(D\)</span> is a function satisfying the conditions of <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>, then</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/def-determinant.html" id="md-41">
 \begin{align*}
@@ -722,7 +722,7 @@ D (E_{ij} (c)) \amp = 1.
 D( EA) = D(E) D (A). 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-17"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><div class="para logical" id="p-355">
+</div></article><article class="hiddenproof" id="proof-17"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><div class="para logical" id="p-356">
 <div class="para">We leave it to the student to work out the first set of equations. For the second, notice that if <span class="process-math">\(E\)</span> is Type I then <span class="process-math">\(EA\)</span> is just <span class="process-math">\(A\)</span> with two rows switched so by the alternating property and the first equation <span class="process-math">\(D(EA) = - D(A) = D(E) D(A)\text{.}\)</span> On the other hand, if <span class="process-math">\(E\)</span> is Type II so that <span class="process-math">\(E = E_i (c)\)</span> then <span class="process-math">\(E A\)</span> multiplies the <span class="process-math">\(i\)</span>-th row by <span class="process-math">\(c\text{.}\)</span> So row linearity and the second equation gives <span class="process-math">\(D(E A ) = c D(A) = D(E) D(A)\text{.}\)</span> Finally, if <span class="process-math">\(E\)</span> is Type III and equals <span class="process-math">\(E_{ij} (c)\)</span> we have that the <span class="process-math">\(i\)</span>-th row of <span class="process-math">\(E A\)</span> is <span class="process-math">\(\mb{r}_i + c\mb{r}_j\text{.}\)</span> So using row linearity, <a href="" class="xref" data-knowl="./knowl/lem-altalt.html" title="Lemma 2.7.13">Lemma 2.7.13</a>, and the third equation we get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-altalt.html" id="md-42">
 \begin{align*}
@@ -734,12 +734,12 @@ D (EA) \amp = D(\mb{r}_1, \ldots, \mb{r}_i + c\mb{r}_j, \ldots , \mb{r}_j, \ldot
 \end{align*}
 </div>
 </div></article></div>
-<div class="para" id="p-356">We may follow this lemma up with one of the most important results concerning the determinant.</div>
+<div class="para" id="p-357">We may follow this lemma up with one of the most important results concerning the determinant.</div>
 <article class="lemma theorem-like" id="lem-detinv"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.7.15</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-357">Suppose <span class="process-math">\(D\)</span> satisfies the properties of <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>. Then <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(D(A) \ne 0\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-18"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><div class="para logical" id="p-358">
+<div class="para" id="p-358">Suppose <span class="process-math">\(D\)</span> satisfies the properties of <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>. Then <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(D(A) \ne 0\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-18"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><div class="para logical" id="p-359">
 <div class="para">Let <span class="process-math">\(A^\prime\)</span> be the reduced row echelon form of <span class="process-math">\(A\)</span> so that there are elementary matrices <span class="process-math">\(E_1, \ldots, E_r\)</span> so that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-detelem.html ./knowl/prop-invertiblecriterion1.html ./knowl/eq-multwzero.html">
 \begin{equation*}
@@ -760,8 +760,8 @@ D(A) = \frac{D(A^\prime)}{ D(E_r) \cdots D(E_1)}.
 </div>
 <div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-invertiblecriterion1.html" title="Proposition 2.7.3">Proposition 2.7.3</a>, <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(A^\prime = I\text{.}\)</span> If this is the case, then the normalization property says the right hand side is <span class="process-math">\(1 / D(E_r) \cdots D(E_1) \ne 0\text{.}\)</span> If not, then <span class="process-math">\(A^\prime\)</span> must have a row of zeros (because it is a square matrix) which implies by the argument in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a> that <span class="process-math">\(D(A^\prime) = 0\text{.}\)</span> This proves the statement.</div>
 </div></article></div>
-<div class="para" id="p-359">These two lemmas immediately give our uniqueness claim.</div>
-<article class="hiddenproof" id="proof-19"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h4 class="heading"><span class="title">Proof of uniqueness of Theorem 2.7.10.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof"> <div class="para logical" id="p-360">
+<div class="para" id="p-360">These two lemmas immediately give our uniqueness claim.</div>
+<article class="hiddenproof" id="proof-19"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h4 class="heading"><span class="title">Proof of uniqueness of Theorem 2.7.10.</span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof"> <div class="para logical" id="p-361">
 <div class="para">If <span class="process-math">\(A\)</span> is not invertible, then we must have <span class="process-math">\(D(A) = 0\)</span> by <a href="" class="xref" data-knowl="./knowl/lem-detinv.html" title="Lemma 2.7.15">Lemma 2.7.15</a>. On the other hand, the proof of the same lemma showed that if <span class="process-math">\(A\)</span> is invertible, then</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-detinv.html ./knowl/lem-detelem.html ./knowl/def-determinant.html">
 \begin{equation*}
@@ -771,19 +771,19 @@ D(A) \amp = \frac{1}{D(E_r) \cdots D(E_1)}
 <div class="para">for a collection of an elementary matrices which row reduce <span class="process-math">\(A\text{.}\)</span> However, <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a> shows that for elementary matrices <span class="process-math">\(E\text{,}\)</span> <span class="process-math">\(D(E)\)</span> is determined by the properties of <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>. Thus there is no choice in defining <span class="process-math">\(D\)</span> for an arbitrary <span class="process-math">\(A\text{.}\)</span>
 </div>
 </div></article></div>
-<div class="para" id="p-361">From now on, we will just use <span class="process-math">\(\det\)</span> instead of <span class="process-math">\(D\text{.}\)</span> We notice that the last proof also shows that if we row reduce a matrix, and keep track of our operations, we can compute the determinant. This is generally a quicker way to get determinants than using formulas for large matrices.</div>
-<div class="para" id="p-362">We end this section with a useful result concerning the determinant.</div>
+<div class="para" id="p-362">From now on, we will just use <span class="process-math">\(\det\)</span> instead of <span class="process-math">\(D\text{.}\)</span> We notice that the last proof also shows that if we row reduce a matrix, and keep track of our operations, we can compute the determinant. This is generally a quicker way to get determinants than using formulas for large matrices.</div>
+<div class="para" id="p-363">We end this section with a useful result concerning the determinant.</div>
 <article class="proposition theorem-like" id="prop-productdet"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.7.16</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-363">
+<div class="para logical" id="p-364">
 <div class="para">Given two <span class="process-math">\(n \times n\)</span> matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \det (A B) = \det (A) \det (B). 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-20"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof"><div class="para logical" id="p-364">
+</div></article><article class="hiddenproof" id="proof-20"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof"><div class="para logical" id="p-365">
 <div class="para">If either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> is not invertible, then <span class="process-math">\(AB\)</span> is not invertible. Indeed, if <span class="process-math">\(C\)</span> were an inverse of <span class="process-math">\((AB)\)</span> then <span class="process-math">\(A (BC) = (AB) C = I\)</span> and <span class="process-math">\((CA) B = C(AB) = I\)</span> would show that <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> had an inverse (here you would need to observe that, for square matrices, a left or right inverse is an inverse which follows from <a href="" class="xref" data-knowl="./knowl/lem-rightleftinverse.html" title="Lemma 2.7.17">Lemma 2.7.17</a> proven independently below). Thus in the non-invertible case both sides are zero. On the other hand, if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible, then by <a href="" class="xref" data-knowl="./knowl/prop-productofelem.html" title="Proposition 2.7.6">Proposition 2.7.6</a>, they are both products of elementary matrices</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html" id="md-43">
 \begin{align*}
@@ -803,7 +803,7 @@ B \amp = \tilde{E}_1 \cdots \tilde{E}_s.
 </div></article></div></section><section class="subsection" id="subsec-inverseformula"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span>
 </h3>
-<div class="para logical" id="p-365">
+<div class="para logical" id="p-366">
 <div class="para">As a final result of this section, we note that the determinant also allows us to write out a formula for the inverse matrix when it exists. First we take the <dfn class="terminology">adjugate</dfn> matrix of a square matrix <span class="process-math">\(A\)</span> (which is sometimes incorrectly referred to as the adjoint) as the transpose matrix of cofactors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -827,42 +827,42 @@ A^{-1} = \frac{1}{\det (A)} \textnormal{adj} (A) \hspace{.2in} \text{if }\det (A
 <article class="lemma theorem-like" id="lem-rightleftinverse"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.7.17</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-366">If <span class="process-math">\(B\)</span> is a right inverse or left inverse of a square matrix <span class="process-math">\(A\text{,}\)</span> then it is the inverse of <span class="process-math">\(A\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-21"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof"><div class="para" id="p-367">Since <span class="process-math">\(A\)</span> is a square matrix, it represents a linear transformation from <span class="process-math">\(K^n\)</span> to <span class="process-math">\(K^n\text{.}\)</span> If it has a left inverse <span class="process-math">\(B\)</span> so that <span class="process-math">\(BA = I\)</span> then that transformation is one-to-one. But by <a href="" class="xref" data-knowl="./knowl/cor-equaldim.html" title="Corollary 2.6.5">Corollary 2.6.5</a> we have that this means it is an isomorphism. Thus it has an inverse linear transformation which can be represented by a two sided matrix inverse <span class="process-math">\(A^{-1}\text{.}\)</span> But then since <span class="process-math">\(BA = I\)</span> we may multiply on the right by <span class="process-math">\(A^{-1}\)</span> and obtain <span class="process-math">\(B = A^{-1}\text{.}\)</span> A similar argument applies for the right inverse.</div></article></div></section><section class="exercises" id="exe-matrices3"><h3 class="heading hide-type">
+<div class="para" id="p-367">If <span class="process-math">\(B\)</span> is a right inverse or left inverse of a square matrix <span class="process-math">\(A\text{,}\)</span> then it is the inverse of <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-21"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof"><div class="para" id="p-368">Since <span class="process-math">\(A\)</span> is a square matrix, it represents a linear transformation from <span class="process-math">\(K^n\)</span> to <span class="process-math">\(K^n\text{.}\)</span> If it has a left inverse <span class="process-math">\(B\)</span> so that <span class="process-math">\(BA = I\)</span> then that transformation is one-to-one. But by <a href="" class="xref" data-knowl="./knowl/cor-equaldim.html" title="Corollary 2.6.5">Corollary 2.6.5</a> we have that this means it is an isomorphism. Thus it has an inverse linear transformation which can be represented by a two sided matrix inverse <span class="process-math">\(A^{-1}\text{.}\)</span> But then since <span class="process-math">\(BA = I\)</span> we may multiply on the right by <span class="process-math">\(A^{-1}\)</span> and obtain <span class="process-math">\(B = A^{-1}\text{.}\)</span> A similar argument applies for the right inverse.</div></article></div></section><section class="exercises" id="exe-matrices3"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">2.7.5</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-46"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-19"><div class="para" id="p-368">Find the inverse of the following matrix using row reduction.</div></div>
+<div class="introduction" id="introduction-19"><div class="para" id="p-369">Find the inverse of the following matrix using row reduction.</div></div>
 <article class="task exercise-like" id="task-38"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-369"><div class="displaymath process-math">
+<div class="para logical" id="p-370"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 0 \amp 1 \\ 1 \amp -2 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-39"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-370"><div class="displaymath process-math">
+<div class="para logical" id="p-371"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 0 \amp 1 \\ 0 \amp -1 \amp 1 \\ 0 \amp 1 \amp -1 \end{matrix} \right] 
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-47"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-20"><div class="para" id="p-371">Compute the determinants of the following matrices.</div></div>
+<div class="introduction" id="introduction-20"><div class="para" id="p-372">Compute the determinants of the following matrices.</div></div>
 <article class="task exercise-like" id="task-40"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-372"><div class="displaymath process-math">
+<div class="para logical" id="p-373"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 2 \\ 3 \amp -1 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-41"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-373"><div class="displaymath process-math">
+<div class="para logical" id="p-374"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 1 \amp 0 \\ -2 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \end{matrix} \right] 
 \end{equation*}
 </div></div></article><article class="task exercise-like" id="task-42"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para logical" id="p-374"><div class="displaymath process-math">
+<div class="para logical" id="p-375"><div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{matrix} 1 \amp 0 \amp 1 \amp 0\\ 1 \amp 1 \amp 1 \amp 1 \\ 0 \amp 1 \amp 0 \amp 1 \\ 1 \amp 2 \amp 3 \amp 4 \end{matrix} \right]
 \end{equation*}
 </div></div></article></article><article class="exercise exercise-like" id="exercise-48"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="p-375">Verify the first three equations in <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a>.</div></article><article class="exercise exercise-like" id="exercise-49"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-376">
+<div class="para" id="p-376">Verify the first three equations in <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a>.</div></article><article class="exercise exercise-like" id="exercise-49"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="p-377">
 <div class="para">Use <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> to show that if <span class="process-math">\(A\)</span> is an invertible matrix then</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productdet.html">
 \begin{equation*}
@@ -870,7 +870,7 @@ A^{-1} = \frac{1}{\det (A)} \textnormal{adj} (A) \hspace{.2in} \text{if }\det (A
 \end{equation*}
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-50"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-377">
+<div class="para logical" id="p-378">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -885,7 +885,7 @@ A = \left[ \begin{matrix} a \amp b  \\ c \amp d \end{matrix} \right]
 </div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-9" id="hint-9"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-9"><div class="hint solution-like"><div class="para" id="p-378">First rotate <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> by multiplying by a rotation matrix so that <span class="process-math">\(\mb{u}\)</span> is of the form <span class="process-math">\(\twovec{r}{0}\text{.}\)</span> Use <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> to show this won't change the determinant of <span class="process-math">\(A\)</span> and observe that this does not change the area of the parallelogram. However, the new area and determinant is easy to calculate and compare.</div></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-9" id="hint-9"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-9"><div class="hint solution-like"><div class="para" id="p-379">First rotate <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> by multiplying by a rotation matrix so that <span class="process-math">\(\mb{u}\)</span> is of the form <span class="process-math">\(\twovec{r}{0}\text{.}\)</span> Use <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> to show this won't change the determinant of <span class="process-math">\(A\)</span> and observe that this does not change the area of the parallelogram. However, the new area and determinant is easy to calculate and compare.</div></div></div>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-lineartransformations2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-linear-geometry.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

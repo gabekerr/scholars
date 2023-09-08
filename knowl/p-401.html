@@ -11,8 +11,30 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Moreover, one can easily prove some basic, but useful, inequalities such as.</div>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">If we were asked to find the angle between the row vectors <span class="process-math">\(\mb{u} = [ 1, 0, -1 ]\)</span> and <span class="process-math">\(\mb{v} = [ 0, 1, -1 ]\)</span> before having the dot product, it is not surprising that we would struggle. But now we just compute lengths and the dot product to see:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\| \mb{u} \| \amp = \sqrt{ 1^2 + 0^2 + (-1)^2} = \sqrt{2}, \\
+\| \mb{v} \| \amp = \sqrt{ 0^2 + 1^2 +  (-1)^2} = \sqrt{2}, \\
+\mb{u} \cdot \mb{v} \amp = 1 \cdot 0 + 0 \cdot 1 + (-1) \cdot (-1) = 1.
+\end{align*}
+</div>
+<div class="para">Putting these into our formula gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{2} \cdot \sqrt{2} = 1 \cdot \cos (\theta) 
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\cos (\theta ) = \frac{1}{2} 
+\end{equation*}
+</div>
+<div class="para">implying that <span class="process-math">\(\theta = \frac{\pi}{3}\text{.}\)</span> In this case, we get a quick pleasant answer. However, we see even when we find that <span class="process-math">\(\mb{u} \cdot \mb{v} \gt 0\)</span> that the angle made between <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> is acute. Were it <span class="process-math">\(0\text{,}\)</span> they would be perpendicular and if it were negative, they would form an obtuse angle. Point being, even without evaluating <span class="process-math">\(\arccos\text{,}\)</span> we obtain qualitative information about our vectors.</div>
+</div>
 <span class="incontext"><a href="sec-geom1.html#p-401" class="internal">in-context</a></span>
 </body>
 </html>

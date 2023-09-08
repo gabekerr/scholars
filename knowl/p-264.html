@@ -11,8 +11,17 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">This tells us that, while there are infinitely many bases of a vector space, all of them have the same number of vectors in them. This allows us to make the following definition.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(V\)</span> has bases <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots , \mb{v}_n \}\)</span> and <span class="process-math">\(\mathcal{C} = \{ \mb{w}_1, \ldots, \mb{w}_m \}\text{.}\)</span> Then by exercise <a href="" class="xref" data-knowl="./knowl/exe-coordiso.html" title="Exercise 2.3.4">Exercise 2.3.4</a>, we have that there are isomorphisms</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-coordiso.html">
+\begin{align*}
+\coord{}{\mathcal{B}} : V \amp \to K^n \amp \coord{}{\mathcal{C}} : V \amp \to K^m.
+\end{align*}
+</div>
+<div class="para">Now, since <span class="process-math">\(\mathcal{B}\)</span> is a basis, it is a linearly independent set. And since <span class="process-math">\(\coord{}{\mathcal{C}}\)</span> is one-to-one, the vectors <span class="process-math">\(\coord{\mb{v}_1}{\mathcal{C}}, \ldots , \coord{\mb{v}_n}{\mathcal{C}}\)</span> must also be linearly independent (why?). But by the previous corollary, this implies that <span class="process-math">\(n \leq m\text{.}\)</span> Using the same argument of the vectors <span class="process-math">\(\coord{\mb{w}_1}{\mathcal{B}}, \ldots , \coord{\mb{w}_m}{\mathcal{B}}\)</span> in <span class="process-math">\(K^n\)</span> shows that <span class="process-math">\(m \leq n\text{.}\)</span> Together this gives <span class="process-math">\(m = n\text{.}\)</span>
+</div>
+</div>
 <span class="incontext"><a href="sec-vectorspaces2.html#p-264" class="internal">in-context</a></span>
 </body>
 </html>

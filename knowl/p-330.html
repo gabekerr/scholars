@@ -11,31 +11,21 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Let <span class="process-math">\(M_{m,n} (K)\)</span> be the set of all <span class="process-math">\(m \times n\)</span> matrices with entries in <span class="process-math">\(K\text{.}\)</span> A function</div>
+<div class="para">The first thing to understand about determinants is that, despite being included in every linear algebra course ever given, they really don't belong to the subject of linear algebra at all. Rather, they naturally sit in a subject known as multi-linear algebra. That is because they are, in fact, multi-linear functions, not linear functions. While no one should be worried, I say this only to warn the student that the determinant is <em class="emphasis">not</em> linear and may reasonably appear rather strange. In fact, it is helpful in this context to view an <span class="process-math">\(m \times n\)</span>-matrix <span class="process-math">\(A\)</span> as a column of rows</div>
 <div class="displaymath process-math">
 \begin{equation*}
-f : M_{m,n} (K) \to K 
+A = \left[ \begin{matrix} - \amp \mb{r}_1 \amp - \\ \amp \vdots \amp \\ - \amp \mb{r}_i \amp - \\ \amp\vdots \amp  \\ - \amp \mb{r}_m \amp - \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">is called:</div>
-<dl class="description-list">
-<dt>row linear</dt>
-<dd> if, keeping all rows except the <span class="process-math">\(i\)</span>-th row constant, <span class="process-math">\(f\)</span> is linear on the <span class="process-math">\(i\)</span>-th row (for any <span class="process-math">\(i\)</span>). In other words if<div class="displaymath process-math">
+<div class="para">and if <span class="process-math">\(f : M_{m, n} (K) \to K\)</span> is a function on matrices, write</div>
+<div class="displaymath process-math">
 \begin{equation*}
-f(\mb{r}_1 , \ldots, a \mb{r}_i + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) = a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) 
+f(\mb{r}_1 , \ldots, \mb{r}_m) := f(A). 
 \end{equation*}
 </div>
-</dd>
-<dt>alternating</dt>
-<dd> if <span class="process-math">\(f\)</span> reverses sign whenever two rows are switched. In other words<div class="displaymath process-math">
-\begin{equation*}
-f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m).
-\end{equation*}
-</div>
-</dd>
-</dl>
+<div class="para">This notation is much cleaner than writing out the matrix each time and we will use it frequently in this section.</div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-330" class="internal">in-context</a></span>
 </body>

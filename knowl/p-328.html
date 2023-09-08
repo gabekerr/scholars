@@ -11,8 +11,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">We also see from this proposition why our augmented matrix approach to computing inverse matrices works. As we row reduce <span class="process-math">\(A\text{,}\)</span> the augmented reduction of the identity is keeping track of the products of the elementary matrices <span class="process-math">\(E_j \cdots E_1\text{.}\)</span> Thus when we are finished, on the right hand side we simply obtain the full product <span class="process-math">\((E_r \cdots E_1)\)</span> which is, by equation <a href="" class="xref" data-knowl="./knowl/eq-inverseelmat.html" title="Equation 2.7.1">(2.7.1)</a> the inverse of <span class="process-math">\(A\text{.}\)</span>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. We saw in <a href="" class="xref" data-knowl="./knowl/prop-invertiblecriterion1.html" title="Proposition 2.7.3">Proposition 2.7.3</a> that it is invertible if and only if its reduced row echelon form is the identity. We see from <a href="" class="xref" data-knowl="./knowl/prop-elrowelmat.html" title="Proposition 2.7.5">Proposition 2.7.5</a> that this is the case if and only if there are elementary matrices <span class="process-math">\(E_1, E_2, \ldots, E_r\)</span> so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-invertiblecriterion1.html ./knowl/prop-elrowelmat.html">
+\begin{equation}
+E_r E_{r - 1} \cdots E_2 E_1 A = I. \tag{2.7.1}
+\end{equation}
+</div>
+<div class="para">But since every elementary matrix has inverse that is an elementary matrix, such an equation is possible if and only if</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-invertiblecriterion1.html ./knowl/prop-elrowelmat.html">
+\begin{equation*}
+A = E_1^{-1} \cdots E_r^{-1}. 
+\end{equation*}
+</div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-328" class="internal">in-context</a></span>
 </body>

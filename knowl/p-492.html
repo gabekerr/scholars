@@ -13,31 +13,28 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">To find the <span class="process-math">\(2\)</span>-eigenvectors, we simply solve the equation <span class="process-math">\((2I - A )\mb{x} = \mb{0}\text{.}\)</span> Writing this out we are solving</div>
+<div class="para">Let's consider a new computational example of multiplying by</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left[ \begin{matrix} 0 \amp 1 \amp 2 \\ 0 \amp -2 \amp -4 \\ -2 \amp -1 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0}.
+A = \left[ \begin{matrix} 2 \amp -1 \amp -2 \\ 0 \amp 4 \amp 4 \\ 2 \amp 1 \amp 2 \end{matrix} \right] .
 \end{equation*}
 </div>
-<div class="para">The reduced row echelon form of this matrix equation is just</div>
+<div class="para">The first step to finding eigenvectors is to find the eigenvalues. To do this, we learned to find the characteristic polynomial</div>
+<div class="displaymath process-math">
+\begin{align*}
+p_A (t) \amp = \det \left( \left[ \begin{matrix} t -2 \amp 1 \amp 2 \\ 0 \amp  t-4\amp -4 \\ -2 \amp -1 \amp t - 2 \end{matrix} \right] \right), \\
+\amp = (t - 2) \det  \left( \left[ \begin{matrix} t - 4 \amp - 4 \\ - 1 \amp  t - 2 \end{matrix} \right] \right) -  \det \left( \left[ \begin{matrix} 0 \amp -4 \\ -2  \amp  t - 2\end{matrix} \right] \right) + 2 \left( \left[ \begin{matrix}  0 \amp t - 4 \\ -2 \amp -1  \end{matrix} \right] \right), \\
+\amp = (t - 2) (t^2 - 6t + 4) + 8  + 4 (t - 4),\\
+\amp = t^3 - 8t^2 + 20t - 16.
+\end{align*}
+</div>
+<div class="para">One can check that <span class="process-math">\(2\)</span> is a root, divide <span class="process-math">\(p_A (t)\)</span> by <span class="process-math">\((t - 2)\)</span> and factor to see that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left[ \begin{matrix} 1 \amp 0 \amp -1 \\ 0 \amp 1 \amp 2\\ 0 \amp 0 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0}. 
+p_A(t)  =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4). 
 \end{equation*}
 </div>
-<div class="para">So we write a parametric solution with parameter <span class="process-math">\(z\)</span> (so as to not confuse it with the <span class="process-math">\(t\)</span> in the characteristic polynomial)</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{x} (z) = \threevec{z}{-2z}{z}. 
-\end{equation*}
-</div>
-<div class="para">In particular</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\threevec{1}{-2}{1} 
-\end{equation*}
-</div>
-<div class="para">is a <span class="process-math">\(2\)</span>-eigenvector.</div>
+<div class="para">Thus we see that our eigenvalues are <span class="process-math">\(2\)</span> and <span class="process-math">\(4\text{.}\)</span> It is interesting to note that we have <dfn class="terminology">multiplicity</dfn> here for the root <span class="process-math">\(2\)</span> which means that <span class="process-math">\((t - 2)^2\)</span> factors the polynomial. When you see this, your eyebrows should be raised and you should be on alert for unexpected phenomena.</div>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-492" class="internal">in-context</a></span>
 </body>

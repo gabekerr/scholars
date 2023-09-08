@@ -13,14 +13,20 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">To see the decomposition, all that is left to show is that <span class="process-math">\(W = V\text{.}\)</span> For this we use the Cayley-Hamilton Theorem. Indeed, if <span class="process-math">\(\mb{v}\)</span> is a vector not in <span class="process-math">\(W\)</span> then because <span class="process-math">\(p_T (T) = 0\)</span> we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-nilpotentinvert.html">
+<div class="para">It is clear that <span class="process-math">\(T\)</span> maps each generalized eigenspace to itself. Taking</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-distinctgeigenlinind.html">
 \begin{equation*}
-(\lambda_1 I - T)^{k_1} \cdots (\lambda_m I - T)^{k_m} (\mb{v}) = \mb{0} . 
+W = \span ( V_{\lambda_1} \cup \cdots \cup V_{\lambda_m} ) 
 \end{equation*}
 </div>
-<div class="para">Write <span class="process-math">\(S_i = (\lambda_i I - T)^{k_i}\)</span> and recall that <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinvert.html" title="Lemma 4.2.10">Lemma 4.2.10</a> gives that <span class="process-math">\(S_i\)</span> is invertible on <span class="process-math">\(V_{\lambda_j}\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Take <span class="process-math">\(\mb{w}_m = S_1 \cdots S_{m - 1} (\mb{v})\)</span>  and observe it is in <span class="process-math">\(V_{\lambda_m}\)</span> (since <span class="process-math">\(S_m (\mb{w}_m) = \mb{0}\)</span>) we can define <span class="process-math">\(\mb{u}_m = S^{-1}_{m - 1} \cdots S_1^{-1} (\mb{w}_m)\)</span> in <span class="process-math">\(V_{\lambda_m}\text{.}\)</span> But then it is clear that <span class="process-math">\(S_1 \cdots S_{m - 1} (\mb{v} - \mb{u}_m) = \mb{0}\text{.}\)</span> Repeating this process gives vectors <span class="process-math">\(\mb{u}_1, \ldots, \mb{u}_m\)</span> in <span class="process-math">\(V_{\lambda_1}, \ldots, V_{\lambda_m}\)</span> with <span class="process-math">\(\mb{v} = \mb{u}_1 + \cdots + \mb{u}_m\text{.}\)</span>
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/lem-distinctgeigenlinind.html" title="Lemma 4.2.11">Lemma 4.2.11</a> implies that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-distinctgeigenlinind.html">
+\begin{equation*}
+W = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} . 
+\end{equation*}
 </div>
+<div class="para">Indeed, to check this one needs only show that there is no non-zero vector of <span class="process-math">\(V_{\lambda_i}\)</span> equal to a sum of vectors from the other generalized eigenspaces. But any such equation would give a non-trivial linear relation.</div>
 </div>
 <span class="incontext"><a href="sec-jnf.html#p-572" class="internal">in-context</a></span>
 </body>

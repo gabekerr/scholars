@@ -13,13 +13,13 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Restricting <span class="process-math">\(T\)</span> to <span class="process-math">\(V_{\lambda_i}\)</span> to obtain <span class="process-math">\(T_i\)</span> one sees that <span class="process-math">\(p_{T_i} (t) = (t - \lambda_i)^r\)</span> where <span class="process-math">\(r = \dim V_{\lambda_i}\)</span> (since <span class="process-math">\(T_i\)</span> has no other eigenvalues). But it is an exercise to see that the direct sum decomposition gives a factorization</div>
-<div class="displaymath process-math">
+<div class="para">To see the decomposition, all that is left to show is that <span class="process-math">\(W = V\text{.}\)</span> For this we use the Cayley-Hamilton Theorem. Indeed, if <span class="process-math">\(\mb{v}\)</span> is a vector not in <span class="process-math">\(W\)</span> then because <span class="process-math">\(p_T (T) = 0\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-nilpotentinvert.html">
 \begin{equation*}
-p_T (t) = p_{T_1} (t) \cdots p_{T_m} (t) 
+(\lambda_1 I - T)^{k_1} \cdots (\lambda_m I - T)^{k_m} (\mb{v}) = \mb{0} . 
 \end{equation*}
 </div>
-<div class="para">so we may conclude that <span class="process-math">\(\dim V_{\lambda_i} = r = k_i\text{.}\)</span>
+<div class="para">Write <span class="process-math">\(S_i = (\lambda_i I - T)^{k_i}\)</span> and recall that <a href="" class="xref" data-knowl="./knowl/lem-nilpotentinvert.html" title="Lemma 4.2.10">Lemma 4.2.10</a> gives that <span class="process-math">\(S_i\)</span> is invertible on <span class="process-math">\(V_{\lambda_j}\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Take <span class="process-math">\(\mb{w}_m = S_1 \cdots S_{m - 1} (\mb{v})\)</span>  and observe it is in <span class="process-math">\(V_{\lambda_m}\)</span> (since <span class="process-math">\(S_m (\mb{w}_m) = \mb{0}\)</span>) we can define <span class="process-math">\(\mb{u}_m = S^{-1}_{m - 1} \cdots S_1^{-1} (\mb{w}_m)\)</span> in <span class="process-math">\(V_{\lambda_m}\text{.}\)</span> But then it is clear that <span class="process-math">\(S_1 \cdots S_{m - 1} (\mb{v} - \mb{u}_m) = \mb{0}\text{.}\)</span> Repeating this process gives vectors <span class="process-math">\(\mb{u}_1, \ldots, \mb{u}_m\)</span> in <span class="process-math">\(V_{\lambda_1}, \ldots, V_{\lambda_m}\)</span> with <span class="process-math">\(\mb{v} = \mb{u}_1 + \cdots + \mb{u}_m\text{.}\)</span>
 </div>
 </div>
 <span class="incontext"><a href="sec-jnf.html#p-573" class="internal">in-context</a></span>

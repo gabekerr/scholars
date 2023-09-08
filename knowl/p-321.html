@@ -11,8 +11,36 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">To understand why this process works, we observe that the process of row reduction itself is already matrix arithmetic.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Let us find the inverse of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{matrix} -1 \amp 2 \amp -4  \\ -2 \amp 3 \amp -7 \\ -1 \amp 1 \amp -2 \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">We augment and reduce</div>
+<div class="displaymath process-math">
+\begin{align*}
+\left[ \begin{array}{ccc|ccc} -1 \amp 2 \amp -4 \amp 1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] \amp \stackrel{(-1)\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_2 + 2\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_3 + \mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] ,  \\
+\amp \stackrel{(-1)\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_3 + \mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_1 + 2\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 2 \amp 3 \amp -2 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_1 - 2\mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] ,  \\
+\amp \stackrel{\mb{r}_2 + \mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp 0 \amp 3 \amp -2 \amp 1 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , 
+\end{align*}
+</div>
+<div class="para">One can easily check that the resulting matrix on the right</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B = \left[ \begin{matrix} 1 \amp 0 \amp -2  \\ 3 \amp -2 \amp 1 \\ 1 \amp -1 \amp 1 \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">satisfies <span class="process-math">\(AB = I = BA\)</span> verifying that it is the inverse of <span class="process-math">\(A\text{.}\)</span>
+</div>
+</div>
 <span class="incontext"><a href="sec-matrices3.html#p-321" class="internal">in-context</a></span>
 </body>
 </html>

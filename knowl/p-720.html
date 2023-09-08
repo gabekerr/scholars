@@ -13,68 +13,50 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">But what about computing solutions? Well, now that we have an eigenbasis we can write <span class="process-math">\(\mb{x}\)</span> in terms of the eigenbasis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
-\begin{equation*}
-\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{\tilde{x} (t) - \tilde{y} (t)}{2 \tilde{y} (t) - \tilde{x} (t)}. 
-\end{equation*}
-</div>
-<div class="para">But, of course, in this basis the differential equation becomes much simpler</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+<div class="para">Now let us consider an authentically higher dimensional example.</div>
+<div class="displaymath process-math">
 \begin{align*}
-\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)}_\mathcal{B} \amp = \dot{\mb{x}} (t), \\
-\amp = A \mb{x}, \\ \amp = A \left( \tilde{x} (t)  \mb{v}_1 + \tilde{y} (t) \mb{v}_2 \right), \\
-\amp = \tilde{x} (t)  A \mb{v}_1 + \tilde{y} (t) A \mb{v}_2, \\
-\amp = - \tilde{x} (t)  \mb{v}_1 +  2 \tilde{y} (t) \mb{v}_2, \\
-\amp = \twovec{ - \tilde{x} (t)}{2 \tilde{y} (t)}_{\mathcal{B}} .
+x^\prime (t) \amp = -4 x(t) - 3 y(t), \\
+y^\prime (t) \amp = 6 x (t) + 5 y(t). 
 \end{align*}
 </div>
-<div class="para">So in particular, our linear system breaks into two independent equations</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
-\begin{align*}
-\tilde{x}^\prime (t) \amp = - \tilde{x} (t), \\
-\tilde{y}^\prime (t) \amp = 2 \tilde{y} (t). 
-\end{align*}
-</div>
-<div class="para">The solutions to these equations are similar to <a href="" class="xref" data-knowl="./knowl/exa-1varlinode.html" title="Example 5.3.1: One real dimensional equation">Example 5.3.1</a> and we obtain</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
-\begin{align*}
-\tilde{x} (t) \amp = C_1 e^{-t},\\
-\tilde{y} (t) \amp = C_2 e^{2t} 
-\end{align*}
-</div>
-<div class="para">with initial condition</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+<div class="para">Our first task in this linear ODE is to write it as a single matrix ODE. We can do this by looking at the coefficients on the right and making a matrix out of them as in</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\mb{x} (0) = \twovec{C_1}{C_2}_\mathcal{B}. 
+A  = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">Of course, while the solution is especially pleasant in the eigenbasis, the original problem came to us in terms of the standard basis, so we must be translate our solution into the usual set of coordinates in order to please our engineering colleagues. If the initial condition were given in the standard basis as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+<div class="para">Then if we take</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\mb{x} (0) = \twovec{A}{B} 
+\mb{x} (t) = \twovec{x (t)}{y (t)} 
 \end{equation*}
 </div>
-<div class="para">we would need the change of basis matrix <span class="process-math">\(\cob{1}{\mathcal{C}}{\mathcal{B}}\)</span> to find <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> as above. This is just the inverse of the matrix with columns equal to <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\)</span> so it is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+<div class="para">we obtain the equation</div>
+<div class="displaymath process-math">
 \begin{equation*}
-Q =  \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right] 
+\mb{x}^\prime (t) = A \mb{x} (t). 
 \end{equation*}
 </div>
-<div class="para">and we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
+<div class="para">The right hand side is indeed our vector field</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\twovec{C_1}{C_2} = Q \twovec{A}{B} = \twovec{2A + B}{A + B} . 
+\mb{F} (\mb{x} ) = A \mb{x} 
 \end{equation*}
 </div>
-<div class="para">Putting all of this together, we obtain the general solution with respect to the standard basis.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-1varlinode.html">
-\begin{align}
-\mb{x} (t) \amp = \twovec{\tilde{x} (t) - \tilde{y} (t)}{ - \tilde{x} (t) + 2 \tilde{y} (t)}, \tag{5.3.1}\\
-\amp = \twovec{C_1 e^{-t} - C_2 e^{2t} }{ - C_1 e^{-t} + 2 C_2 e^{2t} }, \tag{5.3.2}\\
-\amp =  \twovec{( 2A + B) e^{-t} - ( A + B ) e^{2t} }{ - (2A + B) e^{-t} + 2 (A + B) e^{2t} }. \tag{5.3.3}
-\end{align}
+<div class="para">and to obtain a computational advantage and a geometric picture, it will help to diagonalize <span class="process-math">\(A\)</span> (if possible). For this, we start by taking the characteristic polynomial of <span class="process-math">\(A\)</span> (which we will write now with variable <span class="process-math">\(s\)</span> instead of <span class="process-math">\(t\)</span> to avoid confusion with <span class="process-math">\(\mb{x} (t)\)</span>) and find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s +4 \amp 3 \\ -6 \amp s - 5 \end{matrix} \right] = s^2 - s - 2 = (s - 2) (s + 1). 
+\end{equation*}
 </div>
+<div class="para">Thus we see two distinct real eigenvalues and can confidently diagonalize <span class="process-math">\(A\text{.}\)</span> Indeed, working through this gives the <span class="process-math">\((-1)\)</span>-eigenvector <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(2\)</span>-eigenvector <span class="process-math">\(\mb{v}_2\)</span> which form an eigenbasis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}. 
+\end{equation*}
+</div>
+<div class="para">Why is all this so helpful? Well, now we can picture the vector field very clearly. It will take vectors on the <span class="process-math">\((-1)\)</span> eigenspace (multiples of <span class="process-math">\(\mb{v}_1\)</span>) and reverse their direction. On the <span class="process-math">\(2\)</span>-eigenspace though (multiples of <span class="process-math">\(\mb{v}_2\)</span>), the vectors will be doubled in scale and point in the same direction. The remaining vectors can be seen to be a linear combination of these two. This geometry will be sketched in class and gives a fantastically simple picture of what our solutions ought to look like.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-720" class="internal">in-context</a></span>
 </body>

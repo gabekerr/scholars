@@ -11,15 +11,23 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Given a higher order linear ODE</div>
+<div class="para">While this is very nice, the expression of this solution is a bit opaque since the exponential <span class="process-math">\(e^{B(t)}\)</span> may be well defined, but is not readily computable. However, one can observe that <span class="process-math">\(B(t)\)</span> is diagonalizable as a matrix of functions in the sense that</div>
 <div class="displaymath process-math">
-\begin{equation}
-x^{(n)} (t) + A_{n -1 } (t) x^{(n - 1)} (t) + \cdots + A_{1} (t) x^\prime (t) + A_0 (t) x(t) \amp = f(t)\tag{5.5.5}
-\end{equation}
+\begin{equation*}
+B(t) = \frac{t}{2} \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} t - 1 \amp 0 \\ 0 \amp t + 1 \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right] .
+\end{equation*}
 </div>
-<div class="para">we may have limited resources to find a solution. For example, it is known that even when the coefficient functions <span class="process-math">\(A_i (t)\)</span> are polynomials ( a so called holonomic differential equation), the solutions may have no expression in terms of exponentials, trigonometric, or polynomial functions. However, we do have qualitative results that can be asserted.</div>
+<div class="para">This can be used to see that</div>
+<div class="displaymath process-math">
+\begin{align*}
+e^{B (t)} \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp 0 \\ 0 \amp e^{t(t + 1)/2} \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right], \\
+\amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp e^{t(t - 1)/2} \\ -e^{t(t + 1)/2} \amp e^{t(t + 1)/2} \end{matrix} \right], \\
+\amp = \left[ \begin{matrix} e^{t(t - 1)/2} + e^{t(t + 1)/2} \amp e^{t(t - 1)/2} - e^{t(t + 1)/2} \\ e^{t(t - 1)/2} - e^{t(t + 1)/2} \amp e^{t(t - 1)/2} + e^{t(t + 1)/2} \end{matrix} \right], 
+\end{align*}
+</div>
+<div class="para">which in turn will give explicit solutions to our original linear system.</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-771" class="internal">in-context</a></span>
 </body>

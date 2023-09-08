@@ -12,7 +12,17 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">For the second statement, if <span class="process-math">\(\lambda = \tilde{\lambda}\)</span> then <span class="process-math">\(V_\lambda\)</span> is defined to be the vector subspace on which <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent. There is a subtlety here which relies on the fact that <span class="process-math">\(V\)</span> is finite dimensional. In particular, there must be a finite <span class="process-math">\(n\)</span> for which <span class="process-math">\((\tilde{\lambda} I - T)^n (\mb{v}) = \mb{0}\)</span> for <em class="emphasis">all</em> <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V_\lambda\)</span> owing to the fact that there is a finite basis for <span class="process-math">\(V_\lambda\)</span> (check this). Thus <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span>
+<div class="para logical">
+<div class="para">To see the first statement, just note that <span class="process-math">\((\tilde{\lambda} I - T)\)</span> commutes with <span class="process-math">\(({\lambda} I - T)\)</span> so that if <span class="process-math">\(({\lambda} I - T)^n (\mb{v}) = 0\)</span> then</div>
+<div class="displaymath process-math">
+\begin{align*}
+({\lambda} I - T)^n [(\tilde{\lambda} I - T) (\mb{v})] \amp = (\tilde{\lambda} I - T) [({\lambda} I - T)^n (\mb{v} )] , \\
+\amp = (\tilde{\lambda} I - T) ( \mb{0} ), \\
+\amp  = \mb{0}. 
+\end{align*}
+</div>
+<div class="para">So if <span class="process-math">\(\mb{v}\)</span> is in <span class="process-math">\(V_\lambda\)</span> then so is <span class="process-math">\((\tilde{\lambda} I - T) (\mb{v})\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="sec-jnf.html#p-563" class="internal">in-context</a></span>
 </body>

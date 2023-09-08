@@ -13,20 +13,18 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">It is clear that <span class="process-math">\(T\)</span> maps each generalized eigenspace to itself. Taking</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-distinctgeigenlinind.html">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is an <span class="process-math">\(n\)</span>-dimensional vector space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. Suppose <span class="process-math">\(p_T (t)\)</span> factors as <span class="process-math">\((t - \lambda_1)^{k_1} \cdots (t - \lambda_m)^{k_m}\)</span> where <span class="process-math">\(\lambda_i \ne \lambda_j\)</span> for <span class="process-math">\(i \ne j\text{.}\)</span> Then <span class="process-math">\(V\)</span> decomposes as</div>
+<div class="displaymath process-math">
 \begin{equation*}
-W = \span ( V_{\lambda_1} \cup \cdots \cup V_{\lambda_m} ) 
+V = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} 
 \end{equation*}
 </div>
-<div class="para">
-<a href="" class="xref" data-knowl="./knowl/lem-distinctgeigenlinind.html" title="Lemma 4.2.11">Lemma 4.2.11</a> implies that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-distinctgeigenlinind.html">
+<div class="para">where <span class="process-math">\(\dim V_{\lambda_i} = k_i\)</span> and <span class="process-math">\(T\)</span> also decomposes as a direct sum of its restrictions</div>
+<div class="displaymath process-math">
 \begin{equation*}
-W = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m} . 
+T = T_1 \oplus \cdots \oplus T_m . 
 \end{equation*}
 </div>
-<div class="para">Indeed, to check this one needs only show that there is no non-zero vector of <span class="process-math">\(V_{\lambda_i}\)</span> equal to a sum of vectors from the other generalized eigenspaces. But any such equation would give a non-trivial linear relation.</div>
 </div>
 <span class="incontext"><a href="sec-jnf.html#p-571" class="internal">in-context</a></span>
 </body>
