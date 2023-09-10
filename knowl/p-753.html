@@ -12,7 +12,39 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">While we solved the spring-mass system as a first order system of differential equations, it is in fact easier to find these solutions if we consider the whole equation as a single differential operator equation. This generalizes to all higher order linear differential equations with constant coefficients and we take a moment to explain this more elementary approach.</div>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(A\)</span> is diagonalizable and <span class="process-math">\(P\)</span> is a change of basis matrix so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{equation*}
+P^{-1} A P = \text{Diag} ( \lambda_1, \ldots, \lambda_n ) 
+\end{equation*}
+</div>
+<div class="para">and let</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{equation*}
+\threevec{g_1 (t)}{\vdots}{g_n (t)} = \mb{g} = P^{-1} \mb{f}. 
+\end{equation*}
+</div>
+<div class="para">If</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{equation*}
+y_j (t) = e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{equation*}
+\mb{y} (t) = \threevec{y_1 (t)}{\vdots}{y_n (t)} 
+\end{equation*}
+</div>
+<div class="para">then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{equation*}
+\mb{x} (t) = P \,\mb{y} (t) 
+\end{equation*}
+</div>
+<div class="para">is a solution to equation <a href="" class="xref" data-knowl="./knowl/eq-linearccnhODE.html" title="Equation 5.4.1">(5.4.1)</a>.</div>
+</div>
 <span class="incontext"><a href="sec-lincode3.html#p-753" class="internal">in-context</a></span>
 </body>
 </html>

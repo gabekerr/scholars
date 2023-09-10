@@ -13,16 +13,22 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">We leave it to the student to work out the first set of equations. For the second, notice that if <span class="process-math">\(E\)</span> is Type I then <span class="process-math">\(EA\)</span> is just <span class="process-math">\(A\)</span> with two rows switched so by the alternating property and the first equation <span class="process-math">\(D(EA) = - D(A) = D(E) D(A)\text{.}\)</span> On the other hand, if <span class="process-math">\(E\)</span> is Type II so that <span class="process-math">\(E = E_i (c)\)</span> then <span class="process-math">\(E A\)</span> multiplies the <span class="process-math">\(i\)</span>-th row by <span class="process-math">\(c\text{.}\)</span> So row linearity and the second equation gives <span class="process-math">\(D(E A ) = c D(A) = D(E) D(A)\text{.}\)</span> Finally, if <span class="process-math">\(E\)</span> is Type III and equals <span class="process-math">\(E_{ij} (c)\)</span> we have that the <span class="process-math">\(i\)</span>-th row of <span class="process-math">\(E A\)</span> is <span class="process-math">\(\mb{r}_i + c\mb{r}_j\text{.}\)</span> So using row linearity, <a href="" class="xref" data-knowl="./knowl/lem-altalt.html" title="Lemma 2.7.13">Lemma 2.7.13</a>, and the third equation we get</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-altalt.html">
+<div class="para">Assume <span class="process-math">\(f\)</span> is alternating and <span class="process-math">\(A\)</span> has two identical rows. Then switching these rows still gives <span class="process-math">\(A\)</span> which implies <span class="process-math">\(f(A) = - f(A)\)</span> or <span class="process-math">\(f(A) = 0\text{.}\)</span> Conversely, suppose <span class="process-math">\(f\)</span> is row linear and <span class="process-math">\(f(A)\)</span> is zero whenever <span class="process-math">\(A\)</span> has two identical rows. Then</div>
+<div class="displaymath process-math">
 \begin{align*}
-D (EA) \amp = D(\mb{r}_1, \ldots, \mb{r}_i + c\mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ), \\
-\amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ) + c D(\mb{r}_1, \ldots, \mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ),\\
-\amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ), \\
-\amp = D (A), \\
-\amp = D(E) D(A).
+0 \amp = f(\mb{r}_1 , \ldots,\mb{r}_i + \mb{r}_j, \ldots ,\mb{r}_i + \mb{r}_j,  \ldots \mb{r}_n),\\
+\amp = f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) + \cdots,\\
+\amp \cdots + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n),\\
+\amp = f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n)
 \end{align*}
 </div>
+<div class="para">Thus</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) 
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(f\)</span> is alternating.</div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-356" class="internal">in-context</a></span>
 </body>

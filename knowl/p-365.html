@@ -13,21 +13,19 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">If either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> is not invertible, then <span class="process-math">\(AB\)</span> is not invertible. Indeed, if <span class="process-math">\(C\)</span> were an inverse of <span class="process-math">\((AB)\)</span> then <span class="process-math">\(A (BC) = (AB) C = I\)</span> and <span class="process-math">\((CA) B = C(AB) = I\)</span> would show that <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> had an inverse (here you would need to observe that, for square matrices, a left or right inverse is an inverse which follows from <a href="" class="xref" data-knowl="./knowl/lem-rightleftinverse.html" title="Lemma 2.7.17">Lemma 2.7.17</a> proven independently below). Thus in the non-invertible case both sides are zero. On the other hand, if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible, then by <a href="" class="xref" data-knowl="./knowl/prop-productofelem.html" title="Proposition 2.7.6">Proposition 2.7.6</a>, they are both products of elementary matrices</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html">
+<div class="para">If <span class="process-math">\(D\)</span> is a function satisfying the conditions of <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>, then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-determinant.html">
 \begin{align*}
-A \amp = E_1 \cdots E_r,\\
-B \amp = \tilde{E}_1 \cdots \tilde{E}_s.
+D (E_{ij} ) \amp = -1,\\
+D (E_{i} (c)) \amp = c,\\
+D (E_{ij} (c)) \amp = 1.
 \end{align*}
 </div>
-<div class="para">So repeatedly using <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a>, we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html">
-\begin{align*}
-\det (AB) \amp = \det (E_1 \cdots E_r\tilde{E}_1 \cdots \tilde{E}_s ) ,\\
-\amp = \det (E_1)  \cdots \det (E_r) \det (\tilde{E}_1 \cdots \tilde{E}_s ) ,\\
-\amp = \det (E_1 \cdots E_r)  \det (\tilde{E}_1 \cdots \tilde{E}_s ) ,\\
-\amp = \det (A) \det (B).
-\end{align*}
+<div class="para">Furthermore, if <span class="process-math">\(A\)</span> is any square matrix and <span class="process-math">\(E\)</span> is any elementary matrix of the same size,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-determinant.html">
+\begin{equation*}
+D( EA) = D(E) D (A). 
+\end{equation*}
 </div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-365" class="internal">in-context</a></span>

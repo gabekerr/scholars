@@ -1114,7 +1114,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.5",
   "title": "Vector Spaces II",
-  "body": " Vector Spaces II  In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. For that we need the following definition.     linearly independent vectors    Let be a vector space over . We say that the vectors are linearly independent if the equality implies that are all zero.    The equation in is called a linear relation . So an alternative way of saying that the vectors are linearly independent is that there is no non-trivial linear relation. Yet another way of expressing linear independence is given in the following proposition which the reader can check.    A set of vectors is linearly independent if and only if they form a basis of their span.    One practical reason to want a linearly independent set of vectors is to parameterize (or give coordinates to) their span. Indeed, if is an ordered set of vectors in , then define the function by  Then a third way of expressing linear independence can be given as follows.    The set of vectors is linearly independent if and only if is one-to-one.    Note that if is also a basis of (i.e. it spans all of ), then is the inverse function to .  There are instances when it is nice to be able to parameterize lines, planes and higher dimensional subspaces in a given vector space, and can often be used for this purpose. But to do this in , one must first see that a given set of column vectors is linearly independent.    Suppose are column vectors in . They are linearly independent if and only if the matrix has no free columns.    To see this, just recall from the fact that any linear combination of the 's can be written as the product In particular, the numbers give a linear relation if and only if they solve the matrix equation But Case (2) says that the solution is unique if and only if there are no free variables of the reduced row echelon equation . This implies there are no free columns of .    , along with row reduction, gives a computational way to check linear independence.   Testing linear independence by solving a matrix equation   Let us see whether the vectors are linearly independent or not. We compute the reduced row echelon form to see if every column is basic: We can see that the third column gives a free variable so our set is not linearly independent (also called linearly dependent ).  However, by simply forgetting about the third vector (or column in the computation) we see that the first two vectors  are linearly independent. Being linearly independent depends heavily on the collection of vectors you are considering.      If are linearly independent vectors in , then .    By there have to be no free columns of the matrix Suppose is the matrix in reduced row echelon form. Then has a leading coefficient in every column (otherwise that column corresponds to a free variable). But this gives at least leading coefficients for unique rows. So the number of rows must be at least or, in other words, .    Another important application of leads directly to the definition of dimension.    If is a vector space over , then any two bases of have the same number of elements.    Suppose has bases and . Then by exercise , we have that there are isomorphisms Now, since is a basis, it is a linearly independent set. And since is one-to-one, the vectors must also be linearly independent (why?). But by the previous corollary, this implies that . Using the same argument of the vectors in shows that . Together this gives .    This tells us that, while there are infinitely many bases of a vector space, all of them have the same number of vectors in them. This allows us to make the following definition.     dimension of a vector space    Given a vector space over , we say that the dimension of is if there is a basis of with elements. This is denoted . If has no finite basis, we say that is infinite dimensional.    We record a nice fact that uses our knowledge of linear independence.    If is a proper vector subspace of a finite dimensional space then is finite dimensional and .    Suppose is dimensional. Then by and the argument above, any linearly independent set in has at most vectors. Let be a set of linearly independent vectors in of maximal size. Then we contend that is a basis of . If not, then there is a which is not in the span of . But then we see that is also linearly independent (why?). This contradiction shows that must have a basis.  Now, as is a proper subspace of , there is a vector of which is not in . But then, for the same reason as above, the set must be linearly independent. By , this means which implies .    Instead of considering linear independence of rows and columns, we can focus on the span of the rows and\/or columns.    and  column and row space of a matrix    Given an matrix with entries in ,  the column space of is the span of the columns of in .  the row space of is the span of the rows of in .      Note that Example shows that the column space is equal to the image of the linear transformation obtained by left multiplying a column vector in by while the row space is the image of right multiplying a row vector in . The following proposition gives bases for both of these spaces.    Let be an matrix and its reduced row echelon form. Suppose are the basic columns of , and are the first rows of . Then is a basis for the column space of and is a basis for the row space of .    To see that is a basis, note that it is linearly independent by . Indeed, the reduced row echelon form of the matrix with only these columns is the same as the submatrix of with only these columns. In particular, it has no free columns and the cited proposition implies that is linearly independent. On the other hand, adding any other column of to fails the test in for the same reason. But that means that any other column can be written as a linear combination of the columns in (why?). Thus spans the column space and is linearly independent. By , is a basis for the column space.  For the row space, we note that all of the row vectors of are linear combinations of the rows in because row operations create rows that are linear combinations of the existing rows. Also, since row operations are reversible (in other words, can be recovered by performing row operations on ), every row of is a linear combination of those in . This implies the span of is the row space (why?). On the other hand, if is a linear combination, then projecting to the basic columns, we have the vector This is because the coordinate of in the column is and is zero for all other columns (because is in reduced row echelon form). Thus the linear combination is the zero vector only if all are zero, meaning is linearly independent. Again by we have that is a basis.    We note here that the bases for the column and row spaces have the same number of vectors!   Implicit equations for planes in with coordinates are of the form where and are real numbers. If the plane is a vector subspace of . For each of the following planes, find a basis and give a parameterization defined by .        Prove .    For each matrix in Exercise , give a basis for the row space and a basis for the column space.    "
+  "body": " Vector Spaces II   In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. This is the concept of linear independence which will be introduced in the first subsection. This concept then is used to define the dimension of a vector space. We then discuss the annihilator of a vector subspace which appears in the dual space.    Independence and Dimension  For that we need the following definition.     linearly independent vectors    Let be a vector space over . We say that the vectors are linearly independent if the equality implies that are all zero.    The equation in is called a linear relation . So an alternative way of saying that the vectors are linearly independent is that there is no non-trivial linear relation. Yet another way of expressing linear independence is given in the following proposition which the reader can check.    A set of vectors is linearly independent if and only if they form a basis of their span.    One practical reason to want a linearly independent set of vectors is to parameterize (or give coordinates to) their span. Indeed, if is an ordered set of vectors in , then define the function by  Then a third way of expressing linear independence can be given as follows.    The set of vectors is linearly independent if and only if is one-to-one.    Note that if is also a basis of (i.e. it spans all of ), then is the inverse function to .  There are instances when it is nice to be able to parameterize lines, planes and higher dimensional subspaces in a given vector space, and can often be used for this purpose. But to do this in , one must first see that a given set of column vectors is linearly independent.    Suppose are column vectors in . They are linearly independent if and only if the matrix has no free columns.    To see this, just recall from the fact that any linear combination of the 's can be written as the product In particular, the numbers give a linear relation if and only if they solve the matrix equation But Case (2) says that the solution is unique if and only if there are no free variables of the reduced row echelon equation . This implies there are no free columns of .    , along with row reduction, gives a computational way to check linear independence.   Testing linear independence by solving a matrix equation   Let us see whether the vectors are linearly independent or not. We compute the reduced row echelon form to see if every column is basic: We can see that the third column gives a free variable so our set is not linearly independent (also called linearly dependent ).  However, by simply forgetting about the third vector (or column in the computation) we see that the first two vectors  are linearly independent. Being linearly independent depends heavily on the collection of vectors you are considering.      If are linearly independent vectors in , then .    By there have to be no free columns of the matrix Suppose is the matrix in reduced row echelon form. Then has a leading coefficient in every column (otherwise that column corresponds to a free variable). But this gives at least leading coefficients for unique rows. So the number of rows must be at least or, in other words, .    Another important application of leads directly to the definition of dimension.    If is a vector space over , then any two bases of have the same number of elements.    Suppose has bases and . Then by exercise , we have that there are isomorphisms Now, since is a basis, it is a linearly independent set. And since is one-to-one, the vectors must also be linearly independent (why?). But by the previous corollary, this implies that . Using the same argument of the vectors in shows that . Together this gives .    This tells us that, while there are infinitely many bases of a vector space, all of them have the same number of vectors in them. This allows us to make the following definition.     dimension of a vector space    Given a vector space over , we say that the dimension of is if there is a basis of with elements. This is denoted . If has no finite basis, we say that is infinite dimensional.    We record a nice fact that uses our knowledge of linear independence.    If is a proper vector subspace of a finite dimensional space then is finite dimensional and .    Suppose is dimensional. Then by and the argument above, any linearly independent set in has at most vectors. Let be a set of linearly independent vectors in of maximal size. Then we contend that is a basis of . If not, then there is a which is not in the span of . But then we see that is also linearly independent (why?). This contradiction shows that must have a basis.  Now, as is a proper subspace of , there is a vector of which is not in . But then, for the same reason as above, the set must be linearly independent. By , this means which implies .    Instead of considering linear independence of rows and columns, we can focus on the span of the rows and\/or columns.    and  column and row space of a matrix    Given an matrix with entries in ,  the column space of is the span of the columns of in .  the row space of is the span of the rows of in .      Note that Example shows that the column space is equal to the image of the linear transformation obtained by left multiplying a column vector in by while the row space is the image of right multiplying a row vector in . The following proposition gives bases for both of these spaces.    Let be an matrix and its reduced row echelon form. Suppose are the basic columns of , and are the first rows of . Then is a basis for the column space of and is a basis for the row space of .    To see that is a basis, note that it is linearly independent by . Indeed, the reduced row echelon form of the matrix with only these columns is the same as the submatrix of with only these columns. In particular, it has no free columns and the cited proposition implies that is linearly independent. On the other hand, adding any other column of to fails the test in for the same reason. But that means that any other column can be written as a linear combination of the columns in (why?). Thus spans the column space and is linearly independent. By , is a basis for the column space.  For the row space, we note that all of the row vectors of are linear combinations of the rows in because row operations create rows that are linear combinations of the existing rows. Also, since row operations are reversible (in other words, can be recovered by performing row operations on ), every row of is a linear combination of those in . This implies the span of is the row space (why?). On the other hand, if is a linear combination, then projecting to the basic columns, we have the vector This is because the coordinate of in the column is and is zero for all other columns (because is in reduced row echelon form). Thus the linear combination is the zero vector only if all are zero, meaning is linearly independent. Again by we have that is a basis.    We note here that the bases for the column and row spaces have the same number of vectors! This motivates the following definition.     rank of a matrix   The rank of is the dimension of the row space of , or equivalently, the dimension of the column space of .   The student should now be able to understand some of jargin in the Sage description of vector subspaces. Indeed, the methods .row_space() and .column_space() can be used to define the row and column space of a matrix.   The degree in this description is the dimension of the ambient space (i.e. the number of columns), and the rank is the dimension of the row space. Indeed, using the method .dimension() the following code checks that the rank of also equals the dimension of the column space.     Annihilators  In the previous section on vector spaces, we defined the dual space of a vector space . This construction can be extended to vector subspaces. Furthermore, there is a new notion that can be given.     annihilator of a subspace    Given a vector subspace the annihilator of is the subspace,     This construction satisfies some basic properties.    Suppose are two vector subspaces of an -dimensional space . Then   \\dim (U_1^\\circ) = n - \\dim (U_1)  U_1^{\\circ \\circ} = U_1  .     For the first two statements, let be a basis for such that is a basis of . Then it is an exercise to see that is a basis of . This shows the first statement and the second follows from repeating the argument with the dual basis and observing that .  For the second statement then for any we have since . Thus .      Implicit equations for planes in with coordinates are of the form where and are real numbers. If the plane is a vector subspace of . For each of the following planes, find a basis and give a parameterization defined by .        Prove .    For each matrix in Exercise , give a basis for the row space and a basis for the column space. What are the ranks of these matrices?    Using , explain why you need only one linear equation to describe a plane in but two linear equations to describe a line.    "
 },
 {
   "id": "def-linearindependent",
@@ -1126,9 +1126,9 @@ var ptx_lunr_docs = [
   "body": "   linearly independent vectors    Let be a vector space over . We say that the vectors are linearly independent if the equality implies that are all zero.   "
 },
 {
-  "id": "p-248",
+  "id": "p-249",
   "level": "2",
-  "url": "sec-vectorspaces2.html#p-248",
+  "url": "sec-vectorspaces2.html#p-249",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1225,11 +1225,38 @@ var ptx_lunr_docs = [
   "body": "  Let be an matrix and its reduced row echelon form. Suppose are the basic columns of , and are the first rows of . Then is a basis for the column space of and is a basis for the row space of .    To see that is a basis, note that it is linearly independent by . Indeed, the reduced row echelon form of the matrix with only these columns is the same as the submatrix of with only these columns. In particular, it has no free columns and the cited proposition implies that is linearly independent. On the other hand, adding any other column of to fails the test in for the same reason. But that means that any other column can be written as a linear combination of the columns in (why?). Thus spans the column space and is linearly independent. By , is a basis for the column space.  For the row space, we note that all of the row vectors of are linear combinations of the rows in because row operations create rows that are linear combinations of the existing rows. Also, since row operations are reversible (in other words, can be recovered by performing row operations on ), every row of is a linear combination of those in . This implies the span of is the row space (why?). On the other hand, if is a linear combination, then projecting to the basic columns, we have the vector This is because the coordinate of in the column is and is zero for all other columns (because is in reduced row echelon form). Thus the linear combination is the zero vector only if all are zero, meaning is linearly independent. Again by we have that is a basis.   "
 },
 {
+  "id": "definition-23",
+  "level": "2",
+  "url": "sec-vectorspaces2.html#definition-23",
+  "type": "Definition",
+  "number": "2.5.12",
+  "title": "",
+  "body": "   rank of a matrix   The rank of is the dimension of the row space of , or equivalently, the dimension of the column space of .  "
+},
+{
+  "id": "definition-24",
+  "level": "2",
+  "url": "sec-vectorspaces2.html#definition-24",
+  "type": "Definition",
+  "number": "2.5.13",
+  "title": "",
+  "body": "   annihilator of a subspace    Given a vector subspace the annihilator of is the subspace,    "
+},
+{
+  "id": "prop-annihilatorcontra",
+  "level": "2",
+  "url": "sec-vectorspaces2.html#prop-annihilatorcontra",
+  "type": "Proposition",
+  "number": "2.5.14",
+  "title": "",
+  "body": "  Suppose are two vector subspaces of an -dimensional space . Then   \\dim (U_1^\\circ) = n - \\dim (U_1)  U_1^{\\circ \\circ} = U_1  .     For the first two statements, let be a basis for such that is a basis of . Then it is an exercise to see that is a basis of . This shows the first statement and the second follows from repeating the argument with the dual basis and observing that .  For the second statement then for any we have since . Thus .   "
+},
+{
   "id": "exe-planesfromequations",
   "level": "2",
   "url": "sec-vectorspaces2.html#exe-planesfromequations",
   "type": "Exercise",
-  "number": "2.5.1",
+  "number": "2.5.3.1",
   "title": "",
   "body": "Implicit equations for planes in with coordinates are of the form where and are real numbers. If the plane is a vector subspace of . For each of the following planes, find a basis and give a parameterization defined by .      "
 },
@@ -1238,7 +1265,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-vectorspaces2.html#exercise-39",
   "type": "Exercise",
-  "number": "2.5.2",
+  "number": "2.5.3.2",
   "title": "",
   "body": " Prove .  "
 },
@@ -1247,9 +1274,18 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-vectorspaces2.html#exercise-40",
   "type": "Exercise",
-  "number": "2.5.3",
+  "number": "2.5.3.3",
   "title": "",
-  "body": " For each matrix in Exercise , give a basis for the row space and a basis for the column space.  "
+  "body": " For each matrix in Exercise , give a basis for the row space and a basis for the column space. What are the ranks of these matrices?  "
+},
+{
+  "id": "exercise-41",
+  "level": "2",
+  "url": "sec-vectorspaces2.html#exercise-41",
+  "type": "Exercise",
+  "number": "2.5.3.4",
+  "title": "",
+  "body": " Using , explain why you need only one linear equation to describe a plane in but two linear equations to describe a line.  "
 },
 {
   "id": "sec-lineartransformations2",
@@ -1261,9 +1297,9 @@ var ptx_lunr_docs = [
   "body": " Linear Transformations II  In we saw that an arbitrary matrix equations could be solved completely through putting the matrix into reduced echelon form. As we will now see, for vector spaces with chosen bases, we can write any abstract linear transformation between them as a matrix, and leverage our knowledge of matrix equations to better understand the transformations. This also has a tremendous computational advantage in that we can then parametrize all types of linear structures with linear (or more generally affine) transformations.  Suppose and are vector spaces over and are bases of and respectively. Finally, suppose that is a linear transformation. Then for any , we have that is a vector in and can thus be written uniquely as a linear combination of basis vectors in . We write such a combination out here Notice that this gives us scalars for all and which we can place in an matrix   This matrix is called the matrix representation of T . While this may certainly seem like awkward notation, it aligns well with what is known as `tensor notation', commonly used in various branches of physics. What is important though is that it encodes all of the needed data (the transformation and the bases and ). But how is this matrix used to compute with ? Well, we have not used that is a basis yet, so let's do that. We know that \\text{any} vector in has a unique expression as We can feed this into the transformation and use linearity to see The coefficients of the vectors may look familiar, because they were the coordinates from the formula for matrix multiplication in equation . In fact, we can write this observation as an important equation Alternatively, we can give the elegant definition While important, it is easy to relate to a student who sees this equation as confusing gibberish. So we shall tilt our heads for the moment and understand it from the perspective of the diagram   You should look at this diagram in the following way. What we are interested in is the linear transformation from to , so the top row of the diagram is what we care about. But it is abstract and difficult to compute with, so we consider the linear isomorphisms and that place coordinates on and respectively and bring us down to earth on the bottom row of the diagram. Down here, and have been replaced with column vectors of numbers which we can manipulate with basic arithmetic. But equation tells us that we can also work with here as well! In particular, we can write as the concrete matrix of numbers and compute as matrix multiplication . Let's see this worked out in an example.   The matrix of a derivative   Consider as the polynomials of degree less than or equal to with coefficients in . Take to be the linear transformation obtained by taking the derivative. In other words, In order to write out as a matrix, we need to choose bases for and . The natural candidate for is , so we take To find we will simply need to find the coefficients from equation . In other words, we need to take the derivative of our polynomials from and write them out as linear combinations of the polynomials in . Placing these coefficients into the matrix (appropriately!) gives Of course, in this example, since we all know how to take derivatives, the matrix representation of is of limited usefulness. Nonetheless, let us show how equation works in this case. Take the arbitrary quadratic polynomial in and observe that Then multiplying this column vector on the left by gives But this vector represents the element which we all know as the derivative of .    The technique of representing a linear transformation as a matrix already gives us some important results. First though, we define the following notions.     the rank and nullity of a linear transformation   If and are finite dimensional vector spaces over , the rank of a linear transformation , denoted , is the dimension of . The nullity of is the dimension of .   The following theorem gives us a good amount of qualitative information about a linear transformation.   Rank-Nullity Theorem  If and are finite dimensional vector spaces over and linear transformation then    To see this, suppose , and let be the matrix representing relative to some bases on and . Then the kernel of is isomorphic to the null space of (which is the kernel of multiplying by ) and the image of is isomorphic to the column space of (which is the image of multiplying by ). Now, the null space of is the linear subspace of solutions to the matrix equation We saw in that the solutions to these equations were parameterized by where was the number of free columns of . So the nullity of is precisely . On the other hand, showed that the dimension of the column space equaled the number of basic columns of . Now every column of is either free or basic (but not both), so the sum of these two numbers is precisely .    From this we obtain the corollary    Suppose and are finite dimensional vector spaces over and is a linear transformation. Then  if is one-to-one then .  if is onto then .  if is a linear isomorphism then .      For the first claim, represent by a matrix and apply . For the second, if is onto then then so that . By , implying . The last claim follows from the fact that a linear isomorphism is a one-to-one correspondence by definition.    We also can use our theorem to make it easier to detect linear isomorphisms.    If and are finite dimensional vector spaces of the same dimension and is a linear transformation, then the following are equivalent:   is one-to-one.   is onto.   is a linear isomorphism.      Note that is one-to-one if and only if which by holds if and only if . But then since otherwise would be a proper subspace of and would give that . Thus is onto and a linear isomorphism.  Now, if is onto then which again implies by that . This would give that so that is one-to-one and a linear isomorphism.  Clearly, if is a linear isomorphism then it is both one-to-one and onto by definition.    The ability to represent a linear transformation as a matrix is especially important when we consider linear transformations from a vector space to itself In this case, we need only choose one basis of to get a matrix representation because the domain and the codomain are equal. However, if we chose a different basis , it would be good to know how to change this matrix to obtain the matrix representation In fact, it is a nice exercise to show that one can do this with the following invertible matrix by using the simple matrix equation The matrix called a change of basis matrix from to and it allows us to transfer information relative to the basis to that of (and upon taking its inverse, vice versa).    Using the standard basis , represent the linear transformation of the plane which rotates the plane by counter-clockwise rotation of and then reflects over the -axis.  To do this, just ask yourself where the two basis vectors are sent and write the results as the columns of your matrix.  Suppose is represented by the matrix . Show that   if is one-to-one then multiplication by is one-to-one.   if is onto then multiplication by is onto.   the dimension of equals the dimension of the null space of (which is the solution space to ).   there is a linear isomorphism from the image of to the column space of .  Consider using where is the basis for used in the representation .  Let be the real vector space of polynomials of degree or less. Let and . As in the example, let be the derivative. Calculate   ,   .   Expanding out functions in the basis of versus can be thought of as taking second order approximations to functions near instead of (i.e. examining the first three terms of the Taylor series near different points).    Use equation to show that if and are linear transformations and and are bases for and respectively, then     Use to verify equation .    "
 },
 {
-  "id": "p-285",
+  "id": "p-295",
   "level": "2",
-  "url": "sec-lineartransformations2.html#p-285",
+  "url": "sec-lineartransformations2.html#p-295",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1315,18 +1351,18 @@ var ptx_lunr_docs = [
   "body": "  If and are finite dimensional vector spaces of the same dimension and is a linear transformation, then the following are equivalent:   is one-to-one.   is onto.   is a linear isomorphism.      Note that is one-to-one if and only if which by holds if and only if . But then since otherwise would be a proper subspace of and would give that . Thus is onto and a linear isomorphism.  Now, if is onto then which again implies by that . This would give that so that is one-to-one and a linear isomorphism.  Clearly, if is a linear isomorphism then it is both one-to-one and onto by definition.   "
 },
 {
-  "id": "p-299",
+  "id": "p-309",
   "level": "2",
-  "url": "sec-lineartransformations2.html#p-299",
+  "url": "sec-lineartransformations2.html#p-309",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "change of basis matrix "
 },
 {
-  "id": "exercise-41",
+  "id": "exercise-42",
   "level": "2",
-  "url": "sec-lineartransformations2.html#exercise-41",
+  "url": "sec-lineartransformations2.html#exercise-42",
   "type": "Exercise",
   "number": "2.6.1",
   "title": "",
@@ -1342,9 +1378,9 @@ var ptx_lunr_docs = [
   "body": "Suppose is represented by the matrix . Show that   if is one-to-one then multiplication by is one-to-one.   if is onto then multiplication by is onto.   the dimension of equals the dimension of the null space of (which is the solution space to ).   there is a linear isomorphism from the image of to the column space of .  Consider using where is the basis for used in the representation . "
 },
 {
-  "id": "exercise-43",
+  "id": "exercise-44",
   "level": "2",
-  "url": "sec-lineartransformations2.html#exercise-43",
+  "url": "sec-lineartransformations2.html#exercise-44",
   "type": "Exercise",
   "number": "2.6.3",
   "title": "",
@@ -1387,9 +1423,9 @@ var ptx_lunr_docs = [
   "body": "   invertible matrix    A matrix is said to be invertible if it has it has a multiplicative inverse.   "
 },
 {
-  "id": "proposition-10",
+  "id": "proposition-11",
   "level": "2",
-  "url": "sec-matrices3.html#proposition-10",
+  "url": "sec-matrices3.html#proposition-11",
   "type": "Proposition",
   "number": "2.7.2",
   "title": "",
@@ -1495,9 +1531,9 @@ var ptx_lunr_docs = [
   "body": "  A row linear function is alternating if and only if whenever has two identical rows.    Assume is alternating and has two identical rows. Then switching these rows still gives which implies or . Conversely, suppose is row linear and is zero whenever has two identical rows. Then Thus and is alternating.   "
 },
 {
-  "id": "proof-16",
+  "id": "proof-17",
   "level": "2",
-  "url": "sec-matrices3.html#proof-16",
+  "url": "sec-matrices3.html#proof-17",
   "type": "Proof",
   "number": "2.7.3.1",
   "title": "Proof of the existence portion of Theorem 2.7.10.",
@@ -1522,9 +1558,9 @@ var ptx_lunr_docs = [
   "body": "  Suppose satisfies the properties of . Then is invertible if and only if .    Let be the reduced row echelon form of so that there are elementary matrices so that Taking of both sides and repeatedly applying gives Noting that we also have By , is invertible if and only if . If this is the case, then the normalization property says the right hand side is . If not, then must have a row of zeros (because it is a square matrix) which implies by the argument in equation that . This proves the statement.   "
 },
 {
-  "id": "proof-19",
+  "id": "proof-20",
   "level": "2",
-  "url": "sec-matrices3.html#proof-19",
+  "url": "sec-matrices3.html#proof-20",
   "type": "Proof",
   "number": "2.7.3.2",
   "title": "Proof of uniqueness of Theorem 2.7.10.",
@@ -1540,9 +1576,9 @@ var ptx_lunr_docs = [
   "body": "  Given two matrices and then    If either or is not invertible, then is not invertible. Indeed, if were an inverse of then and would show that or had an inverse (here you would need to observe that, for square matrices, a left or right inverse is an inverse which follows from proven independently below). Thus in the non-invertible case both sides are zero. On the other hand, if and are invertible, then by , they are both products of elementary matrices So repeatedly using , we have    "
 },
 {
-  "id": "p-366",
+  "id": "p-376",
   "level": "2",
-  "url": "sec-matrices3.html#p-366",
+  "url": "sec-matrices3.html#p-376",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1558,45 +1594,45 @@ var ptx_lunr_docs = [
   "body": "  If is a right inverse or left inverse of a square matrix , then it is the inverse of .    Since is a square matrix, it represents a linear transformation from to . If it has a left inverse so that then that transformation is one-to-one. But by we have that this means it is an isomorphism. Thus it has an inverse linear transformation which can be represented by a two sided matrix inverse . But then since we may multiply on the right by and obtain . A similar argument applies for the right inverse.   "
 },
 {
-  "id": "exercise-46",
+  "id": "exercise-47",
   "level": "2",
-  "url": "sec-matrices3.html#exercise-46",
+  "url": "sec-matrices3.html#exercise-47",
   "type": "Exercise",
   "number": "2.7.5.1",
   "title": "",
   "body": "Find the inverse of the following matrix using row reduction.      "
 },
 {
-  "id": "exercise-47",
+  "id": "exercise-48",
   "level": "2",
-  "url": "sec-matrices3.html#exercise-47",
+  "url": "sec-matrices3.html#exercise-48",
   "type": "Exercise",
   "number": "2.7.5.2",
   "title": "",
   "body": "Compute the determinants of the following matrices.           "
 },
 {
-  "id": "exercise-48",
+  "id": "exercise-49",
   "level": "2",
-  "url": "sec-matrices3.html#exercise-48",
+  "url": "sec-matrices3.html#exercise-49",
   "type": "Exercise",
   "number": "2.7.5.3",
   "title": "",
   "body": " Verify the first three equations in .  "
 },
 {
-  "id": "exercise-49",
+  "id": "exercise-50",
   "level": "2",
-  "url": "sec-matrices3.html#exercise-49",
+  "url": "sec-matrices3.html#exercise-50",
   "type": "Exercise",
   "number": "2.7.5.4",
   "title": "",
   "body": " Use to show that if is an invertible matrix then   "
 },
 {
-  "id": "exercise-50",
+  "id": "exercise-51",
   "level": "2",
-  "url": "sec-matrices3.html#exercise-50",
+  "url": "sec-matrices3.html#exercise-51",
   "type": "Exercise",
   "number": "2.7.5.5",
   "title": "",
@@ -1639,9 +1675,9 @@ var ptx_lunr_docs = [
   "body": " Transpose of a matrix   Finding the transpose matrix is simple, just swap row entries with column entries. For example, if then    "
 },
 {
-  "id": "proposition-15",
+  "id": "proposition-16",
   "level": "2",
-  "url": "sec-geom1.html#proposition-15",
+  "url": "sec-geom1.html#proposition-16",
   "type": "Proposition",
   "number": "3.1.4",
   "title": "",
@@ -1684,9 +1720,9 @@ var ptx_lunr_docs = [
   "body": " Pythagorean Theorem   The length of the vector is A vector is called a unit vector if .   "
 },
 {
-  "id": "p-396",
+  "id": "p-406",
   "level": "2",
-  "url": "sec-geom1.html#p-396",
+  "url": "sec-geom1.html#p-406",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -1711,9 +1747,9 @@ var ptx_lunr_docs = [
   "body": " Computing the angle between vectors   If we were asked to find the angle between the row vectors and before having the dot product, it is not surprising that we would struggle. But now we just compute lengths and the dot product to see: Putting these into our formula gives or implying that . In this case, we get a quick pleasant answer. However, we see even when we find that that the angle made between and is acute. Were it , they would be perpendicular and if it were negative, they would form an obtuse angle. Point being, even without evaluating , we obtain qualitative information about our vectors.   "
 },
 {
-  "id": "proposition-18",
+  "id": "proposition-19",
   "level": "2",
-  "url": "sec-geom1.html#proposition-18",
+  "url": "sec-geom1.html#proposition-19",
   "type": "Proposition",
   "number": "3.1.11",
   "title": "Triangle Inequality.",
@@ -1747,9 +1783,9 @@ var ptx_lunr_docs = [
   "body": " Cauchy-Schwarz Inequality   If and are vectors in an inner product space, then with equality if and only if and are linearly dependent.   "
 },
 {
-  "id": "exercise-51",
+  "id": "exercise-52",
   "level": "2",
-  "url": "sec-geom1.html#exercise-51",
+  "url": "sec-geom1.html#exercise-52",
   "type": "Exercise",
   "number": "3.1.4.1",
   "title": "",
@@ -1765,9 +1801,9 @@ var ptx_lunr_docs = [
   "body": "Find the angle between the vectors      "
 },
 {
-  "id": "exercise-53",
+  "id": "exercise-54",
   "level": "2",
-  "url": "sec-geom1.html#exercise-53",
+  "url": "sec-geom1.html#exercise-54",
   "type": "Exercise",
   "number": "3.1.4.3",
   "title": "",
@@ -1783,9 +1819,9 @@ var ptx_lunr_docs = [
   "body": " Suppose is a non-zero vector in . Projecting another vector to means finding the part of that points parallel to . More precisely, there are unique vectors and for which where is orthogonal to and is the projection. Explain why the formula gives the vector projection .  "
 },
 {
-  "id": "exercise-55",
+  "id": "exercise-56",
   "level": "2",
-  "url": "sec-geom1.html#exercise-55",
+  "url": "sec-geom1.html#exercise-56",
   "type": "Exercise",
   "number": "3.1.4.5",
   "title": "Cauchy-Schwarz Proof.",
@@ -1837,9 +1873,9 @@ var ptx_lunr_docs = [
   "body": " Gram-Schmidt   Given a basis of an inner product space , the algorithm above creates an orthogonal basis . Normalizing each vector gives an orthonormal basis.   "
 },
 {
-  "id": "definition-31",
+  "id": "definition-33",
   "level": "2",
-  "url": "sec-geom2.html#definition-31",
+  "url": "sec-geom2.html#definition-33",
   "type": "Definition",
   "number": "3.2.5",
   "title": "",
@@ -1891,27 +1927,27 @@ var ptx_lunr_docs = [
   "body": "   projection to a vector subspace    Let be an inner product space and a subspace. Given a vector , the projection of to , denoted is the vector in which is closest to .   "
 },
 {
-  "id": "proposition-19",
+  "id": "proposition-20",
   "level": "2",
-  "url": "sec-geom2.html#proposition-19",
+  "url": "sec-geom2.html#proposition-20",
   "type": "Proposition",
   "number": "3.2.11",
   "title": "",
   "body": "  Let be an inner product space and a subspace which has an orthonormal basis . Given a vector of the decomposition in is given by and    To see the first equation, we note that has already given us a unique decomposition . Given any vector we observe that the square of the distance from to is Here we used the fact that because both and are in while is in . Clearly, if then this distance squared is greater than . Thus minimizes the distance from to and is the projection. Examining the proof of we see that is given explicitly as the linear combination in equation .   "
 },
 {
-  "id": "exercise-56",
+  "id": "exercise-57",
   "level": "2",
-  "url": "sec-geom2.html#exercise-56",
+  "url": "sec-geom2.html#exercise-57",
   "type": "Exercise",
   "number": "3.2.1",
   "title": "",
   "body": " Let and consider the Hilbert space given in . Show that the set is in fact an orthonormal set of vectors. In fact, this set makes up what is known as a Hilbert basis (which is a good infinite dimensional version of a basis).  "
 },
 {
-  "id": "exercise-57",
+  "id": "exercise-58",
   "level": "2",
-  "url": "sec-geom2.html#exercise-57",
+  "url": "sec-geom2.html#exercise-58",
   "type": "Exercise",
   "number": "3.2.2",
   "title": "",
@@ -1927,27 +1963,27 @@ var ptx_lunr_docs = [
   "body": "Apply the Gram-Schmidt algorithm to obtain orthogonal bases for the subspaces spanned by the following collections of vectors. Give an orthonormal bases afterwards.   The vectors    The two vectors spanning the plane in    "
 },
 {
-  "id": "exercise-59",
+  "id": "exercise-60",
   "level": "2",
-  "url": "sec-geom2.html#exercise-59",
+  "url": "sec-geom2.html#exercise-60",
   "type": "Exercise",
   "number": "3.2.4",
   "title": "",
   "body": " Given a vector subspace of an inner product space , show that the orthogonal complement of is in fact a vector subspace.  "
 },
 {
-  "id": "exercise-60",
+  "id": "exercise-61",
   "level": "2",
-  "url": "sec-geom2.html#exercise-60",
+  "url": "sec-geom2.html#exercise-61",
   "type": "Exercise",
   "number": "3.2.5",
   "title": "",
   "body": " Let Find where was given in part (b) of .  "
 },
 {
-  "id": "exercise-61",
+  "id": "exercise-62",
   "level": "2",
-  "url": "sec-geom2.html#exercise-61",
+  "url": "sec-geom2.html#exercise-62",
   "type": "Exercise",
   "number": "3.2.6",
   "title": "",
@@ -1963,9 +1999,9 @@ var ptx_lunr_docs = [
   "body": " Diagonalization   We now return to linear transformations and tackle the problem of diagonalization. Let us first put ourselves in the right context. The linear transformations we want to consider here have domain equal to the codomain so that they are functions Such a transformation is often called a linear operator . One reason this is important is that we can then form equations relating vectors to their values. In particular, we may want to understand solutions to or Vectors satisfying the first equation are not changed by and those satisfying the second are flipped around . As it turns out, if some conditions are satisfied, we already have the tools to solve these equations and their generalizations.    -eigenvector  Eigenvector and eigenspace of a linear operator    Let be a linear operator. A non-zero vector is called an eigenvector of if there is a scalar in for which Any such scalar will be called an eigenvalue of . For a given , the vector subspace of solutions to equation is called the -eigenspace of .    We will often refer to eigenvectors and eigenvalues of matrices as well. When we do, we mean eigenvectors and eigenvalues of the linear transformation obtained by multiplying on the left by the matrix. Let us take a look at a few examples.   Diagonal matrices   Multiplying column vectors in by a diagonal matrix will give us eigenvalues with eigenvectors equal to the standard basis vectors .     Eigenvalues of a matrix   More generally, matrices often have eigenvalues that cannot be detected by merely looking at their entries. For example, the matrix has eigenvalues and (which don't seem to me like numbers that pop right out). Indeed, and While the zero vector appears on the right hand side of this equation, be very careful not to take it on the left ... the zero vector is not an eigenvector by definition (otherwise, every number would be an eigenvalue!).     Complex eigenvalues   The plot thickens even more when we consider our number system. For example, the very innocuous looking matrix has no eigenvalues or eigenvectors when thought of as a real matrix. In other words, there are no nonzero numbers and a real for which However, if we use the same matrix, but work over we see that and    These examples may lead the student to throw up their hands and exclaim that this whole business is too complicated and not worth the effort. However, I encourage them not to give up. What we get out of solving these problems is a slew of amazing and important applications! Let us first though state the problems to be solved:  Given a linear transformation on a finite dimensional vector space :    Eigenvalue Problem Find all eigenvalues of .   Eigenvector Problem For an eigenvalue , find all -eigenvectors.   Diagonalization Problem What conditions ensure that there is a basis of consisting of eigenvectors of ?     Eigenvalue Problem  To solve this problem, we first leverage the fact that the domain and codomain of are the same to define the determinant of .     Determinant of a linear operator    Given a finite dimensional vector space and a linear transformation , the determinant of , denoted , is the determinant of any matrix representing with respect to the same basis. I.e. for any basis of .    Of course, this definition may seem suspicious at first. As I have been emphasizing, an abstract vector space does not come with a basis, but rather one must choose a basis. So what happens if one person chooses a basis to compute and another chooses a different basis ? Students with great memories will recall equation and which showed that if and were two different matrix representations of the same linear transformation , then But then by we have So indeed, defining with either matrix gives the same quantity.  For the insightful philosophical student, simply justifying that this definition gives a well defined number may not be satisfying. They may reasonably ask why, if is a computation of volume and volume is a measure that can only be given in an inner product space, does it make sense to talk about for a linear transformation on an abstract vector space? What does this have to do with volume!? Well, the answer is that does not specify the volume of anything at all in , but it tells you exactly how much the volume of something changes if you apply . In particular, if you have a box in a real vector space , you may assign many different inner products to to produce many different values of . However, no matter how you do this, you will always get the equation  For the impatient student, going over all of this may be quite annoying and they may ask - why are you bothering me about this now ... what does this have to do with eigenvalues!?? To which I would say:    The number in is an eigenvalue of if and only if    We have that is an eigenvalue if and only if there is a non-zero in for which or equivalently if . But this is equivalent to saying that is in the kernel of . We know that this would happen if and only if is not a one-to-one transformation. Since is a linear transformation between spaces of the same dimension, shows that is not one-to-one if and only if it is not invertible. But this is the case if and only if any matrix representing it is not invertible which by can be true if and only if .    This proposition suggests the following definition.     Characteristic polynomial of a linear operator    If is a finite dimensional vector space, the characteristic polynomial of a linear transformation is given by     Here the variable is just that, a variable. You will show in the exercises that if then is always a degree polynomial. Thus then immediately yields.    If and is a linear transformation, there are at most eigenvalues of corresponding to roots of the characteristic polynomial .    As before, when is given by a representing matrix , we will write and talk about the characteristic polynomial of the matrix. To be certain we are not lost in abstraction, let us see that this polynomial can easily be computed.   Characteristic polynomial of a matrix I   Let us reconsider the case of multiplying by Subtracting from times the identity gives and taking determinant then produces For those that did not imagine how we could find the eigenvalues of and before, this polynomial should light a bit of a spark! By , the eigenvalues must solve the equation , or equivalently, be roots of .     Characteristic polynomial of a matrix II   On the other hand, we may consider multiplying by Here we get Solving the equation leads to the unimaginable which no one can really solve. Except complex people.    Now, we should mentioned that while what we have learned is progress, it also has limitations. The problem is that we have replaced our problem of finding eigenvalues with another problem of finding roots of a polynomial. For small matrices, this problem can be solved with complete accuracy and we will be pleased. However, for larger matrices we get higher degree polynomials. Finding exact roots of such polynomials can be an impossible task (although approximation methods exist). Nevertheless, we should not neglect the fact that we now have a much better understanding of what can happen. In particular, we cannot have infinitely many eigenvalues (in fact the number is bound by the dimension) and they all occur as roots of a polynomial coming directly from the transformation.    Eigenvector Problem  Having made great progress with our eigenvalue problem, we may ask some questions about the vectors that accompany them. A student with applications in mind may quickly ask: How do we find the -eigenvectors? to which I would respond : Solve a matrix equation!   Eigenvectors of a matrix   Let's consider a new computational example of multiplying by The first step to finding eigenvectors is to find the eigenvalues. To do this, we learned to find the characteristic polynomial One can check that is a root, divide by and factor to see that Thus we see that our eigenvalues are and . It is interesting to note that we have multiplicity here for the root which means that factors the polynomial. When you see this, your eyebrows should be raised and you should be on alert for unexpected phenomena.  To find the -eigenvectors, we simply solve the equation . Writing this out we are solving The reduced row echelon form of this matrix equation is just So we write a parametric solution with parameter (so as to not confuse it with the in the characteristic polynomial) In particular is a -eigenvector.  Repeating this process with the eigenvalue gives the equation with reduced row echelon form So we write a parametric solution In particular is a -eigenvector.    While this example was a delight to work through, it did raise a question. In general, we expect to obtain different roots to a degree polynomial. This would give us different eigenvectors in a dimensional space. It is natural to ask whether we get a basis from these vectors or not. It is also natural to ask what happened in this example... we only got two vectors!? These types of questions are all about diagonalization.    Diagonalization Problem  We now pick up the question of the eigenvectors of and whether we can form a basis from them. First, let's give such a collection a name.     Eigenbasis of a linear operator    A collection is called an eigenbasis for if it is a basis of eigenvectors of .    While it may seem at first that you will have to work hard to find an eigenbasis, the following proposition shows that, in many cases, we already know how to obtain one.    If are eigenvectors with distinct eigenvalues, then they are linearly independent.    Since are eigenvectors, they are all non-zero. So this means that is a linearly independent set. If is an eigenvalue, we will assume is its eigenvector. Let us keep going and say that is the largest number for which is linearly independent, but is linearly dependent. Then we know that there are numbers for which We note that these numbers must be unique , for otherwise, we could subtract the other relation and obtain Since the vectors are linearly independent, this would mean for each (showing they are unique).  However, we can apply to both sides of equation to obtain Since , we may divide and obtain Now, not all are zero for (otherwise would be a multiple of and a zero eigenvector), so there is at least one whose coefficient in equation has changed from to . But since these must be equal, we must have that which contradicts the assumption that all eigenvalues were distinct. This proves the lemma.    This lemma gives us a useful corollary.    If has distinct roots, then has an eigenbasis for .    The converse of this corollary is definitely false. For example, any basis of is an eigenbasis for the identity transformation which has .  One may ask why an eigenbasis is so useful. The answer is that if you have an eigenbasis, your linear transformation becomes very easy to understand. In particular, all your transformation is doing is scaling each coordinate corresponding to your basis vectors. We can understand this fact by representing with respect to an eigenbasis as the matrix .    If is an eigenbasis for the linear transformation with eigenvalues then    This follows from simply following the definition of . Indeed, we have But this means that the -th column of is , or, that .    This proposition and indeed the idea of representing linear transformations as matrices via bases, leads to a connection between eigenbases and diagonalization. Let us first define a diagonalizable matrix.     Diagonalizable matrix   A square matrix is diagonalizable if there is an invertible matrix such that    This definition most certainly will appear meaningless to the uninitiated as it leaves murky the main idea behind diagonalizable matrices. Namely, that there is a change of coordinates for which the linear transformation induced by is extremely simple. Let us pose this as a proposition.    Let be an matrix and the linear transformation associated to multiplying column vectors by . The matrix is diagonalizable by and if and only if has an eigenbasis where is a -eigenvector. Furthermore, if this is the case, then one can take so that the columns of are the eigenvectors .    If is diagonalizable then there is an invertible matrix as which satisfies the equation (by definition). Consider the set and notice that it is a basis of (since it is the image of the standard basis and is invertible). Also, we then have Showing that is an eigenbasis for .  Conversely, if has an eigenbasis , then shows that the representing matrix . Now, is also a matrix representing , but relative to the standard basis, so that if we write then . Taking to be the change of basis matrix from the standard basis to the eigenbasis, and using equation we see so that is diagonalizable.    Let us give an example that illustrates this proposition.     Consider diagonalizing the matrix This is in fact a bit of an undertaking, but we now know all of the steps. First, let us find the eigenvalues by obtaining the characteristic polynomial Thus the eigenvalues are the roots of . Now, generally at this point one may have to worry about the existence of an eigenbasis, but in our case we have distinct eigenvalues so that reassures us that we do indeed have an eigenbasis. Now we need only solve three linear equations to find it (as an aside: one could try to solve these simultaneously by row reducing with rational functions... but we will keep to our basic approach). First, we take and solve which has reduced row echelon form Leading to the -eigenvector Now taking gives which has reduced row echelon form leading to the -eigenvector Finally taking gives which has reduced row echelon form leading to the -eigenvector So we have achieved the goal of finding an eigenbasis!   But what about diagonalizing ? Well, here we apply , and in particular the last sentence where is identified as the change of basis matrix from the standard basis to the eigenbasis. But this means that is the matrix whose columns are the eigenvectors, so that Either using our determinant formula or through an augmented row reduction, we can calculate the inverse Finally, we encourage the student to compute and confirm     We end this section in blissful ignorance with a vague false hope that we can always diagonalize. Our dreams will be crushed next section, but a nuanced understanding will replace our Pollyanish viewpoint!    Let be a linear transformation of the vector space over . Explain your responses to:   True or False : If then has an eigenvalue.   True or False : If then has an eigenvalue.   True or False : This exercise is one of the main reasons to study complex numbers in this course.   The answer is `True' and you don't have to explain.    Recall that rotation matrices in are of the form Besides the identity matrix, are there any rotations which have real eigenvalues? Explain your response.    Note that if is any number in and is a degree polynomial that is a degree polynomial and has degree less than . Using this, explain why is a degree polynomial for an matrix.    Suppose are numbers in . Find the characteristic polynomial of the -matrix    Let    Find the eigenvalues of .   Is there an eigenbasis for ? Explain your response.   Find an eigenvector for each eigenvalue.   Find a matrix for which is a diagonal matrix (in other words, diagonalize ).    Diagonalize the matrix from when considered as a complex matrix.  Feel free to use numbers like and ... that's what they're there for!   "
 },
 {
-  "id": "p-468",
+  "id": "p-478",
   "level": "2",
-  "url": "sec-diag1.html#p-468",
+  "url": "sec-diag1.html#p-478",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -2152,9 +2188,9 @@ var ptx_lunr_docs = [
   "body": " Recall that rotation matrices in are of the form Besides the identity matrix, are there any rotations which have real eigenvalues? Explain your response.  "
 },
 {
-  "id": "exercise-64",
+  "id": "exercise-65",
   "level": "2",
-  "url": "sec-diag1.html#exercise-64",
+  "url": "sec-diag1.html#exercise-65",
   "type": "Exercise",
   "number": "4.1.4.3",
   "title": "",
@@ -2170,18 +2206,18 @@ var ptx_lunr_docs = [
   "body": " Suppose are numbers in . Find the characteristic polynomial of the -matrix   "
 },
 {
-  "id": "exercise-66",
+  "id": "exercise-67",
   "level": "2",
-  "url": "sec-diag1.html#exercise-66",
+  "url": "sec-diag1.html#exercise-67",
   "type": "Exercise",
   "number": "4.1.4.5",
   "title": "",
   "body": "Let    Find the eigenvalues of .   Is there an eigenbasis for ? Explain your response.   Find an eigenvector for each eigenvalue.   Find a matrix for which is a diagonal matrix (in other words, diagonalize ).  "
 },
 {
-  "id": "exercise-67",
+  "id": "exercise-68",
   "level": "2",
-  "url": "sec-diag1.html#exercise-67",
+  "url": "sec-diag1.html#exercise-68",
   "type": "Exercise",
   "number": "4.1.4.6",
   "title": "",
@@ -2206,9 +2242,9 @@ var ptx_lunr_docs = [
   "body": "   Direct sum of transformations    If , , and we write to be the linear transformation which takes to . Here the vectors and are the unique vectors in and respectively that add to .   "
 },
 {
-  "id": "proposition-23",
+  "id": "proposition-24",
   "level": "2",
-  "url": "sec-jnf.html#proposition-23",
+  "url": "sec-jnf.html#proposition-24",
   "type": "Proposition",
   "number": "4.2.2",
   "title": "",
@@ -2332,18 +2368,18 @@ var ptx_lunr_docs = [
   "body": " Jordan normal form of a matrix   Let us now endeavor to work through an example with a little bit of nuance. Take One can compute the characteristic polynomial of this matrix as usual, or they can observe that it is a block lower triangular matrix with diagonal blocks and This implies that which simplifies our computation. We check that and so that Thus the eigenvalues of are and . gives us that and . So we first find a -eigenvector by solving the equation or One can find here that gives a non-trivial solution. For the generalized -eigenspace we consider the matrix which is The generalized -eigenspace has dimension , so is zero on this space (by the Cayley-Hamilton Theorem) and we can find a basis for it by simply solving the equation . However, this is not the most effective way at seeing the Jordan Normal Form. Instead, we will first find our -eigenspace by solving We can see that are linearly independent -eigenvectors. We can also see that these span our solution space to equation . This means that is not diagonalizable, but that there is a non-trivial Jordan block. To find it, we just need some vector that would be sent to one of the two -eigenvectors above by . Had I chosen my solutions above at random, there may not be such a vector and we would have to adjust the two eigenvectors so that one of them is in the image of . However, I have been judicious in my choice and we see that is indeed such a vector. Thus the basis will satisfy the requirements of . Indeed, taking to be the matrix with columns given by these vectors, we have Here we have two block matrices and with three Jordan matrices, in and in .   "
 },
 {
-  "id": "exercise-68",
+  "id": "exercise-69",
   "level": "2",
-  "url": "sec-jnf.html#exercise-68",
+  "url": "sec-jnf.html#exercise-69",
   "type": "Exercise",
   "number": "4.2.1",
   "title": "",
   "body": " Let Without using row reduction or the determinant \/ adjugate formula, find the inverse of .  "
 },
 {
-  "id": "exercise-69",
+  "id": "exercise-70",
   "level": "2",
-  "url": "sec-jnf.html#exercise-69",
+  "url": "sec-jnf.html#exercise-70",
   "type": "Exercise",
   "number": "4.2.2",
   "title": "",
@@ -2359,18 +2395,18 @@ var ptx_lunr_docs = [
   "body": "Give an example of a nilpotent matrix which has   a one dimensional kernel.   a two dimensional kernel.  "
 },
 {
-  "id": "exercise-71",
+  "id": "exercise-72",
   "level": "2",
-  "url": "sec-jnf.html#exercise-71",
+  "url": "sec-jnf.html#exercise-72",
   "type": "Exercise",
   "number": "4.2.4",
   "title": "",
   "body": " True or False (with explanation) : If two linear transformations have the same characteristic polynomial, then they can be represented by the same matrix.  "
 },
 {
-  "id": "exercise-72",
+  "id": "exercise-73",
   "level": "2",
-  "url": "sec-jnf.html#exercise-72",
+  "url": "sec-jnf.html#exercise-73",
   "type": "Exercise",
   "number": "4.2.5",
   "title": "",
@@ -2431,9 +2467,9 @@ var ptx_lunr_docs = [
   "body": "   Self-adjoint operator    Let be an inner product space, a linear transformation and its adjoint. We say that is self-adjoint if .   "
 },
 {
-  "id": "p-603",
+  "id": "p-613",
   "level": "2",
-  "url": "sec-spectral.html#p-603",
+  "url": "sec-spectral.html#p-613",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -2476,9 +2512,9 @@ var ptx_lunr_docs = [
   "body": "  If is a quadratic form on , then for any basis of there is a unique symmetric matrix for which Furthermore, if is another basis, then there is an invertible matrix for which     For the first statement, we need only show there is a symmetric matrix as equation gives us the existence of some matrix. But is in fact a symmetric matrix (because it is ), so Another symmetric matrix that we can obtain from is Indeed, we see that To see that is the only symmetric matrix that will produce relative to the coordinates given by , one observes that the diagonal entries are obtained by and the off diagonal ones by .  To see the last statement about relating to , just note that if is a vector in with coordinates , with respect to and , then, letting be the change of coordinate matrix, we have which gives Now, by exercise the matrix is symmetric and since is the unique symmetric matrix for which we must have    "
 },
 {
-  "id": "p-619",
+  "id": "p-629",
   "level": "2",
-  "url": "sec-spectral.html#p-619",
+  "url": "sec-spectral.html#p-629",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -2521,27 +2557,27 @@ var ptx_lunr_docs = [
   "body": " Two real -matrices and are called congruent if there is an invertible matrix with . Show that if is symmetric then so is every matrix congruent to .  "
 },
 {
-  "id": "exercise-75",
+  "id": "exercise-76",
   "level": "2",
-  "url": "sec-spectral.html#exercise-75",
+  "url": "sec-spectral.html#exercise-76",
   "type": "Exercise",
   "number": "4.3.3.3",
   "title": "",
   "body": "Suppose one has the (extremely small) data set with vectors    Compute the mean of this data set.   Compute the covariance matrix of this data set.   Find eigenvalues and eigenvectors for the covariance matrix.   Sketch an ellipse describing the bivariate distribution of this data set.  "
 },
 {
-  "id": "exercise-76",
+  "id": "exercise-77",
   "level": "2",
-  "url": "sec-spectral.html#exercise-76",
+  "url": "sec-spectral.html#exercise-77",
   "type": "Exercise",
   "number": "4.3.3.4",
   "title": "",
   "body": " Show that is positive semi-definite as in equation . Use this to show that it has only non-negative eigenvalues.  "
 },
 {
-  "id": "exercise-77",
+  "id": "exercise-78",
   "level": "2",
-  "url": "sec-spectral.html#exercise-77",
+  "url": "sec-spectral.html#exercise-78",
   "type": "Exercise",
   "number": "4.3.3.5",
   "title": "",
@@ -2557,9 +2593,9 @@ var ptx_lunr_docs = [
   "body": " Paths   We have now acquired a solid body of linear algebra knowledge. It's time to apply it to the non-linear world!    Curves vs. Paths  Recall that a path is defined to be a function   Here the domain is a (potentially infinite) interval in . A curve is the image of one or more paths. In this course, we distinguish between a path and a curve, although some texts refer to paths as `parameterized curves', which is a more explicit description of what they are - a path gives a (connected) curve a (non-linear) coordinate or parameter. Let us formalize this notion.     Parameterized curve    Given a curve in a vector space , we say that  parameterizes  if it is one-to-one and its range is (except possibly at the endpoints). If is a connected interval , or , we will say that is a connected curve.    There are three common notations we will encounter. If or , we may write respectively. It is also very common to see these written out as row vectors with the notation In the general case, we will write In this setting, it is common to write the path as and we often use this instead of in this case. Let us take a look at some common curves and their parameterizations.     For a fixed positive real number , the path will be used frequently as it parameterizes the circle of radius centered at the origin. In this case, the circle is the curve and is a path. Of course, here we would take the domain of to be an interval like or . A variant of this is the path This parameterizes the ellipse given by     Before giving the next example, let's define a line!     Line in a vector space    Given a non-zero real vector space , a line in is any subset which equals the translation of a one-dimensional vector subspace in .    The reason for including the translation is that vector subspaces always pass through the origin and we often want to consider lines which do not. Of course, we will consider translating by as an option, so lines passing through the origin do count as lines!   Parameterizing lines   A quick look at will confirm that a line in is indeed a curve, not a path. It does not come with any given parameterization. However, it does assert that there must be a vector and a one dimensional subspace such that Given this information, we actually can parameterize by choosing a basis (or in this case, a single non-zero vector) of . Indeed, once we do this, we consider the function Since every vector in is uniquely written as a multiple for some , this will be a one-to-one correspondence from to our line . This is called in some texts the vector parameterization of , is called the initial vector , and is called the direction vector . Of course, we could have chosen a non-zero multiple of as our direction vector and would be another path parameterizing . Again, paths parameterizing the same curve may be different!    We recall the discussion from about the fact that in the path setting, we assign a number to each point of the curve. So the path has much more information in it than the curve. In some ways, this information is useful because we can compute. But often, we are not as interested in the extra information as we are the curve itself. For example, we may want to know the length of the curve which does not depend on our parameterization.  In many ways, this difference is analogous to the difference between a real -dimensional vector space and . The former is something we may be interested in, but the latter is something we can compute with. A basis of gives us a way of parameterizing with coordinates in and studying important features. But enough reminiscing, back to paths!    Tangent Vectors of Paths  All of the notation conventions for paths are with respect to paths with codomain (or ), but we will promote this a bit by taking our codomain to be an arbitrary inner product space over and considering paths to be vector valued functions of one variable (which usually will be ) Thus will be a vector in dependent on a `time' parameter . Of course, for finite dimensional real inner product spaces with a choice of basis, a path in this sense can be written with coordinates using the basis, and we may freely go back and forth once such a basis is chosen. In particular, we will often use the form of equation in examples and exercises as it is where we can compute most effectively.  However, in some contexts it is helpful to keep the flexibility of working over complex numbers or without a predetermined choice of basis. In particular, some results and definitions are best expressed without these constraints. Here is an example.     Arithmetic of paths    If , are paths in the inner product space over , a vector space over , a linear transformation, and is a scalar, then   defines the sum of two paths,   defines the pairing of two paths and gives a scalar function of ,   is the path of the composition of with .     Thus we can do vector arithmetic on paths and compute angles and distances between paths (at varying times). However, the main ingredient that an inner product provides that allows for us to start doing calculus is distance. This is because without it (or a more general form of it called a topology), we cannot make sense of the following notion.     Velocity and tangent vector of a path    Let be an interval in with in its interior and a path in . The tangent vector or velocity vector of at is If this is well defined at all in , we will say that is differentiable and write for the path of tangent vectors .    The tangent vector at is also sometimes written as (although we will refrain from using this notation to avoid confusion with vectors in ). It is also very common to see it written as or,  Now, I ask that the student look carefully at equation and consider what is within the limit, namely For a given (note that is fixed), the object inside the parentheses is the difference of two vectors in , so it is a vector in . We are scalar multiplying this by the non-zero real scalar . So altogether this expression is a vector for any . In fact, it is a rescaled the displacement vector from at time to at time .  In fact, if and were our one variable function, this definition would simply be which every red blooded high school student knows as the derivative!  But as was mentioned above, the key ingredient that we need to make sense of the definition for higher dimensions is the inner product (which gives us a definition of distance, and in turn, for the limit). Right now, this is just a comment and I ask students to make a mental note of it and consider reading through an introductory analysis book to gather a more in depth understanding of limits in many dimensions. Suffice it to say, many results that we had in one variable carry over to many variables. In particular, we have the following two very useful propositions.    Taking tangent vectors is a linear operation. Concretely, if and are differentiable at and is a scalar (complex or real) then is differentiable at and Moreover, if is a differentiable function to , is a vector in (not dependent on ) and , then     The proof of this fact follows from some basic analysis, so we will omit these details.    We also have the proposition.    Suppose is a finite dimensional vector space and is a path in defined on an interval around . Then:  If is differentiable at then is differentiable at for every linear dual .  If is a basis of the dual space and is differentiable at for each then so is . Moreover, if form the dual basis then       We should read this last proposition in the following way. Part (1) says that if a path is differentiable, then its coordinate functions are differentiable for any coordinate system you choose. Part (2) is a converse to this - it says if the coordinates of in any given basis are differentiable functions of , then so is and furthermore the tangent vector has coordinates that are derivatives of the coordinates. Let us write this as a corollary which is really just a rephrasing of part (2).    If is differentiable at then    With a little help of some basic analysis, we can prove . By the fact that a dual vector is a continuous function, a linear scalar function is a continuous map which implies that composing commutes with limits. But finding the tangent vector is such a limit and we see that Thus, if is differentiable, then the left hand side exists which implies the right exists as well.  On the other hand, assume the right hand side exists for a basis of dual vectors . The have a dual basis as in equation and any vector has the unique expression This is also true for so we have Now, the existence of the derivatives of the coordinate functions and gives     With in hand, we can calculate tangent vectors confidently.   Computing tangent vectors   Suppose Its tangent vector can be computed by taking derivatives of the components so that This example illustrates the more general application of , if is a path in and you want to find its tangent vector, you need only take derivatives of the coordinate functions and you are done.    Certainly, being able to compute tangent vectors is useful, but so is knowing that our prior rules and results still hold.   Product Rule for Paths   If is a differentiable scalar valued function and are differentiable paths, then            For the first statement, we simply write in coordinates for some basis and differentiate using . The second statement is proved similarly and is left to the student.     Chain Rule for Paths   If is a finite dimensional inner product space, and intervals in , a differentiable function, and a differentiable path, then    The proof is left as an exercise.      The Geometry of Curves  There is much to say about the geometry of curves, and here we will define only a few important notions, saving for later a more detailed discussion.     Speed of a path    A differentiable path has speed  at .    Note that speed and velocity are two different (but related) concepts. In particular, velocity is a vector, while speed is a non-negative scalar.   Speed of a parameterized helix   To find the speed of the helix we first find the velocity and take the magnitude     Just as in one variable calculus, we will wish to talk about vectors being `tangent' to a curve (and latter a surface or subspace).    generalized  Tangent line to curve    Let be a curve. We say a vector is tangent to at if there is a differentiable parameterization so that and is a scalar multiple of . The tangent line to is the line where is the subspace of tangent vectors to at .     Tangent line to a hyperbola   Consider the positive branch of the hyperbola It was seen in that this branch is parameterized by the hyperbolic trigonometric functions via To write down a parametric equation for the tangent line to the curve at, say, , we need only find the tangent vector and use this as the direction vector to obtain     A can be useful to have a tangent vector to a curve which is a unit vector. This can be accomplished by normalizing the tangent vector. In fact, such a vector has a name.     Unit tangent vector    The unit tangent vector  to a curve at a point is a unit vector which is tangent to at . We call the function which assigns a point of to its unit tangent vector the unit vector frame of .    If the curve is parameterized by , we may write instead of .   Finding the unit vector frame   To find unit vectors of the helix from , we simply normalize the velocity vector by dividing by the speed.     One of the reasons to consider unit tangent vectors is that they give us ways of projecting other vectors along the curve at a point. We will see this approach when we integrate along curves later on.     Give a path parameterizing the line in which passes through the vectors and .   Find the tangent vectors of the following paths   where .   where .   Compare your answers by relating to via the real linear isomorphism Explain your findings.    Consider a slightly more general case than the previous exercise. Suppose is a complex number. Show that   Find the speed and unit tangent vectors for the following paths   where ..   where .    Prove .    Suppose is a differentiable path that parameterizes and . We can reparameterize by composing with another differentiable function with . Suppose and write for the new parametrization. Show that the tangent vectors and are linearly dependent. This shows that a curve only has a tangent line (not a plane).    The acceleration vector of a twice differentiable path is . We say that a curve is arc length parameterized by if the speed of is for all . Show that if is an arc length parameterization then its velocity and acceleration are orthogonal. In other words, show that for every .    "
 },
 {
-  "id": "p-643",
+  "id": "p-653",
   "level": "2",
-  "url": "sec-paths.html#p-643",
+  "url": "sec-paths.html#p-653",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -2728,18 +2764,18 @@ var ptx_lunr_docs = [
   "body": " Finding the unit vector frame   To find unit vectors of the helix from , we simply normalize the velocity vector by dividing by the speed.    "
 },
 {
-  "id": "exercise-78",
+  "id": "exercise-79",
   "level": "2",
-  "url": "sec-paths.html#exercise-78",
+  "url": "sec-paths.html#exercise-79",
   "type": "Exercise",
   "number": "5.1.4.1",
   "title": "",
   "body": " Give a path parameterizing the line in which passes through the vectors and .  "
 },
 {
-  "id": "exercise-79",
+  "id": "exercise-80",
   "level": "2",
-  "url": "sec-paths.html#exercise-79",
+  "url": "sec-paths.html#exercise-80",
   "type": "Exercise",
   "number": "5.1.4.2",
   "title": "",
@@ -2755,36 +2791,36 @@ var ptx_lunr_docs = [
   "body": " Consider a slightly more general case than the previous exercise. Suppose is a complex number. Show that  "
 },
 {
-  "id": "exercise-81",
+  "id": "exercise-82",
   "level": "2",
-  "url": "sec-paths.html#exercise-81",
+  "url": "sec-paths.html#exercise-82",
   "type": "Exercise",
   "number": "5.1.4.4",
   "title": "",
   "body": "Find the speed and unit tangent vectors for the following paths   where ..   where .  "
 },
 {
-  "id": "exercise-82",
+  "id": "exercise-83",
   "level": "2",
-  "url": "sec-paths.html#exercise-82",
+  "url": "sec-paths.html#exercise-83",
   "type": "Exercise",
   "number": "5.1.4.5",
   "title": "",
   "body": " Prove .  "
 },
 {
-  "id": "exercise-83",
+  "id": "exercise-84",
   "level": "2",
-  "url": "sec-paths.html#exercise-83",
+  "url": "sec-paths.html#exercise-84",
   "type": "Exercise",
   "number": "5.1.4.6",
   "title": "",
   "body": " Suppose is a differentiable path that parameterizes and . We can reparameterize by composing with another differentiable function with . Suppose and write for the new parametrization. Show that the tangent vectors and are linearly dependent. This shows that a curve only has a tangent line (not a plane).  "
 },
 {
-  "id": "exercise-84",
+  "id": "exercise-85",
   "level": "2",
-  "url": "sec-paths.html#exercise-84",
+  "url": "sec-paths.html#exercise-85",
   "type": "Exercise",
   "number": "5.1.4.7",
   "title": "",
@@ -2800,9 +2836,9 @@ var ptx_lunr_docs = [
   "body": " Linear Constant Coefficient ODE I  In this section, we will look at and solve our first non-trivial ordinary differential equation. First though, we recall what it is that we are trying to solve. Quite generally, let be a finite dimensional inner product space and be a collection of functions, one for every in some interval . This collection should be thought of as a time varying vector field , which we will study in later sections. The general ordinary differential equation can be written A particular solution to this equation is simply some path that satisfies this equation. However, just as is the case with solving a linear system of equations, we can ask for a general solution which will include parameters and give all solutions to our equation. Sadly, for most ODEs, finding any closed form solution is out of the question. Nonetheless, we will see a theorem assuring us that a solution exists (under some mild conditions on ) and that, once the initial condition is fixed, this solution is unique. Let us state this last fact as a theorem that will be proved later.   Uniqueness of Solutions to ODEs   Suppose and solve equation under suitable conditions and , then .    The suitable conditions mentioned in this theorem concern differentiability of , which we will study in the coming sections. As was mentioned, finding closed solutions to a general ODE can be difficult to impossible. However, the situation changes if we restrict our attention to only certain types of functions .     Homogeneous linear constant coefficient ordinary differential equation    Given a finite dimensional inner product space over , a homogeneous linear constant coefficient ordinary differential equation is an equation of the form for some linear transformation .    Note that the linear transformation is not changing with respect to the independent variable of . The advantage of having done sufficient linear algebra prior to this equation now becomes clear. We can solve this equation immediately by understanding its solution for the case where can be represented as a Jordan block. After that, we simply add solutions together for the general case.    Suppose is represented as a Jordan block with respect to the basis . For any let be the path defined by Letting the general solution to is for scalars . This is the unique solution with initial condition    To prove this, we need only show that is a solution with the correct initial condition. Indeed, as our initial condition can be any vector in , any other solution would have to be of this form by . To do this, we compute the tangent vectors Here we take . This, along with and the product rule for paths gives On the other hand, as , we have that This with linearity gives Again using linearity we have This shows that solves the ODE for each . As both sides are linear in paths, we can take any linear combination of these solutions to get another one (note that this is not the case for any ODE and results from the homogeneous condition). Thus the path in equation~ is a solution.    Of course, if we can decompose into block diagonals of the form above, we need only add the resulting solutions.    If is an inner product space and is a linear transformation with characteristic polynomial , then there are sets of vectors whose union is a basis for and for which is represented as a Jordan block for . Any solution to can be obtained by solving it as in for each and adding the resulting paths together. Such a solution will be called a -eigenspace solution.    The following theorem is an immediate corollary of these lemmas.    Let be a finite dimensional inner product space and a linear transformation with characteristic polynomial Let be the decomposition of into generalized eigenspaces so that . Then every solution to can be uniquely written as a linear combination where is a -eigenspace solution to    In the next section, we will give a tremendous number of detailed examples illustrating the power of this result and approach.    Suppose the matrix is diagonalizable and If denotes a path in , what is the general solution to the differentiable equation You may write your answer using .   Let and a path in .   Write out the differential equation as three differential equations in and .   Give the particular solution to the differential equation with initial conditions     "
 },
 {
-  "id": "p-701",
+  "id": "p-711",
   "level": "2",
-  "url": "sec-lincode1.html#p-701",
+  "url": "sec-lincode1.html#p-711",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -2854,18 +2890,18 @@ var ptx_lunr_docs = [
   "body": "  Let be a finite dimensional inner product space and a linear transformation with characteristic polynomial Let be the decomposition of into generalized eigenspaces so that . Then every solution to can be uniquely written as a linear combination where is a -eigenspace solution to   "
 },
 {
-  "id": "exercise-85",
+  "id": "exercise-86",
   "level": "2",
-  "url": "sec-lincode1.html#exercise-85",
+  "url": "sec-lincode1.html#exercise-86",
   "type": "Exercise",
   "number": "5.2.1",
   "title": "",
   "body": " Suppose the matrix is diagonalizable and If denotes a path in , what is the general solution to the differentiable equation You may write your answer using .  "
 },
 {
-  "id": "exercise-86",
+  "id": "exercise-87",
   "level": "2",
-  "url": "sec-lincode1.html#exercise-86",
+  "url": "sec-lincode1.html#exercise-87",
   "type": "Exercise",
   "number": "5.2.2",
   "title": "",
@@ -2926,9 +2962,9 @@ var ptx_lunr_docs = [
   "body": " Another two dimensional equation   Now let us consider Jordan normal form example. Here our matrix is And we obtain the equation We check that Thus we see has only as an eigenvalue. Since is not a diagonal matrix, we may conclude that it is not diagonalizable (this is only true because it has one eigenvalue). We consider the matrix and generate a basis of the form by taking . Here we obtain Now we have a basis for which we can directly apply . Here we get And the general solution with initial conditions in terms of the basis is with initial condition If the initial condition were given in the standard basis as we would need the change of basis matrix which is just the inverse of the matrix with columns equal to and so it is and we have Putting all of this together, we obtain the general solution with respect to the standard basis.   "
 },
 {
-  "id": "p-730",
+  "id": "p-740",
   "level": "2",
-  "url": "sec-lincode2.html#p-730",
+  "url": "sec-lincode2.html#p-740",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -2944,20 +2980,11 @@ var ptx_lunr_docs = [
   "body": "   Consider the case of where and .  This differential equation describes the motion of a mass on the end of a spring. The mass is , spring constant (which describes how tight the spring is) and damping constant is (which describes the amount of kinetic friction). Dividing by gives where and . Converting to a matrix equation gives with characteristic polynomial Using the quadratic formula, we obtain the roots Of which there are two main cases (and one case we will ignore). Let and notice that (with equality when there is no damping), and . The first case we have in which case the roots of the characteristic polynomial are with eigenbasis Using , we see that solutions then are linear combinations of the solutions Recalling that the first coordinate is the scalar solution to the original second order differential equation, we obtain with initial conditions Of course, if the point has polar coordinate , then the trigonometric sum formulas will give the simpler formula Thus when we see some oscillation in the spring-mass system. Notice that if there is no damping and , then the spring-mass system simply oscillates with amplitude and period (often called in applications). On the other hand, if there is damping, this oscillation's amplitude experiences exponential decay.  The case where gives the real roots One notes that both and are negative numbers (since ). Thus here our solution is This is solution experiences exponential decay and the spring-mass system is called overdamped . The reason is that the kinetic friction force is overcoming the spring force and simply slowing the mass to a stop before oscillation occurs. The initial conditions here are    "
 },
 {
-  "id": "exercise-87",
-  "level": "2",
-  "url": "sec-lincode2.html#exercise-87",
-  "type": "Exercise",
-  "number": "5.3.1",
-  "title": "",
-  "body": " Go through the five steps for the system of differential equations   "
-},
-{
   "id": "exercise-88",
   "level": "2",
   "url": "sec-lincode2.html#exercise-88",
   "type": "Exercise",
-  "number": "5.3.2",
+  "number": "5.3.1",
   "title": "",
   "body": " Go through the five steps for the system of differential equations   "
 },
@@ -2966,7 +2993,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-lincode2.html#exercise-89",
   "type": "Exercise",
-  "number": "5.3.3",
+  "number": "5.3.2",
   "title": "",
   "body": " Go through the five steps for the system of differential equations   "
 },
@@ -2975,23 +3002,32 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-lincode2.html#exercise-90",
   "type": "Exercise",
-  "number": "5.3.4",
+  "number": "5.3.3",
   "title": "",
-  "body": " Give three linearly independent solutions to the differential equation  "
+  "body": " Go through the five steps for the system of differential equations   "
 },
 {
   "id": "exercise-91",
   "level": "2",
   "url": "sec-lincode2.html#exercise-91",
   "type": "Exercise",
-  "number": "5.3.5",
+  "number": "5.3.4",
   "title": "",
-  "body": " Verify the claim that the basis in equation gives a Jordan block (i.e. is of the form in equation ).  "
+  "body": " Give three linearly independent solutions to the differential equation  "
 },
 {
   "id": "exercise-92",
   "level": "2",
   "url": "sec-lincode2.html#exercise-92",
+  "type": "Exercise",
+  "number": "5.3.5",
+  "title": "",
+  "body": " Verify the claim that the basis in equation gives a Jordan block (i.e. is of the form in equation ).  "
+},
+{
+  "id": "exercise-93",
+  "level": "2",
+  "url": "sec-lincode2.html#exercise-93",
   "type": "Exercise",
   "number": "5.3.6",
   "title": "",
@@ -3052,9 +3088,9 @@ var ptx_lunr_docs = [
   "body": "   Smooth path    For an inner product space , a path is called smooth if tangent vectors exist to any order. The vector space of smooth paths is denoted .   "
 },
 {
-  "id": "p-757",
+  "id": "p-767",
   "level": "2",
-  "url": "sec-lincode3.html#p-757",
+  "url": "sec-lincode3.html#p-767",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -3070,36 +3106,36 @@ var ptx_lunr_docs = [
   "body": " Method of undetermined coefficients   Consider the differential equation with initial conditions , and . We calculate and factor the characteristic polynomial to see So the homogeneous solutions can be written in the form Now, we take a look at the inhomogeneous term and use our impressive knowledge to suggestively rewrite it We observe that the functions and are and -eigenfunctions for the derivative. Applying equation and linearity gives the particular solution, Thus the general solution is To find our actual solution we simply apply initial conditions and see This is a linear system which can be written as Solving this system gives Putting this into our general solution and simplifying gives the real function    "
 },
 {
-  "id": "exercise-93",
+  "id": "exercise-94",
   "level": "2",
-  "url": "sec-lincode3.html#exercise-93",
+  "url": "sec-lincode3.html#exercise-94",
   "type": "Exercise",
   "number": "5.4.2.1",
   "title": "",
   "body": " Find the solution to the non-homogeneous linear system with initial conditions .  "
 },
 {
-  "id": "exercise-94",
+  "id": "exercise-95",
   "level": "2",
-  "url": "sec-lincode3.html#exercise-94",
+  "url": "sec-lincode3.html#exercise-95",
   "type": "Exercise",
   "number": "5.4.2.2",
   "title": "",
   "body": " Show that when is distinct from , in equation solves the non-homogeneous equation .  "
 },
 {
-  "id": "exercise-95",
+  "id": "exercise-96",
   "level": "2",
-  "url": "sec-lincode3.html#exercise-95",
+  "url": "sec-lincode3.html#exercise-96",
   "type": "Exercise",
   "number": "5.4.2.3",
   "title": "",
   "body": " Show that when , in equation solves the non-homogeneous equation .  "
 },
 {
-  "id": "exercise-96",
+  "id": "exercise-97",
   "level": "2",
-  "url": "sec-lincode3.html#exercise-96",
+  "url": "sec-lincode3.html#exercise-97",
   "type": "Exercise",
   "number": "5.4.2.4",
   "title": "",
@@ -3160,9 +3196,9 @@ var ptx_lunr_docs = [
   "body": "  If and are differentiable functions in equation , then there is an -dimensional space of solutions. More generally, there is a solution to equation and any other solution is of the form where is a solution to the case.   "
 },
 {
-  "id": "p-774",
+  "id": "p-784",
   "level": "2",
-  "url": "sec-linode.html#p-774",
+  "url": "sec-linode.html#p-784",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -3196,45 +3232,45 @@ var ptx_lunr_docs = [
   "body": " Using the Wronskian   Consider the differential equation One checks that and are solutions to this equation for . Calculating the Wronskian gives Since this is non-zero, we conclude that and are fundamental solutions.   "
 },
 {
-  "id": "exercise-97",
+  "id": "exercise-98",
   "level": "2",
-  "url": "sec-linode.html#exercise-97",
+  "url": "sec-linode.html#exercise-98",
   "type": "Exercise",
   "number": "5.5.4.1",
   "title": "",
   "body": " Verify equation .  "
 },
 {
-  "id": "exercise-98",
+  "id": "exercise-99",
   "level": "2",
-  "url": "sec-linode.html#exercise-98",
+  "url": "sec-linode.html#exercise-99",
   "type": "Exercise",
   "number": "5.5.4.2",
   "title": "",
   "body": " Verify .  "
 },
 {
-  "id": "exercise-99",
+  "id": "exercise-100",
   "level": "2",
-  "url": "sec-linode.html#exercise-99",
+  "url": "sec-linode.html#exercise-100",
   "type": "Exercise",
   "number": "5.5.4.3",
   "title": "",
   "body": " Find fundamental solutions to the ordinary differential equation  Try a function like . "
 },
 {
-  "id": "exercise-100",
+  "id": "exercise-101",
   "level": "2",
-  "url": "sec-linode.html#exercise-100",
+  "url": "sec-linode.html#exercise-101",
   "type": "Exercise",
   "number": "5.5.4.4",
   "title": "",
   "body": " The solution for Bessel's Equation has exactly one constant in its expression. However, solutions to second order differential equations normally have two parameters corresponding to the two initial conditions. Explain why there is only one in this case.  "
 },
 {
-  "id": "exercise-101",
+  "id": "exercise-102",
   "level": "2",
-  "url": "sec-linode.html#exercise-101",
+  "url": "sec-linode.html#exercise-102",
   "type": "Exercise",
   "number": "5.5.4.5",
   "title": "",

@@ -258,7 +258,11 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-linearindependence" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Independence and Dimension</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-annihilators" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Annihilators</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
@@ -301,7 +305,7 @@ window.MathJax = {
 <div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#subsection-12" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsection-14" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -326,7 +330,7 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-paths.html#subsection-16" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsection-18" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
 <li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
 <li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
 <li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
@@ -363,7 +367,7 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lincode1"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span>
 </h2>
-<div class="para logical" id="p-701">
+<div class="para logical" id="p-711">
 <div class="para">In this section, we will look at and solve our first non-trivial ordinary differential equation. First though, we recall what it is that we are trying to solve. Quite generally, let <span class="process-math">\(V\)</span> be a finite dimensional inner product space and <span class="process-math">\(\mb{F}_t : V \to V\)</span> be a collection of functions, one for every <span class="process-math">\(t\)</span> in some interval <span class="process-math">\(I\text{.}\)</span> This collection should be thought of as a time varying <dfn class="terminology">vector field</dfn>, which we will study in later sections. The general ordinary differential equation can be written</div>
 <div class="displaymath process-math" id="eq-generalODE">
 \begin{equation}
@@ -375,12 +379,12 @@ window.MathJax = {
 <article class="theorem theorem-like" id="thm-uniqueode"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Uniqueness of Solutions to ODEs.</span>
 </h3>
-<div class="para" id="p-702">Suppose <span class="process-math">\(\mb{x}\)</span> and <span class="process-math">\(\tilde{\mb{x}}\)</span> solve equation <a href="" class="xref" data-knowl="./knowl/eq-generalODE.html" title="Equation 5.2.1">(5.2.1)</a> under suitable conditions and <span class="process-math">\(\mb{x} (0) = \tilde{\mb{x}} (0)\text{,}\)</span> then <span class="process-math">\(\mb{x} = \tilde{\mb{x}}\text{.}\)</span>
-</div></article><div class="para" id="p-703">The suitable conditions mentioned in this theorem concern differentiability of <span class="process-math">\(\mb{F}\text{,}\)</span> which we will study in the coming sections. As was mentioned, finding closed solutions to a general ODE can be difficult to impossible. However, the situation changes if we restrict our attention to only certain types of functions <span class="process-math">\(\mb{F}_t\text{.}\)</span>
+<div class="para" id="p-712">Suppose <span class="process-math">\(\mb{x}\)</span> and <span class="process-math">\(\tilde{\mb{x}}\)</span> solve equation <a href="" class="xref" data-knowl="./knowl/eq-generalODE.html" title="Equation 5.2.1">(5.2.1)</a> under suitable conditions and <span class="process-math">\(\mb{x} (0) = \tilde{\mb{x}} (0)\text{,}\)</span> then <span class="process-math">\(\mb{x} = \tilde{\mb{x}}\text{.}\)</span>
+</div></article><div class="para" id="p-713">The suitable conditions mentioned in this theorem concern differentiability of <span class="process-math">\(\mb{F}\text{,}\)</span> which we will study in the coming sections. As was mentioned, finding closed solutions to a general ODE can be difficult to impossible. However, the situation changes if we restrict our attention to only certain types of functions <span class="process-math">\(\mb{F}_t\text{.}\)</span>
 </div>
 <article class="definition definition-like" id="def-hlccode"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-704">
+</h3> <div class="para logical" id="p-714">
 <div class="para">Given a finite dimensional inner product space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> a <dfn class="terminology">homogeneous linear constant coefficient ordinary differential equation</dfn> is an equation of the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -389,11 +393,11 @@ window.MathJax = {
 </div>
 <div class="para">for some linear transformation <span class="process-math">\(T : V \to V\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-705">Note that the linear transformation is not changing with respect to the independent variable <span class="process-math">\(t\)</span> of <span class="process-math">\(\mb{x}\text{.}\)</span> The advantage of having done sufficient linear algebra prior to this equation now becomes clear. We can solve this equation immediately by understanding its solution for the case where <span class="process-math">\(T\)</span> can be represented as a Jordan block. After that, we simply add solutions together for the general case.</div>
+</div></article><div class="para" id="p-715">Note that the linear transformation is not changing with respect to the independent variable <span class="process-math">\(t\)</span> of <span class="process-math">\(\mb{x}\text{.}\)</span> The advantage of having done sufficient linear algebra prior to this equation now becomes clear. We can solve this equation immediately by understanding its solution for the case where <span class="process-math">\(T\)</span> can be represented as a Jordan block. After that, we simply add solutions together for the general case.</div>
 <article class="lemma theorem-like" id="lem-solveodejb"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-706">
+<div class="para logical" id="p-716">
 <div class="para">Suppose <span class="process-math">\(T\)</span> is represented as a Jordan block <span class="process-math">\(J_{\lambda, m}\)</span> with respect to the basis <span class="process-math">\(\mathcal{B} = \{\mb{v}_0, \mb{v}_1, \ldots, \mb{v}_{m - 1}\}\text{.}\)</span> For any <span class="process-math">\(0 \leq k \leq m - 1\)</span> let <span class="process-math">\(\mb{y}_k\)</span> be the path defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -424,7 +428,7 @@ window.MathJax = {
 \mb{x} (0) = \threevec{C_0}{\vdots}{C_{m - 1}}_{\mathcal{B}}.
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-48"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-48"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-48"><article class="hiddenproof"><div class="para logical" id="p-707">
+</div></article><article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"><div class="para logical" id="p-717">
 <div class="para">To prove this, we need only show that <span class="process-math">\(\mb{x} (t)\)</span> is a solution with the correct initial condition. Indeed, as our initial condition <span class="process-math">\(\mb{x} (0)\)</span> can be any vector in <span class="process-math">\(V\text{,}\)</span> any other solution <span class="process-math">\(\mb{y} (t)\)</span> would have to be of this form by <a href="" class="xref" data-knowl="./knowl/thm-uniqueode.html" title="Theorem 5.2.1: Uniqueness of Solutions to ODEs">Theorem 5.2.1</a>. To do this, we compute the tangent vectors</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-71">
 \begin{align*}
@@ -467,11 +471,11 @@ T ( \mb{y}_k (t) ) \amp = T \left( \frac{t^k}{k!} \mb{v}_0 \right) +   T \left( 
 </div>
 <div class="para">This shows that <span class="process-math">\(\mb{x}_k (t) = e^{\lambda t} \mb{y}_k (t)\)</span> solves the ODE for each <span class="process-math">\(0 \leq k \leq m - 1\text{.}\)</span> As both sides are linear in paths, we can take any linear combination of these solutions to get another one (note that this is not the case for any ODE and results from the homogeneous condition). Thus the path in equation~<a href="" class="xref" data-knowl="./knowl/eq-genlinsol.html" title="Equation 5.2.2">(5.2.2)</a> is a solution.</div>
 </div></article></div>
-<div class="para" id="p-708">Of course, if we can decompose <span class="process-math">\(T\)</span> into block diagonals of the form above, we need only add the resulting solutions.</div>
+<div class="para" id="p-718">Of course, if we can decompose <span class="process-math">\(T\)</span> into block diagonals of the form above, we need only add the resulting solutions.</div>
 <article class="lemma theorem-like" id="lem-eigensol"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">5.2.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-709">
+<div class="para logical" id="p-719">
 <div class="para">If <span class="process-math">\(V\)</span> is an inner product space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation with characteristic polynomial <span class="process-math">\(p_T ( t) = (t - \lambda)^m\text{,}\)</span> then there are sets <span class="process-math">\(\mathcal{B}_1, \ldots, \mathcal{B}_r\)</span> of vectors whose union is a basis for <span class="process-math">\(V\)</span> and for which <span class="process-math">\(T\)</span> is represented as a Jordan block for <span class="process-math">\(V_i = \text{span} (\mathcal{B}_i)\text{.}\)</span> Any solution to</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-solveodejb.html">
 \begin{equation*}
@@ -479,11 +483,11 @@ T ( \mb{y}_k (t) ) \amp = T \left( \frac{t^k}{k!} \mb{v}_0 \right) +   T \left( 
 \end{equation*}
 </div>
 <div class="para">can be obtained by solving it as in <a href="" class="xref" data-knowl="./knowl/lem-solveodejb.html" title="Lemma 5.2.3">Lemma 5.2.3</a> for each <span class="process-math">\(V_i\)</span> and adding the resulting paths together. Such a solution will be called a <span class="process-math">\(\lambda\)</span>-eigenspace solution.</div>
-</div></article><div class="para" id="p-710">The following theorem is an immediate corollary of these lemmas.</div>
+</div></article><div class="para" id="p-720">The following theorem is an immediate corollary of these lemmas.</div>
 <article class="theorem theorem-like" id="thm-generallinearhomogeneoussol"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.2.5</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-711">
+<div class="para logical" id="p-721">
 <div class="para">Let <span class="process-math">\(V\)</span> be a finite dimensional inner product space and <span class="process-math">\(T: V \to V\)</span> a linear transformation with characteristic polynomial</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -514,12 +518,12 @@ V = V_{\lambda_1} \oplus \cdots \oplus V_{\lambda_m}
 \dot{\mb{y}}_i = T_i (\mb{y}_i ) . \tag{5.2.3}
 \end{equation}
 </div>
-</div></article><div class="para" id="p-712">In the next section, we will give a tremendous number of detailed examples illustrating the power of this result and approach.</div>
+</div></article><div class="para" id="p-722">In the next section, we will give a tremendous number of detailed examples illustrating the power of this result and approach.</div>
 <section class="exercises" id="exe-lincode1"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-85"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-713">
+<article class="exercise exercise-like" id="exercise-86"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para logical" id="p-723">
 <div class="para">Suppose the <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable and</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -540,8 +544,8 @@ P^{-1} A P = \text{Diag} (\lambda_1, \ldots, \lambda_n ) .
 </div>
 <div class="para">You may write your answer using <span class="process-math">\(P\text{.}\)</span>
 </div>
-</div></article><article class="exercise exercise-like" id="exercise-86"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-37"><div class="para logical" id="p-714">
+</div></article><article class="exercise exercise-like" id="exercise-87"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-38"><div class="para logical" id="p-724">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -558,7 +562,7 @@ A = \left[ \begin{matrix} 0 \amp -2 \amp 1 \\ -1 \amp 0 \amp 0 \\ -5 \amp 7 \amp
 </div>
 </div></div>
 <article class="task exercise-like" id="task-77"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-715">
+<div class="para logical" id="p-725">
 <div class="para">Write out the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -568,7 +572,7 @@ A = \left[ \begin{matrix} 0 \amp -2 \amp 1 \\ -1 \amp 0 \amp 0 \\ -5 \amp 7 \amp
 <div class="para">as three differential equations in <span class="process-math">\(x(t), y(t)\)</span> and <span class="process-math">\(z(t)\text{.}\)</span>
 </div>
 </div></article><article class="task exercise-like" id="task-78"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-716">
+<div class="para logical" id="p-726">
 <div class="para">Give the particular solution to the differential equation with initial conditions</div>
 <div class="displaymath process-math">
 \begin{equation*}

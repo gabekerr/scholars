@@ -13,42 +13,14 @@
 <body class="ignore-math">
 <article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
 <div class="para logical">
-<div class="para">Since <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_k\)</span> are eigenvectors, they are all non-zero. So this means that <span class="process-math">\(\{\mb{v}_1\}\)</span> is a linearly independent set. If <span class="process-math">\(0\)</span> is an eigenvalue, we will assume <span class="process-math">\(\mb{v}_1\)</span> is its eigenvector. Let us keep going and say that <span class="process-math">\(j\)</span> is the largest number for which <span class="process-math">\(\{\mb{v}_1, \ldots, \mb{v}_j\}\)</span> is linearly independent, but <span class="process-math">\(\{\mb{v}_1, \ldots, \mb{v}_j, \mb{v}_{j + 1}\}\)</span> is linearly dependent. Then we know that there are numbers <span class="process-math">\(a_1, \ldots, a_j\)</span> for which</div>
-<div class="displaymath process-math">
-\begin{equation}
-\mb{v}_{j + 1} = a_1 \mb{v}_1 + \cdots + a_j \mb{v}_j .\tag{4.1.3}
-\end{equation}
-</div>
-<div class="para">We note that these numbers must be <em class="emphasis">unique</em>, for otherwise, we could subtract the other relation</div>
-<div class="displaymath process-math">
+<div class="para">We have that <span class="process-math">\(\lambda\)</span> is an eigenvalue if and only if there is a non-zero <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\)</span> for which <span class="process-math">\(T (\mb{v} ) = \lambda \mb{v}\)</span> or equivalently if <span class="process-math">\((\lambda I - T) ( \mb{v} ) = \mb{0}\text{.}\)</span> But this is equivalent to saying that <span class="process-math">\(\mb{v}\)</span> is in the kernel of <span class="process-math">\(\lambda I - T\text{.}\)</span> We know that this would happen if and only if <span class="process-math">\(\lambda I - T\)</span> is not a one-to-one transformation. Since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-equaldim.html ./knowl/lem-detinv.html">
 \begin{equation*}
-\mb{v}_{j + 1} = a_1^\prime \mb{v}_1 + \cdots + a_j^\prime \mb{v}_j 
+(\lambda I - T)  : V \to V 
 \end{equation*}
 </div>
-<div class="para">and obtain</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{0} = (a_1 - a_1^\prime) \mb{v}_1 + \cdots + (a_j - a_j^\prime) \mb{v}_j .
-\end{equation*}
+<div class="para">is a linear transformation between spaces of the same dimension, <a href="" class="xref" data-knowl="./knowl/cor-equaldim.html" title="Corollary 2.6.5">Corollary 2.6.5</a> shows that <span class="process-math">\(\lambda I - T\)</span> is not one-to-one if and only if it is not invertible. But this is the case if and only if any matrix <span class="process-math">\(A\)</span> representing it is not invertible which by <a href="" class="xref" data-knowl="./knowl/lem-detinv.html" title="Lemma 2.7.15">Lemma 2.7.15</a> can be true if and only if <span class="process-math">\(\det (\lambda I - T ) = \det (A) = 0\text{.}\)</span>
 </div>
-<div class="para">Since the vectors <span class="process-math">\(\{\mb{v}_1, \ldots, \mb{v}_j\}\)</span> are linearly independent, this would mean <span class="process-math">\(a_i = a_i^\prime\)</span> for each <span class="process-math">\(1 \leq i \leq j\)</span> (showing they are unique).</div>
-</div> <div class="para logical">
-<div class="para">However, we can apply <span class="process-math">\(T\)</span> to both sides of equation <a href="" class="xref" data-knowl="./knowl/eq-linrel.html" title="Equation 4.1.3">(4.1.3)</a> to obtain</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html">
-\begin{align*}
-\lambda_{j + 1} \mb{v}_{j + 1} \amp = T (\mb{v}_{j+1}) , \\
-\amp = T (a_1 \mb{v}_1 + \cdots + a_j \mb{v}_j ),  \\
-\amp = a_1 T (\mb{v}_1 ) + \cdots + a_j T (\mb{v}_j ), \\
-\amp = a_1 \lambda_1 \mb{v}_1  + \cdots + a_j \lambda_j \mb{v}_j .
-\end{align*}
-</div>
-<div class="para">Since <span class="process-math">\(\lambda_{j +1} \ne 0\text{,}\)</span> we may divide and obtain</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html">
-\begin{equation*}
-\mb{v}_j = a_1 \frac{\lambda_1}{\lambda_{j + 1}} \mb{v}_1  + \cdots + a_j \frac{\lambda_j}{\lambda_{j + 1}} \mb{v}_j . 
-\end{equation*}
-</div>
-<div class="para">Now, not all <span class="process-math">\(a_i\)</span> are zero for <span class="process-math">\(1 \lt i \leq j\)</span> (otherwise <span class="process-math">\(\mb{v}_{j + 1}\)</span> would be a multiple of <span class="process-math">\(\mb{v}_1\)</span> and a zero eigenvector), so there is at least one <span class="process-math">\(i\)</span> whose coefficient in equation <a href="" class="xref" data-knowl="./knowl/eq-linrel.html" title="Equation 4.1.3">(4.1.3)</a> has changed from <span class="process-math">\(a_i\)</span> to <span class="process-math">\(a_i\frac{\lambda_i}{\lambda_{j + 1}}\text{.}\)</span> But since these must be equal, we must have that <span class="process-math">\(\lambda_i = \lambda_{j + 1}\)</span> which contradicts the assumption that all eigenvalues were distinct. This proves the lemma.</div>
 </div></article><span class="incontext"><a href="sec-diag1.html#proof-30" class="internal">in-context</a></span>
 </body>
 </html>

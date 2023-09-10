@@ -11,21 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. We saw in <a href="" class="xref" data-knowl="./knowl/prop-invertiblecriterion1.html" title="Proposition 2.7.3">Proposition 2.7.3</a> that it is invertible if and only if its reduced row echelon form is the identity. We see from <a href="" class="xref" data-knowl="./knowl/prop-elrowelmat.html" title="Proposition 2.7.5">Proposition 2.7.5</a> that this is the case if and only if there are elementary matrices <span class="process-math">\(E_1, E_2, \ldots, E_r\)</span> so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-invertiblecriterion1.html ./knowl/prop-elrowelmat.html">
-\begin{equation}
-E_r E_{r - 1} \cdots E_2 E_1 A = I. \tag{2.7.1}
-\end{equation}
-</div>
-<div class="para">But since every elementary matrix has inverse that is an elementary matrix, such an equation is possible if and only if</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-invertiblecriterion1.html ./knowl/prop-elrowelmat.html">
-\begin{equation*}
-A = E_1^{-1} \cdots E_r^{-1}. 
-\end{equation*}
-</div>
-</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para">To see this, let <span class="process-math">\(A\)</span> be a square matrix. Then by <a href="" class="xref" data-knowl="./knowl/prop-invertible.html" title="Proposition 1.2.11">Proposition 1.2.11</a> <span class="process-math">\(A\)</span> is invertible implies that multiplying by <span class="process-math">\(A\)</span> is a one-to-one operation. Conversely, if it is one-to-one, <a href="" class="xref" data-knowl="./knowl/thm-ranknullity.html" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a> implies that onto as well and thus an isomorphism. This means that <span class="process-math">\(A \mb{x} = \mb{0}\)</span> has the unique solution <span class="process-math">\(\mb{0}\text{.}\)</span> But by <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a>, this only happens if there are no free columns of <span class="process-math">\(A\text{,}\)</span> implying that all columns are basic. So there are <span class="process-math">\(n\)</span> leading coefficients implying that there must be a leading coefficient on every row. But the only reduced row echelon square matrix of this type is the identity matrix (check this!).</div>
 <span class="incontext"><a href="sec-matrices3.html#p-328" class="internal">in-context</a></span>
 </body>
 </html>

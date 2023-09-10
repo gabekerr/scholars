@@ -11,21 +11,6 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="li"><h4 class="heading"><span class="title">Normalized</span></h4>
-<div class="para logical">
-<div class="para">We call the property that <span class="process-math">\(D_n (I_n) = 1\)</span> a normalization property. To prove it, we can assume that it holds for <span class="process-math">\(D_{n - 1}\text{.}\)</span> Now, notice that the minor <span class="process-math">\((I_n)_{11} = I_{n - 1}\)</span> while the minors <span class="process-math">\((I_n)_{1j}\)</span> has all zeros in the <span class="process-math">\((j - 1)\)</span>-st row. But if there is a row equal to zero, say <span class="process-math">\(\mb{r}_i = \mb{0}\text{,}\)</span> and <span class="process-math">\(f\)</span> is row linear, then</div>
-<div class="displaymath process-math">
-\begin{align}
-f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n) \amp = f(\mb{r}_1, \ldots , \mb{0} + \mb{0} , \ldots, \mb{r}_n),\tag{2.7.2}\\
-\amp = f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n)  + f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n). \tag{2.7.3}
-\end{align}
-</div>
-<div class="para">So subtracting gives <span class="process-math">\(f(\mb{r}_1, \ldots, \mb{0}, \mb{r}_n) = 0\text{.}\)</span> Thus, since we have shown that <span class="process-math">\(D_n\)</span> is row linear, we have that the cofactors <span class="process-math">\(C_{1j}\)</span> of the identity are <span class="process-math">\(1\)</span> for <span class="process-math">\(j = 1\)</span> and <span class="process-math">\(0\)</span> otherwise. But then</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (I_n) = 1 \cdot C_{11} + 0 \cdot  C_{12} + \cdots + 0 \cdot C_{1n} = 1. 
-\end{equation*}
-</div>
-</div></article><span class="incontext"><a href="sec-matrices3.html#li-59" class="internal">in-context</a></span>
+<article class="li"><h4 class="heading"><span class="title">Step 2</span></h4> Now assume there is a function <span class="process-math">\(D_{n - 1} : M_{n - 1, n - 1} (K) \to K\text{.}\)</span> If <span class="process-math">\(A = (a_{ij})\)</span> is an <span class="process-math">\(n \times n\)</span>-matrix write <span class="process-math">\(A_{ij}\)</span> for the <span class="process-math">\((n - 1) \times (n - 1)\)</span>-matrix obtained by forgetting the <span class="process-math">\(i\)</span>-th row and <span class="process-math">\(j\)</span>-th column. The <span class="process-math">\((i,j)\)</span>-<dfn class="terminology">minor</dfn>, denoted <span class="process-math">\(M_{ij}\text{,}\)</span> is the <span class="process-math">\(D_{n - 1} (A_{ij})\text{.}\)</span> The <span class="process-math">\((i,j)\)</span>-<dfn class="terminology">cofactor</dfn> is simply <span class="process-math">\(C_{ij} = (-1)^{i + j} M_{ij}\text{.}\)</span></article><span class="incontext"><a href="sec-matrices3.html#li-59" class="internal">in-context</a></span>
 </body>
 </html>

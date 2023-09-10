@@ -13,10 +13,22 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Let</div>
-<div class="displaymath process-math">
+<div class="para">But what about diagonalizing <span class="process-math">\(A\text{?}\)</span> Well, here we apply <a href="" class="xref" data-knowl="./knowl/prop-diagonalize.html" title="Proposition 4.1.17">Proposition 4.1.17</a>, and in particular the last sentence where <span class="process-math">\(P^{-1}\)</span> is identified as the change of basis matrix from the standard basis to the eigenbasis. But this means that <span class="process-math">\(P\)</span> is the matrix whose columns are the eigenvectors, so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-diagonalize.html">
 \begin{equation*}
-A = \left[ \begin{matrix}  0 \amp 3 \amp 2 \\ -2 \amp -7 \amp -4 \\ 2 \amp 7  \amp 4  \end{matrix} \right]. 
+P = \left[ \begin{matrix}  0 \amp 1 \amp 1 \\ 1 \amp 1 \amp 1 \\ 0 \amp -1  \amp -2  \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Either using our determinant formula or through an augmented row reduction, we can calculate the inverse</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-diagonalize.html">
+\begin{equation*}
+P^{-1} = \left[ \begin{matrix} -1 \amp 1 \amp 0 \\ 2 \amp 0 \amp 1 \\ -1 \amp 0  \amp -1  \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">Finally, we encourage the student to compute <span class="process-math">\(P A P^{-1}\)</span> and confirm</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-diagonalize.html">
+\begin{equation*}
+P^{-1} A P = \left[ \begin{matrix}  -1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0  \amp 2  \end{matrix} \right]. 
 \end{equation*}
 </div>
 </div>

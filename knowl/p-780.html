@@ -13,19 +13,33 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Consider the differential equation</div>
+<div class="para">Consider the linear system</div>
+<div class="displaymath process-math">
+\begin{align*}
+x^\prime (t) \amp = 2 t  x(t) + y(t), \\
+y^\prime (t) \amp =  x (t) + 2 t y(t). 
+\end{align*}
+</div>
+<div class="para">This can be written as the matrix equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-2t^2 x^{\prime \prime} (t) + 3t x^\prime (t) - x(t) = 0.
+\dot{\mb{x}} (t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right]  \mb{x} (t). 
 \end{equation*}
 </div>
-<div class="para">One checks that <span class="process-math">\(x_1(t) = \sqrt{t}\)</span> and <span class="process-math">\(x_2 (t) = 1/t\)</span> are solutions to this equation for <span class="process-math">\(t &gt; 0\text{.}\)</span> Calculating the Wronskian gives</div>
+<div class="para">Letting</div>
+<div class="displaymath process-math">
+\begin{align*}
+A(t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right], \\
+B(t) = \left[ \begin{matrix} t^2 \amp t \\ t \amp t^2 \end{matrix} \right], 
+\end{align*}
+</div>
+<div class="para">One can check that <span class="process-math">\(B(t)\)</span> and <span class="process-math">\(A(t)\)</span> commute and that <span class="process-math">\(B^\prime (t) = A(t)\text{,}\)</span> so by our theorem,</div>
 <div class="displaymath process-math">
 \begin{equation*}
-W_{x_1 x_2} = \det \left[ \begin{matrix} \sqrt{t} \amp \frac{1}{t} \\ \frac{1}{2\sqrt{t}} \amp - \frac{1}{t^2} \end{matrix} \right] = - \frac{1}{t^{3/2}} - \frac{1}{2t^{1/2}}.
+\mb{x} (t) = e^{B(t)} \mb{v}
 \end{equation*}
 </div>
-<div class="para">Since this is non-zero, we conclude that <span class="process-math">\(1/t\)</span> and <span class="process-math">\(\sqrt{t}\)</span> are fundamental solutions.</div>
+<div class="para">is a solution.</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-780" class="internal">in-context</a></span>
 </body>

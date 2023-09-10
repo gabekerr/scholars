@@ -13,26 +13,14 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">The first case we saw way back in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>. Consider the equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
+<div class="para">If <span class="process-math">\(V\)</span> is an inner product space and <span class="process-math">\(T : V \to V\)</span> is a linear transformation with characteristic polynomial <span class="process-math">\(p_T ( t) = (t - \lambda)^m\text{,}\)</span> then there are sets <span class="process-math">\(\mathcal{B}_1, \ldots, \mathcal{B}_r\)</span> of vectors whose union is a basis for <span class="process-math">\(V\)</span> and for which <span class="process-math">\(T\)</span> is represented as a Jordan block for <span class="process-math">\(V_i = \text{span} (\mathcal{B}_i)\text{.}\)</span> Any solution to</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-solveodejb.html">
 \begin{equation*}
-f^\prime (t) = 3 f(t). 
+\dot{\mb{x}} = T ( \mb{x} ) 
 \end{equation*}
 </div>
-<div class="para">Here, our vector space is just <span class="process-math">\(\mathbb{R}\)</span> itself. The vector field is given by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
-\begin{equation*}
-\mb{F} (x) = 3x. 
-\end{equation*}
+<div class="para">can be obtained by solving it as in <a href="" class="xref" data-knowl="./knowl/lem-solveodejb.html" title="Lemma 5.2.3">Lemma 5.2.3</a> for each <span class="process-math">\(V_i\)</span> and adding the resulting paths together. Such a solution will be called a <span class="process-math">\(\lambda\)</span>-eigenspace solution.</div>
 </div>
-<div class="para">Geometrically, this means at <span class="process-math">\(x\text{,}\)</span> there is a vector pointing away from the origin with three times the magnitude as <span class="process-math">\(x\text{.}\)</span> Also, our matrix <span class="process-math">\(A\)</span> is the <span class="process-math">\(1 \times 1\)</span> matrix <span class="process-math">\([3]\text{.}\)</span> Of course, we learn in calculus (or in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>) that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
-\begin{equation*}
-f(t) = C_0 e^{3 t} 
-\end{equation*}
-</div>
-<div class="para">solves this equation generally with initial condition <span class="process-math">\(f(0) = C_0\text{.}\)</span> Were we to think of this in terms of Jordon blocks, we would note that <span class="process-math">\([3]\)</span> is a Jordon block <span class="process-math">\(J_{3, 1}\)</span> itself and the equation above is just <span class="process-math">\(C_0 e^{\lambda t} \mb{x}_0 (t)\text{.}\)</span> There is one thing to note about our solution and that is that it experiences exponential growth as <span class="process-math">\(t \to \infty\text{.}\)</span> Were we to start with the equation <span class="process-math">\(f^\prime (t) = -3 f(t)\)</span> instead, we would see exponential decay. Understanding the long term behavior of a solution to a differential equation gives valuable qualitative information on the system you are studying.</div>
-</div>
-<span class="incontext"><a href="sec-lincode2.html#p-719" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-lincode1.html#p-719" class="internal">in-context</a></span>
 </body>
 </html>

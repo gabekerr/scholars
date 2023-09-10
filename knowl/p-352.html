@@ -13,20 +13,33 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Now assume we have two distinct indices, <span class="process-math">\(1 \leq j \leq n\)</span> and <span class="process-math">\(1 \leq k \leq n\)</span> and take <span class="process-math">\(A (j,k)\)</span> to be the submatrix of <span class="process-math">\(A\)</span> obtained by eliminating the first two rows and the <span class="process-math">\(j\)</span>-th and <span class="process-math">\(k\)</span>-the columns. A quick look shows then that if <span class="process-math">\(j \lt k\)</span>
-</div>
-<div class="displaymath process-math">
+<div class="para">Finding the determinant of a <span class="process-math">\(3 \times 3\)</span> involves finding three <span class="process-math">\(2 \times 2\)</span> cofactors. Taking</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
 \begin{equation*}
-D_n (\mb{e}_j, \mb{e}_k, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + j} (-1)^{1 + (k - 1)} D_{n - 2} (A (j,k)). 
+A  = \left[ \begin{matrix} 3 \amp 1 \amp -2 \\ 5 \amp 2 \amp 1 \\ -1 \amp 1 \amp 0 \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">Indeed, one must subtract <span class="process-math">\(1\)</span> from <span class="process-math">\(k\)</span> because, in the submatrix <span class="process-math">\(A_{1j}\)</span> obtained by eliminating the first row and the <span class="process-math">\(j\)</span>-th column, the index of the entry <span class="process-math">\(a_{2k}\)</span> goes down by one. On the other hand, this does not occur if we switch the order (again assuming <span class="process-math">\(j \lt k\)</span> ) so  we get</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (\mb{e}_k, \mb{e}_j, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + k} (-1)^{1 + j} D_{n - 2} (A (j,k)). 
-\end{equation*}
+<div class="para">we can compute the minors <span class="process-math">\(M_{1,1}\text{,}\)</span> <span class="process-math">\(M_{1,2}\)</span> and <span class="process-math">\(M_{1,3}\)</span> using the formula in <a href="" class="xref" data-knowl="./knowl/exa-2x2det.html" title="Example 2.7.11: Determinants of 2\times 2 matrices">Example 2.7.11</a> as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{align*}
+M_{1,1} \amp = \det \left( \left[ \begin{matrix}   2 \amp 1 \\  1 \amp 0 \end{matrix} \right] \right)= -1,\\
+M_{1,2} \amp = \det \left( \left[ \begin{matrix}  5  \amp 1 \\ -1  \amp 0 \end{matrix} \right] \right) = 1,\\
+M_{1,3} \amp = \det \left( \left[ \begin{matrix}  5 \amp 2  \\ -1 \amp 1 \end{matrix} \right] \right) = 7.
+\end{align*}
 </div>
-<div class="para">The difference in the sign justifies that switching the first two rows does indeed multiply the value of <span class="process-math">\(D_n\)</span> by <span class="process-math">\(-1\text{.}\)</span>
+<div class="para">Then our inductive formula gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{align*}
+\det (A) \amp = 3 \cdot (-1)^{1 + 1} M_{1,1} + 1  \cdot(-1)^{1 + 2} M_{1,2} + (-2) \cdot(-1)^{1 + 3} M_{1,3}, \\
+\amp = -3  - 1 - 14, \\
+\amp  = -18. 
+\end{align*}
+</div>
+<div class="para">In fact, there is a formula for <span class="process-math">\(3 \times 3\)</span> determinants that, were one so inclined, could be memorized.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
+\begin{equation*}
+\det \left( \left[ \begin{matrix} a_1 \amp a_2 \amp a_3 \\ b_1 \amp b_2 \amp b_3 \\ c_1 \amp c_2 \amp c_3 \end{matrix} \right] \right) = a_1 b_2 c_3 - a_1 b_3 c_2 + a_2 b_3 c_1 - a_2 b_1 c_3 + a_3 b_1 c_2 - a_3 b_2 c_1. 
+\end{equation*}
 </div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-352" class="internal">in-context</a></span>

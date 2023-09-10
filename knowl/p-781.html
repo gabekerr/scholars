@@ -11,69 +11,23 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Let us return to a second order linear ODE, which is the subject of a great amount of mathematics. We will work through a sufficiently general example to illustrate the method of using power series in differential equations, but we will refrain from a full exposition on this subject as it can involve a large amount of new and unrelated techniques (but take a numerical analysis course if you are interested in this!). We consider the Bessel equation which seems to be very close to <a href="" class="xref" data-knowl="./knowl/ex-wronskian.html" title="Example 5.5.8: Using the Wronskian">Example 5.5.8</a>, but in fact is much more challenging. The zero-th Bessel equation is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
+<div class="para">While this is very nice, the expression of this solution is a bit opaque since the exponential <span class="process-math">\(e^{B(t)}\)</span> may be well defined, but is not readily computable. However, one can observe that <span class="process-math">\(B(t)\)</span> is diagonalizable as a matrix of functions in the sense that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-t^2 x^{\prime \prime} (t) + t x^\prime (t) + t^2 x (t) = 0.
+B(t) = \frac{t}{2} \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} t - 1 \amp 0 \\ 0 \amp t + 1 \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right] .
 \end{equation*}
 </div>
-<div class="para">The key difference between this and the equation given in the example is that the function in front of <span class="process-math">\(x(t)\)</span> is no longer constant. The power series method (aka Frobenius method) is to assume that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
-\begin{equation*}
-x(t) = \sum_{n = 0}^\infty a_n t^n
-\end{equation*}
-</div>
-<div class="para">is a convergent power series expression for <span class="process-math">\(x(t)\)</span> with non-zero radius of convergence. We solve for <span class="process-math">\(a_n\)</span> using the differential equation. Indeed, putting <span class="process-math">\(x(t)\)</span> into the equation gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
+<div class="para">This can be used to see that</div>
+<div class="displaymath process-math">
 \begin{align*}
-0 \amp = t^2 \left( \sum_{n = 2}^\infty n (n - 1)a_n t^{n - 2} \right) + t \left(  \sum_{n = 1}^\infty n a_n t^{n - 1} \right) + t^2  \sum_{n = 0}^\infty a_n t^n, \\
-\amp =  \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 1}^\infty n a_n t^{n}  +   \sum_{n = 0}^\infty a_n t^{n + 2}. 
+e^{B (t)} \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp 0 \\ 0 \amp e^{t(t + 1)/2} \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right], \\
+\amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp e^{t(t - 1)/2} \\ -e^{t(t + 1)/2} \amp e^{t(t + 1)/2} \end{matrix} \right], \\
+\amp = \left[ \begin{matrix} e^{t(t - 1)/2} + e^{t(t + 1)/2} \amp e^{t(t - 1)/2} - e^{t(t + 1)/2} \\ e^{t(t - 1)/2} - e^{t(t + 1)/2} \amp e^{t(t - 1)/2} + e^{t(t + 1)/2} \end{matrix} \right], 
 \end{align*}
 </div>
-<div class="para">Now we reindex each summand on the right to get a single series.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
-\begin{align*}
-0  \amp =  \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 1}^\infty  n a_n t^{n}  +   \sum_{n = 0}^\infty a_n t^{n + 2}, \\
-\amp = a_1 t + \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 2}^\infty n a_n t^{n}  + \sum_{n = 2}^\infty a_{n - 2} t^{n}, \\
-\amp = a_1 t + \sum_{n = 2}^\infty \left( n (n - 1)a_n   +   n a_n  +  a_{n - 2} \right) t^{n}, \\ \amp = a_1 t + \sum_{n = 2}^\infty \left(n^2 a_n   +  a_{n - 2} \right) t^{n}, 
-\end{align*}
-</div>
-<div class="para">Now, on the right hand side we have a power series with non-zero radius of convergence around <span class="process-math">\(0\)</span> which is identically zero. This implies each coefficient must be zero (why?). In particular we obtain that <span class="process-math">\(a_1 = 0\)</span> and the recursion relations</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
-\begin{equation*}
-n^2 a_n   +  a_{n - 2} = 0. 
-\end{equation*}
-</div>
-<div class="para">Combining the fact that <span class="process-math">\(a_1 = 0\)</span> with this relation gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
-\begin{equation*}
-a_1 = 0, \hspace{.2in} a_3 = 0,\hspace{.2in} a_5 = 0, \ldots 
-\end{equation*}
-</div>
-<div class="para">so there are only even coefficients. Furthermore, we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
-\begin{equation*}
-a_2 = \frac{-1}{2^2} a_0, \hspace{.2in}a_4 = \frac{(-1)^2}{4^2 2^2}a_0,\hspace{.2in} a_6 = \frac{(-1)^3}{6^24^2 2^2} , \ldots
-\end{equation*}
-</div>
-<div class="para">giving the equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
-\begin{align*}
-a_{2n} \amp = \frac{(-1)^n}{(2n)^2(2(n - 1))^2 \cdots 2^2} a_0, \\
-\amp = \frac{(-1)^n}{(2n \cdot 2(n - 1) \cdots 2)^2} a_0, \\
-\amp =  \frac{(-1)^n}{2^{2n}(n \cdot (n - 1) \cdots 1)^2} a_0, \\
-\amp =  \frac{(-1)^n}{2^{2n} \, (n!)^2} a_0 
-\end{align*}
-</div>
-<div class="para">Taking <span class="process-math">\(a_0 = 1\)</span> we obtain the zeroth Bessel function</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html">
-\begin{equation*}
-J_0 (t) = \sum_{n = 0}^\infty \frac{(-1)^n \, t^{2n}}{2^{2n} \, (n!)^2}.
-\end{equation*}
-</div>
-<div class="para">This function is one of several functions that has several applications in wave propagation and heat transfer. It cannot be expressed with a finite composition using our elementary functions <span class="process-math">\(t^n\text{,}\)</span> <span class="process-math">\(\sin t\text{,}\)</span> <span class="process-math">\(\cos t\text{,}\)</span> <span class="process-math">\(\ln t\)</span> and <span class="process-math">\(e^t\text{...}\)</span> it's brand new!</div>
+<div class="para">which in turn will give explicit solutions to our original linear system.</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-781" class="internal">in-context</a></span>
 </body>

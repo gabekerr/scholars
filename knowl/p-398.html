@@ -13,12 +13,37 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Suppose <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are vectors in <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Let <span class="process-math">\(\theta\)</span> be the angle between the line segments from <span class="process-math">\(\mb{0}\)</span> to <span class="process-math">\(\mb{u}\)</span> and from <span class="process-math">\(\mb{0}\)</span> to <span class="process-math">\(\mb{v}\)</span> (or the arrows connecting the origin to the vectors). Then</div>
-<div class="displaymath process-math">
+<div class="para">The first two equations can be justified by writing out the formulas and checking both sides. For the third, note that <span class="process-math">\(A\)</span> is invertible if and only if there is an inverse matrix <span class="process-math">\(B\)</span> for which</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
 \begin{equation*}
-\mb{u} \cdot \mb{v} = \| \mb{u} \| \| \mb{v} \| \cos (\theta). 
+I = I^T = (AB)^T = B^T A^T \hspace{.3in} I = I^T = (BA)^T = A^T B^T. 
 \end{equation*}
 </div>
+<div class="para">Thus <span class="process-math">\(B\)</span> is an inverse to <span class="process-math">\(A\)</span> if and only if <span class="process-math">\(B^T\)</span> is an inverse to <span class="process-math">\(A^T\text{.}\)</span> For the statement on determinants, we note that if <span class="process-math">\(A\)</span> is not invertible then by (3), so is <span class="process-math">\(A^T\)</span> so both determinants are zero. On the other hand, if <span class="process-math">\(A\)</span> is invertible, then by <a href="" class="xref" data-knowl="./knowl/prop-productofelem.html" title="Proposition 2.7.6">Proposition 2.7.6</a> <span class="process-math">\(A\)</span> is a product of elementary matrices</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+A = E_1 \cdots E_r 
+\end{equation*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+A^T = E_r^T \cdots E_1^T. 
+\end{equation*}
+</div>
+<div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+\det (A) = \det (E_1 \cdots E_r) = \det (E_1) \cdots \det (E_r) 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-productofelem.html ./knowl/prop-productdet.html ./knowl/lem-detelem.html ./knowl/prop-basescolrow.html">
+\begin{equation*}
+\det (A^T) = \det (E_1^T ) \cdots \det (E_r^T) .
+\end{equation*}
+</div>
+<div class="para">But one observes that the Type I and II elementary matrices are symmetric, and the transpose of a Type III elementary matrix is also Type III which has determinant equal to <span class="process-math">\(1\)</span> (by <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a>). This implies each of the factors in the two above equations are equal so that <span class="process-math">\(\det (A^T) = \det (A)\text{.}\)</span> Finally, equation (5) is justified by <a href="" class="xref" data-knowl="./knowl/prop-basescolrow.html" title="Proposition 2.5.11">Proposition 2.5.11</a>.</div>
 </div>
 <span class="incontext"><a href="sec-geom1.html#p-398" class="internal">in-context</a></span>
 </body>

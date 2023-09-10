@@ -11,28 +11,52 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">As an important application of our general solution, we consider higher order homogeneous constant coefficient ODE's. Suppose we are confronted with a scalar valued function <span class="process-math">\(x(t)\)</span> of a variable <span class="process-math">\(t\text{,}\)</span> but now with an equation</div>
+<div class="para">Now let us consider an authentically higher dimensional example.</div>
 <div class="displaymath process-math">
-\begin{equation}
-x^{(n)} (t) + a_{n - 1}x^{(n - 1)} (t) + \cdots + a_1 x^\prime (t) + a_0 x(t) = 0 .\tag{5.3.6}
-\end{equation}
+\begin{align*}
+x^\prime (t) \amp = -4 x(t) - 3 y(t), \\
+y^\prime (t) \amp = 6 x (t) + 5 y(t). 
+\end{align*}
 </div>
-<div class="para">Here we recall that <span class="process-math">\(x^{(n)} (t)\)</span> is the <span class="process-math">\(n\)</span>-th derivative of <span class="process-math">\(x\)</span> with respect to <span class="process-math">\(t\)</span> (so we will assume our functions are differentiable enough). There are two equivalent ways of approaching the solution to this equation. The first and most common way is to guess the solution <span class="process-math">\(x (t) = e^{\lambda t}\)</span> and solve the resulting polynomial equation</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\lambda^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 \lambda + a_0 = 0.
-\end{equation*}
-</div>
-<div class="para">This polynomial is called the <dfn class="terminology">characteristic polynomial of the ODE</dfn>. Indeed, any solution will give a corresponding solution to the equation. If <span class="process-math">\(\lambda\)</span> is a multiple root of the characteristic polynomial, then one guesses again with</div>
+<div class="para">Our first task in this linear ODE is to write it as a single matrix ODE. We can do this by looking at the coefficients on the right and making a matrix out of them as in</div>
 <div class="displaymath process-math">
 \begin{equation*}
-x (t) = \frac{t^k e^{\lambda t}}{k!}
+A  = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">and finds (so long as <span class="process-math">\(k\)</span> is less than  the order of the root) that we have found another solution. Hobbling these solutions together, one can solve equations where now our initial conditions are not just <span class="process-math">\(x (0) = C_0\text{,}\)</span> but also <span class="process-math">\(x^\prime (0) = C_1, \ldots, x^{(n - 1)} (0) = C_{n - 1}\text{.}\)</span>
+<div class="para">Then if we take</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (t) = \twovec{x (t)}{y (t)} 
+\end{equation*}
 </div>
+<div class="para">we obtain the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x}^\prime (t) = A \mb{x} (t). 
+\end{equation*}
+</div>
+<div class="para">The right hand side is indeed our vector field</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{F} (\mb{x} ) = A \mb{x} 
+\end{equation*}
+</div>
+<div class="para">and to obtain a computational advantage and a geometric picture, it will help to diagonalize <span class="process-math">\(A\)</span> (if possible). For this, we start by taking the characteristic polynomial of <span class="process-math">\(A\)</span> (which we will write now with variable <span class="process-math">\(s\)</span> instead of <span class="process-math">\(t\)</span> to avoid confusion with <span class="process-math">\(\mb{x} (t)\)</span>) and find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A (s) = \det  \left[ \begin{matrix} s +4 \amp 3 \\ -6 \amp s - 5 \end{matrix} \right] = s^2 - s - 2 = (s - 2) (s + 1). 
+\end{equation*}
+</div>
+<div class="para">Thus we see two distinct real eigenvalues and can confidently diagonalize <span class="process-math">\(A\text{.}\)</span> Indeed, working through this gives the <span class="process-math">\((-1)\)</span>-eigenvector <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(2\)</span>-eigenvector <span class="process-math">\(\mb{v}_2\)</span> which form an eigenbasis</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}. 
+\end{equation*}
+</div>
+<div class="para">Why is all this so helpful? Well, now we can picture the vector field very clearly. It will take vectors on the <span class="process-math">\((-1)\)</span> eigenspace (multiples of <span class="process-math">\(\mb{v}_1\)</span>) and reverse their direction. On the <span class="process-math">\(2\)</span>-eigenspace though (multiples of <span class="process-math">\(\mb{v}_2\)</span>), the vectors will be doubled in scale and point in the same direction. The remaining vectors can be seen to be a linear combination of these two. This geometry will be sketched in class and gives a fantastically simple picture of what our solutions ought to look like.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-730" class="internal">in-context</a></span>
 </body>

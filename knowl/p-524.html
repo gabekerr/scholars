@@ -13,10 +13,79 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Suppose <span class="process-math">\(a_0, a_1, \ldots, a_{n - 1}\)</span> are numbers in <span class="process-math">\(K\text{.}\)</span> Find the characteristic polynomial <span class="process-math">\(p_A (t)\)</span> of the <span class="process-math">\(n \times n\)</span>-matrix</div>
-<div class="displaymath process-math">
+<div class="para">Consider diagonalizing the matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
 \begin{equation*}
-A = \left[ \begin{matrix}  0 \amp 1 \amp 0 \amp \cdots \amp 0 \\  0 \amp 0 \amp 1 \amp \cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots  \\ 0 \amp \cdots  \amp 0 \amp 0 \amp 1 \\ - a_0 \amp - a_1 \amp -a_2 \amp \cdots \amp - a_{n - 1}  \end{matrix} \right]. 
+A = \left[ \begin{matrix} -2 \amp 0 \amp -2 \\ -1 \amp -1 \amp -2 \\ 4 \amp 0 \amp 4 \end{matrix} \right]. 
+\end{equation*}
+</div>
+<div class="para">This is in fact a bit of an undertaking, but we now know all of the steps. First, let us find the eigenvalues by obtaining the characteristic polynomial</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{align*}
+p_A (t) \amp = \det \left( \left[ \begin{matrix}  t + 2 \amp 0 \amp 2 \\ 1 \amp t + 1  \amp 2 \\ -4 \amp 0 \amp t - 4\end{matrix} \right] \right) , \\
+\amp = (t + 2)(t + 1) (t - 4) + 0 + (-2) [-4 (t + 1)]  , \\
+\amp = t^3 - t^2 - 2t,\\
+\amp =  t (t - 2) (t + 1).
+\end{align*}
+</div>
+<div class="para">Thus the eigenvalues are the roots <span class="process-math">\(-1, 0, 2\)</span> of <span class="process-math">\(p_A (t)\text{.}\)</span> Now, generally at this point one may have to worry about the existence of an eigenbasis, but in our case we have <span class="process-math">\(3\)</span> distinct eigenvalues so that <a href="" class="xref" data-knowl="./knowl/cor-distinctrootsdiag.html" title="Corollary 4.1.14">Corollary 4.1.14</a> reassures us that we do indeed have an eigenbasis. Now we need only solve three linear equations to find it (as an aside: one could try to solve these simultaneously by row reducing with rational functions... but we will keep to our basic approach). First, we take <span class="process-math">\(t = -1\)</span> and solve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\left[ \begin{matrix}  1 \amp 0 \amp 2 \\ 1 \amp 0  \amp 2 \\ -4 \amp 0 \amp -5 \end{matrix} \right] \threevec{x_1}{x_2}{x_3}  = \threevec{0}{0}{0} 
+\end{equation*}
+</div>
+<div class="para">which has reduced row echelon form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\left[ \begin{matrix}  1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 0  \amp 0  \end{matrix} \right] \threevec{x_1}{x_2}{x_3}  = \threevec{0}{0}{0} 
+\end{equation*}
+</div>
+<div class="para">Leading to the <span class="process-math">\((-1)\)</span>-eigenvector</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\mb{v}_1 = \threevec{0}{1}{0}. 
+\end{equation*}
+</div>
+<div class="para">Now taking <span class="process-math">\(t = 0\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\left[ \begin{matrix}  2 \amp 0 \amp 2 \\ 1 \amp 1  \amp 2 \\ -4 \amp 0 \amp -4 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} 
+\end{equation*}
+</div>
+<div class="para">which has reduced row echelon form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\left[ \begin{matrix}  1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0  \amp 0  \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} 
+\end{equation*}
+</div>
+<div class="para">leading to the <span class="process-math">\(0\)</span>-eigenvector</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\mb{v}_2 = \threevec{1}{1}{-1}. 
+\end{equation*}
+</div>
+<div class="para">Finally taking <span class="process-math">\(t = 2\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\left[ \begin{matrix}  4 \amp 0 \amp 2 \\ 1 \amp 3  \amp 2 \\ -4 \amp 0 \amp -2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} 
+\end{equation*}
+</div>
+<div class="para">which has reduced row echelon form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\left[ \begin{matrix}  1 \amp 0 \amp 1/2 \\ 0 \amp 1 \amp 1/2 \\ 0 \amp 0  \amp 0  \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} 
+\end{equation*}
+</div>
+<div class="para">leading to the <span class="process-math">\(0\)</span>-eigenvector</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\mb{v}_3 = \threevec{1}{1}{-2}. 
+\end{equation*}
+</div>
+<div class="para">So we have achieved the goal of finding an eigenbasis!</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\mathcal{B} = \left\{\mb{v}_1 , \mb{v}_2, \mb{v}_3 \right\} = \left\{ \threevec{0}{1}{0} , \threevec{1}{1}{-1} ,  \threevec{1}{1}{-2} \right\} . 
 \end{equation*}
 </div>
 </div>

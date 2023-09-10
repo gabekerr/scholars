@@ -13,13 +13,33 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">If <span class="process-math">\(W_{x_1 \cdots x_n} (t_0) \ne 0\)</span> then the matrix in <a href="" class="xref" data-knowl="./knowl/def-Wronskian.html" title="Definition 5.5.6">Definition 5.5.6</a> is invertible. This means the columns are linearly independent. But then any initial condition</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-Wronskian.html">
+<div class="para">Any homogeneous constant coefficient matrix can be seen to fit into this case. In particular, if <span class="process-math">\(A\)</span> is diagonalizable with <span class="process-math">\(P^{-1} A P = \text{Diag} (\lambda_1, \ldots, \lambda_n)\)</span> then</div>
+<div class="displaymath process-math">
+\begin{align*}
+e^{t A}  \amp = P P^{-1} e^{t A} P P^{-1}, \\
+\amp = P e^{t P^{-1} A P} P^{-1}, \\
+\amp =  P e^{\text{Diag} (t \lambda_1, \ldots, t \lambda_n)} P^{-1}, \\
+\amp = P \,\text{Diag} (e^{\lambda_1 t}, \ldots, e^{\lambda_n t} ) P^{-1}. 
+\end{align*}
+</div>
+<div class="para">If the columns of <span class="process-math">\(P\)</span> are the eigenbasis <span class="process-math">\(\{\mb{v}_1, \ldots , \mb{v}_n\}\text{,}\)</span> the initial condition is</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\threevec{x (t_0)}{\vdots}{x^{(n - 1)} (t_0)}
+\mb{x} (0) = \threevec{C_1}{\vdots}{C_n}
 \end{equation*}
 </div>
-<div class="para">is a linear combination of those given by <span class="process-math">\(x_1, \ldots, x_n\)</span> implying <span class="process-math">\(x\)</span> is a linear combination of these functions (by the uniqueness of solutions with a given initial condition).</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P \threevec{C_1}{\vdots}{C_n} = \threevec{D_1}{\vdots}{D_n}
+\end{equation*}
+</div>
+<div class="para">then this reproduces our solution</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{x} (t) = D_1 e^{\lambda_1 t} \mb{v}_1 + \ldots + D_n e^{\lambda_n t} \mb{v}_n.
+\end{equation*}
+</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-779" class="internal">in-context</a></span>
 </body>

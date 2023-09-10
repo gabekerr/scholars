@@ -11,31 +11,35 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Let <span class="process-math">\(M_{m,n} (K)\)</span> be the set of all <span class="process-math">\(m \times n\)</span> matrices with entries in <span class="process-math">\(K\text{.}\)</span> A function</div>
+<div class="para">Let us find the inverse of</div>
 <div class="displaymath process-math">
 \begin{equation*}
-f : M_{m,n} (K) \to K 
+A = \left[ \begin{matrix} -1 \amp 2 \amp -4  \\ -2 \amp 3 \amp -7 \\ -1 \amp 1 \amp -2 \end{matrix} \right]. 
 \end{equation*}
 </div>
-<div class="para">is called:</div>
-<dl class="description-list">
-<dt>row linear</dt>
-<dd> if, keeping all rows except the <span class="process-math">\(i\)</span>-th row constant, <span class="process-math">\(f\)</span> is linear on the <span class="process-math">\(i\)</span>-th row (for any <span class="process-math">\(i\)</span>). In other words if<div class="displaymath process-math">
+<div class="para">We augment and reduce</div>
+<div class="displaymath process-math">
+\begin{align*}
+\left[ \begin{array}{ccc|ccc} -1 \amp 2 \amp -4 \amp 1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] \amp \stackrel{(-1)\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_2 + 2\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_3 + \mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] ,  \\
+\amp \stackrel{(-1)\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_3 + \mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_1 + 2\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 2 \amp 3 \amp -2 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_1 - 2\mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] ,  \\
+\amp \stackrel{\mb{r}_2 + \mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp 0 \amp 3 \amp -2 \amp 1 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , 
+\end{align*}
+</div>
+<div class="para">One can easily check that the resulting matrix on the right</div>
+<div class="displaymath process-math">
 \begin{equation*}
-f(\mb{r}_1 , \ldots, a \mb{r}_i + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) = a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) 
+B = \left[ \begin{matrix} 1 \amp 0 \amp -2  \\ 3 \amp -2 \amp 1 \\ 1 \amp -1 \amp 1 \end{matrix} \right] 
 \end{equation*}
 </div>
-</dd>
-<dt>alternating</dt>
-<dd> if <span class="process-math">\(f\)</span> reverses sign whenever two rows are switched. In other words<div class="displaymath process-math">
-\begin{equation*}
-f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m).
-\end{equation*}
+<div class="para">satisfies <span class="process-math">\(AB = I = BA\)</span> verifying that it is the inverse of <span class="process-math">\(A\text{.}\)</span>
 </div>
-</dd>
-</dl>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-331" class="internal">in-context</a></span>
 </body>

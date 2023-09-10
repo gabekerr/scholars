@@ -12,48 +12,7 @@
 </head>
 <body class="ignore-math">
 <article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para logical">
-<div class="para">To see the claim on eigenvalues holds, we may assume that <span class="process-math">\(V\)</span> is defined over <span class="process-math">\(\mathbb{C}\text{.}\)</span> If not, we represent <span class="process-math">\(T\)</span> as an <span class="process-math">\(n \times n\)</span>-matrix <span class="process-math">\(A\)</span> using an orthonormal basis as in the proof of <a href="" class="xref" data-knowl="./knowl/prop-adjointexists.html" title="Proposition 4.3.4">Proposition 4.3.4</a> and observe that <span class="process-math">\(A\)</span> is symmetric with real entries and thus Hermitian. But then if <span class="process-math">\(\mb{v}\)</span> is a <span class="process-math">\(\lambda\)</span>-eigenvector we have that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-adjointexists.html">
-\begin{align*}
-\lambda \left\langle \mb{v} , \mb{v} \right\rangle \amp = \left\langle \lambda \mb{v} , \mb{v} \right\rangle , \\
-\amp = \left\langle T (\mb{v} ) , \mb{v} \right\rangle , \\
-\amp = \left\langle \mb{v} , T ( \mb{v} ) \right\rangle, \\
-\amp = \left\langle \mb{v} , \lambda \mb{v} \right\rangle , \\
-\amp = \bar{\lambda} \left\langle \mb{v}, \mb{v} \right\rangle . 
-\end{align*}
-</div>
-<div class="para">Dividing by <span class="process-math">\(\|\mb{v} \|^2\)</span> we see that <span class="process-math">\(\lambda = \bar{\lambda}\)</span> so that <span class="process-math">\(\lambda\)</span> is real.</div>
-</div> <div class="para logical">
-<div class="para">To see that <span class="process-math">\(T\)</span> has an eigenbasis, we need only show that any generalized eigenvector is actually an eigenvector. So suppose <span class="process-math">\(\lambda\)</span> is an eigenvalue and <span class="process-math">\(\mb{v}\)</span> is a generalized <span class="process-math">\(\lambda\)</span>-eigenvector for which <span class="process-math">\((\lambda I - T)^r (\mb{v} ) = \mb{0}\)</span> but <span class="process-math">\((\lambda I - T)^{r - 1} (\mb{v} ) \ne \mb{0}\text{.}\)</span> If this only happens for <span class="process-math">\(r = 1\)</span> then we are done. So suppose <span class="process-math">\(r &gt; 1\)</span>  and let <span class="process-math">\(\mb{w} = (\lambda I - T)^{r - 2} (\mb{v} )\text{.}\)</span> Then <span class="process-math">\((\lambda I - T )(\mb{w}) \ne \mb{0}\)</span> so that <span class="process-math">\(\| (\lambda I - T )(\mb{w}) \|^2 &gt; 0\)</span> but</div>
-<div class="displaymath process-math">
-\begin{align*}
-0 \amp \ne \left\langle  (\lambda I - T )(\mb{w}),  (\lambda I - T )(\mb{w}) \right\rangle, \\
-\amp =  \left\langle (\lambda I - T )^2(\mb{w}) , \mb{w} \right\rangle, \\
-\amp = \left\langle \mb{0} , \mb{w} \right\rangle, \\ \amp = 0.
-\end{align*}
-</div>
-<div class="para">This is a contradiction, thus every generalized eigenvector is an eigenvector and there is an eigenbasis (or equivalently, <span class="process-math">\(T\)</span> is diagonalizable).</div>
-</div> <div class="para logical">
-<div class="para">Now, suppose <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> are distinct eigenvalues with eigenvectors <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\text{.}\)</span> Then</div>
-<div class="displaymath process-math">
-\begin{align*}
-\lambda_1 \left\langle \mb{v}_1 , \mb{v}_2 \right\rangle \amp = \left\langle \lambda \mb{v}_1 , \mb{v}_2 \right\rangle , \\
-\amp = \left\langle T (\mb{v}_1 ) , \mb{v}_2 \right\rangle , \\
-\amp = \left\langle \mb{v}_1 , T ( \mb{v}_2 ) \right\rangle, \\
-\amp = \left\langle \mb{v}_1 , \lambda_2 \mb{v}_2 \right\rangle , \\
-\amp = \bar{\lambda}_2 \left\langle \mb{v}_1, \mb{v}_2 \right\rangle , \\
-\amp = {\lambda}_2 \left\langle \mb{v}_1, \mb{v}_2 \right\rangle . 
-\end{align*}
-</div>
-<div class="para">Here the last line uses the fact that <span class="process-math">\(\lambda_2\)</span> is real. Since <span class="process-math">\(\lambda_1 \ne \lambda_2\)</span> we must have that <span class="process-math">\(\left\langle \mb{v}_1 , \mb{v}_2 \right\rangle = 0\)</span> or that the distinct eigenspaces are in fact orthogonal. This means that our generalized eigenspace decomposition</div>
-<div class="displaymath process-math">
-\begin{equation*}
-V \amp = V_{\lambda_1} \oplus V_{\lambda_2} \oplus \cdots \oplus V_{\lambda_m} 
-\end{equation*}
-</div>
-<div class="para">is actually an eigenspace decomposition and any two such spaces are orthogonal. Choosing an orthonormal basis for each eigenspace and taking their union then produces an orthonormal eigenbasis of <span class="process-math">\(V\)</span> for <span class="process-math">\(T\text{.}\)</span>
-</div>
+<div class="para">Choose orthonormal bases <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n \}\)</span> and <span class="process-math">\(\mathcal{C} = \{\mb{w}_1, \ldots, \mb{w}_m \}\)</span> for <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> respectively. Suppose <span class="process-math">\(A = \cob{T}{\mathcal{B}}{\mathcal{C}}\)</span> represents <span class="process-math">\(T\)</span> with respect to these bases. <a href="" class="xref" data-knowl="./knowl/exe-adjointexists.html" title="Exercise 4.3.3.1">Exercise 4.3.3.1</a> then shows that the conjugate transpose <span class="process-math">\(A^*\)</span> represents <span class="process-math">\(T^*\text{.}\)</span>
 </div></article><span class="incontext"><a href="sec-spectral.html#proof-41" class="internal">in-context</a></span>
 </body>
 </html>

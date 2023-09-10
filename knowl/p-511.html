@@ -13,19 +13,22 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">If <span class="process-math">\(A\)</span> is diagonalizable then there is an invertible matrix <span class="process-math">\(P\)</span> as which satisfies the equation (by definition). Consider the set <span class="process-math">\(\mathcal{B} = \{ P \mb{e}_1, \ldots, P \mb{e}_n \}\)</span> and notice that it is a basis of <span class="process-math">\(K^n\)</span> (since it is the image of the standard basis and <span class="process-math">\(P\)</span> is invertible). Also, we then have</div>
-<div class="displaymath process-math">
+<div class="para">However, we can apply <span class="process-math">\(T\)</span> to both sides of equation <a href="" class="xref" data-knowl="./knowl/eq-linrel.html" title="Equation 4.1.3">(4.1.3)</a> to obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html">
 \begin{align*}
-T_A ( \mb{v}_i) \amp = A \mb{v}_i, \\
-\amp = \left( P \, \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1} \right) (P \mb{e}_i) , \\
-\amp = P \,\textnormal{Diag} (\lambda_1, \ldots, \lambda_n) \mb{e}_i \\
-\amp = P (\lambda_i \mb{e}_i) , \\
-\amp = \lambda_i  P \mb{e}_i, \\
-\amp = \lambda_i \mb{v}_i.
+\lambda_{j + 1} \mb{v}_{j + 1} \amp = T (\mb{v}_{j+1}) , \\
+\amp = T (a_1 \mb{v}_1 + \cdots + a_j \mb{v}_j ),  \\
+\amp = a_1 T (\mb{v}_1 ) + \cdots + a_j T (\mb{v}_j ), \\
+\amp = a_1 \lambda_1 \mb{v}_1  + \cdots + a_j \lambda_j \mb{v}_j .
 \end{align*}
 </div>
-<div class="para">Showing that <span class="process-math">\(\mathcal{B}\)</span> is an eigenbasis for <span class="process-math">\(T_A\text{.}\)</span>
+<div class="para">Since <span class="process-math">\(\lambda_{j +1} \ne 0\text{,}\)</span> we may divide and obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html">
+\begin{equation*}
+\mb{v}_j = a_1 \frac{\lambda_1}{\lambda_{j + 1}} \mb{v}_1  + \cdots + a_j \frac{\lambda_j}{\lambda_{j + 1}} \mb{v}_j . 
+\end{equation*}
 </div>
+<div class="para">Now, not all <span class="process-math">\(a_i\)</span> are zero for <span class="process-math">\(1 \lt i \leq j\)</span> (otherwise <span class="process-math">\(\mb{v}_{j + 1}\)</span> would be a multiple of <span class="process-math">\(\mb{v}_1\)</span> and a zero eigenvector), so there is at least one <span class="process-math">\(i\)</span> whose coefficient in equation <a href="" class="xref" data-knowl="./knowl/eq-linrel.html" title="Equation 4.1.3">(4.1.3)</a> has changed from <span class="process-math">\(a_i\)</span> to <span class="process-math">\(a_i\frac{\lambda_i}{\lambda_{j + 1}}\text{.}\)</span> But since these must be equal, we must have that <span class="process-math">\(\lambda_i = \lambda_{j + 1}\)</span> which contradicts the assumption that all eigenvalues were distinct. This proves the lemma.</div>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-511" class="internal">in-context</a></span>
 </body>

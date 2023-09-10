@@ -11,16 +11,9 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
-<div class="para logical">
-<div class="para">To see this, suppose <span class="process-math">\(\dim (U) = n\text{,}\)</span> <span class="process-math">\(\dim (V) = m\)</span> and let <span class="process-math">\(A\)</span> be the <span class="process-math">\(m \times n\)</span> matrix representing <span class="process-math">\(T\)</span> relative to some bases on <span class="process-math">\(U\)</span> and <span class="process-math">\(V\text{.}\)</span> Then the kernel of <span class="process-math">\(T\)</span> is isomorphic to the null space of <span class="process-math">\(A\)</span> (which is the kernel of multiplying by <span class="process-math">\(A\)</span>) and the image of <span class="process-math">\(T\)</span> is isomorphic to the column space of <span class="process-math">\(A\)</span> (which is the image of multiplying by <span class="process-math">\(A\)</span>). Now, the null space of <span class="process-math">\(A\)</span> is the linear subspace of solutions to the matrix equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-rowechsolution.html ./knowl/prop-basescolrow.html">
-\begin{equation*}
-A \mb{x} = \mb{0}. 
-\end{equation*}
-</div>
-<div class="para">We saw in <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a> that the solutions to these equations were parameterized by <span class="process-math">\(K^r\)</span> where <span class="process-math">\(r\)</span> was the number of free columns of <span class="process-math">\(A\text{.}\)</span> So the nullity of <span class="process-math">\(A\)</span> is precisely <span class="process-math">\(r\text{.}\)</span> On the other hand, <a href="" class="xref" data-knowl="./knowl/prop-basescolrow.html" title="Proposition 2.5.11">Proposition 2.5.11</a> showed that the dimension of the column space equaled the number of basic columns of <span class="process-math">\(A\text{.}\)</span> Now every column of <span class="process-math">\(A\)</span> is either free or basic (but not both), so the sum of these two numbers is precisely <span class="process-math">\(n = \dim (U)\text{.}\)</span>
-</div>
-</div></article><span class="incontext"><a href="sec-lineartransformations2.html#proof-10" class="internal">in-context</a></span>
+<article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
+<div class="para">For the first two statements, let <span class="process-math">\(\mathcal{B} = \{\mb{u}_1, \ldots, \mb{u}_m, \mb{v}_{m + 1}, \ldots, \mb{v}_n\}\)</span> be a basis for <span class="process-math">\(V\)</span> such that <span class="process-math">\(\{\mb{u}_1, \ldots, \mb{u}_m\}\)</span> is a basis of <span class="process-math">\(U_1\text{.}\)</span> Then it is an exercise to see that <span class="process-math">\(\{\mb{v}_1^*, \ldots, \mb{v}_{n - m}^* \}\)</span> is a basis of <span class="process-math">\(U_1^\circ\text{.}\)</span> This shows the first statement and the second follows from repeating the argument with the dual basis <span class="process-math">\(\mathcal{B}^*\)</span> and observing that <span class="process-math">\(\mathcal{B}^{**} = \mathcal{B}\text{.}\)</span>
+</div> <div class="para">For the second statement <span class="process-math">\(\delta \in U_2^\circ\)</span> then for any <span class="process-math">\(\mb{u} \in U_1 \)</span> we have <span class="process-math">\(\delta (\mb{u} ) = 0 \)</span> since <span class="process-math">\(U_1 \leq U_2\text{.}\)</span> Thus <span class="process-math">\(\delta \in U_1^\circ\text{.}\)</span>
+</div></article><span class="incontext"><a href="sec-vectorspaces2.html#proof-10" class="internal">in-context</a></span>
 </body>
 </html>

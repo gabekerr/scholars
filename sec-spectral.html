@@ -258,7 +258,11 @@ window.MathJax = {
 </li>
 <li>
 <div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-linearindependence" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Independence and Dimension</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-annihilators" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Annihilators</span></a></div></li>
+<li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
@@ -301,7 +305,7 @@ window.MathJax = {
 <div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#subsection-12" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-diag1.html#subsection-14" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
 <li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -326,7 +330,7 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-paths.html#subsection-16" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li><div class="toc-item"><a href="sec-paths.html#subsection-18" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
 <li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
 <li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
 <li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
@@ -363,9 +367,9 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-spectral"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span>
 </h2>
-<section class="introduction" id="introduction-32"><div class="para" id="p-592">The set of eigenvalues of a linear transformation <span class="process-math">\(T : V \to V\)</span> is called its spectrum. This vocabulary comes from physics, where the operator in question is a quantized Hamiltonian <span class="process-math">\(T = H\)</span> and the eigenvalues are energies. Such energies for photons, the fundamental particles for light (and radiowaves), can be boiled down to their frequency and thus the term `spectrum'. However, this operator <span class="process-math">\(H\)</span> in quantum mechanics has to satisfy a special property - one that ensures it is diagonalizable. To even be able to state the property, we need our vector space <span class="process-math">\(V\)</span> to be an inner product space.</div> <div class="para" id="p-593">In fact, while we introduced inner product spaces as a way to work geometrically with vector spaces, the existence of an inner product gives us a huge amount of extra structure of which we have only scratched the surface. The following definition is an example of such structure.</div> <article class="definition definition-like" id="eq-adjoint"><h3 class="heading">
+<section class="introduction" id="introduction-33"><div class="para" id="p-602">The set of eigenvalues of a linear transformation <span class="process-math">\(T : V \to V\)</span> is called its spectrum. This vocabulary comes from physics, where the operator in question is a quantized Hamiltonian <span class="process-math">\(T = H\)</span> and the eigenvalues are energies. Such energies for photons, the fundamental particles for light (and radiowaves), can be boiled down to their frequency and thus the term `spectrum'. However, this operator <span class="process-math">\(H\)</span> in quantum mechanics has to satisfy a special property - one that ensures it is diagonalizable. To even be able to state the property, we need our vector space <span class="process-math">\(V\)</span> to be an inner product space.</div> <div class="para" id="p-603">In fact, while we introduced inner product spaces as a way to work geometrically with vector spaces, the existence of an inner product gives us a huge amount of extra structure of which we have only scratched the surface. The following definition is an example of such structure.</div> <article class="definition definition-like" id="eq-adjoint"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="period">.</span>
-</h3> <div class="para logical" id="p-594">
+</h3> <div class="para logical" id="p-604">
 <div class="para">Let <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> be inner product spaces over <span class="process-math">\(K\)</span> with pairings <span class="process-math">\(\left\langle, \right\rangle_V\)</span> and <span class="process-math">\(\left\langle , \right\rangle_W\)</span> respectively. Given a linear transformation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -384,9 +388,9 @@ T^*: W \to V
 \left\langle T (\mb{v} ) , \mb{w} \right\rangle_W = \left\langle \mb{v} , T^* (\mb{w}) \right\rangle_V. 
 \end{equation*}
 </div>
-</div></article> <div class="para" id="p-595">Let's consider a few standard examples.</div> <article class="example example-like" id="example-58"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-58"><h3 class="heading">
+</div></article> <div class="para" id="p-605">Let's consider a few standard examples.</div> <article class="example example-like" id="example-58"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-58"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Conjugate transpose as adjoint.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-58"><article class="example example-like"><div class="para logical" id="p-596">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-58"><article class="example example-like"><div class="para logical" id="p-606">
 <div class="para">Suppose <span class="process-math">\(V = \mathbb{C}^n\)</span> and <span class="process-math">\(W = \mathbb{C}^m\)</span> are inner product spaces with the product given in <a href="" class="xref" data-knowl="./knowl/exa-hermitianinnerproduct.html" title="Example 3.1.12: Hermitian inner product">Example 3.1.12</a>. Then any linear transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(W\)</span> can be seen as multiplying by an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span> In this case, we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-hermitianinnerproduct.html">
 \begin{equation*}
@@ -397,17 +401,17 @@ A^* =  \overline{A^T}
 </div>
 </div></article></div> <article class="example example-like" id="example-59"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-59"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Transpose as adjoint.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-59"><article class="example example-like"><div class="para logical" id="p-597">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-59"><article class="example example-like"><div class="para logical" id="p-607">
 <div class="para">Suppose <span class="process-math">\(V = \mathbb{R}^n\)</span> and <span class="process-math">\(W = \mathbb{R}^m\)</span> are inner product spaces with the dot product. Then it is not hard to show that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 A^* = A^T. 
 \end{equation*}
 </div>
-</div></article></div> <div class="para" id="p-598">In fact, in the finite dimensional setting there is always an adjoint as the following proposition shows.</div> <article class="proposition theorem-like" id="prop-adjointexists"><h3 class="heading">
+</div></article></div> <div class="para" id="p-608">In fact, in the finite dimensional setting there is always an adjoint as the following proposition shows.</div> <article class="proposition theorem-like" id="prop-adjointexists"><h3 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-599">
+<div class="para logical" id="p-609">
 <div class="para">Let <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> be finite dimensional inner product spaces over <span class="process-math">\(K\text{.}\)</span> Given a linear transformation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -420,15 +424,15 @@ T : V \to W
 T^* : W \to V. 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-40"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-40"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-40"><article class="hiddenproof"><div class="para" id="p-600">Choose orthonormal bases <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n \}\)</span> and <span class="process-math">\(\mathcal{C} = \{\mb{w}_1, \ldots, \mb{w}_m \}\)</span> for <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> respectively. Suppose <span class="process-math">\(A = \cob{T}{\mathcal{B}}{\mathcal{C}}\)</span> represents <span class="process-math">\(T\)</span> with respect to these bases. <a href="" class="xref" data-knowl="./knowl/exe-adjointexists.html" title="Exercise 4.3.3.1">Exercise 4.3.3.1</a> then shows that the conjugate transpose <span class="process-math">\(A^*\)</span> represents <span class="process-math">\(T^*\text{.}\)</span>
-</div></article></div> <div class="para" id="p-601">To state and prove the Spectral Theorem in finite dimensions, we need one more notion.</div> <article class="definition definition-like" id="eq-selfadjoint"><h3 class="heading">
+</div></article><article class="hiddenproof" id="proof-41"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-41"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-41"><article class="hiddenproof"><div class="para" id="p-610">Choose orthonormal bases <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n \}\)</span> and <span class="process-math">\(\mathcal{C} = \{\mb{w}_1, \ldots, \mb{w}_m \}\)</span> for <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> respectively. Suppose <span class="process-math">\(A = \cob{T}{\mathcal{B}}{\mathcal{C}}\)</span> represents <span class="process-math">\(T\)</span> with respect to these bases. <a href="" class="xref" data-knowl="./knowl/exe-adjointexists.html" title="Exercise 4.3.3.1">Exercise 4.3.3.1</a> then shows that the conjugate transpose <span class="process-math">\(A^*\)</span> represents <span class="process-math">\(T^*\text{.}\)</span>
+</div></article></div> <div class="para" id="p-611">To state and prove the Spectral Theorem in finite dimensions, we need one more notion.</div> <article class="definition definition-like" id="eq-selfadjoint"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.5</span><span class="period">.</span>
-</h3> <div class="para" id="p-602">Let <span class="process-math">\(V\)</span> be an inner product space, <span class="process-math">\(T : V \to V\)</span> a linear transformation and <span class="process-math">\(T^* : V \to V\)</span> its adjoint. We say that <span class="process-math">\(T\)</span> is <dfn class="terminology">self-adjoint</dfn> if <span class="process-math">\(T = T^*\text{.}\)</span>
-</div></article> <div class="para" id="p-603">Let us make a few notes about this definition. First, this can be applied to infinite and finite dimensional vector spaces. Second, in the finite dimensional setting, we call <span class="process-math">\(T\)</span> <dfn class="terminology">Hermitian</dfn> if <span class="process-math">\(V\)</span> is defined over <span class="process-math">\(\mathbb{C}\)</span> and <dfn class="terminology">symmetric</dfn> if <span class="process-math">\(V\)</span> is defined over <span class="process-math">\(\mathbb{R}\text{.}\)</span> This connects well to matrices where <span class="process-math">\(A\)</span> is said to be symmetric if <span class="process-math">\(A^T = A\)</span> (which would mean that it is self-adjoint as a transformation).</div> <div class="para" id="p-604">As it turns out, there are many situations in which the linear operator we are considering is self-adjoint. So it is perhaps a pleasant surprise that, in these cases, we have everything we could possibly desire!</div> <article class="theorem theorem-like" id="thm-spectral"><h3 class="heading">
+</h3> <div class="para" id="p-612">Let <span class="process-math">\(V\)</span> be an inner product space, <span class="process-math">\(T : V \to V\)</span> a linear transformation and <span class="process-math">\(T^* : V \to V\)</span> its adjoint. We say that <span class="process-math">\(T\)</span> is <dfn class="terminology">self-adjoint</dfn> if <span class="process-math">\(T = T^*\text{.}\)</span>
+</div></article> <div class="para" id="p-613">Let us make a few notes about this definition. First, this can be applied to infinite and finite dimensional vector spaces. Second, in the finite dimensional setting, we call <span class="process-math">\(T\)</span> <dfn class="terminology">Hermitian</dfn> if <span class="process-math">\(V\)</span> is defined over <span class="process-math">\(\mathbb{C}\)</span> and <dfn class="terminology">symmetric</dfn> if <span class="process-math">\(V\)</span> is defined over <span class="process-math">\(\mathbb{R}\text{.}\)</span> This connects well to matrices where <span class="process-math">\(A\)</span> is said to be symmetric if <span class="process-math">\(A^T = A\)</span> (which would mean that it is self-adjoint as a transformation).</div> <div class="para" id="p-614">As it turns out, there are many situations in which the linear operator we are considering is self-adjoint. So it is perhaps a pleasant surprise that, in these cases, we have everything we could possibly desire!</div> <article class="theorem theorem-like" id="thm-spectral"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Spectral Theorem.</span>
 </h3>
-<div class="para" id="p-605">Let <span class="process-math">\(V\)</span> be a finite dimensional inner product space and <span class="process-math">\(T: V \to V\)</span> a self-adjoint linear transformation. Then every eigenvalue of <span class="process-math">\(T\)</span> is a real number and there is  an orthonormal eigenbasis for <span class="process-math">\(T\text{.}\)</span>
-</div></article><article class="hiddenproof" id="proof-41"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-41"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-41"><article class="hiddenproof"><div class="para logical" id="p-606">
+<div class="para" id="p-615">Let <span class="process-math">\(V\)</span> be a finite dimensional inner product space and <span class="process-math">\(T: V \to V\)</span> a self-adjoint linear transformation. Then every eigenvalue of <span class="process-math">\(T\)</span> is a real number and there is  an orthonormal eigenbasis for <span class="process-math">\(T\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-42"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-42"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-42"><article class="hiddenproof"><div class="para logical" id="p-616">
 <div class="para">To see the claim on eigenvalues holds, we may assume that <span class="process-math">\(V\)</span> is defined over <span class="process-math">\(\mathbb{C}\text{.}\)</span> If not, we represent <span class="process-math">\(T\)</span> as an <span class="process-math">\(n \times n\)</span>-matrix <span class="process-math">\(A\)</span> using an orthonormal basis as in the proof of <a href="" class="xref" data-knowl="./knowl/prop-adjointexists.html" title="Proposition 4.3.4">Proposition 4.3.4</a> and observe that <span class="process-math">\(A\)</span> is symmetric with real entries and thus Hermitian. But then if <span class="process-math">\(\mb{v}\)</span> is a <span class="process-math">\(\lambda\)</span>-eigenvector we have that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-adjointexists.html" id="md-62">
 \begin{align*}
@@ -440,7 +444,7 @@ T^* : W \to V.
 \end{align*}
 </div>
 <div class="para">Dividing by <span class="process-math">\(\|\mb{v} \|^2\)</span> we see that <span class="process-math">\(\lambda = \bar{\lambda}\)</span> so that <span class="process-math">\(\lambda\)</span> is real.</div>
-</div> <div class="para logical" id="p-607">
+</div> <div class="para logical" id="p-617">
 <div class="para">To see that <span class="process-math">\(T\)</span> has an eigenbasis, we need only show that any generalized eigenvector is actually an eigenvector. So suppose <span class="process-math">\(\lambda\)</span> is an eigenvalue and <span class="process-math">\(\mb{v}\)</span> is a generalized <span class="process-math">\(\lambda\)</span>-eigenvector for which <span class="process-math">\((\lambda I - T)^r (\mb{v} ) = \mb{0}\)</span> but <span class="process-math">\((\lambda I - T)^{r - 1} (\mb{v} ) \ne \mb{0}\text{.}\)</span> If this only happens for <span class="process-math">\(r = 1\)</span> then we are done. So suppose <span class="process-math">\(r &gt; 1\)</span>  and let <span class="process-math">\(\mb{w} = (\lambda I - T)^{r - 2} (\mb{v} )\text{.}\)</span> Then <span class="process-math">\((\lambda I - T )(\mb{w}) \ne \mb{0}\)</span> so that <span class="process-math">\(\| (\lambda I - T )(\mb{w}) \|^2 &gt; 0\)</span> but</div>
 <div class="displaymath process-math" id="md-63">
 \begin{align*}
@@ -450,7 +454,7 @@ T^* : W \to V.
 \end{align*}
 </div>
 <div class="para">This is a contradiction, thus every generalized eigenvector is an eigenvector and there is an eigenbasis (or equivalently, <span class="process-math">\(T\)</span> is diagonalizable).</div>
-</div> <div class="para logical" id="p-608">
+</div> <div class="para logical" id="p-618">
 <div class="para">Now, suppose <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> are distinct eigenvalues with eigenvectors <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(\mb{v}_2\text{.}\)</span> Then</div>
 <div class="displaymath process-math" id="md-64">
 \begin{align*}
@@ -470,13 +474,13 @@ V \amp = V_{\lambda_1} \oplus V_{\lambda_2} \oplus \cdots \oplus V_{\lambda_m}
 </div>
 <div class="para">is actually an eigenspace decomposition and any two such spaces are orthogonal. Choosing an orthonormal basis for each eigenspace and taking their union then produces an orthonormal eigenbasis of <span class="process-math">\(V\)</span> for <span class="process-math">\(T\text{.}\)</span>
 </div>
-</div></article></div> <div class="para" id="p-609">Let us now consider two important applications of this theorem.</div></section><section class="subsection" id="subsec-quadraticforms"><h3 class="heading hide-type">
+</div></article></div> <div class="para" id="p-619">Let us now consider two important applications of this theorem.</div></section><section class="subsection" id="subsec-quadraticforms"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span>
 </h3>
-<div class="para" id="p-610">We start with a definition.</div>
+<div class="para" id="p-620">We start with a definition.</div>
 <article class="definition definition-like" id="def-quadform"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.7</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-611">
+</h4> <div class="para logical" id="p-621">
 <div class="para">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span>-dimensional vector space over <span class="process-math">\(K\text{.}\)</span> A quadratic form on <span class="process-math">\(V\)</span> is a function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -489,7 +493,7 @@ Q : V \to K
 Q \left( \left[ \begin{matrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{matrix} \right]_{\mathcal{B}} \right) = \sum_{i = 1}^n \sum_{j = 1}^n a_{ij} x_i x_j .
 \end{equation*}
 </div>
-</div></article><div class="para logical" id="p-612">
+</div></article><div class="para logical" id="p-622">
 <div class="para">There are alternative definitions that do not depend on choosing a basis, but in any definition, one will be able to write out a quadratic form as above. Note that if <span class="process-math">\(A\)</span> is the <span class="process-math">\(n \times n\)</span> matrix with entries <span class="process-math">\((a_{ij})\)</span> and <span class="process-math">\(\mb{x}\)</span> is the vector <span class="process-math">\(\coord{\mb{v}}{\mathcal{B}}\)</span> to be put in <span class="process-math">\(Q\text{,}\)</span> we obtain the formula</div>
 <div class="displaymath process-math" id="eq-quadraticform">
 \begin{equation}
@@ -500,7 +504,7 @@ Q (\mb{x} ) = \mb{x}^T A \mb{x}. \tag{4.3.1}
 </div>
 <article class="example example-like" id="ex-conicsections"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-conicsections"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Quadratic forms in two dimensions.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-conicsections"><article class="example example-like"><div class="para logical" id="p-613">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-conicsections"><article class="example example-like"><div class="para logical" id="p-623">
 <div class="para">There are two examples of quadratic forms for <span class="process-math">\(\mathbb{R}^2\)</span> that you see early in your mathematical education. We will write these as functions of two variables. The first is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -520,7 +524,7 @@ Q(x, y) = 5x^2 - 6xy + 5y^2
 \end{equation*}
 </div>
 <div class="para">but, as we will see using the Spectral Theorem, this can be made to be like one of our two prototypes above by changing coordinates.</div>
-</div> <div class="para logical" id="p-614">
+</div> <div class="para logical" id="p-624">
 <div class="para">We note here that instead of considering the level curves of these quadratic forms, we could consider their graphs</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -529,11 +533,11 @@ Q(x, y) = 5x^2 - 6xy + 5y^2
 </div>
 <div class="para">In this case, we would obtain what are known as the paraboloid and hyperbolic paraboloid. We will revisit these graphs later on when we consider multivariable scalar functions.</div>
 </div></article></div>
-<div class="para" id="p-615">Representing a quadratic form by a matrix as in equation <a href="" class="xref" data-knowl="./knowl/eq-quadraticform.html" title="Equation 4.3.1">(4.3.1)</a> depends on the basis <span class="process-math">\(\mathcal{B}\text{,}\)</span> however, we can restrict our attention to certain types of matrices which change only in certain ways.</div>
+<div class="para" id="p-625">Representing a quadratic form by a matrix as in equation <a href="" class="xref" data-knowl="./knowl/eq-quadraticform.html" title="Equation 4.3.1">(4.3.1)</a> depends on the basis <span class="process-math">\(\mathcal{B}\text{,}\)</span> however, we can restrict our attention to certain types of matrices which change only in certain ways.</div>
 <article class="lemma theorem-like" id="lem-quadraticformmatrix"><h4 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.3.9</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-616">
+<div class="para logical" id="p-626">
 <div class="para">If <span class="process-math">\(Q\)</span> is a quadratic form on <span class="process-math">\(V\text{,}\)</span> then for any basis <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\)</span> there is a unique symmetric matrix <span class="process-math">\(A_\mathcal{B}\)</span> for which</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -546,7 +550,7 @@ Q (\mb{v} ) = \left( \coord{\mb{v}}{\mathcal{B}} \right)^T A_{\mathcal{B}}\coord
 A_{\mathcal{C}} = P^T A_{\mathcal{B}} P.\tag{4.3.2}
 \end{equation}
 </div>
-</div></article><article class="hiddenproof" id="proof-42"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-42"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-42"><article class="hiddenproof"><div class="para logical" id="p-617">
+</div></article><article class="hiddenproof" id="proof-43"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-43"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-43"><article class="hiddenproof"><div class="para logical" id="p-627">
 <div class="para">For the first statement, we need only show there is a <em class="emphasis">symmetric</em> matrix <span class="process-math">\(A_{\mathcal{B}}\)</span> as equation <a href="" class="xref" data-knowl="./knowl/eq-quadraticform.html" title="Equation 4.3.1">(4.3.1)</a> gives us the existence of some matrix. But <span class="process-math">\(\mb{x}^T A \mb{x}\)</span> is in fact a symmetric matrix (because it is <span class="process-math">\(1 \times 1\)</span>), so</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-quadraticform.html">
 \begin{equation*}
@@ -571,7 +575,7 @@ Q ( \mb{x} ) \amp = \mb{x}^T A \mb{x}, \\
 </div>
 <div class="para">To see that <span class="process-math">\(A_\mathcal{B}\)</span> is the only symmetric matrix that will produce <span class="process-math">\(Q\)</span> relative to the coordinates given by <span class="process-math">\(\mathcal{B}\text{,}\)</span> one observes that the diagonal entries are obtained by <span class="process-math">\(Q ( \mb{e}_i)\)</span> and the off diagonal ones by <span class="process-math">\(\frac{1}{2} [Q ( \mb{e}_i + \mb{e}_j) - Q ( \mb{e}_i) - Q (\mb{e}_j)]\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-618">
+</div> <div class="para logical" id="p-628">
 <div class="para">To see the last statement about relating <span class="process-math">\(A_\mathcal{B}\)</span> to <span class="process-math">\(\mathcal{C}\text{,}\)</span> just note that if <span class="process-math">\(\mb{v}\)</span> is a vector in <span class="process-math">\(V\)</span> with coordinates <span class="process-math">\(\coord{\mb{v}}{\mathcal{B}}\text{,}\)</span> <span class="process-math">\(\coord{\mb{v}}{\mathcal{C}}\)</span> with respect to <span class="process-math">\(\mathcal{B}\)</span> and <span class="process-math">\(\mathcal{C}\text{,}\)</span> then, letting <span class="process-math">\(P = \cob{1_V}{\mathcal{C}}{\mathcal{B}}\)</span> be the change of coordinate matrix, we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-congruent.html">
 \begin{equation*}
@@ -599,11 +603,11 @@ P^T A_\mathcal{B} P  = A_\mathcal{C} .
 \end{equation*}
 </div>
 </div></article></div>
-<div class="para" id="p-619">Two matrices like <span class="process-math">\(A_{\mathcal{B}}\)</span> and <span class="process-math">\(A_{\mathcal{C}}\)</span> satisfying equation <a href="" class="xref" data-knowl="./knowl/eq-congruent.html" title="Equation 4.3.2">(4.3.2)</a> are called <dfn class="terminology">congruent</dfn>.  This lemma has a shocking corollary, which we will state as a theorem.</div>
+<div class="para" id="p-629">Two matrices like <span class="process-math">\(A_{\mathcal{B}}\)</span> and <span class="process-math">\(A_{\mathcal{C}}\)</span> satisfying equation <a href="" class="xref" data-knowl="./knowl/eq-congruent.html" title="Equation 4.3.2">(4.3.2)</a> are called <dfn class="terminology">congruent</dfn>.  This lemma has a shocking corollary, which we will state as a theorem.</div>
 <article class="theorem theorem-like" id="thm-sylvester"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.3.10</span><span class="period">.</span><span class="space"> </span><span class="title">Sylvester's Law of Inertia.</span>
 </h4>
-<div class="para logical" id="p-620">
+<div class="para logical" id="p-630">
 <div class="para">Let <span class="process-math">\(Q\)</span> be a quadratic form on the inner product space on <span class="process-math">\(\mathbb{R}^n\)</span> with the dot product. Then there are real numbers <span class="process-math">\(\lambda_1, \ldots, \lambda_n\)</span> and  an orthonormal basis <span class="process-math">\(\mathcal{B}\)</span> for which, if <span class="process-math">\(\mb{x}\)</span> are coordinates relative to <span class="process-math">\(\mathcal{B}\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -612,13 +616,13 @@ Q ( x_1, \ldots, x_n ) = Q \left( \mb{x} \right) = \lambda_1 x_1^2 + \cdots + \l
 \end{equation*}
 </div>
 <div class="para">Furthermore, the number of <span class="process-math">\(\lambda_i\)</span>'s that are negative, zero and positive depends only on the quadratic form <span class="process-math">\(Q\)</span> (i.e. it does not depend on a choice of basis).</div>
-</div></article><article class="hiddenproof" id="proof-43"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-43"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-43"><article class="hiddenproof"><div class="para logical" id="p-621">
+</div></article><article class="hiddenproof" id="proof-44"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-44"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-44"><article class="hiddenproof"><div class="para logical" id="p-631">
 <div class="para">By <a href="" class="xref" data-knowl="./knowl/lem-quadraticformmatrix.html" title="Lemma 4.3.9">Lemma 4.3.9</a>, there is a unique symmetric matrix <span class="process-math">\(A\)</span> which represents <span class="process-math">\(Q\)</span> relative to the standard basis. But the Spectral Theorem then says that</div>
 <ol class="decimal">
-<li id="li-76"><div class="para" id="p-derived-li-76">
+<li id="li-79"><div class="para" id="p-derived-li-79">
 <span class="process-math">\(A\)</span> is diagonalizable,</div></li>
-<li id="li-77"><div class="para" id="p-derived-li-77">the eigenvalues are all real,</div></li>
-<li id="li-78"><div class="para" id="p-derived-li-78">there is an eigenbasis which is an orthonormal basis <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\text{.}\)</span>
+<li id="li-80"><div class="para" id="p-derived-li-80">the eigenvalues are all real,</div></li>
+<li id="li-81"><div class="para" id="p-derived-li-81">there is an eigenbasis which is an orthonormal basis <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\text{.}\)</span>
 </div></li>
 </ol>
 <div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-diagonalize.html" title="Proposition 4.1.17">Proposition 4.1.17</a> the fact that <span class="process-math">\(A\)</span> is diagonalizable means</div>
@@ -639,7 +643,7 @@ P^T A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n )
 Q(x_1, \ldots, x_n) = \mb{x}^T \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n ) \mb{x} = \lambda_1 x_1^2 + \cdots + \lambda_n x_n^2 . 
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-622">
+</div> <div class="para logical" id="p-632">
 <div class="para">The last statement is not directly implied by what we have above, since it is a statement about changing to <em class="emphasis">any</em> basis, not just orthonormal bases (and is the main point of Sylvester's law of inertia). To prove this last statement, consider the pairing</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -647,7 +651,7 @@ B( \mb{x}, \mb{y} ) = \frac{1}{2} \left[ Q ( \mb{x} + \mb{y} ) - Q ( \mb{x} ) - 
 \end{equation*}
 </div>
 <div class="para">It is not hard to show that <span class="process-math">\(B\)</span> satisfies conjugate symmetry (although the conjugate part is not important here because we are working with a real vector space) and linearity. It does not, however, always satisfy the positive definite property.</div>
-</div> <div class="para logical" id="p-623">
+</div> <div class="para logical" id="p-633">
 <div class="para">Suppose exactly <span class="process-math">\(n_+\)</span> of the eigenvalues <span class="process-math">\(\lambda_1, \ldots, \lambda_n\)</span> are positive and order them so that these occur as the first ones <span class="process-math">\(\lambda_1, \ldots, \lambda_{n_+} &gt; 0\)</span> and define the subspace <span class="process-math">\(V = \textnormal{span} \, \{ \mb{v}_1, \ldots, \mb{v}_{n_+} \}\text{.}\)</span> Observe that <span class="process-math">\(B\)</span> is in fact a positive definite pairing on <span class="process-math">\(V\)</span> because if <span class="process-math">\(\mb{v} = a_1 \mb{v}_1 + \cdots + a_{n_+} \mb{v}_{n_+}\)</span> is non-zero then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -655,7 +659,7 @@ B ( \mb{v} , \mb{v} ) = \lambda_1 a_1^2 + \cdots + \lambda_{n_+} a_{n_+}^2 &gt; 
 \end{equation*}
 </div>
 <div class="para">Note also that <span class="process-math">\(V^\perp = \span \{ \mb{v}_{n_+ + 1} , \ldots, \mb{v}_n \}\)</span> (because <span class="process-math">\(\mathcal{B}\)</span> is an orthonormal basis).</div>
-</div> <div class="para logical" id="p-624">
+</div> <div class="para logical" id="p-634">
 <div class="para">We claim that any vector subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\mathbb{R}^n\)</span> on which <span class="process-math">\(B\)</span> is positive definite has dimension less than or equal to <span class="process-math">\(n_+\text{.}\)</span> Indeed, restricting the projection <span class="process-math">\(\text{proj}_V\)</span> to <span class="process-math">\(W\)</span> gives a linear transformation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -677,10 +681,10 @@ B ( \mb{w} , \mb{w} ) = b_{n_+ + 1}^2 \lambda_{n_+ + 1} + \cdots b_n^2 \lambda_n
 <div class="para">This would contradict that <span class="process-math">\(B\)</span> is positive definite on <span class="process-math">\(W\text{.}\)</span> Thus <span class="process-math">\(n_+\)</span> is indeed the maximal dimension of a subspace on which <span class="process-math">\(B\)</span> is positive definite. Likewise, we can show that the number <span class="process-math">\(n_-\)</span> of negative <span class="process-math">\(\lambda\)</span>'s is the largest dimension of a subspace on which <span class="process-math">\(B\)</span> is `negative definite' (i.e. <span class="process-math">\(B( \mb{v} , \mb{v} ) \lt 0\)</span> on non-zero vectors). Finally, <span class="process-math">\(n_0\)</span> can be calculated as <span class="process-math">\(\dim V - n_+ - n_-\text{.}\)</span>
 </div>
 </div></article></div>
-<div class="para" id="p-625">This surprising theorem has diverse and far reaching consequences as we will see later with second derivative tests. However, we can also use it to observe that often complicated looking formula are in fact just simple formulas made complicated by a change of coordinates.</div>
+<div class="para" id="p-635">This surprising theorem has diverse and far reaching consequences as we will see later with second derivative tests. However, we can also use it to observe that often complicated looking formula are in fact just simple formulas made complicated by a change of coordinates.</div>
 <article class="example example-like" id="example-61"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-61"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.11</span><span class="period">.</span><span class="space"> </span><span class="title">Nice coordinates for a quadratic form.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-61"><article class="example example-like"><div class="para logical" id="p-626">
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-61"><article class="example example-like"><div class="para logical" id="p-636">
 <div class="para">In <a href="" class="xref" data-knowl="./knowl/ex-conicsections.html" title="Example 4.3.8: Quadratic forms in two dimensions">Example 4.3.8</a>, we wrote the quadratic form</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-conicsections.html">
 \begin{equation*}
@@ -736,13 +740,13 @@ Q\left(\twovec{u}{v}_{\mathcal{B}} \right) \amp = 5 \left(\sqrt{2}/2 ( u + v ) \
 </div>
 <div class="para">What have we done? Well, the <span class="process-math">\((u,v)\)</span> coordinate system is just the ordinary Cartesian coordinates rotated by <span class="process-math">\(45\)</span> degrees. In this system, we have a standard ellipse with major axis the rotated <span class="process-math">\(y\)</span>-axis and minor axis the rotated <span class="process-math">\(x\)</span>-axis.</div>
 </div></article></div>
-<div class="para" id="p-627">This last example shows a practical way of obtaining good coordinates when faced with a quadratic form, namely ones where the form is the sum of multiples of squares.</div></section><section class="subsection" id="subsec-covmat"><h3 class="heading hide-type">
+<div class="para" id="p-637">This last example shows a practical way of obtaining good coordinates when faced with a quadratic form, namely ones where the form is the sum of multiples of squares.</div></section><section class="subsection" id="subsec-covmat"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span>
 </h3>
-<div class="para" id="p-628">When modelling a data set, one often will be considering a sample space with several variables. For example, if maple trees were our  our data set, each maple tree may have a height, age, trunk diameter etc. We pick an order of such quantities once and for all so that we can numerically record any such sample as a vector in our vector space <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Doing so with a large data set gives us a large number of vectors <span class="process-math">\(S\)</span> in <span class="process-math">\(\mathbb{R}^n\)</span> and this is where we leave trees behind and math takes over.</div>
-<div class="para" id="p-629">Now, there are reasons to believe (in certain situations) that our data set <span class="process-math">\(S\)</span> should be distributed like an ellipse (or an ellipsoid for higher dimensions) around a central point. Such a distribution would be called a multivariate normal distribution. What is meant by `distributed' is that there is some (non-linear) function <span class="process-math">\(\rho\)</span> on <span class="process-math">\(\mathbb{R}^n\)</span> which tells us of the probability that a sample point will be in a specific region of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Then for any probability <span class="process-math">\(p\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> there will be ellipsoid ball around the mean in <span class="process-math">\(\mathbb{R}^n\)</span> for which a sample occuring in that ball will have probability <span class="process-math">\(p\text{.}\)</span>
+<div class="para" id="p-638">When modelling a data set, one often will be considering a sample space with several variables. For example, if maple trees were our  our data set, each maple tree may have a height, age, trunk diameter etc. We pick an order of such quantities once and for all so that we can numerically record any such sample as a vector in our vector space <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Doing so with a large data set gives us a large number of vectors <span class="process-math">\(S\)</span> in <span class="process-math">\(\mathbb{R}^n\)</span> and this is where we leave trees behind and math takes over.</div>
+<div class="para" id="p-639">Now, there are reasons to believe (in certain situations) that our data set <span class="process-math">\(S\)</span> should be distributed like an ellipse (or an ellipsoid for higher dimensions) around a central point. Such a distribution would be called a multivariate normal distribution. What is meant by `distributed' is that there is some (non-linear) function <span class="process-math">\(\rho\)</span> on <span class="process-math">\(\mathbb{R}^n\)</span> which tells us of the probability that a sample point will be in a specific region of <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> Then for any probability <span class="process-math">\(p\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> there will be ellipsoid ball around the mean in <span class="process-math">\(\mathbb{R}^n\)</span> for which a sample occuring in that ball will have probability <span class="process-math">\(p\text{.}\)</span>
 </div>
-<div class="para logical" id="p-630">
+<div class="para logical" id="p-640">
 <div class="para">Let us first focus on the central point <span class="process-math">\(\mb{\mu}\text{.}\)</span> This point, if it is the center, should be the average of all of our samples</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -757,7 +761,7 @@ Q\left(\twovec{u}{v}_{\mathcal{B}} \right) \amp = 5 \left(\sqrt{2}/2 ( u + v ) \
 </div>
 <div class="para">This is actually the population variance, which will do for our purposes in one dimension. What it measures is how far away (or more precisely, the square of the distance away) a generic sample point is from the mean. However, we have by now realized our world is much richer with many dimensions and we should also note that the words `far away' indicate an inner product computation in many dimensions. So our notion of variance should also certainly be much richer in many dimensions and indeed it is.</div>
 </div>
-<div class="para logical" id="p-631">
+<div class="para logical" id="p-641">
 <div class="para">To compute it, we simply take our sample space of shifted vectors, or vectors with respect to the mean, and make it into a very large matrix</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-var1d.html">
 \begin{equation*}
@@ -793,7 +797,7 @@ Q\left(\twovec{u}{v}_{\mathcal{B}} \right) \amp = 5 \left(\sqrt{2}/2 ( u + v ) \
 <span class="type">Exercises</span> <span class="codenumber">4.3.3</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exe-adjointexists"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-632">
+<div class="para logical" id="p-642">
 <div class="para">Verify the claim in the proof of <a href="" class="xref" data-knowl="./knowl/prop-adjointexists.html" title="Proposition 4.3.4">Proposition 4.3.4</a>. In particular, show that if <span class="process-math">\(A^*\)</span> is the conjugate transpose of the matrix <span class="process-math">\(A = \cob{T}{\mathcal{B}}{\mathcal{C}}\)</span> representing <span class="process-math">\(T\)</span> with respect to the orthonormal bases <span class="process-math">\(\mathcal{B}\)</span> of <span class="process-math">\(V\)</span> and <span class="process-math">\(\mathcal{C}\)</span> of <span class="process-math">\(W\text{,}\)</span> then</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-adjointexists.html">
 \begin{equation*}
@@ -806,9 +810,9 @@ Q\left(\twovec{u}{v}_{\mathcal{B}} \right) \amp = 5 \left(\sqrt{2}/2 ( u + v ) \
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-13" id="hint-13"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-13"><div class="hint solution-like">Verify the adjoint equation for basis vectors <span class="process-math">\(\mb{v}_i\)</span> and <span class="process-math">\(\mb{w}_j\text{.}\)</span> Then appeal to linearity.</div></div>
 </div></article><article class="exercise exercise-like" id="exe-congruent"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-633">Two real <span class="process-math">\(n \times n\)</span>-matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are called congruent if there is an invertible matrix <span class="process-math">\(P\)</span> with <span class="process-math">\(P^T A P = B\text{.}\)</span> Show that if <span class="process-math">\(A\)</span> is symmetric then so is every matrix congruent to <span class="process-math">\(A\text{.}\)</span>
-</div></article><article class="exercise exercise-like" id="exercise-75"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-33"><div class="para logical" id="p-634">
+<div class="para" id="p-643">Two real <span class="process-math">\(n \times n\)</span>-matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are called congruent if there is an invertible matrix <span class="process-math">\(P\)</span> with <span class="process-math">\(P^T A P = B\text{.}\)</span> Show that if <span class="process-math">\(A\)</span> is symmetric then so is every matrix congruent to <span class="process-math">\(A\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-76"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="introduction-34"><div class="para logical" id="p-644">
 <div class="para">Suppose one has the  (extremely small) data set with vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -817,12 +821,12 @@ S = \left\{ \twovec{1}{2}, \twovec{1}{-3}, \twovec{0}{1}, \twovec{-1}{4}, \twove
 </div>
 </div></div>
 <article class="task exercise-like" id="task-69"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="p-635">Compute the mean of this data set.</div></article><article class="task exercise-like" id="task-70"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="p-636">Compute the covariance matrix of this data set.</div></article><article class="task exercise-like" id="task-71"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="p-637">Find eigenvalues and eigenvectors for the covariance matrix.</div></article><article class="task exercise-like" id="task-72"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para" id="p-638">Sketch an ellipse describing the bivariate distribution of this data set.</div></article></article><article class="exercise exercise-like" id="exercise-76"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="p-639">Show that <span class="process-math">\(\mathbf{\Sigma}\)</span> is positive semi-definite as in equation <a href="" class="xref" data-knowl="./knowl/eq-positivesemi.html" title="Equation 4.3.5">(4.3.5)</a>. Use this to show that it has only non-negative eigenvalues.</div></article><article class="exercise exercise-like" id="exercise-77"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-640">
+<div class="para" id="p-645">Compute the mean of this data set.</div></article><article class="task exercise-like" id="task-70"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="p-646">Compute the covariance matrix of this data set.</div></article><article class="task exercise-like" id="task-71"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="p-647">Find eigenvalues and eigenvectors for the covariance matrix.</div></article><article class="task exercise-like" id="task-72"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="p-648">Sketch an ellipse describing the bivariate distribution of this data set.</div></article></article><article class="exercise exercise-like" id="exercise-77"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="p-649">Show that <span class="process-math">\(\mathbf{\Sigma}\)</span> is positive semi-definite as in equation <a href="" class="xref" data-knowl="./knowl/eq-positivesemi.html" title="Equation 4.3.5">(4.3.5)</a>. Use this to show that it has only non-negative eigenvalues.</div></article><article class="exercise exercise-like" id="exercise-78"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para logical" id="p-650">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}

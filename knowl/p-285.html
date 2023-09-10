@@ -11,37 +11,9 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para logical">
-<div class="para">This matrix is called <dfn class="terminology">the matrix representation of T</dfn>. While this may certainly seem like awkward notation, it aligns well with what is known as `tensor notation', commonly used in various branches of physics. What is important though is that it encodes all of the needed data (the transformation <span class="process-math">\(T\)</span> and the bases <span class="process-math">\(\mathcal{B}\)</span> and <span class="process-math">\(\mathcal{C}\)</span>). But how is this matrix used to compute with <span class="process-math">\(T\text{?}\)</span> Well, we have not used that <span class="process-math">\(\mathcal{B}\)</span> is a basis yet, so let's do that. We know that \text{any} vector <span class="process-math">\(\mb{u}\)</span> in <span class="process-math">\(U\)</span> has a unique expression as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html">
-\begin{equation*}
-\mb{u} = x_1 \mb{u}_1 + x_2 \mb{u}_2 + \cdots + x_n \mb{u}_n. 
-\end{equation*}
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para">For the first two statements, let <span class="process-math">\(\mathcal{B} = \{\mb{u}_1, \ldots, \mb{u}_m, \mb{v}_{m + 1}, \ldots, \mb{v}_n\}\)</span> be a basis for <span class="process-math">\(V\)</span> such that <span class="process-math">\(\{\mb{u}_1, \ldots, \mb{u}_m\}\)</span> is a basis of <span class="process-math">\(U_1\text{.}\)</span> Then it is an exercise to see that <span class="process-math">\(\{\mb{v}_1^*, \ldots, \mb{v}_{n - m}^* \}\)</span> is a basis of <span class="process-math">\(U_1^\circ\text{.}\)</span> This shows the first statement and the second follows from repeating the argument with the dual basis <span class="process-math">\(\mathcal{B}^*\)</span> and observing that <span class="process-math">\(\mathcal{B}^{**} = \mathcal{B}\text{.}\)</span>
 </div>
-<div class="para">We can feed this into the transformation and use linearity to see</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html">
-\begin{align*}
-T (\mb{u}) \amp = T (x_1 \mb{u}_1 +  \cdots + x_n \mb{u}_n ) ,\\
-\amp = x_1 T (\mb{u}_1) + \cdots + x_n T (\mb{u}_n), \\
-\amp =  x_1 \left(a_{11}\mb{v}_1 + a_{21} \mb{v}_2 + \cdots + a_{m1} \mb{v}_m \right) + \cdots +  x_n \left(a_{1n}\mb{v}_1 + a_{2n} \mb{v}_2 + \cdots + a_{mn} \mb{v}_m \right), \\
-\amp = \left( a_{11} x_1 + \cdots + a_{1n} x_n \right) \mb{v}_1 + \cdots + \left( a_{m1} x_1 + \cdots + a_{mn} x_n \right) \mb{v}_m. 
-\end{align*}
-</div>
-<div class="para">The coefficients of the vectors <span class="process-math">\(\mb{v}_i\)</span> may look familiar, because they were the coordinates from the formula for matrix multiplication in equation <a href="" class="xref" data-knowl="./knowl/eq-matrixtimesvector.html" title="Equation 2.3.1">(2.3.1)</a>. In fact, we can write this observation as an important equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html">
-\begin{equation}
-\coord{T(\mb{u})}{\mathcal{C}} = \cob{T}{\mathcal{B}}{\mathcal{C}} \coord{\mb{u}}{\mathcal{B}} .\tag{2.6.2}
-\end{equation}
-</div>
-<div class="para">Alternatively, we can give the elegant definition</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html">
-\begin{equation}
-\cob{T}{\mathcal{B}}{\mathcal{C}} = \coord{}{\mathcal{C}} \circ T \circ []_\mathcal{B}. \tag{2.6.3}
-\end{equation}
-</div>
-<div class="para">While important, it is easy to relate to a student who sees this equation as confusing gibberish. So we shall tilt our heads for the moment and understand it from the perspective of the diagram</div>
-</div>
-<span class="incontext"><a href="sec-lineartransformations2.html#p-285" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-vectorspaces2.html#p-285" class="internal">in-context</a></span>
 </body>
 </html>

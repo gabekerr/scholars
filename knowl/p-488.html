@@ -11,28 +11,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Let us reconsider the case of multiplying by</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
+<div class="para">Of course, this definition may seem suspicious at first. As I have been emphasizing, an abstract vector space does <em class="emphasis">not</em> come with a basis, but rather one must choose a basis. So what happens if one person chooses a basis <span class="process-math">\(\mathcal{B}\)</span> to compute <span class="process-math">\(\det (T)\)</span> and another chooses a different basis <span class="process-math">\(\mathcal{C}\text{?}\)</span> Students with great memories will recall equation <a href="" class="xref" data-knowl="./knowl/eq-changeofbasis.html" title="Equation 2.6.5">(2.6.5)</a> and <a href="" class="xref" data-knowl="./knowl/exe-changeofbasis.html" title="Exercise 2.6.5">Exercise 2.6.5</a> which showed that if <span class="process-math">\(B = \cob{T}{\mathcal{B}}{\mathcal{B}}\)</span> and <span class="process-math">\(C = \cob{T}{\mathcal{C}}{\mathcal{C}}\)</span> were two different matrix representations of the same linear transformation <span class="process-math">\(T\text{,}\)</span> then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-changeofbasis.html ./knowl/exe-changeofbasis.html ./knowl/prop-productdet.html">
 \begin{equation*}
-A = \left[ \begin{matrix} 1 \amp 1 \\ 1 \amp 1 \end{matrix} \right] . 
+C = P^{-1} B P. 
 \end{equation*}
 </div>
-<div class="para">Subtracting from  <span class="process-math">\(t\)</span> times the identity gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
-\begin{equation*}
-tI - A = \left[ \begin{matrix} t - 1 \amp -1 \\ -1 \amp t - 1 \end{matrix} \right] 
-\end{equation*}
+<div class="para">But then by <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-changeofbasis.html ./knowl/exe-changeofbasis.html ./knowl/prop-productdet.html">
+\begin{align*}
+\det (B) \amp = \frac{\det (P)}{\det (P)} \det (B), \\
+\amp = \det (P^{-1}) \det (B) \det (P), \\
+\amp = \det (P^{-1} B P), \\
+\amp = \det (C). 
+\end{align*}
 </div>
-<div class="para">and taking determinant then produces</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
-\begin{equation*}
-p_A (t) = \det (t I - T) = (t - 1)^2 - 1 = t^2 - 2t . 
-\end{equation*}
-</div>
-<div class="para">For those that did not imagine how we could find the eigenvalues of <span class="process-math">\(0\)</span> and <span class="process-math">\(2\)</span> before, this polynomial should light a bit of a spark! By <a href="" class="xref" data-knowl="./knowl/prop-eigenvaluedet.html" title="Proposition 4.1.6">Proposition 4.1.6</a>, the eigenvalues must solve the equation <span class="process-math">\(p_A (t) = 0\text{,}\)</span> or equivalently, be roots of <span class="process-math">\(p_A (t)\text{.}\)</span>
-</div>
+<div class="para">So indeed, defining <span class="process-math">\(\det (T)\)</span> with either matrix gives the same quantity.</div>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-488" class="internal">in-context</a></span>
 </body>

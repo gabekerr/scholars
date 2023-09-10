@@ -11,76 +11,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="hiddenproof"><h4 class="heading"><span class="title">Proof of the existence portion of Theorem 2.7.10.</span></h4> <div class="para">We will use induction on <span class="process-math">\(n\)</span> to show that <span class="process-math">\(D_n\)</span> satisfies the properties in <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>.</div> <dl class="description-list">
-<dt>Row Linear</dt>
-<dd><div class="para logical">
-<div class="para">To show row linearity, we notice that since <span class="process-math">\(D_{n - 1}\)</span> is row linear, the cofactors <span class="process-math">\(C_{1j}\)</span> are row linear. By this we mean that if we denote the rows of <span class="process-math">\(n \times n\)</span> matrices as <span class="process-math">\(\mb{r}_1 , \ldots, \mb{r}_n\text{,}\)</span> then</div>
-<div class="displaymath process-math">
-\begin{equation*}
-C_{1j} (\mb{r}_2, \ldots, \mb{r}_{n})  := (-1)^{1 + j} D_{n - 1} (\mb{r}_2, \ldots, \mb{r}_{n}) 
-\end{equation*}
-</div>
-<div class="para">is row linear. This implies that the formula</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (\mb{r}_1, \mb{r}_2, \ldots, \mb{r}_{n}) = a_{11} C_{11} (\mb{r}_2, \ldots, \mb{r}_{n}) + \cdots + a_{1n} C_{1j} (\mb{r}_2, \ldots, \mb{r}_{n}) 
-\end{equation*}
-</div>
-<div class="para">is row linear in the last <span class="process-math">\((n - 1)\)</span> rows. However, we can notice that this formula can also be written as the matrix product</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (\mb{r}_1, \mb{r}_2, \ldots, \mb{r}_{n}) = \mb{r}_1 \cdot \left[ \begin{matrix} C_{11} \\ C_{12} \\ \vdots \\ C_{1n} \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">which is clearly linear in the first row.</div>
-</div></dd>
-<dt>Normalized</dt>
-<dd><div class="para logical">
-<div class="para">We call the property that <span class="process-math">\(D_n (I_n) = 1\)</span> a normalization property. To prove it, we can assume that it holds for <span class="process-math">\(D_{n - 1}\text{.}\)</span> Now, notice that the minor <span class="process-math">\((I_n)_{11} = I_{n - 1}\)</span> while the minors <span class="process-math">\((I_n)_{1j}\)</span> has all zeros in the <span class="process-math">\((j - 1)\)</span>-st row. But if there is a row equal to zero, say <span class="process-math">\(\mb{r}_i = \mb{0}\text{,}\)</span> and <span class="process-math">\(f\)</span> is row linear, then</div>
-<div class="displaymath process-math">
-\begin{align}
-f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n) \amp = f(\mb{r}_1, \ldots , \mb{0} + \mb{0} , \ldots, \mb{r}_n),\tag{2.7.2}\\
-\amp = f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n)  + f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n). \tag{2.7.3}
-\end{align}
-</div>
-<div class="para">So subtracting gives <span class="process-math">\(f(\mb{r}_1, \ldots, \mb{0}, \mb{r}_n) = 0\text{.}\)</span> Thus, since we have shown that <span class="process-math">\(D_n\)</span> is row linear, we have that the cofactors <span class="process-math">\(C_{1j}\)</span> of the identity are <span class="process-math">\(1\)</span> for <span class="process-math">\(j = 1\)</span> and <span class="process-math">\(0\)</span> otherwise. But then</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (I_n) = 1 \cdot C_{11} + 0 \cdot  C_{12} + \cdots + 0 \cdot C_{1n} = 1. 
-\end{equation*}
-</div>
-</div></dd>
-<dt>Alternating</dt>
-<dd>
+<article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
 <div class="para logical">
-<div class="para">To show the alternating property, we may assume inductively that <span class="process-math">\(D_{n -1}\)</span> satisfies this property. This implies the cofactors</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html">
-\begin{equation*}
-C_{1i} = (-1)^{1 + i} D_{n - 1} (\mb{r}_2 , \ldots, \mb{r}_n)
-\end{equation*}
+<div class="para">Assume <span class="process-math">\(f\)</span> is alternating and <span class="process-math">\(A\)</span> has two identical rows. Then switching these rows still gives <span class="process-math">\(A\)</span> which implies <span class="process-math">\(f(A) = - f(A)\)</span> or <span class="process-math">\(f(A) = 0\text{.}\)</span> Conversely, suppose <span class="process-math">\(f\)</span> is row linear and <span class="process-math">\(f(A)\)</span> is zero whenever <span class="process-math">\(A\)</span> has two identical rows. Then</div>
+<div class="displaymath process-math">
+\begin{align*}
+0 \amp = f(\mb{r}_1 , \ldots,\mb{r}_i + \mb{r}_j, \ldots ,\mb{r}_i + \mb{r}_j,  \ldots \mb{r}_n),\\
+\amp = f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) + \cdots,\\
+\amp \cdots + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n),\\
+\amp = f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n)
+\end{align*}
 </div>
-<div class="para">are also alternating and in turn, switching any two of the last <span class="process-math">\(n - 1\)</span> rows for <span class="process-math">\(D_n\)</span> does result in multiplying by <span class="process-math">\(-1\text{.}\)</span> Thus, we need only show that if we switch <span class="process-math">\(\mb{r}_i\)</span> with the <em class="emphasis">first</em> row <span class="process-math">\(\mb{r}_1\)</span> then <span class="process-math">\(D_n\)</span> switches signs.  Using the alternating property for the last <span class="process-math">\(n - 1\)</span> rows, we may assume that <span class="process-math">\(i = 2\text{.}\)</span> Furthermore, using the formula in <a href="" class="xref" data-knowl="./knowl/exa-2x2det.html" title="Example 2.7.11: Determinants of 2\times 2 matrices">Example 2.7.11</a> we see that the alternating property holds for <span class="process-math">\(2 \times 2\)</span> matrices, so we may assume <span class="process-math">\(n &gt; 2\text{.}\)</span> Finally, using row linearity, it suffices to show this property when <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> and <span class="process-math">\(\mb{r}_2 = \mb{e}_k\)</span> are standard basis row vectors.</div>
-</div>
-<div class="para">In the case where <span class="process-math">\(j = k\text{,}\)</span> one sees that the minor <span class="process-math">\(M_{1j}\)</span> is the <span class="process-math">\(D_{n - 1}\)</span> of a matrix with first row zero. So by the argument given above in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a>, we have <span class="process-math">\(C_{1j} = (-1)^{1 + j} M_{1j} = 0\text{.}\)</span> But as all other entries on the first row <span class="process-math">\(\mb{r}_1 = \mb{e}_j\)</span> are zero, we then have <span class="process-math">\(D_n (\mb{r}_1, \ldots, \mb{r}_n) = 0\)</span> so that switching the first two rows does act as multiplying the number <span class="process-math">\(0\)</span> by <span class="process-math">\(-1\text{.}\)</span>
-</div>
-<div class="para logical">
-<div class="para">Now assume we have two distinct indices, <span class="process-math">\(1 \leq j \leq n\)</span> and <span class="process-math">\(1 \leq k \leq n\)</span> and take <span class="process-math">\(A (j,k)\)</span> to be the submatrix of <span class="process-math">\(A\)</span> obtained by eliminating the first two rows and the <span class="process-math">\(j\)</span>-th and <span class="process-math">\(k\)</span>-the columns. A quick look shows then that if <span class="process-math">\(j \lt k\)</span>
-</div>
+<div class="para">Thus</div>
 <div class="displaymath process-math">
 \begin{equation*}
-D_n (\mb{e}_j, \mb{e}_k, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + j} (-1)^{1 + (k - 1)} D_{n - 2} (A (j,k)). 
+f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) 
 \end{equation*}
 </div>
-<div class="para">Indeed, one must subtract <span class="process-math">\(1\)</span> from <span class="process-math">\(k\)</span> because, in the submatrix <span class="process-math">\(A_{1j}\)</span> obtained by eliminating the first row and the <span class="process-math">\(j\)</span>-th column, the index of the entry <span class="process-math">\(a_{2k}\)</span> goes down by one. On the other hand, this does not occur if we switch the order (again assuming <span class="process-math">\(j \lt k\)</span> ) so  we get</div>
-<div class="displaymath process-math">
-\begin{equation*}
-D_n (\mb{e}_k, \mb{e}_j, \mb{r}_3 , \ldots, \mb{r}_n)  = (-1)^{1 + k} (-1)^{1 + j} D_{n - 2} (A (j,k)). 
-\end{equation*}
-</div>
-<div class="para">The difference in the sign justifies that switching the first two rows does indeed multiply the value of <span class="process-math">\(D_n\)</span> by <span class="process-math">\(-1\text{.}\)</span>
-</div>
-</div>
-</dd>
-</dl></article><span class="incontext"><a href="sec-matrices3.html#proof-16" class="internal">in-context</a></span>
+<div class="para">and <span class="process-math">\(f\)</span> is alternating.</div>
+</div></article><span class="incontext"><a href="sec-matrices3.html#proof-16" class="internal">in-context</a></span>
 </body>
 </html>

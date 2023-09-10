@@ -13,75 +13,51 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">This differential equation describes the motion of a mass on the end of a spring. The mass is <span class="process-math">\(m\text{,}\)</span> spring constant <span class="process-math">\(k\)</span> (which describes how tight the spring is) and damping constant is <span class="process-math">\(b\)</span> (which describes the amount of kinetic friction). Dividing by <span class="process-math">\(m\)</span> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+<div class="para">To compute the general solution, there are several ways to proceed, but we will take a principled approach and simply say that our path <span class="process-math">\(\mb{x}\)</span> was a function to <span class="process-math">\(\mathbb{C}^2\)</span> all along so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{equation*}
-x^{\prime \prime} + \tilde{b} x^\prime + \tilde{k} x = 0
+\mb{x} : I \to \mathbb{C}^2.
 \end{equation*}
 </div>
-<div class="para">where <span class="process-math">\(\tilde{b} = \frac{b}{m}\)</span> and <span class="process-math">\(\tilde{k} = \frac{k}{m}\text{.}\)</span> Converting to a matrix equation <span class="process-math">\(\dot{\mb{x}} = A \mb{x}\)</span> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+<div class="para">Now we can diagonalize because the eigenvalues are distinct. A bit of computation gives the eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{equation*}
-A = \left[ \begin{matrix} 0 \amp 1 \\ - \tilde{k} \amp - \tilde{b} \end{matrix} \right]
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{i}{-1 + i},  \twovec{-i}{-1 - i} \right\}.
 \end{equation*}
 </div>
-<div class="para">with characteristic polynomial</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
-\begin{equation*}
-p_A (s) = s^2 + \tilde{b} s + \tilde{k}. 
-\end{equation*}
-</div>
-<div class="para">Using the quadratic formula, we obtain the roots</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
-\begin{equation*}
-\lambda = - \frac{\tilde{b}}{2} \pm \frac{\sqrt{\tilde{b}^2 - 4 \tilde{k}}}{2}
-\end{equation*}
-</div>
-<div class="para">Of which there are two main cases (and one case we will ignore). Let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
-\begin{align*}
-\alpha \amp =  \frac{\tilde{b}}{2}, \\
-\beta \amp = \frac{\sqrt{ | \tilde{b}^2 - 4 \tilde{k} |}}{2} 
-\end{align*}
-</div>
-<div class="para">and notice that <span class="process-math">\(\alpha \geq 0\)</span> (with equality when there is no damping), <span class="process-math">\(\beta \gt 0\)</span> and <span class="process-math">\(\alpha \gt \beta\text{.}\)</span> The first case we have <span class="process-math">\(\tilde{b} \lt 2 \sqrt{\tilde{k}}\)</span> in which case the roots of the characteristic polynomial are</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
-\begin{equation*}
-\lambda = - \alpha + i \beta, \hspace{.5in} \bar{\lambda} = - \alpha - i \beta.
-\end{equation*}
-</div>
-<div class="para">with eigenbasis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+<div class="para">Again, we can write our solution in terms of this basis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{equation}
-\mathcal{B} = \left\{ \mb{w}_1, \bar{\mb{w}}_1 \right\} = \left\{ \twovec{1}{\lambda} \twovec{1}{\bar{\lambda}} \right\}.\tag{5.3.9}
+\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}\tag{5.3.4}
 \end{equation}
 </div>
-<div class="para">Using <a href="" class="xref" data-knowl="./knowl/thm-diagonalizableODE.html" title="Theorem 5.3.4">Theorem 5.3.4</a>, we see that solutions then are linear combinations of the solutions</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
+<div class="para">and again, in this basis the differential equation becomes much simpler</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{equation*}
+\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
+\end{equation*}
+</div>
+<div class="para">This time, the two independent equations are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{align*}
-\mb{x}_R (t) = \operatorname{Re} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right) \amp = \twovec{e^{-\alpha t} \cos (\beta t)}{ - \alpha e^{-\alpha t} \cos (\beta t) + \beta e^{-\alpha t} \sin (\beta t)}, \\
-\mb{x}_I (t) = \operatorname{Im} \left( e^{-\alpha t + i \beta t} \mb{w}_1 \right)  \amp = \twovec{e^{-\alpha t} \sin (\beta t)}{ - \alpha e^{-\alpha t} \sin (\beta t) - \beta e^{-\alpha t} \cos (\beta t)}. 
+\tilde{x}^\prime (t) \amp = (3 + i) \tilde{x} (t), \\
+\tilde{y}^\prime (t) \amp = (3 - i) \tilde{y} (t). 
 \end{align*}
 </div>
-<div class="para">Recalling that the first coordinate is the scalar solution to the original second order differential equation, we obtain</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
-\begin{equation*}
-x (t) = A e^{-\alpha t} \cos (\beta t) + B e^{-\alpha t} \sin (\beta t)
-\end{equation*}
+<div class="para">It is here that <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> comes into view and we realize that, in fact, we've already solved these equations and obtained</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{align*}
+\tilde{x}(t) \amp = C_1 e^{(3 + i)t}, \\
+\tilde{y} (t) \amp = C_2 e^{(3 - i)t}. 
+\end{align*}
 </div>
-<div class="para">with initial conditions</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
-\begin{equation*}
-x (0) = A,  \hspace{.5in}x^\prime (0) = - \alpha A + \beta B. 
-\end{equation*}
+<div class="para">So, were we inclined to write our solutions in terms of the basis <span class="process-math">\(\mathcal{B}\)</span> in <span class="process-math">\(\mathbb{C}^2\text{,}\)</span> we would have solved the differential equation with</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{gather*}
+\mb{x} (t) = \twovec{ C_1 e^{(3 + i)t}}{C_2 e^{(3 - i)t}}_{\mathcal{B}} \text{ with initial condition } \mb{x} (0) = \twovec{C_1}{C_2}_{\mathcal{B}}.
+\end{gather*}
 </div>
-<div class="para">Of course, if the point <span class="process-math">\((A, B)\)</span> has polar coordinate <span class="process-math">\((r \cos \theta, r \sin \theta)\text{,}\)</span> then the trigonometric sum formulas will give the simpler formula</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-diagonalizableODE.html">
-\begin{equation*}
-x (t) = r e^{-\alpha t} \cos (\beta t - \theta ).
-\end{equation*}
-</div>
-<div class="para">Thus when <span class="process-math">\(\tilde{b} \lt 2 \sqrt{\tilde{k}}\)</span> we see some oscillation in the spring-mass system. Notice that if there is no damping and <span class="process-math">\(\alpha = 0\text{,}\)</span> then the spring-mass system simply oscillates with amplitude <span class="process-math">\(r\)</span> and period <span class="process-math">\(\beta\)</span> (often called <span class="process-math">\(\omega\)</span> in applications). On the other hand, if there is damping, this oscillation's amplitude experiences exponential decay.</div>
+<div class="para">I can hear the overwhelming chorus of objections to this solution from engineer and mathematician alike. After all, the constants <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are possibly complex numbers and the function is too. We started in the real plane and have ended in what appears to be a terrifying <span class="process-math">\(4\)</span>-dimensional mess (since <span class="process-math">\(\mathbb{C}^2\)</span> is <span class="process-math">\(4\)</span> real dimensions). Well, I contend that appearances can be deceiving! Let's unwind this a bit with a few simple observations.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-734" class="internal">in-context</a></span>
 </body>

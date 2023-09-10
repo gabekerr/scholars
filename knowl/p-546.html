@@ -11,15 +11,27 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">To see the first claim, suppose</div>
-<div class="displaymath process-math">
+<div class="para">Let us now return to the question of diagonalization and reconsider <a href="" class="xref" data-knowl="./knowl/exa-notdiagonalizable.html" title="Example 4.1.11: Eigenvectors of a 3 \times 3 matrix">Example 4.1.11</a>. Recall that there we examined the matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
 \begin{equation*}
-a_1 \mb{v} + a_2 N(\mb{v}) + \cdots + a_n N^{n - 1} (\mb{v}) = \mb{0}. 
+A = \left[ \begin{matrix} 2 \amp -1 \amp -2 \\ 0 \amp 4 \amp 4 \\ 2 \amp 1 \amp 2 \end{matrix} \right] .
 \end{equation*}
 </div>
-<div class="para">Then by taking <span class="process-math">\(N^{n - 1}\)</span> of both sides we see <span class="process-math">\(a_1 = 0\text{.}\)</span> Repeating with <span class="process-math">\(N^{n - 2}, N^{n - 3} , \ldots\)</span> one sees that <span class="process-math">\(a_2, a_3, \ldots\)</span> all must be zero as well implying <span class="process-math">\(\mathcal{B}\)</span> is linearly independent.</div>
+<div class="para">We found the characteristic polynomial was</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+p_A(t) =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4) 
+\end{equation*}
+</div>
+<div class="para">so that there were eigenvalues <span class="process-math">\(2\)</span> and <span class="process-math">\(4\text{.}\)</span> However, since we don't have <span class="process-math">\(3\)</span> distinct roots of <span class="process-math">\(p_A(t)\text{,}\)</span> we are no longer in the case of <a href="" class="xref" data-knowl="./knowl/cor-distinctrootsdiag.html" title="Corollary 4.1.14">Corollary 4.1.14</a>. This raises the question as to whether we can diagonalize <span class="process-math">\(A\)</span> at all or, equivalently, whether <span class="process-math">\(A\)</span> has an eigenbasis. Recall that we found the <span class="process-math">\(2\)</span> and <span class="process-math">\(4\)</span> eigenvectors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-notdiagonalizable.html ./knowl/cor-distinctrootsdiag.html">
+\begin{equation*}
+\threevec{1}{-2}{1},  \threevec{1}{-2}{0} 
+\end{equation*}
+</div>
+<div class="para">by solving the eigenvector equations. If you look closely at those solutions though, you will see that any other eigenvector must be a multiple of one of these. But this means that the span of the eigenvectors is <span class="process-math">\(2\)</span>-dimensional, and we must conclude that there is no eigenbasis!</div>
 </div>
 <span class="incontext"><a href="sec-jnf.html#p-546" class="internal">in-context</a></span>
 </body>

@@ -11,8 +11,29 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Verify the claim that the basis <span class="process-math">\(\mathcal{B}_i\)</span> in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffbasis.html" title="Equation 5.3.7">(5.3.7)</a> gives a Jordan block (i.e. is of the form in equation <a href="" class="xref" data-knowl="./knowl/eq-jordandiffblock.html" title="Equation 5.3.8">(5.3.8)</a>).</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para logical">
+<div class="para">As an important application of our general solution, we consider higher order homogeneous constant coefficient ODE's. Suppose we are confronted with a scalar valued function <span class="process-math">\(x(t)\)</span> of a variable <span class="process-math">\(t\text{,}\)</span> but now with an equation</div>
+<div class="displaymath process-math">
+\begin{equation}
+x^{(n)} (t) + a_{n - 1}x^{(n - 1)} (t) + \cdots + a_1 x^\prime (t) + a_0 x(t) = 0 .\tag{5.3.6}
+\end{equation}
+</div>
+<div class="para">Here we recall that <span class="process-math">\(x^{(n)} (t)\)</span> is the <span class="process-math">\(n\)</span>-th derivative of <span class="process-math">\(x\)</span> with respect to <span class="process-math">\(t\)</span> (so we will assume our functions are differentiable enough). There are two equivalent ways of approaching the solution to this equation. The first and most common way is to guess the solution <span class="process-math">\(x (t) = e^{\lambda t}\)</span> and solve the resulting polynomial equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lambda^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 \lambda + a_0 = 0.
+\end{equation*}
+</div>
+<div class="para">This polynomial is called the <dfn class="terminology">characteristic polynomial of the ODE</dfn>. Indeed, any solution will give a corresponding solution to the equation. If <span class="process-math">\(\lambda\)</span> is a multiple root of the characteristic polynomial, then one guesses again with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x (t) = \frac{t^k e^{\lambda t}}{k!}
+\end{equation*}
+</div>
+<div class="para">and finds (so long as <span class="process-math">\(k\)</span> is less than  the order of the root) that we have found another solution. Hobbling these solutions together, one can solve equations where now our initial conditions are not just <span class="process-math">\(x (0) = C_0\text{,}\)</span> but also <span class="process-math">\(x^\prime (0) = C_1, \ldots, x^{(n - 1)} (0) = C_{n - 1}\text{.}\)</span>
+</div>
+</div>
 <span class="incontext"><a href="sec-lincode2.html#p-740" class="internal">in-context</a></span>
 </body>
 </html>

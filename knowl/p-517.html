@@ -12,7 +12,18 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Let <span class="process-math">\(T : V \to V\)</span> be a linear transformation of the vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{.}\)</span> Explain your responses to:</div>
+<div class="para logical">
+<div class="para">This follows from simply following the definition of <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}}\text{.}\)</span> Indeed, we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+\cob{T}{\mathcal{B}}{\mathcal{B}} \,\mb{e}_i \amp = \coord{T([\mb{e}_i]_\mathcal{B})} {\mathcal{B}}, \\
+\amp = \coord{T(\mb{v}_i)}{\mathcal{B}}, \\ \amp = \coord{\lambda_i \mb{v}_i}    {\mathcal{B}}, \\
+\amp = \lambda_i \coord{\mb{v}_i}{\mathcal{B}}, \\ \amp = \lambda_i \mb{e}_i. 
+\end{align*}
+</div>
+<div class="para">But this means that the <span class="process-math">\(i\)</span>-th column of <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}}\)</span> is <span class="process-math">\(\lambda_i \mb{e}_i\text{,}\)</span> or, that <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}} = \text{Diag} (\lambda_1, \ldots, \lambda_n)\text{.}\)</span>
+</div>
+</div>
 <span class="incontext"><a href="sec-diag1.html#p-517" class="internal">in-context</a></span>
 </body>
 </html>

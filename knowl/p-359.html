@@ -13,25 +13,19 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Let <span class="process-math">\(A^\prime\)</span> be the reduced row echelon form of <span class="process-math">\(A\)</span> so that there are elementary matrices <span class="process-math">\(E_1, \ldots, E_r\)</span> so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-detelem.html ./knowl/prop-invertiblecriterion1.html ./knowl/eq-multwzero.html">
+<div class="para">We call the property that <span class="process-math">\(D_n (I_n) = 1\)</span> a normalization property. To prove it, we can assume that it holds for <span class="process-math">\(D_{n - 1}\text{.}\)</span> Now, notice that the minor <span class="process-math">\((I_n)_{11} = I_{n - 1}\)</span> while the minors <span class="process-math">\((I_n)_{1j}\)</span> has all zeros in the <span class="process-math">\((j - 1)\)</span>-st row. But if there is a row equal to zero, say <span class="process-math">\(\mb{r}_i = \mb{0}\text{,}\)</span> and <span class="process-math">\(f\)</span> is row linear, then</div>
+<div class="displaymath process-math">
+\begin{align}
+f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n) \amp = f(\mb{r}_1, \ldots , \mb{0} + \mb{0} , \ldots, \mb{r}_n),\tag{2.7.2}\\
+\amp = f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n)  + f(\mb{r}_1, \ldots , \mb{0} , \ldots, \mb{r}_n). \tag{2.7.3}
+\end{align}
+</div>
+<div class="para">So subtracting gives <span class="process-math">\(f(\mb{r}_1, \ldots, \mb{0}, \mb{r}_n) = 0\text{.}\)</span> Thus, since we have shown that <span class="process-math">\(D_n\)</span> is row linear, we have that the cofactors <span class="process-math">\(C_{1j}\)</span> of the identity are <span class="process-math">\(1\)</span> for <span class="process-math">\(j = 1\)</span> and <span class="process-math">\(0\)</span> otherwise. But then</div>
+<div class="displaymath process-math">
 \begin{equation*}
-E_r \cdots E_1 A  = A^\prime. 
+D_n (I_n) = 1 \cdot C_{11} + 0 \cdot  C_{12} + \cdots + 0 \cdot C_{1n} = 1. 
 \end{equation*}
 </div>
-<div class="para">Taking <span class="process-math">\(D\)</span> of both sides and repeatedly applying <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-detelem.html ./knowl/prop-invertiblecriterion1.html ./knowl/eq-multwzero.html">
-\begin{equation*}
-D(E_r) \cdots D(E_1) D(A) = D(A^\prime). 
-\end{equation*}
-</div>
-<div class="para">Noting that <span class="process-math">\(D (E_i) \ne 0\)</span> we also have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-detelem.html ./knowl/prop-invertiblecriterion1.html ./knowl/eq-multwzero.html">
-\begin{equation*}
-D(A) = \frac{D(A^\prime)}{ D(E_r) \cdots D(E_1)}. 
-\end{equation*}
-</div>
-<div class="para">By <a href="" class="xref" data-knowl="./knowl/prop-invertiblecriterion1.html" title="Proposition 2.7.3">Proposition 2.7.3</a>, <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(A^\prime = I\text{.}\)</span> If this is the case, then the normalization property says the right hand side is <span class="process-math">\(1 / D(E_r) \cdots D(E_1) \ne 0\text{.}\)</span> If not, then <span class="process-math">\(A^\prime\)</span> must have a row of zeros (because it is a square matrix) which implies by the argument in equation <a href="" class="xref" data-knowl="./knowl/eq-multwzero.html" title="Equation 2.7.3">(2.7.3)</a> that <span class="process-math">\(D(A^\prime) = 0\text{.}\)</span> This proves the statement.</div>
 </div>
 <span class="incontext"><a href="sec-matrices3.html#p-359" class="internal">in-context</a></span>
 </body>

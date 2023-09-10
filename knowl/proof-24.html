@@ -12,6 +12,29 @@
 </head>
 <body class="ignore-math">
 <article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
-<div class="para">This can be shown for a general inner product space using the Cauchy-Schwarz inequality below. Here we check it for the dot product on <span class="process-math">\(\mathbb{R}^n\)</span> by squaring both sides and seeing that <span class="process-math">\(\mb{u} \cdot \mb{v} \leq \| \mb{u} \| \| \mb{v} \|\)</span> (because <span class="process-math">\(\cos (\theta ) \leq 1\)</span>).</div></article><span class="incontext"><a href="sec-geom1.html#proof-24" class="internal">in-context</a></span>
+<div class="para logical">
+<div class="para">First, if <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> are linearly dependent, then <span class="process-math">\(\mb{v} = \lambda \mb{u}\)</span> with <span class="process-math">\(\lambda \ne 0\)</span> (since both vectors are non-zero). If <span class="process-math">\(\lambda \gt 0\)</span> then both vectors point in the same direction, so their angle should be <span class="process-math">\(\theta = 0\)</span> or <span class="process-math">\(\cos \theta = 1\text{.}\)</span> But in this case we see</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = \mb{u} \cdot (\lambda \mb{u}) = \lambda \| \mb{u} \|^2 = \| \mb{u} \| \| \lambda \mb{u} \| = \| \mb{u} \| \| \mb{v} \| 
+\end{equation*}
+</div>
+<div class="para">which verifies the equality. If <span class="process-math">\(\lambda \lt 0\)</span> then we have that they point in opposite directions and thus <span class="process-math">\(\theta = \pi\)</span> or <span class="process-math">\(\cos \theta = -1\text{.}\)</span> Again we observe</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{u} \cdot \mb{v} = \mb{u} \cdot (\lambda \mb{u}) = \lambda \| \mb{u} \|^2 = - \| \mb{u} \| \| \lambda \mb{u} \| = \| \mb{u} \| \| \mb{v} \| (-1). 
+\end{equation*}
+</div>
+<div class="para">So let us assume they are linearly independent. Then the arrow vectors <span class="process-math">\(\mb{u}, \mb{v}\)</span> and <span class="process-math">\(\mb{u} - \mb{v}\)</span> make up a triangle. If the angle at <span class="process-math">\(\mb{u}\)</span> and <span class="process-math">\(\mb{v}\)</span> is <span class="process-math">\(\theta\)</span> then the Law of Cosines (a basic generalization of the Pythagorean Theorem) says that</div>
+<div class="displaymath process-math">
+\begin{align*}
+\| \mb{u} \|^2 + \| \mb{v} \|^2 - 2 \| \mb{u} \| \| \mb{v} \| \cos (\theta ) \amp = \| \mb{u} - \mb{v} \|^2 , \\
+\amp = (\mb{u} - \mb{v} ) \cdot (\mb{u} - \mb{v} ), \\
+\amp = \mb{u} \cdot \mb{u} - 2 \mb{u} \cdot \mb{v} + \mb{v} \cdot \mb{v}, \\
+\amp = \| \mb{u} \|^2 + \| \mb{v} \|^2 -  2 \mb{u} \cdot \mb{v}.
+\end{align*}
+</div>
+<div class="para">Subtracting <span class="process-math">\(\| \mb{u}\|^2 + \| \mb{v} \|^2\)</span> from both sides and dividing by <span class="process-math">\(-2\)</span> gives the result.</div>
+</div></article><span class="incontext"><a href="sec-geom1.html#proof-24" class="internal">in-context</a></span>
 </body>
 </html>
