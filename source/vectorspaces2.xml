@@ -1,7 +1,11 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-vectorspaces2">
     <title>Vector Spaces II</title>
-
-    <p>In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. For that we need the following definition.</p>
+    <introduction>
+        <p>In our first section on vector spaces, we introduced the very important notion of a basis. However, we would also like to discuss subspaces of a vector space and give coordinates on them. This is the concept of linear independence which will be introduced in the first subsection. This concept then is used to define the dimension of a vector space. We then discuss the annihilator of a vector subspace which appears in the dual space.</p>
+    </introduction>
+    <subsection xml:id="subsec-linearindependence">
+        <title>Independence and Dimension</title>
+    <p> For that we need the following definition.</p>
 
     <definition xml:id="def-linearindependent">
         <notation>
@@ -109,7 +113,8 @@
             <ol>
                 <li> the <term>column space</term> of <m>A</m> is the span of the columns of <m>A</m> in <m>K^m</m>.</li>
                 <li> the <term>row space</term> of <m>A</m> is the span of the rows of <m>A</m> in <m>K^n</m>. </li>
-            </ol> </p>
+            </ol> 
+        </p>
         </statement>
     </definition>
     <p>Note that Example <xref ref="exa-matrixasrowcolumns" /> shows that the column space is equal to the image of the linear transformation obtained by left multiplying a column vector in <m>K^n</m> by <m>A</m> while the row space is the image of right multiplying a row vector in <m>K^m</m>. The following proposition gives bases for both of these spaces.</p>
@@ -124,7 +129,77 @@
         </proof>
     </proposition>
 
-    <p>We note here that the bases for the column and row spaces have the same number of vectors!</p>
+    <p>We note here that the bases for the column and row spaces have the same number of vectors! This motivates the following definition.</p>
+    <definition>
+        <notation>
+            <usage><m>\text{rank}(A)</m></usage>
+            <description>rank of a matrix</description>
+        </notation>
+        <statement>The <term>rank</term> of <m>A</m> is the dimension of the row space of <m>A</m>, or equivalently, the dimension of the column space of <m>A</m>. </statement>
+    </definition>
+
+    
+    <p>The student should now be able to understand some of jargin in the Sage description of vector subspaces. Indeed, the methods <c>.row_space()</c> and <c>.column_space()</c> can be used to define the row and column space of a matrix. </p>
+    <sage>
+        <input>
+            A = matrix([[-1, 2, 1, 0, 1],[2, 0, -3, 0,1],[3, -2, -4 , 0 , 0]])
+            print(A)
+            A.row_space()
+        </input>
+        <output>
+            Free module of degree 5 and rank 2 over Integer Ring
+            Echelon basis matrix:
+            [ 1  2 -2  0  2]
+            [ 0  4 -1  0  3]
+        </output>
+    </sage>
+    <p>The <sq>degree</sq> in this description is the dimension of the ambient space (i.e. the number of columns), and the rank is the dimension of the row space. Indeed, using the method <c>.dimension()</c> the following code checks that the rank of <m>A</m> also equals the dimension of the column space.</p> 
+    <sage>
+        <input>
+            A = matrix([[-1, 2, 1, 0, 1],[2, 0, -3, 0,1],[3, -2, -4 , 0 , 0]])
+            print(A)
+            U = A.column_space()
+            U.dimension()
+        </input>
+        <output>
+            2
+        </output>
+    </sage>
+    </subsection>
+
+
+    <subsection xml:id="subsec-annihilators">
+        <title>Annihilators</title>
+        <p>In the previous section on vector spaces, we defined the dual space <m>V^*</m> of a vector space <m>V</m>. This construction can be extended to vector subspaces. Furthermore, there is a new notion that can be given.</p>
+        <definition>
+            <notation>
+                <usage><m>U^\circ</m></usage>
+                <description>annihilator of a subspace</description>
+            </notation>
+            <statement>
+                <p>Given a vector subspace <m>U \leq V</m> the <term>annihilator</term> of <m>U</m> is the subspace, </p>
+                <me> U^\circ = \left\{ \delta \in V^* : \delta (\mb{u} ) = \mb{0} \text{ for all }\mb{u} \in U \right\}.</me>
+            </statement>
+        </definition>
+        
+        <p>This construction satisfies some basic properties. </p>
+
+        <proposition xml:id="prop-annihilatorcontra">
+            <statement>
+                <p>Suppose <m>U_1 \leq U_2</m> are two vector subspaces of an <m>n</m>-dimensional space <m>V</m>. Then </p>
+                <ol> 
+                    <li>\dim (U_1^\circ) = n - \dim (U_1)</li>
+                    <li>U_1^{\circ \circ} = U_1</li> 
+                    <li><m>U_2^\circ \leq U_1^\circ</m>. </li>
+                </ol>
+            </statement>
+            <proof>
+                <p>For the first two statements, let <m>\mathcal{B} = \{\mb{u}_1, \ldots, \mb{u}_m, \mb{v}_{m + 1}, \ldots, \mb{v}_n\}</m> be a basis for <m>V</m> such that <m>\{\mb{u}_1, \ldots, \mb{u}_m\}</m> is a basis of <m>U_1</m>. Then it is an exercise to see that <m>\{\mb{v}_1^*, \ldots, \mb{v}_{n - m}^* \}</m> is a basis of <m>U_1^\circ</m>. This shows the first statement and the second follows from repeating the argument with the dual basis <m>\mathcal{B}^*</m> and observing that <m>\mathcal{B}^{**} = \mathcal{B}</m>.</p>
+                
+            <p> For the second statement <m>\delta \in U_2^\circ</m> then for any <m> \mb{u} \in U_1 </m> we have <m> \delta (\mb{u} ) = 0 </m> since <m>U_1 \leq U_2</m>. Thus <m>\delta \in U_1^\circ</m>. </p>
+            </proof>
+        </proposition>
+    </subsection>
 
     <exercises xml:id="exe-vectorspaces2">
         
@@ -154,7 +229,13 @@
 
     <exercise>
         <statement>
-            <p> For each matrix in Exercise <xref ref="exe-planesfromequations" />, give a basis for the row space and a basis for the column space. </p>
+            <p> For each matrix in Exercise <xref ref="exe-planesfromequations" />, give a basis for the row space and a basis for the column space. What are the ranks of these matrices? </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p> Using <xref ref="prop-annihilatorcontra"/>, explain why you need only one linear equation to describe a plane in <m>\mathbb{R}^3</m> but two linear equations to describe a line. </p>
         </statement>
     </exercise>
 </exercises>
