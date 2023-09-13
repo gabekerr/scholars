@@ -188,8 +188,8 @@
             <statement>
                 <p>Suppose <m>U_1 \leq U_2</m> are two vector subspaces of an <m>n</m>-dimensional space <m>V</m>. Then </p>
                 <ol> 
-                    <li>\dim (U_1^\circ) = n - \dim (U_1)</li>
-                    <li>U_1^{\circ \circ} = U_1</li> 
+                    <li><m>\dim (U_1^\circ) = n - \dim (U_1)</m></li>
+                    <li><m>U_1^{\circ \circ} = U_1</m></li> 
                     <li><m>U_2^\circ \leq U_1^\circ</m>. </li>
                 </ol>
             </statement>
