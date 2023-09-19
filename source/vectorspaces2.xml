@@ -229,7 +229,7 @@
 
     <exercise>
         <statement>
-            <p> For each matrix in Exercise <xref ref="exe-planesfromequations" />, give a basis for the row space and a basis for the column space. What are the ranks of these matrices? </p>
+            <p> For each matrix in <xref ref="exe-matricestoechelon" />, give a basis for the row space and a basis for the column space. What are the ranks of these matrices? </p>
         </statement>
     </exercise>
 
