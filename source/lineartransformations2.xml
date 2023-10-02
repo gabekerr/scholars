@@ -42,7 +42,14 @@
             <mrow> D(x) \amp = 1 = 1\cdot 1 + 0 \cdot x, </mrow>
             <mrow> D(x^2) \amp = 2x = 0\cdot 1 + 2 \cdot x. </mrow>
         </md>
-        Placing these coefficients into the matrix (appropriately!) gives <me> \cob{D}{\mathcal{B}}{\mathcal{C}} = \mth{0}{1}{0}{0}{0}{2}. </me> Of course, in this example, since we all know how to take derivatives, the matrix representation of <m>D</m> is of limited usefulness. Nonetheless, let us show how equation <xref ref="eq-matrixrepresentation"/> works in this case. Take the arbitrary quadratic polynomial <me> f = ax^2 + bx + c </me> in <m>P_2</m> and observe that <me> \coord{f}{\mathcal{B}} = \threevec{c}{b}{a} . </me> Then multiplying this column vector on the left by <m>\cob{D}{\mathcal{C}}{\mathcal{B}}</m> gives <me> \cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp= \mth{0}{1}{0}{0}{0}{2}\threevec{c}{b}{a} , \\ \amp = \twovec{b}{2a} .</me> But this vector represents the element <me> b\cdot 1 + 2a \cdot x = 2ax + b </me> which we all know as the derivative of <m>f</m>. </p>
+        Placing these coefficients into the matrix (appropriately!) gives 
+        <me> \cob{D}{\mathcal{B}}{\mathcal{C}} =  \begin{bmatrix} {0}\amp {1}\amp {0}\\ {0}\amp {0} \amp {2} \end{bmatrix} . </me> 
+        Of course, in this example, since we all know how to take derivatives, the matrix representation of <m>D</m> is of limited usefulness. Nonetheless, let us show how equation <xref ref="eq-matrixrepresentation"/> works in this case. Take the arbitrary quadratic polynomial <me> f = ax^2 + bx + c </me> in <m>P_2</m> and observe that <me> \coord{f}{\mathcal{B}} = \threevec{c}{b}{a} . </me> Then multiplying this column vector on the left by <m>\cob{D}{\mathcal{B}}{\mathcal{C}}</m> gives 
+        <md> 
+            <mrow> \cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp = \begin{bmatrix} {0}\amp {1}\amp {0}\\ {0}\amp {0} \amp {2} \end{bmatrix} \threevec{c}{b}{a} ,</mrow>
+            <mrow> \amp = \twovec{b}{2a} . </mrow>
+        </md> 
+        But this vector represents the element <me> b\cdot 1 + 2a \cdot x = 2ax + b </me> which we all know as the derivative of <m>f</m>. </p>
         </statement>
     </example>
 

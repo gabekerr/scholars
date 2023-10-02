@@ -103,8 +103,20 @@
             <statement>
                 <p>Let <m>M_{m,n} (K)</m> be the set of all <m>m \times n</m> matrices with entries in <m>K</m>. A function <me> f : M_{m,n} (K) \to K </me> is called:
                 <dl>
-                    <li> <title> row linear</title> if, keeping all rows except the <m>i</m>-th row constant, <m>f</m> is linear on the <m>i</m>-th row (for any <m>i</m>). In other words if <me> f(\mb{r}_1 , \ldots, a \mb{r}_i + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) = a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) </me> </li>
-                    <li> <title>alternating</title> if <m>f</m> reverses sign whenever two rows are switched. In other words <me> f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m).</me> </li>
+                    <li> <title> row linear</title> if, keeping all rows except the <m>i</m>-th row constant, <m>f</m> is linear on the <m>i</m>-th row (for any <m>i</m>). In other words if 
+                        <md> 
+                            <mrow> f(\mb{r}_1 , \ldots, a \mb{r}_i \amp + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) </mrow>
+                            <mrow> \amp \parallel </mrow>
+                            <mrow> a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) \amp + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) </mrow>
+                        </md>
+                    </li>
+                    <li> <title>alternating</title> if <m>f</m> reverses sign whenever two rows are switched. In other words 
+                        <md> 
+                            <mrow> f(\mb{r}_1 , \ldots,\mb{r}_i, \amp  \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m) </mrow> 
+                            <mrow> \parallel </mrow>
+                            <mrow> - f(\mb{r}_1 , \ldots,\mb{r}_j, \amp  \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m) </mrow>
+                        </md>
+                    </li>
                 </dl></p>
             </statement>
         </definition>
