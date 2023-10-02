@@ -469,7 +469,7 @@ D(x^2) \amp = 2x = 0\cdot 1 + 2 \cdot x.
 <div class="para">Placing these coefficients into the matrix (appropriately!) gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
 \begin{equation*}
-\cob{D}{\mathcal{B}}{\mathcal{C}} = \mth{0}{1}{0}{0}{0}{2}. 
+\cob{D}{\mathcal{B}}{\mathcal{C}} =  \begin{bmatrix} {0}\amp {1}\amp {0}\\ {0}\amp {0} \amp {2} \end{bmatrix} . 
 \end{equation*}
 </div>
 <div class="para">Of course, in this example, since we all know how to take derivatives, the matrix representation of <span class="process-math">\(D\)</span> is of limited usefulness. Nonetheless, let us show how equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepresentation.html" title="Equation 2.6.2">(2.6.2)</a> works in this case. Take the arbitrary quadratic polynomial</div>
@@ -484,11 +484,12 @@ f = ax^2 + bx + c
 \coord{f}{\mathcal{B}} = \threevec{c}{b}{a} . 
 \end{equation*}
 </div>
-<div class="para">Then multiplying this column vector on the left by <span class="process-math">\(\cob{D}{\mathcal{C}}{\mathcal{B}}\)</span> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
-\begin{equation*}
-\cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp= \mth{0}{1}{0}{0}{0}{2}\threevec{c}{b}{a} , \\ \amp = \twovec{b}{2a} .
-\end{equation*}
+<div class="para">Then multiplying this column vector on the left by <span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\)</span> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html" id="md-36">
+\begin{align*}
+\cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp = \begin{bmatrix} {0}\amp {1}\amp {0}\\ {0}\amp {0} \amp {2} \end{bmatrix} \threevec{c}{b}{a} ,\\
+\amp = \twovec{b}{2a} . 
+\end{align*}
 </div>
 <div class="para">But this vector represents the element</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">

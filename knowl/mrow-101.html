@@ -13,9 +13,14 @@
 <body class="ignore-math">
 <div class="displaymath process-math">
 \begin{align*}
-E_{ij}^{-1} \amp = E_{ij},\\
-E_i (c)^{-1} \amp = E_i (c^{-1}),\\
-E_{ij} (c)^{-1} \amp = E_{ij} (-c).
+\left[ \begin{array}{ccc|ccc} -1 \amp 2 \amp -4 \amp 1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] \amp \stackrel{(-1)\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_2 + 2\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_3 + \mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] ,  \\
+\amp \stackrel{(-1)\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp -1 \amp 2 \amp -1 \amp 0 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_3 + \mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_1 + 2\mb{r}_2}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 2 \amp 3 \amp -2 \amp 0 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , \\
+\amp \stackrel{\mb{r}_1 - 2\mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp -1 \amp 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] ,  \\
+\amp \stackrel{\mb{r}_2 + \mb{r}_3}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp 0 \amp 0 \amp 1 \amp 0 \amp -2 \\ 0 \amp 1 \amp 0 \amp 3 \amp -2 \amp 1 \\ 0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 1 \end{array} \right] , 
 \end{align*}
 </div>
 <span class="incontext"><a href="sec-matrices3.html#md-37" class="internal">in-context</a></span>

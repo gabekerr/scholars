@@ -418,7 +418,7 @@ y_j (t) = e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t}
 <div class="para">is a solution to equation <a href="" class="xref" data-knowl="./knowl/eq-linearccnhODE.html" title="Equation 5.4.1">(5.4.1)</a>.</div>
 </div></article><article class="hiddenproof" id="proof-50"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-50"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-50"><article class="hiddenproof"><div class="para logical" id="p-754">
 <div class="para">Since we are asserting only that we have found a solution, we need only check that equation <a href="" class="xref" data-knowl="./knowl/eq-linearccnhODE.html" title="Equation 5.4.1">(5.4.1)</a> holds. First we observe that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html" id="md-95">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html" id="md-98">
 \begin{align*}
 y_j^\prime (t) \amp = \frac{d}{dt} \left( e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
 \amp = \left( \frac{d}{dt} e^{\lambda_j t}  \right) \int e^{-\lambda_j t} g_j (t) \diff{t} + e^{\lambda_j t} \left(\frac{d}{dt}  \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
@@ -427,7 +427,7 @@ y_j^\prime (t) \amp = \frac{d}{dt} \left( e^{\lambda_j t} \int e^{-\lambda_j t} 
 \end{align*}
 </div>
 <div class="para">Using this, we then compute</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html" id="md-96">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html" id="md-99">
 \begin{align*}
 \mb{x}^\prime (t) \amp = \frac{d}{dt} \left( P \,\mb{y}  (t) \right), \\
 \amp = P \, \mb{y}^\prime (t), \\
@@ -474,14 +474,14 @@ y_j^\prime (t) \amp = \frac{d}{dt} \left( e^{\lambda_j t} \int e^{-\lambda_j t} 
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">A non-homogeneous two dimensional equation.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-lineardiagonalode4"><article class="example example-like"><div class="para logical" id="p-759">
 <div class="para">In <a href="" class="xref" data-knowl="./knowl/ex-lineardiagonalode.html" title="Example 5.3.2: Two real dimensional equation">Example 5.3.2</a> we considered the linear system</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-97">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-100">
 \begin{align*}
 x^\prime (t) \amp = -4 x(t) - 3 y(t), \\
 y^\prime (t) \amp = 6 x (t) + 5 y(t). 
 \end{align*}
 </div>
 <div class="para">Let us consider a non-homogeneous version of this system such as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-98">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-101">
 \begin{align*}
 x^\prime (t) \amp = -4 x(t) - 3 y(t) + t, \\
 y^\prime (t) \amp = 6 x (t) + 5 y(t) - 3t. 
@@ -518,7 +518,7 @@ P = \left[ \begin{matrix} 1 \amp -1 \\ -1 \amp 2 \end{matrix} \right] , \hspace{
 \end{equation*}
 </div>
 <div class="para">We then can calculate the integrals using integration by parts</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-99">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-102">
 \begin{align*}
 y_1 (t) \amp = e^{-t} \int e^t (-t) \diff{t}, \\
 \amp = - e^{-t} (t e^t - e^t), \\
@@ -535,7 +535,7 @@ y_2 (t) \amp = e^{2t} \int e^{-2t} (-2t) \diff{t}, \\
 \end{equation*}
 </div>
 <div class="para">Using the homogeneous solutions <a href="" class="xref" data-knowl="./knowl/eq-lindiagsol.html" title="Equation 5.3.3">(5.3.3)</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-100">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html" id="md-103">
 \begin{align*}
 \mb{x} (t) \amp = C_1 e^{-t} \mb{v}_1 + C_2 e^{2t} \mb{v}_2 + \mb{x}_p (t), \\
 \amp = \twovec{C_1 e^{-t} - C_2 e^{2t}  - 2t + 1/2 }{ - C_1 e^{-t} + 2 C_2 e^{2t} + 3t }. 
@@ -633,7 +633,7 @@ x_p (t) \amp = \frac{i}{2 \beta} \left( - \frac{e^{\omega t}}{\omega - \lambda} 
 <div class="para">Adding a homogeneous term gives the general solution.</div>
 </div> <div class="para logical" id="p-762">
 <div class="para">This case when <span class="process-math">\(\omega = \lambda\)</span> or <span class="process-math">\(\omega = \bar{\lambda}\)</span> (usually when no damping is present and <span class="process-math">\(\omega\)</span> is purely imaginary) is called <dfn class="terminology">pure resonance</dfn>. Let's assume <span class="process-math">\(\omega = \lambda\)</span> so that equation <a href="" class="xref" data-knowl="./knowl/eq-particularspringmass.html" title="Equation 5.4.4">(5.4.4)</a> gives us the solution</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-particularspringmass.html" id="md-101">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-particularspringmass.html" id="md-104">
 \begin{align*}
 x_p (t) \amp = \frac{i}{2\beta}  \left( - e^{\lambda t} t + \frac{e^{\lambda t}}{\lambda - \bar{\lambda}} \right), \\
 \amp = \frac{e^{\lambda t}\left( 1 - 2\beta i t \right)}{4\beta^2}
@@ -722,7 +722,7 @@ e^{\lambda t}, t e^{\lambda t}, \frac{t^2}{2!} e^{\lambda t}, \ldots
 \end{equation*}
 </div>
 <div class="para">then the general solution to the homogeneous differential equation (as a complex valued function) is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-generalnonhomosolution.html" id="md-102">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-generalnonhomosolution.html" id="md-105">
 \begin{align*}
 x (t) \amp = e^{\lambda_1 t} \left( C_{1,0} + C_{1,1} t + \cdots + C_{1, k_1 - 1} \frac{t^{k_1 - 1}}{(k_1 - 1)!} \right) + \cdots\\
 \amp  \cdots +  e^{\lambda_r t} \left( C_{r,0} + C_{r,1} t + \cdots + C_{r, k_r - 1} \frac{t^{k_r - 1}}{(k_r - 1)!} \right)
@@ -779,7 +779,7 @@ x_h (t) = C_1 e^{i t} + C_2 e^{ - i t} + C_3 e^{t}.
 \end{equation*}
 </div>
 <div class="para">We observe that the functions <span class="process-math">\(e^{it}\)</span> and <span class="process-math">\(e^{-it}\)</span> are <span class="process-math">\(i\)</span> and <span class="process-math">\((-i)\)</span>-eigenfunctions for the derivative. Applying equation <a href="" class="xref" data-knowl="./knowl/eq-solutioncomplex.html" title="Equation 5.4.9">(5.4.9)</a> and linearity gives the particular solution,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-solutioncomplex.html" id="md-103">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-solutioncomplex.html" id="md-106">
 \begin{align*}
 x_p (t) \amp = \frac{i}{2}  \frac{t e^{-it}}{(-i - 1)(-i - i)}  - \frac{i}{2}  \frac{t e^{it}}{(i - 1)(i + i)}, \\
 \amp = \frac{t}{4} \left( \frac{e^{-it}}{1 + i} + \frac{e^{it}}{1 - i} \right),\\
@@ -796,7 +796,7 @@ x (t) = x_h (t) + x_p (t) = C_1 e^{i t} + C_2 e^{ - i t} + C_3 e^{t} + \frac{t \
 \end{equation*}
 </div>
 <div class="para">To find our actual solution we simply apply initial conditions and see</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-solutioncomplex.html" id="md-104">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-solutioncomplex.html" id="md-107">
 \begin{align*}
 C_1 + C_2 + C_3 \amp = x(0) = 0,\\
 iC_1 - iC_2 + C_3 + 1/4 \amp = x^\prime (0) = 1/4,\\
@@ -827,7 +827,7 @@ x (t) =  \frac{(t - 2)\cos (t) + (t - 2) \sin (t) + 2e^t}{4} .
 <article class="exercise exercise-like" id="exercise-94"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
 <div class="para logical" id="p-769">
 <div class="para">Find the solution to the non-homogeneous linear system</div>
-<div class="displaymath process-math" id="md-105">
+<div class="displaymath process-math" id="md-108">
 \begin{align*}
 x^\prime (t) \amp = -3 x(t) - 6 y(t) + 2t, \\
 y^\prime (t) \amp = 2 x (t) + 4 y(t) - t. 

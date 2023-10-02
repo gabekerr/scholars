@@ -430,14 +430,14 @@ window.MathJax = {
 </div>
 </div></article><article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"><div class="para logical" id="p-717">
 <div class="para">To prove this, we need only show that <span class="process-math">\(\mb{x} (t)\)</span> is a solution with the correct initial condition. Indeed, as our initial condition <span class="process-math">\(\mb{x} (0)\)</span> can be any vector in <span class="process-math">\(V\text{,}\)</span> any other solution <span class="process-math">\(\mb{y} (t)\)</span> would have to be of this form by <a href="" class="xref" data-knowl="./knowl/thm-uniqueode.html" title="Theorem 5.2.1: Uniqueness of Solutions to ODEs">Theorem 5.2.1</a>. To do this, we compute the tangent vectors</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-71">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-74">
 \begin{align*}
 \mb{y}^\prime_k (t) \amp = \frac{d}{dt} \left( \frac{t^k}{k!} \mb{v}_0 +   \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 1} +  \mb{v}_k \right), \\
 \amp =  \frac{t^{k - 1}}{(k - 1)!} \mb{v}_0 + \frac{t^{k - 2}}{(k - 2)!} \mb{v}_1 + \cdots +  \frac{t^1}{1!} \mb{v}_{k - 2} +  \mb{v}_{k - 1}, \\ \amp = \mb{y}_{k - 1} (t). 
 \end{align*}
 </div>
 <div class="para">Here we take <span class="process-math">\(\mb{y}_{-1} (t) = \mb{0}\text{.}\)</span> This, along with <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> and the product rule for paths <a href="" class="xref" data-knowl="./knowl/prop-productrulepaths.html" title="Proposition 5.1.11: Product Rule for Paths">Proposition 5.1.11</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-72">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-75">
 \begin{align*}
 \mb{x}_k^\prime (t) \amp =   \frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right), \\
 \amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t). 
@@ -450,7 +450,7 @@ T ( \mb{v}_j ) = \lambda \mb{v}_j + \mb{v}_{j - 1} .
 \end{equation*}
 </div>
 <div class="para">This with linearity gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-73">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-76">
 \begin{align*}
 T ( \mb{y}_k (t) ) \amp = T \left( \frac{t^k}{k!} \mb{v}_0 \right) +   T \left( \frac{t^{k - 1}}{(k - 1)!} \mb{v}_1 \right) + \cdots +  T \left( \frac{t^1}{1!} \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), \\
 \amp =   \frac{t^k}{k!} T \left(  \mb{v}_0 \right) +   \frac{t^{k - 1}}{(k - 1)!} T \left(  \mb{v}_1 \right) + \cdots + \frac{t^1}{1!} T \left(  \mb{v}_{k - 1}\right) + T \left(  \mb{v}_k \right), \\
@@ -461,7 +461,7 @@ T ( \mb{y}_k (t) ) \amp = T \left( \frac{t^k}{k!} \mb{v}_0 \right) +   T \left( 
 \end{align*}
 </div>
 <div class="para">Again using linearity we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-74">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-uniqueode.html ./knowl/exe-derivativeexp.html ./knowl/prop-productrulepaths.html ./knowl/eq-genlinsol.html" id="md-77">
 \begin{align*}
 \frac{d}{dt} \left( e^{\lambda t} \mb{y}_k (t) \right) \amp = \lambda e^{\lambda t} \mb{y}_k (t) + e^{\lambda t} \mb{y}_{k - 1} (t), \\
 \amp = e^{\lambda t} \left( \lambda \mb{y}_k (t) + \mb{y}_{k - 1} (t) \right), \\

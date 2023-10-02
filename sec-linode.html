@@ -439,7 +439,7 @@ e^{A} = I + A + \frac{1}{2!} A^2 + \frac{1}{3!} A^3 + \cdots .
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Using exponential matrices.</span>
 </h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-76"><article class="example example-like"><div class="para logical" id="p-779">
 <div class="para">Any homogeneous constant coefficient matrix can be seen to fit into this case. In particular, if <span class="process-math">\(A\)</span> is diagonalizable with <span class="process-math">\(P^{-1} A P = \text{Diag} (\lambda_1, \ldots, \lambda_n)\)</span> then</div>
-<div class="displaymath process-math" id="md-106">
+<div class="displaymath process-math" id="md-109">
 \begin{align*}
 e^{t A}  \amp = P P^{-1} e^{t A} P P^{-1}, \\
 \amp = P e^{t P^{-1} A P} P^{-1}, \\
@@ -470,7 +470,7 @@ P \threevec{C_1}{\vdots}{C_n} = \threevec{D_1}{\vdots}{D_n}
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.4</span><span class="period">.</span><span class="space"> </span><span class="title">Using exponential matrices.</span>
 </h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-77"><article class="example example-like"><div class="para logical" id="p-780">
 <div class="para">Consider the linear system</div>
-<div class="displaymath process-math" id="md-107">
+<div class="displaymath process-math" id="md-110">
 \begin{align*}
 x^\prime (t) \amp = 2 t  x(t) + y(t), \\
 y^\prime (t) \amp =  x (t) + 2 t y(t). 
@@ -483,7 +483,7 @@ y^\prime (t) \amp =  x (t) + 2 t y(t).
 \end{equation*}
 </div>
 <div class="para">Letting</div>
-<div class="displaymath process-math" id="md-108">
+<div class="displaymath process-math" id="md-111">
 \begin{align*}
 A(t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right], \\
 B(t) = \left[ \begin{matrix} t^2 \amp t \\ t \amp t^2 \end{matrix} \right], 
@@ -504,7 +504,7 @@ B(t) = \frac{t}{2} \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \ri
 \end{equation*}
 </div>
 <div class="para">This can be used to see that</div>
-<div class="displaymath process-math" id="md-109">
+<div class="displaymath process-math" id="md-112">
 \begin{align*}
 e^{B (t)} \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp 0 \\ 0 \amp e^{t(t + 1)/2} \end{matrix} \right] \left[ \begin{matrix} 1 \amp 1 \\ -1 \amp 1 \end{matrix} \right], \\
 \amp = \left[ \begin{matrix} 1 \amp - 1 \\ 1 \amp 1 \end{matrix} \right] \left[ \begin{matrix} e^{t(t - 1)/2} \amp e^{t(t - 1)/2} \\ -e^{t(t + 1)/2} \amp e^{t(t + 1)/2} \end{matrix} \right], \\
@@ -600,14 +600,14 @@ x(t) = \sum_{n = 0}^\infty a_n t^n
 \end{equation*}
 </div>
 <div class="para">is a convergent power series expression for <span class="process-math">\(x(t)\)</span> with non-zero radius of convergence. We solve for <span class="process-math">\(a_n\)</span> using the differential equation. Indeed, putting <span class="process-math">\(x(t)\)</span> into the equation gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html" id="md-110">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html" id="md-113">
 \begin{align*}
 0 \amp = t^2 \left( \sum_{n = 2}^\infty n (n - 1)a_n t^{n - 2} \right) + t \left(  \sum_{n = 1}^\infty n a_n t^{n - 1} \right) + t^2  \sum_{n = 0}^\infty a_n t^n, \\
 \amp =  \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 1}^\infty n a_n t^{n}  +   \sum_{n = 0}^\infty a_n t^{n + 2}. 
 \end{align*}
 </div>
 <div class="para">Now we reindex each summand on the right to get a single series.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html" id="md-111">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html" id="md-114">
 \begin{align*}
 0  \amp =  \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 1}^\infty  n a_n t^{n}  +   \sum_{n = 0}^\infty a_n t^{n + 2}, \\
 \amp = a_1 t + \sum_{n = 2}^\infty n (n - 1)a_n t^{n }  +   \sum_{n = 2}^\infty n a_n t^{n}  + \sum_{n = 2}^\infty a_{n - 2} t^{n}, \\
@@ -633,7 +633,7 @@ a_2 = \frac{-1}{2^2} a_0, \hspace{.2in}a_4 = \frac{(-1)^2}{4^2 2^2}a_0,\hspace{.
 \end{equation*}
 </div>
 <div class="para">giving the equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html" id="md-112">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-wronskian.html" id="md-115">
 \begin{align*}
 a_{2n} \amp = \frac{(-1)^n}{(2n)^2(2(n - 1))^2 \cdots 2^2} a_0, \\
 \amp = \frac{(-1)^n}{(2n \cdot 2(n - 1) \cdots 2)^2} a_0, \\

@@ -13,12 +13,10 @@
 <body class="ignore-math">
 <div class="displaymath process-math">
 \begin{align*}
-T_A ( \mb{v}_i) \amp = A \mb{v}_i, \\
-\amp = \left( P \, \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1} \right) (P \mb{e}_i) , \\
-\amp = P \,\textnormal{Diag} (\lambda_1, \ldots, \lambda_n) \mb{e}_i \\
-\amp = P (\lambda_i \mb{e}_i) , \\
-\amp = \lambda_i  P \mb{e}_i, \\
-\amp = \lambda_i \mb{v}_i.
+p_A (t) \amp = \det \left( \left[ \begin{matrix} t -2 \amp 1 \amp 2 \\ 0 \amp  t-4\amp -4 \\ -2 \amp -1 \amp t - 2 \end{matrix} \right] \right), \\
+\amp = (t - 2) \det  \left( \left[ \begin{matrix} t - 4 \amp - 4 \\ - 1 \amp  t - 2 \end{matrix} \right] \right) -  \det \left( \left[ \begin{matrix} 0 \amp -4 \\ -2  \amp  t - 2\end{matrix} \right] \right) + 2 \left( \left[ \begin{matrix}  0 \amp t - 4 \\ -2 \amp -1  \end{matrix} \right] \right), \\
+\amp = (t - 2) (t^2 - 6t + 4) + 8  + 4 (t - 4),\\
+\amp = t^3 - 8t^2 + 20t - 16.
 \end{align*}
 </div>
 <span class="incontext"><a href="sec-diag1.html#md-55" class="internal">in-context</a></span>

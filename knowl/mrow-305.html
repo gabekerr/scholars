@@ -13,17 +13,12 @@
 <body class="ignore-math">
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
 \begin{align*}
-\mb{x}^\prime (t) \amp = \frac{d}{dt} \left( P \,\mb{y}  (t) \right), \\
-\amp = P \, \mb{y}^\prime (t), \\
-\amp = P \, \threevec{y_1^\prime (t)}{\vdots}{y_n^\prime (t)}, \\
-\amp = P \left( \threevec{\lambda_1 y_1 (t) + g_1 (t)}{\vdots}{\lambda_n y_n (t) + g_n (t)} \right), \\
-\amp =  P\, \left( \threevec{\lambda_1 y_1 (t)}{\vdots}{\lambda_n y_n (t)} + \threevec{ g_1 (t)}{\vdots}{g_n (t)} \right), \\
-\amp = P\, \left( \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, \mb{y} (t) + \mb{g} (t) \right), \\
-\amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\,\mb{y} (t) + P\, \mb{g} (t), \\
-\amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, P^{-1}\, \mb{x} (t) + P\, \mb{g} (t), \\
-\amp = A\, \mb{x} (t) + \mb{f} (t). 
+y_j^\prime (t) \amp = \frac{d}{dt} \left( e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
+\amp = \left( \frac{d}{dt} e^{\lambda_j t}  \right) \int e^{-\lambda_j t} g_j (t) \diff{t} + e^{\lambda_j t} \left(\frac{d}{dt}  \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
+\amp = \lambda_j e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t}  + e^{\lambda_j t} e^{-\lambda_j t} g_j (t) , \\
+\amp = \lambda_j y_j (t) + g_j (t). 
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-lincode3.html#md-96" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-lincode3.html#md-98" class="internal">in-context</a></span>
 </body>
 </html>

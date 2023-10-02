@@ -13,8 +13,10 @@
 <body class="ignore-math">
 <div class="displaymath process-math">
 \begin{align*}
-A(t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right], \\
-B(t) = \left[ \begin{matrix} t^2 \amp t \\ t \amp t^2 \end{matrix} \right], 
+e^{t A}  \amp = P P^{-1} e^{t A} P P^{-1}, \\
+\amp = P e^{t P^{-1} A P} P^{-1}, \\
+\amp =  P e^{\text{Diag} (t \lambda_1, \ldots, t \lambda_n)} P^{-1}, \\
+\amp = P \,\text{Diag} (e^{\lambda_1 t}, \ldots, e^{\lambda_n t} ) P^{-1}. 
 \end{align*}
 </div>
 <span class="incontext"><a href="sec-linode.html#md-108" class="internal">in-context</a></span>

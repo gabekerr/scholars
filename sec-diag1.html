@@ -478,7 +478,7 @@ C = P^{-1} B P.
 \end{equation*}
 </div>
 <div class="para">But then by <a href="" class="xref" data-knowl="./knowl/prop-productdet.html" title="Proposition 2.7.16">Proposition 2.7.16</a> we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-changeofbasis.html ./knowl/exe-changeofbasis.html ./knowl/prop-productdet.html" id="md-51">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-changeofbasis.html ./knowl/exe-changeofbasis.html ./knowl/prop-productdet.html" id="md-54">
 \begin{align*}
 \det (B) \amp = \frac{\det (P)}{\det (P)} \det (B), \\
 \amp = \det (P^{-1}) \det (B) \det (P), \\
@@ -594,7 +594,7 @@ A = \left[ \begin{matrix} 2 \amp -1 \amp -2 \\ 0 \amp 4 \amp 4 \\ 2 \amp 1 \amp 
 \end{equation*}
 </div>
 <div class="para">The first step to finding eigenvectors is to find the eigenvalues. To do this, we learned to find the characteristic polynomial</div>
-<div class="displaymath process-math" id="md-52">
+<div class="displaymath process-math" id="md-55">
 \begin{align*}
 p_A (t) \amp = \det \left( \left[ \begin{matrix} t -2 \amp 1 \amp 2 \\ 0 \amp  t-4\amp -4 \\ -2 \amp -1 \amp t - 2 \end{matrix} \right] \right), \\
 \amp = (t - 2) \det  \left( \left[ \begin{matrix} t - 4 \amp - 4 \\ - 1 \amp  t - 2 \end{matrix} \right] \right) -  \det \left( \left[ \begin{matrix} 0 \amp -4 \\ -2  \amp  t - 2\end{matrix} \right] \right) + 2 \left( \left[ \begin{matrix}  0 \amp t - 4 \\ -2 \amp -1  \end{matrix} \right] \right), \\
@@ -695,7 +695,7 @@ p_A(t)  =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4).
 <div class="para">Since the vectors <span class="process-math">\(\{\mb{v}_1, \ldots, \mb{v}_j\}\)</span> are linearly independent, this would mean <span class="process-math">\(a_i = a_i^\prime\)</span> for each <span class="process-math">\(1 \leq i \leq j\)</span> (showing they are unique).</div>
 </div> <div class="para logical" id="p-511">
 <div class="para">However, we can apply <span class="process-math">\(T\)</span> to both sides of equation <a href="" class="xref" data-knowl="./knowl/eq-linrel.html" title="Equation 4.1.3">(4.1.3)</a> to obtain</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html" id="md-53">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linrel.html ./knowl/eq-linrel.html" id="md-56">
 \begin{align*}
 \lambda_{j + 1} \mb{v}_{j + 1} \amp = T (\mb{v}_{j+1}) , \\
 \amp = T (a_1 \mb{v}_1 + \cdots + a_j \mb{v}_j ),  \\
@@ -732,7 +732,7 @@ p_A(t)  =  (t - 2) (t^2 - 6t + 8) =  (t - 2) (t - 2) (t - 4).
 </div>
 </div></article><article class="hiddenproof" id="proof-32"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-32"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-32"><article class="hiddenproof"><div class="para logical" id="p-517">
 <div class="para">This follows from simply following the definition of <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{B}}\text{.}\)</span> Indeed, we have</div>
-<div class="displaymath process-math" id="md-54">
+<div class="displaymath process-math" id="md-57">
 \begin{align*}
 \cob{T}{\mathcal{B}}{\mathcal{B}} \,\mb{e}_i \amp = \coord{T([\mb{e}_i]_\mathcal{B})} {\mathcal{B}}, \\
 \amp = \coord{T(\mb{v}_i)}{\mathcal{B}}, \\ \amp = \coord{\lambda_i \mb{v}_i}    {\mathcal{B}}, \\
@@ -764,7 +764,7 @@ P^{-1} A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n )
 </div>
 </div></article><article class="hiddenproof" id="proof-33"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-33"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-33"><article class="hiddenproof"><div class="para logical" id="p-521">
 <div class="para">If <span class="process-math">\(A\)</span> is diagonalizable then there is an invertible matrix <span class="process-math">\(P\)</span> as which satisfies the equation (by definition). Consider the set <span class="process-math">\(\mathcal{B} = \{ P \mb{e}_1, \ldots, P \mb{e}_n \}\)</span> and notice that it is a basis of <span class="process-math">\(K^n\)</span> (since it is the image of the standard basis and <span class="process-math">\(P\)</span> is invertible). Also, we then have</div>
-<div class="displaymath process-math" id="md-55">
+<div class="displaymath process-math" id="md-58">
 \begin{align*}
 T_A ( \mb{v}_i) \amp = A \mb{v}_i, \\
 \amp = \left( P \, \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1} \right) (P \mb{e}_i) , \\
@@ -796,7 +796,7 @@ A = \left[ \begin{matrix} -2 \amp 0 \amp -2 \\ -1 \amp -1 \amp -2 \\ 4 \amp 0 \a
 \end{equation*}
 </div>
 <div class="para">This is in fact a bit of an undertaking, but we now know all of the steps. First, let us find the eigenvalues by obtaining the characteristic polynomial</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html" id="md-56">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-distinctrootsdiag.html" id="md-59">
 \begin{align*}
 p_A (t) \amp = \det \left( \left[ \begin{matrix}  t + 2 \amp 0 \amp 2 \\ 1 \amp t + 1  \amp 2 \\ -4 \amp 0 \amp t - 4\end{matrix} \right] \right) , \\
 \amp = (t + 2)(t + 1) (t - 4) + 0 + (-2) [-4 (t + 1)]  , \\

@@ -24,16 +24,20 @@ f : M_{m,n} (K) \to K
 <dl class="description-list">
 <dt>row linear</dt>
 <dd> if, keeping all rows except the <span class="process-math">\(i\)</span>-th row constant, <span class="process-math">\(f\)</span> is linear on the <span class="process-math">\(i\)</span>-th row (for any <span class="process-math">\(i\)</span>). In other words if<div class="displaymath process-math">
-\begin{equation*}
-f(\mb{r}_1 , \ldots, a \mb{r}_i + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) = a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) 
-\end{equation*}
+\begin{align*}
+f(\mb{r}_1 , \ldots, a \mb{r}_i \amp + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) \\
+\amp \parallel \\
+a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) \amp + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) 
+\end{align*}
 </div>
 </dd>
 <dt>alternating</dt>
 <dd> if <span class="process-math">\(f\)</span> reverses sign whenever two rows are switched. In other words<div class="displaymath process-math">
-\begin{equation*}
-f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m).
-\end{equation*}
+\begin{align*}
+f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots \amp ,  \mb{r}_j,  \ldots , \mb{r}_m) \\
+\parallel \\
+- f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m) 
+\end{align*}
 </div>
 </dd>
 </dl>

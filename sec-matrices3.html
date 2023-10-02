@@ -393,7 +393,7 @@ A = \left[ \begin{matrix} -1 \amp 2 \amp -4  \\ -2 \amp 3 \amp -7 \\ -1 \amp 1 \
 \end{equation*}
 </div>
 <div class="para">We augment and reduce</div>
-<div class="displaymath process-math" id="md-36">
+<div class="displaymath process-math" id="md-37">
 \begin{align*}
 \left[ \begin{array}{ccc|ccc} -1 \amp 2 \amp -4 \amp 1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] \amp \stackrel{(-1)\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ -2 \amp 3 \amp -7 \amp 0 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
 \amp \stackrel{\mb{r}_2 + 2\mb{r}_1}{\longrightarrow}    \left[ \begin{array}{ccc|ccc} 1 \amp -2 \amp 4 \amp -1 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \amp -2 \amp 1 \amp 0 \\ -1 \amp 1 \amp -2 \amp 0 \amp 0 \amp 1 \end{array} \right] , \\
@@ -446,7 +446,7 @@ E_{ij} (c) = I_n + c \mb{e}_{ij}.
 </h4>
 <div class="para logical" id="p-335">
 <div class="para">Performing a Type I, II or III elementary row operation on a matrix <span class="process-math">\(A\)</span> is equivalent to multiplying <span class="process-math">\(A\)</span> on the left by a Type I, II or III elementary matrix. Furthermore, each elementary matrix is invertible and</div>
-<div class="displaymath process-math" id="md-37">
+<div class="displaymath process-math" id="md-38">
 \begin{align*}
 E_{ij}^{-1} \amp = E_{ij},\\
 E_i (c)^{-1} \amp = E_i (c^{-1}),\\
@@ -502,17 +502,21 @@ f : M_{m,n} (K) \to K
 <div class="para">is called:</div>
 <dl class="description-list">
 <dt id="li-56">row linear</dt>
-<dd> if, keeping all rows except the <span class="process-math">\(i\)</span>-th row constant, <span class="process-math">\(f\)</span> is linear on the <span class="process-math">\(i\)</span>-th row (for any <span class="process-math">\(i\)</span>). In other words if<div class="displaymath process-math">
-\begin{equation*}
-f(\mb{r}_1 , \ldots, a \mb{r}_i + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) = a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) 
-\end{equation*}
+<dd> if, keeping all rows except the <span class="process-math">\(i\)</span>-th row constant, <span class="process-math">\(f\)</span> is linear on the <span class="process-math">\(i\)</span>-th row (for any <span class="process-math">\(i\)</span>). In other words if<div class="displaymath process-math" id="md-39">
+\begin{align*}
+f(\mb{r}_1 , \ldots, a \mb{r}_i \amp + b \mb{r}_i^\prime,  \ldots ,\mb{r}_m) \\
+\amp \parallel \\
+a f(\mb{r}_1 , \ldots, \mb{r}_i ,  \ldots, \mb{r}_m) \amp + b f(\mb{r}_1 , \ldots, \mb{r}_i^\prime,  \ldots, \mb{r}_m) 
+\end{align*}
 </div>
 </dd>
 <dt id="li-57">alternating</dt>
-<dd> if <span class="process-math">\(f\)</span> reverses sign whenever two rows are switched. In other words<div class="displaymath process-math">
-\begin{equation*}
-f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots , \mb{r}_m)  = - f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m).
-\end{equation*}
+<dd> if <span class="process-math">\(f\)</span> reverses sign whenever two rows are switched. In other words<div class="displaymath process-math" id="md-40">
+\begin{align*}
+f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots \amp ,  \mb{r}_j,  \ldots , \mb{r}_m) \\
+\parallel \\
+- f(\mb{r}_1 , \ldots,\mb{r}_j, \ldots ,  \mb{r}_i,  \ldots ,\mb{r}_m) 
+\end{align*}
 </div>
 </dd>
 </dl>
@@ -580,7 +584,7 @@ A  = \left[ \begin{matrix} 3 \amp 1 \amp -2 \\ 5 \amp 2 \amp 1 \\ -1 \amp 1 \amp
 \end{equation*}
 </div>
 <div class="para">we can compute the minors <span class="process-math">\(M_{1,1}\text{,}\)</span> <span class="process-math">\(M_{1,2}\)</span> and <span class="process-math">\(M_{1,3}\)</span> using the formula in <a href="" class="xref" data-knowl="./knowl/exa-2x2det.html" title="Example 2.7.11: Determinants of 2\times 2 matrices">Example 2.7.11</a> as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html" id="md-38">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html" id="md-41">
 \begin{align*}
 M_{1,1} \amp = \det \left( \left[ \begin{matrix}   2 \amp 1 \\  1 \amp 0 \end{matrix} \right] \right)= -1,\\
 M_{1,2} \amp = \det \left( \left[ \begin{matrix}  5  \amp 1 \\ -1  \amp 0 \end{matrix} \right] \right) = 1,\\
@@ -588,7 +592,7 @@ M_{1,3} \amp = \det \left( \left[ \begin{matrix}  5 \amp 2  \\ -1 \amp 1 \end{ma
 \end{align*}
 </div>
 <div class="para">Then our inductive formula gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html" id="md-39">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-2x2det.html" id="md-42">
 \begin{align*}
 \det (A) \amp = 3 \cdot (-1)^{1 + 1} M_{1,1} + 1  \cdot(-1)^{1 + 2} M_{1,2} + (-2) \cdot(-1)^{1 + 3} M_{1,3}, \\
 \amp = -3  - 1 - 14, \\
@@ -611,7 +615,7 @@ M_{1,3} \amp = \det \left( \left[ \begin{matrix}  5 \amp 2  \\ -1 \amp 1 \end{ma
 </h4>
 <div class="para" id="p-355">A row linear function <span class="process-math">\(f : M_{m, n} (K) \to K\)</span> is alternating if and only if  <span class="process-math">\(f (A) = 0\)</span> whenever <span class="process-math">\(A\)</span> has two identical rows.</div></article><article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><div class="para logical" id="p-356">
 <div class="para">Assume <span class="process-math">\(f\)</span> is alternating and <span class="process-math">\(A\)</span> has two identical rows. Then switching these rows still gives <span class="process-math">\(A\)</span> which implies <span class="process-math">\(f(A) = - f(A)\)</span> or <span class="process-math">\(f(A) = 0\text{.}\)</span> Conversely, suppose <span class="process-math">\(f\)</span> is row linear and <span class="process-math">\(f(A)\)</span> is zero whenever <span class="process-math">\(A\)</span> has two identical rows. Then</div>
-<div class="displaymath process-math" id="md-40">
+<div class="displaymath process-math" id="md-43">
 \begin{align*}
 0 \amp = f(\mb{r}_1 , \ldots,\mb{r}_i + \mb{r}_j, \ldots ,\mb{r}_i + \mb{r}_j,  \ldots \mb{r}_n),\\
 \amp = f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_i,  \ldots \mb{r}_n) + f(\mb{r}_1 , \ldots,\mb{r}_i, \ldots ,  \mb{r}_j,  \ldots \mb{r}_n) + \cdots,\\
@@ -713,7 +717,7 @@ D_n (A) = a_{i1} C_{i1} + \cdots + a_{in} C_{in} . \tag{2.7.4}
 </h4>
 <div class="para logical" id="p-365">
 <div class="para">If <span class="process-math">\(D\)</span> is a function satisfying the conditions of <a href="" class="xref" data-knowl="./knowl/def-determinant.html" title="Definition 2.7.8">Definition 2.7.8</a>, then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-determinant.html" id="md-41">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-determinant.html" id="md-44">
 \begin{align*}
 D (E_{ij} ) \amp = -1,\\
 D (E_{i} (c)) \amp = c,\\
@@ -728,7 +732,7 @@ D( EA) = D(E) D (A).
 </div>
 </div></article><article class="hiddenproof" id="proof-18"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><div class="para logical" id="p-366">
 <div class="para">We leave it to the student to work out the first set of equations. For the second, notice that if <span class="process-math">\(E\)</span> is Type I then <span class="process-math">\(EA\)</span> is just <span class="process-math">\(A\)</span> with two rows switched so by the alternating property and the first equation <span class="process-math">\(D(EA) = - D(A) = D(E) D(A)\text{.}\)</span> On the other hand, if <span class="process-math">\(E\)</span> is Type II so that <span class="process-math">\(E = E_i (c)\)</span> then <span class="process-math">\(E A\)</span> multiplies the <span class="process-math">\(i\)</span>-th row by <span class="process-math">\(c\text{.}\)</span> So row linearity and the second equation gives <span class="process-math">\(D(E A ) = c D(A) = D(E) D(A)\text{.}\)</span> Finally, if <span class="process-math">\(E\)</span> is Type III and equals <span class="process-math">\(E_{ij} (c)\)</span> we have that the <span class="process-math">\(i\)</span>-th row of <span class="process-math">\(E A\)</span> is <span class="process-math">\(\mb{r}_i + c\mb{r}_j\text{.}\)</span> So using row linearity, <a href="" class="xref" data-knowl="./knowl/lem-altalt.html" title="Lemma 2.7.13">Lemma 2.7.13</a>, and the third equation we get</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-altalt.html" id="md-42">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-altalt.html" id="md-45">
 \begin{align*}
 D (EA) \amp = D(\mb{r}_1, \ldots, \mb{r}_i + c\mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ), \\
 \amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ) + c D(\mb{r}_1, \ldots, \mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ),\\
@@ -789,14 +793,14 @@ D(A) \amp = \frac{1}{D(E_r) \cdots D(E_1)}
 </div>
 </div></article><article class="hiddenproof" id="proof-21"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof"><div class="para logical" id="p-375">
 <div class="para">If either <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> is not invertible, then <span class="process-math">\(AB\)</span> is not invertible. Indeed, if <span class="process-math">\(C\)</span> were an inverse of <span class="process-math">\((AB)\)</span> then <span class="process-math">\(A (BC) = (AB) C = I\)</span> and <span class="process-math">\((CA) B = C(AB) = I\)</span> would show that <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> had an inverse (here you would need to observe that, for square matrices, a left or right inverse is an inverse which follows from <a href="" class="xref" data-knowl="./knowl/lem-rightleftinverse.html" title="Lemma 2.7.17">Lemma 2.7.17</a> proven independently below). Thus in the non-invertible case both sides are zero. On the other hand, if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible, then by <a href="" class="xref" data-knowl="./knowl/prop-productofelem.html" title="Proposition 2.7.6">Proposition 2.7.6</a>, they are both products of elementary matrices</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html" id="md-43">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html" id="md-46">
 \begin{align*}
 A \amp = E_1 \cdots E_r,\\
 B \amp = \tilde{E}_1 \cdots \tilde{E}_s.
 \end{align*}
 </div>
 <div class="para">So repeatedly using <a href="" class="xref" data-knowl="./knowl/lem-detelem.html" title="Lemma 2.7.14">Lemma 2.7.14</a>, we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html" id="md-44">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-rightleftinverse.html ./knowl/prop-productofelem.html ./knowl/lem-detelem.html" id="md-47">
 \begin{align*}
 \det (AB) \amp = \det (E_1 \cdots E_r\tilde{E}_1 \cdots \tilde{E}_s ) ,\\
 \amp = \det (E_1)  \cdots \det (E_r) \det (\tilde{E}_1 \cdots \tilde{E}_s ) ,\\

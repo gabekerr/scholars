@@ -13,11 +13,14 @@
 <body class="ignore-math">
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-solutioncomplex.html">
 \begin{align*}
-C_1 + C_2 + C_3 \amp = x(0) = 0,\\
-iC_1 - iC_2 + C_3 + 1/4 \amp = x^\prime (0) = 1/4,\\
--C_1 - C_2 + C_3 - 1/2 \amp = x^{\prime \prime} (0) =  1/2. 
+x_p (t) \amp = \frac{i}{2}  \frac{t e^{-it}}{(-i - 1)(-i - i)}  - \frac{i}{2}  \frac{t e^{it}}{(i - 1)(i + i)}, \\
+\amp = \frac{t}{4} \left( \frac{e^{-it}}{1 + i} + \frac{e^{it}}{1 - i} \right),\\
+\amp = \frac{t}{2} \operatorname{Re} \left( \frac{e^{-it}}{1 + i} \right), \\
+\amp = \frac{t}{4} \operatorname{Re} \left( (1 - i ) e^{-it} \right), \\
+\amp = \frac{t}{4} \operatorname{Re} \left( \cos (t) - i \sin (t) - i \cos (t) + \sin (t)   \right), \\
+\amp =  \frac{t \cos (t) - t \sin (t)}{4}.
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-lincode3.html#md-104" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-lincode3.html#md-106" class="internal">in-context</a></span>
 </body>
 </html>
