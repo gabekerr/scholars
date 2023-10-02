@@ -163,7 +163,7 @@
         <example xml:id="exa-HilbertSpace">
             <title>Hilbert space of functions</title>
             <statement>
-            <p>Let <m>[a, b]</m> be an interval in <m>\mathbb{R}</m> and consider all integrable functions <m>L^2 ([a,b] )</m> from <m>[a,b]</m> to <m>\mathbb{C}</m> (this means that both the real and imaginary parts are integrable). Then we can define the inner product  <me> \left\langle f , g \right\rangle = \frac{1}{b - a} \int_{a}^b f(t) \overline{g(t)} \diff{t}. </me> Here, when we integrate a complex valued function <m>f(t) = x(t) + i y(t)</m> we mean <me> \int_a^b f(t) \diff{t} = \int_a^b x(t) \diff{t} + i \int_a^b y(t) \diff{t}. </me> This inner product space is widely used and generalized in applications. We will see in the next section a rather interesting set of vectors in this space that form the heart of Fourier series.</p>
+            <p>Let <m>[a, b]</m> be an interval in <m>\mathbb{R}</m> and consider all square integrable functions <m>L^2 ([a,b] )</m> from <m>[a,b]</m> to <m>\mathbb{C}</m> (this means that both the real and imaginary parts of the square of the function are integrable). Then we can define the inner product  <me> \left\langle f , g \right\rangle = \frac{1}{b - a} \int_{a}^b f(t) \overline{g(t)} \diff{t}. </me> Here, when we integrate a complex valued function <m>f(t) = x(t) + i y(t)</m> we mean <me> \int_a^b f(t) \diff{t} = \int_a^b x(t) \diff{t} + i \int_a^b y(t) \diff{t}. </me> This inner product space is widely used and generalized in applications. We will see in the next section a rather interesting set of vectors in this space that form the heart of Fourier series.</p>
             </statement>
         </example>
 

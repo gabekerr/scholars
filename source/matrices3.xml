@@ -314,7 +314,7 @@
         
     <exercise>
         <introduction><p> 
-            Find the inverse of the following matrix using row reduction.
+            Determine if the matrix is invertible using row reduction (augment with the identity). If it is, find the inverse.
         </p>
         </introduction>
         <task>
