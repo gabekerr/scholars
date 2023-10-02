@@ -269,7 +269,7 @@
         
         <proof>
         <title>Proof of uniqueness of <xref ref="thm-determinant" /></title>
-        <p>If <m>A</m> is not invertible, then we must have <m>D(A) = 0</m> by <xref ref="lem-detinv" />. On the other hand, the proof of the same lemma showed that if <m>A</m> is invertible, then <me> D(A) \amp = \frac{1}{D(E_r) \cdots D(E_1)} </me> for a collection of an elementary matrices which row reduce <m>A</m>. However, <xref ref="lem-detelem" /> shows that for elementary matrices <m>E</m>, <m>D(E)</m> is determined by the properties of <xref ref="def-determinant" />. Thus there is no choice in defining <m>D</m> for an arbitrary <m>A</m>. </p>
+        <p>If <m>A</m> is not invertible, then we must have <m>D(A) = 0</m> by <xref ref="lem-detinv" />. On the other hand, the proof of the same lemma showed that if <m>A</m> is invertible, then <me> D(A) = \frac{1}{D(E_r) \cdots D(E_1)} </me> for a collection of an elementary matrices which row reduce <m>A</m>. However, <xref ref="lem-detelem" /> shows that for elementary matrices <m>E</m>, <m>D(E)</m> is determined by the properties of <xref ref="def-determinant" />. Thus there is no choice in defining <m>D</m> for an arbitrary <m>A</m>. </p>
         </proof>
         
         <p>From now on, we will just use <m>\det</m> instead of <m>D</m>. We notice that the last proof also shows that if we row reduce a matrix, and keep track of our operations, we can compute the determinant. This is generally a quicker way to get determinants than using formulas for large matrices.</p>
