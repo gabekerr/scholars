@@ -11,28 +11,53 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">As an important application of our general solution, we consider higher order homogeneous constant coefficient ODE's. Suppose we are confronted with a scalar valued function <span class="process-math">\(x(t)\)</span> of a variable <span class="process-math">\(t\text{,}\)</span> but now with an equation</div>
-<div class="displaymath process-math">
+<div class="para">To compute the general solution, there are several ways to proceed, but we will take a principled approach and simply say that our path <span class="process-math">\(\mb{x}\)</span> was a function to <span class="process-math">\(\mathbb{C}^2\)</span> all along so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{equation*}
+\mb{x} : I \to \mathbb{C}^2.
+\end{equation*}
+</div>
+<div class="para">Now we can diagonalize because the eigenvalues are distinct. A bit of computation gives the eigenbasis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{equation*}
+\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{i}{-1 + i},  \twovec{-i}{-1 - i} \right\}.
+\end{equation*}
+</div>
+<div class="para">Again, we can write our solution in terms of this basis</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{equation}
-x^{(n)} (t) + a_{n - 1}x^{(n - 1)} (t) + \cdots + a_1 x^\prime (t) + a_0 x(t) = 0 .\tag{5.3.6}
+\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}\tag{5.3.4}
 \end{equation}
 </div>
-<div class="para">Here we recall that <span class="process-math">\(x^{(n)} (t)\)</span> is the <span class="process-math">\(n\)</span>-th derivative of <span class="process-math">\(x\)</span> with respect to <span class="process-math">\(t\)</span> (so we will assume our functions are differentiable enough). There are two equivalent ways of approaching the solution to this equation. The first and most common way is to guess the solution <span class="process-math">\(x (t) = e^{\lambda t}\)</span> and solve the resulting polynomial equation</div>
-<div class="displaymath process-math">
+<div class="para">and again, in this basis the differential equation becomes much simpler</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{equation*}
-\lambda^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 \lambda + a_0 = 0.
+\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
 \end{equation*}
 </div>
-<div class="para">This polynomial is called the <dfn class="terminology">characteristic polynomial of the ODE</dfn>. Indeed, any solution will give a corresponding solution to the equation. If <span class="process-math">\(\lambda\)</span> is a multiple root of the characteristic polynomial, then one guesses again with</div>
-<div class="displaymath process-math">
-\begin{equation*}
-x (t) = \frac{t^k e^{\lambda t}}{k!}
-\end{equation*}
+<div class="para">This time, the two independent equations are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{align*}
+\tilde{x}^\prime (t) \amp = (3 + i) \tilde{x} (t), \\
+\tilde{y}^\prime (t) \amp = (3 - i) \tilde{y} (t). 
+\end{align*}
 </div>
-<div class="para">and finds (so long as <span class="process-math">\(k\)</span> is less than  the order of the root) that we have found another solution. Hobbling these solutions together, one can solve equations where now our initial conditions are not just <span class="process-math">\(x (0) = C_0\text{,}\)</span> but also <span class="process-math">\(x^\prime (0) = C_1, \ldots, x^{(n - 1)} (0) = C_{n - 1}\text{.}\)</span>
+<div class="para">It is here that <a href="" class="xref" data-knowl="./knowl/exe-derivativeexp.html" title="Exercise 5.1.4.3">Exercise 5.1.4.3</a> comes into view and we realize that, in fact, we've already solved these equations and obtained</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{align*}
+\tilde{x}(t) \amp = C_1 e^{(3 + i)t}, \\
+\tilde{y} (t) \amp = C_2 e^{(3 - i)t}. 
+\end{align*}
 </div>
+<div class="para">So, were we inclined to write our solutions in terms of the basis <span class="process-math">\(\mathcal{B}\)</span> in <span class="process-math">\(\mathbb{C}^2\text{,}\)</span> we would have solved the differential equation with</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
+\begin{gather*}
+\mb{x} (t) = \twovec{ C_1 e^{(3 + i)t}}{C_2 e^{(3 - i)t}}_{\mathcal{B}} \text{ with initial condition } \mb{x} (0) = \twovec{C_1}{C_2}_{\mathcal{B}}.
+\end{gather*}
+</div>
+<div class="para">I can hear the overwhelming chorus of objections to this solution from engineer and mathematician alike. After all, the constants <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are possibly complex numbers and the function is too. We started in the real plane and have ended in what appears to be a terrifying <span class="process-math">\(4\)</span>-dimensional mess (since <span class="process-math">\(\mathbb{C}^2\)</span> is <span class="process-math">\(4\)</span> real dimensions). Well, I contend that appearances can be deceiving! Let's unwind this a bit with a few simple observations.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-740" class="internal">in-context</a></span>
 </body>

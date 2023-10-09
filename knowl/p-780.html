@@ -11,35 +11,40 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Consider the linear system</div>
-<div class="displaymath process-math">
-\begin{align*}
-x^\prime (t) \amp = 2 t  x(t) + y(t), \\
-y^\prime (t) \amp =  x (t) + 2 t y(t). 
-\end{align*}
-</div>
-<div class="para">This can be written as the matrix equation</div>
+<div class="para">As it turns out, given any <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> with real (or even complex) entries, there is a convergent power series</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\dot{\mb{x}} (t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right]  \mb{x} (t). 
+e^{A} = I + A + \frac{1}{2!} A^2 + \frac{1}{3!} A^3 + \cdots .
 \end{equation*}
 </div>
-<div class="para">Letting</div>
-<div class="displaymath process-math">
-\begin{align*}
-A(t) = \left[ \begin{matrix} 2t \amp 1 \\ 1 \amp 2t \end{matrix} \right], \\
-B(t) = \left[ \begin{matrix} t^2 \amp t \\ t \amp t^2 \end{matrix} \right], 
-\end{align*}
-</div>
-<div class="para">One can check that <span class="process-math">\(B(t)\)</span> and <span class="process-math">\(A(t)\)</span> commute and that <span class="process-math">\(B^\prime (t) = A(t)\text{,}\)</span> so by our theorem,</div>
+<div class="para">What we mean by this formula is that each entry in the sum forms a convergent series. This can be seen by taking the maximum of the absolute values of the entries and applying a ratio test to the entries. Now one might imagine that if we replaced <span class="process-math">\(A\)</span> with a path of matrices <span class="process-math">\(A (t)\)</span> that we could apply the chain rule and get</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\mb{x} (t) = e^{B(t)} \mb{v}
+\text{ ??? } \frac{d}{dt} e^{A (t)} = A^\prime (t) e^{A (t)} \text{ ??? } 
 \end{equation*}
 </div>
-<div class="para">is a solution.</div>
+<div class="para">Sadly, one would be disappointed with reality here. Indeed, the main problem that occurs comes from the non-commutative nature of multiplication. To see this, you will show in an exercise that</div>
+<div class="displaymath process-math">
+\begin{align}
+\frac{d}{dt} [ A (t) B (t) ] \amp = \left[ \frac{d}{dt}  A (t) \right] B (t)  + A(t) \left[ \frac{d}{dt}  B (t) \right], \tag{5.5.2}\\
+\amp = A^\prime (t) B (t) + A(t) B^\prime (t). \tag{5.5.3}
+\end{align}
+</div>
+<div class="para">On the other hand, <em class="emphasis">if <span class="process-math">\(A(t)\)</span> commutes with its derivative <span class="process-math">\(A^\prime (t)\)</span></em> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt} (A (t))^n = n A^\prime (t) (A (t))^{n - 1}.
+\end{equation*}
+</div>
+<div class="para">So under this condition, we would have</div>
+<div class="displaymath process-math">
+\begin{equation}
+\frac{d}{dt} e^{A (t)} = A^\prime (t) e^{A (t)} \text{ if } A^\prime (t) A(t) = A(t) A^\prime (t).\tag{5.5.4}
+\end{equation}
+</div>
+<div class="para">Commuting matrices also work well with exponential rules as can be seen in the following lemma.</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-780" class="internal">in-context</a></span>
 </body>

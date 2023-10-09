@@ -13,70 +13,25 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">The first thing to recognize about our solution is that the basis <span class="process-math">\(\mathcal{B}\)</span> which we chose  had a hidden symmetry. Namely, if we take the complex conjugate of <span class="process-math">\(\mb{v}_1\)</span> we obtain <span class="process-math">\(\mb{v}_2\)</span> so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+<div class="para">The first case we saw way back in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>. Consider the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
 \begin{equation*}
-\bar{\mb{v}}_1 = \mb{v}_2. 
+f^\prime (t) = 3 f(t). 
 \end{equation*}
 </div>
-<div class="para">Now, the solution we obtain for <span class="process-math">\(\mb{x}\)</span> will be real, which means it equals its conjugate. Thus</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
-\begin{align*}
-\tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 \amp = \overline{\tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2}, \\
-\amp = \overline{\tilde{x} (t)} \bar{\mb{v}}_1  + \overline{\tilde{y} (t)} \bar{\mb{v}}_2,\\
-\amp = \overline{\tilde{y} (t)} \mb{v}_1 +  \overline{\tilde{x} (t)} \mb{v}_2, 
-\end{align*}
-</div>
-<div class="para">But since our coefficients are unique, we have that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
-\begin{equation}
-\overline{\tilde{x} (t)} = \tilde{y} (t).\tag{5.3.5}
-\end{equation}
-</div>
-<div class="para">Putting our solution in to this equation gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+<div class="para">Here, our vector space is just <span class="process-math">\(\mathbb{R}\)</span> itself. The vector field is given by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
 \begin{equation*}
-\bar{C}_1 = C_2. 
+\mb{F} (x) = 3x. 
 \end{equation*}
 </div>
-<div class="para">Even more helpful, we note that for <em class="emphasis">any</em> complex number <span class="process-math">\(z\)</span> we can get the real and imaginary parts of <span class="process-math">\(z\)</span> by simply checking that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
-\begin{align*}
-\operatorname{Re} (z) \amp = \frac{1}{2} \left( z + \bar{z} \right), \\
-\operatorname{Im} (z) \amp = - \frac{i}{2} \left( z - \bar{z} \right).
-\end{align*}
-</div>
-<div class="para">Using this, equations <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl1.html" title="Equation 5.3.4">(5.3.4)</a> and <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl2.html" title="Equation 5.3.5">(5.3.5)</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
+<div class="para">Geometrically, this means at <span class="process-math">\(x\text{,}\)</span> there is a vector pointing away from the origin with three times the magnitude as <span class="process-math">\(x\text{.}\)</span> Also, our matrix <span class="process-math">\(A\)</span> is the <span class="process-math">\(1 \times 1\)</span> matrix <span class="process-math">\([3]\text{.}\)</span> Of course, we learn in calculus (or in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a>) that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html ./knowl/sec-equation.html">
 \begin{equation*}
-\mb{x} (t) = \twovec{ -2 \operatorname{Im} (\tilde{x} (t))}{-2 \operatorname{Re} (\tilde{x} (t)) - 2\operatorname{Im} (\tilde{x} (t)) } = \twovec{ \operatorname{Im} ( -2\tilde{x} (t))}{ \operatorname{Re} (-2\tilde{x} (t)) + \operatorname{Im} (-2\tilde{x} (t)) }.
+f(t) = C_0 e^{3 t} 
 \end{equation*}
 </div>
-<div class="para">Now, note that <span class="process-math">\(C_1\)</span> is zero only for the zero solution, so assuming it is not zero, we can find an <span class="process-math">\(a, b\)</span> so that in polar coordinates</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
-\begin{equation*}
--2C_1 = e^{a + bi}.
-\end{equation*}
-</div>
-<div class="para">This gives us a nice way to rewrite our solution as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
-\begin{equation*}
--2\tilde{x} (t) = -2 C_1 e^{(3 + i)t} = e^{(3t + a) + (t + b)i} = e^{3t + a} \cos (t + b) + i e^{3t + a} \sin (t + b).
-\end{equation*}
-</div>
-<div class="para">Pulling out the real and imaginary parts, we obtain a very real looking solution</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
-\begin{equation*}
-\mb{x} (t) =  \twovec{e^{3t + a} \sin (t + b)}{ e^{3t + a} \cos (t + b) + e^{3t + a} \sin (t + b)}.
-\end{equation*}
-</div>
-<div class="para">To finish the solution, one would have to solve <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> for an initial condition</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
-\begin{equation*}
-\mb{x} (0) = \twovec{A}{B}
-\end{equation*}
-</div>
-<div class="para">but this will be left as a linear algebra exercise for the student (which can be done in multiple ways).</div>
+<div class="para">solves this equation generally with initial condition <span class="process-math">\(f(0) = C_0\text{.}\)</span> Were we to think of this in terms of Jordon blocks, we would note that <span class="process-math">\([3]\)</span> is a Jordon block <span class="process-math">\(J_{3, 1}\)</span> itself and the equation above is just <span class="process-math">\(C_0 e^{\lambda t} \mb{x}_0 (t)\text{.}\)</span> There is one thing to note about our solution and that is that it experiences exponential growth as <span class="process-math">\(t \to \infty\text{.}\)</span> Were we to start with the equation <span class="process-math">\(f^\prime (t) = -3 f(t)\)</span> instead, we would see exponential decay. Understanding the long term behavior of a solution to a differential equation gives valuable qualitative information on the system you are studying.</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-735" class="internal">in-context</a></span>
 </body>

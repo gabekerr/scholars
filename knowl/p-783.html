@@ -13,13 +13,14 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">If <span class="process-math">\(f(t)=0\)</span> and <span class="process-math">\(A_i(t)\)</span> are differentiable functions in equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a>, then there is an <span class="process-math">\(n\)</span>-dimensional space of solutions. More generally, there is a solution <span class="process-math">\(x_p (t)\)</span> to equation <a href="" class="xref" data-knowl="./knowl/eq-linearhighODE.html" title="Equation 5.5.5">(5.5.5)</a> and any other solution is of the form</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearhighODE.html ./knowl/eq-linearhighODE.html">
+<div class="para">Suppose <span class="process-math">\(A(t)\)</span> and <span class="process-math">\(B(t)\)</span> are commuting square matrices and <span class="process-math">\(B^\prime (t) = A (t)\)</span> then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearhomogeneous.html">
 \begin{equation*}
-x(t) = x_p (t) + x_h(t)
+\mb{x} (t) = e^{B(t)} \mb{v}
 \end{equation*}
 </div>
-<div class="para">where <span class="process-math">\(x_h(t)\)</span> is a solution to the <span class="process-math">\(f(t) = 0\)</span> case.</div>
+<div class="para">is a solution to equation <a href="" class="xref" data-knowl="./knowl/eq-linearhomogeneous.html" title="Equation 5.5.1">(5.5.1)</a>" for any vector <span class="process-math">\(\mb{v}\text{.}\)</span> Furthermore, the unique solution with initial condition <span class="process-math">\(\mb{x} (0)\)</span> has <span class="process-math">\(\mb{v} = e^{-B(0)} \mb{x} (0)\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="sec-linode.html#p-783" class="internal">in-context</a></span>
 </body>

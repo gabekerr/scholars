@@ -9,10 +9,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">Now that we know such nice bases exist, we proceed to exploit their usefulness. First, we note that we may use inner products to decompose our entire space into two subspaces. For this we need a couple of definitions.</div>
+<div class="para">We now write a short script that will apply this process to a collection of <span class="process-math">\(k\)</span> vectors. This is written just to give the orthogonal basis and leaves the normalization step. <pre class="ptx-sagecell sagecell-sage" id="sage-8"><script type="text/x-sage">def applyGS(vectors):
+    n = len(vectors)
+    newVectors = vectors
+    for k in range(1,n):
+        vk = vectors[k]
+        inductionWs = newVectors[:k] 
+        adjustedWs = [((-1)*vk.dot_product(w)/w.dot_product(w))*w for w in inductionWs]
+        theSum = sum(adjustedWs)
+        wk = vk + theSum
+        newVectors[k] = wk
+    return(newVectors)
+v1 = vector([1,2,-1])
+v2 = vector([3,-1,-3])
+v3 = vector([-4,2,3])
+theVectors = [v1,v2,v3]
+applyGS(theVectors)
+</script></pre> Let's quickly describe what's happenning in the script. The code <code class="code-inline tex2jax_ignore">def applyGS(vectors):</code> defines a function which takes input as a list of vectors. So, if you enter a list of other types, you will get an error. What follows in the indentation is the definition of the <code class="code-inline tex2jax_ignore">applyGS</code> function. The first part of <code class="code-inline tex2jax_ignore">n = len(vector)</code> declares <span class="process-math">\(n\)</span> as the number of vectors in the list <code class="code-inline tex2jax_ignore">vectors</code> (len is short for length). Then we create the list <code class="code-inline tex2jax_ignore">newVectors</code> which is a copy of the inputed vectors and will be altered as we apply Gram-Schmidt.</div>
 <span class="incontext"><a href="sec-geom2.html#p-449" class="internal">in-context</a></span>
 </body>
 </html>

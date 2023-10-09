@@ -12,7 +12,14 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Here the variable <span class="process-math">\(t\)</span> is just that, a variable. You will show in the exercises that if <span class="process-math">\(\dim V = n\)</span> then <span class="process-math">\(p_T (t)\)</span> is always a degree <span class="process-math">\(n\)</span> polynomial. Thus <a href="" class="xref" data-knowl="./knowl/prop-eigenvaluedet.html" title="Proposition 4.1.6">Proposition 4.1.6</a> then immediately yields.</div>
+<div class="para logical">
+<div class="para">For the insightful philosophical student, simply justifying that this definition gives a well defined number may not be satisfying. They may reasonably ask why, if <span class="process-math">\(\det (A)\)</span> is a computation of volume and volume is a measure that can only be given in an inner product space, does it make sense to talk about <span class="process-math">\(\det (T)\)</span> for a linear transformation on an abstract vector space? What does this have to do with volume!? Well, the answer is that <span class="process-math">\(\det (T)\)</span> does not specify the volume of anything at all in <span class="process-math">\(V\text{,}\)</span> but it tells you exactly how much the volume of something <em class="emphasis">changes</em> if you apply <span class="process-math">\(T\text{.}\)</span> In particular, if you have a box <span class="process-math">\(\mb{B}\)</span> in a real vector space <span class="process-math">\(V\text{,}\)</span> you may assign many different inner products to <span class="process-math">\(V\)</span> to produce many different values of <span class="process-math">\(\text{Vol} (\mb{B})\text{.}\)</span> However, no matter how you do this, you will always get the equation</div>
+<div class="displaymath process-math">
+\begin{equation}
+\text{Vol} (T (\mb{B})) = | \det (T) | \text{Vol} (\mb{B}). \tag{4.1.2}
+\end{equation}
+</div>
+</div>
 <span class="incontext"><a href="sec-diag1.html#p-495" class="internal">in-context</a></span>
 </body>
 </html>

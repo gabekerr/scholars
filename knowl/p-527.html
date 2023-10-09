@@ -12,7 +12,21 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Let <span class="process-math">\(T : V \to V\)</span> be a linear transformation of the vector space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{.}\)</span> Explain your responses to:</div>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(A\)</span> is diagonalizable then there is an invertible matrix <span class="process-math">\(P\)</span> as which satisfies the equation (by definition). Consider the set <span class="process-math">\(\mathcal{B} = \{ P \mb{e}_1, \ldots, P \mb{e}_n \}\)</span> and notice that it is a basis of <span class="process-math">\(K^n\)</span> (since it is the image of the standard basis and <span class="process-math">\(P\)</span> is invertible). Also, we then have</div>
+<div class="displaymath process-math">
+\begin{align*}
+T_A ( \mb{v}_i) \amp = A \mb{v}_i, \\
+\amp = \left( P \, \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1} \right) (P \mb{e}_i) , \\
+\amp = P \,\textnormal{Diag} (\lambda_1, \ldots, \lambda_n) \mb{e}_i \\
+\amp = P (\lambda_i \mb{e}_i) , \\
+\amp = \lambda_i  P \mb{e}_i, \\
+\amp = \lambda_i \mb{v}_i.
+\end{align*}
+</div>
+<div class="para">Showing that <span class="process-math">\(\mathcal{B}\)</span> is an eigenbasis for <span class="process-math">\(T_A\text{.}\)</span>
+</div>
+</div>
 <span class="incontext"><a href="sec-diag1.html#p-527" class="internal">in-context</a></span>
 </body>
 </html>

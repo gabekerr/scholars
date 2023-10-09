@@ -13,55 +13,13 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">We show this by taking <span class="process-math">\(A\)</span> to represent <span class="process-math">\(T\)</span> and verifying <span class="process-math">\(p_A (A) = 0\)</span> as a matrix equation. Suppose</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
+<div class="para">If <span class="process-math">\(V\)</span> is a finite dimensional vector space and <span class="process-math">\(N : V \to V\)</span> a nilpotent linear transformation. Then there are vectors <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_k\)</span> and positive integers <span class="process-math">\(r_1, \ldots, r_k\)</span> such that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-p_A (t) = t^n + a_{n - 1} t^{n - 1} + \cdots + a_1 t + a_0 . 
+\left\{N^{r_1 - 1} (\mb{v}_1 ), \ldots,   N (\mb{v}_1) , \mb{v}_1 ,N^{r_2 -1} (\mb{v}_2 ),  \ldots, N (\mb{v}_2) ,\mb{v}_2 ,  \ldots, N^{r_k -1} ( \mb{v}_k ) , \ldots,  N (\mb{v}_k ) ,\mb{v}_k \right\} 
 \end{equation*}
 </div>
-<div class="para">Letting <span class="process-math">\(B = (tI - A)\)</span> be the matrix with polynomial entries, we can take its adjugate matrix <span class="process-math">\(\text{adj} (B)\)</span> since the entries are cofactors which can be defined on matrices with polynomial entries (since there is no division). Now, by equation <a href="" class="xref" data-knowl="./knowl/eq-adjugate.html" title="Equation 2.7.5">(2.7.5)</a> we have that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
-\begin{equation}
-(tA - I)  \cdot \text{adj} (B)   = \det (B) \cdot I = p_A (t) I . \tag{4.2.1}
-\end{equation}
-</div>
-<div class="para">On the other hand,  we can expand <span class="process-math">\(\text{adj} (B)\)</span> as matrices multiplied by monomials <span class="process-math">\(t^k\text{,}\)</span> i.e.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
-\begin{equation*}
-\text{adj} (B) = t^{n - 1} B_{n - 1} + \cdots t B_1 + B_0 .
-\end{equation*}
-</div>
-<div class="para">Now, multiplying the left hand side of equation <a href="" class="xref" data-knowl="./knowl/eq-cy1.html" title="Equation 4.2.1">(4.2.1)</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
-\begin{equation*}
-t^n B_{n - 1} + t^{n - 1} (B_{n - 2} - A B_{n - 1} ) + \cdots + t ( B_0 - A B_1) - A B_0 .
-\end{equation*}
-</div>
-<div class="para">Setting the coefficients of <span class="process-math">\(t^k\)</span> equal to the right hand side for each <span class="process-math">\(k\)</span> gives the matrix equations</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
-\begin{align*}
-B_{n - 1} \amp = I, \\
-B_{n - 2} - A B_{n - 1} \amp = a_{n - 1} I, \\
-\vdots \amp  \\
-B_0 - A B_1 \amp = a_1, \\
--  A B_0 \amp = a_0.
-\end{align*}
-</div>
-<div class="para">Multiplying the first equation on the left by <span class="process-math">\(A^n\text{,}\)</span> the second by <span class="process-math">\(A^{n - 1}\)</span> and so on gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
-\begin{align*}
-A^n B_{n - 1} \amp = A^n, \\
-A^{n - 1} B_{n - 2} - A^n B_{n - 1} \amp = a_{n - 1} A^{n - 1}, \\
-\vdots \amp  \\
-A B_0 - A^2 B_1 \amp = a_1 A, \\
--  A B_0 \amp = a_0. 
-\end{align*}
-</div>
-<div class="para">Adding the left and right sides then gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-adjugate.html ./knowl/eq-cy1.html">
-\begin{equation*}
-0 = p_A (A) . 
-\end{equation*}
+<div class="para">is a basis and <span class="process-math">\(N^{r_i} (\mb{v}_i) = 0\)</span> for <span class="process-math">\(1 \leq i \leq k\text{.}\)</span>
 </div>
 </div>
 <span class="incontext"><a href="sec-jnf.html#p-569" class="internal">in-context</a></span>

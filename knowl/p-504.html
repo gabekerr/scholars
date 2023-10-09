@@ -13,31 +13,26 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Repeating this process with the eigenvalue <span class="process-math">\(4\)</span> gives the equation</div>
-<div class="displaymath process-math">
+<div class="para">Let us reconsider the case of multiplying by</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
 \begin{equation*}
-\left[ \begin{matrix} 2 \amp 1 \amp 2 \\ 0 \amp 0 \amp -4 \\ -2 \amp -1 \amp 2 \end{matrix} \right] \threevec{x_1}{x_2}{x_3} = \threevec{0}{0}{0} 
+A = \left[ \begin{matrix} 1 \amp 1 \\ 1 \amp 1 \end{matrix} \right] . 
 \end{equation*}
 </div>
-<div class="para">with reduced row echelon form</div>
-<div class="displaymath process-math">
+<div class="para">Subtracting from  <span class="process-math">\(t\)</span> times the identity gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
 \begin{equation*}
-\left[ \begin{matrix} 1 \amp 1/2 \amp 0 \\ 0 \amp 0 \amp 1\\ 0 \amp 0 \amp 0 \end{matrix} \right] \threevec{x_1}{x_2}{x_3}  = \threevec{0}{0}{0}. 
+tI - A = \left[ \begin{matrix} t - 1 \amp -1 \\ -1 \amp t - 1 \end{matrix} \right] 
 \end{equation*}
 </div>
-<div class="para">So we write a parametric solution</div>
-<div class="displaymath process-math">
+<div class="para">and taking determinant then produces</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-eigenvaluedet.html">
 \begin{equation*}
-\mb{x} (z) = \threevec{z}{-2z}{0}.
+p_A (t) = \det (t I - T) = (t - 1)^2 - 1 = t^2 - 2t . 
 \end{equation*}
 </div>
-<div class="para">In particular</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\threevec{1}{-2}{0} 
-\end{equation*}
+<div class="para">For those that did not imagine how we could find the eigenvalues of <span class="process-math">\(0\)</span> and <span class="process-math">\(2\)</span> before, this polynomial should light a bit of a spark! By <a href="" class="xref" data-knowl="./knowl/prop-eigenvaluedet.html" title="Proposition 4.1.6">Proposition 4.1.6</a>, the eigenvalues must solve the equation <span class="process-math">\(p_A (t) = 0\text{,}\)</span> or equivalently, be roots of <span class="process-math">\(p_A (t)\text{.}\)</span>
 </div>
-<div class="para">is a <span class="process-math">\(4\)</span>-eigenvector.</div>
 </div>
 <span class="incontext"><a href="sec-diag1.html#p-504" class="internal">in-context</a></span>
 </body>

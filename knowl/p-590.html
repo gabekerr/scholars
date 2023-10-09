@@ -13,92 +13,13 @@
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Let us now endeavor to work through an example with a little bit of nuance. Take</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
+<div class="para">Restricting <span class="process-math">\(T\)</span> to <span class="process-math">\(V_{\lambda_i}\)</span> to obtain <span class="process-math">\(T_i\)</span> one sees that <span class="process-math">\(p_{T_i} (t) = (t - \lambda_i)^r\)</span> where <span class="process-math">\(r = \dim V_{\lambda_i}\)</span> (since <span class="process-math">\(T_i\)</span> has no other eigenvalues). But it is an exercise to see that the direct sum decomposition gives a factorization</div>
+<div class="displaymath process-math">
 \begin{equation*}
-A = \left[ \begin{matrix} -1 \amp 1 \amp 0 \amp 0 \\ -1 \amp -3 \amp 0 \amp 0 \\ 0 \amp 0 \amp -3 \amp -1 \\ 1 \amp 1 \amp 2 \amp 0 \end{matrix} \right]. 
+p_T (t) = p_{T_1} (t) \cdots p_{T_m} (t) 
 \end{equation*}
 </div>
-<div class="para">One can compute the characteristic polynomial of this matrix as usual, or they can observe that it is a block lower triangular matrix with diagonal blocks</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-C_1 = \left[ \begin{matrix} -1 \amp 1 \\ -1 \amp -3 \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">and</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-C_2 = \left[ \begin{matrix} -3 \amp -1 \\ 2 \amp 0 \end{matrix} \right] .
-\end{equation*}
-</div>
-<div class="para">This implies that <span class="process-math">\(p_A (t) = p_{C_1} (t) p_{C_2} (t)\)</span> which simplifies our computation. We check that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-p_{C_1} (t) = (t + 1) (t + 3) + 1 = (t + 2)^2 
-\end{equation*}
-</div>
-<div class="para">and</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-p_{C_2} (t) = (t + 3) t + 2 = (t + 2) (t + 1) 
-\end{equation*}
-</div>
-<div class="para">so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{align*}
-p_A (t) \amp =  p_{C_1} (t) p_{C_2} (t), \\
-\amp = (t + 2)^3 (t + 1).
-\end{align*}
-</div>
-<div class="para">Thus the eigenvalues of <span class="process-math">\(A\)</span> are <span class="process-math">\(-2\)</span> and <span class="process-math">\(-1\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/lem-generalizedeigendecomp.html" title="Theorem 4.2.12">Theorem 4.2.12</a> gives us that <span class="process-math">\(\dim V_{-2} = 3\)</span> and <span class="process-math">\(\dim V_{-1} = 1\text{.}\)</span> So we first find a <span class="process-math">\((-1)\)</span>-eigenvector by solving the equation <span class="process-math">\((-I - A) \mb{x} = \mb{0}\)</span> or</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-\left[ \begin{matrix} 0 \amp -1 \amp 0 \amp 0 \\ 1 \amp 2 \amp 0 \amp 0 \\ 0 \amp 0 \amp 2 \amp 1 \\ -1 \amp -1 \amp -2 \amp -1 \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 0 \\ 0 \end{matrix} \right] .
-\end{equation*}
-</div>
-<div class="para">One can find here that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-\left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 1 \\ -2 \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">gives a non-trivial solution. For the generalized <span class="process-math">\((-2)\)</span>-eigenspace we consider the matrix <span class="process-math">\((-2I - A)\)</span> which is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
--2I - A = \left[ \begin{matrix} -1 \amp -1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \\ -1 \amp -1 \amp -2 \amp -2 \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">The generalized <span class="process-math">\((-2)\)</span>-eigenspace <span class="process-math">\(V_{-2}\)</span> has dimension <span class="process-math">\(3\text{,}\)</span> so <span class="process-math">\((-2I - A)^3\)</span> is zero on this space (by the Cayley-Hamilton Theorem) and we can find a basis for it by simply solving the equation <span class="process-math">\((-2 I - A)^3 \mb{x} = 0\text{.}\)</span> However, this is not the most effective way at seeing the Jordan Normal Form. Instead, we will first find our <span class="process-math">\((-2)\)</span>-eigenspace by solving</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation}
-\left[ \begin{matrix} -1 \amp -1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 1 \\ -1 \amp -1 \amp -2 \amp -2 \end{matrix} \right] \left[ \begin{matrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{matrix} \right] = \left[ \begin{matrix} 0 \\ 0 \\ 0 \\ 0 \end{matrix} \right] .\tag{4.2.4}
-\end{equation}
-</div>
-<div class="para">We can see that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-\left[ \begin{matrix} -1 \\ 1 \\ -1 \\ 1 \end{matrix} \right] \hspace{.1in} \text{and} \hspace{.1in} \left[ \begin{matrix} -1 \\ 1 \\ 0 \\ 0 \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">are linearly independent <span class="process-math">\((-2)\)</span>-eigenvectors. We can also see that these span our solution space to equation <a href="" class="xref" data-knowl="./knowl/eq-jnfeq.html" title="Equation 4.2.4">(4.2.4)</a>. This means that <span class="process-math">\(A\)</span> is not diagonalizable, but that there is a non-trivial Jordan block. To find it, we just need some vector that would be sent to one of the two <span class="process-math">\((-2)\)</span>-eigenvectors above  by <span class="process-math">\(( A - (-2)I)\text{.}\)</span> Had I chosen my solutions above at random, there may not be such a vector and we would have to adjust the two eigenvectors so that one of them is in the image of <span class="process-math">\((A - (-2)I)\text{.}\)</span> However, I have been judicious in my choice and we see that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-\left[ \begin{matrix} -1 \\ 0 \\ 1 \\ 0 \end{matrix} \right]  
-\end{equation*}
-</div>
-<div class="para">is indeed such a vector. Thus the basis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-\mathcal{B} = \left\{ \left[ \begin{matrix} 0 \\ 0 \\ 1 \\ -2 \end{matrix} \right] , \left[ \begin{matrix} -1 \\ 1 \\ -1 \\ 1 \end{matrix} \right] , \left[ \begin{matrix} -1 \\ 0 \\ 1 \\ 0 \end{matrix} \right]  , \left[ \begin{matrix} -1 \\ 1 \\ 0 \\ 0 \end{matrix} \right]  \right\}  
-\end{equation*}
-</div>
-<div class="para">will satisfy the requirements of <a href="" class="xref" data-knowl="./knowl/thm-jnf.html" title="Theorem 4.2.14: Jordan Normal Form">Theorem 4.2.14</a>. Indeed, taking <span class="process-math">\(P^{-1}\)</span> to be the matrix with columns given by these vectors, we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem-generalizedeigendecomp.html ./knowl/eq-jnfeq.html ./knowl/thm-jnf.html">
-\begin{equation*}
-P A P^{-1} = \left[ \begin{matrix} -1 \amp 0 \amp 0 \amp 0 \\ 0 \amp -2 \amp 1 \amp 0 \\ 0 \amp 0 \amp -2 \amp 0 \\ 0 \amp 0 \amp 0 \amp -2 \end{matrix} \right]. 
-\end{equation*}
-</div>
-<div class="para">Here we have two block matrices <span class="process-math">\(B_{-1}\)</span> and <span class="process-math">\(B_{-2}\)</span> with three Jordan matrices, <span class="process-math">\(J_{-1,1}\)</span> in <span class="process-math">\(B_1\)</span> and <span class="process-math">\(J_{-2,2}, J_{-2,1}\)</span> in <span class="process-math">\(B_2\text{.}\)</span>
+<div class="para">so we may conclude that <span class="process-math">\(\dim V_{\lambda_i} = r = k_i\text{.}\)</span>
 </div>
 </div>
 <span class="incontext"><a href="sec-jnf.html#p-590" class="internal">in-context</a></span>

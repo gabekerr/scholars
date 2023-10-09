@@ -13,13 +13,18 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">With a little help of some basic analysis, we can prove <a href="" class="xref" data-knowl="./knowl/prop-differentiablepath.html" title="Proposition 5.1.8">Proposition 5.1.8</a>. By the fact that a dual vector is a continuous function, a linear scalar function is a continuous map which implies that composing commutes with limits. But finding the tangent vector <span class="process-math">\(\mb{r}^\prime (a)\)</span> is such a limit and we see that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-differentiablepath.html">
+<div class="para">Taking tangent vectors is a linear operation. Concretely, if <span class="process-math">\(\mb{r}_1\)</span> and <span class="process-math">\(\mb{r}_2\)</span> are differentiable at <span class="process-math">\(a\)</span> and <span class="process-math">\(\lambda\)</span> is a scalar (complex or real) then <span class="process-math">\(\mb{r}_1 + \lambda \mb{r}_2\)</span> is differentiable at <span class="process-math">\(a\)</span> and</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\mb{v}^* ( \mb{r}^\prime (a) ) = \left. \frac{d}{dt}\right|_a \mb{v}^* ( \mb{r} (t)) . 
+\left( \mb{r}_1 (t) + \lambda \mb{r}_2 (t) \right)^\prime = \mb{r}_1^\prime (t) + \lambda \mb{r}_2^\prime (t). 
 \end{equation*}
 </div>
-<div class="para">Thus, if <span class="process-math">\(\mb{r}\)</span> is differentiable, then the left hand side exists which implies the right exists as well.</div>
+<div class="para">Moreover, if <span class="process-math">\(f (t)\)</span> is a differentiable function to <span class="process-math">\(K\text{,}\)</span> <span class="process-math">\(\mb{v}\)</span> is a vector in <span class="process-math">\(V\)</span> (not dependent on <span class="process-math">\(t\)</span>) and <span class="process-math">\(\mb{r} (t) = f(t) \mb{v}\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r}^\prime (t) = f^\prime (t) \mb{v} . 
+\end{equation*}
+</div>
 </div>
 <span class="incontext"><a href="sec-paths.html#p-678" class="internal">in-context</a></span>
 </body>

@@ -13,19 +13,13 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">For the first statement, we simply write <span class="process-math">\(\mb{r} (t)\)</span> in coordinates for some basis <span class="process-math">\(\mathcal{B}\)</span> and differentiate using <a href="" class="xref" data-knowl="./knowl/cor-computetangent.html" title="Corollary 5.1.9">Corollary 5.1.9</a>.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-computetangent.html">
-\begin{align*}
-\frac{d}{dt}  \left( f(t) \mb{r} (t) \right) \amp = \frac{d}{dt}  \left( f(t) \mb{r} (t) \right), \\
-\amp =  \frac{d}{dt}  \left( f(t) \threevec{x_1 (t)}{\vdots}{x_n (t)}_{\mathcal{B}} \right), \\
-\amp = \frac{d}{dt}  \left(  \threevec{ f(t) x_1 (t)}{\vdots}{f(t) x_n (t)}_{\mathcal{B}} \right), \\
-\amp =  \threevec{ f^\prime(t) x_1 (t) + f(t) x_1^\prime (t) }{\vdots}{f^\prime(t) x_n (t) + f(t) x^\prime_n (t)}_{\mathcal{B}}, \\
-\amp =  \threevec{ f^\prime(t) x_1 (t) }{\vdots}{f^\prime(t) x_n (t) }_{\mathcal{B}} + \threevec{ f(t) x_1^\prime (t) }{\vdots}{f(t) x^\prime_n (t)}_{\mathcal{B}}, \\
-\amp =  f^\prime(t) \threevec{  x_1 (t) }{\vdots}{ x_n (t) }_{\mathcal{B}} + f(t) \threevec{  x_1^\prime (t) }{\vdots}{ x^\prime_n (t)}_{\mathcal{B}},  \\
-\amp =  f^\prime(t) \mb{r} (t) + f(t) \mb{r}^\prime (t). 
-\end{align*}
+<div class="para">With a little help of some basic analysis, we can prove <a href="" class="xref" data-knowl="./knowl/prop-differentiablepath.html" title="Proposition 5.1.8">Proposition 5.1.8</a>. By the fact that a dual vector is a continuous function, a linear scalar function is a continuous map which implies that composing commutes with limits. But finding the tangent vector <span class="process-math">\(\mb{r}^\prime (a)\)</span> is such a limit and we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-differentiablepath.html">
+\begin{equation*}
+\mb{v}^* ( \mb{r}^\prime (a) ) = \left. \frac{d}{dt}\right|_a \mb{v}^* ( \mb{r} (t)) . 
+\end{equation*}
 </div>
-<div class="para">The second statement is proved similarly and is left to the student.</div>
+<div class="para">Thus, if <span class="process-math">\(\mb{r}\)</span> is differentiable, then the left hand side exists which implies the right exists as well.</div>
 </div>
 <span class="incontext"><a href="sec-paths.html#p-684" class="internal">in-context</a></span>
 </body>

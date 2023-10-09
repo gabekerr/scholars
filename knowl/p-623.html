@@ -11,27 +11,17 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">There are two examples of quadratic forms for <span class="process-math">\(\mathbb{R}^2\)</span> that you see early in your mathematical education. We will write these as functions of two variables. The first is</div>
+<div class="para">To see that <span class="process-math">\(T\)</span> has an eigenbasis, we need only show that any generalized eigenvector is actually an eigenvector. So suppose <span class="process-math">\(\lambda\)</span> is an eigenvalue and <span class="process-math">\(\mb{v}\)</span> is a generalized <span class="process-math">\(\lambda\)</span>-eigenvector for which <span class="process-math">\((\lambda I - T)^r (\mb{v} ) = \mb{0}\)</span> but <span class="process-math">\((\lambda I - T)^{r - 1} (\mb{v} ) \ne \mb{0}\text{.}\)</span> If this only happens for <span class="process-math">\(r = 1\)</span> then we are done. So suppose <span class="process-math">\(r &gt; 1\)</span>  and let <span class="process-math">\(\mb{w} = (\lambda I - T)^{r - 2} (\mb{v} )\text{.}\)</span> Then <span class="process-math">\((\lambda I - T )(\mb{w}) \ne \mb{0}\)</span> so that <span class="process-math">\(\| (\lambda I - T )(\mb{w}) \|^2 &gt; 0\)</span> but</div>
 <div class="displaymath process-math">
-\begin{equation*}
-Q_{++} (x,y) =  Q_{++} \left( \twovec{x}{y} \right)  = \frac{x^2}{a^2} + \frac{y^2}{b^2}.
-\end{equation*}
+\begin{align*}
+0 \amp \ne \left\langle  (\lambda I - T )(\mb{w}),  (\lambda I - T )(\mb{w}) \right\rangle, \\
+\amp =  \left\langle (\lambda I - T )^2(\mb{w}) , \mb{w} \right\rangle, \\
+\amp = \left\langle \mb{0} , \mb{w} \right\rangle, \\ \amp = 0.
+\end{align*}
 </div>
-<div class="para">The level set of this quadratic form, which is defined as the set of points in the plane satisfying <span class="process-math">\(Q (x, y) = c\text{,}\)</span> is an ellipse. Another quadratic form you see is the similar looking</div>
-<div class="displaymath process-math">
-\begin{equation*}
-Q_{+-} (x,y) =  Q_{+-} \left( \twovec{x}{y} \right)  = \frac{x^2}{a^2} - \frac{y^2}{b^2}.
-\end{equation*}
-</div>
-<div class="para">The level set here being a hyperbola. Of course, there are others like</div>
-<div class="displaymath process-math">
-\begin{equation*}
-Q(x, y) = 5x^2 - 6xy + 5y^2
-\end{equation*}
-</div>
-<div class="para">but, as we will see using the Spectral Theorem, this can be made to be like one of our two prototypes above by changing coordinates.</div>
+<div class="para">This is a contradiction, thus every generalized eigenvector is an eigenvector and there is an eigenbasis (or equivalently, <span class="process-math">\(T\)</span> is diagonalizable).</div>
 </div>
 <span class="incontext"><a href="sec-spectral.html#p-623" class="internal">in-context</a></span>
 </body>
