@@ -64,6 +64,39 @@
         </statement>
     </theorem>
     
+    <p>We now write a short script that will apply this process to a collection of <m>k</m> vectors. This is written just to give the orthogonal basis and leaves the normalization step.
+        <sage>
+            <input>
+                def applyGS(vectors):
+                    n = len(vectors)
+                    newVectors = vectors
+                    for k in range(1,n):
+                        vk = vectors[k]
+                        inductionWs = newVectors[:k] 
+                        adjustedWs = [((-1)*vk.dot_product(w)/w.dot_product(w))*w for w in inductionWs]
+                        theSum = sum(adjustedWs)
+                        wk = vk + theSum
+                        newVectors[k] = wk
+                    return(newVectors)
+                v1 = vector([1,2,-1])
+                v2 = vector([3,-1,-3])
+                v3 = vector([-4,2,3])
+                theVectors = [v1,v2,v3]
+                applyGS(theVectors)
+            </input>
+            <output>
+                [(1, 2, -1), (7/3, -7/3, -7/3), (-1/2, 0, -1/2)]
+            </output>
+        </sage>
+    Let's quickly describe what's happenning in the script. The code <c>def applyGS(vectors):</c> defines a function which takes input as a list of vectors. So, if you enter a list of other types, you will get an error. What follows in the indentation is the definition of the <c>applyGS</c> function. The first part of <c>n = len(vector)</c> declares <m>n</m> as the number of vectors in the list <c>vectors</c> (len is short for length). Then we create the list <c>newVectors</c> which is a copy of the inputed vectors and will be altered as we apply Gram-Schmidt.</p> 
+    
+    <p>The code <c>for k in range(1,n):</c> starts a for loop which begins at <m>k = 1</m> and keeps going until <m>k = n</m>. The for loop declares <c>vk</c> as the vector <m>\mb{v}_k</m> and creates the short list <c>inductionWs</c> which corresponds to the vectors <m> \{\mb{w}_1, \ldots, \mb{w}_{k - 1} \}</m>. The list <c>adjustedWs</c> scales these vectors to 
+        <men xml:id="theSageGS">\left\{ - \frac{\left\langle \mb{v}_k, \mb{w}_1 \right\rangle}{\left\langle \mb{w}_1 , \mb{w}_1 \right\rangle} \mb{w}_1 , \ldots , -\frac{\left\langle \mb{v}_k, \mb{w}_{k - 1} \right\rangle}{\left\langle \mb{w}_{k - 1} , \mb{w}_{k - 1} \right\rangle} \mb{w}_{k - 1} \right\}</men>
+    Then <c>theSum</c> adds these vectors together and <c>wk</c> is defined as the new <m>\mb{w}_k</m> as in equation <xref ref="eq-GSstep"/>. The final step changes the <m>k</m>-th vector of <c>newVectors</c> to <c>wk</c>. The code <c>return(newVectors)</c> tells the function to return the list <m>\{\mb{w}_1, \ldots, \mb{w}_n\}</m>. 
+    </p>
+
+    <p>After defining the function, we make a list of three vectors and evaluate the function on this list. You may alter the list by changing the vectors to vectors in any fixed dimension and adding more if desired.</p>
+
     <p>Now that we know such nice bases exist, we proceed to exploit their usefulness. First, we note that we may use inner products to decompose our entire space into two subspaces. For this we need a couple of definitions.</p>
     
     <definition>
@@ -194,8 +227,28 @@
                 </p>
             </statement>
         </task>
-    </exercise>
+    </exercise> "theSageGS"
     
+    <exercise>
+        <introduction><p> 
+            Use the Sage function to learn about applying Gram-Schmidt.
+        </p>
+        </introduction>
+        <task>
+        <statement>
+            <p>Choose a random basis of four vectors in Euclidean <m>\mathbb{R}^4</m> which are linearly independent but not orthogonal. Use the function <c>applyGS()</c> in the Sage cell above equation <xref ref="theSageGS"/> to apply Gram-Schmidt to your list and write the result. 
+            </p>
+        </statement>
+        </task>
+        <task>
+            <statement>
+                <p>Change the third vector in your original list to the sum of the first two and evaluate <c>applyGS()</c> to the new list. What happened? Explain why you obtained this response. 
+                </p>
+            </statement>
+            <hint>Use <c>applyGS()</c> on the list consisting only of your first three vectors. What does this tell you?</hint>
+        </task>
+    </exercise>
+
     <exercise>
         <statement>
             <p> Given a vector subspace <m>U</m> of an inner product space <m>V</m>, show that the orthogonal complement <m>U^\perp</m> of <m>U</m> is in fact a vector subspace. </p>
