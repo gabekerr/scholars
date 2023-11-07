@@ -387,7 +387,7 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 \end{equation*}
 </div>
 <div class="para">is independent of time (the so-called autonomous differential equation). For any point <span class="process-math">\(\mb{x}\text{,}\)</span> we can then picture <span class="process-math">\(\mb{F} (\mb{x} )\)</span> as a vector with initial point at <span class="process-math">\(\mb{x}\text{.}\)</span> Indeed, we write <span class="process-math">\(T_\mb{x} V\)</span> for a copy of the vector space <span class="process-math">\(V\)</span> at <span class="process-math">\(\mb{x}\)</span> and call this the <dfn class="terminology">tangent space</dfn> of <span class="process-math">\(V\)</span> at <span class="process-math">\(\mb{x}\)</span> (we do this for every vector in <span class="process-math">\(V\)</span>). We then illustrate <span class="process-math">\(\mb{F}\)</span> as a collection of different tangent vectors, one for each point in the the domain of <span class="process-math">\(\mb{F}\text{.}\)</span> This is called a <dfn class="terminology">vector field</dfn>. We can use sage to illustrate this perspective and graph a vector field. Evaluate the sage cell to see a two dimensional example. <pre class="ptx-sagecell sagecell-sage" id="sage-9"><script type="text/x-sage">x,y = var('x y')
-plot_vector_field((-4x - 3y,6x + 5y), (x,-3,3), (y,-3,3))
+plot_vector_field((-4*x - 3*y,6*x + 5*y), (x,-3,3), (y,-3,3))
 </script></pre> Or evaluate this cell to see a three dimensional example. <pre class="ptx-sagecell sagecell-sage" id="sage-10"><script type="text/x-sage">x,y,z = var('x y z')
 plot_vector_field3d((-y, x, z),
         (x,-2,2), (y,-2,2), (z,-2,2))
