@@ -5,6 +5,33 @@
     <men xml:id="eq-generalODE">
         \dot{\mb{x}}  = \mb{F}_t ( \mb{x}).
     </men>
+    For the moment, we consider the meaning of this equation when <me> \mb{F}_t = \mb{F} </me> is independent of time (the so-called autonomous differential equation). For any point <m>\mb{x}</m>, we can then picture <m>\mb{F} (\mb{x} )</m> as a vector with initial point at <m>\mb{x}</m>. Indeed, we write <m>T_\mb{x} V</m> for a copy of the vector space <m>V</m> at <m>\mb{x}</m> and call this the <term>tangent space</term> of <m>V</m> at <m>\mb{x}</m> (we do this for every vector in <m>V</m>). We then illustrate <m>\mb{F}</m> as a collection of different tangent vectors, one for each point in the the domain of <m>\mb{F}</m>. This is called a <term>vector field</term>. We can use sage to illustrate this perspective and graph a vector field. 
+
+    Evaluate the sage cell to see a two dimensional example.
+
+    <sage>
+        <input>
+            x,y = var('x y')
+            plot_vector_field((-4*x - 3*y,6*x + 5*y), (x,-3,3), (y,-3,3))
+        </input>
+        <output>
+        </output>
+    </sage>
+
+    Or evaluate this cell to see a three dimensional example.
+
+    <sage>
+        <input>
+            x,y,z = var('x y z')
+            plot_vector_field3d((-y, x, z),
+                    (x,-2,2), (y,-2,2), (z,-2,2))
+        </input>
+        <output>
+        </output>
+    </sage>
+
+    Now, consider a solution to equation <xref ref="eq-generalODE"/>. Such a path <m>\mb{x} (t)</m> will have its tangent vector at time <m>t</m> precisely equal to the vector field at the position <m>\mb{x}(t)</m>. In simple terms, the path is following the flow of the field - at each point, its direction and speed are determined by <m>\mb{F}</m>.
+
     A <term>particular solution</term> to this equation is simply some path <m>\mb{x} (t)</m> that satisfies this equation. However, just as is the case with solving a linear system of equations, we can ask for a <term>general solution</term> which will include parameters and give all solutions to our equation. Sadly, for most ODEs, finding any closed form solution is out of the question. Nonetheless, we will see a theorem assuring us that a solution exists (under some mild conditions on <m>\mb{F}_t</m>) and that, once the initial condition <m>\mb{x} (0)</m> is fixed, this solution is unique. Let us state this last fact as a <sq>theorem</sq> that will be proved later.</p>
     <theorem xml:id="thm-uniqueode">
         <title>Uniqueness of Solutions to ODEs</title>
