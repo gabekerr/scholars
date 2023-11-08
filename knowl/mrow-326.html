@@ -13,10 +13,14 @@
 <body class="ignore-math">
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
 \begin{align*}
-\mb{x} (t) \amp = C_1 e^{-t} \mb{v}_1 + C_2 e^{2t} \mb{v}_2 + \mb{x}_p (t), \\
-\amp = \twovec{C_1 e^{-t} - C_2 e^{2t}  - 2t + 1/2 }{ - C_1 e^{-t} + 2 C_2 e^{2t} + 3t }. 
+y_1 (t) \amp = e^{-t} \int e^t (-t) \diff{t}, \\
+\amp = - e^{-t} (t e^t - e^t), \\
+\amp = 1 - t. \\
+y_2 (t) \amp = e^{2t} \int e^{-2t} (-2t) \diff{t}, \\
+\amp = e^{2t} \left( t e^{-2t} + \frac{1}{2}e^{-2t}\right), \\
+\amp = t + \frac{1}{2}. 
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-lincode3.html#md-103" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-lincode3.html#md-102" class="internal">in-context</a></span>
 </body>
 </html>

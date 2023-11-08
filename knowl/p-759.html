@@ -11,39 +11,21 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">Suppose <span class="process-math">\(A\)</span> is diagonalizable and <span class="process-math">\(P\)</span> is a change of basis matrix so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+<div class="para">In this section we will complete the study of this type of ODE by removing the homogeneous condition. The form of such an equation in <span class="process-math">\(K^n\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation}
+\dot{\mb{x}} = A \mb{x} + \mb{f}\tag{5.4.1}
+\end{equation}
+</div>
+<div class="para">where</div>
+<div class="displaymath process-math">
 \begin{equation*}
-P^{-1} A P = \text{Diag} ( \lambda_1, \ldots, \lambda_n ) 
+\mb{f} = \threevec{f_1 (t)}{\vdots}{f_n (t)}.
 \end{equation*}
 </div>
-<div class="para">and let</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
-\begin{equation*}
-\threevec{g_1 (t)}{\vdots}{g_n (t)} = \mb{g} = P^{-1} \mb{f}. 
-\end{equation*}
-</div>
-<div class="para">If</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
-\begin{equation*}
-y_j (t) = e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} 
-\end{equation*}
-</div>
-<div class="para">and</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
-\begin{equation*}
-\mb{y} (t) = \threevec{y_1 (t)}{\vdots}{y_n (t)} 
-\end{equation*}
-</div>
-<div class="para">then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
-\begin{equation*}
-\mb{x} (t) = P \,\mb{y} (t) 
-\end{equation*}
-</div>
-<div class="para">is a solution to equation <a href="" class="xref" data-knowl="./knowl/eq-linearccnhODE.html" title="Equation 5.4.1">(5.4.1)</a>.</div>
+<div class="para">As always, if <span class="process-math">\(A\)</span> is diagonalizable, we can change to our eigenbasis and get an immediate solution. This will be the case we focus on.</div>
 </div>
 <span class="incontext"><a href="sec-lincode3.html#p-759" class="internal">in-context</a></span>
 </body>

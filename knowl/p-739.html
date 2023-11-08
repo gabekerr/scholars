@@ -11,47 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">Suppose we take the linear differential equation</div>
-<div class="displaymath process-math">
-\begin{align*}
-x^\prime (t) \amp = 2x (t) +  y(t), \\
-y^\prime (t) \amp = -2 x (t) + 4 y(t). 
-\end{align*}
-</div>
-<div class="para">Writing this out we find the matrix</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A  = \left[ \begin{matrix} 2 \amp 1 \\ -2 \amp 4 \end{matrix} \right] 
-\end{equation*}
-</div>
-<div class="para">and obtain the equation</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{x}^\prime (t) = A \mb{x} (t).
-\end{equation*}
-</div>
-<div class="para">Again, the right hand side is the vector field</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\mb{F} (\mb{x} ) = A \mb{x} 
-\end{equation*}
-</div>
-<div class="para">and it would be nice to diagonalize <span class="process-math">\(A\)</span> to get a picture of this field. However, computing the characteristic polynomial gives</div>
-<div class="displaymath process-math">
-\begin{equation*}
-p_A (s) = \det  \left[ \begin{matrix} s -2 \amp -1 \\ 2 \amp s - 4 \end{matrix} \right] = s^2 - 6 s + 10.
-\end{equation*}
-</div>
-<div class="para">One can use the quadratic formula here and see that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-p_A (s) = (s - (3 + i)) (s - (3 - i))
-\end{equation*}
-</div>
-<div class="para">so that the roots of <span class="process-math">\(p_A (s)\)</span> are complex numbers and <span class="process-math">\(A\)</span> cannot be diagonalized as a real matrix. Now, one of the benefits of having real eigenvalues and eigenvectors was that we obtained a nice picture of the vector field. There is something to be said in the case of a complex eigenvector as well, which is related to several of the exercises that you have worked through. In particular, if there is an eigenvalue of the form <span class="process-math">\(\lambda = re^{i\theta}\text{,}\)</span> then one will see a <span class="process-math">\(\theta\)</span> rotation in the vectors of the vector field (in some coordinate system). For now, we will leave the illustration of this field to a computer and come back to the geometry once we've found the solution.</div>
-</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para">This last example shows how easy things become if the matrix is diagonalizable with real eigenvalues. In fact, it is an illustration of <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> for the case when there are two <span class="process-math">\(1 \times 1\)</span> Jordan blocks. However, since we are also acquainted with complex numbers, we note that differential equations involving real paths can sometimes be helped along by thinking of them as landing in a complex vector space instead. The next example illustrates this point.</div>
 <span class="incontext"><a href="sec-lincode2.html#p-739" class="internal">in-context</a></span>
 </body>
 </html>

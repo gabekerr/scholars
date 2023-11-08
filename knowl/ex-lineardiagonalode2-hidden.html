@@ -64,14 +64,16 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 </div>
 <div class="para">Again, we can write our solution in terms of this basis</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
-\begin{equation}
-\mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}\tag{5.3.4}
-\end{equation}
+\begin{align}
+\mb{x} \amp = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B}  \tag{5.3.4}\\
+\amp = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 \tag{5.3.5}\\
+\amp  = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)} \tag{5.3.6}
+\end{align}
 </div>
 <div class="para">and again, in this basis the differential equation becomes much simpler</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/exe-derivativeexp.html">
 \begin{equation*}
-\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
+\twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)}  =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
 \end{equation*}
 </div>
 <div class="para">This time, the two independent equations are</div>
@@ -113,7 +115,7 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 <div class="para">But since our coefficients are unique, we have that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
 \begin{equation}
-\overline{\tilde{x} (t)} = \tilde{y} (t).\tag{5.3.5}
+\overline{\tilde{x} (t)} = \tilde{y} (t).\tag{5.3.7}
 \end{equation}
 </div>
 <div class="para">Putting our solution in to this equation gives</div>
@@ -129,7 +131,7 @@ p_A (s) = (s - (3 + i)) (s - (3 - i))
 \operatorname{Im} (z) \amp = - \frac{i}{2} \left( z - \bar{z} \right).
 \end{align*}
 </div>
-<div class="para">Using this, equations <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl1.html" title="Equation 5.3.4">(5.3.4)</a> and <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl2.html" title="Equation 5.3.5">(5.3.5)</a> gives</div>
+<div class="para">Using this, equations <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl1.html" title="Equation 5.3.5">(5.3.5)</a> and <a href="" class="xref" data-knowl="./knowl/eq-xsolcompl2.html" title="Equation 5.3.7">(5.3.7)</a> gives</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-xsolcompl1.html ./knowl/eq-xsolcompl2.html">
 \begin{equation*}
 \mb{x} (t) = \twovec{ -2 \operatorname{Im} (\tilde{x} (t))}{-2 \operatorname{Re} (\tilde{x} (t)) - 2\operatorname{Im} (\tilde{x} (t)) } = \twovec{ \operatorname{Im} ( -2\tilde{x} (t))}{ \operatorname{Re} (-2\tilde{x} (t)) + \operatorname{Im} (-2\tilde{x} (t)) }.

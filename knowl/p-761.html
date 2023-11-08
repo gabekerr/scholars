@@ -11,8 +11,32 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">As it turns out, once we obtain a particular solution to the non-homogeneous equation, we can use our previous homogeneous solutions to get the general solution.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Since we are asserting only that we have found a solution, we need only check that equation <a href="" class="xref" data-knowl="./knowl/eq-linearccnhODE.html" title="Equation 5.4.1">(5.4.1)</a> holds. First we observe that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{align*}
+y_j^\prime (t) \amp = \frac{d}{dt} \left( e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
+\amp = \left( \frac{d}{dt} e^{\lambda_j t}  \right) \int e^{-\lambda_j t} g_j (t) \diff{t} + e^{\lambda_j t} \left(\frac{d}{dt}  \int e^{-\lambda_j t} g_j (t) \diff{t} \right), \\
+\amp = \lambda_j e^{\lambda_j t} \int e^{-\lambda_j t} g_j (t) \diff{t}  + e^{\lambda_j t} e^{-\lambda_j t} g_j (t) , \\
+\amp = \lambda_j y_j (t) + g_j (t). 
+\end{align*}
+</div>
+<div class="para">Using this, we then compute</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-linearccnhODE.html">
+\begin{align*}
+\mb{x}^\prime (t) \amp = \frac{d}{dt} \left( P \,\mb{y}  (t) \right), \\
+\amp = P \, \mb{y}^\prime (t), \\
+\amp = P \, \threevec{y_1^\prime (t)}{\vdots}{y_n^\prime (t)}, \\
+\amp = P \left( \threevec{\lambda_1 y_1 (t) + g_1 (t)}{\vdots}{\lambda_n y_n (t) + g_n (t)} \right), \\
+\amp =  P\, \left( \threevec{\lambda_1 y_1 (t)}{\vdots}{\lambda_n y_n (t)} + \threevec{ g_1 (t)}{\vdots}{g_n (t)} \right), \\
+\amp = P\, \left( \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, \mb{y} (t) + \mb{g} (t) \right), \\
+\amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\,\mb{y} (t) + P\, \mb{g} (t), \\
+\amp = P\, \text{Diag} (\lambda_1 , \ldots, \lambda_n)\, P^{-1}\, \mb{x} (t) + P\, \mb{g} (t), \\
+\amp = A\, \mb{x} (t) + \mb{f} (t). 
+\end{align*}
+</div>
+</div>
 <span class="incontext"><a href="sec-lincode3.html#p-761" class="internal">in-context</a></span>
 </body>
 </html>

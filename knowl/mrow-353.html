@@ -13,10 +13,12 @@
 <body class="ignore-math">
 <div class="displaymath process-math">
 \begin{align*}
-x^\prime (t) \amp = 2 t  x(t) + y(t), \\
-y^\prime (t) \amp =  x (t) + 2 t y(t). 
+e^{t A}  \amp = P P^{-1} e^{t A} P P^{-1}, \\
+\amp = P e^{t P^{-1} A P} P^{-1}, \\
+\amp =  P e^{\text{Diag} (t \lambda_1, \ldots, t \lambda_n)} P^{-1}, \\
+\amp = P \,\text{Diag} (e^{\lambda_1 t}, \ldots, e^{\lambda_n t} ) P^{-1}. 
 \end{align*}
 </div>
-<span class="incontext"><a href="sec-linode.html#md-110" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-linode.html#md-109" class="internal">in-context</a></span>
 </body>
 </html>

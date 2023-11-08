@@ -11,13 +11,16 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-springmass.html ./knowl/eq-springmasseigenbasis.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-particularspringmass.html">
-\begin{align}
-x_p (t) \amp = \frac{i}{2 \beta} \left( - \frac{e^{\omega t}}{\omega - \lambda} + \frac{e^{\omega t}}{\omega - \bar{\lambda}} \right), \tag{5.4.5}\\
-\amp = \frac{i e^{\omega t}}{2 \beta} \left( \frac{\bar{\lambda} - \lambda}{(\omega - \lambda) (\omega - \bar{\lambda})} \right),\tag{5.4.6}\\
-\amp = \frac{e^{\omega t}}{(\omega - \lambda) (\omega - \bar{\lambda})}. \tag{5.4.7}
-\end{align}
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
+\begin{align*}
+y_1 (t) \amp = e^{-t} \int e^t (-t) \diff{t}, \\
+\amp = - e^{-t} (t e^t - e^t), \\
+\amp = 1 - t. \\
+y_2 (t) \amp = e^{2t} \int e^{-2t} (-2t) \diff{t}, \\
+\amp = e^{2t} \left( t e^{-2t} + \frac{1}{2}e^{-2t}\right), \\
+\amp = t + \frac{1}{2}. 
+\end{align*}
 </div>
-<span class="incontext"><a href="sec-lincode3.html#eq-solutionspringmass" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-lincode3.html#md-102" class="internal">in-context</a></span>
 </body>
 </html>
