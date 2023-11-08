@@ -63,6 +63,22 @@
         </statement>
     </example>
 
+    <p> To see <xref ref="ex-lineardiagonalode"/> geometrically, you may evaluate the sage cell to see an illustration.
+        <sage>
+            <input>
+                x,y = var('x y')
+                g=Graphics()
+                g+=plot(-x, (x,-3,3),color='red')
+                g+=plot(-2*x, (x,-1.5,1.5),color='purple')
+                g+=plot_vector_field((-4*x - 3*y,6*x + 5*y), (x,-3,3), (y,-3,3))
+                g.show()
+            </input>
+            <output>
+            </output>
+        </sage>
+        The <m>(-1)</m>-eigenspace is drawn as the red line and the <m>2</m>-eigenspace is the purple line. Along the red line the solution follows a path to the origin because, on this axis in the eigenbasis coordinates, the solution looks like <me> \mb{x} (t) = \twovec{C e^{-t}}{0}_{\mathcal{B}} . </me> On the purple line however, the solution follows the path away from the origin with   <me> \mb{x} (t) = \twovec{0}{D e^{2t}}_{\mathcal{B}} . </me> In between these axes a solution near the red line will flow toward the origin and eventually curve to follow the purple line out to infinity.
+    </p>
+
     <p>This last example shows how easy things become if the matrix is diagonalizable with real eigenvalues. In fact, it is an illustration of <xref ref="thm-generallinearhomogeneoussol"/> for the case when there are two <m>1 \times 1</m> Jordan blocks. However, since we are also acquainted with complex numbers, we note that differential equations involving real paths can sometimes be helped along by thinking of them as landing in a complex vector space instead. The next example illustrates this point.</p>
 
     <example xml:id="ex-lineardiagonalode2">
@@ -100,12 +116,14 @@
                 \mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{i}{-1 + i},  \twovec{-i}{-1 - i} \right\}.
             </me> 
             Again, we can write our solution in terms of this basis
-            <men xml:id="eq-xsolcompl1">
-                \mb{x} = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B} = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)}
-            </men>
+            <mdn>
+               <mrow> \mb{x} \amp = \twovec{\tilde{x} (t)}{\tilde{y} (t)}_\mathcal{B}  </mrow>
+               <mrow> \amp = \tilde{x} (t) \mb{v}_1  + \tilde{y} (t) \mb{v}_2 </mrow>
+               <mrow xml:id="eq-xsolcompl1"> \amp  = \twovec{i \tilde{x} (t) - i \tilde{y} (t)}{(-1 + i) \tilde{x} (t) + (-1 - i) \tilde{y} (t)} </mrow>
+            </mdn>
             and again, in this basis the differential equation becomes much simpler
             <me>
-                \twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)} \amp =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
+                \twovec{\tilde{x}^\prime (t)}{\tilde{y}^\prime (t)}  =  \twovec{ (3 + i) \tilde{x} (t)}{(3 - i) \tilde{y} (t)}_{\mathcal{B}} .
             </me>
             This time, the two independent equations are
             <md>
