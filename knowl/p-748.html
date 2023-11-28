@@ -13,66 +13,26 @@
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
 <div class="para logical">
-<div class="para">The solution can also be found using our tools, which has the added benefit of simplifying the higher order equation into a first order equation (a technique that is used frequently in classical mechanics). To force equation <a href="" class="xref" data-knowl="./knowl/eq-higherorderconstantODE.html" title="Equation 5.3.8">(5.3.8)</a> into a first order equation, rewrite it as a collection of equations</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
-\begin{align*}
-x^\prime_0 (t) \amp = x_1 (t), \\
-x^\prime_1 (t) \amp = x_2 (t), \\
-\vdots \amp \\
-x^\prime_{n - 2} \amp = x_{n - 1} (t), \\
-x_{n - 1}^\prime (t) \amp = -a_{n - 1} x_{n - 1} (t) - a_{n - 2} x_{n - 2} (t) - \cdots - a_1 x_1 (t) - a_0 x_0 (t).
-\end{align*}
-</div>
-<div class="para">Notice that if <span class="process-math">\(x (t) = x_0 (t)\text{,}\)</span> then the first <span class="process-math">\((n - 1)\)</span> equations are just saying that <span class="process-math">\(x_i (t) = x^{(i)} (t)\)</span> for each <span class="process-math">\(1 \leq i \leq n - 1\text{.}\)</span> The last equation is then just equation <a href="" class="xref" data-knowl="./knowl/eq-higherorderconstantODE.html" title="Equation 5.3.8">(5.3.8)</a>. Letting</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
-\begin{equation*}
-\mb{x} (t) = \threevec{x_0 (t)}{\vdots}{x_{n - 1} (t)}
-\end{equation*}
-</div>
-<div class="para">and writing this as the single matrix equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
-\begin{equation*}
-\dot{\mb{x}}  = A \mb{x}
-\end{equation*}
-</div>
-<div class="para">forces us to use the matrix</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
-\begin{equation*}
-A = \left[ \begin{matrix}  0 \amp 1 \amp 0 \amp \cdots \amp 0 \\  0 \amp 0 \amp 1 \amp \cdots \amp 0 \\ \vdots \amp \ddots \amp \ddots \amp \ddots \amp \vdots  \\ 0 \amp \cdots  \amp 0 \amp 0 \amp 1 \\ - a_0 \amp - a_1 \amp -a_2 \amp \cdots \amp - a_{n - 1}  \end{matrix} \right].
-\end{equation*}
-</div>
-<div class="para">In <a href="" class="xref" data-knowl="./knowl/exe-higherorder.html" title="Exercise 4.1.4.4">Exercise 4.1.4.4</a>, you showed that the characteristic polynomial of <span class="process-math">\(A\)</span> is simply</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
-\begin{equation*}
-p_A (s) = s^n + a_{n - 1} s^{n - 1} + \cdots + a_1 s + a_0.
-\end{equation*}
-</div>
-<div class="para">Thus the characteristic polynomial of the ODE is the same as the characteristic polynomial of our matrix. If <span class="process-math">\(\lambda_i\)</span> is a root of <span class="process-math">\(p_A (s)\text{,}\)</span> it is easy to check that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
-\begin{equation*}
-\mb{v}_i = \left[ \begin{matrix}  1 \\  \lambda_i \\ \vdots \\  \lambda_i^{n - 1}   \end{matrix} \right].
-\end{equation*}
-</div>
-<div class="para">is a <span class="process-math">\(\lambda_i\)</span>-eigenvector of <span class="process-math">\(A\text{.}\)</span> In the event that <span class="process-math">\(\lambda_i\)</span> has multiplicity <span class="process-math">\(k\text{,}\)</span> one can also check that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+<div class="para">As an important application of our general solution, we consider higher order homogeneous constant coefficient ODE's. Suppose we are confronted with a scalar valued function <span class="process-math">\(x(t)\)</span> of a variable <span class="process-math">\(t\text{,}\)</span> but now with an equation</div>
+<div class="displaymath process-math">
 \begin{equation}
-\mathcal{B}_i =
-\left\{ \left[ \begin{matrix}  1 \\  \lambda_i \\ \lambda_i^2 \\ \vdots \\ \lambda_i^{n - 2} \\ \lambda_i^{n - 1}   \end{matrix} \right],  \left[ \begin{matrix}  0 \\  1 \\ 2 \lambda_i \\ \vdots  \\ (n - 2) \lambda_i^{n - 3}  \\  (n - 1) \lambda_i^{n - 2}   \end{matrix} \right], \cdots , \left[ \begin{matrix}  0 \\ \vdots \\ 0 \\  \binom{k - 1}{k - 1} \\ \binom{n -2}{k - 1} \lambda_i \\ \vdots \\  \binom{n - 1}{k - 1} \lambda_i^{n -  k}   \end{matrix} \right] \right\}\tag{5.3.9}
+x^{(n)} (t) + a_{n - 1}x^{(n - 1)} (t) + \cdots + a_1 x^\prime (t) + a_0 x(t) = 0 .\tag{5.3.8}
 \end{equation}
 </div>
-<div class="para">is a basis for the generalized <span class="process-math">\(\lambda_i\)</span>-eigenspace <span class="process-math">\(V_{\lambda_i}\text{.}\)</span> A less complicated expression for <span class="process-math">\(\mathcal{B}_i\)</span> (and more useful) is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
+<div class="para">Here we recall that <span class="process-math">\(x^{(n)} (t)\)</span> is the <span class="process-math">\(n\)</span>-th derivative of <span class="process-math">\(x\)</span> with respect to <span class="process-math">\(t\)</span> (so we will assume our functions are differentiable enough). There are two equivalent ways of approaching the solution to this equation. The first and most common way is to guess the solution <span class="process-math">\(x (t) = e^{\lambda t}\)</span> and solve the resulting polynomial equation</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\mathcal{B}_i = \left\{ \mb{v}_i , \frac{d}{d \lambda_i} \mb{v}_i, \frac{1}{2!} \left( \frac{d}{d \lambda_i} \right)^2 \mb{v}_i, \cdots ,  \frac{1}{(k - 1)!} \left( \frac{d}{d \lambda_i} \right)^{k - 1} \mb{v}_i \right\}
+\lambda^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 \lambda + a_0 = 0.
 \end{equation*}
 </div>
-<div class="para">Moreover, it is a basis of the form</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-higherorderconstantODE.html ./knowl/eq-higherorderconstantODE.html ./knowl/exe-higherorder.html ./knowl/thm-generallinearhomogeneoussol.html">
-\begin{equation}
-\mathcal{B}_i = \left\{ (A - \lambda_i I )^{k - 1} \mb{v}, \ldots, ( A - \lambda_i I) \mb{v}, \mb{v} \right\}\tag{5.3.10}
-\end{equation}
+<div class="para">This polynomial is called the <dfn class="terminology">characteristic polynomial of the ODE</dfn>. Indeed, any solution will give a corresponding solution to the equation. If <span class="process-math">\(\lambda\)</span> is a multiple root of the characteristic polynomial, then one guesses again with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x (t) = \frac{t^k e^{\lambda t}}{k!}
+\end{equation*}
 </div>
-<div class="para">so that it may be used to give the Jordan normal form of <span class="process-math">\(A\)</span> and via <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> to find the general solution.</div>
+<div class="para">and finds (so long as <span class="process-math">\(k\)</span> is less than  the order of the root) that we have found another solution. Hobbling these solutions together, one can solve equations where now our initial conditions are not just <span class="process-math">\(x (0) = C_0\text{,}\)</span> but also <span class="process-math">\(x^\prime (0) = C_1, \ldots, x^{(n - 1)} (0) = C_{n - 1}\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="sec-lincode2.html#p-748" class="internal">in-context</a></span>
 </body>

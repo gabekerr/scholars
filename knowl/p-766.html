@@ -11,77 +11,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">In <a href="" class="xref" data-knowl="./knowl/ex-lineardiagonalode.html" title="Example 5.3.2: Two real dimensional equation">Example 5.3.2</a> we considered the linear system</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{align*}
-x^\prime (t) \amp = -4 x(t) - 3 y(t), \\
-y^\prime (t) \amp = 6 x (t) + 5 y(t). 
-\end{align*}
-</div>
-<div class="para">Let us consider a non-homogeneous version of this system such as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{align*}
-x^\prime (t) \amp = -4 x(t) - 3 y(t) + t, \\
-y^\prime (t) \amp = 6 x (t) + 5 y(t) - 3t. 
-\end{align*}
-</div>
-<div class="para">We can write this as the matrix equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{equation*}
-\dot{\mb{x}} = \left[ \begin{matrix} -4 \amp -3 \\ 6 \amp 5 \end{matrix} \right] \mb{x} + \twovec{t}{-3t}.
-\end{equation*}
-</div>
-<div class="para">In this case we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{equation*}
-\mb{f} (t) = \twovec{t}{-3t}.
-\end{equation*}
-</div>
-<div class="para">Looking back to the example, we see that we found the <span class="process-math">\((-1)\)</span>-eigenvector <span class="process-math">\(\mb{v}_1\)</span> and <span class="process-math">\(2\)</span>-eigenvector <span class="process-math">\(\mb{v}_2\)</span> which form an eigenbasis</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{equation*}
-\mathcal{B} = \left\{  \mb{v}_1 , \mb{v}_2 \right\} = \left\{ \twovec{1}{-1},  \twovec{-1}{2} \right\}.
-\end{equation*}
-</div>
-<div class="para">From these we had the change of basis matrices</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{equation*}
-P = \left[ \begin{matrix} 1 \amp -1 \\ -1 \amp 2 \end{matrix} \right] , \hspace{.3in} P^{-1} = \left[ \begin{matrix} 2 \amp 1 \\ 1 \amp 1 \end{matrix} \right].
-\end{equation*}
-</div>
-<div class="para">Using this, we apply <a href="" class="xref" data-knowl="./knowl/thm-particularsolutionnhode.html" title="Theorem 5.4.1: Uniqueness of Solutions to ODEs">Theorem 5.4.1</a> to find</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{equation*}
-\mb{g} (t) = \twovec{g_1 (t)}{g_2 (t)} = P^{-1} \mb{f} (t) = \twovec{2 t - 3t}{t - 3t} = \twovec{-t}{-2t}.
-\end{equation*}
-</div>
-<div class="para">We then can calculate the integrals using integration by parts</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{align*}
-y_1 (t) \amp = e^{-t} \int e^t (-t) \diff{t}, \\
-\amp = - e^{-t} (t e^t - e^t), \\
-\amp = 1 - t. \\
-y_2 (t) \amp = e^{2t} \int e^{-2t} (-2t) \diff{t}, \\
-\amp = e^{2t} \left( t e^{-2t} + \frac{1}{2}e^{-2t}\right), \\
-\amp = t + \frac{1}{2}. 
-\end{align*}
-</div>
-<div class="para">Finally, we then obtain a particular solution</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{equation*}
-\mb{x}_p (t) = P \mb{y} (t) = \left[ \begin{matrix} 1 \amp -1 \\ -1 \amp 2 \end{matrix} \right] \twovec{1 - t}{t + 1/2} = \twovec{1/2 - 2t}{3t}.
-\end{equation*}
-</div>
-<div class="para">Using the homogeneous solutions <a href="" class="xref" data-knowl="./knowl/eq-lindiagsol.html" title="Equation 5.3.3">(5.3.3)</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-lineardiagonalode.html ./knowl/thm-particularsolutionnhode.html ./knowl/eq-lindiagsol.html">
-\begin{align*}
-\mb{x} (t) \amp = C_1 e^{-t} \mb{v}_1 + C_2 e^{2t} \mb{v}_2 + \mb{x}_p (t), \\
-\amp = \twovec{C_1 e^{-t} - C_2 e^{2t}  - 2t + 1/2 }{ - C_1 e^{-t} + 2 C_2 e^{2t} + 3t }. 
-\end{align*}
-</div>
-</div>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<div class="para">Combining <a href="" class="xref" data-knowl="./knowl/thm-particularsolutionnhode.html" title="Theorem 5.4.1: Uniqueness of Solutions to ODEs">Theorem 5.4.1</a>, <a href="" class="xref" data-knowl="./knowl/thm-generallinearhomogeneoussol.html" title="Theorem 5.2.5">Theorem 5.2.5</a> and <a href="" class="xref" data-knowl="./knowl/cor-generalnonhomosolution.html" title="Corollary 5.4.2">Corollary 5.4.2</a> gives us the methods to obtain general solutions to any constant coefficient linear ODE. That said, these methods can contain obstacles that are difficult to overcome such as finding roots of polynomials or integrating difficult functions. Moreover, many linear ordinary differential equations of interest do not have constant coefficients and of course, there are non-linear ordinary differential equations that are also of great interest. In coming sections, we will build some new tools to address some of these cases. For now though, let us look at a couple of examples of the nonhomogeneous case.</div>
 <span class="incontext"><a href="sec-lincode3.html#p-766" class="internal">in-context</a></span>
 </body>
 </html>
