@@ -123,7 +123,7 @@
 
         <p>Given a higher order linear ODE
         <men xml:id="eq-linearhighODE">
-            x^{(n)} (t) + A_{n -1 } (t) x^{(n - 1)} (t) + \cdots + A_{1} (t) x^\prime (t) + A_0 (t) x(t) \amp = f(t)
+            x^{(n)} (t) + A_{n -1 } (t) x^{(n - 1)} (t) + \cdots + A_{1} (t) x^\prime (t) + A_0 (t) x(t) = f(t)
         </men>
         we may have limited resources to find a solution. For example, it is known that even when the coefficient functions <m>A_i (t)</m> are polynomials ( a so called holonomic differential equation), the solutions may have no expression in terms of exponentials, trigonometric, or polynomial functions. However, we do have qualitative results that can be asserted. </p>
 
@@ -190,7 +190,7 @@
     </subsection>
 
     <subsection xml:id="subsec-powerseries">
-        <title>ower Series Methods</title>
+        <title>Power Series Methods</title>
 
         <p>Let us return to a second order linear ODE, which is the subject of a great amount of mathematics. We will work through a sufficiently general example to illustrate the method of using power series in differential equations, but we will refrain from a full exposition on this subject as it can involve a large amount of new and unrelated techniques (but take a numerical analysis course if you are interested in this!). We consider the Bessel equation which seems to be very close to <xref ref="ex-wronskian"/>, but in fact is much more challenging. The zero-th Bessel equation is
         <me>

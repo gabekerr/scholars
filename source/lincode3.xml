@@ -267,7 +267,7 @@
 
         <p>When <m>\omega</m> does occur as one of the <m>\lambda_i</m> (which is the case of resonance), we must use the appropriate generalized <m>\omega</m>-eigenfunction. Suppose, for example, that <m>\omega = \lambda_1</m> then
         <men xml:id="eq-solutioncomplex2">
-            x_p (t) \amp = \frac{t^{k_1} e^{\omega t}}{k_1! \, (\omega - \lambda_2)^{k_2} \cdots (\omega - \lambda_r)^{k_r}}
+            x_p (t) = \frac{t^{k_1} e^{\omega t}}{k_1! \, (\omega - \lambda_2)^{k_2} \cdots (\omega - \lambda_r)^{k_r}}
         </men>
         These general solutions then lead to what is called the <term>method of undetermined coefficients</term>. In truth, this is simply writing the general solution and solving the linear algebra problem presented by the initial conditions. Let us work through an example.</p>
         

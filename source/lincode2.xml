@@ -190,10 +190,22 @@
         </statement>
     </example>
 
+    <p> To see <xref ref="ex-lineardiagonalode2"/> geometrically, you may evaluate the sage cell.
+        <sage>
+            <input>
+                x,y = var('x y')
+                plot_vector_field((2*x + y,-2*x + 4*y), (x,-3,3), (y,-3,3))
+            </input>
+            <output>
+            </output>
+        </sage>
+        Because the paths exponentially spiral out, it may not be as clear to a casual observe that there is a rotation.
+    </p>
+
     <p> We will generalize and summarize the previous result as a Theorem.</p>
     <theorem xml:id="thm-diagonalizableODE">
         <statement>
-            <p>Suppose <m>A</m> is a diagonalizable <m>n \times n</m> real matrix <m>A</m>. Then the eigenvalues of <m>A</m> can be partitioned into the real eigenvalues <m>\rho_1, \ldots, \rho_r</m> and pairs of complex numbers <m>\lambda_1, \bar{\lambda}_1, \ldots, \lambda_t, \bar{\lambda}_t</m>. There is also an eigenbasis
+            <p>Suppose <m>A</m> is an <m>n \times n</m> real matrix <m>A</m> which can be diagonalized as a complex matrix. Then the eigenvalues of <m>A</m> can be partitioned into the real eigenvalues <m>\rho_1, \ldots, \rho_r</m> and pairs of complex numbers <m>\lambda_1, \bar{\lambda}_1, \ldots, \lambda_t, \bar{\lambda}_t</m>. There is also an eigenbasis
             <me> 
                 \mathcal{B} = \left\{ \mb{v}_1, \ldots, \mb{v}_r , \mb{w}_1, \bar{\mb{w}}_1, \ldots, \mb{w}_t, \bar{\mb{w}}_t \right\} .
             </me>
@@ -262,7 +274,7 @@
             </me>
             Putting all of this together, we obtain the general solution with respect to the standard basis.
             <me>
-                \mb{x} (t) \amp = -e^{-2t} \twovec{ - B + (A - B) (t - 1)}{-B + (A - B) t } =  -e^{-2t} \twovec{ (A - B) t - A }{(A - B) t  -B} = 
+                \mb{x} (t) = -e^{-2t} \twovec{ - B + (A - B) (t - 1)}{-B + (A - B) t } =  -e^{-2t} \twovec{ (A - B) t - A }{(A - B) t  -B} 
             </me></p>
         </statement>
     </example>
@@ -312,7 +324,7 @@
         is a <m>\lambda_i</m>-eigenvector of <m>A</m>. In the event that <m>\lambda_i</m> has multiplicity <m>k</m>, one can also check that 
         <men xml:id="eq-jordandiffbasis">
             \mathcal{B}_i =
-                \left\{ \left[ \begin{matrix}  1 \\  \lambda_i \\ \lambda_i^2 \\ \vdots \\ \lambda_i^{n - 2} \\ \lambda_i^{n - 1}   \end{matrix} \right],  \left[ \begin{matrix}  0 \\  1 \\ 2 \lambda_i \\ \vdots  \\ (n - 2) \lambda_i^{n - 3}  \\  (n - 1) \lambda_i^{n - 2}   \end{matrix} \right], \cdots , \left[ \begin{matrix}  0 \\ \vdots \\ 0 \\  \binom{k - 1}{k - 1} \\ \binom{n -2}{k - 1} \lambda_i \\ \vdots \\  \binom{n - 1}{k - 1} \lambda_i^{n -  k}   \end{matrix} \right] \right\}
+                \left\{ \left[ \begin{matrix}  1 \\  \lambda_i \\ \lambda_i^2 \\ \vdots \\ \lambda_i^{n - 2} \\ \lambda_i^{n - 1}   \end{matrix} \right],  \left[ \begin{matrix}  0 \\  1 \\ 2 \lambda_i \\ \vdots  \\ (n - 2) \lambda_i^{n - 3}  \\  (n - 1) \lambda_i^{n - 2}   \end{matrix} \right], \cdots , \left[ \begin{matrix}  0 \\ \vdots \\ 0 \\  \binom{k - 1}{k - 1} \\ \binom{k}{k - 1} \lambda_i \\ \vdots \\  \binom{n - 1}{k - 1} \lambda_i^{n -  k}   \end{matrix} \right] \right\}
         </men>
         is a basis for the generalized <m>\lambda_i</m>-eigenspace <m>V_{\lambda_i}</m>. A less complicated expression for <m>\mathcal{B}_i</m> (and more useful) is
         <me>
