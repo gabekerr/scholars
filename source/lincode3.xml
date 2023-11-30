@@ -224,7 +224,7 @@
         </me>
         has solutions <m>\lambda_1, \ldots, \lambda_n</m> then our equation becomes
         <me>
-            \left( \frac{d}{dt} - \lambda_1 I \right) \cdots \left( \frac{d}{dt} - \lambda_n I \right) \mb{x} (t) = 0.
+            \left( \frac{d}{dt} - \lambda_1 I \right) \cdots \left( \frac{d}{dt} - \lambda_n I \right) x (t) = 0.
         </me>
         The expression 
         <me>
@@ -257,7 +257,7 @@
         </md>
         Now, the non-homogeneous case with eigenfunction <m>f(t) = e^{\omega t}</m> looks like 
         <men xml:id="eq-diffoperator">
-            \left( \frac{d}{dt} - \lambda_1 I \right)^{k_1} \cdots \left( \frac{d}{dt} - \lambda_r I \right)^{k_r} \mb{x} (t) = e^{\omega t} .
+            \left( \frac{d}{dt} - \lambda_1 I \right)^{k_1} \cdots \left( \frac{d}{dt} - \lambda_r I \right)^{k_r} x (t) = e^{\omega t} .
         </men>
         If <m>\omega</m> is not one of the <m>\lambda_i</m>, one sees that
         <men xml:id="eq-solutioncomplex">
@@ -331,10 +331,10 @@
         <statement>
             <p>Find the solution to the non-homogeneous linear system
             <md>
-                <mrow> x^\prime (t) \amp = -3 x(t) - 6 y(t) + 2t, </mrow>
-                <mrow> y^\prime (t) \amp = 2 x (t) + 4 y(t) - t. </mrow>
+                <mrow> x_1^\prime (t) \amp = -3 x_1(t) - 6 x_2(t) + 2t, </mrow>
+                <mrow> x_2^\prime (t) \amp = 2 x_1 (t) + 4 x_2 (t) - t. </mrow>
             </md>
-            with initial conditions <m>x(0) = 1 = y(0)</m>.
+            with initial conditions <m>x_1(0) = 1 = x_2(0)</m>.
             </p>
         </statement> 
         </exercise>
