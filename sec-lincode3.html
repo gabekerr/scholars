@@ -682,7 +682,7 @@ s^n + a_{n - 1} \lambda^{n - 1} + \cdots + a_1 s + a_0 = 0
 <div class="para">has solutions <span class="process-math">\(\lambda_1, \ldots, \lambda_n\)</span> then our equation becomes</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-generalnonhomosolution.html">
 \begin{equation*}
-\left( \frac{d}{dt} - \lambda_1 I \right) \cdots \left( \frac{d}{dt} - \lambda_n I \right) \mb{x} (t) = 0.
+\left( \frac{d}{dt} - \lambda_1 I \right) \cdots \left( \frac{d}{dt} - \lambda_n I \right) x (t) = 0.
 \end{equation*}
 </div>
 <div class="para">The expression</div>
@@ -731,7 +731,7 @@ x (t) \amp = e^{\lambda_1 t} \left( C_{1,0} + C_{1,1} t + \cdots + C_{1, k_1 - 1
 <div class="para">Now, the non-homogeneous case with eigenfunction <span class="process-math">\(f(t) = e^{\omega t}\)</span> looks like</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-generalnonhomosolution.html" id="eq-diffoperator">
 \begin{equation}
-\left( \frac{d}{dt} - \lambda_1 I \right)^{k_1} \cdots \left( \frac{d}{dt} - \lambda_r I \right)^{k_r} \mb{x} (t) = e^{\omega t} .\tag{5.4.8}
+\left( \frac{d}{dt} - \lambda_1 I \right)^{k_1} \cdots \left( \frac{d}{dt} - \lambda_r I \right)^{k_r} x (t) = e^{\omega t} .\tag{5.4.8}
 \end{equation}
 </div>
 <div class="para">If <span class="process-math">\(\omega\)</span> is not one of the <span class="process-math">\(\lambda_i\text{,}\)</span> one sees that</div>
@@ -829,11 +829,11 @@ x (t) =  \frac{(t - 2)\cos (t) + (t - 2) \sin (t) + 2e^t}{4} .
 <div class="para">Find the solution to the non-homogeneous linear system</div>
 <div class="displaymath process-math" id="md-108">
 \begin{align*}
-x^\prime (t) \amp = -3 x(t) - 6 y(t) + 2t, \\
-y^\prime (t) \amp = 2 x (t) + 4 y(t) - t. 
+x_1^\prime (t) \amp = -3 x_1(t) - 6 x_2(t) + 2t, \\
+x_2^\prime (t) \amp = 2 x_1 (t) + 4 x_2 (t) - t. 
 \end{align*}
 </div>
-<div class="para">with initial conditions <span class="process-math">\(x(0) = 1 = y(0)\text{.}\)</span>
+<div class="para">with initial conditions <span class="process-math">\(x_1(0) = 1 = x_2(0)\text{.}\)</span>
 </div>
 </div></article><article class="exercise exercise-like" id="exercise-96"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
 <div class="para" id="p-778">Show that when <span class="process-math">\(\omega\)</span> is distinct from <span class="process-math">\(\lambda_1, \ldots, \lambda_r\text{,}\)</span> <span class="process-math">\(x_p (t)\)</span> in equation <a href="" class="xref" data-knowl="./knowl/eq-solutioncomplex.html" title="Equation 5.4.9">(5.4.9)</a> solves the non-homogeneous equation <a href="" class="xref" data-knowl="./knowl/eq-diffoperator.html" title="Equation 5.4.8">(5.4.8)</a>.</div></article><article class="exercise exercise-like" id="exercise-97"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
