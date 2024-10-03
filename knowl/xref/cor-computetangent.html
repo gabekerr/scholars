@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="corollary theorem-like"><h4 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.9</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">If</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r}(t) = \threevec{x_1 (t)}{\vdots}{x_n (t)}_{\mathcal{B}} 
+\end{equation*}
+</div>
+<div class="para">is differentiable at <span class="process-math">\(a\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mb{r}^\prime (a) = \threevec{x^\prime_1 (a)}{\vdots}{x_n^\prime (a)}_{\mathcal{B}}. 
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">With a little help of some basic analysis, we can prove <a href="sec-paths.html#prop-differentiablepath" class="xref" data-knowl="./knowl/xref/prop-differentiablepath.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.1.8">Proposition 5.1.8</a>. By the fact that a dual vector is a continuous function, a linear scalar function is a continuous map which implies that composing commutes with limits. But finding the tangent vector <span class="process-math">\(\mb{r}^\prime (a)\)</span> is such a limit and we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-differentiablepath.html">
+\begin{equation*}
+\mb{v}^* ( \mb{r}^\prime (a) ) = \left. \frac{d}{dt}\right|_a \mb{v}^* ( \mb{r} (t)) . 
+\end{equation*}
+</div>
+<div class="para">Thus, if <span class="process-math">\(\mb{r}\)</span> is differentiable, then the left hand side exists which implies the right exists as well.</div>
+</div> <div class="para logical">
+<div class="para">On the other hand, assume the right hand side exists for a basis of dual vectors <span class="process-math">\(\mb{v}^*_i\text{.}\)</span> The <span class="process-math">\(\mb{v}^*_i\)</span> have a dual basis <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_n\)</span> as in equation <a href="sec-lineartransformations1.html#eq-dualbasis" class="xref" data-knowl="./knowl/xref/eq-dualbasis.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.3">(2.3.3)</a> and any vector <span class="process-math">\(\mb{v}\)</span> has the unique expression</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dualbasis.html ./knowl/xref/prop-pathderivativelinear.html">
+\begin{equation*}
+\mb{v}^*_1 (\mb{v} ) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{v} ) \mb{v}_n = \mb{v} 
+\end{equation*}
+</div>
+<div class="para">This is also true for <span class="process-math">\(\mb{r} (t)\)</span> so we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dualbasis.html ./knowl/xref/prop-pathderivativelinear.html">
+\begin{equation*}
+\mb{v}^*_1 (\mb{r} (t)) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n = \mb{r} (t) 
+\end{equation*}
+</div>
+<div class="para">Now, the existence of the derivatives of the coordinate functions and <a href="sec-paths.html#prop-pathderivativelinear" class="xref" data-knowl="./knowl/xref/prop-pathderivativelinear.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.1.7">Proposition 5.1.7</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dualbasis.html ./knowl/xref/prop-pathderivativelinear.html">
+\begin{align*}
+\left(\left. \frac{d}{dt} \right|_a \mb{v}^*_1 (\mb{r} (t)) \right) \mb{v}_1  + \cdots + \left(  \left. \frac{d}{dt} \right|_a \mb{v}^*_n (\mb{r} (t) )  \right) \mb{v}_n \amp =  \left. \frac{d}{dt} \right|_a  \left(\mb{v}^*_1 (\mb{r} (t)) \mb{v}_1  \right) + \cdots + \left. \frac{d}{dt} \right|_a \left( \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n  \right), \\
+\amp =     \left. \frac{d}{dt} \right|_a \left(\mb{v}^*_1 (\mb{r} (t)) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n \right), \\
+\amp = \mb{r}^\prime (a)  .
+\end{align*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-paths.html#cor-computetangent">in-context</a></span>
+</body>
+</html>

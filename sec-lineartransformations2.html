@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Linear Transformations II</title>
@@ -14,20 +14,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Scholars Calculus 3">
 <meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,162 +55,140 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#sec-setsandfunctions-13-2 { counter-set: sec-setsandfunctions-13-2 0; }
+#sec-setsandfunctions-13-2 > li::marker { content: ""counter(sec-setsandfunctions-13-2,decimal)"."; }
+#sec-setsandfunctions-13-2 > li { counter-increment: sec-setsandfunctions-13-2; }
+#def-functionprops-2-1-2 { counter-set: def-functionprops-2-1-2 0; }
+#def-functionprops-2-1-2 > li::marker { content: ""counter(def-functionprops-2-1-2,decimal)"."; }
+#def-functionprops-2-1-2 > li { counter-increment: def-functionprops-2-1-2; }
+#sec-matrices1-12-1-1 { counter-set: sec-matrices1-12-1-1 0; }
+#sec-matrices1-12-1-1 > li::marker { content: ""counter(sec-matrices1-12-1-1,decimal)"."; }
+#sec-matrices1-12-1-1 > li { counter-increment: sec-matrices1-12-1-1; }
+#def-vectorspace-2-1-12 { counter-set: def-vectorspace-2-1-12 0; }
+#def-vectorspace-2-1-12 > li::marker { content: ""counter(def-vectorspace-2-1-12,decimal)"."; }
+#def-vectorspace-2-1-12 > li { counter-increment: def-vectorspace-2-1-12; }
+#def-kernelimage-2-1-5 { counter-set: def-kernelimage-2-1-5 0; }
+#def-kernelimage-2-1-5 > li::marker { content: ""counter(def-kernelimage-2-1-5,decimal)"."; }
+#def-kernelimage-2-1-5 > li { counter-increment: def-kernelimage-2-1-5; }
+#sec-matrices2-2-10 { counter-set: sec-matrices2-2-10 0; }
+#sec-matrices2-2-10 > li::marker { content: ""counter(sec-matrices2-2-10,decimal)"."; }
+#sec-matrices2-2-10 > li { counter-increment: sec-matrices2-2-10; }
+#subsec-rowechelon-7 { counter-set: subsec-rowechelon-7 0; }
+#subsec-rowechelon-7 > li::marker { content: ""counter(subsec-rowechelon-7,decimal)"."; }
+#subsec-rowechelon-7 > li { counter-increment: subsec-rowechelon-7; }
+#thm-rowechsolution-1-1-8 { counter-set: thm-rowechsolution-1-1-8 0; }
+#thm-rowechsolution-1-1-8 > li::marker { content: ""counter(thm-rowechsolution-1-1-8,decimal)"."; }
+#thm-rowechsolution-1-1-8 > li { counter-increment: thm-rowechsolution-1-1-8; }
+#def-rowcolspace-2-1-4 { counter-set: def-rowcolspace-2-1-4 0; }
+#def-rowcolspace-2-1-4 > li::marker { content: ""counter(def-rowcolspace-2-1-4,decimal)"."; }
+#def-rowcolspace-2-1-4 > li { counter-increment: def-rowcolspace-2-1-4; }
+#prop-annihilatorcontra-1-2 { counter-set: prop-annihilatorcontra-1-2 0; }
+#prop-annihilatorcontra-1-2 > li::marker { content: ""counter(prop-annihilatorcontra-1-2,decimal)"."; }
+#prop-annihilatorcontra-1-2 > li { counter-increment: prop-annihilatorcontra-1-2; }
+#cor-dimensions-1-1-5 { counter-set: cor-dimensions-1-1-5 0; }
+#cor-dimensions-1-1-5 > li::marker { content: ""counter(cor-dimensions-1-1-5,decimal)"."; }
+#cor-dimensions-1-1-5 > li { counter-increment: cor-dimensions-1-1-5; }
+#cor-equaldim-1-1-4 { counter-set: cor-equaldim-1-1-4 0; }
+#cor-equaldim-1-1-4 > li::marker { content: ""counter(cor-equaldim-1-1-4,decimal)"."; }
+#cor-equaldim-1-1-4 > li { counter-increment: cor-equaldim-1-1-4; }
+#subsec-transpose-6-1-1-3 { counter-set: subsec-transpose-6-1-1-3 0; }
+#subsec-transpose-6-1-1-3 > li::marker { content: ""counter(subsec-transpose-6-1-1-3,decimal)"."; }
+#subsec-transpose-6-1-1-3 > li { counter-increment: subsec-transpose-6-1-1-3; }
+#sec-geom2-10 { counter-set: sec-geom2-10 0; }
+#sec-geom2-10 > li::marker { content: ""counter(sec-geom2-10,decimal)"."; }
+#sec-geom2-10 > li { counter-increment: sec-geom2-10; }
+#lem-nilpotentdecomp-1-2 { counter-set: lem-nilpotentdecomp-1-2 0; }
+#lem-nilpotentdecomp-1-2 > li::marker { content: ""counter(lem-nilpotentdecomp-1-2,decimal)"."; }
+#lem-nilpotentdecomp-1-2 > li { counter-increment: lem-nilpotentdecomp-1-2; }
+#thm-sylvester-3-1-4 { counter-set: thm-sylvester-3-1-4 0; }
+#thm-sylvester-3-1-4 > li::marker { content: ""counter(thm-sylvester-3-1-4,decimal)"."; }
+#thm-sylvester-3-1-4 > li { counter-increment: thm-sylvester-3-1-4; }
+#def-patharith-2-1-9 { counter-set: def-patharith-2-1-9 0; }
+#def-patharith-2-1-9 > li::marker { content: ""counter(def-patharith-2-1-9,decimal)"."; }
+#def-patharith-2-1-9 > li { counter-increment: def-patharith-2-1-9; }
+#prop-differentiablepath-1-1-5 { counter-set: prop-differentiablepath-1-1-5 0; }
+#prop-differentiablepath-1-1-5 > li::marker { content: ""counter(prop-differentiablepath-1-1-5,decimal)"."; }
+#prop-differentiablepath-1-1-5 > li { counter-increment: prop-differentiablepath-1-1-5; }
+#prop-productrulepaths-2-1-3 { counter-set: prop-productrulepaths-2-1-3 0; }
+#prop-productrulepaths-2-1-3 > li::marker { content: ""counter(prop-productrulepaths-2-1-3,decimal)"."; }
+#prop-productrulepaths-2-1-3 > li { counter-increment: prop-productrulepaths-2-1-3; }
+#sec-lincode2-3 { counter-set: sec-lincode2-3 0; }
+#sec-lincode2-3 > li::marker { content: ""counter(sec-lincode2-3,decimal)"."; }
+#sec-lincode2-3 > li { counter-increment: sec-lincode2-3; }
+#lem-expmatcomm-1-1-3 { counter-set: lem-expmatcomm-1-1-3 0; }
+#lem-expmatcomm-1-1-3 > li::marker { content: ""counter(lem-expmatcomm-1-1-3,decimal)"."; }
+#lem-expmatcomm-1-1-3 > li { counter-increment: lem-expmatcomm-1-1-3; }
+</style>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 3</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
-</h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
-<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden avatar">
-<li data-val="You!" tabindex="-1">
-<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
-<li data-val="😺" tabindex="-1">
-<span id="the😺" class="avatarcheck"></span>😺</li>
-<li data-val="👤" tabindex="-1">
-<span id="the👤" class="avatarcheck"></span>👤</li>
-<li data-val="👽" tabindex="-1">
-<span id="the👽" class="avatarcheck"></span>👽</li>
-<li data-val="🐶" tabindex="-1">
-<span id="the🐶" class="avatarcheck"></span>🐶</li>
-<li data-val="🐼" tabindex="-1">
-<span id="the🐼" class="avatarcheck"></span>🐼</li>
-<li data-val="🌈" tabindex="-1">
-<span id="the🌈" class="avatarcheck"></span>🌈</li>
-</ol>
-</li>
-<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fontfamily">
-<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
-<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
-<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-</ol>
-</li>
-<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fonts">
-<li>Size</li>
-<li><span id="thesize">12</span></li>
-<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
-<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
-<li>Width</li>
-<li><span id="thewdth">100</span></li>
-<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
-<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
-<li>Weight</li>
-<li><span id="thewght">400</span></li>
-<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
-<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
-<li>Letter spacing</li>
-<li>
-<span id="thelspace">0</span><span class="byunits">/200</span>
-</li>
-<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
-<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
-<li>Word spacing</li>
-<li>
-<span id="thewspace">0</span><span class="byunits">/50</span>
-</li>
-<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
-<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
-<li>Line Spacing</li>
-<li>
-<span id="theheight">135</span><span class="byunits">/100</span>
-</li>
-<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
-<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
-</ol>
-</li>
-<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden atmosphere">
-<li data-val="default" tabindex="-1">
-<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
-<li data-val="pastel" tabindex="-1">
-<span id="thepastel" class="atmospherecheck"></span>pastel</li>
-<li data-val="darktwilight" tabindex="-1">
-<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
-<li data-val="dark" tabindex="-1">
-<span id="thedark" class="atmospherecheck"></span>dark</li>
-<li data-val="darkmidnight" tabindex="-1">
-<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
-</ol>
-</li>
-<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden ruler">
-<li data-val="none" tabindex="-1">
-<span id="thenone" class="rulercheck">✔️</span>none</li>
-<li data-val="underline" tabindex="-1">
-<span id="theunderline" class="rulercheck"></span>underline</li>
-<li data-val="lunderline" tabindex="-1">
-<span id="thelunderline" class="rulercheck"></span>L-underline</li>
-<li data-val="greybar" tabindex="-1">
-<span id="thegreybar" class="rulercheck"></span>grey bar</li>
-<li data-val="lightbox" tabindex="-1">
-<span id="thelightbox" class="rulercheck"></span>light box</li>
-<li data-val="sunrise" tabindex="-1">
-<span id="thesunrise" class="rulercheck"></span>sunrise</li>
-<li data-val="sunriseunderline" tabindex="-1">
-<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
-<li class="moveQ">Motion by:</li>
-<li data-val="mouse" tabindex="-1">
-<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
-<li data-val="arrow" tabindex="-1">
-<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
-<li data-val="eye" tabindex="-1">
-<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
-</ol>
-</li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-vectorspaces2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-linear-algebra.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-matrices3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
-</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-vectorspaces2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-linear-algebra.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-matrices3.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -211,166 +207,166 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
-<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
-<li>
-<div class="toc-item"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-equation.html#subsection-1" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
-<li><div class="toc-item"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equation.html#sec-equation-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-linearindependence" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Independence and Dimension</span></a></div></li>
-<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-annihilators" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Annihilators</span></a></div></li>
-<li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorspaces2.html#subsec-linearindependence" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Independence and Dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorspaces2.html#subsec-annihilators" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Annihilators</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="active">
-<div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
-<li><div class="toc-item"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
-<li><div class="toc-item"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
-<li><div class="toc-item"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#subsection-14" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
-<li><div class="toc-item"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
-<li><div class="toc-item"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-paths.html#subsection-18" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
-<li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
-<li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
-<li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE's</span></a></div></li>
-<li><div class="toc-item"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
-<li><div class="toc-item"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span></a></div></li>
-<li><div class="toc-item"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Power Series Methods</span></a></div></li>
-<li><div class="toc-item"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
-</ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 </ul>
 </li>
-<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diag1.html#sec-diag1-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paths.html#sec-paths-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE’s</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE’s II</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Power Series Methods</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-lineartransformations2"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.6</span><span class="space"> </span><span class="title">Linear Transformations II</span>
 </h2>
-<div class="para" id="p-293">In <a href="sec-matrices2.html" class="internal" title="Section 2.4: Matrices II">Section 2.4</a> we saw that an arbitrary matrix equations could be solved completely through putting the matrix into reduced echelon form. As we will now see, for vector spaces with chosen bases, we can write any abstract linear transformation between them as a matrix, and leverage our knowledge of matrix equations to better understand the transformations. This also has a tremendous computational advantage in that we can then parametrize all types of linear structures with linear (or more generally affine) transformations.</div>
-<div class="para logical" id="p-294">
+<div class="para" id="sec-lineartransformations2-2">In <a href="sec-matrices2.html" class="internal" title="Section 2.4: Matrices II">Section 2.4</a> we saw that an arbitrary matrix equations could be solved completely through putting the matrix into reduced echelon form. As we will now see, for vector spaces with chosen bases, we can write any abstract linear transformation between them as a matrix, and leverage our knowledge of matrix equations to better understand the transformations. This also has a tremendous computational advantage in that we can then parametrize all types of linear structures with linear (or more generally affine) transformations.</div>
+<div class="para logical" id="sec-lineartransformations2-3">
 <div class="para">Suppose <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are vector spaces over <span class="process-math">\(K\)</span> and</div>
-<div class="displaymath process-math" id="md-32">
+<div class="displaymath process-math" id="sec-lineartransformations2-3-4">
 \begin{align*}
 \mathcal{B} \amp = \{\mb{u}_1 , \ldots, \mb{u}_n \}, \\
 \mathcal{C} \amp = \{ \mb{v}_1, \ldots, \mb{v}_m\} 
@@ -395,15 +391,15 @@ T (\mb{u}_j)  = a_{1j}\mb{v}_1 + a_{2j} \mb{v}_2 + \cdots + a_{mj} \mb{v}_m. \ta
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-295">
-<div class="para">This matrix is called <dfn class="terminology">the matrix representation of T</dfn>. While this may certainly seem like awkward notation, it aligns well with what is known as `tensor notation', commonly used in various branches of physics. What is important though is that it encodes all of the needed data (the transformation <span class="process-math">\(T\)</span> and the bases <span class="process-math">\(\mathcal{B}\)</span> and <span class="process-math">\(\mathcal{C}\)</span>). But how is this matrix used to compute with <span class="process-math">\(T\text{?}\)</span> Well, we have not used that <span class="process-math">\(\mathcal{B}\)</span> is a basis yet, so let's do that. We know that \text{any} vector <span class="process-math">\(\mb{u}\)</span> in <span class="process-math">\(U\)</span> has a unique expression as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html">
+<div class="para logical" id="sec-lineartransformations2-4">
+<div class="para">This matrix is called <dfn class="terminology">the matrix representation of T</dfn>. While this may certainly seem like awkward notation, it aligns well with what is known as `tensor notation’, commonly used in various branches of physics. What is important though is that it encodes all of the needed data (the transformation <span class="process-math">\(T\)</span> and the bases <span class="process-math">\(\mathcal{B}\)</span> and <span class="process-math">\(\mathcal{C}\)</span>). But how is this matrix used to compute with <span class="process-math">\(T\text{?}\)</span> Well, we have not used that <span class="process-math">\(\mathcal{B}\)</span> is a basis yet, so let’s do that. We know that \text{any} vector <span class="process-math">\(\mb{u}\)</span> in <span class="process-math">\(U\)</span> has a unique expression as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixtimesvector.html">
 \begin{equation*}
 \mb{u} = x_1 \mb{u}_1 + x_2 \mb{u}_2 + \cdots + x_n \mb{u}_n. 
 \end{equation*}
 </div>
 <div class="para">We can feed this into the transformation and use linearity to see</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html" id="md-33">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixtimesvector.html" id="sec-lineartransformations2-4-10">
 \begin{align*}
 T (\mb{u}) \amp = T (x_1 \mb{u}_1 +  \cdots + x_n \mb{u}_n ) ,\\
 \amp = x_1 T (\mb{u}_1) + \cdots + x_n T (\mb{u}_n), \\
@@ -411,21 +407,21 @@ T (\mb{u}) \amp = T (x_1 \mb{u}_1 +  \cdots + x_n \mb{u}_n ) ,\\
 \amp = \left( a_{11} x_1 + \cdots + a_{1n} x_n \right) \mb{v}_1 + \cdots + \left( a_{m1} x_1 + \cdots + a_{mn} x_n \right) \mb{v}_m. 
 \end{align*}
 </div>
-<div class="para">The coefficients of the vectors <span class="process-math">\(\mb{v}_i\)</span> may look familiar, because they were the coordinates from the formula for matrix multiplication in equation <a href="" class="xref" data-knowl="./knowl/eq-matrixtimesvector.html" title="Equation 2.3.1">(2.3.1)</a>. In fact, we can write this observation as an important equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html" id="eq-matrixrepresentation">
+<div class="para">The coefficients of the vectors <span class="process-math">\(\mb{v}_i\)</span> may look familiar, because they were the coordinates from the formula for matrix multiplication in equation <a href="sec-lineartransformations1.html#eq-matrixtimesvector" class="xref" data-knowl="./knowl/xref/eq-matrixtimesvector.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a>. In fact, we can write this observation as an important equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixtimesvector.html" id="eq-matrixrepresentation">
 \begin{equation}
 \coord{T(\mb{u})}{\mathcal{C}} = \cob{T}{\mathcal{B}}{\mathcal{C}} \coord{\mb{u}}{\mathcal{B}} .\tag{2.6.2}
 \end{equation}
 </div>
 <div class="para">Alternatively, we can give the elegant definition</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixtimesvector.html" id="eq-definematrixrep">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixtimesvector.html" id="eq-definematrixrep">
 \begin{equation}
 \cob{T}{\mathcal{B}}{\mathcal{C}} = \coord{}{\mathcal{C}} \circ T \circ []_\mathcal{B}. \tag{2.6.3}
 \end{equation}
 </div>
 <div class="para">While important, it is easy to relate to a student who sees this equation as confusing gibberish. So we shall tilt our heads for the moment and understand it from the perspective of the diagram</div>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-matrices2.html ./knowl/eq-matrixtimesvector.html ./knowl/eq-matrixrepresentation.html ./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html ./knowl/thm-rowechsolution.html ./knowl/prop-basescolrow.html ./knowl/cor-linindmatsize.html ./knowl/thm-ranknullity.html ./knowl/thm-ranknullity.html ./knowl/cor-strictinequalitysubspace.html ./knowl/thm-ranknullity.html ./knowl/eq-definematrixrep.html ./knowl/exe-compositionreps.html ./knowl/eq-changeofbasis.html" id="diag-matrixrepresentation">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-matrices2.html ./knowl/xref/eq-matrixtimesvector.html ./knowl/xref/eq-matrixrepresentation.html ./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html ./knowl/xref/thm-rowechsolution.html ./knowl/xref/prop-basescolrow.html ./knowl/xref/cor-linindmatsize.html ./knowl/xref/thm-ranknullity.html ./knowl/xref/thm-ranknullity.html ./knowl/xref/cor-strictinequalitysubspace.html ./knowl/xref/thm-ranknullity.html ./knowl/xref/eq-definematrixrep.html ./knowl/xref/exe-compositionreps.html ./knowl/xref/eq-changeofbasis.html" id="diag-matrixrepresentation">
 \begin{equation}
 \begin{CD}
 U @&gt;T&gt;&gt; V\\
@@ -434,32 +430,32 @@ K^n @&gt;\cob{T}{\mathcal{B}}{\mathcal{C}}&gt;&gt; K^m
 \end{CD}\tag{2.6.4}
 \end{equation}
 </div>
-<div class="para" id="p-296">You should look at this diagram in the following way. What we are interested in is the linear transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(U\)</span> to <span class="process-math">\(V\text{,}\)</span> so the top row of the diagram is what we care about. But it is abstract and difficult to compute with, so we consider the linear isomorphisms <span class="process-math">\(\coord{}{\mathcal{B}}\)</span> and <span class="process-math">\(\coord{}{\mathcal{C}}\)</span> that place coordinates on <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> respectively and bring us down to earth on the bottom row of the diagram. Down here, <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> have been replaced with column vectors of numbers which we can manipulate with basic arithmetic. But equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepresentation.html" title="Equation 2.6.2">(2.6.2)</a> tells us that we can also work with <span class="process-math">\(T\)</span> here as well! In particular, we can write <span class="process-math">\(T\)</span> as the concrete matrix of numbers <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{C}}\)</span> and compute <span class="process-math">\(\coord{T(\mb{u})}{\mathcal{C}}\)</span> as matrix multiplication  <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{C}} \coord{\mb{u}}{\mathcal{B}}\text{.}\)</span> Let's see this worked out in an example.</div>
-<article class="example example-like" id="example-38"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-38"><h3 class="heading">
+<div class="para" id="sec-lineartransformations2-6">You should look at this diagram in the following way. What we are interested in is the linear transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(U\)</span> to <span class="process-math">\(V\text{,}\)</span> so the top row of the diagram is what we care about. But it is abstract and difficult to compute with, so we consider the linear isomorphisms <span class="process-math">\(\coord{}{\mathcal{B}}\)</span> and <span class="process-math">\(\coord{}{\mathcal{C}}\)</span> that place coordinates on <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> respectively and bring us down to earth on the bottom row of the diagram. Down here, <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> have been replaced with column vectors of numbers which we can manipulate with basic arithmetic. But equation <a href="sec-lineartransformations2.html#eq-matrixrepresentation" class="xref" data-knowl="./knowl/xref/eq-matrixrepresentation.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> tells us that we can also work with <span class="process-math">\(T\)</span> here as well! In particular, we can write <span class="process-math">\(T\)</span> as the concrete matrix of numbers <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{C}}\)</span> and compute <span class="process-math">\(\coord{T(\mb{u})}{\mathcal{C}}\)</span> as matrix multiplication  <span class="process-math">\(\cob{T}{\mathcal{B}}{\mathcal{C}} \coord{\mb{u}}{\mathcal{B}}\text{.}\)</span> Let’s see this worked out in an example.</div>
+<details id="sec-lineartransformations2-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="period">.</span><span class="space"> </span><span class="title">The matrix of a derivative.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-38"><article class="example example-like"><div class="para logical" id="p-297">
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-lineartransformations2-7-2-1">
 <div class="para">Consider <span class="process-math">\(P_n\)</span> as the polynomials of degree less than or equal to <span class="process-math">\(n\)</span> with coefficients in <span class="process-math">\(\mathbb{R}\text{.}\)</span> Take</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html">
 \begin{equation*}
 D: P_2 \to P_1 
 \end{equation*}
 </div>
 <div class="para">to be the linear transformation obtained by taking the derivative. In other words,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html">
 \begin{equation*}
 D(f) = f^\prime . 
 \end{equation*}
 </div>
 <div class="para">In order to write out <span class="process-math">\(D\)</span> as a matrix, we need to choose bases for <span class="process-math">\(P_2\)</span> and <span class="process-math">\(P_1\text{.}\)</span> The natural candidate for <span class="process-math">\(P_n\)</span> is <span class="process-math">\(\{1, x, x^2, \ldots, x^n\}\text{,}\)</span> so we take</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html" id="md-34">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html" id="sec-lineartransformations2-7-2-1-11">
 \begin{align*}
 \mathcal{B} \amp = \{1, x, x^2\}, \\
 \mathcal{C} \amp = \{1, x\}. 
 \end{align*}
 </div>
-<div class="para">To find <span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\)</span> we will simply need to find the coefficients from equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepformula.html" title="Equation 2.6.1">(2.6.1)</a>. In other words, we need to take the derivative of our polynomials from <span class="process-math">\(\mathcal{B}\)</span> and write them out as linear combinations of the polynomials in <span class="process-math">\(\mathcal{C}\text{.}\)</span>
+<div class="para">To find <span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\)</span> we will simply need to find the coefficients from equation <a href="sec-lineartransformations2.html#eq-matrixrepformula" class="xref" data-knowl="./knowl/xref/eq-matrixrepformula.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a>. In other words, we need to take the derivative of our polynomials from <span class="process-math">\(\mathcal{B}\)</span> and write them out as linear combinations of the polynomials in <span class="process-math">\(\mathcal{C}\text{.}\)</span>
 </div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html" id="md-35">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html" id="sec-lineartransformations2-7-2-1-16">
 \begin{align*}
 D(1) \amp = 0 = 0\cdot 1 + 0 \cdot x, \\
 D(x) \amp = 1 = 1\cdot 1 + 0 \cdot x, \\
@@ -467,90 +463,86 @@ D(x^2) \amp = 2x = 0\cdot 1 + 2 \cdot x.
 \end{align*}
 </div>
 <div class="para">Placing these coefficients into the matrix (appropriately!) gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html">
 \begin{equation*}
 \cob{D}{\mathcal{B}}{\mathcal{C}} =  \begin{bmatrix} {0}\amp {1}\amp {0}\\ {0}\amp {0} \amp {2} \end{bmatrix} . 
 \end{equation*}
 </div>
-<div class="para">Of course, in this example, since we all know how to take derivatives, the matrix representation of <span class="process-math">\(D\)</span> is of limited usefulness. Nonetheless, let us show how equation <a href="" class="xref" data-knowl="./knowl/eq-matrixrepresentation.html" title="Equation 2.6.2">(2.6.2)</a> works in this case. Take the arbitrary quadratic polynomial</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="para">Of course, in this example, since we all know how to take derivatives, the matrix representation of <span class="process-math">\(D\)</span> is of limited usefulness. Nonetheless, let us show how equation <a href="sec-lineartransformations2.html#eq-matrixrepresentation" class="xref" data-knowl="./knowl/xref/eq-matrixrepresentation.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> works in this case. Take the arbitrary quadratic polynomial</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html">
 \begin{equation*}
 f = ax^2 + bx + c 
 \end{equation*}
 </div>
 <div class="para">in <span class="process-math">\(P_2\)</span> and observe that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html">
 \begin{equation*}
 \coord{f}{\mathcal{B}} = \threevec{c}{b}{a} . 
 \end{equation*}
 </div>
 <div class="para">Then multiplying this column vector on the left by <span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\)</span> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html" id="md-36">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html" id="sec-lineartransformations2-7-2-1-24">
 \begin{align*}
 \cob{D}{\mathcal{B}}{\mathcal{C}} \coord{f}{\mathcal{B}} \amp = \begin{bmatrix} {0}\amp {1}\amp {0}\\ {0}\amp {0} \amp {2} \end{bmatrix} \threevec{c}{b}{a} ,\\
 \amp = \twovec{b}{2a} . 
 \end{align*}
 </div>
 <div class="para">But this vector represents the element</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-matrixrepformula.html ./knowl/eq-matrixrepresentation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-matrixrepformula.html ./knowl/xref/eq-matrixrepresentation.html">
 \begin{equation*}
 b\cdot 1 + 2a \cdot x = 2ax + b 
 \end{equation*}
 </div>
 <div class="para">which we all know as the derivative of <span class="process-math">\(f\text{.}\)</span>
 </div>
-</div></article></div>
-<div class="para" id="p-298">The technique of representing a linear transformation as a matrix already gives us some important results. First though, we define the following notions.</div>
+</div></article></details><div class="para" id="sec-lineartransformations2-8">The technique of representing a linear transformation as a matrix already gives us some important results. First though, we define the following notions.</div>
 <article class="definition definition-like" id="def-rank"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="period">.</span>
-</h3> If <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are finite dimensional vector spaces over <span class="process-math">\(K\text{,}\)</span> the <dfn class="terminology">rank</dfn> of a linear transformation <span class="process-math">\(T : U \to V\text{,}\)</span> denoted <span class="process-math">\(\rk (T)\text{,}\)</span> is the dimension of <span class="process-math">\(\im (T)\text{.}\)</span> The <dfn class="terminology">nullity</dfn> of <span class="process-math">\(T\)</span> is the dimension of <span class="process-math">\(\ker (T)\text{.}\)</span></article><div class="para" id="p-299">The following theorem gives us a good amount of qualitative information about a linear transformation.</div>
+</h3> If <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are finite dimensional vector spaces over <span class="process-math">\(K\text{,}\)</span> the <dfn class="terminology">rank</dfn> of a linear transformation <span class="process-math">\(T : U \to V\text{,}\)</span> denoted <span class="process-math">\(\rk (T)\text{,}\)</span> is the dimension of <span class="process-math">\(\im (T)\text{.}\)</span> The <dfn class="terminology">nullity</dfn> of <span class="process-math">\(T\)</span> is the dimension of <span class="process-math">\(\ker (T)\text{.}\)</span></article><div class="para" id="sec-lineartransformations2-10">The following theorem gives us a good amount of qualitative information about a linear transformation.</div>
 <article class="theorem theorem-like" id="thm-ranknullity"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.6.3</span><span class="period">.</span><span class="space"> </span><span class="title">Rank-Nullity Theorem.</span>
 </h3>If <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are finite dimensional vector spaces over <span class="process-math">\(K\)</span> and <span class="process-math">\(T : U \to V\)</span> linear transformation then<div class="displaymath process-math">
 \begin{equation*}
 \nullity (T) + \rk (T) = \dim (U). 
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-11"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-11"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-11"><article class="hiddenproof"><div class="para logical" id="p-300">
+</div></article><details id="thm-ranknullity-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-ranknullity-3-1">
 <div class="para">To see this, suppose <span class="process-math">\(\dim (U) = n\text{,}\)</span> <span class="process-math">\(\dim (V) = m\)</span> and let <span class="process-math">\(A\)</span> be the <span class="process-math">\(m \times n\)</span> matrix representing <span class="process-math">\(T\)</span> relative to some bases on <span class="process-math">\(U\)</span> and <span class="process-math">\(V\text{.}\)</span> Then the kernel of <span class="process-math">\(T\)</span> is isomorphic to the null space of <span class="process-math">\(A\)</span> (which is the kernel of multiplying by <span class="process-math">\(A\)</span>) and the image of <span class="process-math">\(T\)</span> is isomorphic to the column space of <span class="process-math">\(A\)</span> (which is the image of multiplying by <span class="process-math">\(A\)</span>). Now, the null space of <span class="process-math">\(A\)</span> is the linear subspace of solutions to the matrix equation</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-rowechsolution.html ./knowl/prop-basescolrow.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-rowechsolution.html ./knowl/xref/prop-basescolrow.html">
 \begin{equation*}
 A \mb{x} = \mb{0}. 
 \end{equation*}
 </div>
-<div class="para">We saw in <a href="" class="xref" data-knowl="./knowl/thm-rowechsolution.html" title="Theorem 2.4.7">Theorem 2.4.7</a> that the solutions to these equations were parameterized by <span class="process-math">\(K^r\)</span> where <span class="process-math">\(r\)</span> was the number of free columns of <span class="process-math">\(A\text{.}\)</span> So the nullity of <span class="process-math">\(A\)</span> is precisely <span class="process-math">\(r\text{.}\)</span> On the other hand, <a href="" class="xref" data-knowl="./knowl/prop-basescolrow.html" title="Proposition 2.5.11">Proposition 2.5.11</a> showed that the dimension of the column space equaled the number of basic columns of <span class="process-math">\(A\text{.}\)</span> Now every column of <span class="process-math">\(A\)</span> is either free or basic (but not both), so the sum of these two numbers is precisely <span class="process-math">\(n = \dim (U)\text{.}\)</span>
+<div class="para">We saw in <a href="sec-matrices2.html#thm-rowechsolution" class="xref" data-knowl="./knowl/xref/thm-rowechsolution.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.7">Theorem 2.4.7</a> that the solutions to these equations were parameterized by <span class="process-math">\(K^r\)</span> where <span class="process-math">\(r\)</span> was the number of free columns of <span class="process-math">\(A\text{.}\)</span> So the nullity of <span class="process-math">\(A\)</span> is precisely <span class="process-math">\(r\text{.}\)</span> On the other hand, <a href="sec-vectorspaces2.html#prop-basescolrow" class="xref" data-knowl="./knowl/xref/prop-basescolrow.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.5.11">Proposition 2.5.11</a> showed that the dimension of the column space equaled the number of basic columns of <span class="process-math">\(A\text{.}\)</span> Now every column of <span class="process-math">\(A\)</span> is either free or basic (but not both), so the sum of these two numbers is precisely <span class="process-math">\(n = \dim (U)\text{.}\)</span>
 </div>
-</div></article></div>
-<div class="para" id="p-301">From this we obtain the corollary</div>
+</div></article></details><div class="para" id="sec-lineartransformations2-12">From this we obtain the corollary</div>
 <article class="corollary theorem-like" id="cor-dimensions"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.6.4</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-302">
+<div class="para logical" id="cor-dimensions-1-1">
 <div class="para">Suppose <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are finite dimensional vector spaces over <span class="process-math">\(K\)</span> and <span class="process-math">\(T : U \to V\)</span> is a linear transformation. Then</div>
-<ol class="decimal">
-<li id="li-47"><div class="para" id="p-derived-li-47">if <span class="process-math">\(T\)</span> is one-to-one then <span class="process-math">\(\dim (U) \leq  \dim (V)\text{.}\)</span>
+<ol class="decimal" id="cor-dimensions-1-1-5">
+<li id="cor-dimensions-1-1-5-1"><div class="para" id="p-derived-cor-dimensions-1-1-5-1">if <span class="process-math">\(T\)</span> is one-to-one then <span class="process-math">\(\dim (U) \leq  \dim (V)\text{.}\)</span>
 </div></li>
-<li id="li-48"><div class="para" id="p-derived-li-48">if <span class="process-math">\(T\)</span> is onto then <span class="process-math">\(\dim (U) \geq \dim (V)\text{.}\)</span>
+<li id="cor-dimensions-1-1-5-2"><div class="para" id="p-derived-cor-dimensions-1-1-5-2">if <span class="process-math">\(T\)</span> is onto then <span class="process-math">\(\dim (U) \geq \dim (V)\text{.}\)</span>
 </div></li>
-<li id="li-49"><div class="para" id="p-derived-li-49">if <span class="process-math">\(T\)</span> is a linear isomorphism then <span class="process-math">\(\dim (U) = \dim (V)\text{.}\)</span>
+<li id="cor-dimensions-1-1-5-3"><div class="para" id="p-derived-cor-dimensions-1-1-5-3">if <span class="process-math">\(T\)</span> is a linear isomorphism then <span class="process-math">\(\dim (U) = \dim (V)\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><article class="hiddenproof" id="proof-12"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-12"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-12"><article class="hiddenproof"><div class="para" id="p-303">For the first claim, represent <span class="process-math">\(T\)</span> by a matrix and apply <a href="" class="xref" data-knowl="./knowl/cor-linindmatsize.html" title="Corollary 2.5.6">Corollary 2.5.6</a>. For the second, if  <span class="process-math">\(T\)</span> is onto then then <span class="process-math">\(\im (T) = V\)</span> so that <span class="process-math">\(\rk (T) = \dim (V)\text{.}\)</span> By <a href="" class="xref" data-knowl="./knowl/thm-ranknullity.html" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a>, <span class="process-math">\(\nullity (T) + \dim (V) = \dim (U)\)</span> implying <span class="process-math">\(\dim (U) \geq \dim (V)\text{.}\)</span> The last claim follows from the fact that a linear isomorphism is a one-to-one correspondence by definition.</div></article></div>
-<div class="para" id="p-304">We also can use our theorem to make it easier to detect linear isomorphisms.</div>
+</div></article><details id="cor-dimensions-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="cor-dimensions-2-1">For the first claim, represent <span class="process-math">\(T\)</span> by a matrix and apply <a href="sec-vectorspaces2.html#cor-linindmatsize" class="xref" data-knowl="./knowl/xref/cor-linindmatsize.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 2.5.6">Corollary 2.5.6</a>. For the second, if  <span class="process-math">\(T\)</span> is onto then then <span class="process-math">\(\im (T) = V\)</span> so that <span class="process-math">\(\rk (T) = \dim (V)\text{.}\)</span> By <a href="sec-lineartransformations2.html#thm-ranknullity" class="xref" data-knowl="./knowl/xref/thm-ranknullity.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a>, <span class="process-math">\(\nullity (T) + \dim (V) = \dim (U)\)</span> implying <span class="process-math">\(\dim (U) \geq \dim (V)\text{.}\)</span> The last claim follows from the fact that a linear isomorphism is a one-to-one correspondence by definition.</div></article></details><div class="para" id="sec-lineartransformations2-14">We also can use our theorem to make it easier to detect linear isomorphisms.</div>
 <article class="corollary theorem-like" id="cor-equaldim"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">2.6.5</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-305">
+<div class="para logical" id="cor-equaldim-1-1">
 <div class="para">If <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are finite dimensional vector spaces of the same dimension and <span class="process-math">\(T : U \to V\)</span> is a linear transformation, then the following are equivalent:</div>
-<ol class="decimal">
-<li id="li-50"><div class="para" id="p-derived-li-50">
+<ol class="decimal" id="cor-equaldim-1-1-4">
+<li id="cor-equaldim-1-1-4-1"><div class="para" id="p-derived-cor-equaldim-1-1-4-1">
 <span class="process-math">\(T\)</span> is one-to-one.</div></li>
-<li id="li-51"><div class="para" id="p-derived-li-51">
+<li id="cor-equaldim-1-1-4-2"><div class="para" id="p-derived-cor-equaldim-1-1-4-2">
 <span class="process-math">\(T\)</span> is onto.</div></li>
-<li id="li-52"><div class="para" id="p-derived-li-52">
+<li id="cor-equaldim-1-1-4-3"><div class="para" id="p-derived-cor-equaldim-1-1-4-3">
 <span class="process-math">\(T\)</span> is a linear isomorphism.</div></li>
 </ol>
-</div></article><article class="hiddenproof" id="proof-13"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-13"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-13"><article class="hiddenproof"><div class="para" id="p-306">Note that <span class="process-math">\(T\)</span> is one-to-one if and only if <span class="process-math">\(\nullity (T) = 0\)</span> which by <a href="" class="xref" data-knowl="./knowl/thm-ranknullity.html" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a> holds if and only if <span class="process-math">\(\rk (T) = \dim U = \dim (V)\text{.}\)</span> But then <span class="process-math">\(\im (T) = V\)</span> since otherwise <span class="process-math">\(\im (T)\)</span> would be a proper subspace of <span class="process-math">\(V\)</span> and <a href="" class="xref" data-knowl="./knowl/cor-strictinequalitysubspace.html" title="Corollary 2.5.9">Corollary 2.5.9</a> would give that <span class="process-math">\(\rk (T) = \dim (\im (T)) \lt \dim (V)\text{.}\)</span> Thus <span class="process-math">\(T\)</span> is onto and a linear isomorphism.</div> <div class="para" id="p-307">Now, if <span class="process-math">\(T\)</span> is onto then <span class="process-math">\(\rk (T) = \dim (V) = \dim (U)\)</span> which again implies by <a href="" class="xref" data-knowl="./knowl/thm-ranknullity.html" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a> that <span class="process-math">\(\nullity (T) = 0\text{.}\)</span> This would give that <span class="process-math">\(\ker (T) = \{\mb{0} \}\)</span> so that <span class="process-math">\(T\)</span> is one-to-one and a linear isomorphism.</div> <div class="para" id="p-308">Clearly, if <span class="process-math">\(T\)</span> is a linear isomorphism then it is both one-to-one and onto by definition.</div></article></div>
-<div class="para logical" id="p-309">
+</div></article><details id="cor-equaldim-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="cor-equaldim-2-1">Note that <span class="process-math">\(T\)</span> is one-to-one if and only if <span class="process-math">\(\nullity (T) = 0\)</span> which by <a href="sec-lineartransformations2.html#thm-ranknullity" class="xref" data-knowl="./knowl/xref/thm-ranknullity.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a> holds if and only if <span class="process-math">\(\rk (T) = \dim U = \dim (V)\text{.}\)</span> But then <span class="process-math">\(\im (T) = V\)</span> since otherwise <span class="process-math">\(\im (T)\)</span> would be a proper subspace of <span class="process-math">\(V\)</span> and <a href="sec-vectorspaces2.html#cor-strictinequalitysubspace" class="xref" data-knowl="./knowl/xref/cor-strictinequalitysubspace.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 2.5.9">Corollary 2.5.9</a> would give that <span class="process-math">\(\rk (T) = \dim (\im (T)) \lt \dim (V)\text{.}\)</span> Thus <span class="process-math">\(T\)</span> is onto and a linear isomorphism.</div> <div class="para" id="cor-equaldim-2-2">Now, if <span class="process-math">\(T\)</span> is onto then <span class="process-math">\(\rk (T) = \dim (V) = \dim (U)\)</span> which again implies by <a href="sec-lineartransformations2.html#thm-ranknullity" class="xref" data-knowl="./knowl/xref/thm-ranknullity.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.6.3: Rank-Nullity Theorem">Theorem 2.6.3</a> that <span class="process-math">\(\nullity (T) = 0\text{.}\)</span> This would give that <span class="process-math">\(\ker (T) = \{\mb{0} \}\)</span> so that <span class="process-math">\(T\)</span> is one-to-one and a linear isomorphism.</div> <div class="para" id="cor-equaldim-2-3">Clearly, if <span class="process-math">\(T\)</span> is a linear isomorphism then it is both one-to-one and onto by definition.</div></article></details><div class="para logical" id="sec-lineartransformations2-16">
 <div class="para">The ability to represent a linear transformation as a matrix is especially important when we consider linear transformations from a vector space to itself</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -584,42 +576,38 @@ C = P B P^{-1}  .\tag{2.6.5}
 <div class="para">The matrix <span class="process-math">\(P\)</span> called a <dfn class="terminology">change of basis matrix</dfn> from <span class="process-math">\(\mathcal{C}\)</span> to <span class="process-math">\(\mathcal{B}\)</span> and it allows us to transfer information relative to the basis <span class="process-math">\(\mathcal{C}\)</span> to that of <span class="process-math">\(\mathcal{B}\)</span> (and upon taking its inverse, vice versa).</div>
 </div>
 <section class="exercises" id="exe-lineartransformations2"><h3 class="heading hide-type">
-<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber"></span><span class="space"> </span><span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-42"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-310">Using the standard basis <span class="process-math">\(\mathcal{B} = \{\mb{e}_1, \mb{e}_2\}\text{,}\)</span> represent the linear transformation of the plane which rotates the plane by counter-clockwise rotation of <span class="process-math">\(\pi / 2\)</span> and then reflects over the <span class="process-math">\(x\)</span>-axis.</div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-7" id="hint-7"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-7"><div class="hint solution-like">To do this, just ask yourself where the two basis vectors are sent and write the results as the columns of your matrix.</div></div>
-</div></article><article class="exercise exercise-like" id="exe-matrep"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-17"><div class="para" id="p-311">Suppose <span class="process-math">\(T : U \to V\)</span> is represented by the matrix <span class="process-math">\(A\text{.}\)</span> Show that</div></div>
-<article class="task exercise-like" id="task-32"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="p-312">if <span class="process-math">\(T\)</span> is one-to-one then multiplication by <span class="process-math">\(A\)</span> is one-to-one.</div></article><article class="task exercise-like" id="task-33"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="p-313">if <span class="process-math">\(T\)</span> is onto then multiplication by <span class="process-math">\(A\)</span> is onto.</div></article><article class="task exercise-like" id="task-34"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="p-314">the dimension of <span class="process-math">\(\ker (T)\)</span> equals the dimension of the null space of <span class="process-math">\(A\)</span> (which is the solution space to <span class="process-math">\(A \mb{x} = \mb{0}\)</span>).</div></article><article class="task exercise-like" id="task-35"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<div class="para" id="p-315">there is a linear isomorphism from the image of <span class="process-math">\(T\)</span> to the column space of <span class="process-math">\(A\text{.}\)</span>
+<article class="exercise exercise-like" id="exe-lineartransformations2-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exe-lineartransformations2-1-1-1">Using the standard basis <span class="process-math">\(\mathcal{B} = \{\mb{e}_1, \mb{e}_2\}\text{,}\)</span> represent the linear transformation of the plane which rotates the plane by counter-clockwise rotation of <span class="process-math">\(\pi / 2\)</span> and then reflects over the <span class="process-math">\(x\)</span>-axis.</div>
+<div class="solutions"><details id="exe-lineartransformations2-1-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">To do this, just ask yourself where the two basis vectors are sent and write the results as the columns of your matrix.</div></details></div></article><article class="exercise exercise-like" id="exe-matrep"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-matrep-1"><div class="para" id="exe-matrep-1-1">Suppose <span class="process-math">\(T : U \to V\)</span> is represented by the matrix <span class="process-math">\(A\text{.}\)</span> Show that</div></div>
+<article class="task exercise-like" id="exe-matrep-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-matrep-2-1-1">if <span class="process-math">\(T\)</span> is one-to-one then multiplication by <span class="process-math">\(A\)</span> is one-to-one.</div></article><article class="task exercise-like" id="exe-matrep-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-matrep-3-1-1">if <span class="process-math">\(T\)</span> is onto then multiplication by <span class="process-math">\(A\)</span> is onto.</div></article><article class="task exercise-like" id="exe-matrep-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="exe-matrep-4-1-1">the dimension of <span class="process-math">\(\ker (T)\)</span> equals the dimension of the null space of <span class="process-math">\(A\)</span> (which is the solution space to <span class="process-math">\(A \mb{x} = \mb{0}\)</span>).</div></article><article class="task exercise-like" id="exe-matrep-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="exe-matrep-5-1-1">there is a linear isomorphism from the image of <span class="process-math">\(T\)</span> to the column space of <span class="process-math">\(A\text{.}\)</span>
 </div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-8" id="hint-8"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-8"><div class="hint solution-like">Consider using <span class="process-math">\(\coord{}{\mathcal{C}}\)</span> where <span class="process-math">\(\mathcal{C}\)</span> is the basis for <span class="process-math">\(V\)</span> used in the representation <span class="process-math">\(A\text{.}\)</span>
-</div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-44"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-18"><div class="para" id="p-316">Let <span class="process-math">\(P_2\)</span> be the real vector space of polynomials of degree <span class="process-math">\(2\)</span> or less. Let <span class="process-math">\(\mathcal{B} = \{1 , x , x^2 \}\)</span> and <span class="process-math">\(\mathcal{C} = \{1, (x - 2), (x - 2)^2 \}\text{.}\)</span> As in the example, let <span class="process-math">\(D: P_2 \to P_2\)</span> be the derivative. Calculate</div></div>
-<article class="task exercise-like" id="task-36"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="p-317"><span class="process-math">\(\cob{D}{\mathcal{C}}{\mathcal{C}}\text{,}\)</span></div></article><article class="task exercise-like" id="task-37"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="p-318"><span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\text{.}\)</span></div></article><div class="conclusion" id="conclusion-1"><div class="para" id="p-319">Expanding out functions in the basis of <span class="process-math">\(\mathcal{C}\)</span> versus <span class="process-math">\(\mathcal{B}\)</span> can be thought of as taking second order approximations to functions near <span class="process-math">\(2\)</span> instead of <span class="process-math">\(0\)</span> (i.e. examining the first three terms of the Taylor series near different points).</div></div></article><article class="exercise exercise-like" id="exe-compositionreps"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-320">
-<div class="para">Use equation <a href="" class="xref" data-knowl="./knowl/eq-definematrixrep.html" title="Equation 2.6.3">(2.6.3)</a> to show that if <span class="process-math">\(T : U \to V\)</span> and <span class="process-math">\(S : V \to W\)</span> are linear transformations and <span class="process-math">\(\mathcal{B}, \mathcal{C}\)</span> and <span class="process-math">\(\mathcal{D}\)</span> are bases for <span class="process-math">\(U, V\)</span> and <span class="process-math">\(W\)</span> respectively, then</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-definematrixrep.html">
+<div class="solutions"><details id="exe-matrep-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Consider using <span class="process-math">\(\coord{}{\mathcal{C}}\)</span> where <span class="process-math">\(\mathcal{C}\)</span> is the basis for <span class="process-math">\(V\)</span> used in the representation <span class="process-math">\(A\text{.}\)</span>
+</div></details></div></article></article><article class="exercise exercise-like" id="exe-lineartransformations2-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-lineartransformations2-3-1"><div class="para" id="exe-lineartransformations2-3-1-1">Let <span class="process-math">\(P_2\)</span> be the real vector space of polynomials of degree <span class="process-math">\(2\)</span> or less. Let <span class="process-math">\(\mathcal{B} = \{1 , x , x^2 \}\)</span> and <span class="process-math">\(\mathcal{C} = \{1, (x - 2), (x - 2)^2 \}\text{.}\)</span> As in the example, let <span class="process-math">\(D: P_2 \to P_2\)</span> be the derivative. Calculate</div></div>
+<article class="task exercise-like" id="exe-lineartransformations2-3-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="exe-lineartransformations2-3-2-1-1"><span class="process-math">\(\cob{D}{\mathcal{C}}{\mathcal{C}}\text{,}\)</span></div></article><article class="task exercise-like" id="exe-lineartransformations2-3-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="exe-lineartransformations2-3-3-1-1"><span class="process-math">\(\cob{D}{\mathcal{B}}{\mathcal{C}}\text{.}\)</span></div></article><div class="conclusion" id="exe-lineartransformations2-3-4"><div class="para" id="exe-lineartransformations2-3-4-1">Expanding out functions in the basis of <span class="process-math">\(\mathcal{C}\)</span> versus <span class="process-math">\(\mathcal{B}\)</span> can be thought of as taking second order approximations to functions near <span class="process-math">\(2\)</span> instead of <span class="process-math">\(0\)</span> (i.e. examining the first three terms of the Taylor series near different points).</div></div></article><article class="exercise exercise-like" id="exe-compositionreps"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-compositionreps-1-1">
+<div class="para">Use equation <a href="sec-lineartransformations2.html#eq-definematrixrep" class="xref" data-knowl="./knowl/xref/eq-definematrixrep.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.3">(2.6.3)</a> to show that if <span class="process-math">\(T : U \to V\)</span> and <span class="process-math">\(S : V \to W\)</span> are linear transformations and <span class="process-math">\(\mathcal{B}, \mathcal{C}\)</span> and <span class="process-math">\(\mathcal{D}\)</span> are bases for <span class="process-math">\(U, V\)</span> and <span class="process-math">\(W\)</span> respectively, then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-definematrixrep.html">
 \begin{equation*}
 \cob{S}{\mathcal{C}}{\mathcal{D}} \, \cob{T}{\mathcal{B}}{\mathcal{C}} = \cob{S \circ T}{\mathcal{B}}{\mathcal{D}}. 
 \end{equation*}
 </div>
 </div></article><article class="exercise exercise-like" id="exe-changeofbasis"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para" id="p-321">Use <a href="" class="xref" data-knowl="./knowl/exe-compositionreps.html" title="Exercise 2.6.4">Exercise 2.6.4</a> to verify equation <a href="" class="xref" data-knowl="./knowl/eq-changeofbasis.html" title="Equation 2.6.5">(2.6.5)</a>.</div></article></section></section></div>
+<div class="para" id="exe-changeofbasis-1-1">Use <a href="sec-lineartransformations2.html#exe-compositionreps" class="xref" data-knowl="./knowl/xref/exe-compositionreps.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.6.4">Exercise 2.6.4</a> to verify equation <a href="sec-lineartransformations2.html#eq-changeofbasis" class="xref" data-knowl="./knowl/xref/eq-changeofbasis.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.5">(2.6.5)</a>.</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-vectorspaces2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-matrices3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="sec-vectorspaces2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-matrices3.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
-<div id="ptx-page-footer">
+<div id="ptx-page-footer" class="ptx-page-footer">
 <a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>

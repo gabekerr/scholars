@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="lemma theorem-like"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.7.15</span><span class="period">.</span>
+</h4>
+<div class="para">Suppose <span class="process-math">\(D\)</span> satisfies the properties of <a href="sec-matrices3.html#def-determinant" class="xref" data-knowl="./knowl/xref/def-determinant.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.7.8">Definition 2.7.8</a>. Then <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(D(A) \ne 0\text{.}\)</span>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">Let <span class="process-math">\(A^\prime\)</span> be the reduced row echelon form of <span class="process-math">\(A\)</span> so that there are elementary matrices <span class="process-math">\(E_1, \ldots, E_r\)</span> so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-detelem.html ./knowl/xref/prop-invertiblecriterion1.html ./knowl/xref/eq-multwzero.html">
+\begin{equation*}
+E_r \cdots E_1 A  = A^\prime. 
+\end{equation*}
+</div>
+<div class="para">Taking <span class="process-math">\(D\)</span> of both sides and repeatedly applying <a href="sec-matrices3.html#lem-detelem" class="xref" data-knowl="./knowl/xref/lem-detelem.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 2.7.14">Lemma 2.7.14</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-detelem.html ./knowl/xref/prop-invertiblecriterion1.html ./knowl/xref/eq-multwzero.html">
+\begin{equation*}
+D(E_r) \cdots D(E_1) D(A) = D(A^\prime). 
+\end{equation*}
+</div>
+<div class="para">Noting that <span class="process-math">\(D (E_i) \ne 0\)</span> we also have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-detelem.html ./knowl/xref/prop-invertiblecriterion1.html ./knowl/xref/eq-multwzero.html">
+\begin{equation*}
+D(A) = \frac{D(A^\prime)}{ D(E_r) \cdots D(E_1)}. 
+\end{equation*}
+</div>
+<div class="para">By <a href="sec-matrices3.html#prop-invertiblecriterion1" class="xref" data-knowl="./knowl/xref/prop-invertiblecriterion1.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.7.3">Proposition 2.7.3</a>, <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(A^\prime = I\text{.}\)</span> If this is the case, then the normalization property says the right hand side is <span class="process-math">\(1 / D(E_r) \cdots D(E_1) \ne 0\text{.}\)</span> If not, then <span class="process-math">\(A^\prime\)</span> must have a row of zeros (because it is a square matrix) which implies by the argument in equation <a href="sec-matrices3.html#subsec-proofofthm-4-3-2-2-8" class="xref" data-knowl="./knowl/xref/eq-multwzero.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.3">(2.7.3)</a> that <span class="process-math">\(D(A^\prime) = 0\text{.}\)</span> This proves the statement.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-matrices3.html#lem-detinv">in-context</a></span>
+</body>
+</html>

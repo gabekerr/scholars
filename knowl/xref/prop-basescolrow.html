@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.11</span><span class="period">.</span>
+</h4>
+<div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix and <span class="process-math">\(A^\prime\)</span> its reduced row echelon form. Suppose <span class="process-math">\(\mathcal{C} = \{ \mb{c}_{i_1}, \ldots, \mb{c}_{i_s}\}\)</span> are the basic columns of <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\mathcal{R} = \{\mb{r}^\prime_1, \ldots , \mb{r}^\prime_s \}\)</span> are the first <span class="process-math">\(s\)</span> rows of <span class="process-math">\(A^\prime\text{.}\)</span> Then <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space of <span class="process-math">\(A\)</span> and <span class="process-math">\(\mathcal{R}\)</span> is a basis for the row space of <span class="process-math">\(A\text{.}\)</span>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">To see that <span class="process-math">\(\mathcal{C}\)</span> is a basis, note that it is linearly independent by <a href="sec-vectorspaces2.html#prop-computelinind" class="xref" data-knowl="./knowl/xref/prop-computelinind.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.5.4">Proposition 2.5.4</a>. Indeed, the reduced row echelon form of the matrix with <em class="emphasis">only</em> these columns is the same as the submatrix of <span class="process-math">\(A^\prime\)</span> with only these columns. In particular, it has no free columns and the cited proposition implies that <span class="process-math">\(\mathcal{C}\)</span> is linearly independent. On the other hand, adding any other column of <span class="process-math">\(A\)</span> to <span class="process-math">\(\mathcal{C}\)</span> fails the test in <a href="sec-vectorspaces2.html#prop-computelinind" class="xref" data-knowl="./knowl/xref/prop-computelinind.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.5.4">Proposition 2.5.4</a> for the same reason. But that means that any other column can be written as a linear combination of the columns in <span class="process-math">\(\mathcal{C}\)</span> (why?). Thus <span class="process-math">\(\mathcal{C}\)</span> spans the column space and is linearly independent. By <a href="sec-vectorspaces2.html#prop-basisindspan" class="xref" data-knowl="./knowl/xref/prop-basisindspan.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.5.2">Proposition 2.5.2</a>, <span class="process-math">\(\mathcal{C}\)</span> is a basis for the column space.</div> <div class="para logical">
+<div class="para">For the row space, we note that all of the row vectors of <span class="process-math">\(\mathcal{R}\)</span> are linear combinations of the rows in <span class="process-math">\(A\)</span> because row operations create rows that are linear combinations of the existing rows. Also, since row operations are reversible (in other words, <span class="process-math">\(A\)</span> can be recovered by performing row operations on <span class="process-math">\(A^\prime\)</span>), every row of <span class="process-math">\(A\)</span> is a linear combination of those in <span class="process-math">\(A^\prime\text{.}\)</span> This implies the span of <span class="process-math">\(\mathcal{R}\)</span> is the row space (why?). On the other hand, if</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-basisindspan.html">
+\begin{equation*}
+a_1 \mb{r}^\prime_1 + \cdots  + a_s \mb{r}^\prime_s 
+\end{equation*}
+</div>
+<div class="para">is a linear combination, then projecting to the <span class="process-math">\(i_1, i_2, \ldots, i_s\)</span> basic columns, we have the vector</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-basisindspan.html">
+\begin{equation*}
+\left[ \begin{matrix} a_1 \amp a_2 \amp \cdots \amp a_s \end{matrix} \right] 
+\end{equation*}
+</div>
+<div class="para">This is because the coordinate of <span class="process-math">\(\mb{r}_j^\prime\)</span> in the <span class="process-math">\(i_j\)</span> column is <span class="process-math">\(1\)</span> and is zero for all other <span class="process-math">\(i_k\)</span> columns (because <span class="process-math">\(A^\prime\)</span> is in reduced row echelon form). Thus the linear combination is the zero vector only if all <span class="process-math">\(a_i\)</span> are zero, meaning <span class="process-math">\(\mathcal{R}\)</span> is linearly independent. Again by <a href="sec-vectorspaces2.html#prop-basisindspan" class="xref" data-knowl="./knowl/xref/prop-basisindspan.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 2.5.2">Proposition 2.5.2</a> we have that <span class="process-math">\(\mathcal{R}\)</span> is a basis.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-vectorspaces2.html#prop-basescolrow">in-context</a></span>
+</body>
+</html>

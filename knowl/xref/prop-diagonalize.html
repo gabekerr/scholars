@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.17</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(T_A : K^n \to K^n\)</span> the linear transformation associated to multiplying column vectors by <span class="process-math">\(A\text{.}\)</span> The matrix <span class="process-math">\(A\)</span> is diagonalizable by <span class="process-math">\(P\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P^{-1} A P = \textnormal{Diag} (\lambda_1 , \ldots, \lambda_n )  
+\end{equation*}
+</div>
+<div class="para">if and only if <span class="process-math">\(T_A\)</span> has an eigenbasis <span class="process-math">\(\mathcal{B} = \{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> where <span class="process-math">\(\mb{v}_i\)</span> is a <span class="process-math">\(\lambda_i\)</span>-eigenvector. Furthermore, if this is the case, then one can take <span class="process-math">\(\mb{v}_i = P \mb{e}_i\)</span> so that the columns of <span class="process-math">\(P\)</span> are the eigenvectors <span class="process-math">\(\mb{v}_i\text{.}\)</span>
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">If <span class="process-math">\(A\)</span> is diagonalizable then there is an invertible matrix <span class="process-math">\(P\)</span> as which satisfies the equation (by definition). Consider the set <span class="process-math">\(\mathcal{B} = \{ P \mb{e}_1, \ldots, P \mb{e}_n \}\)</span> and notice that it is a basis of <span class="process-math">\(K^n\)</span> (since it is the image of the standard basis and <span class="process-math">\(P\)</span> is invertible). Also, we then have</div>
+<div class="displaymath process-math">
+\begin{align*}
+T_A ( \mb{v}_i) \amp = A \mb{v}_i, \\
+\amp = \left( P \, \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1} \right) (P \mb{e}_i) , \\
+\amp = P \,\textnormal{Diag} (\lambda_1, \ldots, \lambda_n) \mb{e}_i \\
+\amp = P (\lambda_i \mb{e}_i) , \\
+\amp = \lambda_i  P \mb{e}_i, \\
+\amp = \lambda_i \mb{v}_i.
+\end{align*}
+</div>
+<div class="para">Showing that <span class="process-math">\(\mathcal{B}\)</span> is an eigenbasis for <span class="process-math">\(T_A\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">Conversely, if <span class="process-math">\(T_A\)</span> has an eigenbasis <span class="process-math">\(\mathcal{B}\text{,}\)</span> then <a href="sec-diag1.html#prop-matrixrepeigen" class="xref" data-knowl="./knowl/xref/prop-matrixrepeigen.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 4.1.15">Proposition 4.1.15</a> shows that the representing matrix <span class="process-math">\(\cob{T_A}{\mathcal{B}}{\mathcal{B}} = \textnormal{Diag} (\lambda_1, \ldots, \lambda_n)\text{.}\)</span> Now, <span class="process-math">\(A\)</span> is also a matrix representing <span class="process-math">\(T_A\text{,}\)</span> but relative to the standard basis, so that if we write <span class="process-math">\(\mathcal{C} = \{\mb{e}_1, \ldots, \mb{e}_n\}\)</span> then <span class="process-math">\(\cob{T_A}{\mathcal{C}}{\mathcal{C}} = A\text{.}\)</span> Taking <span class="process-math">\(P = \cob{1_{K^n}}{\mathcal{B}}{\mathcal{C}}\)</span> to be the change of basis matrix from the standard basis to the eigenbasis, and using equation <a href="sec-lineartransformations2.html#eq-changeofbasis" class="xref" data-knowl="./knowl/xref/eq-changeofbasis.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.5">(2.6.5)</a> we see</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-matrixrepeigen.html ./knowl/xref/eq-changeofbasis.html">
+\begin{equation*}
+A = \cob{T_A}{\mathcal{C}}{\mathcal{C}} = P \, \cob{T_A}{\mathcal{B}}{\mathcal{B}} \, P^{-1} =  P \, \text{Diag} (\lambda_1, \ldots, \lambda_n)\, P^{-1}  
+\end{equation*}
+</div>
+<div class="para">so that <span class="process-math">\(A\)</span> is diagonalizable.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-diag1.html#prop-diagonalize">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Product Rule for Paths.</span>
+</h4>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(f(t)\)</span> is a differentiable scalar valued function and <span class="process-math">\(\mb{r} (t), \tilde{\mb{r}} (t)\)</span> are differentiable paths, then</div>
+<ol class="decimal" id="prop-productrulepaths-2-1-3">
+<li><div class="para"><div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt} \left( f(t) \mb{r} (t) \right) = f^\prime (t) \mb{r} (t) + f(t) \mb{r}^\prime (t) , 
+\end{equation*}
+</div></div></li>
+<li><div class="para"><div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dt} \left\langle \mb{r} (t) , \tilde{\mb{r}} (t) \right\rangle = \left\langle \mb{r}^\prime (t) , \tilde{\mb{r}} (t) \right\rangle + \left\langle \mb{r} (t) , \tilde{\mb{r}}^\prime (t) \right\rangle. 
+\end{equation*}
+</div></div></li>
+</ol>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">For the first statement, we simply write <span class="process-math">\(\mb{r} (t)\)</span> in coordinates for some basis <span class="process-math">\(\mathcal{B}\)</span> and differentiate using <a href="sec-paths.html#cor-computetangent" class="xref" data-knowl="./knowl/xref/cor-computetangent.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.9">Corollary 5.1.9</a>.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-computetangent.html">
+\begin{align*}
+\frac{d}{dt}  \left( f(t) \mb{r} (t) \right) \amp = \frac{d}{dt}  \left( f(t) \mb{r} (t) \right), \\
+\amp =  \frac{d}{dt}  \left( f(t) \threevec{x_1 (t)}{\vdots}{x_n (t)}_{\mathcal{B}} \right), \\
+\amp = \frac{d}{dt}  \left(  \threevec{ f(t) x_1 (t)}{\vdots}{f(t) x_n (t)}_{\mathcal{B}} \right), \\
+\amp =  \threevec{ f^\prime(t) x_1 (t) + f(t) x_1^\prime (t) }{\vdots}{f^\prime(t) x_n (t) + f(t) x^\prime_n (t)}_{\mathcal{B}}, \\
+\amp =  \threevec{ f^\prime(t) x_1 (t) }{\vdots}{f^\prime(t) x_n (t) }_{\mathcal{B}} + \threevec{ f(t) x_1^\prime (t) }{\vdots}{f(t) x^\prime_n (t)}_{\mathcal{B}}, \\
+\amp =  f^\prime(t) \threevec{  x_1 (t) }{\vdots}{ x_n (t) }_{\mathcal{B}} + f(t) \threevec{  x_1^\prime (t) }{\vdots}{ x^\prime_n (t)}_{\mathcal{B}},  \\
+\amp =  f^\prime(t) \mb{r} (t) + f(t) \mb{r}^\prime (t). 
+\end{align*}
+</div>
+<div class="para">The second statement is proved similarly and is left to the student.</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-paths.html#prop-productrulepaths">in-context</a></span>
+</body>
+</html>

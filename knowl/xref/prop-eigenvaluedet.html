@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">The number <span class="process-math">\(\lambda\)</span> in <span class="process-math">\(K\)</span> is an eigenvalue of <span class="process-math">\(T\)</span> if and only if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\det ( \lambda \, I - T) = 0 .
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">We have that <span class="process-math">\(\lambda\)</span> is an eigenvalue if and only if there is a non-zero <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V\)</span> for which <span class="process-math">\(T (\mb{v} ) = \lambda \mb{v}\)</span> or equivalently if <span class="process-math">\((\lambda I - T) ( \mb{v} ) = \mb{0}\text{.}\)</span> But this is equivalent to saying that <span class="process-math">\(\mb{v}\)</span> is in the kernel of <span class="process-math">\(\lambda I - T\text{.}\)</span> We know that this would happen if and only if <span class="process-math">\(\lambda I - T\)</span> is not a one-to-one transformation. Since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-equaldim.html ./knowl/xref/lem-detinv.html">
+\begin{equation*}
+(\lambda I - T)  : V \to V 
+\end{equation*}
+</div>
+<div class="para">is a linear transformation between spaces of the same dimension, <a href="sec-lineartransformations2.html#cor-equaldim" class="xref" data-knowl="./knowl/xref/cor-equaldim.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 2.6.5">Corollary 2.6.5</a> shows that <span class="process-math">\(\lambda I - T\)</span> is not one-to-one if and only if it is not invertible. But this is the case if and only if any matrix <span class="process-math">\(A\)</span> representing it is not invertible which by <a href="sec-matrices3.html#lem-detinv" class="xref" data-knowl="./knowl/xref/lem-detinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 2.7.15">Lemma 2.7.15</a> can be true if and only if <span class="process-math">\(\det (\lambda I - T ) = \det (A) = 0\text{.}\)</span>
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-diag1.html#prop-eigenvaluedet">in-context</a></span>
+</body>
+</html>

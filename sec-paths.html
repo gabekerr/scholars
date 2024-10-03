@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Paths</title>
@@ -14,20 +14,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Scholars Calculus 3">
 <meta property="book:author" content="Gabriel Kerr">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,162 +55,140 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#sec-setsandfunctions-13-2 { counter-set: sec-setsandfunctions-13-2 0; }
+#sec-setsandfunctions-13-2 > li::marker { content: ""counter(sec-setsandfunctions-13-2,decimal)"."; }
+#sec-setsandfunctions-13-2 > li { counter-increment: sec-setsandfunctions-13-2; }
+#def-functionprops-2-1-2 { counter-set: def-functionprops-2-1-2 0; }
+#def-functionprops-2-1-2 > li::marker { content: ""counter(def-functionprops-2-1-2,decimal)"."; }
+#def-functionprops-2-1-2 > li { counter-increment: def-functionprops-2-1-2; }
+#sec-matrices1-12-1-1 { counter-set: sec-matrices1-12-1-1 0; }
+#sec-matrices1-12-1-1 > li::marker { content: ""counter(sec-matrices1-12-1-1,decimal)"."; }
+#sec-matrices1-12-1-1 > li { counter-increment: sec-matrices1-12-1-1; }
+#def-vectorspace-2-1-12 { counter-set: def-vectorspace-2-1-12 0; }
+#def-vectorspace-2-1-12 > li::marker { content: ""counter(def-vectorspace-2-1-12,decimal)"."; }
+#def-vectorspace-2-1-12 > li { counter-increment: def-vectorspace-2-1-12; }
+#def-kernelimage-2-1-5 { counter-set: def-kernelimage-2-1-5 0; }
+#def-kernelimage-2-1-5 > li::marker { content: ""counter(def-kernelimage-2-1-5,decimal)"."; }
+#def-kernelimage-2-1-5 > li { counter-increment: def-kernelimage-2-1-5; }
+#sec-matrices2-2-10 { counter-set: sec-matrices2-2-10 0; }
+#sec-matrices2-2-10 > li::marker { content: ""counter(sec-matrices2-2-10,decimal)"."; }
+#sec-matrices2-2-10 > li { counter-increment: sec-matrices2-2-10; }
+#subsec-rowechelon-7 { counter-set: subsec-rowechelon-7 0; }
+#subsec-rowechelon-7 > li::marker { content: ""counter(subsec-rowechelon-7,decimal)"."; }
+#subsec-rowechelon-7 > li { counter-increment: subsec-rowechelon-7; }
+#thm-rowechsolution-1-1-8 { counter-set: thm-rowechsolution-1-1-8 0; }
+#thm-rowechsolution-1-1-8 > li::marker { content: ""counter(thm-rowechsolution-1-1-8,decimal)"."; }
+#thm-rowechsolution-1-1-8 > li { counter-increment: thm-rowechsolution-1-1-8; }
+#def-rowcolspace-2-1-4 { counter-set: def-rowcolspace-2-1-4 0; }
+#def-rowcolspace-2-1-4 > li::marker { content: ""counter(def-rowcolspace-2-1-4,decimal)"."; }
+#def-rowcolspace-2-1-4 > li { counter-increment: def-rowcolspace-2-1-4; }
+#prop-annihilatorcontra-1-2 { counter-set: prop-annihilatorcontra-1-2 0; }
+#prop-annihilatorcontra-1-2 > li::marker { content: ""counter(prop-annihilatorcontra-1-2,decimal)"."; }
+#prop-annihilatorcontra-1-2 > li { counter-increment: prop-annihilatorcontra-1-2; }
+#cor-dimensions-1-1-5 { counter-set: cor-dimensions-1-1-5 0; }
+#cor-dimensions-1-1-5 > li::marker { content: ""counter(cor-dimensions-1-1-5,decimal)"."; }
+#cor-dimensions-1-1-5 > li { counter-increment: cor-dimensions-1-1-5; }
+#cor-equaldim-1-1-4 { counter-set: cor-equaldim-1-1-4 0; }
+#cor-equaldim-1-1-4 > li::marker { content: ""counter(cor-equaldim-1-1-4,decimal)"."; }
+#cor-equaldim-1-1-4 > li { counter-increment: cor-equaldim-1-1-4; }
+#subsec-transpose-6-1-1-3 { counter-set: subsec-transpose-6-1-1-3 0; }
+#subsec-transpose-6-1-1-3 > li::marker { content: ""counter(subsec-transpose-6-1-1-3,decimal)"."; }
+#subsec-transpose-6-1-1-3 > li { counter-increment: subsec-transpose-6-1-1-3; }
+#sec-geom2-10 { counter-set: sec-geom2-10 0; }
+#sec-geom2-10 > li::marker { content: ""counter(sec-geom2-10,decimal)"."; }
+#sec-geom2-10 > li { counter-increment: sec-geom2-10; }
+#lem-nilpotentdecomp-1-2 { counter-set: lem-nilpotentdecomp-1-2 0; }
+#lem-nilpotentdecomp-1-2 > li::marker { content: ""counter(lem-nilpotentdecomp-1-2,decimal)"."; }
+#lem-nilpotentdecomp-1-2 > li { counter-increment: lem-nilpotentdecomp-1-2; }
+#thm-sylvester-3-1-4 { counter-set: thm-sylvester-3-1-4 0; }
+#thm-sylvester-3-1-4 > li::marker { content: ""counter(thm-sylvester-3-1-4,decimal)"."; }
+#thm-sylvester-3-1-4 > li { counter-increment: thm-sylvester-3-1-4; }
+#def-patharith-2-1-9 { counter-set: def-patharith-2-1-9 0; }
+#def-patharith-2-1-9 > li::marker { content: ""counter(def-patharith-2-1-9,decimal)"."; }
+#def-patharith-2-1-9 > li { counter-increment: def-patharith-2-1-9; }
+#prop-differentiablepath-1-1-5 { counter-set: prop-differentiablepath-1-1-5 0; }
+#prop-differentiablepath-1-1-5 > li::marker { content: ""counter(prop-differentiablepath-1-1-5,decimal)"."; }
+#prop-differentiablepath-1-1-5 > li { counter-increment: prop-differentiablepath-1-1-5; }
+#prop-productrulepaths-2-1-3 { counter-set: prop-productrulepaths-2-1-3 0; }
+#prop-productrulepaths-2-1-3 > li::marker { content: ""counter(prop-productrulepaths-2-1-3,decimal)"."; }
+#prop-productrulepaths-2-1-3 > li { counter-increment: prop-productrulepaths-2-1-3; }
+#sec-lincode2-3 { counter-set: sec-lincode2-3 0; }
+#sec-lincode2-3 > li::marker { content: ""counter(sec-lincode2-3,decimal)"."; }
+#sec-lincode2-3 > li { counter-increment: sec-lincode2-3; }
+#lem-expmatcomm-1-1-3 { counter-set: lem-expmatcomm-1-1-3 0; }
+#lem-expmatcomm-1-1-3 > li::marker { content: ""counter(lem-expmatcomm-1-1-3,decimal)"."; }
+#lem-expmatcomm-1-1-3 > li { counter-increment: lem-expmatcomm-1-1-3; }
+</style>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="ms-calculus-3.html"><span class="title">Mathematical Scholars Calculus 3</span></a></h1>
 <p class="byline">Gabriel Kerr</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
-</h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
-<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden avatar">
-<li data-val="You!" tabindex="-1">
-<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
-<li data-val="😺" tabindex="-1">
-<span id="the😺" class="avatarcheck"></span>😺</li>
-<li data-val="👤" tabindex="-1">
-<span id="the👤" class="avatarcheck"></span>👤</li>
-<li data-val="👽" tabindex="-1">
-<span id="the👽" class="avatarcheck"></span>👽</li>
-<li data-val="🐶" tabindex="-1">
-<span id="the🐶" class="avatarcheck"></span>🐶</li>
-<li data-val="🐼" tabindex="-1">
-<span id="the🐼" class="avatarcheck"></span>🐼</li>
-<li data-val="🌈" tabindex="-1">
-<span id="the🌈" class="avatarcheck"></span>🌈</li>
-</ol>
-</li>
-<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fontfamily">
-<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
-<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
-<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-</ol>
-</li>
-<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fonts">
-<li>Size</li>
-<li><span id="thesize">12</span></li>
-<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
-<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
-<li>Width</li>
-<li><span id="thewdth">100</span></li>
-<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
-<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
-<li>Weight</li>
-<li><span id="thewght">400</span></li>
-<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
-<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
-<li>Letter spacing</li>
-<li>
-<span id="thelspace">0</span><span class="byunits">/200</span>
-</li>
-<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
-<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
-<li>Word spacing</li>
-<li>
-<span id="thewspace">0</span><span class="byunits">/50</span>
-</li>
-<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
-<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
-<li>Line Spacing</li>
-<li>
-<span id="theheight">135</span><span class="byunits">/100</span>
-</li>
-<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
-<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
-</ol>
-</li>
-<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden atmosphere">
-<li data-val="default" tabindex="-1">
-<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
-<li data-val="pastel" tabindex="-1">
-<span id="thepastel" class="atmospherecheck"></span>pastel</li>
-<li data-val="darktwilight" tabindex="-1">
-<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
-<li data-val="dark" tabindex="-1">
-<span id="thedark" class="atmospherecheck"></span>dark</li>
-<li data-val="darkmidnight" tabindex="-1">
-<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
-</ol>
-</li>
-<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden ruler">
-<li data-val="none" tabindex="-1">
-<span id="thenone" class="rulercheck">✔️</span>none</li>
-<li data-val="underline" tabindex="-1">
-<span id="theunderline" class="rulercheck"></span>underline</li>
-<li data-val="lunderline" tabindex="-1">
-<span id="thelunderline" class="rulercheck"></span>L-underline</li>
-<li data-val="greybar" tabindex="-1">
-<span id="thegreybar" class="rulercheck"></span>grey bar</li>
-<li data-val="lightbox" tabindex="-1">
-<span id="thelightbox" class="rulercheck"></span>light box</li>
-<li data-val="sunrise" tabindex="-1">
-<span id="thesunrise" class="rulercheck"></span>sunrise</li>
-<li data-val="sunriseunderline" tabindex="-1">
-<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
-<li class="moveQ">Motion by:</li>
-<li data-val="mouse" tabindex="-1">
-<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
-<li data-val="arrow" tabindex="-1">
-<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
-<li data-val="eye" tabindex="-1">
-<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
-</ol>
-</li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-ordinary-differential-equations.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-ordinary-differential-equations.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-lincode1.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
-</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-ordinary-differential-equations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-ordinary-differential-equations.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-lincode1.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\diff}{\text{d}}
 \newcommand{\mb}[1]{\mathbf{#1}}
@@ -211,175 +207,175 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
-<li><div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
-<li>
-<div class="toc-item"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-basics.html" class="internal"><span class="codenumber">1</span> <span class="title">Over(re)view</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic Review</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-arithmetic.html#exe-arithmetic-review" class="internal"><span class="codenumber">1.1</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-setsandfunctions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Sets and Functions Review</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-setsandfunctions.html#exe-setsandfunctions" class="internal"><span class="codenumber">1.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-equation.html#subsection-1" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
-<li><div class="toc-item"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-equation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Equations Review</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-equation.html#sec-equation-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">General First Order ODE</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-equation.html#exe-equation" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-algebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrices1.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrices I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrices1.html#exe-matrices1" class="internal"><span class="codenumber">2.1</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorspaces1.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Vector Spaces I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorspaces1.html#exe-vectorspaces1" class="internal"><span class="codenumber">2.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lineartransformations1.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Linear Transformations I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lineartransformations1.html#exe-lineartransformations1" class="internal"><span class="codenumber">2.3</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrices2.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrices II</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices2.html#subsec-rowechelon" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Row Echelon Form</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices2.html#subsec-rowreduction" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Row Reduction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrices2.html#exe-matrices2" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-linearindependence" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Independence and Dimension</span></a></div></li>
-<li><div class="toc-item"><a href="sec-vectorspaces2.html#subsec-annihilators" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Annihilators</span></a></div></li>
-<li><div class="toc-item"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vectorspaces2.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Vector Spaces II</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorspaces2.html#subsec-linearindependence" class="internal"><span class="codenumber">2.5.1</span> <span class="title">Independence and Dimension</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vectorspaces2.html#subsec-annihilators" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Annihilators</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-vectorspaces2.html#exe-vectorspaces2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lineartransformations2.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations II</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lineartransformations2.html#exe-lineartransformations2" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
-<li><div class="toc-item"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
-<li><div class="toc-item"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
-<li><div class="toc-item"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
-<li><div class="toc-item"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#subsection-14" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
-<li><div class="toc-item"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
-<li><div class="toc-item"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-matrices3.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Matrices III</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-elementarymatrices" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-determinants" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-proofofthm" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Proof of Theorem 2.7.10</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-matrices3.html#subsec-inverseformula" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Formula for the Inverse</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-matrices3.html#exe-matrices3" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
-<ul class="structural">
-<li class="active">
-<div class="toc-item"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-paths.html#subsection-18" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
-<li><div class="toc-item"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
-<li><div class="toc-item"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
-<li><div class="toc-item"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-geometry.html" class="internal"><span class="codenumber">3</span> <span class="title">Linear Geometry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-geom1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Geometry I</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geom1.html#subsec-transpose" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Transpose Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geom1.html#subsec-dotproduct" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-geom1.html#subsec-otherexamples" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Other Examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-geom1.html#exe-geom1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE's</span></a></div></li>
-<li><div class="toc-item"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
-<li><div class="toc-item"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE's II</span></a></div></li>
-<li><div class="toc-item"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Power Series Methods</span></a></div></li>
-<li><div class="toc-item"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
-</ul>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-geom2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Geometry II</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-geom2.html#exe-geom2" class="internal"><span class="codenumber">3.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 </ul>
 </li>
-<li><div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-operators.html" class="internal"><span class="codenumber">4</span> <span class="title">Linear Operators</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-diag1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Diagonalization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diag1.html#subsec-eigenvalueproblem" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Eigenvalue Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diag1.html#sec-diag1-4" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Eigenvector Problem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-diag1.html#subsec-diagprob" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Diagonalization Problem</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-diag1.html#exe-diag1" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-jnf.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Jordan Normal Form</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-jnf.html#exe-jnf" class="internal"><span class="codenumber">4.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-spectral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Spectral Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-spectral.html#subsec-quadraticforms" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Quadratic Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-spectral.html#subsec-covmat" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Covariance Matrices</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-spectral.html#exe-spectral" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-ordinary-differential-equations.html" class="internal"><span class="codenumber">5</span> <span class="title">Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-paths.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Paths</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paths.html#sec-paths-3" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paths.html#subsec-tangentvectors" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-paths.html#subsec-curvegeometry" class="internal"><span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-paths.html#exe-paths" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lincode1.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Linear Constant Coefficient ODE I</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lincode1.html#exe-lincode1" class="internal"><span class="codenumber">5.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lincode2.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Linear Constant Coefficient ODE II</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lincode2.html#exe-lincode2" class="internal"><span class="codenumber">5.3</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-lincode3.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Linear Constant Coefficient ODE III</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-lincode3.html#subsec-hode" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Higher order linear ODE’s</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-lincode3.html#exe-lincode3" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-linode.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Linear Ordinary Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linode.html#subsec-matrixexp" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Matrix Exponential</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linode.html#subsec-higherode2" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Higher order linear ODE’s II</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-linode.html#subsec-powerseries" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Power Series Methods</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-linode.html#exe-linode" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-paths"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Paths</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.1</span><span class="space"> </span><span class="title">Paths</span>
 </h2>
-<section class="introduction" id="introduction-36"><div class="para" id="p-657">We have now acquired a solid body of linear algebra knowledge. It's time to apply it to the non-linear world!</div></section><section class="subsection" id="subsection-18"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Curves vs. Paths</span>
+<section class="introduction" id="sec-paths-2"><div class="para" id="sec-paths-2-1">We have now acquired a solid body of linear algebra knowledge. It’s time to apply it to the non-linear world!</div></section><section class="subsection" id="sec-paths-3"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="space"> </span><span class="title">Curves vs. Paths</span>
 </h3>
-<div class="para" id="p-658">Recall that a path is defined to be a function</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-line.html ./knowl/sec-equation.html" id="eq-rnpaths">
+<div class="para" id="sec-paths-3-2">Recall that a path is defined to be a function</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-line.html ./knowl/xref/sec-equation.html" id="eq-rnpaths">
 \begin{equation}
 \mb{r} : I \to \mathbb{R}^n\tag{5.1.1}
 \end{equation}
 </div>
-<div class="para" id="p-659">Here the domain <span class="process-math">\(I\)</span> is a (potentially infinite) interval in <span class="process-math">\(\mathbb{R}\text{.}\)</span> A <dfn class="terminology">curve</dfn> is the image of one or more paths. In this course, we distinguish between a path and a curve, although some texts refer to paths as `parameterized curves', which is a more explicit description of what they are - a path gives a (connected) curve a (non-linear) coordinate or parameter. Let us formalize this notion.</div>
+<div class="para" id="sec-paths-3-4">Here the domain <span class="process-math">\(I\)</span> is a (potentially infinite) interval in <span class="process-math">\(\mathbb{R}\text{.}\)</span> A <dfn class="terminology">curve</dfn> is the image of one or more paths. In this course, we distinguish between a path and a curve, although some texts refer to paths as `parameterized curves’, which is a more explicit description of what they are - a path gives a (connected) curve a (non-linear) coordinate or parameter. Let us formalize this notion.</div>
 <article class="definition definition-like" id="def-parameterizecurve"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span>
-</h4> <div class="para" id="p-660">Given a curve <span class="process-math">\(\mathcal{C}\)</span> in a vector space <span class="process-math">\(V\text{,}\)</span> we say that <span class="process-math">\(\mb{r} : I \to V\)</span> <dfn class="terminology">parameterizes</dfn> <span class="process-math">\(\mathcal{C}\)</span> if it is one-to-one and its range is <span class="process-math">\(\mathcal{C}\)</span> (except possibly at the endpoints). If <span class="process-math">\(I\)</span> is a connected interval <span class="process-math">\((a,b)\text{,}\)</span> <span class="process-math">\((a,b]\)</span> or <span class="process-math">\([a,b]\text{,}\)</span> we will say that <span class="process-math">\(\mathcal{C}\)</span> is a <dfn class="terminology">connected</dfn> curve.</div></article><div class="para logical" id="p-661">
+</h4> <div class="para" id="def-parameterizecurve-2-1">Given a curve <span class="process-math">\(\mathcal{C}\)</span> in a vector space <span class="process-math">\(V\text{,}\)</span> we say that <span class="process-math">\(\mb{r} : I \to V\)</span> <dfn class="terminology">parameterizes</dfn> <span class="process-math">\(\mathcal{C}\)</span> if it is one-to-one and its range is <span class="process-math">\(\mathcal{C}\)</span> (except possibly at the endpoints). If <span class="process-math">\(I\)</span> is a connected interval <span class="process-math">\((a,b)\text{,}\)</span> <span class="process-math">\((a,b]\)</span> or <span class="process-math">\([a,b]\text{,}\)</span> we will say that <span class="process-math">\(\mathcal{C}\)</span> is a <dfn class="terminology">connected</dfn> curve.</div></article><div class="para logical" id="sec-paths-3-6">
 <div class="para">There are three common notations we will encounter. If <span class="process-math">\(n = 2\)</span> or <span class="process-math">\(n = 3\text{,}\)</span> we may write</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -400,9 +396,9 @@ window.MathJax = {
 </div>
 <div class="para">In this setting, it is common to write the path as <span class="process-math">\(\mb{x} (t)\)</span> and we often use this instead of <span class="process-math">\(\mb{r} (t)\)</span> in this case. Let us take a look at some common curves and their parameterizations.</div>
 </div>
-<article class="example example-like" id="example-62"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-62"><h4 class="heading">
+<details id="sec-paths-3-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Parameterizing an ellipse.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-62"><article class="example example-like"><div class="para logical" id="p-662">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-paths-3-7-2-1">
 <div class="para">For a fixed positive real number <span class="process-math">\(R\text{,}\)</span> the path</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -421,67 +417,65 @@ window.MathJax = {
 \left( \frac{x}{a} \right)^2 +  \left( \frac{y}{b} \right)^2 = 1 .
 \end{equation*}
 </div>
-</div></article></div>
-<div class="para" id="p-663">Before giving the next example, let's define a line!</div>
+</div></article></details><div class="para" id="sec-paths-3-8">Before giving the next example, let’s define a line!</div>
 <article class="definition definition-like" id="def-line"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span>
-</h4> <div class="para" id="p-664">Given a non-zero real vector space <span class="process-math">\(V\text{,}\)</span> a <dfn class="terminology">line</dfn> in <span class="process-math">\(V\)</span> is any subset which equals the translation of a one-dimensional vector subspace in <span class="process-math">\(V\text{.}\)</span>
-</div></article><div class="para" id="p-665">The reason for including the translation is that vector subspaces always pass through the origin and we often want to consider lines which do not. Of course, we will consider translating by <span class="process-math">\(\mb{0}\)</span> as an option, so lines passing through the origin do count as lines!</div>
-<article class="example example-like" id="example-63"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-63"><h4 class="heading">
+</h4> <div class="para" id="def-line-2-1">Given a non-zero real vector space <span class="process-math">\(V\text{,}\)</span> a <dfn class="terminology">line</dfn> in <span class="process-math">\(V\)</span> is any subset which equals the translation of a one-dimensional vector subspace in <span class="process-math">\(V\text{.}\)</span>
+</div></article><div class="para" id="sec-paths-3-10">The reason for including the translation is that vector subspaces always pass through the origin and we often want to consider lines which do not. Of course, we will consider translating by <span class="process-math">\(\mb{0}\)</span> as an option, so lines passing through the origin do count as lines!</div>
+<details id="sec-paths-3-11" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Parameterizing lines.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-63"><article class="example example-like"><div class="para logical" id="p-666">
-<div class="para">A quick look at <a href="" class="xref" data-knowl="./knowl/def-line.html" title="Definition 5.1.3">Definition 5.1.3</a> will confirm that a line <span class="process-math">\(\ell\)</span> in <span class="process-math">\(V\)</span> is indeed a curve, not a path. It does not come with any given parameterization. However, it does assert that there must be a vector <span class="process-math">\(\mb{v}_0\)</span> and a one dimensional subspace <span class="process-math">\(W\)</span> such that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-line.html">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="sec-paths-3-11-2-1">
+<div class="para">A quick look at <a href="sec-paths.html#def-line" class="xref" data-knowl="./knowl/xref/def-line.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 5.1.3">Definition 5.1.3</a> will confirm that a line <span class="process-math">\(\ell\)</span> in <span class="process-math">\(V\)</span> is indeed a curve, not a path. It does not come with any given parameterization. However, it does assert that there must be a vector <span class="process-math">\(\mb{v}_0\)</span> and a one dimensional subspace <span class="process-math">\(W\)</span> such that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-line.html">
 \begin{equation*}
 \ell = W + \mb{v}_0 = \left\{ \mb{w} + \mb{v}_0 : \mb{w} \text{ a vector in } W \right\}. 
 \end{equation*}
 </div>
 <div class="para">Given this information, we actually can parameterize <span class="process-math">\(\ell\)</span> by choosing a basis (or in this case, a single non-zero vector) <span class="process-math">\(\{\mb{v} \}\)</span> of <span class="process-math">\(W\text{.}\)</span> Indeed, once we do this, we consider the function</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-line.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-line.html">
 \begin{equation*}
 \mb{r} (t) = \mb{v}_0 + t \mb{v}. 
 \end{equation*}
 </div>
 <div class="para">Since every vector in <span class="process-math">\(W\)</span> is uniquely written as a multiple <span class="process-math">\(t \mb{v}\)</span> for some <span class="process-math">\(t \in \mathbb{R}\text{,}\)</span> this will be a one-to-one correspondence from <span class="process-math">\(\mathbb{R}\)</span> to our line <span class="process-math">\(\ell\text{.}\)</span> This is called in some texts the <dfn class="terminology">vector parameterization of <span class="process-math">\(\ell\)</span></dfn>, <span class="process-math">\(\mb{v}_0\)</span> is called the <dfn class="terminology">initial vector</dfn>, and <span class="process-math">\(\mb{v}\)</span> is called the <dfn class="terminology">direction vector</dfn>. Of course, we could have chosen a non-zero multiple of <span class="process-math">\(\tilde{\mb{v}} = - 4 \mb{v}\)</span> as our direction vector and</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-line.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-line.html">
 \begin{equation*}
 \tilde{\mb{r}} (t) = \mb{v}_0 - 4 t \mb{v} 
 \end{equation*}
 </div>
 <div class="para">would be another path parameterizing <span class="process-math">\(\ell\text{.}\)</span> Again, paths parameterizing the same curve may be different!</div>
-</div></article></div>
-<div class="para" id="p-667">We recall the discussion from <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a> about the fact that in the path setting, we assign a number to each point of the curve. So the path has much more information in it than the curve. In some ways, this information is useful because we can compute. But often, we are not as interested in the extra information as we are the curve itself. For example, we may want to know the length of the curve which does not depend on our parameterization.</div>
-<div class="para" id="p-668">In many ways, this difference is analogous to the difference between a real <span class="process-math">\(n\)</span>-dimensional vector space <span class="process-math">\(V\)</span> and <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> The former is something we may be interested in, but the latter is something we can compute with. A basis of <span class="process-math">\(V\)</span> gives us a way of parameterizing <span class="process-math">\(V\)</span> with coordinates in <span class="process-math">\(\mathbb{R}^n\)</span> and studying important features. But enough reminiscing, back to paths!</div></section><section class="subsection" id="subsec-tangentvectors"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Tangent Vectors of Paths</span>
+</div></article></details><div class="para" id="sec-paths-3-12">We recall the discussion from <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a> about the fact that in the path setting, we assign a number to each point of the curve. So the path has much more information in it than the curve. In some ways, this information is useful because we can compute. But often, we are not as interested in the extra information as we are the curve itself. For example, we may want to know the length of the curve which does not depend on our parameterization.</div>
+<div class="para" id="sec-paths-3-13">In many ways, this difference is analogous to the difference between a real <span class="process-math">\(n\)</span>-dimensional vector space <span class="process-math">\(V\)</span> and <span class="process-math">\(\mathbb{R}^n\text{.}\)</span> The former is something we may be interested in, but the latter is something we can compute with. A basis of <span class="process-math">\(V\)</span> gives us a way of parameterizing <span class="process-math">\(V\)</span> with coordinates in <span class="process-math">\(\mathbb{R}^n\)</span> and studying important features. But enough reminiscing, back to paths!</div></section><section class="subsection" id="subsec-tangentvectors"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="space"> </span><span class="title">Tangent Vectors of Paths</span>
 </h3>
-<div class="para logical" id="p-669">
+<div class="para logical" id="subsec-tangentvectors-2">
 <div class="para">All of the notation conventions for paths are with respect to paths with codomain <span class="process-math">\(\mathbb{R}^n\)</span> (or <span class="process-math">\(\mathbb{C}^n\)</span>), but we will promote this a bit by taking our codomain to be an arbitrary inner product space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\)</span> and considering paths to be vector valued functions of one variable (which usually will be <span class="process-math">\(t\)</span>)</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-rnpaths.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-rnpaths.html">
 \begin{equation*}
 \mb{r}  : \mathbb{R} \to V . 
 \end{equation*}
 </div>
-<div class="para">Thus <span class="process-math">\(\mb{r} (t)\)</span> will be a vector in <span class="process-math">\(V\)</span> dependent on a `time' parameter <span class="process-math">\(t\text{.}\)</span> Of course, for finite dimensional real inner product spaces with a choice of basis, a path in this sense can be written with coordinates using the basis, and we may freely go back and forth once such a basis is chosen. In particular, we will often use the form of  equation <a href="" class="xref" data-knowl="./knowl/eq-rnpaths.html" title="Equation 5.1.1">(5.1.1)</a> in examples and exercises as it is where we can compute most effectively.</div>
+<div class="para">Thus <span class="process-math">\(\mb{r} (t)\)</span> will be a vector in <span class="process-math">\(V\)</span> dependent on a `time’ parameter <span class="process-math">\(t\text{.}\)</span> Of course, for finite dimensional real inner product spaces with a choice of basis, a path in this sense can be written with coordinates using the basis, and we may freely go back and forth once such a basis is chosen. In particular, we will often use the form of  equation <a href="sec-paths.html#eq-rnpaths" class="xref" data-knowl="./knowl/xref/eq-rnpaths.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1.1">(5.1.1)</a> in examples and exercises as it is where we can compute most effectively.</div>
 </div>
-<div class="para" id="p-670">However, in some contexts it is helpful to keep the flexibility of working over complex numbers or without a predetermined choice of basis. In particular, some results and definitions are best expressed without these constraints. Here is an example.</div>
+<div class="para" id="subsec-tangentvectors-3">However, in some contexts it is helpful to keep the flexibility of working over complex numbers or without a predetermined choice of basis. In particular, some results and definitions are best expressed without these constraints. Here is an example.</div>
 <article class="definition definition-like" id="def-patharith"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.5</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-671">
+</h4> <div class="para logical" id="def-patharith-2-1">
 <div class="para">If <span class="process-math">\(\mb{r}_1 (t)\text{,}\)</span> <span class="process-math">\(\mb{r}_2 (t)\)</span> are paths in the inner product space <span class="process-math">\(V\)</span> over <span class="process-math">\(K\text{,}\)</span> <span class="process-math">\(W\)</span> a vector space over <span class="process-math">\(K\text{,}\)</span> <span class="process-math">\(T : V \to W\)</span> a linear transformation, and <span class="process-math">\(\lambda\)</span> is a scalar, then</div>
-<ol class="decimal">
-<li id="li-82"><div class="para" id="p-derived-li-82">
+<ol class="decimal" id="def-patharith-2-1-9">
+<li id="def-patharith-2-1-9-1"><div class="para" id="p-derived-def-patharith-2-1-9-1">
 <span class="process-math">\((\mb{r}_1 + \lambda \mb{r}_2 ) (t) = \mb{r}_1 (t) + \lambda \mb{r}_2 (t)\)</span> defines the sum of two paths,</div></li>
-<li id="li-83"><div class="para" id="p-derived-li-83">
+<li id="def-patharith-2-1-9-2"><div class="para" id="p-derived-def-patharith-2-1-9-2">
 <span class="process-math">\(\left\langle \mb{r}_1 , \mb{r_2} \right\rangle (t) = \left\langle \mb{r}_1 (t) , \mb{r}_2  (t) \right\rangle\)</span> defines the pairing of two paths and gives a scalar function of <span class="process-math">\(t\text{,}\)</span>
 </div></li>
-<li id="li-84"><div class="para" id="p-derived-li-84">
+<li id="def-patharith-2-1-9-3"><div class="para" id="p-derived-def-patharith-2-1-9-3">
 <span class="process-math">\(T ( \mb{r}_1 ) (t) = T ( \mb{r}_1 (t) )\)</span> is the path of the composition of <span class="process-math">\(T\)</span> with <span class="process-math">\(\mb{r}_1\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-672">Thus we can do vector arithmetic on paths and compute angles and distances between paths (at varying times). However, the main ingredient that an inner product provides that allows for us to start doing calculus is distance. This is because without it (or a more general form of it called a topology), we cannot make sense of the following notion.</div>
+</div></article><div class="para" id="subsec-tangentvectors-5">Thus we can do vector arithmetic on paths and compute angles and distances between paths (at varying times). However, the main ingredient that an inner product provides that allows for us to start doing calculus is distance. This is because without it (or a more general form of it called a topology), we cannot make sense of the following notion.</div>
 <article class="definition definition-like" id="def-tangentvector"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.6</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-673">
+</h4> <div class="para logical" id="def-tangentvector-2-1">
 <div class="para">Let <span class="process-math">\(I\)</span> be an interval in <span class="process-math">\(\mathbb{R}\)</span> with <span class="process-math">\(a\)</span> in its interior and <span class="process-math">\(\mb{r} : I \to V\)</span> a path in <span class="process-math">\(V\text{.}\)</span> The <dfn class="terminology">tangent vector</dfn> or <dfn class="terminology">velocity vector</dfn> of <span class="process-math">\(\mb{r}\)</span> at <span class="process-math">\(a\)</span> is</div>
 <div class="displaymath process-math" id="eq-velvec">
 \begin{equation}
@@ -490,7 +484,7 @@ window.MathJax = {
 </div>
 <div class="para">If this is well defined at all <span class="process-math">\(a\)</span> in <span class="process-math">\(I\text{,}\)</span> we will say that <span class="process-math">\(\mb{r}\)</span> is <dfn class="terminology">differentiable</dfn> and write <span class="process-math">\(\mb{r}^\prime\)</span> for the path of tangent vectors <span class="process-math">\(\mb{r}^\prime : I \to V\text{.}\)</span>
 </div>
-</div></article><div class="para logical" id="p-674">
+</div></article><div class="para logical" id="subsec-tangentvectors-7">
 <div class="para">The tangent vector at <span class="process-math">\(a\)</span> is also sometimes written as <span class="process-math">\(\mb{v} (a)\)</span> (although we will refrain from using this notation to avoid confusion with vectors in <span class="process-math">\(V\)</span>). It is also very common to see it written as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -504,9 +498,9 @@ window.MathJax = {
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-675">
-<div class="para">Now, I ask that the student look carefully at equation <a href="" class="xref" data-knowl="./knowl/eq-velvec.html" title="Equation 5.1.2">(5.1.2)</a> and consider what is within the limit, namely</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-velvec.html">
+<div class="para logical" id="subsec-tangentvectors-8">
+<div class="para">Now, I ask that the student look carefully at equation <a href="sec-paths.html#eq-velvec" class="xref" data-knowl="./knowl/xref/eq-velvec.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1.2">(5.1.2)</a> and consider what is within the limit, namely</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-velvec.html">
 \begin{equation*}
 \frac{1}{h} \left( \mb{r} (a + h) - \mb{r} (a) \right) .
 \end{equation*}
@@ -514,7 +508,7 @@ window.MathJax = {
 <div class="para">For a given <span class="process-math">\(h\)</span> (note that <span class="process-math">\(a\)</span> is fixed), the object inside the parentheses is the difference of two vectors in <span class="process-math">\(V\text{,}\)</span> so it is a vector in <span class="process-math">\(V\text{.}\)</span> We are scalar multiplying this by the non-zero real scalar <span class="process-math">\(\frac{1}{h}\text{.}\)</span> So altogether this expression is a vector for any <span class="process-math">\(h\text{.}\)</span> In fact, it is a rescaled the displacement vector from <span class="process-math">\(\mb{r}\)</span> at time <span class="process-math">\(a\)</span> to <span class="process-math">\(\mb{r}\)</span> at time <span class="process-math">\(a + h\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-676">
+<div class="para logical" id="subsec-tangentvectors-9">
 <div class="para">In fact, if <span class="process-math">\(V = \mathbb{R}\)</span> and <span class="process-math">\(\mb{r} (t) = f(t)\)</span> were our one variable function, this definition would simply be</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -523,11 +517,11 @@ f^\prime (a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
 </div>
 <div class="para">which every red blooded high school student knows as the derivative!</div>
 </div>
-<div class="para" id="p-677">But as was mentioned above, the key ingredient that we need to make sense of the definition for higher dimensions <span class="process-math">\(V\)</span> is the inner product (which gives us a definition of distance, and in turn, for the limit). Right now, this is just a comment and I ask students to make a mental note of it and consider reading through an introductory analysis book to gather a more in depth understanding of limits in many dimensions. Suffice it to say, many results that we had in one variable carry over to many variables. In particular, we have the following two very useful propositions.</div>
+<div class="para" id="subsec-tangentvectors-10">But as was mentioned above, the key ingredient that we need to make sense of the definition for higher dimensions <span class="process-math">\(V\)</span> is the inner product (which gives us a definition of distance, and in turn, for the limit). Right now, this is just a comment and I ask students to make a mental note of it and consider reading through an introductory analysis book to gather a more in depth understanding of limits in many dimensions. Suffice it to say, many results that we had in one variable carry over to many variables. In particular, we have the following two very useful propositions.</div>
 <article class="proposition theorem-like" id="prop-pathderivativelinear"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.1.7</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-678">
+<div class="para logical" id="prop-pathderivativelinear-1-1">
 <div class="para">Taking tangent vectors is a linear operation. Concretely, if <span class="process-math">\(\mb{r}_1\)</span> and <span class="process-math">\(\mb{r}_2\)</span> are differentiable at <span class="process-math">\(a\)</span> and <span class="process-math">\(\lambda\)</span> is a scalar (complex or real) then <span class="process-math">\(\mb{r}_1 + \lambda \mb{r}_2\)</span> is differentiable at <span class="process-math">\(a\)</span> and</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -540,28 +534,27 @@ f^\prime (a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
 \mb{r}^\prime (t) = f^\prime (t) \mb{v} . 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-45"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-45"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-45"><article class="hiddenproof"><div class="para" id="p-679">The proof of this fact follows from some basic analysis, so we will omit these details.</div></article></div>
-<div class="para" id="p-680">We also have the proposition.</div>
+</div></article><details id="prop-pathderivativelinear-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-pathderivativelinear-2-1">The proof of this fact follows from some basic analysis, so we will omit these details.</div></article></details><div class="para" id="subsec-tangentvectors-12">We also have the proposition.</div>
 <article class="proposition theorem-like" id="prop-differentiablepath"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.1.8</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-681">
+<div class="para logical" id="prop-differentiablepath-1-1">
 <div class="para">Suppose <span class="process-math">\(V\)</span> is a finite dimensional vector space and <span class="process-math">\(\mb{r} (t)\)</span> is a path in <span class="process-math">\(V\)</span> defined on an interval around <span class="process-math">\(a\text{.}\)</span> Then:</div>
-<ol class="decimal">
-<li id="li-85"><div class="para" id="p-derived-li-85">If <span class="process-math">\(\mb{r} (t)\)</span> is differentiable at <span class="process-math">\(a\)</span> then <span class="process-math">\(\alpha ( \mb{r} (t) )\)</span> is differentiable at <span class="process-math">\(a\)</span> for every linear dual <span class="process-math">\(\alpha : V \to K\text{.}\)</span>
+<ol class="decimal" id="prop-differentiablepath-1-1-5">
+<li id="prop-differentiablepath-1-1-5-1"><div class="para" id="p-derived-prop-differentiablepath-1-1-5-1">If <span class="process-math">\(\mb{r} (t)\)</span> is differentiable at <span class="process-math">\(a\)</span> then <span class="process-math">\(\alpha ( \mb{r} (t) )\)</span> is differentiable at <span class="process-math">\(a\)</span> for every linear dual <span class="process-math">\(\alpha : V \to K\text{.}\)</span>
 </div></li>
-<li id="li-86"><div class="para" id="p-derived-li-86">If <span class="process-math">\(\mathcal{B} = \{\mb{v}^*_1, \ldots, \mb{v}^*_n\}\)</span> is a basis of the dual space <span class="process-math">\(V^*\)</span> and <span class="process-math">\(\mb{v}^*_i ( \mb{r} (t))\)</span> is differentiable at <span class="process-math">\(a\)</span> for each <span class="process-math">\(i\)</span> then so is <span class="process-math">\(\mb{r}\text{.}\)</span> Moreover, if <span class="process-math">\(\{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> form the dual basis then<div class="displaymath process-math">
+<li id="prop-differentiablepath-1-1-5-2"><div class="para" id="p-derived-prop-differentiablepath-1-1-5-2">If <span class="process-math">\(\mathcal{B} = \{\mb{v}^*_1, \ldots, \mb{v}^*_n\}\)</span> is a basis of the dual space <span class="process-math">\(V^*\)</span> and <span class="process-math">\(\mb{v}^*_i ( \mb{r} (t))\)</span> is differentiable at <span class="process-math">\(a\)</span> for each <span class="process-math">\(i\)</span> then so is <span class="process-math">\(\mb{r}\text{.}\)</span> Moreover, if <span class="process-math">\(\{\mb{v}_1, \ldots, \mb{v}_n\}\)</span> form the dual basis then<div class="displaymath process-math">
 \begin{equation*}
 \mb{r}^\prime (a) = \left(\left. \frac{d}{dt}\right|_a \mb{v}^*_1 (\mb{r} (t)) \right) \mb{v}_1  + \cdots + \left(  \left. \frac{d}{dt}\right|_a  \mb{v}^*_n (\mb{r} (t) )  \right) \mb{v}_n. 
 \end{equation*}
 </div>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-682">We should read this last proposition in the following way. Part (1) says that if a path is differentiable, then its coordinate functions are differentiable for any coordinate system you choose. Part (2) is a converse to this - it says if the coordinates of <span class="process-math">\(\mb{r} (t)\)</span> in any given basis are differentiable functions of <span class="process-math">\(t\text{,}\)</span> then so is <span class="process-math">\(\mb{r} (t)\)</span> and furthermore the tangent vector has coordinates that are derivatives of the coordinates. Let us write this as a corollary which is really just a rephrasing of part (2).</div>
+</div></article><div class="para" id="subsec-tangentvectors-14">We should read this last proposition in the following way. Part (1) says that if a path is differentiable, then its coordinate functions are differentiable for any coordinate system you choose. Part (2) is a converse to this - it says if the coordinates of <span class="process-math">\(\mb{r} (t)\)</span> in any given basis are differentiable functions of <span class="process-math">\(t\text{,}\)</span> then so is <span class="process-math">\(\mb{r} (t)\)</span> and furthermore the tangent vector has coordinates that are derivatives of the coordinates. Let us write this as a corollary which is really just a rephrasing of part (2).</div>
 <article class="corollary theorem-like" id="cor-computetangent"><h4 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">5.1.9</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-683">
+<div class="para logical" id="cor-computetangent-1-1">
 <div class="para">If</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -574,75 +567,73 @@ f^\prime (a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
 \mb{r}^\prime (a) = \threevec{x^\prime_1 (a)}{\vdots}{x_n^\prime (a)}_{\mathcal{B}}. 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-46"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-46"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-46"><article class="hiddenproof"><div class="para logical" id="p-684">
-<div class="para">With a little help of some basic analysis, we can prove <a href="" class="xref" data-knowl="./knowl/prop-differentiablepath.html" title="Proposition 5.1.8">Proposition 5.1.8</a>. By the fact that a dual vector is a continuous function, a linear scalar function is a continuous map which implies that composing commutes with limits. But finding the tangent vector <span class="process-math">\(\mb{r}^\prime (a)\)</span> is such a limit and we see that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-differentiablepath.html">
+</div></article><details id="cor-computetangent-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="cor-computetangent-2-1">
+<div class="para">With a little help of some basic analysis, we can prove <a href="sec-paths.html#prop-differentiablepath" class="xref" data-knowl="./knowl/xref/prop-differentiablepath.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.1.8">Proposition 5.1.8</a>. By the fact that a dual vector is a continuous function, a linear scalar function is a continuous map which implies that composing commutes with limits. But finding the tangent vector <span class="process-math">\(\mb{r}^\prime (a)\)</span> is such a limit and we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-differentiablepath.html">
 \begin{equation*}
 \mb{v}^* ( \mb{r}^\prime (a) ) = \left. \frac{d}{dt}\right|_a \mb{v}^* ( \mb{r} (t)) . 
 \end{equation*}
 </div>
 <div class="para">Thus, if <span class="process-math">\(\mb{r}\)</span> is differentiable, then the left hand side exists which implies the right exists as well.</div>
-</div> <div class="para logical" id="p-685">
-<div class="para">On the other hand, assume the right hand side exists for a basis of dual vectors <span class="process-math">\(\mb{v}^*_i\text{.}\)</span> The <span class="process-math">\(\mb{v}^*_i\)</span> have a dual basis <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_n\)</span> as in equation <a href="" class="xref" data-knowl="./knowl/eq-dualbasis.html" title="Equation 2.3.3">(2.3.3)</a> and any vector <span class="process-math">\(\mb{v}\)</span> has the unique expression</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-dualbasis.html ./knowl/prop-pathderivativelinear.html">
+</div> <div class="para logical" id="cor-computetangent-2-2">
+<div class="para">On the other hand, assume the right hand side exists for a basis of dual vectors <span class="process-math">\(\mb{v}^*_i\text{.}\)</span> The <span class="process-math">\(\mb{v}^*_i\)</span> have a dual basis <span class="process-math">\(\mb{v}_1, \ldots, \mb{v}_n\)</span> as in equation <a href="sec-lineartransformations1.html#eq-dualbasis" class="xref" data-knowl="./knowl/xref/eq-dualbasis.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.3">(2.3.3)</a> and any vector <span class="process-math">\(\mb{v}\)</span> has the unique expression</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dualbasis.html ./knowl/xref/prop-pathderivativelinear.html">
 \begin{equation*}
 \mb{v}^*_1 (\mb{v} ) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{v} ) \mb{v}_n = \mb{v} 
 \end{equation*}
 </div>
 <div class="para">This is also true for <span class="process-math">\(\mb{r} (t)\)</span> so we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-dualbasis.html ./knowl/prop-pathderivativelinear.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dualbasis.html ./knowl/xref/prop-pathderivativelinear.html">
 \begin{equation*}
 \mb{v}^*_1 (\mb{r} (t)) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n = \mb{r} (t) 
 \end{equation*}
 </div>
-<div class="para">Now, the existence of the derivatives of the coordinate functions and <a href="" class="xref" data-knowl="./knowl/prop-pathderivativelinear.html" title="Proposition 5.1.7">Proposition 5.1.7</a> gives</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-dualbasis.html ./knowl/prop-pathderivativelinear.html" id="md-72">
+<div class="para">Now, the existence of the derivatives of the coordinate functions and <a href="sec-paths.html#prop-pathderivativelinear" class="xref" data-knowl="./knowl/xref/prop-pathderivativelinear.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.1.7">Proposition 5.1.7</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dualbasis.html ./knowl/xref/prop-pathderivativelinear.html" id="cor-computetangent-2-2-10">
 \begin{align*}
 \left(\left. \frac{d}{dt} \right|_a \mb{v}^*_1 (\mb{r} (t)) \right) \mb{v}_1  + \cdots + \left(  \left. \frac{d}{dt} \right|_a \mb{v}^*_n (\mb{r} (t) )  \right) \mb{v}_n \amp =  \left. \frac{d}{dt} \right|_a  \left(\mb{v}^*_1 (\mb{r} (t)) \mb{v}_1  \right) + \cdots + \left. \frac{d}{dt} \right|_a \left( \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n  \right), \\
 \amp =     \left. \frac{d}{dt} \right|_a \left(\mb{v}^*_1 (\mb{r} (t)) \mb{v}_1 + \cdots + \mb{v}^*_n (\mb{r} (t) ) \mb{v}_n \right), \\
 \amp = \mb{r}^\prime (a)  .
 \end{align*}
 </div>
-</div></article></div>
-<div class="para" id="p-686">With <a href="" class="xref" data-knowl="./knowl/cor-computetangent.html" title="Corollary 5.1.9">Corollary 5.1.9</a> in hand, we can calculate tangent vectors confidently.</div>
-<article class="example example-like" id="example-64"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-64"><h4 class="heading">
+</div></article></details><div class="para" id="subsec-tangentvectors-16">With <a href="sec-paths.html#cor-computetangent" class="xref" data-knowl="./knowl/xref/cor-computetangent.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.9">Corollary 5.1.9</a> in hand, we can calculate tangent vectors confidently.</div>
+<details id="subsec-tangentvectors-17" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Computing tangent vectors.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-64"><article class="example example-like"><div class="para logical" id="p-687">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-tangentvectors-17-2-1">
 <div class="para">Suppose</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-computetangent.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-computetangent.html">
 \begin{equation*}
 \mb{r} (t) = \threevec{e^{2t}}{\sin ( \pi t^2 )}{\ln (4 t)} . 
 \end{equation*}
 </div>
 <div class="para">Its tangent vector can be computed by taking derivatives of the components so that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-computetangent.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-computetangent.html">
 \begin{equation*}
 \mb{r}^\prime (t) = \threevec{2 e^{2t}}{2 \pi t \cos (\pi t^2)}{\frac{1}{t}}. 
 \end{equation*}
 </div>
-<div class="para">This example illustrates the more general application of <a href="" class="xref" data-knowl="./knowl/cor-computetangent.html" title="Corollary 5.1.9">Corollary 5.1.9</a>, if <span class="process-math">\(\mb{x}\)</span> is a path in <span class="process-math">\(\mathbb{R}^n\)</span> and you want to find its tangent vector, you need only take <span class="process-math">\(n\)</span> derivatives of the coordinate functions and you are done.</div>
-</div></article></div>
-<div class="para" id="p-688">Certainly, being able to compute tangent vectors is useful, but so is knowing that our prior rules and results still hold.</div>
+<div class="para">This example illustrates the more general application of <a href="sec-paths.html#cor-computetangent" class="xref" data-knowl="./knowl/xref/cor-computetangent.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.9">Corollary 5.1.9</a>, if <span class="process-math">\(\mb{x}\)</span> is a path in <span class="process-math">\(\mathbb{R}^n\)</span> and you want to find its tangent vector, you need only take <span class="process-math">\(n\)</span> derivatives of the coordinate functions and you are done.</div>
+</div></article></details><div class="para" id="subsec-tangentvectors-18">Certainly, being able to compute tangent vectors is useful, but so is knowing that our prior rules and results still hold.</div>
 <article class="proposition theorem-like" id="prop-productrulepaths"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Product Rule for Paths.</span>
 </h4>
-<div class="para logical" id="p-689">
+<div class="para logical" id="prop-productrulepaths-2-1">
 <div class="para">If <span class="process-math">\(f(t)\)</span> is a differentiable scalar valued function and <span class="process-math">\(\mb{r} (t), \tilde{\mb{r}} (t)\)</span> are differentiable paths, then</div>
-<ol class="decimal">
-<li id="li-87"><div class="para" id="p-derived-li-87"><div class="displaymath process-math">
+<ol class="decimal" id="prop-productrulepaths-2-1-3">
+<li id="prop-productrulepaths-2-1-3-1"><div class="para" id="p-derived-prop-productrulepaths-2-1-3-1"><div class="displaymath process-math">
 \begin{equation*}
 \frac{d}{dt} \left( f(t) \mb{r} (t) \right) = f^\prime (t) \mb{r} (t) + f(t) \mb{r}^\prime (t) , 
 \end{equation*}
 </div></div></li>
-<li id="li-88"><div class="para" id="p-derived-li-88"><div class="displaymath process-math">
+<li id="prop-productrulepaths-2-1-3-2"><div class="para" id="p-derived-prop-productrulepaths-2-1-3-2"><div class="displaymath process-math">
 \begin{equation*}
 \frac{d}{dt} \left\langle \mb{r} (t) , \tilde{\mb{r}} (t) \right\rangle = \left\langle \mb{r}^\prime (t) , \tilde{\mb{r}} (t) \right\rangle + \left\langle \mb{r} (t) , \tilde{\mb{r}}^\prime (t) \right\rangle. 
 \end{equation*}
 </div></div></li>
 </ol>
-</div></article><article class="hiddenproof" id="proof-47"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-47"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-47"><article class="hiddenproof"><div class="para logical" id="p-690">
-<div class="para">For the first statement, we simply write <span class="process-math">\(\mb{r} (t)\)</span> in coordinates for some basis <span class="process-math">\(\mathcal{B}\)</span> and differentiate using <a href="" class="xref" data-knowl="./knowl/cor-computetangent.html" title="Corollary 5.1.9">Corollary 5.1.9</a>.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/cor-computetangent.html" id="md-73">
+</div></article><details id="prop-productrulepaths-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop-productrulepaths-3-1">
+<div class="para">For the first statement, we simply write <span class="process-math">\(\mb{r} (t)\)</span> in coordinates for some basis <span class="process-math">\(\mathcal{B}\)</span> and differentiate using <a href="sec-paths.html#cor-computetangent" class="xref" data-knowl="./knowl/xref/cor-computetangent.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 5.1.9">Corollary 5.1.9</a>.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/cor-computetangent.html" id="prop-productrulepaths-3-1-4">
 \begin{align*}
 \frac{d}{dt}  \left( f(t) \mb{r} (t) \right) \amp = \frac{d}{dt}  \left( f(t) \mb{r} (t) \right), \\
 \amp =  \frac{d}{dt}  \left( f(t) \threevec{x_1 (t)}{\vdots}{x_n (t)}_{\mathcal{B}} \right), \\
@@ -654,24 +645,23 @@ f^\prime (a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
 \end{align*}
 </div>
 <div class="para">The second statement is proved similarly and is left to the student.</div>
-</div></article></div>
-<article class="proposition theorem-like" id="prop-chainrulepaths"><h4 class="heading">
+</div></article></details><article class="proposition theorem-like" id="prop-chainrulepaths"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">5.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule for Paths.</span>
 </h4>
-<div class="para logical" id="p-691">
+<div class="para logical" id="prop-chainrulepaths-2-1">
 <div class="para">If <span class="process-math">\(V\)</span> is a finite dimensional inner product space, <span class="process-math">\(I_0\)</span> and <span class="process-math">\(I_1\)</span> intervals in <span class="process-math">\(\mathbb{R}\text{,}\)</span> <span class="process-math">\(g : I_0 \to I_1\)</span> a differentiable function, and <span class="process-math">\(\mb{r} : I_1 \to V\)</span> a differentiable path, then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \left. \frac{d}{dt} \right|_a \mb{r} ( g ( t)) = g^\prime (a) \, \mb{r}^\prime (g (a)). 
 \end{equation*}
 </div>
-</div></article><article class="hiddenproof" id="proof-48"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-48"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-48"><article class="hiddenproof"><div class="para" id="p-692">The proof is left as an exercise.</div></article></div></section><section class="subsection" id="subsec-curvegeometry"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">5.1.3</span> <span class="title">The Geometry of Curves</span>
+</div></article><details id="prop-chainrulepaths-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-chainrulepaths-3-1">The proof is left as an exercise.</div></article></details></section><section class="subsection" id="subsec-curvegeometry"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="space"> </span><span class="title">The Geometry of Curves</span>
 </h3>
-<div class="para" id="p-693">There is much to say about the geometry of curves, and here we will define only a few important notions, saving for later a more detailed discussion.</div>
+<div class="para" id="subsec-curvegeometry-2">There is much to say about the geometry of curves, and here we will define only a few important notions, saving for later a more detailed discussion.</div>
 <article class="definition definition-like" id="def-speed"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.13</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-694">
+</h4> <div class="para logical" id="def-speed-2-1">
 <div class="para">A differentiable path <span class="process-math">\(\mb{r} : I \to V\)</span> has <dfn class="terminology">speed</dfn>
 </div>
 <div class="displaymath process-math">
@@ -681,10 +671,10 @@ f^\prime (a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
 </div>
 <div class="para">at <span class="process-math">\(a\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-695">Note that speed and velocity are two different (but related) concepts. In particular, velocity is a vector, while speed is a non-negative scalar.</div>
-<article class="example example-like" id="exa-helix"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-exa-helix"><h4 class="heading">
+</div></article><div class="para" id="subsec-curvegeometry-4">Note that speed and velocity are two different (but related) concepts. In particular, velocity is a vector, while speed is a non-negative scalar.</div>
+<details id="exa-helix" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.14</span><span class="period">.</span><span class="space"> </span><span class="title">Speed of a parameterized helix.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-exa-helix"><article class="example example-like"><div class="para logical" id="p-696">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exa-helix-2-1">
 <div class="para">To find the speed of the helix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -703,70 +693,67 @@ f^\prime (a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
 \| \mb{r}^\prime (t) \| = \sqrt{ 16 \sin^2 (2t) + 16 \cos^2  (2t) + 9} = \sqrt{25} = 5.
 \end{equation*}
 </div>
-</div></article></div>
-<div class="para" id="p-697">Just as in one variable calculus, we will wish to talk about vectors being `tangent' to a curve (and latter a surface or subspace).</div>
+</div></article></details><div class="para" id="subsec-curvegeometry-6">Just as in one variable calculus, we will wish to talk about vectors being `tangent’ to a curve (and latter a surface or subspace).</div>
 <article class="definition definition-like" id="def-tangenttocurve"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.15</span><span class="period">.</span>
-</h4> <div class="para" id="p-698">Let <span class="process-math">\(\mathcal{C}\)</span> be a curve. We say a vector <span class="process-math">\(\mb{v}\)</span> is tangent to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(\mb{v}_0\)</span> if there is a differentiable parameterization <span class="process-math">\(\mb{r} : I \to \mathcal{C}\)</span> so that <span class="process-math">\(\mb{r} (a) = \mb{v}_0\)</span> and <span class="process-math">\(\mb{v}\)</span> is a scalar multiple of <span class="process-math">\(\mb{r}^\prime (a)\text{.}\)</span> The <dfn class="terminology">tangent line</dfn> to <span class="process-math">\(\mathcal{C}\)</span> is the line <span class="process-math">\(\mb{v}_0 + W\)</span> where <span class="process-math">\(W\)</span> is the subspace of tangent vectors to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(\mb{v}_0\text{.}\)</span>
-</div></article><article class="example example-like" id="example-66"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-66"><h4 class="heading">
+</h4> <div class="para" id="def-tangenttocurve-2-1">Let <span class="process-math">\(\mathcal{C}\)</span> be a curve. We say a vector <span class="process-math">\(\mb{v}\)</span> is tangent to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(\mb{v}_0\)</span> if there is a differentiable parameterization <span class="process-math">\(\mb{r} : I \to \mathcal{C}\)</span> so that <span class="process-math">\(\mb{r} (a) = \mb{v}_0\)</span> and <span class="process-math">\(\mb{v}\)</span> is a scalar multiple of <span class="process-math">\(\mb{r}^\prime (a)\text{.}\)</span> The <dfn class="terminology">tangent line</dfn> to <span class="process-math">\(\mathcal{C}\)</span> is the line <span class="process-math">\(\mb{v}_0 + W\)</span> where <span class="process-math">\(W\)</span> is the subspace of tangent vectors to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(\mb{v}_0\text{.}\)</span>
+</div></article><details id="subsec-curvegeometry-8" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.16</span><span class="period">.</span><span class="space"> </span><span class="title">Tangent line to a hyperbola.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-66"><article class="example example-like"><div class="para logical" id="p-699">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-curvegeometry-8-2-1">
 <div class="para">Consider the positive branch <span class="process-math">\(\mathcal{C}\)</span> of the hyperbola</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-equation.html">
 \begin{equation*}
 x^2 - y^2 = 1 . 
 \end{equation*}
 </div>
 <div class="para">It was seen in <a href="sec-equation.html" class="internal" title="Section 1.3: Equations Review">Section 1.3</a> that this branch is parameterized by the hyperbolic trigonometric functions via</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-equation.html">
 \begin{equation*}
 \mb{r} (t) = \twovec{ \cosh t}{\sinh t} . 
 \end{equation*}
 </div>
 <div class="para">To write down a parametric equation for the tangent line to the curve at, say, <span class="process-math">\(t_0\text{,}\)</span> we need only find the tangent vector</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-equation.html">
 \begin{equation*}
 \mb{r}^\prime (t_0) = \twovec{\sinh t_0}{\cosh t_0} 
 \end{equation*}
 </div>
 <div class="para">and use this as the direction vector to obtain</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-equation.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-equation.html">
 \begin{equation*}
 \ell (t) = \mb{r} (t_0 ) + t \mb{r}^\prime (t_0 ) = \twovec{ \cosh t_0 + t \sinh t_0} {\sinh t_0 + t \cosh t_0}. 
 \end{equation*}
 </div>
-</div></article></div>
-<div class="para" id="p-700">A can be useful to have a tangent vector to a curve which is a unit vector. This can be accomplished by normalizing the tangent vector. In fact, such a vector has a name.</div>
+</div></article></details><div class="para" id="subsec-curvegeometry-9">A can be useful to have a tangent vector to a curve which is a unit vector. This can be accomplished by normalizing the tangent vector. In fact, such a vector has a name.</div>
 <article class="definition definition-like" id="def-unittangentvect"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.17</span><span class="period">.</span>
-</h4> <div class="para" id="p-701">The <dfn class="terminology">unit tangent vector</dfn> <span class="process-math">\(\mb{T} (p)\)</span> to a curve <span class="process-math">\(\mathcal{C}\)</span> at a point <span class="process-math">\(p\)</span> is a unit vector which is tangent to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(p\text{.}\)</span> We call the function <span class="process-math">\(\mb{T}\)</span> which assigns a point of <span class="process-math">\(\mathcal{C}\)</span> to its unit tangent vector the <dfn class="terminology">unit vector frame</dfn> of <span class="process-math">\(\mathcal{C}\text{.}\)</span>
-</div></article><div class="para" id="p-702">If the curve <span class="process-math">\(\mathcal{C}\)</span> is parameterized by <span class="process-math">\(\mb{r} (t)\text{,}\)</span> we may write <span class="process-math">\(\mb{T} (t)\)</span> instead of <span class="process-math">\(\mb{T} (\mb{r} (t))\text{.}\)</span>
+</h4> <div class="para" id="def-unittangentvect-2-1">The <dfn class="terminology">unit tangent vector</dfn> <span class="process-math">\(\mb{T} (p)\)</span> to a curve <span class="process-math">\(\mathcal{C}\)</span> at a point <span class="process-math">\(p\)</span> is a unit vector which is tangent to <span class="process-math">\(\mathcal{C}\)</span> at <span class="process-math">\(p\text{.}\)</span> We call the function <span class="process-math">\(\mb{T}\)</span> which assigns a point of <span class="process-math">\(\mathcal{C}\)</span> to its unit tangent vector the <dfn class="terminology">unit vector frame</dfn> of <span class="process-math">\(\mathcal{C}\text{.}\)</span>
+</div></article><div class="para" id="subsec-curvegeometry-11">If the curve <span class="process-math">\(\mathcal{C}\)</span> is parameterized by <span class="process-math">\(\mb{r} (t)\text{,}\)</span> we may write <span class="process-math">\(\mb{T} (t)\)</span> instead of <span class="process-math">\(\mb{T} (\mb{r} (t))\text{.}\)</span>
 </div>
-<article class="example example-like" id="example-67"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-67"><h4 class="heading">
+<details id="subsec-curvegeometry-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.1.18</span><span class="period">.</span><span class="space"> </span><span class="title">Finding the unit vector frame.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-67"><article class="example example-like"><div class="para logical" id="p-703">
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-curvegeometry-12-2-1">
 <div class="para">To find unit vectors of the helix</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-helix.html">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exa-helix.html">
 \begin{equation*}
 \mb{r} (t) = \threevec{ 2 \cos (2t)}{- 2 \sin (2t)}{3t} 
 \end{equation*}
 </div>
-<div class="para">from <a href="" class="xref" data-knowl="./knowl/exa-helix.html" title="Example 5.1.14: Speed of a parameterized helix">Example 5.1.14</a>, we simply normalize the velocity vector by dividing by the speed.</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/exa-helix.html">
+<div class="para">from <a href="sec-paths.html#exa-helix" class="xref" data-knowl="./knowl/xref/exa-helix.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.1.14: Speed of a parameterized helix">Example 5.1.14</a>, we simply normalize the velocity vector by dividing by the speed.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exa-helix.html">
 \begin{equation*}
 \mb{T} (t) =  \threevec{ \frac{2}{5} \cos (2t)}{-\frac{2}{5} \sin (2t)}{\frac{3}{5}t} 
 \end{equation*}
 </div>
-</div></article></div>
-<div class="para" id="p-704">One of the reasons to consider unit tangent vectors is that they give us ways of projecting other vectors ‘along the curve’ at a point. We will see this approach when we integrate along curves later on.</div></section><section class="exercises" id="exe-paths"><h3 class="heading hide-type">
-<span class="type">Exercises</span> <span class="codenumber">5.1.4</span> <span class="title">Exercises</span>
+</div></article></details><div class="para" id="subsec-curvegeometry-13">One of the reasons to consider unit tangent vectors is that they give us ways of projecting other vectors ‘along the curve’ at a point. We will see this approach when we integrate along curves later on.</div></section><section class="exercises" id="exe-paths"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="space"> </span><span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-80"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-705">Give a path parameterizing the line in <span class="process-math">\(\mathbb{R}^5\)</span> which passes through the vectors <span class="process-math">\(\left\langle 1, 4, -2, 0 , 1 \right\rangle\)</span> and <span class="process-math">\(\left\langle 0, 2, -3, 1, 2 \right\rangle\text{.}\)</span>
-</div></article><article class="exercise exercise-like" id="exercise-81"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-37"><div class="para" id="p-706">Find the tangent vectors of the following paths</div></div>
-<article class="task exercise-like" id="task-75"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-707">
+<article class="exercise exercise-like" id="exe-paths-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exe-paths-1-1-1">Give a path parameterizing the line in <span class="process-math">\(\mathbb{R}^5\)</span> which passes through the vectors <span class="process-math">\(\left\langle 1, 4, -2, 0 , 1 \right\rangle\)</span> and <span class="process-math">\(\left\langle 0, 2, -3, 1, 2 \right\rangle\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exe-paths-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-paths-2-1"><div class="para" id="exe-paths-2-1-1">Find the tangent vectors of the following paths</div></div>
+<article class="task exercise-like" id="exe-paths-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="exe-paths-2-2-1-1">
 <div class="displaymath process-math">
 \begin{equation*}
 \mb{r} (t) = \twovec{\cos t}{\sin t} 
@@ -774,8 +761,8 @@ x^2 - y^2 = 1 .
 </div>
 <div class="para">where <span class="process-math">\(\mb{r} : \mathbb{R} \to \mathbb{R}^2\text{.}\)</span>
 </div>
-</div></article><article class="task exercise-like" id="task-76"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-708">
+</div></article><article class="task exercise-like" id="exe-paths-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="exe-paths-2-3-1-1">
 <div class="displaymath process-math">
 \begin{equation*}
 \mb{r} (t) = e^{i t} 
@@ -783,7 +770,7 @@ x^2 - y^2 = 1 .
 </div>
 <div class="para">where <span class="process-math">\(\mb{r} : \mathbb{R} \to \mathbb{C}\text{.}\)</span>
 </div>
-</div></article><div class="conclusion" id="conclusion-2"><div class="para logical" id="p-709">
+</div></article><div class="conclusion" id="exe-paths-2-4"><div class="para logical" id="exe-paths-2-4-1">
 <div class="para">Compare your answers by relating <span class="process-math">\(\mathbb{R}^2\)</span> to <span class="process-math">\(\mathbb{C}\)</span> via the real linear isomorphism</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -792,17 +779,17 @@ T \left( \twovec{x}{y} \right) = x + i y .
 </div>
 <div class="para">Explain your findings.</div>
 </div></div></article><article class="exercise exercise-like" id="exe-derivativeexp"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-710">
+<div class="para logical" id="exe-derivativeexp-1-1">
 <div class="para">Consider a slightly more general case than the previous exercise. Suppose <span class="process-math">\(\lambda\)</span> is a complex number. Show that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{d}{dt} e^{\lambda t} = \lambda e^{\lambda t}. 
 \end{equation*}
 </div>
-</div></article><article class="exercise exercise-like" id="exercise-83"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="introduction" id="introduction-38"><div class="para" id="p-711">Find the speed and unit tangent vectors for the following paths</div></div>
-<article class="task exercise-like" id="task-77"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para logical" id="p-712">
+</div></article><article class="exercise exercise-like" id="exe-paths-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="introduction" id="exe-paths-4-1"><div class="para" id="exe-paths-4-1-1">Find the speed and unit tangent vectors for the following paths</div></div>
+<article class="task exercise-like" id="exe-paths-4-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para logical" id="exe-paths-4-2-1-1">
 <div class="displaymath process-math">
 \begin{equation*}
 \mb{r} (t) = \twovec{\cos 3 t}{\sin  3 t} 
@@ -810,8 +797,8 @@ T \left( \twovec{x}{y} \right) = x + i y .
 </div>
 <div class="para">where <span class="process-math">\(\mb{r} : \mathbb{R} \to \mathbb{R}^2\text{..}\)</span>
 </div>
-</div></article><article class="task exercise-like" id="task-78"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para logical" id="p-713">
+</div></article><article class="task exercise-like" id="exe-paths-4-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para logical" id="exe-paths-4-3-1-1">
 <div class="displaymath process-math">
 \begin{equation*}
 \mb{r} (t) = \left\langle 3\cos (t ) ,  \cos (2t), 3 \sin (t), \sin (2t) \right\rangle 
@@ -819,9 +806,9 @@ T \left( \twovec{x}{y} \right) = x + i y .
 </div>
 <div class="para">where <span class="process-math">\(\mb{r} : \mathbb{R} \to \mathbb{R}^4\text{.}\)</span>
 </div>
-</div></article></article><article class="exercise exercise-like" id="exercise-84"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para" id="p-714">Prove <a href="" class="xref" data-knowl="./knowl/prop-chainrulepaths.html" title="Proposition 5.1.12: Chain Rule for Paths">Proposition 5.1.12</a>.</div></article><article class="exercise exercise-like" id="exercise-85"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-715">
+</div></article></article><article class="exercise exercise-like" id="exe-paths-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="exe-paths-5-1-1">Prove <a href="sec-paths.html#prop-chainrulepaths" class="xref" data-knowl="./knowl/xref/prop-chainrulepaths.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 5.1.12: Chain Rule for Paths">Proposition 5.1.12</a>.</div></article><article class="exercise exercise-like" id="exe-paths-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-paths-6-1-1">
 <div class="para">Suppose <span class="process-math">\(\mb{r} (t)\)</span> is a differentiable path that parameterizes <span class="process-math">\(\mathcal{C}\)</span> and <span class="process-math">\(\mb{r} (0) = \mb{v}_0\text{.}\)</span> We can reparameterize <span class="process-math">\(\mathcal{C}\)</span> by composing <span class="process-math">\(\mb{r}\)</span> with another differentiable function <span class="process-math">\(g (t)\)</span> with <span class="process-math">\(g^\prime (t) \ne 0\text{.}\)</span> Suppose <span class="process-math">\(g(0) = 0\)</span> and write</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -829,8 +816,8 @@ T \left( \twovec{x}{y} \right) = x + i y .
 \end{equation*}
 </div>
 <div class="para">for the new parametrization. Show that the tangent vectors <span class="process-math">\(\mb{r}^\prime (0)\)</span> and <span class="process-math">\(\tilde{\mb{r}}^\prime (0\)</span> are linearly dependent. This shows that a curve only has a tangent line (not a plane).</div>
-</div></article><article class="exercise exercise-like" id="exercise-86"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-716">
+</div></article><article class="exercise exercise-like" id="exe-paths-7"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para logical" id="exe-paths-7-1-1">
 <div class="para">The <dfn class="terminology">acceleration</dfn> vector of a twice differentiable path <span class="process-math">\(\mb{r} (t)\)</span> is <span class="process-math">\(\mb{r}^{\prime \prime} (t)\text{.}\)</span> We say that a curve is <dfn class="terminology">arc length parameterized</dfn> by <span class="process-math">\(\mb{r} (t)\)</span> if the speed of <span class="process-math">\(\mb{r}(t)\)</span> is <span class="process-math">\(1\)</span> for all <span class="process-math">\(t\text{.}\)</span> Show that if <span class="process-math">\(\mb{r} (t)\)</span> is an arc length parameterization then its velocity and acceleration are orthogonal. In other words, show that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -841,10 +828,10 @@ T \left( \twovec{x}{y} \right) = x + i y .
 </div>
 </div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-ordinary-differential-equations.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-lincode1.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="ch-ordinary-differential-equations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-lincode1.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
-<div id="ptx-page-footer">
+<div id="ptx-page-footer" class="ptx-page-footer">
 <a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>

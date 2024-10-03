@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="lemma theorem-like"><h4 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">2.7.14</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(D\)</span> is a function satisfying the conditions of <a href="sec-matrices3.html#def-determinant" class="xref" data-knowl="./knowl/xref/def-determinant.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.7.8">Definition 2.7.8</a>, then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-determinant.html">
+\begin{align*}
+D (E_{ij} ) \amp = -1,\\
+D (E_{i} (c)) \amp = c,\\
+D (E_{ij} (c)) \amp = 1.
+\end{align*}
+</div>
+<div class="para">Furthermore, if <span class="process-math">\(A\)</span> is any square matrix and <span class="process-math">\(E\)</span> is any elementary matrix of the same size,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-determinant.html">
+\begin{equation*}
+D( EA) = D(E) D (A). 
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">We leave it to the student to work out the first set of equations. For the second, notice that if <span class="process-math">\(E\)</span> is Type I then <span class="process-math">\(EA\)</span> is just <span class="process-math">\(A\)</span> with two rows switched so by the alternating property and the first equation <span class="process-math">\(D(EA) = - D(A) = D(E) D(A)\text{.}\)</span> On the other hand, if <span class="process-math">\(E\)</span> is Type II so that <span class="process-math">\(E = E_i (c)\)</span> then <span class="process-math">\(E A\)</span> multiplies the <span class="process-math">\(i\)</span>-th row by <span class="process-math">\(c\text{.}\)</span> So row linearity and the second equation gives <span class="process-math">\(D(E A ) = c D(A) = D(E) D(A)\text{.}\)</span> Finally, if <span class="process-math">\(E\)</span> is Type III and equals <span class="process-math">\(E_{ij} (c)\)</span> we have that the <span class="process-math">\(i\)</span>-th row of <span class="process-math">\(E A\)</span> is <span class="process-math">\(\mb{r}_i + c\mb{r}_j\text{.}\)</span> So using row linearity, <a href="sec-matrices3.html#lem-altalt" class="xref" data-knowl="./knowl/xref/lem-altalt.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 2.7.13">Lemma 2.7.13</a>, and the third equation we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem-altalt.html">
+\begin{align*}
+D (EA) \amp = D(\mb{r}_1, \ldots, \mb{r}_i + c\mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ), \\
+\amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ) + c D(\mb{r}_1, \ldots, \mb{r}_j, \ldots , \mb{r}_j, \ldots, \mb{r}_n ),\\
+\amp = D(\mb{r}_1, \ldots, \mb{r}_i , \ldots , \mb{r}_j, \ldots, \mb{r}_n ), \\
+\amp = D (A), \\
+\amp = D(E) D(A).
+\end{align*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-matrices3.html#lem-detelem">in-context</a></span>
+</body>
+</html>

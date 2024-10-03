@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="lemma theorem-like"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.5</span><span class="period">.</span>
+</h3>
+<div class="para">If <span class="process-math">\(S : V \to V\)</span> is a linear isomorphism, <span class="process-math">\(N : V \to V\)</span> is nilpotent and <span class="process-math">\(S\)</span> commutes with <span class="process-math">\(N\text{,}\)</span> then <span class="process-math">\(S + N\)</span> is a linear isomorphism.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">The key to this observation is the geometric series</div>
+<div class="displaymath process-math">
+\begin{equation*}
+( 1 - x)^{-1} = \frac{1}{1 - x} = 1 + x + x^2 + \cdots 
+\end{equation*}
+</div>
+<div class="para">that you learn in a first year calculus course. We can manipulate this slightly to see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(y + x)^{-1} = y^{-1} \frac{1}{1 - (-y^{-1} x)} = y^{-1} \left[ 1 + (-y^{-1} x) + (-y^{-1} x)^2 + \cdots \right] 
+\end{equation*}
+</div>
+<div class="para">Now, if we try to put random matrices (or linear transformations) in for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> we may run into trouble. First, we would of course need the <span class="process-math">\(y\)</span> matrix to be invertible to make sense of <span class="process-math">\(y^{-1}\text{,}\)</span> but more importantly, we would need to know this series converged in some reasonable sense. However, if the <span class="process-math">\(y\)</span> matrix commuted with the <span class="process-math">\(x\)</span> matrix (which would imply <span class="process-math">\(y^{-1}\)</span> did as well), then the terms</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(-y^{-1} x)^k = (-1)^k y^{-k} x^k . 
+\end{equation*}
+</div>
+<div class="para">Better yet, if the <span class="process-math">\(x\)</span> matrix were nilpotent, we would have no concern over convergence because these terms would all be zero once <span class="process-math">\(k\)</span> is large enough. Taking the <span class="process-math">\(y\)</span> matrix to represent <span class="process-math">\(S\)</span> and the <span class="process-math">\(x\)</span> matrix to represent <span class="process-math">\(N\)</span> thus shows that <span class="process-math">\(S + N\)</span> is invertible (and in fact the formula above can be used to compute the inverse).</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec-jnf.html#lem-nilpotentinv">in-context</a></span>
+</body>
+</html>

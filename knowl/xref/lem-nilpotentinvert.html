@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="lemma theorem-like"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">4.2.10</span><span class="period">.</span>
+</h3>
+<div class="para logical">
+<div class="para">Suppose <span class="process-math">\(V\)</span> is a finite dimensional vector space over <span class="process-math">\(K\)</span> and <span class="process-math">\(T : V \to V\)</span> is a linear transformation. If <span class="process-math">\(\lambda\)</span> and <span class="process-math">\(\tilde{\lambda}\)</span> are two numbers in <span class="process-math">\(K\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(\tilde{\lambda} I - T) (V_\lambda) \subseteq V_\lambda 
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tilde{\lambda}I  - T : V_\lambda \to V_\lambda 
+\end{equation*}
+</div>
+<div class="para">is nilpotent if <span class="process-math">\(\tilde{\lambda} = \lambda\)</span> and a linear isomorphism otherwise.</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">To see the first statement, just note that <span class="process-math">\((\tilde{\lambda} I - T)\)</span> commutes with <span class="process-math">\(({\lambda} I - T)\)</span> so that if <span class="process-math">\(({\lambda} I - T)^n (\mb{v}) = 0\)</span> then</div>
+<div class="displaymath process-math">
+\begin{align*}
+({\lambda} I - T)^n [(\tilde{\lambda} I - T) (\mb{v})] \amp = (\tilde{\lambda} I - T) [({\lambda} I - T)^n (\mb{v} )] , \\
+\amp = (\tilde{\lambda} I - T) ( \mb{0} ), \\
+\amp  = \mb{0}. 
+\end{align*}
+</div>
+<div class="para">So if <span class="process-math">\(\mb{v}\)</span> is in <span class="process-math">\(V_\lambda\)</span> then so is <span class="process-math">\((\tilde{\lambda} I - T) (\mb{v})\text{.}\)</span>
+</div>
+</div> <div class="para">For the second statement, if <span class="process-math">\(\lambda = \tilde{\lambda}\)</span> then <span class="process-math">\(V_\lambda\)</span> is defined to be the vector subspace on which <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent. There is a subtlety here which relies on the fact that <span class="process-math">\(V\)</span> is finite dimensional. In particular, there must be a finite <span class="process-math">\(n\)</span> for which <span class="process-math">\((\tilde{\lambda} I - T)^n (\mb{v}) = \mb{0}\)</span> for <em class="emphasis">all</em> <span class="process-math">\(\mb{v}\)</span> in <span class="process-math">\(V_\lambda\)</span> owing to the fact that there is a finite basis for <span class="process-math">\(V_\lambda\)</span> (check this). Thus <span class="process-math">\((\tilde{\lambda} I - T)\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span>
+</div> <div class="para">Now, if <span class="process-math">\(\tilde{\lambda} \ne \lambda\)</span> then we take <span class="process-math">\(N = (\lambda I - T)\)</span> and <span class="process-math">\(S = (\tilde{\lambda} - \lambda) I\text{.}\)</span> Then <span class="process-math">\(S\)</span> and <span class="process-math">\(N\)</span> commute, <span class="process-math">\(S\)</span> is invertible and <span class="process-math">\(N\)</span> is nilpotent on <span class="process-math">\(V_\lambda\text{.}\)</span> Applying <a href="sec-jnf.html#lem-nilpotentinv" class="xref" data-knowl="./knowl/xref/lem-nilpotentinv.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 4.2.5">Lemma 4.2.5</a> gives that <span class="process-math">\((\tilde{\lambda} I - T) = S + N\)</span> is invertible.</div></article></details><span class="incontext"><a class="internal" href="sec-jnf.html#lem-nilpotentinvert">in-context</a></span>
+</body>
+</html>
