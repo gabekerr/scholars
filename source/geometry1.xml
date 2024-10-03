@@ -221,12 +221,7 @@
                     </p>
                 </statement>
             </task>
-            <task>
-                <statement>
-                    <p> <me>\left[ \begin{matrix} -1 \amp 3  \\ -1 \amp 2  \\ 1 \amp  -3  \end{matrix} \right] \twovec{x_1}{x_2} = \threevec{-5}{-3}{5} </me>
-                    </p>
-                </statement>
-            </task>
+
         </exercise>
         
         <exercise xml:id="exe-projection">
