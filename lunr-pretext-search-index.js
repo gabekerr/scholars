@@ -3142,9 +3142,9 @@ var ptx_lunr_docs = [
   "body": " Show that when , in equation solves the non-homogeneous equation .  "
 },
 {
-  "id": "exe-lincode3-4",
+  "id": "exe-lincode-nh",
   "level": "2",
-  "url": "sec-lincode3.html#exe-lincode3-4",
+  "url": "sec-lincode3.html#exe-lincode-nh",
   "type": "Exercise",
   "number": "5.4.2.4",
   "title": "",
@@ -3284,6 +3284,78 @@ var ptx_lunr_docs = [
   "number": "5.5.4.5",
   "title": "",
   "body": " Use power series methods to solve the differential equation with initial conditions , .  "
+},
+{
+  "id": "sec-laplace",
+  "level": "1",
+  "url": "sec-laplace.html",
+  "type": "Section",
+  "number": "5.6",
+  "title": "Laplace Transforms",
+  "body": " Laplace Transforms   In this section we will consider another approach to solving differential equations using Laplace transforms. Such a tranform takes a function is defined by the formula A couple of questions might occur immediately to the curious student. First, for what functions does such a transform make sense. And second, what is . Let's handle the first question now. We call a function of exponential order b if there is a constant so that for all that are sufficiently large. In fact, for a fixed we may define the collection of all such functions as which is a real vector space (you can check it is closed under addition and scalar multiplication). On the other hand, we may consider the space of functions of all smooth functions on the set of complex numbers where .   Existence of Laplace Transform   The Laplace transform defines a linear operator     Here we will just show that the integral in the Laplace transform absolutely converges for all such and will not discuss the differentiability of (in fact, the function satisfies the much stronger property of being complex analytic). Let with . Then, for any we have   Since we have that this gives the bound implying absolute convergence of the improper integral.   We now write a table of such transforms, leaving the verification of this to the student.  Laplace Transforms    Original function  Laplace transform                         While the formulas for the Laplace transform are very nice, the properties that it enjoys are what makes it so powerful in solving differential equations. We summarize some of these here, leaving the verification for the student.  Properties of Laplace Transform   The Laplace transform of , when it is defined, satisfies the following properties:   The Laplace transform is linear.                           A key application of these properties comes when one applies the inverse Laplace Transform. The formula for this transform may look a bit daunting, but can be computed using a variety of more advanced techniques.   Inverse of Laplace Transform   There is a subspace of functions for which there is an inverse Laplace transform This is given by the formula     Let's apply these theorems with a couple of examples.   Laplace Transform for linear constant coefficient   Consider the equation with initial conditions from . We solve this by applying the Laplace transforms to both sides and using the properties from . The left hand side gives   Applying it on the right and using the formulas from our table, we obtain   Thus we obtain the formula Now, employ the partial fractions techniques to separate this into a sum of more elementaty rational functions. Applying the inverse Laplace transform to both sides gives        Verify two of the formulas from the table of Laplace transforms.    Suppose where are real numbers. Use the characteristic equation method and then the Laplace Transform to find solutions to the differential equation with initial conditions and . Compare your results.    "
+},
+{
+  "id": "thm-Laplace-transform",
+  "level": "2",
+  "url": "sec-laplace.html#thm-Laplace-transform",
+  "type": "Theorem",
+  "number": "5.6.1",
+  "title": "Existence of Laplace Transform.",
+  "body": " Existence of Laplace Transform   The Laplace transform defines a linear operator     Here we will just show that the integral in the Laplace transform absolutely converges for all such and will not discuss the differentiability of (in fact, the function satisfies the much stronger property of being complex analytic). Let with . Then, for any we have   Since we have that this gives the bound implying absolute convergence of the improper integral.   "
+},
+{
+  "id": "sec-laplace-2-3",
+  "level": "2",
+  "url": "sec-laplace.html#sec-laplace-2-3",
+  "type": "Table",
+  "number": "5.6.2",
+  "title": "Laplace Transforms",
+  "body": " Laplace Transforms    Original function  Laplace transform                         "
+},
+{
+  "id": "thm-Laplace-transform-properties",
+  "level": "2",
+  "url": "sec-laplace.html#thm-Laplace-transform-properties",
+  "type": "Theorem",
+  "number": "5.6.3",
+  "title": "Properties of Laplace Transform.",
+  "body": " Properties of Laplace Transform   The Laplace transform of , when it is defined, satisfies the following properties:   The Laplace transform is linear.                          "
+},
+{
+  "id": "thm-inverse-Laplace-transform",
+  "level": "2",
+  "url": "sec-laplace.html#thm-inverse-Laplace-transform",
+  "type": "Theorem",
+  "number": "5.6.4",
+  "title": "Inverse of Laplace Transform.",
+  "body": " Inverse of Laplace Transform   There is a subspace of functions for which there is an inverse Laplace transform This is given by the formula    "
+},
+{
+  "id": "exa-laplace1",
+  "level": "2",
+  "url": "sec-laplace.html#exa-laplace1",
+  "type": "Example",
+  "number": "5.6.5",
+  "title": "Laplace Transform for linear constant coefficient.",
+  "body": " Laplace Transform for linear constant coefficient   Consider the equation with initial conditions from . We solve this by applying the Laplace transforms to both sides and using the properties from . The left hand side gives   Applying it on the right and using the formulas from our table, we obtain   Thus we obtain the formula Now, employ the partial fractions techniques to separate this into a sum of more elementaty rational functions. Applying the inverse Laplace transform to both sides gives    "
+},
+{
+  "id": "exe-laplace-1",
+  "level": "2",
+  "url": "sec-laplace.html#exe-laplace-1",
+  "type": "Exercise",
+  "number": "5.6.1",
+  "title": "",
+  "body": " Verify two of the formulas from the table of Laplace transforms.  "
+},
+{
+  "id": "exe-laplace-2",
+  "level": "2",
+  "url": "sec-laplace.html#exe-laplace-2",
+  "type": "Exercise",
+  "number": "5.6.2",
+  "title": "",
+  "body": " Suppose where are real numbers. Use the characteristic equation method and then the Laplace Transform to find solutions to the differential equation with initial conditions and . Compare your results.  "
 },
 {
   "id": "backmatter-2",
