@@ -353,7 +353,7 @@
         </statement> 
         </exercise>
 
-        <exercise>
+        <exercise xml:id="exe-lincode-nh">
         <statement>
             <p>Solve the differential equation <me> x^{\prime \prime} (t) + x^\prime (t) + x(t) =   \cos \left(t \right). </me> if <m>x (0) = x^\prime (0)  = 0</m>.</p>
         </statement>

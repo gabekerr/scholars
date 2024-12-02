@@ -1,0 +1,30 @@
+INFO    : PreTeXt-CLI version: 2.7.0
+
+INFO    : PreTeXt project found in `/workspaces/scholars`.
+WARNING : Using CLI version 2.7.0 but project's `requirements.txt`
+WARNING : is configured to use 1.5.2. Consider either installing
+WARNING : CLI version 1.5.2 or running `pretext init --refresh`
+WARNING : to update `requirements.txt` to match 2.7.0.
+INFO    : Since no target was supplied, we will use "web".
+
+INFO    : Building target web
+ERROR   : XInclude Error caused build to fail:
+ERROR   : /workspaces/scholars/source/laplace.xml:29:38:FATAL:PARSER:ERR_NAME_REQUIRED: StartTag: invalid element name
+/workspaces/scholars/source/laplace.xml:52:59:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: m line 52 and cell
+/workspaces/scholars/source/laplace.xml:53:17:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: cell line 52 and row
+/workspaces/scholars/source/laplace.xml:56:54:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: m line 56 and cell
+/workspaces/scholars/source/laplace.xml:57:17:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: cell line 56 and row
+/workspaces/scholars/source/laplace.xml:58:19:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: row line 54 and tabular
+/workspaces/scholars/source/laplace.xml:59:15:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: row line 50 and table
+/workspaces/scholars/source/laplace.xml:92:16:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: tabular line 37 and introduction
+/workspaces/scholars/source/laplace.xml:105:11:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: table line 35 and section
+/workspaces/scholars/source/main.ptx:99:0:ERROR:XINCLUDE:XINCLUDE_NO_FALLBACK: could not load /workspaces/scholars/source/laplace.xml, and no fallback was found
+CRITICAL: XML syntax for source file is invalid
+INFO    : ------------------------
+CRITICAL: Failed to build.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

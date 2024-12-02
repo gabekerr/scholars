@@ -1,0 +1,167 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-laplace">
+    <title>Laplace Transforms</title>
+    <introduction>
+    <p>In this section we will consider another approach to solving differential equations using Laplace transforms. Such a tranform takes a function <m> f: [0,\infty) \to \mathbb{R}n</m> is defined by the formula
+    <men xml:id="eq-laplacet">
+        F(s) = ( \mathcal{L} f ) (s) = \int_0^\infty e^{-st} f(t) \, \diff t .
+    </men>
+    A couple of questions might occur immediately to the curious student. First, for what functions <m>f(t)</m> does such a transform make sense. And second, what is <m>F(s)</m>. Let's handle the first question now. We call a function <m>f(t)</m> of <em>exponential order b</em> if there is a constant <m>M</m> so that 
+    <me> f(t) \leq M e^{bt} </me>
+    for all <m> t</m> that are sufficiently large. In fact, for a fixed <m>b</m> we may define the collection of all such functions as <m>\mathcal{E}_b </m> which is a real vector space (you can check it is closed under addition and scalar multiplication). On the other hand, we may consider the space of functions <m>\mathcal{A}_b</m> of all smooth functions on the set of complex numbers <m>s</m> where <m>]\text{Re} (s) \gt b </m>.
+    </p>
+    <theorem xml:id="thm-Laplace-transform">
+        <title>Existence of Laplace Transform</title>
+        <statement>
+            <p>The Laplace transform defines a linear operator 
+                <me> \mathcal{L} : \mathcal{E}_b \to \mathcal{A}_b </me>
+            </p>
+        </statement>
+        <proof>
+            <p>Here we will just show that the integral in the Laplace transform absolutely converges for all such <m>s</m> and will not discuss the differentiability of <m>F(s)</m> (in fact, the function <m>F(s)</m> satisfies the much stronger property of being complex analytic). Let <m> s = \alpha + i \beta </m> with <m> \alpha \gt b </m>. Then, for any <m> T \gt 0 </m> we have</p>
+            <md>
+                <mrow> \int_0^T |e^{-st} f(t)| \, \diff t   \amp \leq \int_0^\infty e^{-st} M e^{bt} \, \diff t , </mrow>
+                <mrow> \amp = M \int_0^T |e^{(b-s)t}| \, \diff t , </mrow>
+                <mrow> \amp = M \int_0^T e^{(b-\alpha)t} \left| \left( \cos (\beta t) + i \sin (\beta t)\right) \right| \, \diff t, </mrow>
+                <mrow> \amp = M \int_0^T e^{(b-\alpha)t} \, \diff t, </mrow>
+                <mrow> \amp = M \left. \frac{1}{b - \alpha} e^{(b-\alpha)t} \right|_0^T </mrow>
+                <mrow> \amp = M \frac{1}{b - \alpha} \left( e^{(b-\alpha)T} - 1 \right)  </mrow>
+            </md>            
+            <p>Since <m> b - \alpha \lt 0 </m> we have that this gives the bound 
+                <me> \int_0^\infty |e^{-st} f(t)| \, \diff t \leq \frac{M}{\alpha - b} </me> 
+            implying absolute convergence of the improper integral.
+           </p>
+        </proof>
+    </theorem>
+
+    We now write a table of such transforms, leaving the verification of this to the student.
+    <table>
+        <title>Laplace Transforms</title>
+        <tabular halign="center">
+          <row header="yes">
+            <cell> Original function <m>f(t) </m></cell>
+            <cell> Laplace transform <m>F(s)</m></cell>
+          </row>
+          <row>
+            <cell><m>t^n</m></cell>
+            <cell><m>\frac{n!}{s^{n + 1}}</m></cell>
+          </row>
+          <row>
+            <cell><m>e^{-\beta t}</m></cell>
+            <cell><m> \frac{1}{s + \beta} </m> </cell>
+          </row>
+          <row>
+            <cell><m> \sin (\omega t ) </m> </cell>
+            <cell><m>\frac{\omega}{s^2 + \omega^2}</m> </cell>
+          </row>
+          <row>
+            <cell><m> \cos (\omega t ) </m> </cell>
+            <cell><m>\frac{s}{s^2 + \omega^2}</m> </cell>
+          </row>
+        </tabular>
+      </table>
+
+      While the formulas for the Laplace transform are very nice, the properties that it enjoys are what makes it so powerful in solving differential equations. We summarize some of these here, leaving the verification for the student.
+
+      <theorem xml:id="thm-Laplace-transform-properties">
+        <title>Properties of Laplace Transform</title>
+        <statement>
+            <p>The Laplace transform <m>F(s)</m> of <m>f(t)</m>, when it is defined, satisfies the following properties:
+                <ol>
+                    <li>
+                        <p>
+                            The Laplace transform is linear.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m> [\mathcal{L} (t f(t) )](s) = - \frac{d}{ds} F(s) </m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m> [\mathcal{L} (f^\prime (t) )](s) = s F(s) - f(0) </m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m> [\mathcal{L} (f^{(n)} (t) )](s) = s^n F(s) - \sum_{k = 1}^n s^{n - k } f^{(k - 1)} (0) </m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m> [\mathcal{L} (e^{at} f (t) )](s) = F(s - a) </m>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        </theorem>
+
+
+    <p>
+        A key application of these properties comes when one applies the inverse Laplace Transform. The formula for this transform may look a bit daunting, but can be computed using a variety of more advanced techniques.
+    </p>
+
+    <theorem xml:id="thm-inverse-Laplace-transform">
+        <title>Inverse of Laplace Transform</title>
+        <statement>
+            <p>There is a subspace <m>\tilde{\mathcal{A}}_b</m> of functions for which there is an inverse Laplace transform
+                <me> \mathcal{L}^{-1}: \tilde{\mathcal{A}}_b \to  \mathcal{E}_b </me>
+            This is given by the formula
+            <me> f(t) = \mathcal{L}^{-1} \{ F(s) \} (t) = \frac{1}{2\pi i} \lim_{T \to \infty} \int_{\gamma - i T}^{\gamma + i T} e^{st} F(s) \, \diff{s} </me>
+            </p>
+        </statement>
+    </theorem>
+    <p>Let's apply these theorems with a couple of examples.</p>
+    <example xml:id = "exa-laplace1">
+    <title> Laplace Transform for linear constant coefficient </title>
+    <statement>
+        <p>Consider the equation
+        <me> x^{\prime \prime} (t) + x^\prime (t) + x(t) =   \cos \left(t \right). </me>
+        with initial conditions <m>x (0) = x^\prime (0)  = 0</m> from <xref ref="exe-lincode-nh"/>. We solve this by applying the Laplace transforms to both sides and using the properties from <xref ref="thm-Laplace-transform-properties"/>. 
+        The left hand side gives</p>
+        <md>
+            <mrow> \mathcal{L} \left\{x^{\prime \prime} (t) + x^\prime (t) + x(t) \right\}(s) \amp = \mathcal{L} \left\{x^{\prime \prime} (t)\right\}(s) + \mathcal{L} \left\{x^\prime (t)\right\}(s) + \mathcal{L} \left\{x(t) \right\}(s), </mrow>
+            <mrow>  \amp =  \mathcal{L} \left\{x^{\prime \prime} (t)\right\}(s) + \mathcal{L} \left\{x^\prime (t)\right\}(s) + \mathcal{L} \left\{x(t) \right\}(s), </mrow>
+            <mrow>  \amp =  s^2 F(s) - s x(0) - x^\prime (0) + sF(s) - x(0) + F(s), </mrow>
+            <mrow>  \amp =  (s^2 + s + 1) F(s), </mrow>
+        </md>
+        <p>Applying it on the right and using the formulas from our table, we obtain</p>
+        <md>
+            <mrow>\mathcal{L} \left\{ \cos \left(t \right)\right\} (s) \amp = \frac{s}{s^2 + 1} </mrow>
+        </md>
+        <p>Thus we obtain the formula
+        <md>
+            <mrow>F(s) \amp = \frac{s}{(s^2 + 1) (s^2 + s + 1)} </mrow>
+        </md>
+        Now, employ the partial fractions techniques to separate this into a sum of more elementaty rational functions.
+        <md>
+        <mrow>F(s) \amp =  \frac{1}{s^2 + 1} - \frac{1}{s^2 + s + 1}  </mrow>
+        <mrow>\amp =  \frac{1}{s^2 + 1} - \frac{1}{\left(s + \frac{1}{2}\right)^2 + \left(\sqrt{3}{2} \right)^2}  </mrow>
+        </md>
+        Applying the inverse Laplace transform to both sides gives
+        <me> x(t) = \sin (t) - \frac{2}{\sqrt{3}} e^{-t/2} \sin \left( \sqrt{3}{2} t \right)</me>
+        </p>
+    </statement>
+    </example>
+</introduction>
+    
+    <exercises xml:id="exe-laplace">
+        <exercise>
+        <statement>
+            <p>Verify two of the formulas from the table of Laplace transforms.
+            </p>
+        </statement> 
+        </exercise>
+
+        <exercise>
+        <statement>
+            <p>Suppose <m> u^2 + bu + c = (u - \lambda_1) (u - \lambda_2) </m> where <m> \lambda_1, \lambda_2</m> are real numbers. Use the characteristic equation method and then the Laplace Transform to find solutions to the differential equation
+            <me> x^{\prime \prime} (t) + b x^\prime (t) + c x(t) =   0. </me>
+        with initial conditions <m>x (0) = \alpha </m> and <m> x^\prime (0)  = \beta </m>. Compare your results.
+            </p>
+        </statement> 
+        </exercise>
+    </exercises>
+
+</section>

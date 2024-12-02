@@ -96,6 +96,7 @@
       <xi:include href="lincode2.xml" />
       <xi:include href="lincode3.xml" />
       <xi:include href="linode.xml" />
+      <xi:include href="laplace.xml" />
     </chapter>
 
     <backmatter xml:id="backmatter">

@@ -1,0 +1,26 @@
+INFO    : PreTeXt-CLI version: 2.7.0
+
+INFO    : PreTeXt project found in `/workspaces/scholars`.
+WARNING : Using CLI version 2.7.0 but project's `requirements.txt`
+WARNING : is configured to use 1.5.2. Consider either installing
+WARNING : CLI version 1.5.2 or running `pretext init --refresh`
+WARNING : to update `requirements.txt` to match 2.7.0.
+INFO    : Since no target was supplied, we will use "web".
+
+INFO    : Building target web
+ERROR   : XInclude Error caused build to fail:
+ERROR   : /workspaces/scholars/source/laplace.xml:122:37:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: m line 121 and p
+/workspaces/scholars/source/laplace.xml:142:17:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: p line 119 and statement
+/workspaces/scholars/source/laplace.xml:143:15:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: statement line 118 and example
+/workspaces/scholars/source/laplace.xml:144:16:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: example line 116 and introduction
+/workspaces/scholars/source/laplace.xml:157:11:FATAL:PARSER:ERR_TAG_NAME_MISMATCH: Opening and ending tag mismatch: introduction line 3 and section
+/workspaces/scholars/source/main.ptx:99:0:ERROR:XINCLUDE:XINCLUDE_NO_FALLBACK: could not load /workspaces/scholars/source/laplace.xml, and no fallback was found
+CRITICAL: XML syntax for source file is invalid
+INFO    : ------------------------
+CRITICAL: Failed to build.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------
