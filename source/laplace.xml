@@ -1,9 +1,9 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-laplace">
     <title>Laplace Transforms</title>
     <introduction>
-    <p>In this section we will consider another approach to solving differential equations using Laplace transforms. Such a tranform takes a function <m> f: [0,\infty) \to \mathbb{R}^n</m> is defined by the formula
+    <p>In this section we will consider another approach to solving differential equations using Laplace transforms. Such a tranform takes a function <m> f: [0,\infty) \to \mathbb{C}</m> is defined by the formula
     <men xml:id="eq-laplacet">
-        F(s) = ( \mathcal{L} f ) (s) = \int_0^\infty e^{-st} f(t) \, \diff t .
+        F(s) = \mathcal{L} \left\{f(t) \right\} (s) = \int_0^\infty e^{-st} f(t) \, \diff t .
     </men>
     A couple of questions might occur immediately to the curious student. First, for what functions <m>f(t)</m> does such a transform make sense. And second, what is <m>F(s)</m>. Let's handle the first question now. We call a function <m>f(t)</m> of <em>exponential order b</em> if there is a constant <m>M</m> so that 
     <me> f(t) \leq M e^{bt} </me>
@@ -84,12 +84,12 @@
                     </li>
                     <li>
                         <p>
-                            <m> [\mathcal{L} \left\{f^{(n)} (t) \right\}(s) = s^n F(s) - \sum_{k = 1}^n s^{n - k } f^{(k - 1)} (0) </m>
+                            <m> \mathcal{L} \left\{f^{(n)} (t) \right\}(s) = s^n F(s) - \sum_{k = 1}^n s^{n - k } f^{(k - 1)} (0) </m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m> [\mathcal{L} \left\{e^{at} f (t) \right\} (s) = F(s - a) </m>
+                            <m> \mathcal{L} \left\{e^{at} f (t) \right\} (s) = F(s - a) </m>
                         </p>
                     </li>
                 </ol>
