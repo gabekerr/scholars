@@ -1,13 +1,13 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-laplace">
     <title>Laplace Transforms</title>
     <introduction>
-    <p>In this section we will consider another approach to solving differential equations using Laplace transforms. Such a tranform takes a function <m> f: [0,\infty) \to \mathbb{R}n</m> is defined by the formula
+    <p>In this section we will consider another approach to solving differential equations using Laplace transforms. Such a tranform takes a function <m> f: [0,\infty) \to \mathbb{R}^n</m> is defined by the formula
     <men xml:id="eq-laplacet">
         F(s) = ( \mathcal{L} f ) (s) = \int_0^\infty e^{-st} f(t) \, \diff t .
     </men>
     A couple of questions might occur immediately to the curious student. First, for what functions <m>f(t)</m> does such a transform make sense. And second, what is <m>F(s)</m>. Let's handle the first question now. We call a function <m>f(t)</m> of <em>exponential order b</em> if there is a constant <m>M</m> so that 
     <me> f(t) \leq M e^{bt} </me>
-    for all <m> t</m> that are sufficiently large. In fact, for a fixed <m>b</m> we may define the collection of all such functions as <m>\mathcal{E}_b </m> which is a real vector space (you can check it is closed under addition and scalar multiplication). On the other hand, we may consider the space of functions <m>\mathcal{A}_b</m> of all smooth functions on the set of complex numbers <m>s</m> where <m>]\text{Re} (s) \gt b </m>.
+    for all <m> t</m> that are sufficiently large. In fact, for a fixed <m>b</m> we may define the collection of all such functions as <m>\mathcal{E}_b </m> which is a real vector space (you can check it is closed under addition and scalar multiplication). On the other hand, we may consider the space of functions <m>\mathcal{A}_b</m> of all smooth functions on the set of complex numbers <m>s</m> where <m>\text{Re} (s) \gt b </m>.
     </p>
     <theorem xml:id="thm-Laplace-transform">
         <title>Existence of Laplace Transform</title>
@@ -74,22 +74,22 @@
                     </li>
                     <li>
                         <p>
-                            <m> [\mathcal{L} (t f(t) )](s) = - \frac{d}{ds} F(s) </m>
+                            <m> \mathcal{L} \left\{ t f(t) \right\} (s) = - \frac{d}{ds} F(s) </m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m> [\mathcal{L} (f^\prime (t) )](s) = s F(s) - f(0) </m>
+                            <m> \mathcal{L} \left\{ f^\prime (t) \right\}(s) = s F(s) - f(0) </m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m> [\mathcal{L} (f^{(n)} (t) )](s) = s^n F(s) - \sum_{k = 1}^n s^{n - k } f^{(k - 1)} (0) </m>
+                            <m> [\mathcal{L} \left\{f^{(n)} (t) \right\}(s) = s^n F(s) - \sum_{k = 1}^n s^{n - k } f^{(k - 1)} (0) </m>
                         </p>
                     </li>
                     <li>
                         <p>
-                            <m> [\mathcal{L} (e^{at} f (t) )](s) = F(s - a) </m>
+                            <m> [\mathcal{L} \left\{e^{at} f (t) \right\} (s) = F(s - a) </m>
                         </p>
                     </li>
                 </ol>
@@ -137,10 +137,10 @@
         Now, employ the partial fractions techniques to separate this into a sum of more elementaty rational functions.
         <md>
         <mrow>F(s) \amp =  \frac{1}{s^2 + 1} - \frac{1}{s^2 + s + 1}  </mrow>
-        <mrow>\amp =  \frac{1}{s^2 + 1} - \frac{1}{\left(s + \frac{1}{2}\right)^2 + \left(\sqrt{3}{2} \right)^2}  </mrow>
+        <mrow>\amp =  \frac{1}{s^2 + 1} - \frac{1}{\left(s + \frac{1}{2}\right)^2 + \left(\frac{\sqrt{3}}{2} \right)^2}  </mrow>
         </md>
         Applying the inverse Laplace transform to both sides gives
-        <me> x(t) = \sin (t) - \frac{2}{\sqrt{3}} e^{-t/2} \sin \left( \sqrt{3}{2} t \right)</me>
+        <me> x(t) = \sin (t) - \frac{2}{\sqrt{3}} e^{-t/2} \sin \left( \frac{\sqrt{3}}{2} t \right)</me>
         </p>
     </statement>
     </example>
